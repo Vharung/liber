@@ -471,7 +471,7 @@ export class LiberActorSheet extends ActorSheet {
         var pointxp=(level-1)*3;
         var calcultotxp=hpmax-PVmin+psymax-PSYmin;
         if(calcultotxp>pointxp){
-            alert('Trop de point sont attribués au PV et/ou au PSY !')
+            alert('Trop de point sont attribués au PV et/ou au PSY !'); //modif
         }
 
         //test des capacités acrives
