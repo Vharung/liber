@@ -18,28 +18,12 @@ export class LiberActorSheet extends ActorSheet {
         const data = super.getData();
         var poidsactor='';
         data.dtypes = ["String", "Number", "Boolean"];
-        console.log(data);        
+        //console.log(data);        
 		if (this.actor.data.type == 'personnage' || this.actor.data.type == 'pnj' || this.actor.data.type == 'monstre') {
 			this._prepareCharacterItems(data);
 		}
-        console.log(data);
         return data;
     }
-    /*getData(){
-        const data = super.getData();
-        var poidsactor='';
-        data.dtypes = ["String", "Number", "Boolean"];
-     
-        data.inventaire = data.items.filter(function(item) {
-            return (item.type === 'arme' || item.type === 'armure' ||item.type === 'objet');
-        });
-        data.sort = data.items.filter(function(item) {
-            return (item.type === 'magie');
-        });
-        console.log(data);
-        return data;
-    }*/
-
    
 	_prepareCharacterItems(sheetData) {
         const actorData = sheetData.actor;
@@ -179,7 +163,6 @@ export class LiberActorSheet extends ActorSheet {
         
         html.find( ".compt input" ).each(function() {
               var valor= $( this ).val();
-              console.log(valor)
               if(valor==0){
                 $( this ).css({"background":"transparent","color": "#fff"});
               }else if(valor>0){
@@ -470,7 +453,7 @@ export class LiberActorSheet extends ActorSheet {
         }
         var pointxp=(level-1)*3;
         var calcultotxp=hpmax-PVmin+psymax-PSYmin;
-        if(calcultotxp>pointxp){
+        if(calcultotxp>pointxp && this.actor.data.type=="personnage"){
             alert('Trop de point sont attribués au PV et/ou au PSY !'); //modif
         }
 
@@ -696,8 +679,6 @@ export class LiberActorSheet extends ActorSheet {
                 quantite.push($( this ).text());
             }
         });
-        console.log(poids)
-        console.log(quantite)
         for (var i = 1;i < poids.length ; i++) {
            total=total+parseFloat(poids[i])*parseFloat(quantite[i]);
         }
@@ -853,7 +834,6 @@ export class LiberActorSheet extends ActorSheet {
         let posture =this.actor.data.data.posture;
         const name = event.target.dataset["name"];
         const jetdeDesFormule = monJetDeDes.replace("d", "d100");
-        console.log(posture)
         var bonuspost=0;
         var critique=5;
         if(posture=="Focus"){
