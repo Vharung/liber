@@ -1,0 +1,212 @@
+{
+    "Actor": {
+        "types":[
+            "personnage",
+            "pnj",
+            "monstre"
+        ],
+        "templates":{
+            "stat":{
+                "hp": {
+                  "value":10,
+                  "max":10
+                },
+                "psy": {
+                  "value":10,
+                  "max":10
+                },
+                "protection":0,
+                "protection-magique":0,
+                "avantage":0,
+                "desavantage":0,
+                "encombrement": {
+                  "value":0,
+                  "max":0
+                }
+            },            
+            "attributs":{
+                "physique":10,
+                "force":5,
+                "agilite":5,
+                "social":10,
+                "charisme":5,
+                "sagacite":5,
+                "mental":10,
+                "ast":5,
+                "memoire":5,
+                "bonus":0,
+                "malus":0
+            },
+            "background":{
+                "histoire":"",
+                "race":"",
+                "bonusrace":"",
+                "clan":"",
+                "religion":"",
+                "talent":"",
+                "faiblesse":"",
+                "posture":"Aucune",
+                "level":1,
+                "etat":"" 
+            }
+        },
+        "personnage":{
+            "templates":["stat","attributs","background"], 
+            "caractere":{
+                "residence":"",
+                "sang":"",
+                "politique":"",
+                "interets":"",
+                "deces":"",
+                "moral":"",
+                "amour":"",
+                "amitie":"",
+                "haine":"",
+                "principale":"",
+                "secondaire":"",
+                "passion":"",
+                "caract":"",
+                "personnalite":"",
+                "perception":"",
+                "objectif":"",
+                "rancunier":"",
+                "tare":"",
+                "obsession":"",
+                "distingue":""
+            },
+            "caracteristique":{
+                "acrobatie":0,
+                "agilites":0,
+                "alchimie":0,
+                "apprentissage":0,
+                "hast":0,
+                "cc":0,
+                "lancer":0,
+                "melee":0,
+                "tir":0,
+                "art":0,
+                "assassinat":0,
+                "baton":0,
+                "bouclier":0,
+                "bricolage":0,
+                "presence":0,
+                "chercher":0,
+                "commander":0,
+                "concentration":0,
+                "nature":0,
+                "peuples":0,
+                "religions":0,
+                "geographique":0,
+                "rue":0,
+                "heretiques":0,
+                "combat":0,
+                "commerce":0,
+                "crochetage":0,
+                "discretion":0,
+                "dexterite":0,
+                "detection":0,
+                "dissimulation":0,
+                "dressage":0,
+                "ennemi":0,
+                "equilibre":0,
+                "equitation":0,
+                "escroquerie":0,
+                "esquiver":0,
+                "puissance":0,
+                "astuce":0,
+                "peur":0,
+                "joueur":0,
+                "maitrise":0,
+                "natation":0,
+                "navigation":0,
+                "orientation":0,
+                "persuasion":0,
+                "pister":0,
+                "prophetie":0,
+                "secours":0,
+                "resistance":0,
+                "psychologue":0,
+                "medecine":0,
+                "survie":0,
+                "tueur":0,
+                "objet":0,
+                "veterinaire":0,
+                "vigilance":0,
+                "vise":0
+            },
+            "armed":"",
+            "armeg":"",
+            "degatd":"",
+            "degatg":"",
+            "armure":"",
+            "insoin":0,
+            "inventaire":[],
+            "sort":[]
+        },
+        "pnj":{
+            "templates":["stat","attributs","background"],
+            "armed":"",
+            "armeg":"",
+            "degatd":"",
+            "degatg":"",
+            "armure":"",
+            "inventaire":[],
+            "sort":[]
+        },
+        "monstre":{
+            "templates":["stat","attributs","background"],
+            "armed":"",
+            "armeg":"",
+            "degatd":"",
+            "degatg":"",
+            "armure":"",
+            "degat":"",
+            "inventaire":[],
+            "sort":[]
+        }
+
+        
+    },
+    "Item": {
+        "types": [
+            "arme",
+            "armure",
+            "objet",
+            "magie",
+            "argent"
+        ],
+        "arme": {
+            "description": "",
+            "degats":"1d6",
+            "portee":5,
+            "poids":1,
+            "valeur":10,
+            "quantite":1
+        },
+        "armure": {
+            "description": "",
+            "protection": 2,
+            "poids":1,
+            "valeur":10,
+            "quantite":1
+        },
+        "objet": {
+            "description": "",
+            "poids":1,
+            "valeur":10,
+            "quantite":1
+        },
+        "argent": {
+            "poids":1,
+            "valeur":1,
+            "quantite":0
+        },
+        "magie": {
+            "classe":"",
+            "description": "",
+            "cible":"",
+            "duree":"",
+            "cout": "" 
+        }
+    }
+}

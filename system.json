@@ -1,0 +1,70 @@
+{
+    "name": "liber",
+    "title": "Liber Chronicles",
+    "description": "The Liber Chronicles system for FoundryVTT!",
+    "version": "0.0.1",
+    "minimumCoreVersion": "0.8.9",
+    "compatibleCoreVersion": "0.8.9",
+    "templateVersion": 2,
+    "author": "Vharung",
+    "esmodules": ["module/liber.js"],
+    "styles": ["css/liber.css"],
+    "scripts": [],
+    "packs": [
+        {
+          "name": "monstre",
+          "label": "Monstres",
+          "system": "liber",
+          "path": "./packs/monster.db",
+          "entity": "Actor",
+          "type": "Actor"
+        },
+        {
+          "name": "armure",
+          "label": "Armure",
+          "system": "liber",
+          "path": "./packs/armures.db",
+          "entity": "Item",
+          "type": "Item"
+        },
+        {
+          "name": "arme",
+          "label": "Arme",
+          "system": "liber",
+          "path": "./packs/armes.db",
+          "entity": "Item",
+          "type": "Item"
+        },
+        {
+          "name": "objet",
+          "label": "Objet",
+          "system": "liber",
+          "path": "./packs/objet.db",
+          "entity": "Item",
+          "type": "Item"
+        },
+        {
+          "name": "magie",
+          "label": "Magie",
+          "system": "liber",
+          "path": "./packs/magie.db",
+          "entity": "Item",
+          "type": "Item"
+        }
+    ],
+    "languages": [
+      {
+        "lang": "fr",
+        "name": "Français",
+        "path": "lang/fr.json"
+      }
+    ],
+    "gridDistance": 1,
+    "gridUnits": "m",
+    "primaryTokenAttribute": "hp",
+    "secondaryTokenAttribute": "psy",
+    "url": "https://github.com/Vharung/liber",
+    "manifest": "",
+    "download": "https://github.com/Vharung/liber",
+    "license": "LICENSE.txt"
+}

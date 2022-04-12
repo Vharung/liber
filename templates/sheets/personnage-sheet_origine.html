@@ -1,0 +1,501 @@
+<form class="{{cssClass}} liber flexcol" autocomplete="off">
+	{{!-- Sheet Header --}}
+	<header class="sheet-header flexcol" id="pj-titre" style="flex: 0 0 515px;">
+		<h1><input class="nomperso" name="name" type="text" value="{{actor.name}}" placeholder="Name" style="height:50px"/></h1>
+		<div class="flexrow">
+			<div class="grid-3col">
+				<img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" style="display: inline-block; height: 173px; width: 264px; margin-top: 20px"/>
+			</div>
+			<div class="grid-3col">
+				<h2>Race</h2>
+				<input class="race" name="data.race" type="text" value="{{data.data.race}}" placeholder="Race"/>
+				<SELECT class="raceliste" size="1" style="width: 50%; margin: 3px;background: #0d0d0d;color: #fff;">
+                    <option>Dragon</option>
+                    <option>Humain</option>
+                    <option>Démon</option>
+                    <option>Semi-humain</option>
+                    <option>Drauch</option>
+                    <option>Rocailleux</option>
+                    <option>Elfe</option>
+                    <option>Elfe Sylvain</option>
+                    <option>Elfe Noir</option>
+                    <option>Elfe de sang</option>
+                    <option>Nain</option>
+                    <option>Homme Chat</option>
+                    <option>Homme Chien</option>
+                    <option>Homme Oiseau</option>
+                    <option>Homme Arbre</option>
+                    <option>Homme Rat</option>
+                    <option>Etre de psy</option>
+                    <option>Vampire</option>
+                    <option>Orque</option>
+                    <option>Gobelin</option>
+                    <option>Autre</option>
+                </SELECT>
+                <input type="button" value="Choisir" class="racechoix" style="width: 40%;padding:5px;float: right;margin: 4px;background: #782e22;color:#ddd;">
+
+				<h2>Bonus de race</h2>
+				<input class="avantagerace" name="data.bonusrace" type="text" value="{{data.data.bonusrace}}" placeholder="Bonus"/>
+				<h2 style="margin-top:53px;">Posture</h2>
+				<button class="aucune" title="Aucune"></button>
+				<button class="focus" title="Focus"></button>
+				<button class="defensif" title="Défensif"></button>
+				<button class="offensif" title="Offensif"></button>				
+				<input class="postures" name="data.posture" type="text" value="{{data.data.posture}}" style="display:none"/>
+			</div>
+			<div class="grid-3col">
+				
+				<h2>Clan</h2>
+				<input class="clan" name="data.clan" type="text" value="{{data.data.clan}}" placeholder="Clan"/>
+				<SELECT class="clanliste" size="1" style="width: 50%; margin: 3px;background: #0d0d0d;color: #fff;">
+                    <option>Aucun</option>
+                    <option>Ralich - Clan de l'air</option>
+                    <option>Aelath - Clan de l'eau</option>
+                    <option>Dwaliwyr - Clan de l'esprit</option>
+                    <option>Yie - Clan du feu</option>
+                    <option>Nydiag - Clan de la foudre</option>
+                    <option>Weitha - Clan de la glace</option>
+                    <option>Crilanydd - Clan de l'illusion</option>
+                    <option>Cem - Clan de l'invocation</option>
+                    <option>Coalith - Clan de la mort</option>
+                    <option>Natura - Clan de la nature</option>
+                    <option>Vivaqua - Clan du poison</option>
+                    <option>Limenido - Clan de la télékinésie</option>
+                    <option>Eraliwin - Clan de la terre</option>
+                    <option>Altlantide - Clan ultime</option>
+                    <option>Galerrakath - Clan de la vie</option>
+                    <option>Atakanax - Clan de l'ombre</option>
+                    <option>Corbeau - Clan du corbeau</option>
+                    <option>Oklata - Clan humain</option>
+                    <option>Autre</option>
+                </SELECT>
+                <input type="button" value="Choisir" class="clanchoix" style="width: 40%;padding:5px;float: right;margin: 4px;background: #782e22;color:#ddd;">
+
+				<h2>Religion</h2>
+				<input class="religion" name="data.religion" type="text" value="{{data.data.religion}}" placeholder="Religion"/>
+				<SELECT class="religionlist" size="1" style="width: 50%; margin: 3px;background: #0d0d0d;color: #fff;">
+                    <option>Aucun</option>
+                    <option>Culte de Vharung</option>
+                    <option>Culte du Nouvel-ordre</option>
+                    <option>Culte des Croisés</option>
+                    <option>Culte de la lumiere celeste</option>
+                    <option>Culte de Kali</option>
+                    <option>Culte de Waetra</option>
+                    <option>Ancien Cultes Démons</option>
+                    <option>Culte de Baphomet</option>
+                    <option>Cercles de Marrunas</option>
+                    <option>Culte du Vaudou</option>
+                    <option>Rune</option>
+                    <option>Autre</option>
+                </SELECT>
+                <input type="button" value="Choisir" class="religionchoix" style="width: 40%;padding:5px;float: right;margin: 4px;background: #782e22;color:#ddd;">
+				<h2>Level</h2>
+				<input class="niveau" name="data.level" type="text" value="{{data.data.level}}" placeholder="1"/>
+				
+			</div>
+		</div>
+
+		<div class="separator"></div>
+		<div class="flexrow">
+			<div class="grid-5col" style="min-width: 150px;">
+				PV <input class="hp" name="data.hp.value" type="text" value="{{data.data.hp.value}}" placeholder="10" style="width: 40px;"/> /
+				<input class="hpmax" name="data.hp.max" type="text" value="{{data.data.hp.max}}" placeholder="10" style="width: 40px;"/>
+			</div> 
+			<div class="grid-5col" style="min-width: 150px;">
+				PSY <input class="psy" name="data.psy.value" type="text" value="{{data.data.psy.value}}" placeholder="10" style="width: 40px;"/> /
+				<input class="psymax" name="data.psy.max" type="text" value="{{data.data.psy.max}}" placeholder="10" style="width: 40px;"/>
+			</div>			
+			<div class="grid-5col" style="min-width: 150px;">
+				Arm <input class="armureperso" name="data.protection" type="text" value="{{data.data.protection}}" placeholder="0" style="width: 40px;"/> 
+			</div>
+			<div class="grid-5col" style="min-width: 150px;">
+				Pro <input name="data.protection-magique" type="text" value="{{data.data.protection-magique}}" placeholder="0" style="width: 40px;"/> 
+			</div>
+			<div class="grid-5col" style="min-width: 150px;">
+				Enc <input class="encours" name="data.encombrement.value" type="text" value="{{data.data.encombrement.value}}" placeholder="0" style="width: 40px;" readonly=""/> / 
+				<input class="enc" name="data.encombrement.max" type="text" value="{{data.data.encombrement.max}}" placeholder="0" style="width: 40px;" readonly="" /> Kg
+			</div>
+		</div>
+		<div class="separator"></div>
+		<div class="flexrow">
+			<div class="etat">
+				<input class="insoin" name="data.insoin" type="text" value="{{data.data.insoin}}" placeholder="0"/>
+				<input class="avant" name="data.avantage" type="text" value="{{data.data.avantage}}" placeholder="0"/>
+				<input class="desan" name="data.desavantage" type="text" value="{{data.data.desavantage}}" placeholder="0"/>
+			</div>
+			<div class="etat" style="margin-top: -10px;margin-left: -50px;">
+				<button class="etat0"></button>
+				<button class="etat1"></button>
+				<button class="etat2"></button>
+				<button class="etat3"></button>
+				<button class="etat4"></button>
+				<button class="etat5"></button>
+				<button class="etat6"></button>
+				<button class="etat7"></button>
+				<button class="etat8"></button>
+				<button class="etat9"></button>
+				<button class="etat10"></button>
+				<button class="etat11"></button>
+				<button class="etat12"></button>
+				<input class="etats" name="data.etat" type="text" value="{{data.data.etat}}" style="display:none"/>
+
+			</div>				
+				
+		</div>
+		
+
+	</header>
+	
+	{{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="carac">Caractère</a>
+        <a class="item" data-tab="lab">Attributs</a>
+        <a class="item" data-tab="features">Capacité</a>
+        <a class="item" data-tab="spells">Magie</a>
+        <a class="item" data-tab="items">Inventaire</a>
+    </nav>
+
+	{{!-- Sheet Body --}}
+	<section class="sheet-body">
+		{{!-- Biography Tab --}}
+	    <div id="description" class="tab description" data-group="primary" data-tab="description">
+	    	<h2>Histoire</h2>
+				<textarea class="histoire" name="data.histoire">{{data.data.histoire}}</textarea>
+				<input type="button" value="Histoire aléatoire" class="generator"  style="width:100%; margin-right:5px;margin-left:0px;">
+			<div class="flexrow">
+		    	<div class="grid-2col">
+					<h2>Talent</h2>
+					<input class="talent" name="data.talent" type="text" value="{{data.data.talent}}" placeholder="Talent"/>
+					<SELECT class="talentliste" size="1" style="width: 50%; margin: 3px;">
+                        <OPTION title="+20% en agilité tant que l’on porte pas d’armure">Agilité sans armure</OPTION>
+                        <OPTION title="permet de créer 1d4 potions par jour">Alchimiste</OPTION>
+                        <OPTION title="Permet de ne pas avoir de malus à l’utilisation de deux armes">Ambidextrie</OPTION>
+                        <OPTION title="A 5 point de compétence supplémentaire au level up">Apprentit</OPTION>
+                        <OPTION title="Permet d’avoir une arme magique qui frappe sur le mental (dégât 1d6+2), sans coup de psy, cacher dans un bijou">Arme liée</OPTION>
+                        <OPTION title="permet d’avoir une action supplémentaire par tour avec malus de -20">Attaquant</OPTION>
+                        <OPTION title="Permet d’avoir 5 psy supplémentaire">Aura</OPTION>
+                        <OPTION title="Trouve ce qui cherche dans un livre / bibliotheque (sans jet de des), +20 en jet de mémoire">Bibliothécaire</OPTION>
+                        <OPTION title="Quand vous dormez vous récupérer 6 PV et 3 PSY"> Bon dormeur</OPTION>
+                        <OPTION title="Relance un jet de chance raté (une fois par jet), une réussi automatique par jour">Chanceux</OPTION>
+                        <OPTION title="Permet de ne pas avoir faire de jet d’equitation en combattant depuis une monture">Combat monté</OPTION>
+                        <OPTION title="Permet d’attaque après un jet de défence">Contre attaque</OPTION>
+                        <OPTION title="Les PV peut être utilisé comme de le PSY sans pénalité.">Conversion</OPTION>
+                        <OPTION title="Permet d’avoir une parade suplémentaire par tour">Defenseur</OPTION>
+                        <OPTION title="Permet de créer 1d4 bombes par jour">Démolisseur</OPTION>
+                        <OPTION title="Permet de créer 1d4 poison par jour">Empoisonneur</OPTION>
+                        <OPTION title="relance un jet d’observation (une fois par jet), trouve plus d’objet sur les corps">Enquéteur</OPTION>
+                        <OPTION title="Double les effets des potions/poison">Fin gourmet</OPTION>
+                        <OPTION title="Permet de réparer arme et armure et d’en fabriquer, avec les matériaux nécéssaires.">Forgeron</OPTION>
+                        <OPTION title="le joueur peux relancer 2 jet d’initiative et de garder le meilleu">Initiative</OPTION>
+                        <OPTION title="Immuniser aux maladies et au poison, dégât magique subit diviser par deux.">Immunitaire</OPTION>
+                        <OPTION title="Permet de fuire le combat sans faire de jet de physique, fuite plus rapide. +20 en esquive.">Lache</OPTION>
+                        <OPTION title="les dégat à main nu fond 1d6 au lieu de 1d4">Lutteur</OPTION>
+                        <OPTION title="Permet d’avoir un sort supplémentaire">Mémoire arcanique</OPTION>
+                        <OPTION title="Augemente l’encombrement de 10kg">Mulet</OPTION>
+                        <OPTION title="Tous ennemi engagés en combat avec le joueur, et voulant se déplacer ou fuir, peut subira une attaque supplémentaire">Opportuniste</OPTION>
+                        <OPTION title="Relancer de lancer un jet de social raté  (une fois par jet)">Orateur</OPTION>
+                        <OPTION title="Permet de faire un test de perception sur du mental pour detecter tous perturbation magique (piège magique, parchemin, mage)">Perturbation des auras</OPTION>
+                        <OPTION title="Permet d’être silencieux dans ces déplacements">Pied léger</OPTION>
+                        <OPTION title="Permet de perce armure quand l’adverser ne vous à pas detecter">Ruse</OPTION>
+                        <OPTION title="Augemente la capacité de soin de 2 points">Soigneur</OPTION>
+                        <OPTION title="Donne un bonus de 20% pour tous les jets de Sournoiserie, traitrise, attaque dans le dos etc...">Sournoiserie</OPTION>
+                        <OPTION title="Permet d’augmenter l’effet de soin ou de dégat +2 (dans un des 15 éléments)">Spécialisation de magie de Clan</OPTION>
+                        <OPTION title="Permet d’avoir un dégat supplémentaire sur une arme de ton choix">Spécialisation martial</OPTION>
+                        <OPTION title="Quand le joueur arrive à perds connaissance, il revient à lui avec 1PV, (une fois par jour)">Tenace</OPTION>
+                        <OPTION title="Permet de ne pas avoir de malus si on tir de loin">Tir lointain</OPTION>
+                        <OPTION title="le joueur peux relancer un jet raté de peur">Valeureux</OPTION>
+                        <OPTION title="Permet d’avoir 5 pv supplémentaire">Vigoureux</OPTION>
+                    </SELECT>	
+                    <input type="button" value="Choisir" class="choixtalent" style="width: 40%;padding: 3px;float: right;margin: 3px;">                             
+				</div>
+				<div class="grid-2col">
+					<h2>Faiblesse</h2>
+					<input class="faiblesse" name="data.faiblesse" type="text" value="{{data.data.faiblesse}}" placeholder="Faiblesse"/>
+					<SELECT class="faiblesseliste" size="1" style="width: 50%; margin: 3px;">
+                        <OPTION title="-20 en jet de mémoire">Amnésie</OPTION>
+                        <OPTION title="-20 en agilité">Balourd</OPTION>
+                        <OPTION title="-5 points de compétence au level up">Distrait</OPTION>
+                        <OPTION title="Relance un jet de social réussi">Esclavagiste</OPTION>
+                        <OPTION title="Diminue l’encombrement de 10kg">Faible</OPTION>
+                        <OPTION title="Porteur d’une maladie, perds 1d4 PV par jour si ne prends pas son traitement. Dégât magique multiplier par 2">Infecté</OPTION>
+                        <OPTION title="Le joueur peux relancer 2 jet d’initiative et de garder le pire">Hésitation</OPTION>
+                        <OPTION title="Relance un jet de chance réussi (une fois par jet), une échec automatique par jour">Malchanceux</OPTION>
+                        <OPTION title="Casse un objet par jour">Maladroit</OPTION>
+                        <OPTION title="-20 en astuce">Négligent</OPTION>
+                        <OPTION title="-20 en négociation">Noble d’échu</OPTION>
+                        <OPTION title="-20 au jet de combat">Pacifiste</OPTION>
+                        <OPTION title="Fuit le combat si vous subissez la perte de plus de la moitié de vos PV">Peureux</OPTION>
+                        <OPTION title="Se fait automatiquement repérer durant ses deplacements, déclanche les pièges">Pied lourd</OPTION>
+                        <OPTION title="-5pv en début de partie">Prisonnier</OPTION>
+                        <OPTION title="Vos alliers ne récuperent pas de PV et PSY quand vous dormez.">Ronfleur</OPTION>
+                        <OPTION title="Augmente l’échec critique de ses alliers de 5%">Traitre</OPTION>
+                        <OPTION title="Ne peut fuir le combat. -20 en esquive et parade.">Sucidaire</OPTION>
+                    </SELECT>
+                    <input type="button" value="Choisir" class="choixfaiblesse" style="width: 40%;padding: 3px;float: right;margin: 3px;">                             
+				</div>
+			</div>
+		</div>
+
+		{{!-- Carac Tab --}}
+		<div id="carac" class="tab carac" data-group="primary" data-tab="carac">
+			<h2>Caractère</h2>
+			<div class="flexrow">
+				<div class="grid-2col">
+		            <p><b>Résidence :</b><input class="residence" name="data.caractere.residence" type="text" value="{{data.data.caractere.residence}}" placeholder="Résidence"/><br>
+		            <b>Famille de sang :</b><input class="sang" name="data.caractere.sang" type="text" value="{{data.data.caractere.sang}}" placeholder="Famille de sang"/><br>
+		            <b>Famille politique /secte :</b><input class="secte" name="data.caractere.politique" type="text" value="{{data.data.caractere.politique}}" placeholder="politique"/><br>
+		            <b>Groupe d interets :</b><input class="interet" name="data.caractere.interets" type="text" value="{{data.data.caractere.interets}}" placeholder="interets"/><br>
+		            <b>Deces d'un proche :</b><input class="proche" name="data.caractere.deces" type="text" value="{{data.data.caractere.deces}}" placeholder="deces"/><br>
+		            <b>Sens Moral/valeur :</b><input class="moral" name="data.caractere.moral" type="text" value="{{data.data.caractere.moral}}" placeholder="moral"/><br>
+		            <b>Amour :</b><input class="amour" name="data.caractere.amour" type="text" value="{{data.data.caractere.amour}}" placeholder="amour"/><br>
+		            <b>Amitie :</b><input class="amitie" name="data.caractere.amitie" type="text" value="{{data.data.caractere.amitie}}" placeholder="amitie"/><br>
+		            <b>Haine :</b><input class="haine" name="data.caractere.haine" type="text" value="{{data.data.caractere.haine}}" placeholder="haine"/><br>
+		            <b>Activite principale :</b><input class="principale" name="data.caractere.principale" type="text" value="{{data.data.caractere.principale}}" placeholder="principale"/></p>
+		        </div>
+		        <div class="grid-2col">
+		            <p><b>Activite secondaire :</b><input class="secondaire" name="data.caractere.secondaire" type="text" value="{{data.data.caractere.secondaire}}" placeholder="secondaire"/><br>
+		            <b>Passion :</b><input class="passion" name="data.caractere.passion" type="text" value="{{data.data.caractere.passion}}" placeholder="passion"/><br>
+		            <b>Caractere :</b><input class="caractere" name="data.caractere.caract" type="text" value="{{data.data.caractere.caract}}" placeholder="caractere"/><br>
+		            <b>Personnalite :</b><input class="personnalite" name="data.caractere.personnalite" type="text" value="{{data.data.caractere.personnalite}}" placeholder="personnalite"/><br>
+		            <b>Perception du monde :</b><input class="monde" name="data.caractere.perception" type="text" value="{{data.data.caractere.perception}}" placeholder="perception"/><br>
+		            <b>Objectif :</b><input class="objectif" name="data.caractere.objectif" type="text" value="{{data.data.caractere.objectif}}" placeholder="objectif"/><br>
+		            <b>Rancunier :</b><input class="rancunier" name="data.caractere.rancunier" type="text" value="{{data.data.caractere.rancunier}}" placeholder="rancunier"/><br>
+		            <b>Tare mentale :</b><input class="tare" name="data.caractere.tare" type="text" value="{{data.data.caractere.tare}}" placeholder="tare"/><br>
+		            <b>Obsession :</b><input class="obsession" name="data.caractere.obsession" type="text" value="{{data.data.caractere.obsession}}" placeholder="obsession"/><br>
+		            <b>Distingue le bien du mal :</b><input class="distingue" name="data.caractere.distingue" type="text" value="{{data.data.caractere.distingue}}" placeholder="distingue"/></p>
+		        </div>       
+		    </div>
+		    <input type="button" value="Générer" class="caractergen" style="width: 40%;padding: 3px;float: right;margin: 3px;">
+		</div>
+
+		{{!-- Lab Tab --}}
+		<div id="lab" class="tab stat" data-group="primary" data-tab="lab">
+			<h2>Attributs</h2>
+			<div class="flexrow">
+				<div class="grid-3col">
+					<p style="text-align: center"><label class="jetdedes" data-name="Physique" data-dice="1d" data-posture="{{data.data.posture}}" data-actionvalue="{{data.data.bonus}}" data-malus="{{data.data.malus}}" data-attDice="{{data.data.physique}}">Physique</label></p>
+					<input class="phys" name="data.physique" type="text" value="{{data.data.physique}}" placeholder="{{data.data.physique}}" style="text-align: center"/>
+					<div class="flexrow">
+						<div class="grid-2col" style="text-align: center;min-width: 132px;">
+							<p><label class="jetdedes" data-name="Force" data-dice="1d" data-posture="{{data.data.posture}}" data-actionvalue="{{data.data.bonus}}" data-malus="{{data.data.malus}}" data-attDice="{{data.data.force}}">Force</label></p>
+							<input class="forc" name="data.force" type="text" value="{{data.data.force}}" placeholder="5" style="width:40px" />
+						</div>
+						<div class="grid-2col"  style="text-align: center;min-width: 132px;">
+							<p><label class="jetdedes" data-name="Agilite" data-dice="1d" data-posture="{{data.data.posture}}" data-actionvalue="{{data.data.bonus}}" data-malus="{{data.data.malus}}" data-attDice="{{data.data.agilite}}">Agilité</label></p>
+							<input class="agil" name="data.agilite" type="text" value="{{data.data.agilite}}" placeholder="5" style="width:40px" />
+						</div>
+					</div>
+				</div>
+
+				<div class="grid-3col">
+					<p style="text-align: center" style="text-align: center"><label class="jetdedes" data-name="Social" data-dice="1d" data-posture="{{data.data.posture}}" data-actionvalue="{{data.data.bonus}}" data-malus="{{data.data.malus}}" data-attDice="{{data.data.social}}">Social</label></p>
+					<input class="soci" name="data.social" type="text" value="{{data.data.social}}" placeholder="10" style="text-align: center"/>
+					<div class="flexrow">
+						<div class="grid-2col" style="text-align: center;min-width: 132px;">
+							<p><label class="jetdedes" data-name="Charisme" data-dice="1d" data-posture="{{data.data.posture}}" data-actionvalue="{{data.data.bonus}}" data-malus="{{data.data.malus}}" data-attDice="{{data.data.charisme}}">Charisme</label></p>
+							<input class="char" name="data.charisme" type="text" value="{{data.data.charisme}}" placeholder="5" style="width:40px"/>
+						</div>
+						<div class="grid-2col" style="text-align: center;min-width: 132px;">
+							<p><label class="jetdedes" data-name="Sagacité" data-dice="1d" data-posture="{{data.data.posture}}" data-actionvalue="{{data.data.bonus}}" data-malus="{{data.data.malus}}" data-attDice="{{data.data.sagacite}}">Sagacité</label></p>
+							<input class="saga" name="data.sagacite" type="text" value="{{data.data.sagacite}}" placeholder="5" style="width:40px"/>
+						</div>
+					</div>
+				</div>
+				<div class="grid-3col">
+					<p style="text-align: center"><label class="jetdedes" data-name="Mental" data-dice="1d" data-posture="{{data.data.posture}}" data-actionvalue="{{data.data.bonus}}" data-malus="{{data.data.malus}}" data-attDice="{{data.data.mental}}">Mental</label></p>
+					<input class="mental" name="data.mental" type="text" value="{{data.data.mental}}" placeholder="10" style="text-align: center"/>
+					<div class="flexrow">
+
+						<div class="grid-2col" style="text-align: center;min-width: 132px;">
+							<p><label class="jetdedes" data-name="Astuce" data-dice="1d" data-posture="{{data.data.posture}}" data-actionvalue="{{data.data.bonus}}" data-malus="{{data.data.malus}}" data-attDice="{{data.data.astuce}}">Astuce</label></p>
+							<input class="astu" name="data.ast" type="text" value="{{data.data.ast}}" placeholder="5" style="width:40px"/>
+						</div>
+						<div class="grid-2col" style="text-align: center;min-width: 132px;">
+							<p><label class="jetdedes" data-name="Mémoire" data-dice="1d" data-posture="{{data.data.posture}}" data-actionvalue="{{data.data.bonus}}" data-malus="{{data.data.malus}}" data-attDice="{{data.data.memoire}}">Mémoire</label></p>
+							<input class="memo" name="data.memoire" type="text" value="{{data.data.memoire}}" placeholder="5" style="width:40px"/>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<div class="flexrow">
+				<div class="grid-3col">
+					<h2>Point restant</h2>
+					<input class="pointrestant" type="text" style="width:calc(100% - 40px)" value="" readonly/>
+				</div>
+				<div class="grid-3col">
+					<h2>Bonus MJ</h2>
+					<input class="malussactor" name="data.malus" type="text" value="{{data.data.malus}}" placeholder="0" style="width:calc(100% - 40px)"/><button class="desequi resetmalus">🗑</button>
+				</div>
+				<div class="grid-3col">
+					<h2>Bonus Compétence</h2>
+					<input class="bonusactor" name="data.bonus" type="text" value="{{data.data.bonus}}" placeholder="0" style="width:calc(100% - 40px)" readonly="" /><button class="desequi resetbonus">🗑</button>
+				</div>
+			</div>
+		</div>
+
+		{{!-- Features Tab --}}
+		<div id="features" class="tab features"  data-group="primary" data-tab="features">
+			<h2>Capacité</h2>
+				<div class="tableaucreation"><input class="cpt0" type="text" name="data.caracteristique.acrobatie" value="{{data.data.caracteristique.acrobatie}}"><button class="desequi attribut" name="{{data.data.caracteristique.acrobatie}}">+</button>Acrob./Escalade*</div>
+	        	<div class="tableaucreation"><input class="cpt1" type="text" name="data.caracteristique.agilites" value="{{data.data.caracteristique.agilites}}"><button class="desequi attribut" name="{{data.data.caracteristique.agilites}}">+</button>Agilite***</div>
+	    	    <div class="tableaucreation"><input class="cpt2" type="text" name="data.caracteristique.alchimie" value="{{data.data.caracteristique.alchimie}}"><button class="desequi attribut" name="{{data.data.caracteristique.alchimie}}">+</button>Alchimie**</div>
+	    	    <div class="tableaucreation"><input class="cpt3" type="text" name="data.caracteristique.apprentissage" value="{{data.data.caracteristique.apprentissage}}"><button class="desequi attribut" name="{{data.data.caracteristique.apprentissage}}">+</button>Apprentissage***</div>
+	    	    <div class="tableaucreation"><input class="cpt4" type="text" name="data.caracteristique.hast" value="{{data.data.caracteristique.hast}}"><button class="desequi attribut" name="{{data.data.caracteristique.hast}}">+</button>Arme d’hast***</div>
+	    	    <div class="tableaucreation"><input class="cpt5" type="text" name="data.caracteristique.cc" value="{{data.data.caracteristique.cc}}"><button class="desequi attribut" name="{{data.data.caracteristique.cc}}">+</button>Arme de CC***</div>
+	    	    <div class="tableaucreation"><input class="cpt6" type="text" name="data.caracteristique.lancer" value="{{data.data.caracteristique.lancer}}"><button class="desequi attribut" name="{{data.data.caracteristique.lancer}}">+</button>Arme de lancé***</div>
+	    	    <div class="tableaucreation"><input class="cpt7" type="text" name="data.caracteristique.melee" value="{{data.data.caracteristique.melee}}"><button class="desequi attribut" name="{{data.data.caracteristique.melee}}">+</button>Arme de mêlée***</div>
+	    	    <div class="tableaucreation"><input class="cpt8" type="text" name="data.caracteristique.tir" value="{{data.data.caracteristique.tir}}"><button class="desequi attribut" name="{{data.data.caracteristique.tir}}">+</button>Arme de Tir***</div>
+	    	    <div class="tableaucreation"><input class="cpt9" type="text" name="data.caracteristique.art" value="{{data.data.caracteristique.art}}"><button class="desequi attribut" name="{{data.data.caracteristique.art}}">+</button>Art/Artisanat*</div>
+	    	    <div class="tableaucreation"><input class="cpt10" type="text" name="data.caracteristique.assassinat" value="{{data.data.caracteristique.assassinat}}"><button class="desequi attribut" name="{{data.data.caracteristique.assassinat}}">+</button>Assassinat**</div>
+				<div class="tableaucreation"><input class="cpt11" type="text" name="data.caracteristique.baton" value="{{data.data.caracteristique.baton}}"><button class="desequi attribut" name="{{data.data.caracteristique.baton}}">+</button>Baton**</div>
+	    	    <div class="tableaucreation"><input class="cpt12" type="text" name="data.caracteristique.bouclier" value="{{data.data.caracteristique.bouclier}}"><button class="desequi attribut" name="{{data.data.caracteristique.bouclier}}">+</button>Bouclier**</div>
+	    	    <div class="tableaucreation"><input class="cpt13" type="text" name="data.caracteristique.bricolage" value="{{data.data.caracteristique.bricolage}}"><button class="desequi attribut" name="{{data.data.caracteristique.bricolage}}">+</button>Bricolage*</div>
+	    	    <div class="tableaucreation"><input class="cpt14" type="text" name="data.caracteristique.presence" value="{{data.data.caracteristique.presence}}"><button class="desequi attribut" name="{{data.data.caracteristique.presence}}">+</button>Charisme***</div>
+	    	    <div class="tableaucreation"><input class="cpt15" type="text" name="data.caracteristique.chercher" value="{{data.data.caracteristique.chercher}}"><button class="desequi attribut" name="{{data.data.caracteristique.chercher}}">+</button>Chercher/Fouille*</div>
+	    	    <div class="tableaucreation"><input class="cpt16" type="text" name="data.caracteristique.commander" value="{{data.data.caracteristique.commander}}"><button class="desequi attribut" name="{{data.data.caracteristique.commander}}">+</button>Commander**</div>
+	    	    <div class="tableaucreation"><input class="cpt17" type="text" name="data.caracteristique.concentration" value="{{data.data.caracteristique.concentration}}"><button class="desequi attribut" name="{{data.data.caracteristique.concentration}}">+</button>Concentration***</div>
+	    	    <div class="tableaucreation"><input class="cpt18" type="text" name="data.caracteristique.nature" value="{{data.data.caracteristique.nature}}"><button class="desequi attribut" name="{{data.data.caracteristique.nature}}">+</button>Conn. nature*</div>
+	    	    <div class="tableaucreation"><input class="cpt19" type="text" name="data.caracteristique.peuples" value="{{data.data.caracteristique.peuples}}"><button class="desequi attribut" name="{{data.data.caracteristique.peuples}}">+</button>Conn. peuples*</div>
+	    	    <div class="tableaucreation"><input class="cpt20" type="text" name="data.caracteristique.religions" value="{{data.data.caracteristique.religions}}"><button class="desequi attribut" name="{{data.data.caracteristique.religions}}">+</button>Conn. religions*</div>
+	    	    <div class="tableaucreation"><input class="cpt21" type="text" name="data.caracteristique.geographique" value="{{data.data.caracteristique.geographique}}"><button class="desequi attribut" name="{{data.data.caracteristique.geographique}}">+</button>Conn. géo.*</div>
+	    	    <div class="tableaucreation"><input class="cpt22" type="text" name="data.caracteristique.rue" value="{{data.data.caracteristique.rue}}"><button class="desequi attribut" name="{{data.data.caracteristique.rue}}">+</button>Conn. de la rue*</div>
+	    	    <div class="tableaucreation"><input class="cpt23" type="text" name="data.caracteristique.heretiques" value="{{data.data.caracteristique.heretiques}}"><button class="desequi attribut" name="{{data.data.caracteristique.heretiques}}">+</button>Contre hérésie*</div>
+	    	    <div class="tableaucreation"><input class="cpt24" type="text" name="data.caracteristique.combat" value="{{data.data.caracteristique.combat}}"><button class="desequi attribut" name="{{data.data.caracteristique.combat}}">+</button>Combat***</div>
+				<div class="tableaucreation"><input class="cpt25" type="text" name="data.caracteristique.commerce" value="{{data.data.caracteristique.commerce}}"><button class="desequi attribut" name="{{data.data.caracteristique.commerce}}">+</button>Commerce/Négo.**</div>
+	    	    <div class="tableaucreation"><input class="cpt26" type="text" name="data.caracteristique.crochetage" value="{{data.data.caracteristique.crochetage}}"><button class="desequi attribut" name="{{data.data.caracteristique.crochetage}}">+</button>Crochetage*</div>
+	    	    <div class="tableaucreation"><input class="cpt27" type="text" name="data.caracteristique.discretion" value="{{data.data.caracteristique.discretion}}"><button class="desequi attribut" name="{{data.data.caracteristique.discretion}}">+</button>Discrétion**</div>
+	    	    <div class="tableaucreation"><input class="cpt28" type="text" name="data.caracteristique.dexterite" value="{{data.data.caracteristique.dexterite}}"><button class="desequi attribut" name="{{data.data.caracteristique.dexterite}}">+</button>Dextérité***</div>
+	    	    <div class="tableaucreation"><input class="cpt29" type="text" name="data.caracteristique.detection" value="{{data.data.caracteristique.detection}}"><button class="desequi attribut" name="{{data.data.caracteristique.detection}}">+</button>Detecter/Observer**</div>
+	    	    <div class="tableaucreation"><input class="cpt30" type="text" name="data.caracteristique.dissimulation" value="{{data.data.caracteristique.dissimulation}}"><button class="desequi attribut" name="{{data.data.caracteristique.dissimulation}}">+</button>Dissimulation***</div>
+	    	    <div class="tableaucreation"><input class="cpt31" type="text" name="data.caracteristique.dressage" value="{{data.data.caracteristique.dressage}}"><button class="desequi attribut" name="{{data.data.caracteristique.dressage}}">+</button>Dressage*</div>
+	    	    <div class="tableaucreation"><input class="cpt32" type="text" name="data.caracteristique.ennemi" value="{{data.data.caracteristique.ennemi}}"><button class="desequi attribut" name="{{data.data.caracteristique.ennemi}}">+</button>Ennemi Juré*</div>
+	    	    <div class="tableaucreation"><input class="cpt33" type="text" name="data.caracteristique.equilibre" value="{{data.data.caracteristique.equilibre}}"><button class="desequi attribut" name="{{data.data.caracteristique.equilibre}}">+</button>Équilibre*</div>
+	    	    <div class="tableaucreation"><input class="cpt34" type="text" name="data.caracteristique.equitation" value="{{data.data.caracteristique.equitation}}"><button class="desequi attribut" name="{{data.data.caracteristique.equitation}}">+</button>Équitation*</div>
+	    	    <div class="tableaucreation"><input class="cpt35" type="text" name="data.caracteristique.escroquerie" value="{{data.data.caracteristique.escroquerie}}"><button class="desequi attribut" name="{{data.data.caracteristique.escroquerie}}">+</button>Escroquerie*</div>
+	    	    <div class="tableaucreation"><input class="cpt36" type="text" name="data.caracteristique.esquiver" value="{{data.data.caracteristique.esquiver}}"><button class="desequi attribut" name="{{data.data.caracteristique.esquiver}}">+</button>Esquiver*</div>
+	    	    <div class="tableaucreation"><input class="cpt37" type="text" name="data.caracteristique.puissance" value="{{data.data.caracteristique.puissance}}"><button class="desequi attribut" name="{{data.data.caracteristique.puissance}}">+</button>Force***</div> 
+	    	    <div class="tableaucreation"><input class="cpt38" type="text" name="data.caracteristique.astuce" value="{{data.data.caracteristique.astuce}}"><button class="desequi attribut" name="{{data.data.caracteristique.astuce}}">+</button>Intellig./Astuce***</div>
+				<div class="tableaucreation"><input class="cpt39" type="text" name="data.caracteristique.peur" value="{{data.data.caracteristique.peur}}"><button class="desequi attribut" name="{{data.data.caracteristique.peur}}">+</button>Intimidé / Peur *</div>
+	    	    <div class="tableaucreation"><input class="cpt40" type="text" name="data.caracteristique.joueur" value="{{data.data.caracteristique.joueur}}"><button class="desequi attribut" name="{{data.data.caracteristique.joueur}}">+</button>Joueur*</div>
+	    	    <div class="tableaucreation"><input class="cpt41" type="text" name="data.caracteristique.maitrise" value="{{data.data.caracteristique.maitrise}}"><button class="desequi attribut" name="{{data.data.caracteristique.maitrise}}">+</button>Maîtrise sorts***</div>
+	    	    <div class="tableaucreation"><input class="cpt42" type="text" name="data.caracteristique.natation" value="{{data.data.caracteristique.natation}}"><button class="desequi attribut" name="{{data.data.caracteristique.natation}}">+</button>Natation*</div>    
+	    	    <div class="tableaucreation"><input class="cpt43" type="text" name="data.caracteristique.navigation" value="{{data.data.caracteristique.navigation}}"><button class="desequi attribut" name="{{data.data.caracteristique.navigation}}">+</button>Navigation*</div>
+	    	    <div class="tableaucreation"><input class="cpt44" type="text" name="data.caracteristique.orientation" value="{{data.data.caracteristique.orientation}}"><button class="desequi attribut" name="{{data.data.caracteristique.orientation}}">+</button>Orientation*</div>
+	    	    <div class="tableaucreation"><input class="cpt45" type="text" name="data.caracteristique.persuasion" value="{{data.data.caracteristique.persuasion}}"><button class="desequi attribut" name="{{data.data.caracteristique.persuasion}}">+</button>Persuasion***</div>
+	    	    <div class="tableaucreation"><input class="cpt46" type="text" name="data.caracteristique.pister" value="{{data.data.caracteristique.pister}}"><button class="desequi attribut" name="{{data.data.caracteristique.pister}}">+</button>Pister*</div>
+	    	    <div class="tableaucreation"><input class="cpt47" type="text" name="data.caracteristique.prophetie" value="{{data.data.caracteristique.prophetie}}"><button class="desequi attribut" name="{{data.data.caracteristique.prophetie}}">+</button>Prophétie***</div>
+	    	    <div class="tableaucreation"><input class="cpt48" type="text" name="data.caracteristique.secours" value="{{data.data.caracteristique.secours}}"><button class="desequi attribut" name="{{data.data.caracteristique.secours}}">+</button>Premier secours*</div>
+	    	    <div class="tableaucreation"><input class="cpt49" type="text" name="data.caracteristique.resistance" value="{{data.data.caracteristique.resistance}}"><button class="desequi attribut" name="{{data.data.caracteristique.resistance}}">+</button>Resist. douleur*</div>
+	    	    <div class="tableaucreation"><input class="cpt50" type="text" name="data.caracteristique.psychologue" value="{{data.data.caracteristique.psychologue}}"><button class="desequi attribut" name="{{data.data.caracteristique.psychologue}}">+</button>Sagacité***</div>
+				<div class="tableaucreation"><input class="cpt51" type="text" name="data.caracteristique.medecine" value="{{data.data.caracteristique.medecine}}"><button class="desequi attribut" name="{{data.data.caracteristique.medecine}}">+</button>Médecine***</div>
+	    	    <div class="tableaucreation"><input class="cpt52" type="text" name="data.caracteristique.survie" value="{{data.data.caracteristique.survie}}"><button class="desequi attribut" name="{{data.data.caracteristique.survie}}">+</button>Survie**</div>
+	    	    <div class="tableaucreation"><input class="cpt53" type="text" name="data.caracteristique.tueur" value="{{data.data.caracteristique.tueur}}"><button class="desequi attribut" name="{{data.data.caracteristique.tueur}}">+</button>Tueur monstre*</div>
+	    	    <div class="tableaucreation"><input class="cpt54" type="text" name="data.caracteristique.objet" value="{{data.data.caracteristique.objet}}"><button class="desequi attribut" name="{{data.data.caracteristique.objet}}">+</button>Util. obj magique*</div>
+	    	    <div class="tableaucreation"><input class="cpt55" type="text" name="data.caracteristique.veterinaire" value="{{data.data.caracteristique.veterinaire}}"><button class="desequi attribut" name="{{data.data.caracteristique.veterinaire}}">+</button>Vétérinaire*</div>
+	    	    <div class="tableaucreation"><input class="cpt56" type="text" name="data.caracteristique.vigilance" value="{{data.data.caracteristique.vigilance}}"><button class="desequi attribut" name="{{data.data.caracteristique.vigilance}}">+</button>Vigilance***</div>
+	    	    <div class="tableaucreation"><input class="cpt57" type="text" name="data.caracteristique.vise" value="{{data.data.caracteristique.vise}}"><button class="desequi attribut" name="{{data.data.caracteristique.vise}}">+</button>Visé**</div> 
+	    	    <div class="tableaucreation" style="float:right"><input class="restant" type="text" value="" readonly><br>Point restant(1)</div>
+	    	    <p>(1)Hors point d'apprentissage</p>  
+		</div>
+
+		{{!-- Pouvoirs Tab --}}
+		<div id="spells" class="tab spells" data-group="primary" data-tab="spells">
+			<h2>Sort</h2>
+		    <table>
+		        <ol class="items-list">
+	                <li class="item flexrow item-header">
+	                  <div class="item-image"></div>
+	                  <div class="item-name">Nom</div>
+	                  <div class="item-classe">Classe</div>
+	                  <div class="item-description">Description</div>               
+	                  <div class="item-cible">Cible</div>
+	                  <div class="item-duree">Durée</div>
+	                  <div class="item-cout">Coût</div>
+	                  
+	                  <div class="item-controls">
+	                    <!--a class="item-control item-create" title="Create item" data-type="armes"><i class="fas fa-plus"></i> Add item</a-->
+	                  </div>
+	                </li>
+	            {{#each actor.sort as |item id|}}
+	                <li class="item flexrow" data-item-id="{{item._id}}">
+	                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+	                    <h4 class="item-name">{{item.name}}</h4>
+	                    <div class="item-classe">{{item.data.classe}}</div>
+	                    <h4 class="item-description" title="{{item.data.description}}">{{item.data.description}}</h4>
+	                    <h4 class="item-cible">{{item.data.cible}}</h4>
+	                    <h4 class="item-duree">{{item.data.duree}}</h4>
+	                    <h4 class="item-cout">{{item.data.cout}}</h4>
+	                    <div class="item-controls">
+	                    	<a class="item-control item-lancer" title="Lancer Sort" data-name="{{item.name}}" data-cout="{{item.data.cout}}"><i class="fas fa-check"></i></a>
+	                        <a class="item-control item-edit" title="Edit Sort"><i class="fas fa-edit"></i></a>
+	                        <a class="item-control item-delete" title="Delete Sort"><i class="fas fa-trash"></i></a>
+	                    </div>
+	                </li>
+	            {{/each}}
+        		</ol>
+		    </table>
+		    <div style="float:right;width: 300px;text-align: center;"><input class="coutmax" type="text" value="" readonly><br>Cout max du sort</div>
+		    <div style="float:right;width: 300px;text-align: center;"><input class="maxsort" type="text" value="" readonly><br>Nb de sort dispo(2)</div>
+		    <p>(2)En plus du sort offert de sa magie</p>
+		</div>
+
+		{{!-- Items Tab --}}
+		<div id="items" class="tab items" data-group="primary" data-tab="items">
+			<h2>Armes équipé</h2>
+			<div class="flexrow">
+				<div class="col2" style="text-align: center" class="unemain">
+					<h3>Main gauche</h3>
+					<input class="maingaucequi" name="data.armeg" type="text" value="{{data.data.armeg}}" placeholder="Main Gauche" readonly="" /><button class="desequi maingdes">🗑</button>
+					<input class="degatg jetdedegat" name="data.degatg" type="text" data-name="{{data.data.armeg}}" value="{{data.data.degatg}}" data-dice="{{data.data.degatg}}" placeholder="Dégat" readonly="" />
+				</div>
+				<div class="col2" style="text-align: center">
+					<h3 class="deuxmains">Main droite</h3>
+					<input class="maindroiequi" name="data.armed" type="text" value="{{data.data.armed}}" placeholder="Main droite" readonly="" /><button class="desequi mainddes">🗑</button>
+					<input class="degatd jetdedegat" name="data.degatd" type="text" data-name="{{data.data.armed}}" value="{{data.data.degatd}}" data-dice="{{data.data.degatd}}" placeholder="Dégat" readonly="" />
+				</div>
+			</div>
+			<h2>Armure</h2>
+				<input  class="armurequi" name="data.armure" type="text" value="{{data.data.armure}}" placeholder="Armure" readonly="" /><button class="desequi armordes">🗑</button>
+			<h2>Inventaire</h2>
+			<table>
+				<ol class="items-list">
+	                <li class="item flexrow item-header">
+	                  <div class="item-image"></div>
+	                  <div class="item-name">Nom</div>
+	                  <div class="item-description">Description</div>               
+	                  <div class="item-portee">Portée</div>
+	                  <div class="item-dommage">Dommage</div>
+	                  <div class="item-poids">Poids</div>
+	                  <div class="item-valeur">Valeur</div>
+	                  <div class="item-qty">Quantite</div>
+	                  <div class="item-hand">Equipé</div>
+	                  <div class="item-controls">
+	                    <!--a class="item-control item-create" title="Create item" data-type="armes"><i class="fas fa-plus"></i> Add item</a-->
+	                  </div>
+	                </li>
+	            {{#each actor.inventaire as |item id|}}
+	                <li class="item flexrow" data-item-id="{{item._id}}">
+	                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+	                    <h4 class="item-name" title="{{item.name}}">{{item.name}}</h4>
+	                    <h4 class="item-description" title="{{item.data.description}}">{{item.data.description}}</h4>
+	                    <h4 class="item-portee">{{item.data.portee}}</h4>
+	                    <!--h4 class="item-dommage jetdedegat" data-name="{{item.name}}" data-dice="{{item.data.degat}}">{{item.data.degats}}</h4-->
+	                    <h4 class="item-dommage">{{item.data.degats}}</h4>
+	                    <h4 class="item-poids">{{item.data.poids}}</h4>
+	                    <h4 class="item-valeur">{{item.data.valeur}}</h4>
+	                    <h4 class="item-qty">{{item.data.quantite}}</h4>
+	                    <h4 class="item-hand"><span class="maingauche" title="main gauche" name="{{item.name}}" degat="{{item.data.degats}}"></span><span class="maindroite" title="main droite" name="{{item.name}}" degat="{{item.data.degats}}"></span><span class="armor" title="Armure" name="{{item.name}}" ></span></h4>
+	                    <div class="item-controls">
+
+	                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+	                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+	                    </div>
+	                </li>
+	            {{/each}}
+        		</ol>
+		    </table>
+		</div>
+	</section>
+</form>
