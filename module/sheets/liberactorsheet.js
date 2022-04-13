@@ -81,7 +81,9 @@ export class LiberActorSheet extends ActorSheet {
             //item.delete();
             li.slideUp(200, () => this.render(false));
         });
-        
+
+
+
         //Choix race 
         html.find('.racechoix').on('click',function(){
             for(i=0;i<58;i++){
@@ -500,13 +502,13 @@ export class LiberActorSheet extends ActorSheet {
             let retour=r.result; 
             var succes="";
             if(retour>95){
-                succes="<h4 class='result' style='background:#ff3333;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Echec critique</h4>";
-            }else if(retour<critique){
-                succes="<h4 class='result' style='background:#7dff33;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Réussite critique</h4>";
+                succes="<h4 class='result' style='background:#ff3333;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang82")+"</h4>";
+            }else if(retour<=critique){
+                succes="<h4 class='result' style='background:#7dff33;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang83")+"</h4>";
             }else if(retour<=inforesult){
-                succes="<h4 class='result' style='background:#78be50;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Réussite</h4>";
+                succes="<h4 class='result' style='background:#78be50;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang84")+"</h4>";
             }else{
-                succes="<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Echec</h4>";
+                succes="<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang85")+"</h4>";
             }
             if(posture=="Focus"){
                cout=parseInt(cout)-1; 
@@ -558,14 +560,44 @@ export class LiberActorSheet extends ActorSheet {
 
         //Posture
         var postures=html.find('.postures').val();
+        $('.offensif').on('click',function(){
+            let messageTable = game.i18n.localize("liber.lang86");
+            let chatData = {
+                user: game.user._id,
+                speaker: ChatMessage.getSpeaker(),
+                content: messageTable
+            };
+            ChatMessage.create(chatData, {});
+        });
+        $('.defensif').on('click',function(){
+             let messageTable = game.i18n.localize("liber.lang87");
+            let chatData = {
+                user: game.user._id,
+                speaker: ChatMessage.getSpeaker(),
+                content: messageTable
+            };
+            ChatMessage.create(chatData, {});
+        });
+        $('.focus').on('click',function(){
+            let messageTable = game.i18n.localize("liber.lang88");
+            let chatData = {
+                user: game.user._id,
+                speaker: ChatMessage.getSpeaker(),
+                content: messageTable
+            };
+            ChatMessage.create(chatData, {});
+        }); 
         if(postures=="Focus"){
             html.find('.focus').css("opacity", "1");
         }else if(postures=="Offensif"){
             html.find('.offensif').css("opacity", "1");
+                    
         }else if(postures=="Défensif"){
             html.find('.defensif').css("opacity", "1");
+            
         }else{
             html.find('.aucune').css("opacity", "1");
+            
         }
         $('.aucune').on('click',function(){
             $(this).parent().children("button").css({"opacity": "0.5"});
@@ -590,7 +622,7 @@ export class LiberActorSheet extends ActorSheet {
         });
 
         //Etat
-        var etats=['inconsient','invisible','blesse','mort','empoisonné','prie','attache','fort','faible','concentre','brule','mordu','aucun']//lang
+        var etats=['inconsient','invisible','blesse','mort','empoisonné','prie','attache','fort','faible','concentre','brule','mordu','aucun']
         var actoretat=html.find('.etats').val();
         for (var i = 0; i <= 13; i++) {
             if(actoretat==etats[i]){
@@ -907,14 +939,14 @@ export class LiberActorSheet extends ActorSheet {
         var roll=r.evaluate({"async": false});
         let retour=r.result; 
         var succes="";
-        if(retour>95){//lang
-            succes="<h4 class='result' style='background:#ff3333;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Echec critique</h4>";
+        if(retour>95){
+            succes="<h4 class='result' style='background:#ff3333;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang82")+"</h4>";
         }else if(retour<critique){
-            succes="<h4 class='result' style='background:#7dff33;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Réussite critique</h4>";
+            succes="<h4 class='result' style='background:#7dff33;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang83")+"</h4>";
         }else if(retour<=inforesult){
-            succes="<h4 class='result' style='background:#78be50;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Réussite</h4>";
+            succes="<h4 class='result' style='background:#78be50;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang84")+"</h4>";
         }else{
-            succes="<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Echec</h4>";
+            succes="<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang85")+"</h4>";
         }
 
         const texte = "Lance " + name + " : 1d100 - " + inforesult + succes;
