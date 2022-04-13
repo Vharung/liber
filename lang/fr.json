@@ -660,6 +660,7 @@
   "liber.caract201": "Convoilleur",
   "liber.caract202": "Soldat",
   "liber.caract203": "Chasseur de prime",
+  
   "liber.caract204": "Chasse",
   "liber.caract205": "Tricot",
   "liber.caract206": "Crochet",
@@ -681,6 +682,7 @@
   "liber.caract222": "Lecture",
   "liber.caract223": "Dessin",
   "liber.caract224": "Poterie",
+  
   "liber.caract225": "Social",
   "liber.caract226": "Individualiste",
   "liber.caract227": "Altruiste",
@@ -694,6 +696,7 @@
   "liber.caract235": "Croyant",
   "liber.caract236": "Vaniteux",
   "liber.caract237": "Forcené",
+  
   "liber.caract238": "Compléxé(e)",
   "liber.caract239": "Débrouillard",
   "liber.caract240": "Assisté(e)",
@@ -712,6 +715,7 @@
   "liber.caract253": "Sérieux",
   "liber.caract254": "Mélancolique",
   "liber.caract255": "Sanguin",
+  
   "liber.caract256": "barbare",
   "liber.caract257": "danger",
   "liber.caract258": "découverte",
@@ -726,6 +730,7 @@
   "liber.caract267": "secte",
   "liber.caract268": "croyance",
   "liber.caract269": "Rempli de ",
+  
   "liber.caract270": "Devenir riche",
   "liber.caract271": "Liberer de leur servitude",
   "liber.caract275": "Aider sa communauté",
@@ -735,6 +740,7 @@
   "liber.caract276": "Tuer les hérétiques",
   "liber.caract277": "Tuer les autres race",
   "liber.caract278": "Recherche de connaissance",
+  
   "liber.caract279": "Ablutophobie – Peur de se baigner. Cette phobie est plus une peur de la noyade qu'une peur de l'eau.",
   "liber.caract280": "Acarophobie – Peur des parasites de la peau, des acariens.",
   "liber.caract281": "Achluophobie – Peur de l'obscurité et du noir.",
@@ -888,6 +894,7 @@
   "liber.caract429": "Ophiophobie – Peur des serpents.",
   "liber.caract430": "Ornithophobie – Peur des oiseaux.",
   "liber.caract431": "Squalophobie – Peur des requins.",
+  
   "liber.oui": "oui",
   "liber.non": "non",
   "liber.bof": "Dépend de la situation"
