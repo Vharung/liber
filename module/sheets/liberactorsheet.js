@@ -72,8 +72,8 @@ export class LiberActorSheet extends ActorSheet {
             const li = $(ev.currentTarget).parents(".item");
             const item = this.actor.items.get(li.data("itemId"));
             let d = Dialog.confirm({
-                title: "Suppression d'élément",
-                content: "<p>Confirmer la suppression de '" + item.name + "'.</p>",
+                title: game.i18n.localize("liber.suppr"),
+                content: "<p>"+game.i18n.localize("liber.confirsuppr")+ item.name + "'.</p>",
                 yes: () => item.delete(),
                 no: () => { },
                 defaultYes: false
@@ -89,71 +89,71 @@ export class LiberActorSheet extends ActorSheet {
             } 
             var avantagerace="";
             var raceliste=html.find('.raceliste').val();
-            if(raceliste=="Dragon"){
+            if(raceliste==game.i18n.localize("liber.avantrace60")){
                 html.find('.cpt27').val(-10);
                 var armureperso= html.find('.armureperso').val();
                 if(armureperso<2){
                    html.find('.armureperso').val(2); 
                 }
-                var avantagerace="+2 en armure, -10% en discrétion";
-            }else if(raceliste=="Humain"){
-                var avantagerace="+5% en social, +5% en dextérité";
+                var avantagerace=game.i18n.localize("liber.avantrace1");
+            }else if(raceliste==game.i18n.localize("liber.avantrace61")){
+                var avantagerace=game.i18n.localize("liber.avantrace2");
                 html.find('.cpt28').val(5);
-            }else if(raceliste=="Démon"){
-                var avantagerace="Connaissance des enfers, inspire la peur - Peur 10";
+            }else if(raceliste==game.i18n.localize("liber.avantrace62")){
+                var avantagerace=game.i18n.localize("liber.avantrace3");
                 html.find('.cpt39').val(10);
-            }else if(raceliste=="Drauch"){
-                var avantagerace="Armure +2";
+            }else if(raceliste==game.i18n.localize("liber.avantrace63")){
+                var avantagerace=game.i18n.localize("liber.avantrace4");
                 if(armureperso<2){
                    html.find('.armureperso').val(2); 
                 }
-            }else if(raceliste=="Rocailleux"){
+            }else if(raceliste==game.i18n.localize("liber.avantrace64")){
                 html.find('.cpt27').val(-20);
-                var avantagerace="Dégâts/2, Insensible à la magie, -20 en discrétion, Aucune magie";
-            }else if(raceliste=="Semi-humain"){
+                var avantagerace=game.i18n.localize("liber.avantrace5");
+            }else if(raceliste==game.i18n.localize("liber.avantrace64")){
                 html.find('.cpt28').val(5);
-                var avantagerace="+5% en dextérité";
-            }else if(raceliste=="Elfe"){
+                var avantagerace=game.i18n.localize("liber.avantrace6");
+            }else if(raceliste==game.i18n.localize("liber.avantrace65")){
                 html.find('.cpt1').val(5);
                 html.find('.cpt3').val(5);
-                var avantagerace="Agilité 5 - Apprentissage 5";
-            }else if(raceliste=="Elfe Sylvain"){
+                var avantagerace=game.i18n.localize("liber.avantrace7");
+            }else if(raceliste==game.i18n.localize("liber.avantrace66")){
                 html.find('.cpt1').val(5);
                 html.find('.cpt18').val(5);
-                var avantagerace="Agilité 5% - Connaissance de la nature 5%";
-            }else if(raceliste=="Elfe Noir"){
+                var avantagerace=game.i18n.localize("liber.avantrace8");
+            }else if(raceliste==game.i18n.localize("liber.avantrace67")){
                 html.find('.cpt10').val(10);
-                var avantagerace="Assassin 10";
-            }else if(raceliste=="Elfe de sang"){
+                var avantagerace=game.i18n.localize("liber.avantrace9");
+            }else if(raceliste==game.i18n.localize("liber.avantrace68")){
                 html.find('.cpt1').val(5);
-                var avantagerace="Ne peut être soigner que par le sang (1d6), une seule fois par créature - Agilité 5";
-            }else if(raceliste=="Nain"){
+                var avantagerace=game.i18n.localize("liber.avantrace10");
+            }else if(raceliste==game.i18n.localize("liber.avantrace69")){
                 html.find('.cpt37').val(5);
                 html.find('.cpt40').val(5);
-                var avantagerace="Force 5 - Joueur 5";
-            }else if(raceliste=="Homme Chat"){
+                var avantagerace=game.i18n.localize("liber.avantrace11");
+            }else if(raceliste==game.i18n.localize("liber.avantrace70")){
                 html.find('.cpt1').val(5);
                 html.find('.cpt27').val(5);
-                var avantagerace="Agilité 5 - Discrétion 5";
-            }else if(raceliste=="Homme Chien"){
+                var avantagerace=game.i18n.localize("liber.avantrace12");
+            }else if(raceliste==game.i18n.localize("liber.avantrace71")){
                 html.find('.cpt46').val(5);
                 html.find('.cpt28').val(5);
-                var avantagerace="Pistage 5 - Force 5";
-            }else if(raceliste=="Homme Oiseau"){
-                var avantagerace="Vol";
-            }else if(raceliste=="Homme Arbre"){
+                var avantagerace=game.i18n.localize("liber.avantrace13");
+            }else if(raceliste==game.i18n.localize("liber.avantrace72")){
+                var avantagerace=game.i18n.localize("liber.avantrace14");
+            }else if(raceliste==game.i18n.localize("liber.avantrace73")){
                 html.find('.cpt18').val(5);
-                var avantagerace="Camouflage en milieu naturel - Sensible au feu - Connaissance de la nature 5";
-            }else if(raceliste=="Homme Rat"){
-                var avantagerace="Provoque peste à son contact";
-            }else if(raceliste=="Etre de psy"){
-                var avantagerace="Ne peut être blesser que par la magie, lorsqu'il n'a plus de Psy il meurt.";
-            }else if(raceliste=="Vampire"){
+                var avantagerace=game.i18n.localize("liber.avantrace15");
+            }else if(raceliste==game.i18n.localize("liber.avantrace74")){
+                var avantagerace=game.i18n.localize("liber.avantrace16");
+            }else if(raceliste==game.i18n.localize("liber.avantrace75")){
+                var avantagerace=game.i18n.localize("liber.avantrace17");
+            }else if(raceliste==game.i18n.localize("liber.avantrace76")){
                 html.find('.cpt15').val(5);
-                var avantagerace="Ne peut être soigner que par le sang (1d6), Chercher:5";
-            }else if(raceliste=="Orque"){
+                var avantagerace=game.i18n.localize("liber.avantrace18");
+            }else if(raceliste==game.i18n.localize("liber.avantrace77")){
                 html.find('.cpt38').val(-10);
-                var avantagerace="Degat +4 et -10% au jet d’intelligence";
+                var avantagerace=game.i18n.localize("liber.avantrace19");
             }else {
                 var avantagerace="";
             }
@@ -176,41 +176,41 @@ export class LiberActorSheet extends ActorSheet {
             var avantagerace=html.find('.avantagerace').val();
             var clanliste=html.find('.clanliste').val();
             html.find('.clan').val(clanliste);
-            if(clanliste=="Ralich - Clan de l'air"){
-                avantagerace+="- Furtivité";
-            }else if(clanliste=="Aelath - Clan de l'eau"){
-                avantagerace+="-Milieu naturel";
-            }else if(clanliste=="Dwaliwyr - Clan de l'esprit"){
-                avantagerace+="- Déplacement spectral";
-            }else if(clanliste=="Yie - Clan du feu"){
-                avantagerace+="-Bonus de flamme";
-            }else if(clanliste=="Nydiag - Clan de la foudre"){
-                avantagerace+="- Initiative";
-            }else if(clanliste=="Weitha - Clan de la glace"){
-                avantagerace+="- Glace";
-            }else if(clanliste=="Crilanydd - Clan de l'illusion"){
-                avantagerace+="- Vérité";
-            }else if(clanliste=="Cem - Clan de l'invocation"){
-                avantagerace+="- Connaissances sur les créatures de ce monde";
-            }else if(clanliste=="Coalith - Clan de la mort"){
-                avantagerace+="- Connaissance point vitaux";
-            }else if(clanliste=="Natura - Clan de la nature"){
-                avantagerace+="- Connaissance de la nature et des végétaux";
-            }else if(clanliste=="Vivaqua - Clan du poison"){
-                avantagerace+="- Connaissance des poisons";
-            }else if(clanliste=="Limenido - Clan de la télékinésie"){
-                avantagerace+="- Connaissance de la matière";
-            }else if(clanliste=="Eraliwin - Clan de la terre"){
-                avantagerace+="- Inébranlable";
-            }else if(clanliste=="Altlantide - Clan ultime"){
-                avantagerace+="- Légende et mythes";
-            }else if(clanliste=="Galerrakath - Clan de la vie"){
-                avantagerace+="- Détection de la vie";
-            }else if(clanliste=="Atakanax - Clan de l'ombre"){
-                avantagerace+="- Discretion";
-            }else if(clanliste=="Corbeau - Clan du corbeau"){
-                avantagerace+="- Honneur du guerrier";
-            }else if(clanliste=="Oklata - Clan humain"){
+            if(clanliste==game.i18n.localize("liber.avantrace40")){
+                avantagerace+=game.i18n.localize("liber.avantrace20");
+            }else if(clanliste==game.i18n.localize("liber.avantrace41")){
+                avantagerace+=game.i18n.localize("liber.avantrace21");
+            }else if(clanliste==game.i18n.localize("liber.avantrace42")){
+                avantagerace+=game.i18n.localize("liber.avantrace22");
+            }else if(clanliste==game.i18n.localize("liber.avantrace43")){
+                avantagerace+=game.i18n.localize("liber.avantrace23");
+            }else if(clanliste==game.i18n.localize("liber.avantrace44")){
+                avantagerace+=game.i18n.localize("liber.avantrace24");
+            }else if(clanliste==game.i18n.localize("liber.avantrace45")){
+                avantagerace+=game.i18n.localize("liber.avantrace25");
+            }else if(clanliste==game.i18n.localize("liber.avantrace46")){
+                avantagerace+=game.i18n.localize("liber.avantrace26");
+            }else if(clanliste==game.i18n.localize("liber.avantrace47")){
+                avantagerace+=game.i18n.localize("liber.avantrace27");
+            }else if(clanliste==game.i18n.localize("liber.avantrace48")){
+                avantagerace+=game.i18n.localize("liber.avantrace28");
+            }else if(clanliste==game.i18n.localize("liber.avantrace49")){
+                avantagerace+=game.i18n.localize("liber.avantrace29");
+            }else if(clanliste==game.i18n.localize("liber.avantrace50")){
+                avantagerace+=game.i18n.localize("liber.avantrace30");
+            }else if(clanliste==game.i18n.localize("liber.avantrace51")){
+                avantagerace+=game.i18n.localize("liber.avantrace31");
+            }else if(clanliste==game.i18n.localize("liber.avantrace52")){
+                avantagerace+=game.i18n.localize("liber.avantrace32");
+            }else if(clanliste==game.i18n.localize("liber.avantrace53")){
+                avantagerace+=game.i18n.localize("liber.avantrace33");
+            }else if(clanliste==game.i18n.localize("liber.avantrace54")){
+                avantagerace+=game.i18n.localize("liber.avantrace34");
+            }else if(clanliste==game.i18n.localize("liber.avantrace55")){
+                avantagerace+=game.i18n.localize("liber.avantrace35");
+            }else if(clanliste==game.i18n.localize("liber.avantrace56")){
+                avantagerace+=game.i18n.localize("liber.avantrace36");
+            }else if(clanliste==game.i18n.localize("liber.avantrace57")){
                 avantagerace+="";
             }
             html.find('.avantagerace').val(avantagerace);
@@ -225,18 +225,17 @@ export class LiberActorSheet extends ActorSheet {
         //generateur d'histoire
         html.find('.generator').on('click',function(){
             var age = Math.floor((Math.random() * 34) + 16);
-            var items0=["à  Oklata","à  Aelath","à  Dwaliwyr","à  Yie","à  Nydiag'","à  Weitha","à  Crilanydd","à  Cem","à  Coalith","à  Natura","à  Vivaqua","à  Limenido","à  Eraliwin","à  Atlantide","à  Galerrakath","dans un petit village paisible","dans un camp militaire à  l'écart de la ville","sur les routes, voyageant de ville en ville","à  Ralich"];
-            var items1 = ["tu apprends ton lourd passé","tu quittes ton clan pour voyager et découvrir le monde","tu te fais capturer par un clan ennemi","tu es recruté par un étrange personnage pour une certaine mission","un ami proche se fait enlever", "tu consultes un oracle, qui te fait des étranges révélations", "ton père meurt durant une bataille", "tu te fais kidnapper par un inconnu", "tu es porté disparu durant une bataille", "est victime d'une tentative d’assassinat","durant un accident tu perds la mémoire","tu découvres un mystérieux artefact","tu découvres en toi une foi inébranlable en ton dieu","ton frère a disparu"];
-            var items2 = ["de ramener la paix au sein de ton clan","de rechercher un moyen que ton nom reste dans les mémoires","de tuer les personnes qui sont responsables de tes malheurs","de sauver se monde ronger par la guerre","d'anéantir les personnes que tu juge trop faible","de partir en quête d'aventure","de te venger du mal qui ta été fait","de partir en quête de savoir","de partir t'enrichir","de devenir le plus fort de ton clan","de rechercher l'amour","de propager ta foi aux incrédules","de devenir connu","d'enquêter sur des événements étranges"];
-            var items3 =["fasciné par la culture des autres clans","animé par une soif de connaissance","expert dans ton domaine","par amour propre","pour fuir ton destin","après en avoir longuement réfléchit","par amour","par envie","par Vengeance","par nécessité","par jalousie","par curiosité","par choix","après un tragique événement","par colère"];
-            var items4 = ["Lexrung, tu es un esprit libre et indépendant.","Lexegar, tu es altruiste  et tu te sens obliger d'aider son prochain.","Lexerha, tu es pacifique et préfères trouver des solutions non béliqueses aux conflits.","Lexas, tu es de nature réfléchit et calme, leur conseil est toujours dis avec sagesse.","Lexweqi, tu es un brillant chasseur, tu arrives facilement à  pister leur proie.","Lexaly, tu es vif d'esprit et tu réagis rapidement en toutes circonstances.","Lexoulha, tu es trés social aimant profiter des plaisirs de la vie.","Lexora, tu as une grande volonté pour accomplir les choses, tu es tétu et déterminé.","Lexauch, tu es superstitieux, tu aimes t'en remettre au hazard et à  la chance.","Lexaxas, tu es nerveux et souvent en colère. Tu choisis souvent la violence pour résoudre les problèmes.","Lexang, tu es un bon artisan, tu disposes d'une grande aisance dans la création d'objet en tous genres.","Lexug, tu es rancunié, tu n'oublies pas le mal qui leur a été fait et n’hésites pas à  le faire payer.","Lexoelia, tu fais facilement confiance aux autres, la fraternité est l'une de leur grande valeur.","Lexaug tu es protecteur avec les membres de ta famille et de ton foyer."];        var signeastro= items[Math.floor(Math.random()*items.length)];
-
+            var items0=[game.i18n.localize("liber.lang1"),game.i18n.localize("liber.lang2"),game.i18n.localize("liber.lang3"),game.i18n.localize("liber.lang4"),game.i18n.localize("liber.lang5"),game.i18n.localize("liber.lang6"),game.i18n.localize("liber.lang7"),game.i18n.localize("liber.lang8"),game.i18n.localize("liber.lang9"),game.i18n.localize("liber.lang10"),game.i18n.localize("liber.lang11"),game.i18n.localize("liber.lang12"),game.i18n.localize("liber.lang13"),game.i18n.localize("liber.lang14"),game.i18n.localize("liber.lang15"),game.i18n.localize("liber.lang16"),game.i18n.localize("liber.lang17"),game.i18n.localize("liber.lang18"),game.i18n.localize("liber.lang19")];
+            var items1=[game.i18n.localize("liber.lang20"),game.i18n.localize("liber.lang21"),game.i18n.localize("liber.lang22"),game.i18n.localize("liber.lang23"),game.i18n.localize("liber.lang24"),game.i18n.localize("liber.lang25"),game.i18n.localize("liber.lang26"),game.i18n.localize("liber.lang27"),game.i18n.localize("liber.lang28"),game.i18n.localize("liber.lang29"),game.i18n.localize("liber.lang30"),game.i18n.localize("liber.lang31"),game.i18n.localize("liber.lang32"),game.i18n.localize("liber.lang33")];
+            var items2=[game.i18n.localize("liber.lang34"),game.i18n.localize("liber.lang35"),game.i18n.localize("liber.lang36"),game.i18n.localize("liber.lang37"),game.i18n.localize("liber.lang38"),game.i18n.localize("liber.lang39"),game.i18n.localize("liber.lang40"),game.i18n.localize("liber.lang41"),game.i18n.localize("liber.lang42"),game.i18n.localize("liber.lang43"),game.i18n.localize("liber.lang44"),game.i18n.localize("liber.lang45"),game.i18n.localize("liber.lang46"),game.i18n.localize("liber.lang47")];
+            var items3=[game.i18n.localize("liber.lang48"),game.i18n.localize("liber.lang49"),game.i18n.localize("liber.lang50"),game.i18n.localize("liber.lang51"),game.i18n.localize("liber.lang52"),game.i18n.localize("liber.lang53"),game.i18n.localize("liber.lang54"),game.i18n.localize("liber.lang55"),game.i18n.localize("liber.lang56"),game.i18n.localize("liber.lang57"),game.i18n.localize("liber.lang58"),game.i18n.localize("liber.lang59"),game.i18n.localize("liber.lang60"),game.i18n.localize("liber.lang61"),game.i18n.localize("liber.lang62")];
+            var items4=[game.i18n.localize("liber.lang63"),game.i18n.localize("liber.lang64"),game.i18n.localize("liber.lang65"),game.i18n.localize("liber.lang66"),game.i18n.localize("liber.lang67"),game.i18n.localize("liber.lang68"),game.i18n.localize("liber.lang69"),game.i18n.localize("liber.lang70"),game.i18n.localize("liber.lang71"),game.i18n.localize("liber.lang72"),game.i18n.localize("liber.lang73"),game.i18n.localize("liber.lang74"),game.i18n.localize("liber.lang75"),game.i18n.localize("liber.lang76")]
             var nomville=items0[Math.floor(Math.random()*items0.length)];
             var evenement = items1[Math.floor(Math.random()*items1.length)];
             var tonchoix=items2[Math.floor(Math.random()*items2.length)];
             var motivation  = items3[Math.floor(Math.random()*items3.length)];
             var signeastro = items4[Math.floor(Math.random()*items4.length)];
-            var textgen ="Agé de "+age+" tu fais ta vie "+nomville+". Jusqu'au jour où "+evenement+", "+motivation+" tu décide "+tonchoix+". Né durant le mois de "+signeastro;;
+            var textgen =game.i18n.localize("liber.lang77")+' '+age+' '+game.i18n.localize("liber.lang78")+' '+nomville+'. '+game.i18n.localize("liber.lang79")+' '+evenement+", "+motivation+' '+game.i18n.localize("liber.lang80")+' '+tonchoix+'. '+game.i18n.localize("liber.lang82")+' '+signeastro;
             html.find('.histoire').val(textgen);
         });
 
@@ -251,7 +250,7 @@ export class LiberActorSheet extends ActorSheet {
         });
 
         //caractere aléatoire
-        html.find('.caractergen').on('click',function(){
+        html.find('.caractergen').on('click',function(){ //lang
             var demeure = ["Maison","Hotel","Chez un ami","demeure","Sous un pont","Sur un Bateau","Ferme","Auberge","Commerce / Négociation","Forge","Villa","Cabane"];
             var proximite=["Dans l'enceinte","près","au abord"];
             var lieu=["de Ralich","d'Aelath","de Dwaliwyr","d'Yie","de Nydiag","de Weitha","de Crilanydd","de Cem","de Coalith","de Natura","de Vivaqua","de Limenido","d'Eraliwin","d'Atlantide","de Galerrakath","d'Oklata","d'Ile mystérieuse","d'un petit village","de MacooThur"];
@@ -274,7 +273,7 @@ export class LiberActorSheet extends ActorSheet {
             var valeur=["Aucun","Ethique","Verteux","Stoïcisme","Social","Humaniste","Questionnement","Droit","Juste","Corrompu","Egoiste","Individualiste","Communautaire"]
             var moral=valeur[Math.floor(Math.random()*valeur.length)]
             html.find('.moral').val(moral);
-            var race=["Humain(e)","Dragon(e)","Humain(e)","Dragon(e)","Humain(e)","Dragon(e)","Humain(e)","Dragon(e)","Humain(e)","Dragon(e)","Humain(e)","Dragon(e)","Démon(e)","Démon(e)","Semi-humain(e)","Semi-humain(e)","Semi-humain(e)","Orque","Elfe","Nain(e)"]
+            var race=["Humain(e)","Dragon(e)","Humain(e)","Dragon(e)","Humain(e)","Dragon(e)","Humain(e)","Dragon(e)","Humain(e)","Dragon(e)","Humain(e)","Dragon(e)","Démon(e)","Démon(e)","Semi-humain(e)","Semi-humain(e)","Semi-humain(e)",game.i18n.localize("liber.avantrace77"),game.i18n.localize("liber.avantrace65"),"Nain(e)"]
             var rang=["subordonné","chef","dirigeant","membre","adepte","affilié","cotisant","participant","soutien"]
             var organisation=["de la secte de weithra","de la secte de Baphomet","de la secte de PolKridac","du Nouvel Ordre","du culte Vharung","du culte weithra","du commité des pecheurs","du commité des chasseurs","du commité des commerçants","du commité des voyageurs","du commité des aubergistes","du commité des artistes","de la guilde des voleurs","de la guilde des magiciens","de la guilde des guerriers","de la guilde des aventuriers","de la guilde des tueurs de monstres","de la guilde des assassins","de la bande de bandits","de la bande de pirates"];
             var amour=race[Math.floor(Math.random()*race.length)]+" "+rang[Math.floor(Math.random()*rang.length)]+" "+organisation[Math.floor(Math.random()*organisation.length)];
@@ -297,7 +296,7 @@ export class LiberActorSheet extends ActorSheet {
             var personnalitelist=["Compléxé(e)","Débrouillard","Assisté(e)","Maniaque","Bordelique","Patient","Impatient","Supersticieux","Rationnel","Emotif","Apathique","Flégmatique","Précieux","Bourru","Colérique","Sérieux","Mélancolique","Sanguin"]
             var personnalite=personnalitelist[Math.floor(Math.random()*personnalitelist.length)]
             html.find('.personnalite').val(personnalite);
-            var visionlist=["barbare","danger","découverte","connaissance","richesse","impie","démon","coeur à prendre","monstre","gibier","mystère","bandit","secte","croyance"]
+            var visionlist=["barbare","danger","découverte","connaissance","richesse","impie",game.i18n.localize("liber.avantrace62"),"coeur à prendre","monstre","gibier","mystère","bandit","secte","croyance"]
             var vision="Rempli de "+visionlist[Math.floor(Math.random()*visionlist.length)]
             html.find('.monde').val(vision);
             var objectiflist=["Devenir riche","Liberer de leur servitude","Aider sa communauté","Aider la nature","Convertir le monde à sa foi","Recherche spirituel","Tuer les hérétiques","Tuer les autres race","Recherche de connaissance"]
@@ -329,7 +328,7 @@ export class LiberActorSheet extends ActorSheet {
         var astu=parseInt(html.find('.astu').val());
         var memo=parseInt(html.find('.memo').val());
         var reste=170-(phys+soci+ment);
-        if(espece=='Humain'){
+        if(espece==game.i18n.localize("liber.avantrace61")){
             if(soci<5){
                 html.find('.soci').val(5);
                 soci=5;
@@ -338,77 +337,77 @@ export class LiberActorSheet extends ActorSheet {
         }
         html.find('.pointrestant').val(reste);
         if(phys<(forc+agil)){
-            alert("L'agilité et la force doit être égale au physique")
+            alert(game.i18n.localize("liber.alert1"))
         }
         if(soci<(char+saga)){
-            alert("Le charisme et la sagacité doit être égale au social")
+            alert(game.i18n.localize("liber.alert2"))
         }
         if(ment<(astu+memo)){
-            alert("L'astuce et la mémoire doit être égale au mental")
+            alert(game.i18n.localize("liber.alert3"))
         }
 
         //calcul point capacité
         var level = parseInt(html.find('.niveau').val());
         var resultat=35+(level*15);
-        if(espece=='Dragon'){
+        if(espece==game.i18n.localize("liber.avantrace60")){
             resultat=resultat-20;
-        }else if(espece=="Humain" || espece=='Semi-humain'){
+        }else if(espece==game.i18n.localize("liber.avantrace61") || espece=='Semi-humain'){
             resultat=resultat+15;
             var cap28=parseInt(html.find('.cpt28').val());
             if(cap28<5){
                 html.find('.cpt28').val(5);
             }
-        }else if(espece=='Rocailleux'){
+        }else if(espece==game.i18n.localize("liber.avantrace64")){
             resultat=resultat-40;
-        }else if(espece=='Démon'){
+        }else if(espece==game.i18n.localize("liber.avantrace62")){
             resultat=resultat+10;
-        }else if(espece=='Elfe'){
+        }else if(espece==game.i18n.localize("liber.avantrace68")){
             resultat=resultat+30;
             var cap28=parseInt(html.find('.cpt1').val());
             if(cap28<5){html.find('.cpt1').val(5);}
             var cap29=parseInt(html.find('.cpt3').val());
             if(cap29<5){html.find('.cpt3').val(5);}
-        }else if(espece=='Elfe Sylvain'){
+        }else if(espece==game.i18n.localize("liber.avantrace66")){
             resultat=resultat+20;
             var cap28=parseInt(html.find('.cpt1').val());
             if(cap28<5){html.find('.cpt1').val(5);}
             var cap29=parseInt(html.find('.cpt18').val());
             if(cap29<5){html.find('.cpt18').val(5);}
-        }else if(espece=='Elfe Noir'){
+        }else if(espece==game.i18n.localize("liber.avantrace67")){
             resultat=resultat+20;
             var cap28=parseInt(html.find('.cpt10').val());
             if(cap28<10){html.find('.cpt10').val(10);}
-        }else if(espece=='Elfe de sang'){
+        }else if(espece==game.i18n.localize("liber.avantrace68")){
             resultat=resultat+15;
              var cap28=parseInt(html.find('.cpt1').val());
             if(cap28<5){html.find('.cpt1').val(5);}
-        }else if(espece=='Nain'){
+        }else if(espece==game.i18n.localize("liber.avantrace69")){
             resultat=resultat+20;
             var cap28=parseInt(html.find('.cpt37').val());
             if(cap28<5){html.find('.cpt37').val(5);}
             var cap29=parseInt(html.find('.cpt40').val());
             if(cap29<5){html.find('.cpt40').val(5);}
-        }else if(espece=='Homme Chat'){
+        }else if(espece==game.i18n.localize("liber.avantrace70")){
             resultat=resultat+25;
             var cap28=parseInt(html.find('.cpt1').val());
             if(cap28<5){html.find('.cpt1').val(5);}
             var cap29=parseInt(html.find('.cpt27').val());
             if(cap29<5){html.find('.cpt27').val(5);}
-        }else if(espece=='Homme Chien'){
+        }else if(espece==game.i18n.localize("liber.avantrace71")){
             resultat=resultat+20;
             var cap28=parseInt(html.find('.cpt46').val());
             if(cap28<5){html.find('.cpt46').val(5);}
             var cap29=parseInt(html.find('.cpt28').val());
             if(cap29<5){html.find('.cpt28').val(5);}
-        }else if(espece=='Homme Arbre'){
+        }else if(espece==game.i18n.localize("liber.avantrace73")){
             resultat=resultat+5;
             var cap29=parseInt(html.find('.cpt18').val());
             if(cap29<5){html.find('.cpt18').val(5);}
-        }else if(espece=='Vampire'){
+        }else if(espece==game.i18n.localize("liber.avantrace76")){
             resultat=resultat+5;
             var cap29=parseInt(html.find('.cpt15').val());
             if(cap29<5){html.find('.cpt15').val(5);}
-        }else if(espece=='Orque'){
+        }else if(espece==game.i18n.localize("liber.avantrace77")){
             resultat=resultat-30;
         }
         for(i=0;i<58;i++){
@@ -454,7 +453,7 @@ export class LiberActorSheet extends ActorSheet {
         var pointxp=(level-1)*3;
         var calcultotxp=hpmax-PVmin+psymax-PSYmin;
         if(calcultotxp>pointxp && this.actor.data.type=="personnage"){
-            alert('Trop de point sont attribués au PV et/ou au PSY !'); //modif
+            alert(game.i18n.localize("liber.alert"));
         }
 
         //test des capacités acrives
@@ -591,7 +590,7 @@ export class LiberActorSheet extends ActorSheet {
         });
 
         //Etat
-        var etats=['inconsient','invisible','blesse','mort','empoisonné','prie','attache','fort','faible','concentre','brule','mordu','aucun']
+        var etats=['inconsient','invisible','blesse','mort','empoisonné','prie','attache','fort','faible','concentre','brule','mordu','aucun']//lang
         var actoretat=html.find('.etats').val();
         for (var i = 0; i <= 13; i++) {
             if(actoretat==etats[i]){
@@ -704,7 +703,7 @@ export class LiberActorSheet extends ActorSheet {
         html.find('.barenc').css({"width":pourcentage+"%"});
 
         //Equipé
-        var listedemain =['Rapière','Bâton','Espadon','Hallebarde','Fléaux d\'arme','Epée à deux main','Masse d\'arme','Hache de bataille','Faux de Guerre','Lance Lourde']
+        var listedemain =['Rapière','Bâton','Espadon','Hallebarde','Fléaux d\'arme','Epée à deux main','Masse d\'arme','Hache de bataille','Faux de Guerre','Lance Lourde']//lang
         $('.maindroite').on('click',function(){
             var objetaequipe=$(this).attr("name");
             var degat=$(this).attr("degat");
@@ -854,7 +853,7 @@ export class LiberActorSheet extends ActorSheet {
         var roll=r.evaluate({"async": false});
         let retour=r.result; 
         var succes="";
-        if(retour>95){
+        if(retour>95){//lang
             succes="<h4 class='result' style='background:#ff3333;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Echec critique</h4>";
         }else if(retour<=critique){
             succes="<h4 class='result' style='background:#7dff33;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Réussite critique</h4>";
@@ -908,7 +907,7 @@ export class LiberActorSheet extends ActorSheet {
         var roll=r.evaluate({"async": false});
         let retour=r.result; 
         var succes="";
-        if(retour>95){
+        if(retour>95){//lang
             succes="<h4 class='result' style='background:#ff3333;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Echec critique</h4>";
         }else if(retour<critique){
             succes="<h4 class='result' style='background:#7dff33;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Réussite critique</h4>";
