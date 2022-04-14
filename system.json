@@ -15,7 +15,7 @@
           "name": "monstre",
           "label": "Monstres",
           "system": "liber",
-          "path": "./pack/monster.db",
+          "path": "./pack/monstre.db",
           "entity": "Actor",
           "type": "Actor"
         },
