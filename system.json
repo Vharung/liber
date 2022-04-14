@@ -58,7 +58,6 @@
           "name": "regles",
           "path": "./pack/regles.db",
           "system": "liber",
-          "package": "world",
           "entity": "JournalEntry",
           "private": false
         }
