@@ -64,7 +64,7 @@
     "primaryTokenAttribute": "hp",
     "secondaryTokenAttribute": "psy",
     "url": "https://github.com/Vharung/liber",
-    "manifest": "",
-    "download": "https://github.com/Vharung/liber",
+    "manifest": "https://github.com/Vharung/liber/blob/main/system.json",
+    "download": "https://github.com/Vharung/liber/archive/refs/heads/main.zip",
     "license": "LICENSE.txt"
 }
