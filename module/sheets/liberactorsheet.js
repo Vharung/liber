@@ -18,7 +18,7 @@ export class LiberActorSheet extends ActorSheet {
         const data = super.getData();
         var poidsactor='';
         data.dtypes = ["String", "Number", "Boolean"];
-        //console.log(data);        
+        console.log(data);        
 		if (this.actor.data.type == 'personnage' || this.actor.data.type == 'pnj' || this.actor.data.type == 'monstre') {
 			this._prepareCharacterItems(data);
 		}
