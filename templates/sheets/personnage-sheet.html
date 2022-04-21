@@ -11,13 +11,16 @@
 					<input class="nomperso" name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
 					<div class="rexrow">
 						<div class="grid-3col">
-							<p>{{localize 'liber.race'}} : <input class="race" name="data.race" type="text" value="{{data.data.race}}" placeholder="Race"/></p>
+							<!--p>{{localize 'liber.race'}} : <input class="race" name="data.race" type="text" value="{{data.data.race}}" placeholder="Race"/></p-->
+							<p>{{localize 'liber.race'}} : <input class="race" type="text" value="{{data.data.race}}" placeholder="Race" readonly="" /></p>
 						</div>
 						<div class="grid-3col">
-							<p>{{localize 'liber.clan'}} : <input class="clan" name="data.clan" type="text" value="{{data.data.clan}}" placeholder="Clan"/></p>
+							<!--p>{{localize 'liber.clan'}} : <input class="clan" name="data.clan" type="text" value="{{data.data.clan}}" placeholder="Clan"/></p-->
+							<p>{{localize 'liber.clan'}} : <input class="clan" type="text" value="{{data.data.clan}}" placeholder="Clan" readonly="" /></p>
 						</div>
 						<div class="grid-3col">
-							<p>{{localize 'liber.religion'}} : <input class="religion" name="data.religion" type="text" value="{{data.data.religion}}" placeholder="Religion"/></p>
+							<!--p>{{localize 'liber.religion'}} : <input class="religion" name="data.religion" type="text" value="{{data.data.religion}}" placeholder="Religion"/></p-->
+							<p>{{localize 'liber.religion'}} : <input class="religion" type="text" value="{{data.data.religion}}" placeholder="Religion" readonly="" /></p>
 						</div>
 						<!--div class="separator"></div-->
 						<p>{{localize 'liber.bonus'}} : <input class="avantagerace" name="data.bonusrace" type="text" value="{{data.data.bonusrace}}" placeholder="Bonus"/>
@@ -199,11 +202,13 @@
 				<div id="carac" class="tab carac" data-group="primary" data-tab="carac">
 					<div class="rexrow">
 				    	<div class="grid-2col">
-							<span class="deno" style="text-align: left;color:#fff">{{localize 'liber.talent'}}</span><input class="talent" name="data.talent" type="text" value="{{data.data.talent}}" placeholder="Talent"/>
+							<!--span class="deno" style="text-align: left;color:#fff">{{localize 'liber.talent'}}</span><input class="talent" name="data.talent" type="text" value="{{data.data.talent}}" placeholder="Talent"/-->
+							<span class="deno" style="text-align: left;color:#fff">{{localize 'liber.talent'}}</span><input class="talent" type="text" value="{{data.data.talent}}" placeholder="Talent" readonly="" />
 							<div class="clear"></div>                             
 						</div>
 						<div class="grid-2col">
-							<span class="deno" style="text-align: left;color:#fff">{{localize 'liber.faiblesse'}}</span><input class="faiblesse" name="data.faiblesse" type="text" value="{{data.data.faiblesse}}" placeholder="Faiblesse"/>
+							<!--span class="deno" style="text-align: left;color:#fff">{{localize 'liber.faiblesse'}}</span><input class="faiblesse" name="data.faiblesse" type="text" value="{{data.data.faiblesse}}" placeholder="Faiblesse"/-->
+							<span class="deno" style="text-align: left;color:#fff">{{localize 'liber.faiblesse'}}</span><input class="faiblesse" type="text" value="{{data.data.faiblesse}}" placeholder="Faiblesse" readonly="" />
 							<div class="clear"></div>                             
 						</div>
 					</div>
@@ -331,7 +336,7 @@
 			                </li>
 			            {{#each actor.sort as |item id|}}
 			                <li class="item fexrow" data-item-id="{{item._id}}">
-			                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+			                    <div class="item-image"><a class="item-control item-lancer" title="Lancer Sort" data-name="{{item.name}}" data-cout="{{item.data.cout}}"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></a></div>
 			                    <div class="item-name"><span title="{{item.name}}">{{item.name}}</span></div>
 			                    <div class="item-classe">{{item.data.classe}}</div>
 			                    <div class="item-description2"><span title="{{item.data.description}}">{{item.data.description}}</span></div>
@@ -339,7 +344,6 @@
 			                    <div class="item-duree">{{item.data.duree}}</div>
 			                    <div class="item-cout">{{item.data.cout}}</div>
 			                    <div class="item-controls">
-			                    	<a class="item-control item-lancer" title="Lancer Sort" data-name="{{item.name}}" data-cout="{{item.data.cout}}"><i class="fas fa-check"></i></a>
 			                        <a class="item-control item-edit" title="Edit Sort"><i class="fas fa-edit"></i></a>
 			                        <a class="item-control item-delete" title="Delete Sort"><i class="fas fa-trash"></i></a>
 			                    </div>
@@ -350,80 +354,85 @@
 				    	<input class="coutmax" type="text" value="" readonly><br>{{localize 'liber.maxcost'}}
 				    </div>
 				    <div class="grid-2col" style="text-align: center;color:#fff">
-				    	<input class="maxsort" type="text" value="" readonly><br>{{localize 'liber.nb'}}(2)
+				    	<input class="maxsort" type="text" value="" readonly><br>{{localize 'liber.nb'}}*
 				    </div>
 				    <div class="clear"></div>
-				    <p style="text-align: center;color:#6a7885">(2){{localize 'liber.plus'}}</p>
+				    <p style="text-align: center;color:#6a7885">*{{localize 'liber.plus'}}</p>
 				</div>
 				{{!-- Lab Tab --}}
 				<div id="lab" class="tab stats" data-group="primary" data-tab="lab">
 					<h2>{{localize 'liber.race'}}</h2>
-						<SELECT class="raceliste" size="1">
-		                    <option>{{localize 'liber.avantrace60'}}</option>
-		                    <option>{{localize 'liber.avantrace61'}}</option>
-		                    <option>{{localize 'liber.avantrace62'}}</option>
-		                    <option>{{localize 'liber.avantrace63'}}</option>
-		                    <option>{{localize 'liber.avantrace64'}}</option>
-		                    <option>{{localize 'liber.avantrace65'}}</option>
-		                    <option>{{localize 'liber.avantrace66'}}</option>
-		                    <option>{{localize 'liber.avantrace67'}}</option>
-		                    <option>{{localize 'liber.avantrace68'}}</option>
-		                    <option>{{localize 'liber.avantrace69'}}</option>
-		                    <option>{{localize 'liber.avantrace70'}}</option>
-		                    <option>{{localize 'liber.avantrace71'}}</option>
-		                    <option>{{localize 'liber.avantrace72'}}</option>
-		                    <option>{{localize 'liber.avantrace73'}}</option>
-		                    <option>{{localize 'liber.avantrace74'}}</option>
-		                    <option>{{localize 'liber.avantrace75'}}</option>
-		                    <option>{{localize 'liber.avantrace76'}}</option>
-		                    <option>{{localize 'liber.avantrace77'}}</option>
-		                    <option>{{localize 'liber.avantrace78'}}</option>
+						<SELECT class="raceliste" name="data.race">
+							{{#select data.data.race}}
+			                  	<option value="{{localize 'liber.avantrace60'}}">{{localize 'liber.avantrace60'}}</option>
+			                    <option value="{{localize 'liber.avantrace61'}}">{{localize 'liber.avantrace61'}}</option>
+			                    <option value="{{localize 'liber.avantrace62'}}">{{localize 'liber.avantrace62'}}</option>
+			                    <option value="{{localize 'liber.avantrace63'}}">{{localize 'liber.avantrace63'}}</option>
+			                    <option value="{{localize 'liber.avantrace64'}}">{{localize 'liber.avantrace64'}}</option>
+			                    <option value="{{localize 'liber.avantrace65'}}">{{localize 'liber.avantrace65'}}</option>
+			                    <option value="{{localize 'liber.avantrace66'}}">{{localize 'liber.avantrace66'}}</option>
+			                    <option value="{{localize 'liber.avantrace67'}}">{{localize 'liber.avantrace67'}}</option>
+			                    <option value="{{localize 'liber.avantrace68'}}">{{localize 'liber.avantrace68'}}</option>
+			                    <option value="{{localize 'liber.avantrace69'}}">{{localize 'liber.avantrace69'}}</option>
+			                    <option value="{{localize 'liber.avantrace70'}}">{{localize 'liber.avantrace70'}}</option>
+			                    <option value="{{localize 'liber.avantrace71'}}">{{localize 'liber.avantrace71'}}</option>
+			                    <option value="{{localize 'liber.avantrace72'}}">{{localize 'liber.avantrace72'}}</option>
+			                    <option value="{{localize 'liber.avantrace73'}}">{{localize 'liber.avantrace73'}}</option>
+			                    <option value="{{localize 'liber.avantrace74'}}">{{localize 'liber.avantrace74'}}</option>
+			                    <option value="{{localize 'liber.avantrace75'}}">{{localize 'liber.avantrace75'}}</option>
+			                    <option value="{{localize 'liber.avantrace76'}}">{{localize 'liber.avantrace76'}}</option>
+			                    <option value="{{localize 'liber.avantrace77'}}">{{localize 'liber.avantrace77'}}</option>
+			                    <option value="{{localize 'liber.avantrace78'}}">{{localize 'liber.avantrace78'}}</option>
+			                {{/select}}
 		                </SELECT>
 		                <input type="button" value="{{localize 'liber.choisir'}}" class="racechoix">
 						
 					<h2 style="margin-top: 30px;">Clan</h2>
-						<SELECT class="clanliste" size="1">
-		                    <option>Aucun</option>
-		                    <option>{{localize 'liber.avantrace40'}}</option>
-		                    <option>{{localize 'liber.avantrace41'}}</option>
-		                    <option>{{localize 'liber.avantrace42'}}</option>
-		                    <option>{{localize 'liber.avantrace43'}}</option>
-		                    <option>{{localize 'liber.avantrace44'}}</option>
-		                    <option>{{localize 'liber.avantrace45'}}</option>
-		                    <option>{{localize 'liber.avantrace46'}}</option>
-		                    <option>{{localize 'liber.avantrace47'}}</option>
-		                    <option>{{localize 'liber.avantrace48'}}</option>
-		                    <option>{{localize 'liber.avantrace49'}}</option>
-		                    <option>{{localize 'liber.avantrace50'}}</option>
-		                    <option>{{localize 'liber.avantrace51'}}</option>
-		                    <option>{{localize 'liber.avantrace52'}}</option>
-		                    <option>{{localize 'liber.avantrace53'}}</option>
-		                    <option>{{localize 'liber.avantrace54'}}</option>
-		                    <option>{{localize 'liber.avantrace55'}}</option>
-		                    <option>{{localize 'liber.avantrace56'}}</option>
-		                    <option>{{localize 'liber.avantrace57'}}</option>
-		                    
-		                    <option>{{localize 'liber.avantrace78'}}</option>
+						<SELECT class="clanliste"  name="data.clan">
+							{{#select data.data.clan}}
+			                    <option value="{{localize 'liber.avantrace40'}}">{{localize 'liber.avantrace40'}}</option>
+			                    <option value="{{localize 'liber.avantrace41'}}">{{localize 'liber.avantrace41'}}</option>
+			                    <option value="{{localize 'liber.avantrace42'}}">{{localize 'liber.avantrace42'}}</option>
+			                    <option value="{{localize 'liber.avantrace43'}}">{{localize 'liber.avantrace43'}}</option>
+			                    <option value="{{localize 'liber.avantrace44'}}">{{localize 'liber.avantrace44'}}</option>
+			                    <option value="{{localize 'liber.avantrace45'}}">{{localize 'liber.avantrace45'}}</option>
+			                    <option value="{{localize 'liber.avantrace46'}}">{{localize 'liber.avantrace46'}}</option>
+			                    <option value="{{localize 'liber.avantrace47'}}">{{localize 'liber.avantrace47'}}</option>
+			                    <option value="{{localize 'liber.avantrace48'}}">{{localize 'liber.avantrace48'}}</option>
+			                    <option value="{{localize 'liber.avantrace49'}}">{{localize 'liber.avantrace49'}}</option>
+			                    <option value="{{localize 'liber.avantrace50'}}">{{localize 'liber.avantrace50'}}</option>
+			                    <option value="{{localize 'liber.avantrace51'}}">{{localize 'liber.avantrace51'}}</option>
+			                    <option value="{{localize 'liber.avantrace52'}}">{{localize 'liber.avantrace52'}}</option>
+			                    <option value="{{localize 'liber.avantrace53'}}">{{localize 'liber.avantrace53'}}</option>
+			                    <option value="{{localize 'liber.avantrace54'}}">{{localize 'liber.avantrace54'}}</option>
+			                    <option value="{{localize 'liber.avantrace55'}}">{{localize 'liber.avantrace55'}}</option>
+			                    <option value="{{localize 'liber.avantrace56'}}">{{localize 'liber.avantrace56'}}</option>
+			                    <option value="{{localize 'liber.avantrace57'}}">{{localize 'liber.avantrace57'}}</option>			                    
+			                    <option value="{{localize 'liber.avantrace78'}}">{{localize 'liber.avantrace78'}}</option>
+			                    <option value="{{localize 'liber.avantrace79'}}">{{localize 'liber.avantrace79'}}</option>
+			                {{/select}}
 		                </SELECT>
 		                <input type="button" value="{{localize 'liber.choisir'}}" class="clanchoix">
 
 						<h2 style="margin-top: 30px;">Religion</h2>
-						<SELECT>
-		                    <option>{{localize 'liber.avantrace79'}}</option>
-		                    <option>{{localize 'liber.avantrace80'}}</option>
-		                    <option>{{localize 'liber.avantrace81'}}</option>
-		                    <option>{{localize 'liber.avantrace82'}}</option>
-		                    <option>{{localize 'liber.avantrace83'}}</option>
-		                    <option>{{localize 'liber.avantrace84'}}</option>
-		                    <option>{{localize 'liber.avantrace85'}}</option>
-		                    <option>{{localize 'liber.avantrace86'}}</option>
-		                    <option>{{localize 'liber.avantrace87'}}</option>
-		                    <option>{{localize 'liber.avantrace88'}}</option>
-		                    <option>{{localize 'liber.avantrace89'}}</option>
-		                    <option>{{localize 'liber.avantrace90'}}</option>
-		                    <option>{{localize 'liber.avantrace78'}}</option>
+						<SELECT  name="data.religion">
+							{{#select data.data.religion}}
+			                    <option value="{{localize 'liber.avantrace79'}}">{{localize 'liber.avantrace79'}}</option>
+			                    <option value="{{localize 'liber.avantrace80'}}">{{localize 'liber.avantrace80'}}</option>
+			                    <option value="{{localize 'liber.avantrace81'}}">{{localize 'liber.avantrace81'}}</option>
+			                    <option value="{{localize 'liber.avantrace82'}}">{{localize 'liber.avantrace82'}}</option>
+			                    <option value="{{localize 'liber.avantrace83'}}">{{localize 'liber.avantrace83'}}</option>
+			                    <option value="{{localize 'liber.avantrace84'}}">{{localize 'liber.avantrace84'}}</option>
+			                    <option value="{{localize 'liber.avantrace85'}}">{{localize 'liber.avantrace85'}}</option>
+			                    <option value="{{localize 'liber.avantrace86'}}">{{localize 'liber.avantrace86'}}</option>
+			                    <option value="{{localize 'liber.avantrace87'}}">{{localize 'liber.avantrace87'}}</option>
+			                    <option value="{{localize 'liber.avantrace88'}}">{{localize 'liber.avantrace88'}}</option>
+			                    <option value="{{localize 'liber.avantrace89'}}">{{localize 'liber.avantrace89'}}</option>
+			                    <option value="{{localize 'liber.avantrace90'}}">{{localize 'liber.avantrace90'}}</option>
+			                    <option value="{{localize 'liber.avantrace78'}}">{{localize 'liber.avantrace78'}}</option>
+			                {{/select}}
 		                </SELECT>
-		                <input type="button" value="{{localize 'liber.choisir'}}" class="religionchoix">	
+		                <!--input type="button" value="{{localize 'liber.choisir'}}" class="religionchoix"-->	
 		                <div class="rexrow" style="margin-top: 30px;">
 			                <div class="grid-2col">
 			                	<h2>{{localize 'liber.histoire'}}</h2>
@@ -438,71 +447,75 @@
 		                <div class="rexrow" style="margin-top: 30px;">
 					    	<div class="grid-2col">
 								<h2>{{localize 'liber.talent'}}</h2>
-								<SELECT class="talentliste" size="1">
-                                    <OPTION title="{{localize 'liber.title1'}}">{{localize 'liber.title58'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title2'}}">{{localize 'liber.title59'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title3'}}">{{localize 'liber.title60'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title4'}}">{{localize 'liber.title61'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title5'}}">{{localize 'liber.title62'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title6'}}">{{localize 'liber.title63'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title7'}}">{{localize 'liber.title64'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title8'}}">{{localize 'liber.title65'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title9'}}">{{localize 'liber.title66'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title10'}}">{{localize 'liber.title67'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title11'}}">{{localize 'liber.title68'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title12'}}">{{localize 'liber.title69'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title13'}}">{{localize 'liber.title70'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title14'}}">{{localize 'liber.title71'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title15'}}">{{localize 'liber.title72'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title16'}}">{{localize 'liber.title73'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title17'}}">{{localize 'liber.title74'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title18'}}">{{localize 'liber.title75'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title19'}}">{{localize 'liber.title76'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title20'}}">{{localize 'liber.title77'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title21'}}">{{localize 'liber.title78'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title22'}}">{{localize 'liber.title79'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title23'}}">{{localize 'liber.title80'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title24'}}">{{localize 'liber.title81'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title25'}}">{{localize 'liber.title82'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title26'}}">{{localize 'liber.title83'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title27'}}">{{localize 'liber.title84'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title28'}}">{{localize 'liber.title85'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title29'}}">{{localize 'liber.title86'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title30'}}">{{localize 'liber.title87'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title31'}}">{{localize 'liber.title88'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title32'}}">{{localize 'liber.title89'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title33'}}">{{localize 'liber.title90'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title34'}}">{{localize 'liber.title91'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title35'}}">{{localize 'liber.title92'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title36'}}">{{localize 'liber.title93'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title37'}}">{{localize 'liber.title94'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title38'}}">{{localize 'liber.title95'}}</OPTION>
+								<SELECT class="talentliste"  name="data.talent">
+									{{#select data.data.talent}}
+	                                    <OPTION value="{{localize 'liber.title58'}}" title="{{localize 'liber.title1'}}">{{localize 'liber.title58'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title59'}}" title="{{localize 'liber.title2'}}">{{localize 'liber.title59'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title60'}}" title="{{localize 'liber.title3'}}">{{localize 'liber.title60'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title61'}}" title="{{localize 'liber.title4'}}">{{localize 'liber.title61'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title62'}}" title="{{localize 'liber.title5'}}">{{localize 'liber.title62'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title63'}}" title="{{localize 'liber.title6'}}">{{localize 'liber.title63'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title64'}}" title="{{localize 'liber.title7'}}">{{localize 'liber.title64'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title65'}}" title="{{localize 'liber.title8'}}">{{localize 'liber.title65'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title66'}}" title="{{localize 'liber.title9'}}">{{localize 'liber.title66'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title67'}}" title="{{localize 'liber.title10'}}">{{localize 'liber.title67'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title68'}}" title="{{localize 'liber.title11'}}">{{localize 'liber.title68'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title69'}}" title="{{localize 'liber.title12'}}">{{localize 'liber.title69'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title70'}}" title="{{localize 'liber.title13'}}">{{localize 'liber.title70'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title71'}}" title="{{localize 'liber.title14'}}">{{localize 'liber.title71'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title72'}}" title="{{localize 'liber.title15'}}">{{localize 'liber.title72'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title73'}}" title="{{localize 'liber.title16'}}">{{localize 'liber.title73'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title74'}}" title="{{localize 'liber.title17'}}">{{localize 'liber.title74'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title75'}}" title="{{localize 'liber.title18'}}">{{localize 'liber.title75'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title76'}}" title="{{localize 'liber.title19'}}">{{localize 'liber.title76'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title77'}}" title="{{localize 'liber.title20'}}">{{localize 'liber.title77'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title78'}}" title="{{localize 'liber.title21'}}">{{localize 'liber.title78'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title79'}}" title="{{localize 'liber.title22'}}">{{localize 'liber.title79'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title80'}}" title="{{localize 'liber.title23'}}">{{localize 'liber.title80'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title81'}}" title="{{localize 'liber.title24'}}">{{localize 'liber.title81'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title82'}}" title="{{localize 'liber.title25'}}">{{localize 'liber.title82'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title83'}}" title="{{localize 'liber.title26'}}">{{localize 'liber.title83'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title84'}}" title="{{localize 'liber.title27'}}">{{localize 'liber.title84'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title85'}}" title="{{localize 'liber.title28'}}">{{localize 'liber.title85'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title86'}}" title="{{localize 'liber.title29'}}">{{localize 'liber.title86'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title87'}}" title="{{localize 'liber.title30'}}">{{localize 'liber.title87'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title88'}}" title="{{localize 'liber.title31'}}">{{localize 'liber.title88'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title89'}}" title="{{localize 'liber.title32'}}">{{localize 'liber.title89'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title90'}}" title="{{localize 'liber.title33'}}">{{localize 'liber.title90'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title91'}}" title="{{localize 'liber.title34'}}">{{localize 'liber.title91'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title92'}}" title="{{localize 'liber.title35'}}">{{localize 'liber.title92'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title93'}}" title="{{localize 'liber.title36'}}">{{localize 'liber.title93'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title94'}}" title="{{localize 'liber.title37'}}">{{localize 'liber.title94'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title95'}}" title="{{localize 'liber.title38'}}">{{localize 'liber.title95'}}</OPTION>
+	                                {{/select}}
                                 </SELECT>   
-                                <input type="button" value="{{localize 'liber.choisir'}}" class="choixtalent">                             
+                                <!--input type="button" value="{{localize 'liber.choisir'}}" class="choixtalent"-->                             
                             </div>
                             <div class="grid-2col">
                                 <h2>{{localize 'liber.faiblesse'}}</h2>
-                                <SELECT class="faiblesseliste" size="1">
-                                    <OPTION title="{{localize 'liber.title39'}}">{{localize 'liber.title96'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title40'}}">{{localize 'liber.title97'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title41'}}">{{localize 'liber.title98'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title42'}}">{{localize 'liber.title99'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title43'}}">{{localize 'liber.title00'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title44'}}">{{localize 'liber.title01'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title45'}}">{{localize 'liber.title02'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title46'}}">{{localize 'liber.title03'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title47'}}">{{localize 'liber.title04'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title48'}}">{{localize 'liber.title05'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title49'}}">{{localize 'liber.title06'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title50'}}">{{localize 'liber.title07'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title51'}}">{{localize 'liber.title08'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title52'}}">{{localize 'liber.title09'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title53'}}">{{localize 'liber.title110'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title54'}}">{{localize 'liber.title111'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title55'}}">{{localize 'liber.title112'}}</OPTION>
-                                    <OPTION title="{{localize 'liber.title56'}}">{{localize 'liber.title113'}}</OPTION>
+                                <SELECT class="faiblesseliste"  name="data.faiblesse">
+                                	{{#select data.data.faiblesse}}
+	                                    <OPTION value="{{localize 'liber.title96'}}" title="{{localize 'liber.title39'}}">{{localize 'liber.title96'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title97'}}" title="{{localize 'liber.title40'}}">{{localize 'liber.title97'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title98'}}" title="{{localize 'liber.title41'}}">{{localize 'liber.title98'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title99'}}" title="{{localize 'liber.title42'}}">{{localize 'liber.title99'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title00'}}" title="{{localize 'liber.title43'}}">{{localize 'liber.title00'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title01'}}" title="{{localize 'liber.title44'}}">{{localize 'liber.title01'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title02'}}" title="{{localize 'liber.title45'}}">{{localize 'liber.title02'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title03'}}" title="{{localize 'liber.title46'}}">{{localize 'liber.title03'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title04'}}" title="{{localize 'liber.title47'}}">{{localize 'liber.title04'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title05'}}" title="{{localize 'liber.title48'}}">{{localize 'liber.title05'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title06'}}" title="{{localize 'liber.title49'}}">{{localize 'liber.title06'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title07'}}" title="{{localize 'liber.title50'}}">{{localize 'liber.title07'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title08'}}" title="{{localize 'liber.title51'}}">{{localize 'liber.title08'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title09'}}" title="{{localize 'liber.title52'}}">{{localize 'liber.title09'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title110'}}" title="{{localize 'liber.title53'}}">{{localize 'liber.title110'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title111'}}" title="{{localize 'liber.title54'}}">{{localize 'liber.title111'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title112'}}" title="{{localize 'liber.title55'}}">{{localize 'liber.title112'}}</OPTION>
+	                                    <OPTION value="{{localize 'liber.title113'}}" title="{{localize 'liber.title56'}}">{{localize 'liber.title113'}}</OPTION>
+	                                {{/select}}
 			                    </SELECT>
-			                    <input type="button" value="{{localize 'liber.choisir'}}" class="choixfaiblesse">                             
+			                    <!--input type="button" value="{{localize 'liber.choisir'}}" class="choixfaiblesse"-->                             
 							</div>
 						</div>			
 					</div>

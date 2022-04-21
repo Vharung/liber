@@ -219,10 +219,10 @@ export class LiberActorSheet extends ActorSheet {
         });
         
         //choix culte
-        html.find('.religionchoix').on('click',function(){ 
+        /*html.find('.religionchoix').on('click',function(){ 
             var clanliste=html.find('.religionlist').val();
             html.find('.religion').val(clanliste);
-        });
+        });*/
 
         //generateur d'histoire
         html.find('.generator').on('click',function(){
@@ -242,14 +242,14 @@ export class LiberActorSheet extends ActorSheet {
         });
 
         //Ajout talent et faiblesse
-        html.find('.choixtalent').on('click',function(){
+        /*html.find('.choixtalent').on('click',function(){
             var talentliste=html.find('.talentliste').val();
             html.find('.talent').val(talentliste);
         });
         html.find('.choixfaiblesse').on('click',function(){
             var faiblesseliste=html.find('.faiblesseliste').val();
             html.find('.faiblesse').val(faiblesseliste);
-        });
+        });*/
 
         //caractere aléatoire
         html.find('.caractergen').on('click',function(){ //lang
@@ -430,31 +430,47 @@ export class LiberActorSheet extends ActorSheet {
 
         html.find('.restant').val(resultat);
 
-        //calcul cout et nb sort
+        
+        //Stat base
+        var b_psy=Math.round((parseInt(ment)+(parseInt(soci)/2)-parseInt(phys)+5)/4+2);
+        var b_nb=Math.round(parseInt(b_psy)/4)+1+parseInt(level);
+        var b_cout=Math.round((parseInt(b_psy)-parseInt(b_nb))/2)+3;
+
+        //stat actuel
         var psy=parseInt(html.find('.psymax').val());
-        var X=Math.round((parseInt(ment)+(parseInt(soci)/2)-parseInt(phys)+5)/4+2);
-        var psylevel = psy - X        
-        var Y=Math.round(X/4)+1;
-        var maxcout=Y-1+level
-        var Z=Math.floor((parseInt(X)-parseInt(Y))/2+3+(parseInt(psylevel)));
         var PVmin=Math.round(parseInt(phys)/3);
-        //var PSYmin=Math.round((parseInt(X)-parseInt(Y))/2+3);
-        var PSYmin=X;
-        html.find('.maxsort').val(maxcout);
-        html.find('.coutmax').val(Z);
+        var PSYmin=b_psy;
+        var cout=Math.round((parseInt(psy)-parseInt(b_nb))/2)+3;
+        //calcul cout et nb sort
+        var xcout=Math.floor((parseInt(psy)-parseInt(b_nb))/2+3);//cout sort        
+        var corbeau=this.actor.data.data.clan;
+        if(corbeau !=game.i18n.localize("liber.avantrace56")){
+            xcout=level;
+        }
+
+        var listsort=this.actor.sort;
+        var nbsorts=listsort.length;
+        var calsort=parseInt(b_nb)-parseInt(nbsorts);
+        html.find('.maxsort').val(calsort);
+        html.find('.coutmax').val(cout);
+        if(calsort<0){
+            //alert(game.i18n.localize("liber.alert4"));
+            html.find('.maxsort').css({color:"red"});
+        }else{
+            html.find('.maxsort').css({color:"white"});
+        }
         var hpmax=parseInt(html.find('.hpmax').val());
         var psymax=parseInt(html.find('.psymax').val());
-        if(hpmax<PVmin){
-           html.find('.hpmax').val(PVmin);
-        }if(hpmax<PVmin){
+        
+        if(hpmax<PVmin && this.actor.data.type=="personnage" && hpmax!=0){
            html.find('.hpmax').val(PVmin);
         }
-        if(psymax<PSYmin){
+        if(psymax<PSYmin && this.actor.data.type=="personnage" && psymax!=0 && corbeau !=game.i18n.localize("liber.avantrace56")){
            html.find('.psymax').val(PSYmin);
         }
         var pointxp=(level-1)*3;
         var calcultotxp=hpmax-PVmin+psymax-PSYmin;
-        if(calcultotxp>pointxp && this.actor.data.type=="personnage"){
+        if(calcultotxp>pointxp && this.actor.data.type=="personnage" ){
             alert(game.i18n.localize("liber.alert"));
         }
 

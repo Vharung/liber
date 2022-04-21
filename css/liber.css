@@ -12,6 +12,7 @@ form.Liber{display: table-cell;overflow: auto;}
 .Liber .head{background: #09141a;height: 120px;border-radius:60px 0 0 60px;}
 .Liber .head .avatar img{height: 100%;max-width: none}
 .Liber .head .avatar{height: 120px; width: 120px;border-radius: 50%; display:inline-block;overflow: hidden;float: left}
+.Liber option{background:none;}
 
 /*.Liber .head span.post {height: 20px;width: 20px;display: inline-block; float: right; margin-right: 10px}*/
 .Liber .head input{color:#fff}
