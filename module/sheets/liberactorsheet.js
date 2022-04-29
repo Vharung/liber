@@ -82,6 +82,13 @@ export class LiberActorSheet extends ActorSheet {
             li.slideUp(200, () => this.render(false));
         });
 
+        html.find('.item-create').click(ev => {
+            event.preventDefault();
+            const dataType=$(ev.currentTarget).data('type');
+            const name = `New ${dataType.capitalize()}`;
+            this.actor.createEmbeddedDocuments('Item', [{ name: name, type: dataType }], { renderSheet: true })
+        }); 
+
 
 
         //Choix race 
