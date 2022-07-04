@@ -89,6 +89,14 @@ export class LiberActorSheet extends ActorSheet {
             this.actor.createEmbeddedDocuments('Item', [{ name: name, type: dataType }], { renderSheet: true })
         }); 
 
+        html.find('.item-desc').on('click',function(){
+           var hauteur= $(this).parent().parent().css("height");
+           if(hauteur=='30px'){
+                $(this).parent().parent().css({"height":"auto"});
+            }else{
+                $(this).parent().parent().css({"height":"30px"});
+            }
+        });
 
 
         //Choix race 

@@ -80,16 +80,17 @@ form.Liber{display: table-cell;overflow: auto;}
 .Liber .items-list .item-image {-webkit-box-flex: 0;-ms-flex: 0 0 24px;flex: 0 0 24px;margin-right: 5px;width: 25px}
 .Liber .items-list .item img {display: block;}
 .Liber .items-list .item-description2,.Liber .items-list .item-cible,.Liber .items-list .item-cout,.Liber .items-list .item-duree,.Liber .items-list .item-classe,.Liber .items-list .item-controls,.Liber .items-list .item-image,.Liber .items-list .item-name,.Liber .items-list .item-description,.Liber .items-list .item-portee,.Liber .items-list .item-dommage,.Liber .items-list .item-poids,.Liber .items-list .item-valeur,.Liber .items-list .item-qty,.Liber .items-list .item-hand{display:block;height:25px;float: left;overflow: hidden;}
-.Liber .items-list .item-name {margin: 0;width: 80px;float: left;color:#6a7885;}
-.Liber .items-list .item-description{width: 168px;float: left}
-.Liber .items-list .item-description2{width: 218px;float: left}
+.Liber .items-list .item-name {margin: 0;width: 180px;float: left;color:#6a7885;}
+.Liber .items-list .item-name2 {margin: 0;width: 244px;;float: left;color:#6a7885;}
+.Liber .items-list .item-description,.Liber .items-list .item-description2{    width: calc(100% - 20px);height: auto;margin: 10px;background: #09141a;padding: 5px;display: block;}
 .Liber .items-list .item-cible{width: 56px;float: left}
-.Liber .items-list .item-classe{width: 50px;float: left}
-.Liber .items-list .item-duree{width: 72px;float: left}
+.Liber .items-list .item-classe{width: 130px;float: left}
+.Liber .items-list .item-type{width: 50px;float: left}
+.Liber .items-list .item-duree{width:82px;float: left}
 .Liber .items-list .item-cout{width: 28px;float: left;text-align: center;}
 .Liber .items-list .item-portee,.Liber .items-list .item-dommage,.Liber .items-list .item-poids,.Liber .items-list .item-valeur,.Liber .items-list .item-qty{width: 39px;float: left;text-align: center}
 .Liber .items-list .item-hand{width: 62px;float: left;filter: invert(1);}
-.Liber .items-list .item-controls{width: 80px;-webkit-box-flex: 0;-ms-flex: 0 0 86px;flex: 0 0 86px;text-align: right;width: 41px;}
+.Liber .items-list .item-controls{-webkit-box-flex: 0;-ms-flex: 0 0 86px;flex: 0 0 86px;text-align: right;width: 51px;}
 .Liber .stats select{border: none;height: 30px;width: 50%; margin: 3px;background: #0d0d0d;color: #fff;}
 .Liber .stats input{border: none;height: 30px;width: 40%;padding:5px;float: right;margin: 4px;background:#e13b23;border:none;color:#fff;padding: 5px;font-weight: bold;cursor: pointer}
 .Liber .stat input.insoin,.Liber .stat input.avant,.Liber .stat input.desan{border:none;color: #fff;text-align: right;opacity: 0.5}

@@ -284,7 +284,8 @@
 			                <li class="item fexrow item-header">
 			                  <div class="item-image"></div>
 			                  <div class="item-name">{{localize 'liber.name'}}</div>
-			                  <div class="item-description">{{localize 'liber.descri'}}</div>               
+			                  <div class="item-type">{{localize 'liber.type'}}</div>
+			                  <!--div class="item-description">{{localize 'liber.descri'}}</div-->               
 			                  <div class="item-portee">{{localize 'liber.pte'}}</div>
 			                  <div class="item-dommage">{{localize 'liber.dgt'}}</div>
 			                  <div class="item-poids">{{localize 'liber.pds'}}</div>
@@ -301,7 +302,8 @@
 			                <li class="item fexrow" data-item-id="{{item._id}}">
 			                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
 			                    <div class="item-name" title="{{item.name}}">{{item.name}}</div>
-			                    <div class="item-description"><span title="{{item.data.description}}">{{item.data.description}}</span></div>
+			                    <div class="item-type" title="{{item.type}}">{{item.type}}</div>
+			                   
 			                    <div class="item-portee">{{item.data.portee}}</div>
 			                    <!--div class="item-dommage jetdedegat" data-name="{{item.name}}" data-dice="{{item.data.degat}}">{{item.data.degats}}</div-->
 			                    <div class="item-dommage">{{item.data.degats}}</div>
@@ -310,9 +312,12 @@
 			                    <div class="item-qty">{{item.data.quantite}}</div>
 			                    <div class="item-hand"><span class="maingauche" title="main gauche" name="{{item.name}}" degat="{{item.data.degats}}"></span><span class="maindroite" title="main droite" name="{{item.name}}" degat="{{item.data.degats}}"></span><span class="armor" title="Armure" name="{{item.name}}" ></span></div>
 			                    <div class="item-controls">
+			                    	<a class="item-control item-desc" title="Desc Sort">&#128712;</a>
 			                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
 			                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
 			                    </div>
+
+			                     <div class="item-description"><span title="{{item.data.description}}">{{item.data.description}}</span></div>
 			                </li>
 			            {{/each}}
 		        		</ul>
@@ -325,7 +330,7 @@
 			                  <div class="item-image"></div>
 			                  <div class="item-name">{{localize 'liber.name'}}</div>
 			                  <div class="item-classe">{{localize 'liber.class'}}</div>
-			                  <div class="item-description2">{{localize 'liber.descri'}}</div>               
+			                  <!--div class="item-description2">{{localize 'liber.descri'}}</div-->               
 			                  <div class="item-cible">{{localize 'liber.cible'}}</div>
 			                  <div class="item-duree">{{localize 'liber.duree'}}</div>
 			                  <div class="item-cout">{{localize 'liber.cost'}}</div>
@@ -339,14 +344,17 @@
 			                    <div class="item-image"><a class="item-control item-lancer" title="Lancer Sort" data-name="{{item.name}}" data-cout="{{item.data.cout}}"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></a></div>
 			                    <div class="item-name"><span title="{{item.name}}">{{item.name}}</span></div>
 			                    <div class="item-classe">{{item.data.classe}}</div>
-			                    <div class="item-description2"><span title="{{item.data.description}}">{{item.data.description}}</span></div>
+			                    
 			                    <div class="item-cible">{{item.data.cible}}</div>
 			                    <div class="item-duree">{{item.data.duree}}</div>
 			                    <div class="item-cout">{{item.data.cout}}</div>
 			                    <div class="item-controls">
+			                        <a class="item-control item-desc" title="Desc Sort">&#128712;</a>
 			                        <a class="item-control item-edit" title="Edit Sort"><i class="fas fa-edit"></i></a>
 			                        <a class="item-control item-delete" title="Delete Sort"><i class="fas fa-trash"></i></a>
 			                    </div>
+
+			                    <div class="item-description2"><span title="{{item.data.description}}">{{item.data.description}}</span></div>
 			                </li>
 			            {{/each}}
 		        		</ol>
