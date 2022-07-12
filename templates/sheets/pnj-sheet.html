@@ -364,6 +364,15 @@
 				</div>
 				{{!-- Lab Tab --}}
 				<div id="lab" class="tab stats" data-group="primary" data-tab="lab">
+					<h2>{{localize 'liber.name'}}</h2>
+					<SELECT class="sexliste" name="data.sexe">
+							{{#select data.data.sexe}}
+			                  	<option value="{{localize 'liber.sex1'}}">{{localize 'liber.sex1'}}</option>
+			                    <option value="{{localize 'liber.sex2'}}">{{localize 'liber.sex2'}}</option>
+			                    <option value="{{localize 'liber.sex0'}}">{{localize 'liber.sex0'}}</option>
+			                {{/select}}
+		                </SELECT>
+					<input type="button" value="{{localize 'liber.generer'}}" class="namegenerator">
 					<h2>{{localize 'liber.race'}}</h2>
 						<SELECT class="raceliste" name="data.race">
 							{{#select data.data.race}}
