@@ -43,7 +43,7 @@ form.Liber{display: table-cell;overflow: auto;}
 .Liber .stat2 input,.Liber .stat2 label{margin-left:calc(50% - 20px);margin-top: 0}
 .Liber .stat2 p{text-align: center;margin-bottom: 0}
 .Liber .stat2 label{width:40px;display: block;}
-.Liber textarea{width: 100%;height: 255px;background: #253745;color:#fff;border:none;resize: none;}
+.Liber textarea{width: 100%;height: 195px;background: #253745;color:#fff;border:none;resize: none;}
 .Liber input[type="button"],.Liber .stat2 label{background:#e13b23;border:none;color:#fff;padding: 5px;font-weight: bold;cursor: pointer}
 .Liber .clear{clear: both}.liber .center{text-align: center;}
 .Liber .malussactor,.Liber .bonusactor,.Liber .pointrestant {width:74px;border: none;background: none; font-size: 50px;height:50px;color: #fff; text-align: center;margin-left: calc(50% - 35px);}
@@ -92,7 +92,7 @@ form.Liber{display: table-cell;overflow: auto;}
 .Liber .items-list .item-hand{width: 62px;float: left;filter: invert(1);}
 .Liber .items-list .item-controls{-webkit-box-flex: 0;-ms-flex: 0 0 86px;flex: 0 0 86px;text-align: right;width: 51px;}
 .Liber .stats select{border: none;height: 30px;width: 50%; margin: 3px;background: #0d0d0d;color: #fff;}
-.Liber .stats input{border: none;height: 30px;width: 40%;padding:5px;float: right;margin: 4px;background:#e13b23;border:none;color:#fff;padding: 5px;font-weight: bold;cursor: pointer}
+.Liber .stats input,.Liber .reposer{border: none;height: 30px;width: 40%;padding:5px;float: right;margin: 4px;background:#e13b23;border:none;color:#fff;padding: 5px;font-weight: bold;cursor: pointer}
 .Liber .stat input.insoin,.Liber .stat input.avant,.Liber .stat input.desan{border:none;color: #fff;text-align: right;opacity: 0.5}
 .Liber input.insoin{background:url("../assets/icon/pvi.png")left center no-repeat;background-size: contain;}
 .Liber input.avant{background:url("../assets/icon/avantage.png")left center no-repeat;background-size: contain;}
@@ -115,5 +115,6 @@ form.Liber{display: table-cell;overflow: auto;}
 .Liber .maindroite {background: url(" ../assets/icon/hand.png");background-size: cover;}
 .Liber .maingauche {background: url(" ../assets/icon/hand2.png");background-size: cover;}
 .Liber .armor {background: url(" ../assets/icon/armor.png");background-size: cover;}
+.Liber .typerepos ,.Liber .jourliste,.Liber .heure{background: black; border:  solid #fff 1px; color: white}
 
 .Liber .carac,.Liber .items,.Liber .spells,.Liber .stats {display: none; overflow: auto;}

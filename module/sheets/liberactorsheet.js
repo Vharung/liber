@@ -613,6 +613,145 @@ export class LiberActorSheet extends ActorSheet {
             });
         });
 
+        html.find('.reposer').on('click',function(){
+            var heure=html.find('.heure').val();
+            var jourliste=html.find('.jourliste').val();
+            var typerepos=html.find('.typerepos').val();
+            var level =html.find('.niveau').val();
+            var hp=html.find('.hp').val();
+            var hpmax=html.find('.hpmax').val();
+            var psy=html.find('.psy').val();
+            var psymax=html.find('.psymax').val();
+            var d="";var hpadd=0;var psyadd=0;
+            var insoin=html.find('.insoin').val();
+
+            if(typerepos==game.i18n.localize("liber.rapide")){
+                if(jourliste==game.i18n.localize("liber.jour")){
+                    d=Math. round(Math.random() * 4);
+                    hpadd=(d+parseInt(level))*parseInt(heure);
+                    var diff=parseInt(hpmax)-parseInt(hp);
+                    if(hpadd>diff){
+                        hpadd=diff;
+                    }else if(hpadd>=insoin){
+                        hpadd=parseInt(hpadd)-parseInt(insoin)
+                    }
+                    hp=parseInt(hpadd)+parseInt(hp)
+                    if(hp>hpmax){
+                        hp=hpmax;
+                    }
+                    heure=parseInt(heure)*24;
+                }
+                psyadd=Math.floor((parseInt(level)*parseInt(heure))/2);
+                var diff=parseInt(psymax)-parseInt(psy);
+                if(psyadd>diff){
+                    psyadd=diff;
+                }
+                psy=parseInt(psy)+parseInt(psyadd);
+                if(psy>psymax){
+                    psy=psymax;
+                }
+                html.find('.hp').val(hp);
+                html.find('.psy').val(psy);
+                
+            }else if(typerepos==game.i18n.localize("liber.calme")){
+                if(jourliste==game.i18n.localize("liber.jour")){
+                    d=Math. round(Math.random() * 6);
+                    hpadd=(d+parseInt(level))*parseInt(heure);
+                    var diff=parseInt(hpmax)-parseInt(hp);
+                    if(hpadd>diff){
+                        hpadd=diff;
+                    }else if(hpadd>=insoin){
+                        hpadd=parseInt(hpadd)-parseInt(insoin)
+                    }
+                    hp=parseInt(hpadd)+parseInt(hp)
+                    console.log(hp+"+"+hpmax)
+                    if(hp>hpmax){
+                        hp=hpmax;
+                    }
+                    
+                    heure=parseInt(heure)*24;
+                }
+                psyadd=(parseInt(level)*parseInt(heure));
+                var diff=parseInt(psymax)-parseInt(psy);
+                if(psyadd>diff){
+                    psyadd=diff;
+                }
+                psy=parseInt(psy)+parseInt(psyadd);
+                if(psy>psymax){
+                    psy=psymax;
+                }
+                html.find('.hp').val(hp);
+                html.find('.psy').val(psy);
+            }else if(typerepos==game.i18n.localize("liber.calme2")){
+                if(jourliste==game.i18n.localize("liber.jour")){
+                    html.find('.insoin').val(0);
+                    insoin=0;
+                    d=Math. round(Math.random() * 6);
+                    hpadd=(d+parseInt(level))*parseInt(heure);
+                    var diff=parseInt(hpmax)-parseInt(hp);
+                    if(hpadd>diff){
+                        hpadd=diff;
+                    }
+                    hp=parseInt(hpadd)+parseInt(hp)
+                    console.log(hp+"+"+hpmax)
+                    if(hp>hpmax){
+                        hp=hpmax;
+                    }
+                    
+                    heure=parseInt(heure)*24;
+                }
+                psyadd=((parseInt(level))*parseInt(heure));
+                var diff=parseInt(psymax)-parseInt(psy);
+                if(psyadd>diff){
+                    psyadd=diff;
+                }
+                psy=parseInt(psy)+parseInt(psyadd);
+                if(psy>psymax){
+                    psy=psymax;
+                }
+                html.find('.hp').val(hp);
+                html.find('.psy').val(psy);
+            }else if(typerepos==game.i18n.localize("liber.intensif")){
+                if(jourliste==game.i18n.localize("liber.jour")){
+                    html.find('.insoin').val(0);
+                    insoin=0;
+                    d=Math. round(Math.random() * 8);
+                    hpadd=((2*d)+parseInt(level))*parseInt(heure);
+                    var diff=parseInt(hpmax)-parseInt(hp);
+                    if(hpadd>diff){
+                        hpadd=diff;
+                    }
+                    hp=parseInt(hpadd)+parseInt(hp)
+                    if(hp>hpmax){
+                        hp=hpmax;
+                    }
+                    heure=parseInt(heure)*24;
+                }
+                psyadd=((parseInt(level))*parseInt(heure));
+                var diff=parseInt(psymax)-parseInt(psy);
+                if(psyadd>diff){
+                    psyadd=diff;
+                }
+                psy=parseInt(psy)+parseInt(psyadd);
+                if(psy>psymax){
+                    psy=psymax;
+                }
+                html.find('.hp').val(hp);
+                html.find('.psy').val(psy);
+            }
+            if(hpmax==hp && insoin>0){
+                hp=parseInt(hpmax)-parseInt(insoin);
+                html.find('.hp').val(hp);
+            }
+            let messageTable = game.i18n.localize("liber.repos") +' '+ typerepos+' +'+hpadd+'hp'+' / +'+psyadd+'psy';
+            let chatData = {
+                user: game.user._id,
+                speaker: ChatMessage.getSpeaker(),
+                content: messageTable
+            };
+            ChatMessage.create(chatData, {});
+            alert(game.i18n.localize("liber.reposez"))
+        });
 
         //Avantage
         var avant=html.find('.avant').val();

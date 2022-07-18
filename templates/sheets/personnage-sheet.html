@@ -68,6 +68,24 @@
 				</div>
 			</div>
 			<div class="clear"></div>
+			<h2 style="margin-top: 10px;">{{localize 'liber.repos'}}</h2>
+				<span style="float:left; margin-left:20px">
+					<input class="heure" name="data.heure" type="text" value="{{data.data.heure}}" placeholder="0" style="width:40px;text-align:center"/>
+					<SELECT class="jourliste"  name="data.jour">
+		            	{{#select data.data.jour}}
+		                    <OPTION value="{{localize 'liber.heure'}}" title="{{localize 'liber.heure'}}">{{localize 'liber.heure'}}</OPTION>
+		                    <OPTION value="{{localize 'liber.jour'}}" title="{{localize 'liber.jour'}}">{{localize 'liber.jour'}}</OPTION>
+		                {{/select}}
+		            </SELECT>
+		            <SELECT class="typerepos"  name="data.repos">
+		            	{{#select data.data.repos}}
+		                    <OPTION value="{{localize 'liber.rapide'}}" title="{{localize 'liber.rapide'}}">{{localize 'liber.rapide'}}</OPTION>
+		                    <OPTION value="{{localize 'liber.calme'}}" title="{{localize 'liber.calme'}}">{{localize 'liber.calme'}}</OPTION>
+		                    <OPTION value="{{localize 'liber.calme2'}}" title="{{localize 'liber.calme2'}}">{{localize 'liber.calme2'}}</OPTION>
+		                    <OPTION value="{{localize 'liber.intensif'}}" title="{{localize 'liber.intensif'}}">{{localize 'liber.intensif'}}</OPTION>
+		                {{/select}}
+		            </SELECT></span><button class="reposer" style="margin-top: 0;height: 25px;padding: 0px;">{{localize 'liber.reposer'}}</button>
+			<div class="clear"></div>
 			<h2 style="margin-top: 10px;">{{localize 'liber.attributs'}}</h2>
 			<div class="rexrow stat2">
 				<div class="grid-9col">
@@ -108,6 +126,7 @@
 				</div>
 				
 			</div>
+
 			<div class="rexrow modif">
 				<div class="grid-3col">
 					<h2 class="center">{{localize 'liber.restant'}}</h2>
