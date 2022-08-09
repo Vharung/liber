@@ -118,3 +118,8 @@ form.Liber{display: table-cell;overflow: auto;}
 .Liber .typerepos ,.Liber .jourliste,.Liber .heure{background: black; border:  solid #fff 1px; color: white}
 
 .Liber .carac,.Liber .items,.Liber .spells,.Liber .stats {display: none; overflow: auto;}
+.resultatp{text-align: center;font-size: medium;background: #6a7885;padding: 5px;color: white;display: flex;}
+.desctchat{padding: 5px;background: #bcc2c7;color: #464646;display:none}
+.infosort:active .desctchat{
+	display: flex;
+}

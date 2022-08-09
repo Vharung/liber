@@ -20,4 +20,3 @@ Hooks.once("init", async function() {
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("liber", LiberActorSheet, { makeDefault: true });
 });
-

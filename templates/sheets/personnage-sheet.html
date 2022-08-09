@@ -360,7 +360,7 @@
 			                </li>
 			            {{#each actor.sort as |item id|}}
 			                <li class="item fexrow" data-item-id="{{item._id}}">
-			                    <div class="item-image"><a class="item-control item-lancer" title="Lancer Sort" data-name="{{item.name}}" data-cout="{{item.data.cout}}"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></a></div>
+			                    <div class="item-image"><a class="item-control item-lancer" data-name="{{item.name}}" data-desc="{{item.data.description}}" data-cout="{{item.data.cout}}" data-img="{{item.img}}"><img src="{{item.img}}" title="Lancer {{item.name}}" width="24" height="24" data-name="{{item.name}}" data-desc="{{item.data.description}}" data-cout="{{item.data.cout}}" data-img="{{item.img}}"/></a></div>
 			                    <div class="item-name"><span title="{{item.name}}">{{item.name}}</span></div>
 			                    <div class="item-classe">{{item.data.classe}}</div>
 			                    

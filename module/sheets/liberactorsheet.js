@@ -19,13 +19,13 @@ export class LiberActorSheet extends ActorSheet {
         var poidsactor='';
         data.dtypes = ["String", "Number", "Boolean"];
         console.log(data);        
-		if (this.actor.data.type == 'personnage' || this.actor.data.type == 'pnj' || this.actor.data.type == 'monstre') {
-			this._prepareCharacterItems(data);
-		}
+        if (this.actor.data.type == 'personnage' || this.actor.data.type == 'pnj' || this.actor.data.type == 'monstre') {
+            this._prepareCharacterItems(data);
+        }
         return data;
     }
    
-	_prepareCharacterItems(sheetData) {
+    _prepareCharacterItems(sheetData) {
         const actorData = sheetData.actor;
 
         // Initialize containers.
@@ -546,138 +546,12 @@ export class LiberActorSheet extends ActorSheet {
             $( this ).css({"background":"#a51b1b","color": "white"});
           }
         });
+
         //Magie lancer un sort
-        html.find('.item-lancer').on('click',function(){
-            let monJetDeDes = "1d100";
-            let mental = html.find('.mental').val();
-            let bonus = html.find('.bonusactor').val();
-            let malus = html.find('.malussactor').val();
-            let posture = html.find('.postures').val();
-            var cout =  $(this).data('cout');
-            const name = $(this).data('name');
-            const nom = html.find('.nomperso').val();
-            var psy = html.find('.psy').val();
-            var hp = html.find('.hp').val();
-            var insoi = html.find('.insoin').val();
+        html.find('.item-lancer').click(this._onSpell.bind(this));
 
-            var bonuspost=0;
-            var critique=5;
-            if(posture=="Focus"){
-                bonuspost=5;
-            }else if(posture="Offensif"){
-                critique=10;
-            }
-            if(bonus==undefined){
-            	bonus=0;
-            }
-            let inforesult=parseInt(mental)+parseInt(bonus)+bonuspost+parseInt(malus);
-            if(inforesult>95){
-            inforesult=95;
-            }else if(inforesult<5){
-            inforesult=5;
-            }
-            let r = new Roll("1d100");
-            var roll=r.evaluate({"async": false});
-            let retour=r.result; 
-            var succes="";
-            if(retour>95){
-                succes="<h4 class='result' style='background:#ff3333;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang82")+"</h4>";
-            }else if(retour<=critique){
-                succes="<h4 class='result' style='background:#7dff33;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang83")+"</h4>";
-            }else if(retour<=inforesult){
-                succes="<h4 class='result' style='background:#78be50;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang84")+"</h4>";
-            }else{
-                succes="<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang85")+"</h4>";
-            }
-            if(posture=="Focus"){
-               cout=parseInt(cout)-1; 
-            }
-            if(cout<0){
-                cout=0;
-            }
-            if(psy<cout){
-                var diff= parseInt(cout)-parseInt(psy)
-                hp=parseInt(hp)-parseInt(diff);
-                psy=0;
-                insoi= parseInt(insoi)+parseInt(diff);
-                html.find('.insoin').val(insoi);
-                html.find('.hp').val(hp);
-            }else {
-                psy = parseInt(psy)-parseInt(cout)
-            }
-            html.find('.psy').val(psy);
-            const texte = "Lance " + name + " : 1d100 - " + inforesult + succes;
-            roll.toMessage({
-                speaker: ChatMessage.getSpeaker({ alias: nom }),
-                flavor: texte
-            });
-        });
-
-        html.find('.reposer').on('click',function(){
-            var heure=html.find('.heure').val();
-            var jourliste=html.find('.jourliste').val();
-            var typerepos=html.find('.typerepos').val();
-            var level =html.find('.niveau').val();
-            var hp=html.find('.hp').val();
-            var hpmax=html.find('.hpmax').val();
-            var psy=html.find('.psy').val();
-            var psymax=html.find('.psymax').val();
-            var d=0;var hpadd=0;var psyadd=0;var j=0
-            var insoin=html.find('.insoin').val();
-            if(jourliste==game.i18n.localize("liber.jour")){
-                heure=parseInt(heure)*24;
-                j=Math.floor(parseInt(heure)/3)
-            }
-            if(typerepos==game.i18n.localize("liber.rapide")){
-                d=Math. round(Math.random() * 4);
-                hpadd=((d+parseInt(level))*parseInt(heure))*j/8;
-                psyadd=Math.floor((parseInt(level)*parseInt(heure))/2);
-            }else if(typerepos==game.i18n.localize("liber.calme")){
-                d=Math. round(Math.random() * 6);
-                hpadd=((d+parseInt(level))*parseInt(heure))*j/8;
-                psyadd=Math.floor(parseInt(level)*parseInt(heure));
-            }else if(typerepos==game.i18n.localize("liber.calme2")){
-                d=Math. round(Math.random() * 6);insoin=0;
-                hpadd=(d+parseInt(level))*parseInt(heure);
-                psyadd=Math.floor(parseInt(level)*parseInt(heure));
-            }else if(typerepos==game.i18n.localize("liber.intensif")){
-                d=Math. round(Math.random() * 8);insoin=0;
-                hpadd=((2*d)+parseInt(level))*parseInt(heure);
-                psyadd=Math.floor(parseInt(level)*parseInt(heure));
-            }    
-            var diff=parseInt(hpmax)-parseInt(hp);
-            if(hpadd>diff){
-                hpadd=diff;
-            }
-            hp=parseInt(hpadd)+parseInt(hp)
-            if(hp>hpmax){
-                hp=hpmax;
-            }
-            var diff=parseInt(psymax)-parseInt(psy);
-            if(psyadd>diff){
-                psyadd=diff;
-            }
-            psy=parseInt(psy)+parseInt(psyadd);
-            if(psy>psymax){
-                psy=psymax;
-            }
-            if(hpmax==hp && insoin>0){
-                hp=parseInt(hpmax)-parseInt(insoin);
-                hpadd=parseInt(hpadd)-parseInt(insoin);console.log(hpadd)
-            }
-            html.find('.hp').val(hp);
-            html.find('.psy').val(psy);
-
-            
-            let messageTable = game.i18n.localize("liber.repos") +' '+ typerepos+' +'+hpadd+'hp'+' / +'+psyadd+'psy';
-            let chatData = {
-                user: game.user._id,
-                speaker: ChatMessage.getSpeaker(),
-                content: messageTable
-            };
-            ChatMessage.create(chatData, {});
-            alert(game.i18n.localize("liber.reposez"))
-        });
+        //Se reposer
+        html.find('.reposer').click(this._onSleep.bind(this));
 
         //Avantage
         var avant=html.find('.avant').val();
@@ -704,33 +578,12 @@ export class LiberActorSheet extends ActorSheet {
 
         //Posture
         var postures=html.find('.postures').val();
-        $('.offensif').on('click',function(){
-            let messageTable = game.i18n.localize("liber.lang86");
-            let chatData = {
-                user: game.user._id,
-                speaker: ChatMessage.getSpeaker(),
-                content: messageTable
-            };
-            ChatMessage.create(chatData, {});
-        });
-        $('.defensif').on('click',function(){
-             let messageTable = game.i18n.localize("liber.lang87");
-            let chatData = {
-                user: game.user._id,
-                speaker: ChatMessage.getSpeaker(),
-                content: messageTable
-            };
-            ChatMessage.create(chatData, {});
-        });
-        $('.focus').on('click',function(){
-            let messageTable = game.i18n.localize("liber.lang88");
-            let chatData = {
-                user: game.user._id,
-                speaker: ChatMessage.getSpeaker(),
-                content: messageTable
-            };
-            ChatMessage.create(chatData, {});
-        }); 
+        html.find('.offensif').click(this._onPosture.bind(this));
+        html.find('.defensif').click(this._onPosture.bind(this));
+        html.find('.focus').click(this._onPosture.bind(this));
+        html.find('.aucune').click(this._onPosture.bind(this));
+
+
         if(postures=="Focus"){
             html.find('.focus').css("opacity", "1");
         }else if(postures=="Offensif"){
@@ -1039,7 +892,7 @@ export class LiberActorSheet extends ActorSheet {
             succes="<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Echec</h4>";
         }
 
-        const texte = "Jet de " + name + " : " + jetdeDesFormule +" - " + inforesult +succes;
+        const texte = '<span style="flex:auto"><p class="resultatp">Jet de ' + name + " : " + inforesult +'/100</p>'+succes+'</span>';
         //roll.roll().toMessage({
         roll.toMessage({
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -1052,20 +905,25 @@ export class LiberActorSheet extends ActorSheet {
         const name = event.target.dataset["name"];
         let r = new Roll(monJetDeDes);
         var roll=r.evaluate({"async": false});
-        const texte = "Utilise " + name + " : " + monJetDeDes;
+        const texte = '<span style="flex:auto"><p class="resultatp">Utilise ' + name + '</p></span>';
         roll.toMessage({
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
             flavor: texte
         });
     }
-    _onMagiesort(event){
-        let monJetDeDes = "1d100";
-        let maxstat = event.target.dataset["attdice"];
-        let bonus = event.target.dataset["actionvalue"];
-        let malus = event.target.dataset["malus"];
-        let posture = event.target.dataset["posture"];
-        let cout =  event.target.dataset["cout"];
-        const name = event.target.dataset["name"];
+
+    _onSpell(event){//a dev pour corriger soucis image dans le tchat
+        let mental =this.actor.data.data.mental;
+        let bonus =this.actor.data.data.bonus;
+        let malus =this.actor.data.data.malus;
+        let posture =this.actor.data.data.posture;
+        var cout=event.target.dataset["cout"];
+        var name=event.target.dataset["name"];
+        var desc=event.target.dataset["desc"];
+        var img=event.target.dataset["img"];
+        var psy=this.actor.data.data.psy.value;
+        var hp=this.actor.data.data.hp.value;
+        var insoin=this.actor.data.data.insoin;
         var bonuspost=0;
         var critique=5;
         if(posture=="Focus"){
@@ -1073,7 +931,10 @@ export class LiberActorSheet extends ActorSheet {
         }else if(posture="Offensif"){
             critique=10;
         }
-        let inforesult=parseInt(maxstat)+parseInt(bonus)+bonuspost+parseInt(malus);
+        if(bonus==undefined){
+            bonus=0;
+        }
+        let inforesult=parseInt(mental)+parseInt(bonus)+bonuspost+parseInt(malus);
         if(inforesult>95){
         inforesult=95;
         }else if(inforesult<5){
@@ -1085,19 +946,118 @@ export class LiberActorSheet extends ActorSheet {
         var succes="";
         if(retour>95){
             succes="<h4 class='result' style='background:#ff3333;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang82")+"</h4>";
-        }else if(retour<critique){
+        }else if(retour<=critique){
             succes="<h4 class='result' style='background:#7dff33;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang83")+"</h4>";
         }else if(retour<=inforesult){
             succes="<h4 class='result' style='background:#78be50;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang84")+"</h4>";
         }else{
             succes="<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang85")+"</h4>";
         }
-
-        const texte = "Lance " + name + " : 1d100 - " + inforesult + succes;
-
+        if(posture=="Focus"){
+           cout=parseInt(cout)-1; 
+        }
+        if(cout<0){
+            cout=0;
+        }
+        if(psy<cout){
+            var diff= parseInt(cout)-parseInt(psy)
+            hp=parseInt(hp)-parseInt(diff);
+            psy=0;
+            insoin= parseInt(insoin)+parseInt(diff);            
+        }else {
+            psy = parseInt(psy)-parseInt(cout)
+        }
+        this.actor.update({"data.insoin": insoin});
+        this.actor.update({"data.hp.value": hp});
+        this.actor.update({"data.psy.value": psy});
+        const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +' : '+ inforesult +'/100</span><span class="desctchat">'+desc+'</span></p>'+succes+'</span>';
         roll.toMessage({
-            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            speaker: ChatMessage.getSpeaker({ actor: this.actor }),//bug
             flavor: texte
         });
+    }
+
+    _onSleep(event){
+        let heure =this.actor.data.data.heure;
+        let jourliste =this.actor.data.data.jour;
+        let typerepos =this.actor.data.data.repos;
+        let level =this.actor.data.data.level;
+        var psy=this.actor.data.data.psy.value;
+        var psymax=this.actor.data.data.psy.max;
+        var hp=this.actor.data.data.hp.value;
+        var hpmax=this.actor.data.data.hp.max;
+        var insoin=this.actor.data.data.insoin;
+        var d=0;var hpadd=0;var psyadd=0;var j=0
+        if(jourliste==game.i18n.localize("liber.jour")){
+            heure=parseInt(heure)*24;
+            j=Math.floor(parseInt(heure)/3)
+        }
+        if(typerepos==game.i18n.localize("liber.rapide")){
+            d=Math. round(Math.random() * 4);
+            hpadd=((d+parseInt(level))*parseInt(heure))*j/8;
+            psyadd=Math.floor((parseInt(level)*parseInt(heure))/2);
+        }else if(typerepos==game.i18n.localize("liber.calme")){
+            d=Math. round(Math.random() * 6);
+            hpadd=((d+parseInt(level))*parseInt(heure))*j/8;
+            psyadd=Math.floor(parseInt(level)*parseInt(heure));
+        }else if(typerepos==game.i18n.localize("liber.calme2")){
+            d=Math. round(Math.random() * 6);insoin=0;
+            hpadd=(d+parseInt(level))*parseInt(heure);
+            psyadd=Math.floor(parseInt(level)*parseInt(heure));
+        }else if(typerepos==game.i18n.localize("liber.intensif")){
+            d=Math. round(Math.random() * 8);insoin=0;
+            hpadd=((2*d)+parseInt(level))*parseInt(heure);
+            psyadd=Math.floor(parseInt(level)*parseInt(heure));
+        }    
+        var diff=parseInt(hpmax)-parseInt(hp);
+        if(hpadd>diff){
+            hpadd=diff;
+        }
+        hp=parseInt(hpadd)+parseInt(hp)
+        if(hp>hpmax){
+            hp=hpmax;
+        }
+        var diff=parseInt(psymax)-parseInt(psy);
+        if(psyadd>diff){
+            psyadd=diff;
+        }
+        psy=parseInt(psy)+parseInt(psyadd);
+        if(psy>psymax){
+            psy=psymax;
+        }
+        if(hpmax==hp && insoin>0){
+            hp=parseInt(hpmax)-parseInt(insoin);
+            hpadd=parseInt(hpadd)-parseInt(insoin);console.log(hpadd)
+        }
+        this.actor.update({"data.insoin": insoin});
+        this.actor.update({"data.hp.value": hp});
+        this.actor.update({"data.psy.value": psy});
+
+        
+        let texte ='<span style="flex:auto"><p class="resultatp">'+game.i18n.localize("liber.repos") +' '+ typerepos+' +'+hpadd+'hp'+' / +'+psyadd+'psy </p></span>';
+        let chatData = {
+            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            content: texte
+        };
+        ChatMessage.create(chatData, {});
+    }
+
+    _onPosture(event){
+        let postures =this.actor.data.data.posture;
+        var texte = '';
+        if(postures=="Focus"){
+            texte = '<span style="flex:auto"><p class="resultatp">'+ game.i18n.localize("liber.lang88")+'</p></span>';
+        }else if(postures=="Offensif"){
+            texte = '<span style="flex:auto"><p class="resultatp">'+ game.i18n.localize("liber.lang86")+'</p></span>';           
+        }else if(postures=="Défensif"){
+            texte = '<span style="flex:auto"><p class="resultatp">'+ game.i18n.localize("liber.lang87")+'</p></span>';
+        }else{
+            texte = '<span style="flex:auto"><p class="resultatp">'+ game.i18n.localize("liber.lang89")+'</p></span>';
+        }
+        let chatData = {
+            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            content: texte
+        };
+        ChatMessage.create(chatData, {});
     }
 }
