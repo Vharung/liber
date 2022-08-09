@@ -469,12 +469,11 @@ export class LiberActorSheet extends ActorSheet {
         html.find('.barenc').css({"width":pourcentage+"%"});
 
         //Equipé
+        
+        html.find('.desequi').click(this._onDequip.bind(this));
         html.find('.maindroite').click(this._onArmor.bind(this));
         html.find('.maingauche').click(this._onArmor.bind(this));
         html.find('.armor').click(this._onArmor.bind(this));
-        html.find('.armordes').click(this._onArmorDes.bind(this));
-        html.find('.mainddes').click(this._onArmorDes.bind(this));
-        html.find('.maingdes').click(this._onArmorDes.bind(this));
 
         //Ajout Bonus
         $('.attribut').on('click',function(){
@@ -529,6 +528,7 @@ export class LiberActorSheet extends ActorSheet {
             }
             html.find('.degat').val(fixe[0]+'+'+number);
             lvl++;
+            console.log(lvl)//bug
             html.find('.lvl').val(lvl);
         });
 
@@ -1020,10 +1020,8 @@ export class LiberActorSheet extends ActorSheet {
     }
 
     _onArmor(event){
-        console.log('armor')
-
-        var objetaequipe=event.target.dataset["name"];
         var equipe=event.target.dataset["equip"];
+        var objetaequipe=event.target.dataset["name"];
         var degat=event.target.dataset["degat"];
         var maind= this.actor.data.data.armed;
         var maing= this.actor.data.data.armeg;
@@ -1065,33 +1063,29 @@ export class LiberActorSheet extends ActorSheet {
             armure=armure+1;
         }else if(objetaequipe=="Grand Bouclier" || maind=="Grand Bouclier" || maing=="Grand Bouclier"){
             armure=armure+1;
-        }        
+        }      
         this.actor.update({'data.protection': armure});
     }
 
-    _onArmorDes(event){
-        console.log('armordes')
+    _onDequip(event){
         var equipe=event.target.dataset["desequip"];        
         var protection= this.actor.data.data.protection;
         var maind= this.actor.data.data.armed;
         var maing= this.actor.data.data.armeg;
+        var degatd= this.actor.data.data.degatd;
+        var degatg= this.actor.data.data.dagatg;
+        var race = this.actor.data.data.race;
         var objetaequipe=this.actor.data.data.armure;
+        var armure = 0;
         if(equipe=="droite"){
-            this.actor.update({'data.armed': ''});
-            this.actor.update({'data.degatd': ''});
             maind='';
+            degatd='';
         }else if(equipe=="gauche"){
-            this.actor.update({'data.armeg': ''});
-            this.actor.update({'data.degatg': ''});
             maing='';
+            degatg='';
         }else if(equipe=="armure"){
-            this.actor.update({'data.armure': ''});
             objetaequipe='';
         }
-
-
-        var armure = 0;
-        var race = this.actor.data.data.race;
         if(race==game.i18n.localize("liber.avantrace60")){
             armure = 2;
         }
@@ -1109,8 +1103,7 @@ export class LiberActorSheet extends ActorSheet {
             armure=armure+1;
         }else if(objetaequipe==''){
             armure=armure+0;
-        }       
-        
-        this.actor.update({'data.protection': armure}); //bug obliger de cliquer deux fois
-    }
+        }  
+        this.actor.update({'data.armed': maind,'data.degatd': degatd,'data.armeg': maing,'data.degatg': degatg,'data.armure': objetaequipe,'data.protection': armure}); //bug obliger de cliquer deux fois
+   }
 }
