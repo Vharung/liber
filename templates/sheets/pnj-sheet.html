@@ -11,13 +11,16 @@
 					<input class="nomperso" name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
 					<div class="rexrow">
 						<div class="grid-3col">
-							<p>{{localize 'liber.race'}} : <input class="race" name="data.race" type="text" value="{{data.data.race}}" placeholder="Race"/></p>
+							<!--p>{{localize 'liber.race'}} : <input class="race" name="data.race" type="text" value="{{data.data.race}}" placeholder="Race"/></p-->
+							<p>{{localize 'liber.race'}} : <input class="race" type="text" value="{{data.data.race}}" placeholder="Race" readonly="" /></p>
 						</div>
 						<div class="grid-3col">
-							<p>{{localize 'liber.clan'}} : <input class="clan" name="data.clan" type="text" value="{{data.data.clan}}" placeholder="Clan"/></p>
+							<!--p>{{localize 'liber.clan'}} : <input class="clan" name="data.clan" type="text" value="{{data.data.clan}}" placeholder="Clan"/></p-->
+							<p>{{localize 'liber.clan'}} : <input class="clan" type="text" value="{{data.data.clan}}" placeholder="Clan" readonly="" /></p>
 						</div>
 						<div class="grid-3col">
-							<p>{{localize 'liber.religion'}} : <input class="religion" name="data.religion" type="text" value="{{data.data.religion}}" placeholder="Religion"/></p>
+							<!--p>{{localize 'liber.religion'}} : <input class="religion" name="data.religion" type="text" value="{{data.data.religion}}" placeholder="Religion"/></p-->
+							<p>{{localize 'liber.religion'}} : <input class="religion" type="text" value="{{data.data.religion}}" placeholder="Religion" readonly="" /></p>
 						</div>
 						<!--div class="separator"></div-->
 						<p>{{localize 'liber.bonus'}} : <input class="avantagerace" name="data.bonusrace" type="text" value="{{data.data.bonusrace}}" placeholder="Bonus"/>
@@ -65,6 +68,24 @@
 				</div>
 			</div>
 			<div class="clear"></div>
+			<h2 style="margin-top: 10px;">{{localize 'liber.repos'}}</h2>
+				<span style="float:left; margin-left:20px">
+					<input class="heure" name="data.heure" type="text" value="{{data.data.heure}}" placeholder="0" style="width:40px;text-align:center"/>
+					<SELECT class="jourliste"  name="data.jour">
+		            	{{#select data.data.jour}}
+		                    <OPTION value="{{localize 'liber.heure'}}" title="{{localize 'liber.heure'}}">{{localize 'liber.heure'}}</OPTION>
+		                    <OPTION value="{{localize 'liber.jour'}}" title="{{localize 'liber.jour'}}">{{localize 'liber.jour'}}</OPTION>
+		                {{/select}}
+		            </SELECT>
+		            <SELECT class="typerepos"  name="data.repos">
+		            	{{#select data.data.repos}}
+		                    <OPTION value="{{localize 'liber.rapide'}}" title="{{localize 'liber.rapide'}}">{{localize 'liber.rapide'}}</OPTION>
+		                    <OPTION value="{{localize 'liber.calme'}}" title="{{localize 'liber.calme'}}">{{localize 'liber.calme'}}</OPTION>
+		                    <OPTION value="{{localize 'liber.calme2'}}" title="{{localize 'liber.calme2'}}">{{localize 'liber.calme2'}}</OPTION>
+		                    <OPTION value="{{localize 'liber.intensif'}}" title="{{localize 'liber.intensif'}}">{{localize 'liber.intensif'}}</OPTION>
+		                {{/select}}
+		            </SELECT></span><button class="reposer" style="margin-top: 0;height: 25px;padding: 0px;">{{localize 'liber.reposer'}}</button>
+			<div class="clear"></div>
 			<h2 style="margin-top: 10px;">{{localize 'liber.attributs'}}</h2>
 			<div class="rexrow stat2">
 				<div class="grid-9col">
@@ -105,6 +126,7 @@
 				</div>
 				
 			</div>
+
 			<div class="rexrow modif">
 				<div class="grid-3col">
 					<h2 class="center">{{localize 'liber.restant'}}</h2>
@@ -199,11 +221,13 @@
 				<div id="carac" class="tab carac" data-group="primary" data-tab="carac">
 					<div class="rexrow">
 				    	<div class="grid-2col">
-							<span class="deno" style="text-align: left;color:#fff">{{localize 'liber.talent'}}</span><input class="talent" name="data.talent" type="text" value="{{data.data.talent}}" placeholder="Talent"/>
+							<!--span class="deno" style="text-align: left;color:#fff">{{localize 'liber.talent'}}</span><input class="talent" name="data.talent" type="text" value="{{data.data.talent}}" placeholder="Talent"/-->
+							<span class="deno" style="text-align: left;color:#fff">{{localize 'liber.talent'}}</span><input class="talent" type="text" value="{{data.data.talent}}" placeholder="Talent" readonly="" />
 							<div class="clear"></div>                             
 						</div>
 						<div class="grid-2col">
-							<span class="deno" style="text-align: left;color:#fff">{{localize 'liber.faiblesse'}}</span><input class="faiblesse" name="data.faiblesse" type="text" value="{{data.data.faiblesse}}" placeholder="Faiblesse"/>
+							<!--span class="deno" style="text-align: left;color:#fff">{{localize 'liber.faiblesse'}}</span><input class="faiblesse" name="data.faiblesse" type="text" value="{{data.data.faiblesse}}" placeholder="Faiblesse"/-->
+							<span class="deno" style="text-align: left;color:#fff">{{localize 'liber.faiblesse'}}</span><input class="faiblesse" type="text" value="{{data.data.faiblesse}}" placeholder="Faiblesse" readonly="" />
 							<div class="clear"></div>                             
 						</div>
 					</div>
@@ -336,7 +360,7 @@
 			                </li>
 			            {{#each actor.sort as |item id|}}
 			                <li class="item fexrow" data-item-id="{{item._id}}">
-			                    <div class="item-image"><a class="item-control item-lancer" title="Lancer Sort" data-name="{{item.name}}" data-cout="{{item.data.cout}}"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></a></div>
+			                    <div class="item-image"><a class="item-control item-lancer" data-name="{{item.name}}" data-desc="{{item.data.description}}" data-cout="{{item.data.cout}}" data-img="{{item.img}}"><img src="{{item.img}}" title="Lancer {{item.name}}" width="24" height="24" data-name="{{item.name}}" data-desc="{{item.data.description}}" data-cout="{{item.data.cout}}" data-img="{{item.img}}"/></a></div>
 			                    <div class="item-name"><span title="{{item.name}}">{{item.name}}</span></div>
 			                    <div class="item-classe">{{item.data.classe}}</div>
 			                    
