@@ -469,53 +469,12 @@ export class LiberActorSheet extends ActorSheet {
         html.find('.barenc').css({"width":pourcentage+"%"});
 
         //Equipé
-        var listedemain =['Rapière','Bâton','Espadon','Hallebarde','Fléaux d\'arme','Epée à deux main','Masse d\'arme','Hache de bataille','Faux de Guerre','Lance Lourde']//lang
-        $('.maindroite').on('click',function(){
-            var objetaequipe=$(this).attr("name");
-            var degat=$(this).attr("degat");
-            var maing= html.find(".maingaucequi").val();
-            for (var i = listedemain.length - 1; i >= 0; i--) {
-                if(objetaequipe==listedemain[i] || maing == listedemain[i]){
-                    html.find(".maingaucequi").val('-');
-                    html.find(".degatg").val('-');
-                }
-            }
-            html.find(".maindroiequi").val(objetaequipe);
-            html.find(".degatd").val(degat);
-            
-            
-        });
-        $('.maingauche').on('click',function(){
-            var objetaequipe=$(this).attr("name");
-            var degat=$(this).attr("degat");
-            var maind= html.find(".maindroiequi").val();
-            for (var i = listedemain.length - 1; i >= 0; i--) {
-                if(objetaequipe==listedemain[i] || maind == listedemain[i]){
-                    html.find(".maindroiequi").val('-');
-                    html.find(".degatd").val('-');
-                }
-            }
-            html.find(".maingaucequi").val(objetaequipe);
-            html.find(".degatg").val(degat);
-
-        });
-        $('.armor').on('click',function(){
-            var objetaequipe=$(this).attr("name");
-            html.find(".armurequi").val(objetaequipe);
-        });
-
-        //desquipe
-        $('.mainddes').on('click',function(){
-            html.find(".maindroiequi").val('');
-            html.find(".degatd").val('');
-        });
-        $('.maingdes').on('click',function(){
-            html.find(".maingaucequi").val('');
-            html.find(".degatg").val('');
-        });
-        $('.armordes').on('click',function(){
-            html.find(".armurequi").val('');
-        });
+        html.find('.maindroite').click(this._onArmor.bind(this));
+        html.find('.maingauche').click(this._onArmor.bind(this));
+        html.find('.armor').click(this._onArmor.bind(this));
+        html.find('.armordes').click(this._onArmorDes.bind(this));
+        html.find('.mainddes').click(this._onArmorDes.bind(this));
+        html.find('.maingdes').click(this._onArmorDes.bind(this));
 
         //Ajout Bonus
         $('.attribut').on('click',function(){
@@ -892,7 +851,7 @@ export class LiberActorSheet extends ActorSheet {
         if(raceliste==game.i18n.localize("liber.avantrace60")){
             this.actor.update({'.cpt27' : -10});
             if(armureperso<2){
-                this.actor.update({'.armureperso' : 2}); 
+                this.actor.update({'data.protection' : 2}); 
             }
             var avantagerace=game.i18n.localize("liber.avantrace1");
         }else if(raceliste==game.i18n.localize("liber.avantrace61")){
@@ -904,7 +863,7 @@ export class LiberActorSheet extends ActorSheet {
         }else if(raceliste==game.i18n.localize("liber.avantrace63")){
             var avantagerace=game.i18n.localize("liber.avantrace4");
             if(armureperso<2){
-                this.actor.update({'.armureperso' : 2}); 
+                this.actor.update({'data.protection' : 2}); 
             }
         }else if(raceliste==game.i18n.localize("liber.avantrace64")){
              this.actor.update({'.cpt27' : -20});
@@ -1058,5 +1017,100 @@ export class LiberActorSheet extends ActorSheet {
         var signeastro = items4[Math.floor(Math.random()*items4.length)];
         var textgen =game.i18n.localize("liber.lang77")+' '+age+' '+game.i18n.localize("liber.lang78")+' '+nomville+'. '+game.i18n.localize("liber.lang79")+' '+evenement+", "+motivation+' '+game.i18n.localize("liber.lang80")+' '+tonchoix+'. '+game.i18n.localize("liber.lang82")+' '+signeastro;
         this.actor.update({'data.histoire': textgen});
+    }
+
+    _onArmor(event){
+        console.log('armor')
+
+        var objetaequipe=event.target.dataset["name"];
+        var equipe=event.target.dataset["equip"];
+        var degat=event.target.dataset["degat"];
+        var maind= this.actor.data.data.armed;
+        var maing= this.actor.data.data.armeg;
+        var protection= this.actor.data.data.protection;
+        if(equipe=="droite"||equipe=="gauche"){
+            var listedemain =['Rapière','Bâton','Espadon','Hallebarde','Fléaux d\'arme','Epée à deux main','Masse d\'arme','Hache de bataille','Faux de Guerre','Lance Lourde']//lang
+            for (var i = listedemain.length - 1; i >= 0; i--) {
+                if(objetaequipe==listedemain[i] || maind == listedemain[i]){
+                    this.actor.update({'data.armed': ''});
+                    this.actor.update({'data.degatd': ''});
+                    this.actor.update({'data.armeg': ''});
+                    this.actor.update({'data.degatg': ''});
+                }
+            }
+            if(equipe=="droite"){
+                this.actor.update({'data.armed': objetaequipe});
+                this.actor.update({'data.degatd': degat});
+            }else if(equipe=="gauche"){
+                this.actor.update({'data.armeg': objetaequipe});
+                this.actor.update({'data.degatg': degat});
+            }
+        }else if(equipe=="armure"){
+            this.actor.update({'data.armure': objetaequipe});
+        }        
+        var armure = 0;
+        var race = this.actor.data.data.race;
+        if(race==game.i18n.localize("liber.avantrace60")){
+            armure = 2;
+        }
+        if(objetaequipe=="Armure de plaques"){
+            armure=armure+4;
+        }else if(objetaequipe=="Bouclier" || maind=="Bouclier" || maing=="Bouclier"){
+            armure=armure+1;
+        }else if(objetaequipe=="Cote de maille"){
+            armure=armure+3;
+        }else if(objetaequipe=="Cuir rigide"){
+            armure=armure+2;
+        }else if(objetaequipe=="Cuir souple"){
+            armure=armure+1;
+        }else if(objetaequipe=="Grand Bouclier" || maind=="Grand Bouclier" || maing=="Grand Bouclier"){
+            armure=armure+1;
+        }        
+        this.actor.update({'data.protection': armure});
+    }
+
+    _onArmorDes(event){
+        console.log('armordes')
+        var equipe=event.target.dataset["desequip"];        
+        var protection= this.actor.data.data.protection;
+        var maind= this.actor.data.data.armed;
+        var maing= this.actor.data.data.armeg;
+        var objetaequipe=this.actor.data.data.armure;
+        if(equipe=="droite"){
+            this.actor.update({'data.armed': ''});
+            this.actor.update({'data.degatd': ''});
+            maind='';
+        }else if(equipe=="gauche"){
+            this.actor.update({'data.armeg': ''});
+            this.actor.update({'data.degatg': ''});
+            maing='';
+        }else if(equipe=="armure"){
+            this.actor.update({'data.armure': ''});
+            objetaequipe='';
+        }
+
+
+        var armure = 0;
+        var race = this.actor.data.data.race;
+        if(race==game.i18n.localize("liber.avantrace60")){
+            armure = 2;
+        }
+        if(objetaequipe=="Armure de plaques"){
+            armure=armure+4;
+        }else if(objetaequipe=="Bouclier" || maind=="Bouclier" || maing=="Bouclier"){
+            armure=armure+1;
+        }else if(objetaequipe=="Cote de maille"){
+            armure=armure+3;
+        }else if(objetaequipe=="Cuir rigide"){
+            armure=armure+2;
+        }else if(objetaequipe=="Cuir souple"){
+            armure=armure+1;
+        }else if(objetaequipe=="Grand Bouclier" || maind=="Grand Bouclier" || maing=="Grand Bouclier"){
+            armure=armure+1;
+        }else if(objetaequipe==''){
+            armure=armure+0;
+        }       
+        
+        this.actor.update({'data.protection': armure}); //bug obliger de cliquer deux fois
     }
 }

@@ -263,17 +263,17 @@
 					<div class="rexrow">
 						<div class="grid-3col" style="text-align: center" class="unemain">
 							<h2>{{localize 'liber.gauche'}}</h2>
-							<input class="maingaucequi" name="data.armeg" type="text" value="{{data.data.armeg}}" placeholder="Main Gauche" readonly="" /><button class="desequi maingdes">🗑</button>
+							<input class="maingaucequi" name="data.armeg" type="text" value="{{data.data.armeg}}" placeholder="Main Gauche" readonly="" /><button class="desequi maingdes" data-desequip="gauche">🗑</button>
 							<input class="degatg jetdedegat" name="data.degatg" type="text" data-name="{{data.data.armeg}}" value="{{data.data.degatg}}" data-dice="{{data.data.degatg}}" placeholder="Dégat" readonly="" />
 						</div>
 						<div class="grid-3col" style="text-align: center">
 							<h2 class="deuxmains">{{localize 'liber.droite'}}</h2>
-							<input class="maindroiequi" name="data.armed" type="text" value="{{data.data.armed}}" placeholder="Main droite" readonly="" /><button class="desequi mainddes">🗑</button>
+							<input class="maindroiequi" name="data.armed" type="text" value="{{data.data.armed}}" placeholder="Main droite" readonly="" /><button class="desequi mainddes" data-desequip="droite">🗑</button>
 							<input class="degatd jetdedegat" name="data.degatd" type="text" data-name="{{data.data.armed}}" value="{{data.data.degatd}}" data-dice="{{data.data.degatd}}" placeholder="Dégat" readonly="" />
 						</div>
 						<div class="grid-3col" style="text-align: center">
 							<h2>{{localize 'liber.armor'}}</h2>
-							<input  class="armurequi" name="data.armure" type="text" value="{{data.data.armure}}" placeholder="Armure" readonly="" /><button class="desequi armordes">🗑</button>						
+							<input  class="armurequi" name="data.armure" type="text" value="{{data.data.armure}}" placeholder="Armure" readonly="" /><button class="desequi armordes" data-desequip="armure">🗑</button>						
 						</div>
 					</div>
 					<div class="clear"></div>
@@ -329,7 +329,7 @@
 			                    <div class="item-poids">{{item.data.poids}}</div>
 			                    <div class="item-valeur">{{item.data.valeur}}</div>
 			                    <div class="item-qty">{{item.data.quantite}}</div>
-			                    <div class="item-hand"><span class="maingauche" title="main gauche" name="{{item.name}}" degat="{{item.data.degats}}"></span><span class="maindroite" title="main droite" name="{{item.name}}" degat="{{item.data.degats}}"></span><span class="armor" title="Armure" name="{{item.name}}" ></span></div>
+			                    <div class="item-hand"><span class="maingauche" title="main gauche" data-equip="gauche" data-name="{{item.name}}" data-degat="{{item.data.degats}}" name="{{item.name}}" ></span><span class="maindroite" title="main droite" data-equip="droite" data-name="{{item.name}}" data-degat="{{item.data.degats}}" name="{{item.name}}" ></span><span class="armor" title="Armure" name="{{item.name}}" data-equip="armure"  data-name="{{item.name}}" ></span></div>
 			                    <div class="item-controls">
 			                    	<a class="item-control item-desc" title="Desc Sort">&#128712;</a>
 			                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
