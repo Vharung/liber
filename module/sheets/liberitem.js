@@ -74,4 +74,55 @@ export class LiberItem extends Item {
     //this._prepareCharacterData(itemData);
     //this._prepareNpcData(itemData);
   }
+  DegatLvl(){
+    let itemData = this.data;
+    let dgt=itemData.data.degats;
+    if(dgt==0){
+      this.update({'data.degat':0});
+    }else {
+      var fixe = dgt.split('+');
+      var des=fixe[0].split('d');
+      var number=fixe[1];
+      var nb=des[0];
+      var type=des[1];
+
+      if(number==undefined||number==""){
+          number=0;
+      }
+
+      var limite=4;
+      if(number<limite){
+        number++;
+      }else {
+        number=3;
+        if(nb<limite){
+          nb++;
+        }else{
+          nb=3;
+          if(type==4){
+            type=6
+          }else if(type==6){
+            type=8
+          }else if(type==8){
+            type=10
+          }else if(type==10){
+            type=12
+          }else if(type==12){
+            type=20
+          }else if(type==20){
+            type=100
+          }else if(type==100){
+            if(nb<limite){
+              nb++;
+            }
+          }
+        }
+
+      }
+      console.log(nb+'d'+type+'+'+number)
+      var ndgt=nb+'d'+type+'+'+number; 
+      this.update({'data.degats':ndgt});
+    }
+    
+  }
 }

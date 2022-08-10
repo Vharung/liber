@@ -119,161 +119,163 @@ export class LiberActorSheet extends ActorSheet {
         
 
         //point restant
-        var espece=html.find('.race').val();
-        var phys=parseInt(html.find('.phys').val());
-        var forc=parseInt(html.find('.forc').val());
-        var agil=parseInt(html.find('.agil').val());
-        var soci=parseInt(html.find('.soci').val());
-        var char=parseInt(html.find('.char').val());
-        var saga=parseInt(html.find('.saga').val());
-        var ment=parseInt(html.find('.mental').val());
-        var astu=parseInt(html.find('.astu').val());
-        var memo=parseInt(html.find('.memo').val());
-        var reste=170-(phys+soci+ment);
-        if(espece==game.i18n.localize("liber.avantrace61")){
-            if(soci<5){
-                html.find('.soci').val(5);
-                soci=5;
+        if(this.actor.data.type=="personnage"){
+            
+            var espece=html.find('.race').val();
+            var phys=parseInt(html.find('.phys').val());
+            var forc=parseInt(html.find('.forc').val());
+            var agil=parseInt(html.find('.agil').val());
+            var soci=parseInt(html.find('.soci').val());
+            var char=parseInt(html.find('.char').val());
+            var saga=parseInt(html.find('.saga').val());
+            var ment=parseInt(html.find('.mental').val());
+            var astu=parseInt(html.find('.astu').val());
+            var memo=parseInt(html.find('.memo').val());
+            var reste=170-(phys+soci+ment);
+            if(espece==game.i18n.localize("liber.avantrace61")){
+                if(soci<5){
+                    html.find('.soci').val(5);
+                    soci=5;
+                }
+                reste=reste+5;
             }
-            reste=reste+5;
-        }
-        html.find('.pointrestant').val(reste);
-        if(phys<(forc+agil)){
-            alert(game.i18n.localize("liber.alert1"))
-        }
-        if(soci<(char+saga)){
-            alert(game.i18n.localize("liber.alert2"))
-        }
-        if(ment<(astu+memo)){
-            alert(game.i18n.localize("liber.alert3"))
-        }
+            html.find('.pointrestant').val(reste);
+            if(phys<(forc+agil)){
+                alert(game.i18n.localize("liber.alert1"))
+            }
+            if(soci<(char+saga)){
+                alert(game.i18n.localize("liber.alert2"))
+            }
+            if(ment<(astu+memo)){
+                alert(game.i18n.localize("liber.alert3"))
+            }
 
-        //calcul point capacité
-        var level = parseInt(html.find('.niveau').val());
-        var resultat=35+(level*15);
-        if(espece==game.i18n.localize("liber.avantrace60")){
-            resultat=resultat-20;
-        }else if(espece==game.i18n.localize("liber.avantrace61") || espece=='Semi-humain'){
-            resultat=resultat+15;
-            var cap28=parseInt(html.find('.cpt28').val());
-            if(cap28<5){
-                html.find('.cpt28').val(5);
+            //calcul point capacité
+            var level = parseInt(html.find('.niveau').val());
+            var resultat=35+(level*15);
+            if(espece==game.i18n.localize("liber.avantrace60")){
+                resultat=resultat-20;
+            }else if(espece==game.i18n.localize("liber.avantrace61") || espece=='Semi-humain'){
+                resultat=resultat+15;
+                var cap28=parseInt(html.find('.cpt28').val());
+                if(cap28<5){
+                    html.find('.cpt28').val(5);
+                }
+            }else if(espece==game.i18n.localize("liber.avantrace64")){
+                resultat=resultat-40;
+            }else if(espece==game.i18n.localize("liber.avantrace62")){
+                resultat=resultat+10;
+            }else if(espece==game.i18n.localize("liber.avantrace68")){
+                resultat=resultat+30;
+                var cap28=parseInt(html.find('.cpt1').val());
+                if(cap28<5){html.find('.cpt1').val(5);}
+                var cap29=parseInt(html.find('.cpt3').val());
+                if(cap29<5){html.find('.cpt3').val(5);}
+            }else if(espece==game.i18n.localize("liber.avantrace66")){
+                resultat=resultat+20;
+                var cap28=parseInt(html.find('.cpt1').val());
+                if(cap28<5){html.find('.cpt1').val(5);}
+                var cap29=parseInt(html.find('.cpt18').val());
+                if(cap29<5){html.find('.cpt18').val(5);}
+            }else if(espece==game.i18n.localize("liber.avantrace67")){
+                resultat=resultat+20;
+                var cap28=parseInt(html.find('.cpt10').val());
+                if(cap28<10){html.find('.cpt10').val(10);}
+            }else if(espece==game.i18n.localize("liber.avantrace68")){
+                resultat=resultat+15;
+                 var cap28=parseInt(html.find('.cpt1').val());
+                if(cap28<5){html.find('.cpt1').val(5);}
+            }else if(espece==game.i18n.localize("liber.avantrace69")){
+                resultat=resultat+20;
+                var cap28=parseInt(html.find('.cpt37').val());
+                if(cap28<5){html.find('.cpt37').val(5);}
+                var cap29=parseInt(html.find('.cpt40').val());
+                if(cap29<5){html.find('.cpt40').val(5);}
+            }else if(espece==game.i18n.localize("liber.avantrace70")){
+                resultat=resultat+25;
+                var cap28=parseInt(html.find('.cpt1').val());
+                if(cap28<5){html.find('.cpt1').val(5);}
+                var cap29=parseInt(html.find('.cpt27').val());
+                if(cap29<5){html.find('.cpt27').val(5);}
+            }else if(espece==game.i18n.localize("liber.avantrace71")){
+                resultat=resultat+20;
+                var cap28=parseInt(html.find('.cpt46').val());
+                if(cap28<5){html.find('.cpt46').val(5);}
+                var cap29=parseInt(html.find('.cpt28').val());
+                if(cap29<5){html.find('.cpt28').val(5);}
+            }else if(espece==game.i18n.localize("liber.avantrace73")){
+                resultat=resultat+5;
+                var cap29=parseInt(html.find('.cpt18').val());
+                if(cap29<5){html.find('.cpt18').val(5);}
+            }else if(espece==game.i18n.localize("liber.avantrace76")){
+                resultat=resultat+5;
+                var cap29=parseInt(html.find('.cpt15').val());
+                if(cap29<5){html.find('.cpt15').val(5);}
+            }else if(espece==game.i18n.localize("liber.avantrace77")){
+                resultat=resultat-30;
             }
-        }else if(espece==game.i18n.localize("liber.avantrace64")){
-            resultat=resultat-40;
-        }else if(espece==game.i18n.localize("liber.avantrace62")){
-            resultat=resultat+10;
-        }else if(espece==game.i18n.localize("liber.avantrace68")){
-            resultat=resultat+30;
-            var cap28=parseInt(html.find('.cpt1').val());
-            if(cap28<5){html.find('.cpt1').val(5);}
-            var cap29=parseInt(html.find('.cpt3').val());
-            if(cap29<5){html.find('.cpt3').val(5);}
-        }else if(espece==game.i18n.localize("liber.avantrace66")){
-            resultat=resultat+20;
-            var cap28=parseInt(html.find('.cpt1').val());
-            if(cap28<5){html.find('.cpt1').val(5);}
-            var cap29=parseInt(html.find('.cpt18').val());
-            if(cap29<5){html.find('.cpt18').val(5);}
-        }else if(espece==game.i18n.localize("liber.avantrace67")){
-            resultat=resultat+20;
-            var cap28=parseInt(html.find('.cpt10').val());
-            if(cap28<10){html.find('.cpt10').val(10);}
-        }else if(espece==game.i18n.localize("liber.avantrace68")){
-            resultat=resultat+15;
-             var cap28=parseInt(html.find('.cpt1').val());
-            if(cap28<5){html.find('.cpt1').val(5);}
-        }else if(espece==game.i18n.localize("liber.avantrace69")){
-            resultat=resultat+20;
-            var cap28=parseInt(html.find('.cpt37').val());
-            if(cap28<5){html.find('.cpt37').val(5);}
-            var cap29=parseInt(html.find('.cpt40').val());
-            if(cap29<5){html.find('.cpt40').val(5);}
-        }else if(espece==game.i18n.localize("liber.avantrace70")){
-            resultat=resultat+25;
-            var cap28=parseInt(html.find('.cpt1').val());
-            if(cap28<5){html.find('.cpt1').val(5);}
-            var cap29=parseInt(html.find('.cpt27').val());
-            if(cap29<5){html.find('.cpt27').val(5);}
-        }else if(espece==game.i18n.localize("liber.avantrace71")){
-            resultat=resultat+20;
-            var cap28=parseInt(html.find('.cpt46').val());
-            if(cap28<5){html.find('.cpt46').val(5);}
-            var cap29=parseInt(html.find('.cpt28').val());
-            if(cap29<5){html.find('.cpt28').val(5);}
-        }else if(espece==game.i18n.localize("liber.avantrace73")){
-            resultat=resultat+5;
-            var cap29=parseInt(html.find('.cpt18').val());
-            if(cap29<5){html.find('.cpt18').val(5);}
-        }else if(espece==game.i18n.localize("liber.avantrace76")){
-            resultat=resultat+5;
-            var cap29=parseInt(html.find('.cpt15').val());
-            if(cap29<5){html.find('.cpt15').val(5);}
-        }else if(espece==game.i18n.localize("liber.avantrace77")){
-            resultat=resultat-30;
-        }
-        for(i=0;i<58;i++){
-            var ajout=parseInt(html.find('.cpt'+i).val());
-            if(ajout>20){
-                html.find('.cpt'+i).val(20);
-                ajout=20;
+            for(i=0;i<58;i++){
+                var ajout=parseInt(html.find('.cpt'+i).val());
+                if(ajout>20){
+                    html.find('.cpt'+i).val(20);
+                    ajout=20;
+                }
+                if(i==1 || i==3 || i==4 || i==5 || i==6 || i==7 || i==8 || i==14 || i==17 || i==24 || i==28 || i==30 || i==37 || i==38 || i==41 || i==45 || i==47 || i==50 || i==51 || i==56){
+                    var muti=3;
+                }else if(i==2 || i==10 || i==11 || i==12 || i==16 || i==25 || i==27 || i==29 || i==52 || i==57){
+                    var muti=2;
+                }else{
+                    var muti=1;
+                }
+                resultat=resultat-(ajout*muti);
             }
-            if(i==1 || i==3 || i==4 || i==5 || i==6 || i==7 || i==8 || i==14 || i==17 || i==24 || i==28 || i==30 || i==37 || i==38 || i==41 || i==45 || i==47 || i==50 || i==51 || i==56){
-                var muti=3;
-            }else if(i==2 || i==10 || i==11 || i==12 || i==16 || i==25 || i==27 || i==29 || i==52 || i==57){
-                var muti=2;
+
+            html.find('.restant').val(resultat);
+
+            
+            //Stat base
+            var b_psy=Math.round((parseInt(ment)+(parseInt(soci)/2)-parseInt(phys)+5)/4+2);
+            var b_nb=Math.round(parseInt(b_psy)/4)+1+parseInt(level);
+            var b_cout=Math.round((parseInt(b_psy)-parseInt(b_nb))/2)+3;
+
+            //stat actuel
+            var psy=parseInt(html.find('.psymax').val());
+            var PVmin=Math.round(parseInt(phys)/3);
+            var PSYmin=b_psy;
+            var cout=Math.round((parseInt(psy)-parseInt(b_nb))/2)+3;
+            //calcul cout et nb sort
+            var xcout=Math.floor((parseInt(psy)-parseInt(b_nb))/2+3);//cout sort        
+            var corbeau=this.actor.data.data.clan;
+            if(corbeau !=game.i18n.localize("liber.avantrace56")){
+                xcout=level;
+            }
+
+            var listsort=this.actor.sort;
+            var nbsorts=listsort.length;
+            var calsort=parseInt(b_nb)-parseInt(nbsorts);
+            html.find('.maxsort').val(calsort);
+            html.find('.coutmax').val(cout);
+            if(calsort<0){
+                //alert(game.i18n.localize("liber.alert4"));
+                html.find('.maxsort').css({color:"red"});
             }else{
-                var muti=1;
+                html.find('.maxsort').css({color:"white"});
             }
-            resultat=resultat-(ajout*muti);
+            var hpmax=parseInt(html.find('.hpmax').val());
+            var psymax=parseInt(html.find('.psymax').val());
+            
+            if(hpmax<PVmin && this.actor.data.type=="personnage" && hpmax!=0){
+               html.find('.hpmax').val(PVmin);
+            }
+            if(psymax<PSYmin && this.actor.data.type=="personnage" && psymax!=0 && corbeau !=game.i18n.localize("liber.avantrace56")){
+               html.find('.psymax').val(PSYmin);
+            }
+            var pointxp=(level-1)*3;
+            var calcultotxp=hpmax-PVmin+psymax-PSYmin;
+            if(calcultotxp>pointxp && this.actor.data.type=="personnage" ){
+                alert(game.i18n.localize("liber.alert"));
+            }
         }
-
-        html.find('.restant').val(resultat);
-
-        
-        //Stat base
-        var b_psy=Math.round((parseInt(ment)+(parseInt(soci)/2)-parseInt(phys)+5)/4+2);
-        var b_nb=Math.round(parseInt(b_psy)/4)+1+parseInt(level);
-        var b_cout=Math.round((parseInt(b_psy)-parseInt(b_nb))/2)+3;
-
-        //stat actuel
-        var psy=parseInt(html.find('.psymax').val());
-        var PVmin=Math.round(parseInt(phys)/3);
-        var PSYmin=b_psy;
-        var cout=Math.round((parseInt(psy)-parseInt(b_nb))/2)+3;
-        //calcul cout et nb sort
-        var xcout=Math.floor((parseInt(psy)-parseInt(b_nb))/2+3);//cout sort        
-        var corbeau=this.actor.data.data.clan;
-        if(corbeau !=game.i18n.localize("liber.avantrace56")){
-            xcout=level;
-        }
-
-        var listsort=this.actor.sort;
-        var nbsorts=listsort.length;
-        var calsort=parseInt(b_nb)-parseInt(nbsorts);
-        html.find('.maxsort').val(calsort);
-        html.find('.coutmax').val(cout);
-        if(calsort<0){
-            //alert(game.i18n.localize("liber.alert4"));
-            html.find('.maxsort').css({color:"red"});
-        }else{
-            html.find('.maxsort').css({color:"white"});
-        }
-        var hpmax=parseInt(html.find('.hpmax').val());
-        var psymax=parseInt(html.find('.psymax').val());
-        
-        if(hpmax<PVmin && this.actor.data.type=="personnage" && hpmax!=0){
-           html.find('.hpmax').val(PVmin);
-        }
-        if(psymax<PSYmin && this.actor.data.type=="personnage" && psymax!=0 && corbeau !=game.i18n.localize("liber.avantrace56")){
-           html.find('.psymax').val(PSYmin);
-        }
-        var pointxp=(level-1)*3;
-        var calcultotxp=hpmax-PVmin+psymax-PSYmin;
-        if(calcultotxp>pointxp && this.actor.data.type=="personnage" ){
-            alert(game.i18n.localize("liber.alert"));
-        }
-
         //test des capacités acrives
         $( ".tableaucreation input" ).each(function( index ) {
           var valor= $( this ).val();
@@ -469,8 +471,46 @@ export class LiberActorSheet extends ActorSheet {
         html.find('.barenc').css({"width":pourcentage+"%"});
 
         //Equipé
-        
-        html.find('.desequi').click(this._onDequip.bind(this));
+        html.find('.desequi').click('click',function(){
+            var equipe=$(this).attr('data-equip');
+            var race=html.find('.race').val();
+            var maing=html.find('.maingaucequi').val();
+            var maind=html.find('.maindroiequi').val();
+            var protection=html.find('.armurequi').val();
+            if(equipe=="dgauche"){
+                html.find('.maingaucequi').val('');
+                html.find('.degatg').val('');
+                maing='';
+            }else if(equipe=="ddroite"){
+                html.find('.maindroiequi').val('');
+                html.find('.degatd').val('');
+                maind='';
+            }else if(equipe=="darmure"){
+                html.find('.armurequi').val('');
+                protection='';
+            }
+            
+            var armure = 0;
+            if(race==game.i18n.localize("liber.avantrace60")){
+                armure = 2;
+            }
+
+            
+            if(maind=="Bouclier"){armure=armure+1;}
+            else if(maind=="Grand Bouclier"){armure=armure+2;} 
+
+            if(maing=="Bouclier"){armure=armure+1;}
+            else if(maing=="Grand Bouclier"){armure=armure+2;}
+
+            if(protection=="Bouclier"){armure=armure+1;} 
+            else if(protection=="Cuir souple"){armure=armure+1;}
+            else if(protection=="Grand Bouclier"){armure=armure+2;} 
+            else if(protection=="Cuir rigide"){armure=armure+2;} 
+            else if(protection=="Cote de maille"){armure=armure+3;}
+            else if(protection=="Armure de plaques"){armure=armure+4;}     
+            console.log(armure)
+            html.find('.armureperso').val(armure);
+        });
         html.find('.maindroite').click(this._onArmor.bind(this));
         html.find('.maingauche').click(this._onArmor.bind(this));
         html.find('.armor').click(this._onArmor.bind(this));
@@ -494,43 +534,48 @@ export class LiberActorSheet extends ActorSheet {
         html.find('.jetdedegat').click(this._onRoll2.bind(this)); 
 
         //monstre level up
-        $('.levelup').on('click',function(){
-            var lvl=html.find('.lvl').val();
-            var pv=html.find('.hpmax').val();
-            var ps=html.find('.psymax').val();
-            pv=parseInt(pv)+3;
-            ps=parseInt(ps)+3;
+        if(this.actor.data.type=="monstre"){
+            html.find('.levelup').click(this._onLevelUp.bind(this)); 
 
-            html.find('.hpmax').val(pv);
-            html.find('.psymax').val(ps);
-            var bonus=0;
-            if(lvl<=3){
-                bonus=1;
-            }else {
-                bonus=0;
-            }
-            var ar=html.find('.protection').val();
-            if(ar==undefined||ar==""){
-                ar=0;
-            }
-            ar=parseInt(ar)+(parseInt(bonus));
-            
-            html.find('.protection').val(ar);
+            /*$('.levelup').on('click',function(){
+                var lvl=html.find('.lvl').val();
+                var pv=html.find('.hpmax').val();
+                var ps=html.find('.psymax').val();
+                pv=parseInt(pv)+3;
+                ps=parseInt(ps)+3;
 
-            var degat=html.find('.degat').val();
-            var fixe = degat.split('+');
-            var number=fixe[1];
-            if(number==undefined||number==""){
-                number=0;
-            }
-            if(lvl<=5){
-                number=parseInt(number)+1;
-            }
-            html.find('.degat').val(fixe[0]+'+'+number);
-            lvl++;
-            console.log(lvl)//bug
-            html.find('.lvl').val(lvl);
-        });
+                html.find('.hpmax').val(pv);
+                html.find('.psymax').val(ps);
+                var bonus=0;
+                if(lvl<=3){
+                    bonus=1;
+                }else {
+                    bonus=0;
+                }
+                var ar=html.find('.protection').val();
+                if(ar==undefined||ar==""){
+                    ar=0;
+                }
+                ar=parseInt(ar)+(parseInt(bonus));
+                
+                html.find('.protection').val(ar);
+
+                var degat=html.find('.degatd').val();
+                var fixe = degat.split('+');
+                var number=fixe[1];
+                if(number==undefined||number==""){
+                    number=0;
+                }
+                if(lvl<=5){
+                    number=parseInt(number)+1;
+                }
+                html.find('.degat').val(fixe[0]+'+'+number);
+                lvl++;
+                console.log(lvl)//bug
+                html.find('.lvl').val(lvl);
+            });*/
+        }
+        
 
     }
 
@@ -1021,89 +1066,72 @@ export class LiberActorSheet extends ActorSheet {
 
     _onArmor(event){
         var equipe=event.target.dataset["equip"];
-        var objetaequipe=event.target.dataset["name"];
-        var degat=event.target.dataset["degat"];
+        var protection= this.actor.data.data.protection;
+        var armor= this.actor.data.data.armure;
         var maind= this.actor.data.data.armed;
         var maing= this.actor.data.data.armeg;
-        var protection= this.actor.data.data.protection;
+        var race = this.actor.data.data.race;
+        var objetaequipe=event.target.dataset["name"];
+        var degat=event.target.dataset["degat"];
         if(equipe=="droite"||equipe=="gauche"){
             var listedemain =['Rapière','Bâton','Espadon','Hallebarde','Fléaux d\'arme','Epée à deux main','Masse d\'arme','Hache de bataille','Faux de Guerre','Lance Lourde']//lang
             for (var i = listedemain.length - 1; i >= 0; i--) {
                 if(objetaequipe==listedemain[i] || maind == listedemain[i]){
-                    this.actor.update({'data.armed': ''});
-                    this.actor.update({'data.degatd': ''});
-                    this.actor.update({'data.armeg': ''});
-                    this.actor.update({'data.degatg': ''});
+                    this.actor.update({'data.armed': '','data.degatd': '','data.armeg': '','data.degatg': ''});
                 }
             }
             if(equipe=="droite"){
-                this.actor.update({'data.armed': objetaequipe});
-                this.actor.update({'data.degatd': degat});
+                this.actor.update({'data.armed': objetaequipe,'data.degatd': degat});
+                maind=objetaequipe;
             }else if(equipe=="gauche"){
-                this.actor.update({'data.armeg': objetaequipe});
-                this.actor.update({'data.degatg': degat});
+                this.actor.update({'data.armeg': objetaequipe,'data.degatg': degat});
+                maing=objetaequipe;
             }
         }else if(equipe=="armure"){
             this.actor.update({'data.armure': objetaequipe});
-        }        
+            armor=objetaequipe;
+        } 
+
         var armure = 0;
-        var race = this.actor.data.data.race;
         if(race==game.i18n.localize("liber.avantrace60")){
             armure = 2;
         }
-        if(objetaequipe=="Armure de plaques"){
-            armure=armure+4;
-        }else if(objetaequipe=="Bouclier" || maind=="Bouclier" || maing=="Bouclier"){
-            armure=armure+1;
-        }else if(objetaequipe=="Cote de maille"){
-            armure=armure+3;
-        }else if(objetaequipe=="Cuir rigide"){
-            armure=armure+2;
-        }else if(objetaequipe=="Cuir souple"){
-            armure=armure+1;
-        }else if(objetaequipe=="Grand Bouclier" || maind=="Grand Bouclier" || maing=="Grand Bouclier"){
-            armure=armure+1;
-        }      
-        this.actor.update({'data.protection': armure});
+        if(maind=="Bouclier"){armure=armure+1;}
+        else if(maind=="Grand Bouclier"){armure=armure+2;} 
+        if(maing=="Bouclier"){armure=armure+1;}
+        else if(maing=="Grand Bouclier"){armure=armure+2;}
+        if(armor=="Bouclier"){armure=armure+1;} 
+        else if(armor=="Cuir souple"){armure=armure+1;}
+        else if(armor=="Grand Bouclier"){armure=armure+2;} 
+        else if(armor=="Cuir rigide"){armure=armure+2;} 
+        else if(armor=="Cote de maille"){armure=armure+3;}
+        else if(armor=="Armure de plaques"){armure=armure+4;}     
+        this.actor.update({'data.protection': armure}); 
     }
 
-    _onDequip(event){
-        var equipe=event.target.dataset["desequip"];        
-        var protection= this.actor.data.data.protection;
-        var maind= this.actor.data.data.armed;
-        var maing= this.actor.data.data.armeg;
-        var degatd= this.actor.data.data.degatd;
-        var degatg= this.actor.data.data.dagatg;
-        var race = this.actor.data.data.race;
-        var objetaequipe=this.actor.data.data.armure;
-        var armure = 0;
-        if(equipe=="droite"){
-            maind='';
-            degatd='';
-        }else if(equipe=="gauche"){
-            maing='';
-            degatg='';
-        }else if(equipe=="armure"){
-            objetaequipe='';
+    _onLevelUp(event){
+        var lvl=this.actor.data.data.level;
+        var pv=this.actor.data.data.hp.max;
+        var ps=this.actor.data.data.psy.max;
+        var ar=this.actor.data.data.protection;
+        console.log(ar)
+        pv=parseInt(pv)+3;
+        ps=parseInt(ps)+3;
+        var bonus=0;
+        if(ar==undefined||ar==""){
+            ar=0;
         }
-        if(race==game.i18n.localize("liber.avantrace60")){
-            armure = 2;
-        }
-        if(objetaequipe=="Armure de plaques"){
-            armure=armure+4;
-        }else if(objetaequipe=="Bouclier" || maind=="Bouclier" || maing=="Bouclier"){
-            armure=armure+1;
-        }else if(objetaequipe=="Cote de maille"){
-            armure=armure+3;
-        }else if(objetaequipe=="Cuir rigide"){
-            armure=armure+2;
-        }else if(objetaequipe=="Cuir souple"){
-            armure=armure+1;
-        }else if(objetaequipe=="Grand Bouclier" || maind=="Grand Bouclier" || maing=="Grand Bouclier"){
-            armure=armure+1;
-        }else if(objetaequipe==''){
-            armure=armure+0;
-        }  
-        this.actor.update({'data.armed': maind,'data.degatd': degatd,'data.armeg': maing,'data.degatg': degatg,'data.armure': objetaequipe,'data.protection': armure}); //bug obliger de cliquer deux fois
-   }
+        ar++;
+        if(ar>8){
+            ar=8;
+        } 
+        lvl++;
+        let itemData= this.actor.data.items.filter(i=>i.name == "Attaque");                 
+        var iditem= itemData[0].id;
+        var dgt = itemData[0].data.data.degat;
+        itemData[0].DegatLvl();
+
+        this.actor.update({'data.hp.max': pv,'data.hp.value': pv,'data.psy.max': ps,'data.psy.value': ps,'data.protection': ar,'data.level': lvl});
+
+    }
 }
