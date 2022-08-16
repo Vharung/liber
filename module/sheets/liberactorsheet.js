@@ -295,6 +295,7 @@ export class LiberActorSheet extends ActorSheet {
         //Avantage
         var avant=html.find('.avant').val();
         var desan=html.find('.desan').val();
+        var insoin=html.find('.insoin').val();
         if(avant>0){
             html.find('.avant').css("opacity", "1");
         }else {
@@ -304,6 +305,11 @@ export class LiberActorSheet extends ActorSheet {
             html.find('.desan').css("opacity", "1");
         }else {
             html.find('.desan').css("opacity", "0.5");
+        }
+        if(insoin>0){
+            html.find('.insoin').css("opacity", "1");
+        }else {
+            html.find('.insoin').css("opacity", "0.5");
         }
 
         //Insoignable
@@ -321,6 +327,7 @@ export class LiberActorSheet extends ActorSheet {
         html.find('.defensif').click(this._onPosture.bind(this));
         html.find('.focus').click(this._onPosture.bind(this));
         html.find('.aucune').click(this._onPosture.bind(this));
+        html.find('.chnget').click(this._onCouv.bind(this));
 
 
         if(postures=="Focus"){
@@ -357,79 +364,7 @@ export class LiberActorSheet extends ActorSheet {
             $(this).parent().find(".postures").val("Défensif");
         });
 
-        //Etat
-        var etats=['inconsient','invisible','blesse','mort','empoisonné','prie','attache','fort','faible','concentre','brule','mordu','aucun']
-        var actoretat=html.find('.etats').val();
-        for (var i = 0; i <= 13; i++) {
-            if(actoretat==etats[i]){
-                html.find('.etat'+i).css("opacity", "1");
-            }
-        }
-        $('.etat0').on('click',function(){
-            $(this).parent().children("button").css({"opacity": "0.5"});
-            //$(this).css("opacity", "1");
-            $(this).parent().find(".etats").val('inconsient');
-        });
-        $('.etat1').on('click',function(){
-            $(this).parent().children("button").css({"opacity": "0.5"});
-            //$(this).css("opacity", "1");
-            $(this).parent().find(".etats").val('invisible');
-        });
-        $('.etat2').on('click',function(){
-            $(this).parent().children("button").css({"opacity": "0.5"});
-            //$(this).css("opacity", "1");
-            $(this).parent().find(".etats").val('blesse');
-        });
-        $('.etat3').on('click',function(){
-            $(this).parent().children("button").css({"opacity": "0.5"});
-            //$(this).css("opacity", "1");
-            $(this).parent().find(".etats").val('mort');
-        });
-        $('.etat4').on('click',function(){
-            $(this).parent().children("button").css({"opacity": "0.5"});
-            //$(this).css("opacity", "1");
-            $(this).parent().find(".etats").val('empoisonné');
-        });
-        $('.etat5').on('click',function(){
-            $(this).parent().children("button").css({"opacity": "0.5"});
-            //$(this).css("opacity", "1");
-            $(this).parent().find(".etats").val('prie');
-        });
-        $('.etat6').on('click',function(){
-            $(this).parent().children("button").css({"opacity": "0.5"});
-            //$(this).css("opacity", "1");
-            $(this).parent().find(".etats").val('attache');
-        });
-        $('.etat7').on('click',function(){
-            $(this).parent().children("button").css({"opacity": "0.5"});
-            //$(this).css("opacity", "1");
-            $(this).parent().find(".etats").val('fort');
-        });
-        $('.etat8').on('click',function(){
-            $(this).parent().children("button").css({"opacity": "0.5"});
-            //$(this).css("opacity", "1");
-            $(this).parent().find(".etats").val('faible');
-        });
-        $('.etat9').on('click',function(){
-            $(this).parent().children("button").css({"opacity": "0.5"});
-            //$(this).css("opacity", "1");
-            $(this).parent().find(".etats").val('concentre');
-        });
-        $('.etat10').on('click',function(){
-            $(this).parent().children("button").css({"opacity": "0.5"});
-            //$(this).css("opacity", "1");
-            $(this).parent().find(".etats").val('brule');
-        });
-        $('.etat11').on('click',function(){
-            $(this).parent().children("button").css({"opacity": "0.5"});
-            //$(this).css("opacity", "1");
-            $(this).parent().find(".etats").val('mordu');
-        });
-        $('.etat12').on('click',function(){
-            $(this).parent().children("button").css({"opacity": "0.5"});
-            //$(this).css("opacity", "1");
-            $(this).parent().find(".etats").val('aucun');
-        });
+        
 
 
         //Poids encombrement
@@ -1133,5 +1068,110 @@ export class LiberActorSheet extends ActorSheet {
 
         this.actor.update({'data.hp.max': pv,'data.hp.value': pv,'data.psy.max': ps,'data.psy.value': ps,'data.protection': ar,'data.level': lvl});
 
+    }
+    _onCouv(event){
+        var etats=['a','b','c','d','e','f','g','h','i','j','k','l','m','n'];
+    
+        var chnget=event.target.dataset["etat"];console.log('etats'+etats[chnget])
+        var et=etats[chnget];
+        if(et=='a'){
+            var etat=this.actor.data.data.etat.a;
+            if(etat==1){
+                this.actor.update({"data.etat.a":0.5});    
+            }else {
+                this.actor.update({"data.etat.a":1});      
+            }
+        }else if(et=='b'){
+            var etat=this.actor.data.data.etat.b;
+            if(etat==1){
+                this.actor.update({"data.etat.b":0.5});    
+            }else {
+                this.actor.update({"data.etat.b":1});      
+            }
+        }else if(et=='c'){
+            var etat=this.actor.data.data.etat.c;
+            if(etat==1){
+                this.actor.update({"data.etat.c":0.5});    
+            }else {
+                this.actor.update({"data.etat.c":1});      
+            }
+        }else if(et=='d'){
+            var etat=this.actor.data.data.etat.d;
+            if(etat==1){
+                this.actor.update({"data.etat.d":0.5});    
+            }else {
+                this.actor.update({"data.etat.d":1});      
+            }
+        }else if(et=='e'){
+            var etat=this.actor.data.data.etat.e;
+            if(etat==1){
+                this.actor.update({"data.etat.e":0.5});    
+            }else {
+                this.actor.update({"data.etat.e":1});      
+            }
+        }else if(et=='f'){
+            var etat=this.actor.data.data.etat.f;
+            if(etat==1){
+                this.actor.update({"data.etat.f":0.5});    
+            }else {
+                this.actor.update({"data.etat.f":1});      
+            }
+        }else if(et=='g'){
+            var etat=this.actor.data.data.etat.g;
+            if(etat==1){
+                this.actor.update({"data.etat.g":0.5});    
+            }else {
+                this.actor.update({"data.etat.g":1});      
+            }
+        }else if(et=='h'){
+            var etat=this.actor.data.data.etat.h;
+            if(etat==1){
+                this.actor.update({"data.etat.h":0.5});    
+            }else {
+                this.actor.update({"data.etat.h":1});      
+            }
+        }else if(et=='i'){
+            var etat=this.actor.data.data.etat.i;
+            if(etat==1){
+                this.actor.update({"data.etat.i":0.5});    
+            }else {
+                this.actor.update({"data.etat.i":1});      
+            }
+        }else if(et=='j'){
+            var etat=this.actor.data.data.etat.j;
+            if(etat==1){
+                this.actor.update({"data.etat.j":0.5});    
+            }else {
+                this.actor.update({"data.etat.j":1});      
+            }
+        }else if(et=='k'){
+            var etat=this.actor.data.data.etat.k;
+            if(etat==1){
+                this.actor.update({"data.etat.k":0.5});    
+            }else {
+                this.actor.update({"data.etat.k":1});      
+            }
+        }else if(et=='l'){
+            var etat=this.actor.data.data.etat.l;
+            if(etat==1){
+                this.actor.update({"data.etat.l":0.5});    
+            }else {
+                this.actor.update({"data.etat.l":1});      
+            }
+        }else if(et=='m'){
+            var etat=this.actor.data.data.etat.m;
+            if(etat==1){
+                this.actor.update({"data.etat.m":0.5});    
+            }else {
+                this.actor.update({"data.etat.m":1});      
+            }
+        }else if(et=='n'){
+            var etat=this.actor.data.data.etat.n;
+            if(etat==1){
+                this.actor.update({"data.etat.n":0.5});    
+            }else {
+                this.actor.update({"data.etat.n":1});      
+            }
+        }
     }
 }

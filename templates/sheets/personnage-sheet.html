@@ -49,22 +49,21 @@
 					<input class="avant" name="data.avantage" type="text" value="{{data.data.avantage}}" placeholder="0"/>
 					<input class="desan" name="data.desavantage" type="text" value="{{data.data.desavantage}}" placeholder="0"/>
 				</div>
-				<div class="etat">
-					<button class="etat0"></button>
-					<button class="etat1"></button>
-					<button class="etat2"></button>
-					<button class="etat3"></button>
-					<button class="etat4"></button>
-					<button class="etat5"></button>
-					<button class="etat6"></button>
-					<button class="etat7"></button>
-					<button class="etat8"></button>
-					<button class="etat9"></button>
-					<button class="etat10"></button>
-					<button class="etat11"></button>
-					<button class="etat12"></button>
-					<input class="etats" name="data.etat" type="text" value="{{data.data.etat}}" style="display:none"/>
-
+				<div class="etat" style="height: 100px">
+					<button class="etat0 chnget" data-etat="0" style="opacity: {{data.data.etat.a}};"></button>
+					<button class="etat1 chnget" data-etat="1" style="opacity: {{data.data.etat.b}};"></button>
+					<button class="etat2 chnget" data-etat="2" style="opacity: {{data.data.etat.c}};"></button>
+					<button class="etat3 chnget" data-etat="3" style="opacity: {{data.data.etat.d}};"></button>
+					<button class="etat4 chnget" data-etat="4" style="opacity: {{data.data.etat.e}};"></button>
+					<button class="etat5 chnget" data-etat="5" style="opacity: {{data.data.etat.f}};"></button>
+					<button class="etat6 chnget" data-etat="6" style="opacity: {{data.data.etat.g}};"></button>
+					<button class="etat7 chnget" data-etat="7" style="opacity: {{data.data.etat.h}};"></button>
+					<button class="etat8 chnget" data-etat="8" style="opacity: {{data.data.etat.i}};"></button>
+					<button class="etat9 chnget" data-etat="9" style="opacity: {{data.data.etat.j}};"></button>
+					<button class="etat10 chnget" data-etat="10" style="opacity: {{data.data.etat.k}};"></button>
+					<button class="etat11 chnget" data-etat="11" style="opacity: {{data.data.etat.l}};"></button>
+					<button class="etat12 chnget" data-etat="12" style="opacity: {{data.data.etat.m}};"></button>
+					<button class="etat13 chnget" data-etat="13" style="opacity: {{data.data.etat.n}};"></button>
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -122,7 +121,7 @@
 				</div>
 				<div class="grid-9col">
 					<p><label class="jetdedes" data-name="Mémoire" data-dice="1d"data-attDice="{{data.data.memoire}}" style="background: #dd8376;">{{localize 'liber.mem'}}</label></p>
-					<input class="memo" name="data.memoire" type="text" value="{{data.data.memoire}}" placeholder="5" style="width:40px"/>
+					<input class="memo" name="data.memoire" type="text" value="{{data.data.memoire}}" placeholder="5" style="width:40px;margin-bottom: 5px;"/>
 				</div>
 				
 			</div>
@@ -384,7 +383,7 @@
 				    	<input class="maxsort" type="text" value="" readonly><br>{{localize 'liber.nb'}}*
 				    </div>
 				    <div class="clear"></div>
-				    <p style="text-align: center;color:#6a7885">*{{localize 'liber.plus'}}</p>
+				    <p style="text-align: center;color:#eeeeee">*{{localize 'liber.plus'}}</p>
 				</div>
 				{{!-- Lab Tab --}}
 				<div id="lab" class="tab stats" data-group="primary" data-tab="lab">
