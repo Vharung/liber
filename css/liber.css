@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 .Liber a.item.active,.Liber a.item.active:hover,.Liber textarea,.Liber main,.Liber .head .rexrow{background: #181003; }
-.Liber a.item:hover{background: #87765b; }
+.Liber .talentliste,.Liber .faiblesseliste,.Liber .typerepos ,.Liber .jourliste,.Liber .heure,.Liber .items input.maingaucequi,.Liber .items input.maindroiequi,.Liber .items input.armurequi,.Liber .stat input,.Liber .stat2 input,.Liber .features input,.Liber .stats select,.Liber a.item:hover{background: #87765b; }
 .Liber .autres{background: #181003 url(font.png) bottom right no-repeat; }
-.Liber .typerepos ,.Liber .jourliste,.Liber .heure,.Liber a.item,.Liber .stat input,.Liber .stat2 input,.Liber .features input,.Liber h2 ,.Liber .head,.Liber header,.Liber .tabs,.Liber .carac input[type="text"].talent,.Liber .carac input[type="text"].faiblesse,.Liber .talentliste,.Liber .faiblesseliste,.Liber .items input.maingaucequi,.Liber .items input.maindroiequi,.Liber .items input.armurequi,.Liber .items-list .item-description,.Liber .items-list .item-description2{background: #4f3c1c;}
+.Liber a.item,.Liber h2 ,.Liber .head,.Liber header,.Liber .tabs,.Liber .items-list .item-description,.Liber .items-list .item-description2{background: #4f3c1c;}
 .Liber .deno{width: 206px;border-bottom: 1px solid #643737;padding: 0px;display: block;margin: 0 5px 5px 5px;height: 28px;float: left;}
 .Liber.window-app .window-content{background-image: none;overflow:hidden }
 .Liber .fiche{display: block;height: 800px;width: 1200px;}
@@ -95,7 +95,7 @@ form.Liber{display: table-cell;overflow: auto;}
 .Liber .items-list .item-portee,.Liber .items-list .item-dommage,.Liber .items-list .item-poids,.Liber .items-list .item-valeur,.Liber .items-list .item-qty{width: 39px;float: left;text-align: center}
 .Liber .items-list .item-hand{width: 62px;float: left;filter: invert(1);}
 .Liber .items-list .item-controls{-webkit-box-flex: 0;-ms-flex: 0 0 86px;flex: 0 0 86px;text-align: right;width: 51px;}
-.Liber .stats select{border: none;height: 30px;width: 50%; margin: 3px;background: #0d0d0d;color: #fff;}
+.Liber .stats select{border: none;height: 30px;width: 50%; margin: 3px;color: #fff;}
 .Liber .stats input,.Liber .reposer{border: none;height: 30px;width: 40%;padding:5px;float: right;margin: 4px;background:#e13b23;border:none;color:#fff;padding: 5px;font-weight: bold;cursor: pointer}
 .Liber .stat input.insoin,.Liber .stat input.avant,.Liber .stat input.desan{border:none;color: #fff;text-align: right;opacity: 0.5}
 .Liber input.insoin{background:url("../assets/icon/pvi.png")left center no-repeat;background-size: contain;}
