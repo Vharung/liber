@@ -120,6 +120,8 @@ form.Liber{display: table-cell;overflow: auto;}
 .Liber .maingauche {background: url(" ../assets/icon/hand2.png");background-size: cover;}
 .Liber .armor {background: url(" ../assets/icon/armor.png");background-size: cover;}
 .Liber .typerepos ,.Liber .jourliste,.Liber .heure{border:  solid #643737 1px; color: white}
+.Liber .geo{width:200px;width: 195px;height: 275px;display: inline-block;background:url(systems/liber/assets/monstre/map0.png);background-size: contain;}
+.Liber .his{width: calc(100% - 200px);display: inline-block;float: right;}
 
 .Liber .carac,.Liber .items,.Liber .spells,.Liber .stats {display: none; overflow: auto;}
 .resultatp{text-align: center;font-size: medium;background: #6a7885;padding: 5px;color: white;display: flex;}

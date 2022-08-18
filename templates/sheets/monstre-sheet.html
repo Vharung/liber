@@ -29,8 +29,14 @@
 			</div>
 		</div>
 		<main>
-			<h2>{{localize 'liber.histoire'}}</h2>
-				<textarea class="histoire" name="data.histoire" style="height:240px">{{data.data.histoire}}</textarea>
+			<div class="geo" style="background:url({{data.data.geo}});background-size: contain;">
+			</div>
+			<div class="his">
+				<h2>{{localize 'liber.histoire'}}</h2>
+					<textarea class="histoire" name="data.histoire" style="height:210px">{{data.data.histoire}}</textarea>
+					<input name="data.geo" type="text" value="{{data.data.geo}}" placeholder="systems/liber/assets/monstre/map0.png" style="margin-bottom: 5px;color:white;background:#87765b;"/>
+			</div>
+			<div class="clear"></div>
 			<h2>{{localize 'liber.feuille'}}</h2>
 			<div class="rexrow stat">
 				<div class="grid-2col">
