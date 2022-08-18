@@ -471,44 +471,6 @@ export class LiberActorSheet extends ActorSheet {
         //monstre level up
         if(this.actor.data.type=="monstre"){
             html.find('.levelup').click(this._onLevelUp.bind(this)); 
-
-            /*$('.levelup').on('click',function(){
-                var lvl=html.find('.lvl').val();
-                var pv=html.find('.hpmax').val();
-                var ps=html.find('.psymax').val();
-                pv=parseInt(pv)+3;
-                ps=parseInt(ps)+3;
-
-                html.find('.hpmax').val(pv);
-                html.find('.psymax').val(ps);
-                var bonus=0;
-                if(lvl<=3){
-                    bonus=1;
-                }else {
-                    bonus=0;
-                }
-                var ar=html.find('.protection').val();
-                if(ar==undefined||ar==""){
-                    ar=0;
-                }
-                ar=parseInt(ar)+(parseInt(bonus));
-                
-                html.find('.protection').val(ar);
-
-                var degat=html.find('.degatd').val();
-                var fixe = degat.split('+');
-                var number=fixe[1];
-                if(number==undefined||number==""){
-                    number=0;
-                }
-                if(lvl<=5){
-                    number=parseInt(number)+1;
-                }
-                html.find('.degat').val(fixe[0]+'+'+number);
-                lvl++;
-                console.log(lvl)//bug
-                html.find('.lvl').val(lvl);
-            });*/
         }
         
 
