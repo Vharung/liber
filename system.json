@@ -23,7 +23,7 @@
     "scripts": [],
     "packs": [
         {
-          "id": "monstre",
+          "name": "monstre",
           "label": "Monstres",
           "system": "liber",
           "path": "./pack/monstre.db",
@@ -31,35 +31,35 @@
           "private": true
         },
         {
-          "id": "armure",
+          "name": "armure",
           "label": "Armure",
           "system": "liber",
           "path": "./pack/armures.db",
           "type": "Item"
         },
         {
-          "id": "arme",
+          "name": "arme",
           "label": "Arme",
           "system": "liber",
           "path": "./pack/armes.db",
           "type": "Item"
         },
         {
-          "id": "objet",
+          "name": "objet",
           "label": "Objet",
           "system": "liber",
           "path": "./pack/objet.db",
           "type": "Item"
         },
         {
-          "id": "magie",
+          "name": "magie",
           "label": "Magie",
           "system": "liber",
           "path": "./pack/magie.db",
           "type": "Item"
         },
         {
-          "id": "regles",
+          "name": "regles",
           "label": "Régles",
           "type": "JournalEntry",
           "path": "./pack/regles.db",
