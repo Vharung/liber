@@ -2,7 +2,7 @@
     "name": "liber",
     "title": "Liber Chronicles",
     "description": "The Liber Chronicles system for FoundryVTT!",
-    "version": "0.1.2",
+    "version": "0.1.21",
     "compatibility": "0.10",
     "templateVersion": 2,
     "authors": "Vharung",
