@@ -3,62 +3,55 @@
     "title": "Liber Chronicles",
     "description": "The Liber Chronicles system for FoundryVTT!",
     "version": "0.1.2",
-    "minimumCoreVersion": "0.10",
-    "compatibleCoreVersion": "0.10",
+    "compatibility": "0.10",
     "templateVersion": 2,
-    "author": "Vharung",
+    "authors": "Vharung",
     "esmodules": ["module/liber.js"],
     "styles": ["css/liber.css"],
     "scripts": [],
     "packs": [
         {
-          "name": "monstre",
+          "id": "monstre",
           "label": "Monstres",
           "system": "liber",
           "path": "./pack/monstre.db",
-          "entity": "Actor",
           "type": "Actor",
           "private": true
         },
         {
-          "name": "armure",
+          "id": "armure",
           "label": "Armure",
           "system": "liber",
           "path": "./pack/armures.db",
-          "entity": "Item",
           "type": "Item"
         },
         {
-          "name": "arme",
+          "id": "arme",
           "label": "Arme",
           "system": "liber",
           "path": "./pack/armes.db",
-          "entity": "Item",
           "type": "Item"
         },
         {
-          "name": "objet",
+          "id": "objet",
           "label": "Objet",
           "system": "liber",
           "path": "./pack/objet.db",
-          "entity": "Item",
           "type": "Item"
         },
         {
-          "name": "magie",
+          "id": "magie",
           "label": "Magie",
           "system": "liber",
           "path": "./pack/magie.db",
-          "entity": "Item",
           "type": "Item"
         },
         {
+          "id": "regles",
           "label": "Régles",
           "type": "JournalEntry",
-          "name": "regles",
           "path": "./pack/regles.db",
           "system": "liber",
-          "entity": "JournalEntry",
           "private": false
         }
     ],
@@ -76,5 +69,6 @@
     "url": "https://github.com/Vharung/liber",
     "manifest": "https://raw.githubusercontent.com/Vharung/liber/main/system.json",
     "download": "https://github.com/Vharung/liber/archive/refs/heads/main.zip",
-    "license": "LICENSE.txt"
+    "license": "LICENSE.txt",
+    "relationships.requires":""
 }
