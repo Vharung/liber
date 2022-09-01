@@ -11,21 +11,21 @@
 					<input class="nomperso" name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
 					<div class="rexrow">
 						<div class="grid-3col">
-							<!--p>{{localize 'liber.race'}} : <input class="race" name="data.race" type="text" value="{{data.data.race}}" placeholder="Race"/></p-->
-							<p>{{localize 'liber.race'}} : <input class="race" type="text" value="{{data.data.race}}" placeholder="Race" readonly="" /></p>
+							<!--p>{{localize 'liber.race'}} : <input class="race" name="system.race" type="text" value="{{data.system.race}}" placeholder="Race"/></p-->
+							<p>{{localize 'liber.race'}} : <input class="race" type="text" value="{{data.system.race}}" placeholder="Race" readonly="" /></p>
 						</div>
 						<div class="grid-3col">
-							<!--p>{{localize 'liber.clan'}} : <input class="clan" name="data.clan" type="text" value="{{data.data.clan}}" placeholder="Clan"/></p-->
-							<p>{{localize 'liber.clan'}} : <input class="clan" type="text" value="{{data.data.clan}}" placeholder="Clan" readonly="" /></p>
+							<!--p>{{localize 'liber.clan'}} : <input class="clan" name="system.clan" type="text" value="{{data.system.clan}}" placeholder="Clan"/></p-->
+							<p>{{localize 'liber.clan'}} : <input class="clan" type="text" value="{{data.system.clan}}" placeholder="Clan" readonly="" /></p>
 						</div>
 						<div class="grid-3col">
-							<!--p>{{localize 'liber.religion'}} : <input class="religion" name="data.religion" type="text" value="{{data.data.religion}}" placeholder="Religion"/></p-->
-							<p>{{localize 'liber.religion'}} : <input class="religion" type="text" value="{{data.data.religion}}" placeholder="Religion" readonly="" /></p>
+							<!--p>{{localize 'liber.religion'}} : <input class="religion" name="system.religion" type="text" value="{{data.system.religion}}" placeholder="Religion"/></p-->
+							<p>{{localize 'liber.religion'}} : <input class="religion" type="text" value="{{data.system.religion}}" placeholder="Religion" readonly="" /></p>
 						</div>
 						<!--div class="separator"></div-->
-						<p>{{localize 'liber.bonus'}} : <input class="avantagerace" name="data.bonusrace" type="text" value="{{data.data.bonusrace}}" placeholder="Bonus"/>
-							{{localize 'liber.level'}} : <input class="niveau" name="data.level" type="text" value="{{data.data.level}}" placeholder="1"/><button class="aucune" title="Aucune"></button><button class="focus" title="Focus"></button><button class="defensif" title="Défensif"></button><button class="offensif" title="Offensif"></button>
-							<input class="postures" name="data.posture" type="text" value="{{data.data.posture}}" style="display:none"/></span></p>
+						<p>{{localize 'liber.bonus'}} : <input class="avantagerace" name="system.bonusrace" type="text" value="{{data.system.bonusrace}}" placeholder="Bonus"/>
+							{{localize 'liber.level'}} : <input class="niveau" name="system.level" type="text" value="{{data.system.level}}" placeholder="1"/><button class="aucune" title="Aucune"></button><button class="focus" title="Focus"></button><button class="defensif" title="Défensif"></button><button class="offensif" title="Offensif"></button>
+							<input class="postures" name="system.posture" type="text" value="{{data.system.posture}}" style="display:none"/></span></p>
 					</div>
 					
 				</div>
@@ -33,51 +33,51 @@
 		</div>
 		<main>
 			<h2>{{localize 'liber.histoire'}}</h2>
-				<textarea class="histoire" name="data.histoire">{{data.data.histoire}}</textarea>
+				<textarea class="histoire" name="system.histoire">{{data.system.histoire}}</textarea>
 			<h2>{{localize 'liber.feuille'}}</h2>
 			<div class="rexrow stat">
 				<div class="grid-2col">
-					<p><span class="deno">❤ {{localize 'liber.life'}}</span><input class="hp" name="data.hp.value" type="text" value="{{data.data.hp.value}}" placeholder="10"/><input class="hpmax" name="data.hp.max" type="text" value="{{data.data.hp.max}}" placeholder="10" style="width: 40px;"/>
-					<span class="deno">♗ {{localize 'liber.psy'}} </span><input class="psy" name="data.psy.value" type="text" value="{{data.data.psy.value}}" placeholder="10" style="width: 40px;"/></p><input class="psymax" name="data.psy.max" type="text" value="{{data.data.psy.max}}" placeholder="10" style="width: 40px;"/>
+					<p><span class="deno">❤ {{localize 'liber.life'}}</span><input class="hp" name="system.hp.value" type="text" value="{{data.system.hp.value}}" placeholder="10"/><input class="hpmax" name="system.hp.max" type="text" value="{{data.system.hp.max}}" placeholder="10" style="width: 40px;"/>
+					<span class="deno">♗ {{localize 'liber.psy'}} </span><input class="psy" name="system.psy.value" type="text" value="{{data.system.psy.value}}" placeholder="10" style="width: 40px;"/></p><input class="psymax" name="system.psy.max" type="text" value="{{data.system.psy.max}}" placeholder="10" style="width: 40px;"/>
 				</div>
 				<div class="grid-2col">
-					<p><span class="deno">⛉ {{localize 'liber.armor'}}</span><input class="armureperso" name="data.protection" type="text" value="{{data.data.protection}}" placeholder="0"/>
-					<span class="deno">⛉ {{localize 'liber.protection'}}</span> <input class="protection" name="data.protection-magique" type="text" value="{{data.data.protection-magique}}" placeholder="0"/> </p>
+					<p><span class="deno">⛉ {{localize 'liber.armor'}}</span><input class="armureperso" name="system.protection" type="text" value="{{data.system.protection}}" placeholder="0"/>
+					<span class="deno">⛉ {{localize 'liber.protection'}}</span> <input class="protection" name="system.protection-magique" type="text" value="{{data.system.protection-magique}}" placeholder="0"/> </p>
 				</div>
 				<div class="etat">
-					<input class="insoin" name="data.insoin" type="text" value="{{data.data.insoin}}" placeholder="0"/>
-					<input class="avant" name="data.avantage" type="text" value="{{data.data.avantage}}" placeholder="0"/>
-					<input class="desan" name="data.desavantage" type="text" value="{{data.data.desavantage}}" placeholder="0"/>
+					<input class="insoin" name="system.insoin" type="text" value="{{data.system.insoin}}" placeholder="0"/>
+					<input class="avant" name="system.avantage" type="text" value="{{data.system.avantage}}" placeholder="0"/>
+					<input class="desan" name="system.desavantage" type="text" value="{{data.system.desavantage}}" placeholder="0"/>
 				</div>
 				<div class="etat" style="height: 100px">
-					<button class="etat0 chnget" data-etat="0" style="opacity: {{data.data.etat.a}};"></button>
-					<button class="etat1 chnget" data-etat="1" style="opacity: {{data.data.etat.b}};"></button>
-					<button class="etat2 chnget" data-etat="2" style="opacity: {{data.data.etat.c}};"></button>
-					<button class="etat3 chnget" data-etat="3" style="opacity: {{data.data.etat.d}};"></button>
-					<button class="etat4 chnget" data-etat="4" style="opacity: {{data.data.etat.e}};"></button>
-					<button class="etat5 chnget" data-etat="5" style="opacity: {{data.data.etat.f}};"></button>
-					<button class="etat6 chnget" data-etat="6" style="opacity: {{data.data.etat.g}};"></button>
-					<button class="etat7 chnget" data-etat="7" style="opacity: {{data.data.etat.h}};"></button>
-					<button class="etat8 chnget" data-etat="8" style="opacity: {{data.data.etat.i}};"></button>
-					<button class="etat9 chnget" data-etat="9" style="opacity: {{data.data.etat.j}};"></button>
-					<button class="etat10 chnget" data-etat="10" style="opacity: {{data.data.etat.k}};"></button>
-					<button class="etat11 chnget" data-etat="11" style="opacity: {{data.data.etat.l}};"></button>
-					<button class="etat12 chnget" data-etat="12" style="opacity: {{data.data.etat.m}};"></button>
-					<button class="etat13 chnget" data-etat="13" style="opacity: {{data.data.etat.n}};"></button>
+					<button class="etat0 chnget" data-etat="0" style="opacity: {{data.system.etat.a}};"></button>
+					<button class="etat1 chnget" data-etat="1" style="opacity: {{data.system.etat.b}};"></button>
+					<button class="etat2 chnget" data-etat="2" style="opacity: {{data.system.etat.c}};"></button>
+					<button class="etat3 chnget" data-etat="3" style="opacity: {{data.system.etat.d}};"></button>
+					<button class="etat4 chnget" data-etat="4" style="opacity: {{data.system.etat.e}};"></button>
+					<button class="etat5 chnget" data-etat="5" style="opacity: {{data.system.etat.f}};"></button>
+					<button class="etat6 chnget" data-etat="6" style="opacity: {{data.system.etat.g}};"></button>
+					<button class="etat7 chnget" data-etat="7" style="opacity: {{data.system.etat.h}};"></button>
+					<button class="etat8 chnget" data-etat="8" style="opacity: {{data.system.etat.i}};"></button>
+					<button class="etat9 chnget" data-etat="9" style="opacity: {{data.system.etat.j}};"></button>
+					<button class="etat10 chnget" data-etat="10" style="opacity: {{data.system.etat.k}};"></button>
+					<button class="etat11 chnget" data-etat="11" style="opacity: {{data.system.etat.l}};"></button>
+					<button class="etat12 chnget" data-etat="12" style="opacity: {{data.system.etat.m}};"></button>
+					<button class="etat13 chnget" data-etat="13" style="opacity: {{data.system.etat.n}};"></button>
 				</div>
 			</div>
 			<div class="clear"></div>
 			<h2 style="margin-top: 10px;">{{localize 'liber.repos'}}</h2>
 				<span style="float:left; margin-left:20px">
-					<input class="heure" name="data.heure" type="text" value="{{data.data.heure}}" placeholder="0" style="width:40px;text-align:center"/>
-					<SELECT class="jourliste"  name="data.jour">
-		            	{{#select data.data.jour}}
+					<input class="heure" name="system.heure" type="text" value="{{data.system.heure}}" placeholder="0" style="width:40px;text-align:center"/>
+					<SELECT class="jourliste"  name="system.jour">
+		            	{{#select data.system.jour}}
 		                    <OPTION value="{{localize 'liber.heure'}}" title="{{localize 'liber.heure'}}">{{localize 'liber.heure'}}</OPTION>
 		                    <OPTION value="{{localize 'liber.jour'}}" title="{{localize 'liber.jour'}}">{{localize 'liber.jour'}}</OPTION>
 		                {{/select}}
 		            </SELECT>
-		            <SELECT class="typerepos"  name="data.repos">
-		            	{{#select data.data.repos}}
+		            <SELECT class="typerepos"  name="system.repos">
+		            	{{#select data.system.repos}}
 		                    <OPTION value="{{localize 'liber.rapide'}}" title="{{localize 'liber.rapide'}}">{{localize 'liber.rapide'}}</OPTION>
 		                    <OPTION value="{{localize 'liber.calme'}}" title="{{localize 'liber.calme'}}">{{localize 'liber.calme'}}</OPTION>
 		                    <OPTION value="{{localize 'liber.calme2'}}" title="{{localize 'liber.calme2'}}">{{localize 'liber.calme2'}}</OPTION>
@@ -88,40 +88,40 @@
 			<h2 style="margin-top: 10px;">{{localize 'liber.attributs'}}</h2>
 			<div class="rexrow stat2">
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-name="Physique" data-dice="1d"data-attDice="{{data.data.physique}}">{{localize 'liber.phy'}}</label></p>
-					<input class="phys" name="data.physique" type="text" value="{{data.data.physique}}" placeholder="{{data.data.physique}}" style="text-align: center"/>
+					<p><label class="jetdedes" data-name="Physique" data-dice="1d"data-attDice="{{data.system.physique}}">{{localize 'liber.phy'}}</label></p>
+					<input class="phys" name="system.physique" type="text" value="{{data.system.physique}}" placeholder="{{data.system.physique}}" style="text-align: center"/>
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-name="Force" data-dice="1d"data-attDice="{{data.data.force}}" style="background: #dd8376;">{{localize 'liber.for'}}</label></p>
-					<input class="forc" name="data.force" type="text" value="{{data.data.force}}" placeholder="5" style="width:40px" />
+					<p><label class="jetdedes" data-name="Force" data-dice="1d"data-attDice="{{data.system.force}}" style="background: #dd8376;">{{localize 'liber.for'}}</label></p>
+					<input class="forc" name="system.force" type="text" value="{{data.system.force}}" placeholder="5" style="width:40px" />
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-name="Agilite" data-dice="1d"data-attDice="{{data.data.agilite}}" style="background: #dd8376;">{{localize 'liber.agi'}}</label></p>
-					<input class="agil" name="data.agilite" type="text" value="{{data.data.agilite}}" placeholder="5" style="width:40px" />
+					<p><label class="jetdedes" data-name="Agilite" data-dice="1d"data-attDice="{{data.system.agilite}}" style="background: #dd8376;">{{localize 'liber.agi'}}</label></p>
+					<input class="agil" name="system.agilite" type="text" value="{{data.system.agilite}}" placeholder="5" style="width:40px" />
 				</div>
 				<div class="grid-9col">
-					<p style="text-align: center" style="text-align: center"><label class="jetdedes" data-name="Social" data-dice="1d"data-attDice="{{data.data.social}}">{{localize 'liber.soc'}}</label></p>
-					<input class="soci" name="data.social" type="text" value="{{data.data.social}}" placeholder="10" style="text-align: center"/>
+					<p style="text-align: center" style="text-align: center"><label class="jetdedes" data-name="Social" data-dice="1d"data-attDice="{{data.system.social}}">{{localize 'liber.soc'}}</label></p>
+					<input class="soci" name="system.social" type="text" value="{{data.system.social}}" placeholder="10" style="text-align: center"/>
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-name="Charisme" data-dice="1d"data-attDice="{{data.data.charisme}}" style="background: #dd8376;">{{localize 'liber.cha'}}</label></p>
-					<input class="char" name="data.charisme" type="text" value="{{data.data.charisme}}" placeholder="5" style="width:40px"/>
+					<p><label class="jetdedes" data-name="Charisme" data-dice="1d"data-attDice="{{data.system.charisme}}" style="background: #dd8376;">{{localize 'liber.cha'}}</label></p>
+					<input class="char" name="system.charisme" type="text" value="{{data.system.charisme}}" placeholder="5" style="width:40px"/>
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-name="Sagacité" data-dice="1d"data-attDice="{{data.data.sagacite}}" style="background: #dd8376;">{{localize 'liber.sag'}}</label></p>
-					<input class="saga" name="data.sagacite" type="text" value="{{data.data.sagacite}}" placeholder="5" style="width:40px"/>
+					<p><label class="jetdedes" data-name="Sagacité" data-dice="1d"data-attDice="{{data.system.sagacite}}" style="background: #dd8376;">{{localize 'liber.sag'}}</label></p>
+					<input class="saga" name="system.sagacite" type="text" value="{{data.system.sagacite}}" placeholder="5" style="width:40px"/>
 				</div>
 				<div class="grid-9col">
-					<p style="text-align: center"><label class="jetdedes" data-name="Mental" data-dice="1d"data-attDice="{{data.data.mental}}">{{localize 'liber.men'}}</label></p>
-					<input class="mental" name="data.mental" type="text" value="{{data.data.mental}}" placeholder="10" style="text-align: center"/>
+					<p style="text-align: center"><label class="jetdedes" data-name="Mental" data-dice="1d"data-attDice="{{data.system.mental}}">{{localize 'liber.men'}}</label></p>
+					<input class="mental" name="system.mental" type="text" value="{{data.system.mental}}" placeholder="10" style="text-align: center"/>
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-name="Astuce" data-dice="1d"data-attDice="{{data.data.astuce}}" style="background: #dd8376;">{{localize 'liber.ast'}}</label></p>
-					<input class="astu" name="data.ast" type="text" value="{{data.data.ast}}" placeholder="5" style="width:40px"/>
+					<p><label class="jetdedes" data-name="Astuce" data-dice="1d"data-attDice="{{data.system.astuce}}" style="background: #dd8376;">{{localize 'liber.ast'}}</label></p>
+					<input class="astu" name="system.ast" type="text" value="{{data.system.ast}}" placeholder="5" style="width:40px"/>
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-name="Mémoire" data-dice="1d"data-attDice="{{data.data.memoire}}" style="background: #dd8376;">{{localize 'liber.mem'}}</label></p>
-					<input class="memo" name="data.memoire" type="text" value="{{data.data.memoire}}" placeholder="5" style="width:40px;margin-bottom: 5px;"/>
+					<p><label class="jetdedes" data-name="Mémoire" data-dice="1d"data-attDice="{{data.system.memoire}}" style="background: #dd8376;">{{localize 'liber.mem'}}</label></p>
+					<input class="memo" name="system.memoire" type="text" value="{{data.system.memoire}}" placeholder="5" style="width:40px;margin-bottom: 5px;"/>
 				</div>
 				
 			</div>
@@ -133,11 +133,11 @@
 				</div>
 				<div class="grid-3col">
 					<h2 class="center">{{localize 'liber.mj'}}</h2>
-					<button class="desequi resetmalus">🗑</button><input class="malussactor" name="data.malus" type="text" value="{{data.data.malus}}" placeholder="0"/>
+					<button class="desequi resetmalus">🗑</button><input class="malussactor" name="system.malus" type="text" value="{{data.system.malus}}" placeholder="0"/>
 				</div>
 				<div class="grid-3col">
 					<h2 class="center">{{localize 'liber.compt'}}</h2>
-					<button class="desequi resetbonus">🗑</button><input class="bonusactor" name="data.bonus" type="text" value="{{data.data.bonus}}" placeholder="0" readonly="" />
+					<button class="desequi resetbonus">🗑</button><input class="bonusactor" name="system.bonus" type="text" value="{{data.system.bonus}}" placeholder="0" readonly="" />
 				</div>
 			</div>
 		</main>
@@ -152,64 +152,64 @@
 			<section class="sheet-body" style="overflow: auto;height: 717px;;">
 			    {{!-- Features Tab --}}
 				<div id="features" class="tab features"  data-group="primary" data-tab="features">
-					<div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.acrobatie}}" title="{{localize 'liber.acro'}}">{{localize 'liber.acro'}}<sup>1</sup></button><input class="cpt0" type="text" name="data.caracteristique.acrobatie" value="{{data.data.caracteristique.acrobatie}}"></div>
-		        	<div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.agilites}}" title="{{localize 'liber.agil'}}">{{localize 'liber.agil'}}<sup>3</sup></button><input class="cpt1" type="text" name="data.caracteristique.agilites" value="{{data.data.caracteristique.agilites}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.alchimie}}" title="{{localize 'liber.alch'}}">{{localize 'liber.alch'}}<sup>2</sup></button><input class="cpt2" type="text" name="data.caracteristique.alchimie" value="{{data.data.caracteristique.alchimie}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.apprentissage}}" title="{{localize 'liber.appr'}}">{{localize 'liber.appr'}}<sup>3</sup></button><input class="cpt3" type="text" name="data.caracteristique.apprentissage" value="{{data.data.caracteristique.apprentissage}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.hast}}" title="{{localize 'liber.hast'}}">{{localize 'liber.hast'}}<sup>3</sup></button><input class="cpt4" type="text" name="data.caracteristique.hast" value="{{data.data.caracteristique.hast}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.cc}}" title="{{localize 'liber.corp'}}">{{localize 'liber.corp'}}<sup>3</sup></button><input class="cpt5" type="text" name="data.caracteristique.cc" value="{{data.data.caracteristique.cc}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.lancer}}" title="{{localize 'liber.lanc'}}">{{localize 'liber.lanc'}}<sup>3</sup></button><input class="cpt6" type="text" name="data.caracteristique.lancer" value="{{data.data.caracteristique.lancer}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.melee}}" title="{{localize 'liber.mele'}}">{{localize 'liber.mele'}}<sup>3</sup></button><input class="cpt7" type="text" name="data.caracteristique.melee" value="{{data.data.caracteristique.melee}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.tir}}" title="{{localize 'liber.atir'}}">{{localize 'liber.atir'}}<sup>3</sup></button><input class="cpt8" type="text" name="data.caracteristique.tir" value="{{data.data.caracteristique.tir}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.art}}" title="{{localize 'liber.arti'}}">{{localize 'liber.arti'}}<sup>1</sup></button><input class="cpt9" type="text" name="data.caracteristique.art" value="{{data.data.caracteristique.art}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.assassinat}}" title="{{localize 'liber.assa'}}">{{localize 'liber.assa'}}<sup>2</sup></button><input class="cpt10" type="text" name="data.caracteristique.assassinat" value="{{data.data.caracteristique.assassinat}}"></div>
-					<div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.baton}}" title="{{localize 'liber.bato'}}">{{localize 'liber.bato'}}<sup>2</sup></button><input class="cpt11" type="text" name="data.caracteristique.baton" value="{{data.data.caracteristique.baton}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.bouclier}}" title="{{localize 'liber.bouc'}}">{{localize 'liber.bouc'}}<sup>2</sup></button><input class="cpt12" type="text" name="data.caracteristique.bouclier" value="{{data.data.caracteristique.bouclier}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.bricolage}}" title="{{localize 'liber.bric'}}">{{localize 'liber.bric'}}<sup>1</sup></button><input class="cpt13" type="text" name="data.caracteristique.bricolage" value="{{data.data.caracteristique.bricolage}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.presence}}" title="{{localize 'liber.char'}}">{{localize 'liber.char'}}<sup>3</sup></button><input class="cpt14" type="text" name="data.caracteristique.presence" value="{{data.data.caracteristique.presence}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.chercher}}" title="{{localize 'liber.chec'}}">{{localize 'liber.chec'}}<sup>1</sup></button><input class="cpt15" type="text" name="data.caracteristique.chercher" value="{{data.data.caracteristique.chercher}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.commander}}" title="{{localize 'liber.comm'}}">{{localize 'liber.comm'}}<sup>2</sup></button><input class="cpt16" type="text" name="data.caracteristique.commander" value="{{data.data.caracteristique.commander}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.concentration}}" title="{{localize 'liber.conc'}}">{{localize 'liber.conc'}}<sup>3</sup></button><input class="cpt17" type="text" name="data.caracteristique.concentration" value="{{data.data.caracteristique.concentration}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.nature}}" title="{{localize 'liber.natu'}}">{{localize 'liber.natu'}}<sup>1</sup></button><input class="cpt18" type="text" name="data.caracteristique.nature" value="{{data.data.caracteristique.nature}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.peuples}}" title="{{localize 'liber.peup'}}">{{localize 'liber.peup'}}<sup>1</sup></button><input class="cpt19" type="text" name="data.caracteristique.peuples" value="{{data.data.caracteristique.peuples}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.religions}}" title="{{localize 'liber.reli'}}">{{localize 'liber.reli'}}<sup>1</sup></button><input class="cpt20" type="text" name="data.caracteristique.religions" value="{{data.data.caracteristique.religions}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.geographique}}" title="{{localize 'liber.geog'}}">{{localize 'liber.geog'}}<sup>1</sup></button><input class="cpt21" type="text" name="data.caracteristique.geographique" value="{{data.data.caracteristique.geographique}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.rue}}" title="{{localize 'liber.arue'}}">{{localize 'liber.arue'}}<sup>1</sup></button><input class="cpt22" type="text" name="data.caracteristique.rue" value="{{data.data.caracteristique.rue}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.heretiques}}" title="{{localize 'liber.here'}}">{{localize 'liber.here'}}<sup>1</sup></button><input class="cpt23" type="text" name="data.caracteristique.heretiques" value="{{data.data.caracteristique.heretiques}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.combat}}" title="{{localize 'liber.a'}}">{{localize 'liber.comb'}}<sup>3</sup></button><input class="cpt24" type="text" name="data.caracteristique.combat" value="{{data.data.caracteristique.combat}}"></div>
-					<div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.commerce}}" title="{{localize 'liber.comm'}}">{{localize 'liber.comm'}}<sup>2</sup></button><input class="cpt25" type="text" name="data.caracteristique.commerce" value="{{data.data.caracteristique.commerce}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.crochetage}}" title="{{localize 'liber.croc'}}">{{localize 'liber.croc'}}<sup>1</sup></button><input class="cpt26" type="text" name="data.caracteristique.crochetage" value="{{data.data.caracteristique.crochetage}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.discretion}}" title="{{localize 'liber.disc'}}">{{localize 'liber.disc'}}<sup>2</sup></button><input class="cpt27" type="text" name="data.caracteristique.discretion" value="{{data.data.caracteristique.discretion}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.dexterite}}" title="{{localize 'liber.dext'}}">{{localize 'liber.dext'}}<sup>3</sup></button><input class="cpt28" type="text" name="data.caracteristique.dexterite" value="{{data.data.caracteristique.dexterite}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.detection}}" title="{{localize 'liber.dect'}}">{{localize 'liber.dect'}}<sup>2</sup></button><input class="cpt29" type="text" name="data.caracteristique.detection" value="{{data.data.caracteristique.detection}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.dissimulation}}" title="{{localize 'liber.diss'}}">{{localize 'liber.diss'}}<sup>3</sup></button><input class="cpt30" type="text" name="data.caracteristique.dissimulation" value="{{data.data.caracteristique.dissimulation}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.dressage}}" title="{{localize 'liber.dres'}}">{{localize 'liber.dres'}}<sup>1</sup></button><input class="cpt31" type="text" name="data.caracteristique.dressage" value="{{data.data.caracteristique.dressage}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.ennemi}}" title="{{localize 'liber.enne'}}">{{localize 'liber.enne'}}<sup>1</sup></button><input class="cpt32" type="text" name="data.caracteristique.ennemi" value="{{data.data.caracteristique.ennemi}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.equilibre}}" title="{{localize 'liber.equi'}}">{{localize 'liber.equi'}}<sup>1</sup></button><input class="cpt33" type="text" name="data.caracteristique.equilibre" value="{{data.data.caracteristique.equilibre}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.equitation}}" title="{{localize 'liber.equt'}}">{{localize 'liber.equt'}}<sup>1</sup></button><input class="cpt34" type="text" name="data.caracteristique.equitation" value="{{data.data.caracteristique.equitation}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.escroquerie}}" title="{{localize 'liber.escr'}}">{{localize 'liber.escr'}}<sup>1</sup></button><input class="cpt35" type="text" name="data.caracteristique.escroquerie" value="{{data.data.caracteristique.escroquerie}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.esquiver}}" title="{{localize 'liber.esqu'}}">{{localize 'liber.esqu'}}<sup>1</sup></button><input class="cpt36" type="text" name="data.caracteristique.esquiver" value="{{data.data.caracteristique.esquiver}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.puissance}}" title="{{localize 'liber.forc'}}">{{localize 'liber.forc'}}<sup>3</sup></button><input class="cpt37" type="text" name="data.caracteristique.puissance" value="{{data.data.caracteristique.puissance}}"></div> 
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.astuce}}" title="{{localize 'liber.inte'}}">{{localize 'liber.inte'}}<sup>3</sup></button><input class="cpt38" type="text" name="data.caracteristique.astuce" value="{{data.data.caracteristique.astuce}}"></div>
-					<div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.peur}}" title="{{localize 'liber.peur'}}">{{localize 'liber.peur'}}<sup>1</sup></button><input class="cpt39" type="text" name="data.caracteristique.peur" value="{{data.data.caracteristique.peur}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.joueur}}" title="{{localize 'liber.joue'}}">{{localize 'liber.joue'}}<sup>1</sup></button><input class="cpt40" type="text" name="data.caracteristique.joueur" value="{{data.data.caracteristique.joueur}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.maitrise}}" title="{{localize 'liber.mait'}}">{{localize 'liber.mait'}}<sup>3</sup></button><input class="cpt41" type="text" name="data.caracteristique.maitrise" value="{{data.data.caracteristique.maitrise}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.natation}}" title="{{localize 'liber.nata'}}">{{localize 'liber.nata'}}<sup>1</sup></button><input class="cpt42" type="text" name="data.caracteristique.natation" value="{{data.data.caracteristique.natation}}"></div>    
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.navigation}}" title="{{localize 'liber.navi'}}">{{localize 'liber.navi'}}<sup>1</sup></button><input class="cpt43" type="text" name="data.caracteristique.navigation" value="{{data.data.caracteristique.navigation}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.orientation}}" title="{{localize 'liber.orie'}}">{{localize 'liber.orie'}}<sup>1</sup></button><input class="cpt44" type="text" name="data.caracteristique.orientation" value="{{data.data.caracteristique.orientation}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.persuasion}}" title="{{localize 'liber.pers'}}">{{localize 'liber.pers'}}<sup>3</sup></button><input class="cpt45" type="text" name="data.caracteristique.persuasion" value="{{data.data.caracteristique.persuasion}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.pister}}" title="{{localize 'liber.pist'}}">{{localize 'liber.pist'}}<sup>1</sup></button><input class="cpt46" type="text" name="data.caracteristique.pister" value="{{data.data.caracteristique.pister}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.prophetie}}" title="{{localize 'liber.prop'}}">{{localize 'liber.prop'}}<sup>3</sup></button><input class="cpt47" type="text" name="data.caracteristique.prophetie" value="{{data.data.caracteristique.prophetie}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.secours}}" title="{{localize 'liber.seco'}}">{{localize 'liber.seco'}}<sup>1</sup></button><input class="cpt48" type="text" name="data.caracteristique.secours" value="{{data.data.caracteristique.secours}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.resistance}}" title="{{localize 'liber.resi'}}">{{localize 'liber.resi'}}<sup>1</sup></button><input class="cpt49" type="text" name="data.caracteristique.resistance" value="{{data.data.caracteristique.resistance}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.psychologue}}" title="{{localize 'liber.saga'}}">{{localize 'liber.saga'}}<sup>3</sup></button><input class="cpt50" type="text" name="data.caracteristique.psychologue" value="{{data.data.caracteristique.psychologue}}"></div>
-					<div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.medecine}}" title="{{localize 'liber.mede'}}">{{localize 'liber.mede'}}<sup>3</sup></button><input class="cpt51" type="text" name="data.caracteristique.medecine" value="{{data.data.caracteristique.medecine}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.survie}}" title="{{localize 'liber.surv'}}">{{localize 'liber.surv'}}<sup>2</sup></button><input class="cpt52" type="text" name="data.caracteristique.survie" value="{{data.data.caracteristique.survie}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.tueur}}" title="{{localize 'liber.tueu'}}">{{localize 'liber.tueu'}}<sup>1</sup></button><input class="cpt53" type="text" name="data.caracteristique.tueur" value="{{data.data.caracteristique.tueur}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.objet}}" title="{{localize 'liber.obje'}}">{{localize 'liber.obje'}}<sup>1</sup></button><input class="cpt54" type="text" name="data.caracteristique.objet" value="{{data.data.caracteristique.objet}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.veterinaire}}" title="{{localize 'liber.vete'}}">{{localize 'liber.vete'}}<sup>1</sup></button><input class="cpt55" type="text" name="data.caracteristique.veterinaire" value="{{data.data.caracteristique.veterinaire}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.vigilance}}" title="{{localize 'liber.vigi'}}">{{localize 'liber.vigi'}}<sup>3</sup></button><input class="cpt56" type="text" name="data.caracteristique.vigilance" value="{{data.data.caracteristique.vigilance}}"></div>
-		    	    <div class="compt"><button class="desequi attribut" name="{{data.data.caracteristique.vise}}" title="{{localize 'liber.vise'}}">{{localize 'liber.vise'}}<sup>2</sup></button><input class="cpt57" type="text" name="data.caracteristique.vise" value="{{data.data.caracteristique.vise}}"></div> 
+					<div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.acrobatie}}" title="{{localize 'liber.acro'}}">{{localize 'liber.acro'}}<sup>1</sup></button><input class="cpt0" type="text" name="system.caracteristique.acrobatie" value="{{data.system.caracteristique.acrobatie}}"></div>
+		        	<div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.agilites}}" title="{{localize 'liber.agil'}}">{{localize 'liber.agil'}}<sup>3</sup></button><input class="cpt1" type="text" name="system.caracteristique.agilites" value="{{data.system.caracteristique.agilites}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.alchimie}}" title="{{localize 'liber.alch'}}">{{localize 'liber.alch'}}<sup>2</sup></button><input class="cpt2" type="text" name="system.caracteristique.alchimie" value="{{data.system.caracteristique.alchimie}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.apprentissage}}" title="{{localize 'liber.appr'}}">{{localize 'liber.appr'}}<sup>3</sup></button><input class="cpt3" type="text" name="system.caracteristique.apprentissage" value="{{data.system.caracteristique.apprentissage}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.hast}}" title="{{localize 'liber.hast'}}">{{localize 'liber.hast'}}<sup>3</sup></button><input class="cpt4" type="text" name="system.caracteristique.hast" value="{{data.system.caracteristique.hast}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.cc}}" title="{{localize 'liber.corp'}}">{{localize 'liber.corp'}}<sup>3</sup></button><input class="cpt5" type="text" name="system.caracteristique.cc" value="{{data.system.caracteristique.cc}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.lancer}}" title="{{localize 'liber.lanc'}}">{{localize 'liber.lanc'}}<sup>3</sup></button><input class="cpt6" type="text" name="system.caracteristique.lancer" value="{{data.system.caracteristique.lancer}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.melee}}" title="{{localize 'liber.mele'}}">{{localize 'liber.mele'}}<sup>3</sup></button><input class="cpt7" type="text" name="system.caracteristique.melee" value="{{data.system.caracteristique.melee}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.tir}}" title="{{localize 'liber.atir'}}">{{localize 'liber.atir'}}<sup>3</sup></button><input class="cpt8" type="text" name="system.caracteristique.tir" value="{{data.system.caracteristique.tir}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.art}}" title="{{localize 'liber.arti'}}">{{localize 'liber.arti'}}<sup>1</sup></button><input class="cpt9" type="text" name="system.caracteristique.art" value="{{data.system.caracteristique.art}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.assassinat}}" title="{{localize 'liber.assa'}}">{{localize 'liber.assa'}}<sup>2</sup></button><input class="cpt10" type="text" name="system.caracteristique.assassinat" value="{{data.system.caracteristique.assassinat}}"></div>
+					<div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.baton}}" title="{{localize 'liber.bato'}}">{{localize 'liber.bato'}}<sup>2</sup></button><input class="cpt11" type="text" name="system.caracteristique.baton" value="{{data.system.caracteristique.baton}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.bouclier}}" title="{{localize 'liber.bouc'}}">{{localize 'liber.bouc'}}<sup>2</sup></button><input class="cpt12" type="text" name="system.caracteristique.bouclier" value="{{data.system.caracteristique.bouclier}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.bricolage}}" title="{{localize 'liber.bric'}}">{{localize 'liber.bric'}}<sup>1</sup></button><input class="cpt13" type="text" name="system.caracteristique.bricolage" value="{{data.system.caracteristique.bricolage}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.presence}}" title="{{localize 'liber.char'}}">{{localize 'liber.char'}}<sup>3</sup></button><input class="cpt14" type="text" name="system.caracteristique.presence" value="{{data.system.caracteristique.presence}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.chercher}}" title="{{localize 'liber.chec'}}">{{localize 'liber.chec'}}<sup>1</sup></button><input class="cpt15" type="text" name="system.caracteristique.chercher" value="{{data.system.caracteristique.chercher}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.commander}}" title="{{localize 'liber.comm'}}">{{localize 'liber.comm'}}<sup>2</sup></button><input class="cpt16" type="text" name="system.caracteristique.commander" value="{{data.system.caracteristique.commander}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.concentration}}" title="{{localize 'liber.conc'}}">{{localize 'liber.conc'}}<sup>3</sup></button><input class="cpt17" type="text" name="system.caracteristique.concentration" value="{{data.system.caracteristique.concentration}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.nature}}" title="{{localize 'liber.natu'}}">{{localize 'liber.natu'}}<sup>1</sup></button><input class="cpt18" type="text" name="system.caracteristique.nature" value="{{data.system.caracteristique.nature}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.peuples}}" title="{{localize 'liber.peup'}}">{{localize 'liber.peup'}}<sup>1</sup></button><input class="cpt19" type="text" name="system.caracteristique.peuples" value="{{data.system.caracteristique.peuples}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.religions}}" title="{{localize 'liber.reli'}}">{{localize 'liber.reli'}}<sup>1</sup></button><input class="cpt20" type="text" name="system.caracteristique.religions" value="{{data.system.caracteristique.religions}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.geographique}}" title="{{localize 'liber.geog'}}">{{localize 'liber.geog'}}<sup>1</sup></button><input class="cpt21" type="text" name="system.caracteristique.geographique" value="{{data.system.caracteristique.geographique}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.rue}}" title="{{localize 'liber.arue'}}">{{localize 'liber.arue'}}<sup>1</sup></button><input class="cpt22" type="text" name="system.caracteristique.rue" value="{{data.system.caracteristique.rue}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.heretiques}}" title="{{localize 'liber.here'}}">{{localize 'liber.here'}}<sup>1</sup></button><input class="cpt23" type="text" name="system.caracteristique.heretiques" value="{{data.system.caracteristique.heretiques}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.combat}}" title="{{localize 'liber.a'}}">{{localize 'liber.comb'}}<sup>3</sup></button><input class="cpt24" type="text" name="system.caracteristique.combat" value="{{data.system.caracteristique.combat}}"></div>
+					<div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.commerce}}" title="{{localize 'liber.comm'}}">{{localize 'liber.comm'}}<sup>2</sup></button><input class="cpt25" type="text" name="system.caracteristique.commerce" value="{{data.system.caracteristique.commerce}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.crochetage}}" title="{{localize 'liber.croc'}}">{{localize 'liber.croc'}}<sup>1</sup></button><input class="cpt26" type="text" name="system.caracteristique.crochetage" value="{{data.system.caracteristique.crochetage}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.discretion}}" title="{{localize 'liber.disc'}}">{{localize 'liber.disc'}}<sup>2</sup></button><input class="cpt27" type="text" name="system.caracteristique.discretion" value="{{data.system.caracteristique.discretion}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.dexterite}}" title="{{localize 'liber.dext'}}">{{localize 'liber.dext'}}<sup>3</sup></button><input class="cpt28" type="text" name="system.caracteristique.dexterite" value="{{data.system.caracteristique.dexterite}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.detection}}" title="{{localize 'liber.dect'}}">{{localize 'liber.dect'}}<sup>2</sup></button><input class="cpt29" type="text" name="system.caracteristique.detection" value="{{data.system.caracteristique.detection}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.dissimulation}}" title="{{localize 'liber.diss'}}">{{localize 'liber.diss'}}<sup>3</sup></button><input class="cpt30" type="text" name="system.caracteristique.dissimulation" value="{{data.system.caracteristique.dissimulation}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.dressage}}" title="{{localize 'liber.dres'}}">{{localize 'liber.dres'}}<sup>1</sup></button><input class="cpt31" type="text" name="system.caracteristique.dressage" value="{{data.system.caracteristique.dressage}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.ennemi}}" title="{{localize 'liber.enne'}}">{{localize 'liber.enne'}}<sup>1</sup></button><input class="cpt32" type="text" name="system.caracteristique.ennemi" value="{{data.system.caracteristique.ennemi}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.equilibre}}" title="{{localize 'liber.equi'}}">{{localize 'liber.equi'}}<sup>1</sup></button><input class="cpt33" type="text" name="system.caracteristique.equilibre" value="{{data.system.caracteristique.equilibre}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.equitation}}" title="{{localize 'liber.equt'}}">{{localize 'liber.equt'}}<sup>1</sup></button><input class="cpt34" type="text" name="system.caracteristique.equitation" value="{{data.system.caracteristique.equitation}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.escroquerie}}" title="{{localize 'liber.escr'}}">{{localize 'liber.escr'}}<sup>1</sup></button><input class="cpt35" type="text" name="system.caracteristique.escroquerie" value="{{data.system.caracteristique.escroquerie}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.esquiver}}" title="{{localize 'liber.esqu'}}">{{localize 'liber.esqu'}}<sup>1</sup></button><input class="cpt36" type="text" name="system.caracteristique.esquiver" value="{{data.system.caracteristique.esquiver}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.puissance}}" title="{{localize 'liber.forc'}}">{{localize 'liber.forc'}}<sup>3</sup></button><input class="cpt37" type="text" name="system.caracteristique.puissance" value="{{data.system.caracteristique.puissance}}"></div> 
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.astuce}}" title="{{localize 'liber.inte'}}">{{localize 'liber.inte'}}<sup>3</sup></button><input class="cpt38" type="text" name="system.caracteristique.astuce" value="{{data.system.caracteristique.astuce}}"></div>
+					<div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.peur}}" title="{{localize 'liber.peur'}}">{{localize 'liber.peur'}}<sup>1</sup></button><input class="cpt39" type="text" name="system.caracteristique.peur" value="{{data.system.caracteristique.peur}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.joueur}}" title="{{localize 'liber.joue'}}">{{localize 'liber.joue'}}<sup>1</sup></button><input class="cpt40" type="text" name="system.caracteristique.joueur" value="{{data.system.caracteristique.joueur}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.maitrise}}" title="{{localize 'liber.mait'}}">{{localize 'liber.mait'}}<sup>3</sup></button><input class="cpt41" type="text" name="system.caracteristique.maitrise" value="{{data.system.caracteristique.maitrise}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.natation}}" title="{{localize 'liber.nata'}}">{{localize 'liber.nata'}}<sup>1</sup></button><input class="cpt42" type="text" name="system.caracteristique.natation" value="{{data.system.caracteristique.natation}}"></div>    
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.navigation}}" title="{{localize 'liber.navi'}}">{{localize 'liber.navi'}}<sup>1</sup></button><input class="cpt43" type="text" name="system.caracteristique.navigation" value="{{data.system.caracteristique.navigation}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.orientation}}" title="{{localize 'liber.orie'}}">{{localize 'liber.orie'}}<sup>1</sup></button><input class="cpt44" type="text" name="system.caracteristique.orientation" value="{{data.system.caracteristique.orientation}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.persuasion}}" title="{{localize 'liber.pers'}}">{{localize 'liber.pers'}}<sup>3</sup></button><input class="cpt45" type="text" name="system.caracteristique.persuasion" value="{{data.system.caracteristique.persuasion}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.pister}}" title="{{localize 'liber.pist'}}">{{localize 'liber.pist'}}<sup>1</sup></button><input class="cpt46" type="text" name="system.caracteristique.pister" value="{{data.system.caracteristique.pister}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.prophetie}}" title="{{localize 'liber.prop'}}">{{localize 'liber.prop'}}<sup>3</sup></button><input class="cpt47" type="text" name="system.caracteristique.prophetie" value="{{data.system.caracteristique.prophetie}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.secours}}" title="{{localize 'liber.seco'}}">{{localize 'liber.seco'}}<sup>1</sup></button><input class="cpt48" type="text" name="system.caracteristique.secours" value="{{data.system.caracteristique.secours}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.resistance}}" title="{{localize 'liber.resi'}}">{{localize 'liber.resi'}}<sup>1</sup></button><input class="cpt49" type="text" name="system.caracteristique.resistance" value="{{data.system.caracteristique.resistance}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.psychologue}}" title="{{localize 'liber.saga'}}">{{localize 'liber.saga'}}<sup>3</sup></button><input class="cpt50" type="text" name="system.caracteristique.psychologue" value="{{data.system.caracteristique.psychologue}}"></div>
+					<div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.medecine}}" title="{{localize 'liber.mede'}}">{{localize 'liber.mede'}}<sup>3</sup></button><input class="cpt51" type="text" name="system.caracteristique.medecine" value="{{data.system.caracteristique.medecine}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.survie}}" title="{{localize 'liber.surv'}}">{{localize 'liber.surv'}}<sup>2</sup></button><input class="cpt52" type="text" name="system.caracteristique.survie" value="{{data.system.caracteristique.survie}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.tueur}}" title="{{localize 'liber.tueu'}}">{{localize 'liber.tueu'}}<sup>1</sup></button><input class="cpt53" type="text" name="system.caracteristique.tueur" value="{{data.system.caracteristique.tueur}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.objet}}" title="{{localize 'liber.obje'}}">{{localize 'liber.obje'}}<sup>1</sup></button><input class="cpt54" type="text" name="system.caracteristique.objet" value="{{data.system.caracteristique.objet}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.veterinaire}}" title="{{localize 'liber.vete'}}">{{localize 'liber.vete'}}<sup>1</sup></button><input class="cpt55" type="text" name="system.caracteristique.veterinaire" value="{{data.system.caracteristique.veterinaire}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.vigilance}}" title="{{localize 'liber.vigi'}}">{{localize 'liber.vigi'}}<sup>3</sup></button><input class="cpt56" type="text" name="system.caracteristique.vigilance" value="{{data.system.caracteristique.vigilance}}"></div>
+		    	    <div class="compt"><button class="desequi attribut" name="{{data.system.caracteristique.vise}}" title="{{localize 'liber.vise'}}">{{localize 'liber.vise'}}<sup>2</sup></button><input class="cpt57" type="text" name="system.caracteristique.vise" value="{{data.system.caracteristique.vise}}"></div> 
 		    	    <div class="compt">
 		    	    </div>
 		    	    <div class="compt"><button>{{localize 'liber.restant'}}*</button><input class="restant" type="text" value="000" readonly>
@@ -220,59 +220,59 @@
 				<div id="carac" class="tab carac" data-group="primary" data-tab="carac">
 					<div class="rexrow">
 				    	<div class="grid-2col">
-							<!--span class="deno" style="text-align: left;color:#fff">{{localize 'liber.talent'}}</span><input class="talent" name="data.talent" type="text" value="{{data.data.talent}}" placeholder="Talent"/-->
-							<span class="deno" style="text-align: left;color:#fff">{{localize 'liber.talent'}}</span><input class="talent" type="text" value="{{data.data.talent}}" placeholder="Talent" readonly="" />
+							<!--span class="deno" style="text-align: left;color:#fff">{{localize 'liber.talent'}}</span><input class="talent" name="system.talent" type="text" value="{{data.system.talent}}" placeholder="Talent"/-->
+							<span class="deno" style="text-align: left;color:#fff">{{localize 'liber.talent'}}</span><input class="talent" type="text" value="{{data.system.talent}}" placeholder="Talent" readonly="" />
 							<div class="clear"></div>                             
 						</div>
 						<div class="grid-2col">
-							<!--span class="deno" style="text-align: left;color:#fff">{{localize 'liber.faiblesse'}}</span><input class="faiblesse" name="data.faiblesse" type="text" value="{{data.data.faiblesse}}" placeholder="Faiblesse"/-->
-							<span class="deno" style="text-align: left;color:#fff">{{localize 'liber.faiblesse'}}</span><input class="faiblesse" type="text" value="{{data.data.faiblesse}}" placeholder="Faiblesse" readonly="" />
+							<!--span class="deno" style="text-align: left;color:#fff">{{localize 'liber.faiblesse'}}</span><input class="faiblesse" name="system.faiblesse" type="text" value="{{data.system.faiblesse}}" placeholder="Faiblesse"/-->
+							<span class="deno" style="text-align: left;color:#fff">{{localize 'liber.faiblesse'}}</span><input class="faiblesse" type="text" value="{{data.system.faiblesse}}" placeholder="Faiblesse" readonly="" />
 							<div class="clear"></div>                             
 						</div>
 					</div>
 					<div class="clear"></div>
 					<h2>{{localize 'liber.perso'}}</h2>
-		            <div class="compt"><span>{{localize 'liber.resid'}} :</span><input class="residence" name="data.caractere.residence" type="text" value="{{data.data.caractere.residence}}" placeholder="{{localize 'liber.resid'}}"/></div>
-		            <div class="compt"><span>{{localize 'liber.sanga'}} :</span><input class="sang" name="data.caractere.sang" type="text" value="{{data.data.caractere.sang}}" placeholder="{{localize 'liber.sanga'}}"/></div>
-		            <div class="compt"><span>{{localize 'liber.secte'}} :</span><input class="secte" name="data.caractere.politique" type="text" value="{{data.data.caractere.politique}}" placeholder="{{localize 'liber.secte'}}"/></div>
-		            <div class="compt"><span>{{localize 'liber.inter'}} :</span><input class="interet" name="data.caractere.interets" type="text" value="{{data.data.caractere.interets}}" placeholder="{{localize 'liber.inter'}}"/></div>
-		            <div class="compt"><span>{{localize 'liber.deces'}} :</span><input class="proche" name="data.caractere.deces" type="text" value="{{data.data.caractere.deces}}" placeholder="{{localize 'liber.deces'}}"/></div>
-		            <div class="compt"><span>{{localize 'liber.moral'}} :</span><input class="moral" name="data.caractere.moral" type="text" value="{{data.data.caractere.moral}}" placeholder="{{localize 'liber.moral'}}"/></div>
-		            <div class="compt"><span>{{localize 'liber.amour'}} :</span><input class="amour" name="data.caractere.amour" type="text" value="{{data.data.caractere.amour}}" placeholder="{{localize 'liber.amour'}}"/></div>
-		            <div class="compt"><span>{{localize 'liber.amiti'}} :</span><input class="amitie" name="data.caractere.amitie" type="text" value="{{data.data.caractere.amitie}}" placeholder="{{localize 'liber.amiti'}}"/></div>
-		            <div class="compt"><span>{{localize 'liber.haine'}} :</span><input class="haine" name="data.caractere.haine" type="text" value="{{data.data.caractere.haine}}" placeholder="{{localize 'liber.haine'}}"/></div>
-		            <div class="compt"><span>{{localize 'liber.princ'}} :</span><input class="principale" name="data.caractere.principale" type="text" value="{{data.data.caractere.principale}}" placeholder="{{localize 'liber.princ'}}"/></div>
-		            <div class="compt"><span>{{localize 'liber.secon'}} :</span><input class="secondaire" name="data.caractere.secondaire" type="text" value="{{data.data.caractere.secondaire}}" placeholder="{{localize 'liber.secon'}}"/></div>
-		            <div class="compt"><span>{{localize 'liber.passi'}} :</span><input class="passion" name="data.caractere.passion" type="text" value="{{data.data.caractere.passion}}" placeholder="{{localize 'liber.passi'}} "/></div>
-		            <div class="compt"><span>{{localize 'liber.carac'}} :</span><input class="caractere" name="data.caractere.caract" type="text" value="{{data.data.caractere.caract}}" placeholder="{{localize 'liber.carac'}}"/></div>
-		            <div class="compt"><span>{{localize 'liber.persn'}} :</span><input class="personnalite" name="data.caractere.personnalite" type="text" value="{{data.data.caractere.personnalite}}" placeholder="{{localize 'liber.persn'}}"/></div>
-		            <div class="compt"><span>{{localize 'liber.perso'}} :</span><input class="monde" name="data.caractere.perception" type="text" value="{{data.data.caractere.perception}}" placeholder="{{localize 'liber.perso'}}"/></div>
-		            <div class="compt"><span>{{localize 'liber.objec'}} :</span><input class="objectif" name="data.caractere.objectif" type="text" value="{{data.data.caractere.objectif}}" placeholder="{{localize 'liber.objec'}}"/></div>
-		            <div class="compt"><span>{{localize 'liber.rancu'}} :</span><input class="rancunier" name="data.caractere.rancunier" type="text" value="{{data.data.caractere.rancunier}}" placeholder="{{localize 'liber.rancu'}}"/></div>
-		            <div class="compt"><span>{{localize 'liber.menta'}} :</span><input class="tare" name="data.caractere.tare" type="text" value="{{data.data.caractere.tare}}" placeholder="{{localize 'liber.menta'}}"/></div>
-		            <div class="compt"><span>{{localize 'liber.obess'}} :</span><input class="obsession" name="data.caractere.obsession" type="text" value="{{data.data.caractere.obsession}}" placeholder="{{localize 'liber.obess'}}"/></div>
+		            <div class="compt"><span>{{localize 'liber.resid'}} :</span><input class="residence" name="system.caractere.residence" type="text" value="{{data.system.caractere.residence}}" placeholder="{{localize 'liber.resid'}}"/></div>
+		            <div class="compt"><span>{{localize 'liber.sanga'}} :</span><input class="sang" name="system.caractere.sang" type="text" value="{{data.system.caractere.sang}}" placeholder="{{localize 'liber.sanga'}}"/></div>
+		            <div class="compt"><span>{{localize 'liber.secte'}} :</span><input class="secte" name="system.caractere.politique" type="text" value="{{data.system.caractere.politique}}" placeholder="{{localize 'liber.secte'}}"/></div>
+		            <div class="compt"><span>{{localize 'liber.inter'}} :</span><input class="interet" name="system.caractere.interets" type="text" value="{{data.system.caractere.interets}}" placeholder="{{localize 'liber.inter'}}"/></div>
+		            <div class="compt"><span>{{localize 'liber.deces'}} :</span><input class="proche" name="system.caractere.deces" type="text" value="{{data.system.caractere.deces}}" placeholder="{{localize 'liber.deces'}}"/></div>
+		            <div class="compt"><span>{{localize 'liber.moral'}} :</span><input class="moral" name="system.caractere.moral" type="text" value="{{data.system.caractere.moral}}" placeholder="{{localize 'liber.moral'}}"/></div>
+		            <div class="compt"><span>{{localize 'liber.amour'}} :</span><input class="amour" name="system.caractere.amour" type="text" value="{{data.system.caractere.amour}}" placeholder="{{localize 'liber.amour'}}"/></div>
+		            <div class="compt"><span>{{localize 'liber.amiti'}} :</span><input class="amitie" name="system.caractere.amitie" type="text" value="{{data.system.caractere.amitie}}" placeholder="{{localize 'liber.amiti'}}"/></div>
+		            <div class="compt"><span>{{localize 'liber.haine'}} :</span><input class="haine" name="system.caractere.haine" type="text" value="{{data.system.caractere.haine}}" placeholder="{{localize 'liber.haine'}}"/></div>
+		            <div class="compt"><span>{{localize 'liber.princ'}} :</span><input class="principale" name="system.caractere.principale" type="text" value="{{data.system.caractere.principale}}" placeholder="{{localize 'liber.princ'}}"/></div>
+		            <div class="compt"><span>{{localize 'liber.secon'}} :</span><input class="secondaire" name="system.caractere.secondaire" type="text" value="{{data.system.caractere.secondaire}}" placeholder="{{localize 'liber.secon'}}"/></div>
+		            <div class="compt"><span>{{localize 'liber.passi'}} :</span><input class="passion" name="system.caractere.passion" type="text" value="{{data.system.caractere.passion}}" placeholder="{{localize 'liber.passi'}} "/></div>
+		            <div class="compt"><span>{{localize 'liber.carac'}} :</span><input class="caractere" name="system.caractere.caract" type="text" value="{{data.system.caractere.caract}}" placeholder="{{localize 'liber.carac'}}"/></div>
+		            <div class="compt"><span>{{localize 'liber.persn'}} :</span><input class="personnalite" name="system.caractere.personnalite" type="text" value="{{data.system.caractere.personnalite}}" placeholder="{{localize 'liber.persn'}}"/></div>
+		            <div class="compt"><span>{{localize 'liber.perso'}} :</span><input class="monde" name="system.caractere.perception" type="text" value="{{data.system.caractere.perception}}" placeholder="{{localize 'liber.perso'}}"/></div>
+		            <div class="compt"><span>{{localize 'liber.objec'}} :</span><input class="objectif" name="system.caractere.objectif" type="text" value="{{data.system.caractere.objectif}}" placeholder="{{localize 'liber.objec'}}"/></div>
+		            <div class="compt"><span>{{localize 'liber.rancu'}} :</span><input class="rancunier" name="system.caractere.rancunier" type="text" value="{{data.system.caractere.rancunier}}" placeholder="{{localize 'liber.rancu'}}"/></div>
+		            <div class="compt"><span>{{localize 'liber.menta'}} :</span><input class="tare" name="system.caractere.tare" type="text" value="{{data.system.caractere.tare}}" placeholder="{{localize 'liber.menta'}}"/></div>
+		            <div class="compt"><span>{{localize 'liber.obess'}} :</span><input class="obsession" name="system.caractere.obsession" type="text" value="{{data.system.caractere.obsession}}" placeholder="{{localize 'liber.obess'}}"/></div>
 				    
 				</div>
 				{{!-- Items Tab --}}
 				<div id="items" class="tab items" data-group="primary" data-tab="items">
 					<div class="encom"><div class="barenc"></div>
-						<p>{{localize 'liber.encombrement'}} <input class="encours" name="data.encombrement.value" type="text" value="{{data.data.encombrement.value}}" placeholder="0" style="width: 40px;" readonly=""/> / 
-						<input class="enc" name="data.encombrement.max" type="text" value="{{data.data.encombrement.max}}" placeholder="0" style="width: 40px;" readonly="" /> {{localize 'liber.kg'}}</p>
+						<p>{{localize 'liber.encombrement'}} <input class="encours" name="system.encombrement.value" type="text" value="{{data.system.encombrement.value}}" placeholder="0" style="width: 40px;" readonly=""/> / 
+						<input class="enc" name="system.encombrement.max" type="text" value="{{data.system.encombrement.max}}" placeholder="0" style="width: 40px;" readonly="" /> {{localize 'liber.kg'}}</p>
 					</div>
 					<div class="rexrow">
 						<div class="grid-3col" style="text-align: center" class="unemain">
 							<h2>{{localize 'liber.gauche'}}</h2>
-							<input class="maingaucequi" name="data.armeg" type="text" value="{{data.data.armeg}}" placeholder="Main Gauche" readonly="" /><button class="desequi maingdes" data-equip="dgauche">🗑</button>
-							<input class="degatg jetdedegat" name="data.degatg" type="text" data-name="{{data.data.armeg}}" value="{{data.data.degatg}}" data-dice="{{data.data.degatg}}" placeholder="Dégat" readonly="" />
+							<input class="maingaucequi" name="system.armeg" type="text" value="{{data.system.armeg}}" placeholder="Main Gauche" readonly="" /><button class="desequi maingdes" data-equip="dgauche">🗑</button>
+							<input class="degatg jetdedegat" name="system.degatg" type="text" data-name="{{data.system.armeg}}" value="{{data.system.degatg}}" data-dice="{{data.system.degatg}}" placeholder="Dégat" readonly="" />
 						</div>
 						<div class="grid-3col" style="text-align: center">
 							<h2 class="deuxmains">{{localize 'liber.droite'}}</h2>
-							<input class="maindroiequi" name="data.armed" type="text" value="{{data.data.armed}}" placeholder="Main droite" readonly="" /><button class="desequi mainddes" data-equip="ddroite">🗑</button>
-							<input class="degatd jetdedegat" name="data.degatd" type="text" data-name="{{data.data.armed}}" value="{{data.data.degatd}}" data-dice="{{data.data.degatd}}" placeholder="Dégat" readonly="" />
+							<input class="maindroiequi" name="system.armed" type="text" value="{{data.system.armed}}" placeholder="Main droite" readonly="" /><button class="desequi mainddes" data-equip="ddroite">🗑</button>
+							<input class="degatd jetdedegat" name="system.degatd" type="text" data-name="{{data.system.armed}}" value="{{data.system.degatd}}" data-dice="{{data.system.degatd}}" placeholder="Dégat" readonly="" />
 						</div>
 						<div class="grid-3col" style="text-align: center">
 							<h2>{{localize 'liber.armor'}}</h2>
-							<input  class="armurequi" name="data.armure" type="text" value="{{data.data.armure}}" placeholder="Armure" readonly="" /><button class="desequi armordes" data-equip="darmure">🗑</button>						
+							<input  class="armurequi" name="system.armure" type="text" value="{{data.system.armure}}" placeholder="Armure" readonly="" /><button class="desequi armordes" data-equip="darmure">🗑</button>						
 						</div>
 					</div>
 					<div class="clear"></div>
@@ -285,8 +285,8 @@
 			                <li class="item fexrow" data-item-id="{{item._id}}">
 			                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
 			                    <div class="item-name" title="{{item.name}}">{{item.name}}</div>
-			                    <div class="item-poids">{{item.data.poids}}</div>
-			                    <div class="item-qty">{{item.data.quantite}}</div>
+			                    <div class="item-poids">{{item.system.poids}}</div>
+			                    <div class="item-qty">{{item.system.quantite}}</div>
 			                    <div class="item-controls">
 			                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
 			                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -322,20 +322,20 @@
 			                    <div class="item-name" title="{{item.name}}">{{item.name}}</div>
 			                    <div class="item-type" title="{{item.type}}">{{item.type}}</div>
 			                   
-			                    <div class="item-portee">{{item.data.portee}}</div>
-			                    <!--div class="item-dommage jetdedegat" data-name="{{item.name}}" data-dice="{{item.data.degat}}">{{item.data.degats}}</div-->
-			                    <div class="item-dommage">{{item.data.degats}}</div>
-			                    <div class="item-poids">{{item.data.poids}}</div>
-			                    <div class="item-valeur">{{item.data.valeur}}</div>
-			                    <div class="item-qty">{{item.data.quantite}}</div>
-			                    <div class="item-hand"><span class="maingauche" title="main gauche" data-equip="gauche" data-name="{{item.name}}" data-degat="{{item.data.degats}}" name="{{item.name}}" ></span><span class="maindroite" title="main droite" data-equip="droite" data-name="{{item.name}}" data-degat="{{item.data.degats}}" name="{{item.name}}" ></span><span class="armor" title="Armure" name="{{item.name}}" data-equip="armure"  data-name="{{item.name}}" ></span></div>
+			                    <div class="item-portee">{{item.system.portee}}</div>
+			                    <!--div class="item-dommage jetdedegat" data-name="{{item.name}}" data-dice="{{item.system.degat}}">{{item.system.degats}}</div-->
+			                    <div class="item-dommage">{{item.system.degats}}</div>
+			                    <div class="item-poids">{{item.system.poids}}</div>
+			                    <div class="item-valeur">{{item.system.valeur}}</div>
+			                    <div class="item-qty">{{item.system.quantite}}</div>
+			                    <div class="item-hand"><span class="maingauche" title="main gauche" data-equip="gauche" data-name="{{item.name}}" data-degat="{{item.system.degats}}" name="{{item.name}}" ></span><span class="maindroite" title="main droite" data-equip="droite" data-name="{{item.name}}" data-degat="{{item.system.degats}}" name="{{item.name}}" ></span><span class="armor" title="Armure" name="{{item.name}}" data-equip="armure"  data-name="{{item.name}}" ></span></div>
 			                    <div class="item-controls">
 			                    	<a class="item-control item-desc" title="Desc Sort">&#128712;</a>
 			                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
 			                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
 			                    </div>
 
-			                     <div class="item-description"><span title="{{item.data.description}}">{{item.data.description}}</span></div>
+			                     <div class="item-description"><span title="{{item.system.description}}">{{item.system.description}}</span></div>
 			                </li>
 			            {{/each}}
 		        		</ul>
@@ -359,20 +359,20 @@
 			                </li>
 			            {{#each actor.sort as |item id|}}
 			                <li class="item fexrow" data-item-id="{{item._id}}">
-			                    <div class="item-image"><a class="item-control item-lancer" data-name="{{item.name}}" data-desc="{{item.data.description}}" data-cout="{{item.data.cout}}" data-img="{{item.img}}"><img src="{{item.img}}" title="Lancer {{item.name}}" width="24" height="24" data-name="{{item.name}}" data-desc="{{item.data.description}}" data-cout="{{item.data.cout}}" data-img="{{item.img}}"/></a></div>
+			                    <div class="item-image"><a class="item-control item-lancer" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.cout}}" data-img="{{item.img}}"><img src="{{item.img}}" title="Lancer {{item.name}}" width="24" height="24" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.cout}}" data-img="{{item.img}}"/></a></div>
 			                    <div class="item-name"><span title="{{item.name}}">{{item.name}}</span></div>
-			                    <div class="item-classe">{{item.data.classe}}</div>
+			                    <div class="item-classe">{{item.system.classe}}</div>
 			                    
-			                    <div class="item-cible">{{item.data.cible}}</div>
-			                    <div class="item-duree">{{item.data.duree}}</div>
-			                    <div class="item-cout">{{item.data.cout}}</div>
+			                    <div class="item-cible">{{item.system.cible}}</div>
+			                    <div class="item-duree">{{item.system.duree}}</div>
+			                    <div class="item-cout">{{item.system.cout}}</div>
 			                    <div class="item-controls">
 			                        <a class="item-control item-desc" title="Desc Sort">&#128712;</a>
 			                        <a class="item-control item-edit" title="Edit Sort"><i class="fas fa-edit"></i></a>
 			                        <a class="item-control item-delete" title="Delete Sort"><i class="fas fa-trash"></i></a>
 			                    </div>
 
-			                    <div class="item-description2"><span title="{{item.data.description}}">{{item.data.description}}</span></div>
+			                    <div class="item-description2"><span title="{{item.system.description}}">{{item.system.description}}</span></div>
 			                </li>
 			            {{/each}}
 		        		</ol>
@@ -388,8 +388,8 @@
 				{{!-- Lab Tab --}}
 				<div id="lab" class="tab stats" data-group="primary" data-tab="lab">
 					<h2>{{localize 'liber.name'}}</h2>
-					<SELECT class="sexliste" name="data.sexe">
-							{{#select data.data.sexe}}
+					<SELECT class="sexliste" name="system.sexe">
+							{{#select data.system.sexe}}
 			                  	<option value="{{localize 'liber.sex1'}}">{{localize 'liber.sex1'}}</option>
 			                    <option value="{{localize 'liber.sex2'}}">{{localize 'liber.sex2'}}</option>
 			                    <option value="{{localize 'liber.sex0'}}">{{localize 'liber.sex0'}}</option>
@@ -397,8 +397,8 @@
 		                </SELECT>
 					<input type="button" value="{{localize 'liber.generer'}}" class="namegenerator">
 					<h2>{{localize 'liber.race'}}</h2>
-						<SELECT class="raceliste" name="data.race">
-							{{#select data.data.race}}
+						<SELECT class="raceliste" name="system.race">
+							{{#select data.system.race}}
 			                  	<option value="{{localize 'liber.avantrace60'}}">{{localize 'liber.avantrace60'}}</option>
 			                    <option value="{{localize 'liber.avantrace61'}}">{{localize 'liber.avantrace61'}}</option>
 			                    <option value="{{localize 'liber.avantrace62'}}">{{localize 'liber.avantrace62'}}</option>
@@ -423,8 +423,8 @@
 		                <input type="button" value="{{localize 'liber.choisir'}}" class="racechoix">
 						
 					<h2 style="margin-top: 30px;">Clan</h2>
-						<SELECT class="clanliste"  name="data.clan">
-							{{#select data.data.clan}}
+						<SELECT class="clanliste"  name="system.clan">
+							{{#select data.system.clan}}
 			                    <option value="{{localize 'liber.avantrace40'}}">{{localize 'liber.avantrace40'}}</option>
 			                    <option value="{{localize 'liber.avantrace41'}}">{{localize 'liber.avantrace41'}}</option>
 			                    <option value="{{localize 'liber.avantrace42'}}">{{localize 'liber.avantrace42'}}</option>
@@ -450,8 +450,8 @@
 		                <input type="button" value="{{localize 'liber.choisir'}}" class="clanchoix">
 
 						<h2 style="margin-top: 30px;">Religion</h2>
-						<SELECT  name="data.religion">
-							{{#select data.data.religion}}
+						<SELECT  name="system.religion">
+							{{#select data.system.religion}}
 			                    <option value="{{localize 'liber.avantrace79'}}">{{localize 'liber.avantrace79'}}</option>
 			                    <option value="{{localize 'liber.avantrace80'}}">{{localize 'liber.avantrace80'}}</option>
 			                    <option value="{{localize 'liber.avantrace81'}}">{{localize 'liber.avantrace81'}}</option>
@@ -482,8 +482,8 @@
 		                <div class="rexrow" style="margin-top: 30px;">
 					    	<div class="grid-2col">
 								<h2>{{localize 'liber.talent'}}</h2>
-								<SELECT class="talentliste"  name="data.talent">
-									{{#select data.data.talent}}
+								<SELECT class="talentliste"  name="system.talent">
+									{{#select data.system.talent}}
 	                                    <OPTION value="{{localize 'liber.title58'}}" title="{{localize 'liber.title1'}}">{{localize 'liber.title58'}}</OPTION>
 	                                    <OPTION value="{{localize 'liber.title59'}}" title="{{localize 'liber.title2'}}">{{localize 'liber.title59'}}</OPTION>
 	                                    <OPTION value="{{localize 'liber.title60'}}" title="{{localize 'liber.title3'}}">{{localize 'liber.title60'}}</OPTION>
@@ -528,8 +528,8 @@
                             </div>
                             <div class="grid-2col">
                                 <h2>{{localize 'liber.faiblesse'}}</h2>
-                                <SELECT class="faiblesseliste"  name="data.faiblesse">
-                                	{{#select data.data.faiblesse}}
+                                <SELECT class="faiblesseliste"  name="system.faiblesse">
+                                	{{#select data.system.faiblesse}}
 	                                    <OPTION value="{{localize 'liber.title96'}}" title="{{localize 'liber.title39'}}">{{localize 'liber.title96'}}</OPTION>
 	                                    <OPTION value="{{localize 'liber.title97'}}" title="{{localize 'liber.title40'}}">{{localize 'liber.title97'}}</OPTION>
 	                                    <OPTION value="{{localize 'liber.title98'}}" title="{{localize 'liber.title41'}}">{{localize 'liber.title98'}}</OPTION>

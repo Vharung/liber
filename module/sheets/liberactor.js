@@ -11,8 +11,10 @@ export class LiberActor extends Actor {
     // prepareBaseData(), prepareEmbeddedDocuments() (including active effects),
     // prepareDerivedData().
     super.prepareData();
-    const actorData = this.data;
-    const data = actorData.data;
+    //const actorData = this.data;
+    const actorData = this.system;
+    //const data = actorData.data;
+    const data = actorData;
     const flags = actorData.flags;
   	//preparation dépendant du type de personnage (
   	if (actorData.type === 'personnage') this._preparePJData(actorData);
@@ -23,12 +25,14 @@ export class LiberActor extends Actor {
    * Prepare Character type specific data
    */
   _preparePJData(actorData) {
-    const data = actorData.data;
+    //const data = actorData.data;
+    const data = actorData;
     console.log(`Liber | Préparation Data PJ.\n`);
     console.log(data);
     // ici on peut ajouter au modele de donnée des stat dérivé comme par exemple le calcul des points de mana
     //Calcul encombrement max
-    actorData.data.encombrement.max=(parseInt(actorData.data.force) + parseInt(actorData.data.caracteristique.puissance)) /2 + 20;
+    //actorData.data.encombrement.max=(parseInt(actorData.data.force) + parseInt(actorData.data.caracteristique.puissance)) /2 + 20;
+    actorData.system.encombrement.max=(parseInt(actorData.force) + parseInt(actorData.system.caracteristique.puissance)) /2 + 20;
     
   }
 

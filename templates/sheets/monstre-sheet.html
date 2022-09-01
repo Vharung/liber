@@ -11,102 +11,102 @@
 					<input class="nomperso" name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
 					<div class="rexrow">
 						<div class="grid-3col">
-							<p>{{localize 'liber.race'}} : <input class="race" name="data.race" type="text" value="{{data.data.race}}" placeholder="Race"/></p>
+							<p>{{localize 'liber.race'}} : <input class="race" name="system.race" type="text" value="{{data.system.race}}" placeholder="Race"/></p>
 						</div>
 						<div class="grid-3col">
-							<p>{{localize 'liber.clan'}} : <input class="clan" name="data.clan" type="text" value="{{data.data.clan}}" placeholder="Clan"/></p>
+							<p>{{localize 'liber.clan'}} : <input class="clan" name="system.clan" type="text" value="{{data.system.clan}}" placeholder="Clan"/></p>
 						</div>
 						<div class="grid-3col">
-							<p>{{localize 'liber.religion'}} : <input class="religion" name="data.religion" type="text" value="{{data.data.religion}}" placeholder="Religion"/> <span class="levelup">↑</span></p>
+							<p>{{localize 'liber.religion'}} : <input class="religion" name="system.religion" type="text" value="{{data.system.religion}}" placeholder="Religion"/> <span class="levelup">↑</span></p>
 						</div>
 						<!--div class="separator"></div-->
-						<p>{{localize 'liber.bonus'}} : <input class="avantagerace" name="data.bonusrace" type="text" value="{{data.data.bonusrace}}" placeholder="Bonus"/>
-							{{localize 'liber.level'}} : <input class="niveau" name="data.level" type="text" value="{{data.data.level}}" placeholder="1"/><button class="aucune" title="Aucune"></button><button class="focus" title="Focus"></button><button class="defensif" title="Défensif"></button><button class="offensif" title="Offensif"></button>
-							<input class="postures" name="data.posture" type="text" value="{{data.data.posture}}" style="display:none"/></span></p>
+						<p>{{localize 'liber.bonus'}} : <input class="avantagerace" name="system.bonusrace" type="text" value="{{data.system.bonusrace}}" placeholder="Bonus"/>
+							{{localize 'liber.level'}} : <input class="niveau" name="system.level" type="text" value="{{data.system.level}}" placeholder="1"/><button class="aucune" title="Aucune"></button><button class="focus" title="Focus"></button><button class="defensif" title="Défensif"></button><button class="offensif" title="Offensif"></button>
+							<input class="postures" name="system.posture" type="text" value="{{data.system.posture}}" style="display:none"/></span></p>
 					</div>
 					
 				</div>
 			</div>
 		</div>
 		<main>
-			<div class="geo" style="background:url({{data.data.geo}});background-size: contain;">
+			<div class="geo" style="background:url({{data.system.geo}});background-size: contain;">
 			</div>
 			<div class="his">
 				<h2>{{localize 'liber.histoire'}}</h2>
-					<textarea class="histoire" name="data.histoire" style="height:210px">{{data.data.histoire}}</textarea>
-					<input name="data.geo" type="text" value="{{data.data.geo}}" placeholder="systems/liber/assets/monstre/map0.png" style="margin-bottom: 5px;color:white;background:#87765b;"/>
+					<textarea class="histoire" name="system.histoire" style="height:210px">{{data.system.histoire}}</textarea>
+					<input name="system.geo" type="text" value="{{data.system.geo}}" placeholder="systems/liber/assets/monstre/map0.png" style="margin-bottom: 5px;color:white;background:#87765b;"/>
 			</div>
 			<div class="clear"></div>
 			<h2>{{localize 'liber.feuille'}}</h2>
 			<div class="rexrow stat">
 				<div class="grid-2col">
-					<p><span class="deno">❤ {{localize 'liber.life'}}</span><input class="hp" name="data.hp.value" type="text" value="{{data.data.hp.value}}" placeholder="10"/><input class="hpmax" name="data.hp.max" type="text" value="{{data.data.hp.max}}" placeholder="10" style="width: 40px;"/>
-					<span class="deno">♗ {{localize 'liber.psy'}} </span><input class="psy" name="data.psy.value" type="text" value="{{data.data.psy.value}}" placeholder="10" style="width: 40px;"/></p><input class="psymax" name="data.psy.max" type="text" value="{{data.data.psy.max}}" placeholder="10" style="width: 40px;"/>
+					<p><span class="deno">❤ {{localize 'liber.life'}}</span><input class="hp" name="system.hp.value" type="text" value="{{data.system.hp.value}}" placeholder="10"/><input class="hpmax" name="system.hp.max" type="text" value="{{data.system.hp.max}}" placeholder="10" style="width: 40px;"/>
+					<span class="deno">♗ {{localize 'liber.psy'}} </span><input class="psy" name="system.psy.value" type="text" value="{{data.system.psy.value}}" placeholder="10" style="width: 40px;"/></p><input class="psymax" name="system.psy.max" type="text" value="{{data.system.psy.max}}" placeholder="10" style="width: 40px;"/>
 				</div>
 				<div class="grid-2col">
-					<p><span class="deno">⛉ {{localize 'liber.armor'}}</span><input class="armureperso" name="data.protection" type="text" value="{{data.data.protection}}" placeholder="0"/>
-					<span class="deno">⛉ {{localize 'liber.protection'}}</span> <input class="protection" name="data.protection-magique" type="text" value="{{data.data.protection-magique}}" placeholder="0"/> </p>
+					<p><span class="deno">⛉ {{localize 'liber.armor'}}</span><input class="armureperso" name="system.protection" type="text" value="{{data.system.protection}}" placeholder="0"/>
+					<span class="deno">⛉ {{localize 'liber.protection'}}</span> <input class="protection" name="system.protection-magique" type="text" value="{{data.system.protection-magique}}" placeholder="0"/> </p>
 				</div>
 				<div class="etat">
-					<input class="insoin" name="data.insoin" type="text" value="{{data.data.insoin}}" placeholder="0"/>
-					<input class="avant" name="data.avantage" type="text" value="{{data.data.avantage}}" placeholder="0"/>
-					<input class="desan" name="data.desavantage" type="text" value="{{data.data.desavantage}}" placeholder="0"/>
+					<input class="insoin" name="system.insoin" type="text" value="{{data.system.insoin}}" placeholder="0"/>
+					<input class="avant" name="system.avantage" type="text" value="{{data.system.avantage}}" placeholder="0"/>
+					<input class="desan" name="system.desavantage" type="text" value="{{data.system.desavantage}}" placeholder="0"/>
 				</div>
 				<div class="etat" style="height: 100px">
-					<button class="etat0 chnget" data-etat="0" style="opacity: {{data.data.etat.a}};"></button>
-					<button class="etat1 chnget" data-etat="1" style="opacity: {{data.data.etat.b}};"></button>
-					<button class="etat2 chnget" data-etat="2" style="opacity: {{data.data.etat.c}};"></button>
-					<button class="etat3 chnget" data-etat="3" style="opacity: {{data.data.etat.d}};"></button>
-					<button class="etat4 chnget" data-etat="4" style="opacity: {{data.data.etat.e}};"></button>
-					<button class="etat5 chnget" data-etat="5" style="opacity: {{data.data.etat.f}};"></button>
-					<button class="etat6 chnget" data-etat="6" style="opacity: {{data.data.etat.g}};"></button>
-					<button class="etat7 chnget" data-etat="7" style="opacity: {{data.data.etat.h}};"></button>
-					<button class="etat8 chnget" data-etat="8" style="opacity: {{data.data.etat.i}};"></button>
-					<button class="etat9 chnget" data-etat="9" style="opacity: {{data.data.etat.j}};"></button>
-					<button class="etat10 chnget" data-etat="10" style="opacity: {{data.data.etat.k}};"></button>
-					<button class="etat11 chnget" data-etat="11" style="opacity: {{data.data.etat.l}};"></button>
-					<button class="etat12 chnget" data-etat="12" style="opacity: {{data.data.etat.m}};"></button>
-					<button class="etat13 chnget" data-etat="13" style="opacity: {{data.data.etat.n}};"></button>
+					<button class="etat0 chnget" data-etat="0" style="opacity: {{data.system.etat.a}};"></button>
+					<button class="etat1 chnget" data-etat="1" style="opacity: {{data.system.etat.b}};"></button>
+					<button class="etat2 chnget" data-etat="2" style="opacity: {{data.system.etat.c}};"></button>
+					<button class="etat3 chnget" data-etat="3" style="opacity: {{data.system.etat.d}};"></button>
+					<button class="etat4 chnget" data-etat="4" style="opacity: {{data.system.etat.e}};"></button>
+					<button class="etat5 chnget" data-etat="5" style="opacity: {{data.system.etat.f}};"></button>
+					<button class="etat6 chnget" data-etat="6" style="opacity: {{data.system.etat.g}};"></button>
+					<button class="etat7 chnget" data-etat="7" style="opacity: {{data.system.etat.h}};"></button>
+					<button class="etat8 chnget" data-etat="8" style="opacity: {{data.system.etat.i}};"></button>
+					<button class="etat9 chnget" data-etat="9" style="opacity: {{data.system.etat.j}};"></button>
+					<button class="etat10 chnget" data-etat="10" style="opacity: {{data.system.etat.k}};"></button>
+					<button class="etat11 chnget" data-etat="11" style="opacity: {{data.system.etat.l}};"></button>
+					<button class="etat12 chnget" data-etat="12" style="opacity: {{data.system.etat.m}};"></button>
+					<button class="etat13 chnget" data-etat="13" style="opacity: {{data.system.etat.n}};"></button>
 				</div>
 			</div>
 			<div class="clear"></div>
 			<h2 style="margin-top: 10px;">{{localize 'liber.attributs'}}</h2>
 			<div class="rexrow stat2">
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-name="Physique" data-dice="1d"data-attDice="{{data.data.physique}}">{{localize 'liber.phy'}}</label></p>
-					<input class="phys" name="data.physique" type="text" value="{{data.data.physique}}" placeholder="{{data.data.physique}}" style="text-align: center"/>
+					<p><label class="jetdedes" data-name="Physique" data-dice="1d"data-attDice="{{data.system.physique}}">{{localize 'liber.phy'}}</label></p>
+					<input class="phys" name="system.physique" type="text" value="{{data.system.physique}}" placeholder="{{data.system.physique}}" style="text-align: center"/>
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-name="Force" data-dice="1d"data-attDice="{{data.data.force}}" style="background: #dd8376;">{{localize 'liber.for'}}</label></p>
-					<input class="forc" name="data.force" type="text" value="{{data.data.force}}" placeholder="5" style="width:40px" />
+					<p><label class="jetdedes" data-name="Force" data-dice="1d"data-attDice="{{data.system.force}}" style="background: #dd8376;">{{localize 'liber.for'}}</label></p>
+					<input class="forc" name="system.force" type="text" value="{{data.system.force}}" placeholder="5" style="width:40px" />
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-name="Agilite" data-dice="1d"data-attDice="{{data.data.agilite}}" style="background: #dd8376;">{{localize 'liber.agi'}}</label></p>
-					<input class="agil" name="data.agilite" type="text" value="{{data.data.agilite}}" placeholder="5" style="width:40px" />
+					<p><label class="jetdedes" data-name="Agilite" data-dice="1d"data-attDice="{{data.system.agilite}}" style="background: #dd8376;">{{localize 'liber.agi'}}</label></p>
+					<input class="agil" name="system.agilite" type="text" value="{{data.system.agilite}}" placeholder="5" style="width:40px" />
 				</div>
 				<div class="grid-9col">
-					<p style="text-align: center" style="text-align: center"><label class="jetdedes" data-name="Social" data-dice="1d"data-attDice="{{data.data.social}}">{{localize 'liber.soc'}}</label></p>
-					<input class="soci" name="data.social" type="text" value="{{data.data.social}}" placeholder="10" style="text-align: center"/>
+					<p style="text-align: center" style="text-align: center"><label class="jetdedes" data-name="Social" data-dice="1d"data-attDice="{{data.system.social}}">{{localize 'liber.soc'}}</label></p>
+					<input class="soci" name="system.social" type="text" value="{{data.system.social}}" placeholder="10" style="text-align: center"/>
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-name="Charisme" data-dice="1d"data-attDice="{{data.data.charisme}}" style="background: #dd8376;">{{localize 'liber.cha'}}</label></p>
-					<input class="char" name="data.charisme" type="text" value="{{data.data.charisme}}" placeholder="5" style="width:40px"/>
+					<p><label class="jetdedes" data-name="Charisme" data-dice="1d"data-attDice="{{data.system.charisme}}" style="background: #dd8376;">{{localize 'liber.cha'}}</label></p>
+					<input class="char" name="system.charisme" type="text" value="{{data.system.charisme}}" placeholder="5" style="width:40px"/>
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-name="Sagacité" data-dice="1d"data-attDice="{{data.data.sagacite}}" style="background: #dd8376;">{{localize 'liber.sag'}}</label></p>
-					<input class="saga" name="data.sagacite" type="text" value="{{data.data.sagacite}}" placeholder="5" style="width:40px"/>
+					<p><label class="jetdedes" data-name="Sagacité" data-dice="1d"data-attDice="{{data.system.sagacite}}" style="background: #dd8376;">{{localize 'liber.sag'}}</label></p>
+					<input class="saga" name="system.sagacite" type="text" value="{{data.system.sagacite}}" placeholder="5" style="width:40px"/>
 				</div>
 				<div class="grid-9col">
-					<p style="text-align: center"><label class="jetdedes" data-name="Mental" data-dice="1d"data-attDice="{{data.data.mental}}">{{localize 'liber.men'}}</label></p>
-					<input class="mental" name="data.mental" type="text" value="{{data.data.mental}}" placeholder="10" style="text-align: center"/>
+					<p style="text-align: center"><label class="jetdedes" data-name="Mental" data-dice="1d"data-attDice="{{data.system.mental}}">{{localize 'liber.men'}}</label></p>
+					<input class="mental" name="system.mental" type="text" value="{{data.system.mental}}" placeholder="10" style="text-align: center"/>
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-name="Astuce" data-dice="1d"data-attDice="{{data.data.astuce}}" style="background: #dd8376;">{{localize 'liber.ast'}}</label></p>
-					<input class="astu" name="data.ast" type="text" value="{{data.data.ast}}" placeholder="5" style="width:40px"/>
+					<p><label class="jetdedes" data-name="Astuce" data-dice="1d"data-attDice="{{data.system.astuce}}" style="background: #dd8376;">{{localize 'liber.ast'}}</label></p>
+					<input class="astu" name="system.ast" type="text" value="{{data.system.ast}}" placeholder="5" style="width:40px"/>
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-name="Mémoire" data-dice="1d"data-attDice="{{data.data.memoire}}" style="background: #dd8376;">{{localize 'liber.mem'}}</label></p>
-					<input class="memo" name="data.memoire" type="text" value="{{data.data.memoire}}" placeholder="5" style="width:40px;margin-bottom: 5px;"/>
+					<p><label class="jetdedes" data-name="Mémoire" data-dice="1d"data-attDice="{{data.system.memoire}}" style="background: #dd8376;">{{localize 'liber.mem'}}</label></p>
+					<input class="memo" name="system.memoire" type="text" value="{{data.system.memoire}}" placeholder="5" style="width:40px;margin-bottom: 5px;"/>
 				</div>
 				
 			</div>
@@ -114,7 +114,7 @@
 			<div class="rexrow modif" style="margin-top: 10px;">
 
 					<h2 class="center">{{localize 'liber.mj'}}</h2>
-					<button class="desequi resetmalus">🗑</button><input class="malussactor" name="data.malus" type="text" value="{{data.data.malus}}" placeholder="0"/>
+					<button class="desequi resetmalus">🗑</button><input class="malussactor" name="system.malus" type="text" value="{{data.system.malus}}" placeholder="0"/>
 
 
 			</div>
@@ -131,23 +131,23 @@
 				{{!-- Items Tab --}}
 				<div id="items" class="tab items" data-group="primary" data-tab="items">
 					<!--div class="encom"><div class="barenc"></div>
-						<p>{{localize 'liber.encombrement'}} <input class="encours" name="data.encombrement.value" type="text" value="{{data.data.encombrement.value}}" placeholder="0" style="width: 40px;" readonly=""/> / 
-						<input class="enc" name="data.encombrement.max" type="text" value="{{data.data.encombrement.max}}" placeholder="0" style="width: 40px;" readonly="" /> {{localize 'liber.kg'}}</p>
+						<p>{{localize 'liber.encombrement'}} <input class="encours" name="system.encombrement.value" type="text" value="{{data.system.encombrement.value}}" placeholder="0" style="width: 40px;" readonly=""/> / 
+						<input class="enc" name="system.encombrement.max" type="text" value="{{data.system.encombrement.max}}" placeholder="0" style="width: 40px;" readonly="" /> {{localize 'liber.kg'}}</p>
 					</div-->
 					<div class="rexrow">
 						<div class="grid-3col" style="text-align: center" class="unemain">
 							<h2>{{localize 'liber.gauche'}}</h2>
-							<input class="maingaucequi" name="data.armeg" type="text" value="{{data.data.armeg}}" placeholder="Main Gauche" readonly="" /><button class="desequi maingdes" data-equip="dgauche">🗑</button>
-							<input class="degatg jetdedegat" name="data.degatg" type="text" data-name="{{data.data.armeg}}" value="{{data.data.degatg}}" data-dice="{{data.data.degatg}}" placeholder="Dégat" readonly="" />
+							<input class="maingaucequi" name="system.armeg" type="text" value="{{data.system.armeg}}" placeholder="Main Gauche" readonly="" /><button class="desequi maingdes" data-equip="dgauche">🗑</button>
+							<input class="degatg jetdedegat" name="system.degatg" type="text" data-name="{{data.system.armeg}}" value="{{data.system.degatg}}" data-dice="{{data.system.degatg}}" placeholder="Dégat" readonly="" />
 						</div>
 						<div class="grid-3col" style="text-align: center">
 							<h2 class="deuxmains">{{localize 'liber.droite'}}</h2>
-							<input class="maindroiequi" name="data.armed" type="text" value="{{data.data.armed}}" placeholder="Main droite" readonly="" /><button class="desequi mainddes" data-equip="ddroite">🗑</button>
-							<input class="degatd jetdedegat" name="data.degatd" type="text" data-name="{{data.data.armed}}" value="{{data.data.degatd}}" data-dice="{{data.data.degatd}}" placeholder="Dégat" readonly="" />
+							<input class="maindroiequi" name="system.armed" type="text" value="{{data.system.armed}}" placeholder="Main droite" readonly="" /><button class="desequi mainddes" data-equip="ddroite">🗑</button>
+							<input class="degatd jetdedegat" name="system.degatd" type="text" data-name="{{data.system.armed}}" value="{{data.system.degatd}}" data-dice="{{data.system.degatd}}" placeholder="Dégat" readonly="" />
 						</div>
 						<div class="grid-3col" style="text-align: center">
 							<h2>{{localize 'liber.armor'}}</h2>
-							<input  class="armurequi" name="data.armure" type="text" value="{{data.data.armure}}" placeholder="Armure" readonly="" /><button class="desequi armordes" data-equip="darmure">🗑</button>						
+							<input  class="armurequi" name="system.armure" type="text" value="{{data.system.armure}}" placeholder="Armure" readonly="" /><button class="desequi armordes" data-equip="darmure">🗑</button>						
 						</div>
 					</div>
 					<div class="clear"></div>
@@ -160,8 +160,8 @@
 			                <li class="item fexrow" data-item-id="{{item._id}}">
 			                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
 			                    <div class="item-name" title="{{item.name}}">{{item.name}}</div>
-			                    <div class="item-poids">{{item.data.poids}}</div>
-			                    <div class="item-qty">{{item.data.quantite}}</div>
+			                    <div class="item-poids">{{this.system.poids}}</div>
+			                    <div class="item-qty">{{this.system.quantite}}</div>
 			                    <div class="item-controls">
 			                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
 			                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -197,20 +197,20 @@
 			                    <div class="item-name" title="{{item.name}}">{{item.name}}</div>
 			                    <div class="item-type" title="{{item.type}}">{{item.type}}</div>
 			                   
-			                    <div class="item-portee">{{item.data.portee}}</div>
-			                    <!--div class="item-dommage jetdedegat" data-name="{{item.name}}" data-dice="{{item.data.degat}}">{{item.data.degats}}</div-->
-			                    <div class="item-dommage">{{item.data.degats}}</div>
-			                    <div class="item-poids">{{item.data.poids}}</div>
-			                    <div class="item-valeur">{{item.data.valeur}}</div>
-			                    <div class="item-qty">{{item.data.quantite}}</div>
-			                    <div class="item-hand"><span class="maingauche" title="main gauche" data-equip="gauche" data-name="{{item.name}}" data-degat="{{item.data.degats}}" name="{{item.name}}" ></span><span class="maindroite" title="main droite" data-equip="droite" data-name="{{item.name}}" data-degat="{{item.data.degats}}" name="{{item.name}}" ></span><span class="armor" title="Armure" name="{{item.name}}" data-equip="armure"  data-name="{{item.name}}" ></span></div>
+			                    <div class="item-portee">{{this.system.portee}}</div>
+			                    <!--div class="item-dommage jetdedegat" data-name="{{item.name}}" data-dice="{{this.system.degat}}">{{this.system.degats}}</div-->
+			                    <div class="item-dommage">{{this.system.degats}}</div>
+			                    <div class="item-poids">{{this.system.poids}}</div>
+			                    <div class="item-valeur">{{this.system.valeur}}</div>
+			                    <div class="item-qty">{{this.system.quantite}}</div>
+			                    <div class="item-hand"><span class="maingauche" title="main gauche" data-equip="gauche" data-name="{{item.name}}" data-degat="{{this.system.degats}}" name="{{item.name}}" ></span><span class="maindroite" title="main droite" data-equip="droite" data-name="{{item.name}}" data-degat="{{this.system.degats}}" name="{{item.name}}" ></span><span class="armor" title="Armure" name="{{item.name}}" data-equip="armure"  data-name="{{item.name}}" ></span></div>
 			                    <div class="item-controls">
 			                    	<a class="item-control item-desc" title="Desc Sort">&#128712;</a>
 			                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
 			                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
 			                    </div>
 
-			                     <div class="item-description"><span title="{{item.data.description}}">{{item.data.description}}</span></div>
+			                     <div class="item-description"><span title="{{this.system.description}}">{{this.system.description}}</span></div>
 			                </li>
 			            {{/each}}
 		        		</ul>
@@ -234,20 +234,20 @@
 			                </li>
 			            {{#each actor.sort as |item id|}}
 			                <li class="item fexrow" data-item-id="{{item._id}}">
-			                    <div class="item-image"><a class="item-control item-lancer" data-name="{{item.name}}" data-desc="{{item.data.description}}" data-cout="{{item.data.cout}}" data-img="{{item.img}}"><img src="{{item.img}}" title="Lancer {{item.name}}" width="24" height="24" data-name="{{item.name}}" data-desc="{{item.data.description}}" data-cout="{{item.data.cout}}" data-img="{{item.img}}"/></a></div>
+			                    <div class="item-image"><a class="item-control item-lancer" data-name="{{item.name}}" data-desc="{{this.system.description}}" data-cout="{{this.system.cout}}" data-img="{{item.img}}"><img src="{{item.img}}" title="Lancer {{item.name}}" width="24" height="24" data-name="{{item.name}}" data-desc="{{this.system.description}}" data-cout="{{this.system.cout}}" data-img="{{item.img}}"/></a></div>
 			                    <div class="item-name"><span title="{{item.name}}">{{item.name}}</span></div>
-			                    <div class="item-classe">{{item.data.classe}}</div>
+			                    <div class="item-classe">{{this.system.classe}}</div>
 			                    
-			                    <div class="item-cible">{{item.data.cible}}</div>
-			                    <div class="item-duree">{{item.data.duree}}</div>
-			                    <div class="item-cout">{{item.data.cout}}</div>
+			                    <div class="item-cible">{{this.system.cible}}</div>
+			                    <div class="item-duree">{{this.system.duree}}</div>
+			                    <div class="item-cout">{{this.system.cout}}</div>
 			                    <div class="item-controls">
 			                        <a class="item-control item-desc" title="Desc Sort">&#128712;</a>
 			                        <a class="item-control item-edit" title="Edit Sort"><i class="fas fa-edit"></i></a>
 			                        <a class="item-control item-delete" title="Delete Sort"><i class="fas fa-trash"></i></a>
 			                    </div>
 
-			                    <div class="item-description2"><span title="{{item.data.description}}">{{item.data.description}}</span></div>
+			                    <div class="item-description2"><span title="{{this.system.description}}">{{this.system.description}}</span></div>
 			                </li>
 			            {{/each}}
 		        		</ol>
