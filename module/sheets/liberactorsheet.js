@@ -496,6 +496,7 @@ export class LiberActorSheet extends ActorSheet {
         //let malus = event.target.dataset["malus"];
         //let posture = event.target.dataset["posture"];
         let bonus =this.actor.system.bonus;
+        console.log(bonus)
         let malus =this.actor.system.malus;
         let posture =this.actor.system.posture;
         const name = event.target.dataset["name"];
