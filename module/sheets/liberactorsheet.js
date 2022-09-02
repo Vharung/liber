@@ -489,7 +489,7 @@ export class LiberActorSheet extends ActorSheet {
     }
 
     //lancer de dés
-    _onRoll(event){
+    _onRoll(event){//bug compétence ajouter
         let monJetDeDes = event.target.dataset["dice"];
         let maxstat = event.target.dataset["attdice"];
         //let bonus = event.target.dataset["actionvalue"];
@@ -550,7 +550,7 @@ export class LiberActorSheet extends ActorSheet {
         });
     }
 
-    _onSpell(event){//a dev pour corriger soucis image dans le tchat
+    _onSpell(event){//Bug dans le retirer la Psy
         let mental =this.actor.system.mental;
         let bonus =this.actor.system.bonus;
         let malus =this.actor.system.malus;
@@ -605,9 +605,7 @@ export class LiberActorSheet extends ActorSheet {
         }else {
             psy = parseInt(psy)-parseInt(cout)
         }
-        this.actor.update({"system.insoin": insoin});
-        this.actor.update({"system.hp.value": hp});
-        this.actor.update({"system.psy.value": psy});
+        //this.actor.update({"system.insoin": insoin,"system.hp.value": hp,"system.psy.value": psy});
         const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +' : '+ inforesult +'/100</span><span class="desctchat">'+desc+'</span></p>'+succes+'</span>';
         roll.toMessage({
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),//bug
@@ -615,7 +613,7 @@ export class LiberActorSheet extends ActorSheet {
         });
     }
 
-    _onSleep(event){
+    _onSleep(event){//A verifier
         let heure =this.actor.system.heure;
         let jourliste =this.actor.system.jour;
         let typerepos =this.actor.system.repos;
