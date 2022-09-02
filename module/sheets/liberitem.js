@@ -78,7 +78,7 @@ export class LiberItem extends Item {
   }
   DegatLvl(){
     let itemData = this.system;
-    let dgt=itemData.system.degats;
+    let dgt=itemData.degats;
     if(dgt==0){
       this.update({'system.degat':0});
     }else {

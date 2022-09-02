@@ -1023,7 +1023,7 @@ export class LiberActorSheet extends ActorSheet {
             ar=8;
         } 
         lvl++;
-        let itemData= this.actor.items.filter(i=>i.name == "Attaque");                 
+        let itemData= this.actor.items.filter(i=>i.name == "Attaque");   
         var iditem= itemData[0].id;
         var dgt = itemData[0].data.system.degat;
         itemData[0].DegatLvl();
