@@ -681,7 +681,7 @@ export class LiberActorSheet extends ActorSheet {
     }
 
     _onPosture(event){
-        let postures =this.actor.system.posture;
+        var postures=event.target.dataset["post"];
         var texte = '';
         if(postures=="Focus"){
             texte = '<span style="flex:auto"><p class="resultatp">'+ game.i18n.localize("liber.lang88")+'</p></span>';
@@ -697,6 +697,7 @@ export class LiberActorSheet extends ActorSheet {
             content: texte
         };
         ChatMessage.create(chatData, {});
+        this.actor.update({"system.posture": postures});
     }
 
     _onStory(event){
