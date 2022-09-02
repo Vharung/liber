@@ -55,7 +55,7 @@ form.Liber{display: table-cell;overflow: auto;}
 .Liber .coutmax,.Liber .maxsort {width:100%;border: none;background: none; font-size: 50px;height:50px;color: #fff; text-align: center;}
 .Liber .modif button.desequi{float: right;background: #e13b23;border: none;color: #fff;width: 50px;height: 50px;font-size: 2em;cursor: pointer}
 .Liber a.item{display: inline-block;color:#a5a5a5;width:20%;padding: 9px 2px;margin: 0;text-align: center;transition: 0.5s;}
-.Liber a.item span{width: 103%;border-right:1px solid #643737; height: 20px;display: block}
+.Liber a.item span{width: 103%; height: 20px;display: block}
 .Liber a.item:hover,.Liber a.active{color:#fff;}
 .Liber .tab{padding: 20px 8px 0 5px;}
 .Liber .features button{float: left;width: 122px;height: 28px;font-weight: normal;text-align: left;border-bottom: 1px solid #643737;border:none;border-bottom:#643737 solid 1px;color:#eeeeee;background: none;margin-right: 5px;}
