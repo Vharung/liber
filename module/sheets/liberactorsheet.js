@@ -288,6 +288,7 @@ export class LiberActorSheet extends ActorSheet {
 
         //Magie lancer un sort
         html.find('.item-lancer').click(this._onSpell.bind(this));
+        html.find('.item-info').click(this._onInfo.bind(this));
 
         //Se reposer
         html.find('.reposer').click(this._onSleep.bind(this));
@@ -449,20 +450,9 @@ export class LiberActorSheet extends ActorSheet {
         html.find('.maindroite').click(this._onArmor.bind(this));
         html.find('.maingauche').click(this._onArmor.bind(this));
         html.find('.armor').click(this._onArmor.bind(this));
-
-        //Ajout Bonus
-        $('.attribut').on('click',function(){
-            var bonusactor=$(this).attr('name');
-            html.find(".bonusactor").val(bonusactor);            
-        });
-
-        //Reset Bonus
-        $('.resetbonus').on('click',function(){
-            html.find(".bonusactor").val('0');            
-        });
-        $('.resetmalus').on('click',function(){
-            html.find(".malussactor").val('0');            
-        });
+        html.find('.attribut').click(this._onAttr.bind(this));
+        html.find('.resetbonus').click(this._onRestAttr.bind(this));
+        html.find('.resetmalus').click(this._onRestAttr.bind(this));
 
         //Jet de des
         html.find('.jetdedes').click(this._onRoll.bind(this)); 
@@ -489,14 +479,13 @@ export class LiberActorSheet extends ActorSheet {
     }
 
     //lancer de dés
-    _onRoll(event){//bug compétence ajouter
+    _onRoll(event){
         let monJetDeDes = event.target.dataset["dice"];
         let maxstat = event.target.dataset["attdice"];
         //let bonus = event.target.dataset["actionvalue"];
         //let malus = event.target.dataset["malus"];
         //let posture = event.target.dataset["posture"];
         let bonus =this.actor.system.bonus;
-        console.log(bonus)
         let malus =this.actor.system.malus;
         let posture =this.actor.system.posture;
         const name = event.target.dataset["name"];
@@ -599,19 +588,34 @@ export class LiberActorSheet extends ActorSheet {
             cout=0;
         }
         if(psy<cout){
+            //console.log(psy+'<'+cout)
             var diff= parseInt(cout)-parseInt(psy)
             hp=parseInt(hp)-parseInt(diff);
             psy=0;
             insoin= parseInt(insoin)+parseInt(diff);            
         }else {
+            //console.log(psy+'-'+cout)
             psy = parseInt(psy)-parseInt(cout)
         }
-        //this.actor.update({"system.insoin": insoin,"system.hp.value": hp,"system.psy.value": psy});
+        this.actor.update({"system.insoin": insoin,"system.hp.value": hp,"system.psy.value": psy});
         const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +' : '+ inforesult +'/100</span><span class="desctchat">'+desc+'</span></p>'+succes+'</span>';
         roll.toMessage({
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),//bug
             flavor: texte
         });
+    }
+
+    _onInfo(event){//Bug dans le retirer la Psy
+        var name=event.target.dataset["name"];
+        var desc=event.target.dataset["desc"];
+        var img=event.target.dataset["img"];
+        var cout=event.target.dataset["cout"];
+        const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +'</span><span class="desctchat" style="display:block;">'+desc+'<span style="text-align:right; float:right; margin-top:25px">Cout : '+cout+' Psy</span></span></p></span>';
+        let chatData = {
+            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            content: texte
+        };
+        ChatMessage.create(chatData, {});
     }
 
     _onSleep(event){//A verifier
@@ -1031,6 +1035,7 @@ export class LiberActorSheet extends ActorSheet {
         this.actor.update({'system.hp.max': pv,'system.hp.value': pv,'system.psy.max': ps,'system.psy.value': ps,'system.protection': ar,'system.level': lvl});
 
     }
+
     _onCouv(event){
         var etats=['a','b','c','d','e','f','g','h','i','j','k','l','m','n'];
     
@@ -1135,5 +1140,20 @@ export class LiberActorSheet extends ActorSheet {
                 this.actor.update({"system.etat.n":1});      
             }
         }
+
+
+    }
+    _onAttr(event){
+        var val=event.target.dataset["val"];
+        this.actor.update({"system.bonus":val}); 
+    }
+    _onRestAttr(event){
+        var name=event.target.dataset["name"];
+        if(name=="malus"){
+            this.actor.update({"system.malus":0});
+        }else if(name=="bonus"){
+            this.actor.update({"system.bonus":0});  
+        }
+         
     }
 }

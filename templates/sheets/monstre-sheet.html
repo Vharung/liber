@@ -114,7 +114,7 @@
 			<div class="rexrow modif" style="margin-top: 10px;">
 
 					<h2 class="center">{{localize 'liber.mj'}}</h2>
-					<button class="desequi resetmalus">🗑</button><input class="malussactor" name="system.malus" type="text" value="{{data.system.malus}}" placeholder="0"/>
+					<button class="desequi resetmalus">🗑</button><input class="malussactor" name="system.malus" data-name="malus" type="text" value="{{data.system.malus}}" placeholder="0"/>
 
 
 			</div>
@@ -234,20 +234,21 @@
 			                </li>
 			            {{#each actor.sort as |item id|}}
 			                <li class="item fexrow" data-item-id="{{item._id}}">
-			                    <div class="item-image"><a class="item-control item-lancer" data-name="{{item.name}}" data-desc="{{this.system.description}}" data-cout="{{this.system.cout}}" data-img="{{item.img}}"><img src="{{item.img}}" title="Lancer {{item.name}}" width="24" height="24" data-name="{{item.name}}" data-desc="{{this.system.description}}" data-cout="{{this.system.cout}}" data-img="{{item.img}}"/></a></div>
+			                    <div class="item-image"><a class="item-control item-info" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.cout}}" data-img="{{item.img}}"><img src="{{item.img}}" title="Lancer {{item.name}}" width="24" height="24" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.cout}}" data-img="{{item.img}}"/></a></div>
 			                    <div class="item-name"><span title="{{item.name}}">{{item.name}}</span></div>
-			                    <div class="item-classe">{{this.system.classe}}</div>
+			                    <div class="item-classe">{{item.system.classe}}</div>
 			                    
-			                    <div class="item-cible">{{this.system.cible}}</div>
-			                    <div class="item-duree">{{this.system.duree}}</div>
-			                    <div class="item-cout">{{this.system.cout}}</div>
+			                    <div class="item-cible">{{item.system.cible}}</div>
+			                    <div class="item-duree">{{item.system.duree}}</div>
+			                    <div class="item-cout">{{item.system.cout}}</div>
 			                    <div class="item-controls">
+			                    	<a class="item-control item-lancer" title="Lancer Sort"><i class="fa-solid fa-dice-d20" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.cout}}" data-img="{{item.img}}"></i></a>
 			                        <a class="item-control item-desc" title="Desc Sort">&#128712;</a>
 			                        <a class="item-control item-edit" title="Edit Sort"><i class="fas fa-edit"></i></a>
 			                        <a class="item-control item-delete" title="Delete Sort"><i class="fas fa-trash"></i></a>
 			                    </div>
 
-			                    <div class="item-description2"><span title="{{this.system.description}}">{{this.system.description}}</span></div>
+			                    <div class="item-description2"><span title="{{item.system.description}}">{{item.system.description}}</span></div>
 			                </li>
 			            {{/each}}
 		        		</ol>
