@@ -588,13 +588,13 @@ export class LiberActorSheet extends ActorSheet {
             cout=0;
         }
         if(psy<cout){
-            //console.log(psy+'<'+cout)
+            console.log('sort lancer :'+psy+'<'+cout)
             var diff= parseInt(cout)-parseInt(psy)
             hp=parseInt(hp)-parseInt(diff);
             psy=0;
             insoin= parseInt(insoin)+parseInt(diff);            
         }else {
-            //console.log(psy+'-'+cout)
+            console.log('sort lancer :'psy+'-'+cout)
             psy = parseInt(psy)-parseInt(cout)
         }
         this.actor.update({"system.insoin": insoin,"system.hp.value": hp,"system.psy.value": psy});
