@@ -2,7 +2,6 @@ export class LiberActorSheet extends ActorSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
           classes: ["Liber", "sheet", "actor"],
-          //template: "systems/liber/templates/actor/personnage-sheet.html",
           width: 1210,
           height: 800,
           tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
@@ -33,7 +32,6 @@ export class LiberActorSheet extends ActorSheet {
         const sort = [];
         const argent = [];
         
-        // Iterate through items, allocating to containers
         // let totalWeight = 0;
         for (let i of sheetData.items) {
           let item = i.items;
@@ -78,7 +76,6 @@ export class LiberActorSheet extends ActorSheet {
                 no: () => { },
                 defaultYes: false
             });
-            //item.delete();
             li.slideUp(200, () => this.render(false));
         });
 
@@ -116,11 +113,8 @@ export class LiberActorSheet extends ActorSheet {
         html.find('.generator').click(this._onStory2.bind(this));
         html.find('.caractergen').click(this._onStory.bind(this));
 
-        
-
         //point restant
         if(this.actor.type=="personnage"){
-            
             var espece=html.find('.race').val();
             var phys=parseInt(html.find('.phys').val());
             var forc=parseInt(html.find('.forc').val());
@@ -365,9 +359,6 @@ export class LiberActorSheet extends ActorSheet {
             $(this).parent().find(".postures").val("Défensif");
         });
 
-        
-
-
         //Poids encombrement
         var poids=[];
         var quantite=[];
@@ -462,8 +453,6 @@ export class LiberActorSheet extends ActorSheet {
         if(this.actor.type=="monstre"){
             html.find('.levelup').click(this._onLevelUp.bind(this)); 
         }
-        
-
     }
 
 
@@ -482,9 +471,6 @@ export class LiberActorSheet extends ActorSheet {
     _onRoll(event){
         let monJetDeDes = event.target.dataset["dice"];
         let maxstat = event.target.dataset["attdice"];
-        //let bonus = event.target.dataset["actionvalue"];
-        //let malus = event.target.dataset["malus"];
-        //let posture = event.target.dataset["posture"];
         let bonus =this.actor.system.bonus;
         let malus =this.actor.system.malus;
         let posture =this.actor.system.posture;
@@ -500,12 +486,12 @@ export class LiberActorSheet extends ActorSheet {
 
         if(bonus==""){bonus=0;}
         if(malus==""){malus=0;}
-       let inforesult=parseInt(maxstat)+parseInt(bonus)+bonuspost+parseInt(malus);
-       if(inforesult>95){
-        inforesult=95;
-       }else if(inforesult<5){
-        inforesult=5;
-       }
+        let inforesult=parseInt(maxstat)+parseInt(bonus)+bonuspost+parseInt(malus);
+        if(inforesult>95){
+            inforesult=95;
+        }else if(inforesult<5){
+            inforesult=5;
+        }
         let r = new Roll("1d100");
         var roll=r.evaluate({"async": false});
         let retour=r.result; 
@@ -527,20 +513,27 @@ export class LiberActorSheet extends ActorSheet {
             flavor: texte
         });
     }
-    _onRoll2(event){
 
+    _onRoll2(event){
         let monJetDeDes = event.target.dataset["dice"];
         const name = event.target.dataset["name"];
+        var img=event.target.dataset["img"];
+        var desc=event.target.dataset["desc"];
+        if(desc==""){
+            var info='';
+        }else {
+            var info='</span><span class="desctchat" style="display:block;">'+desc+'</span>';
+        }
         let r = new Roll(monJetDeDes);
         var roll=r.evaluate({"async": false});
-        const texte = '<span style="flex:auto"><p class="resultatp">Utilise ' + name + '</p></span>';
+        const texte = '<span style="flex:auto"><p class="resultatp"><img src="'+img+'"  width="24" height="24"/>&nbsp;Utilise ' + name + '<p>'+info;
         roll.toMessage({
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
             flavor: texte
         });
     }
 
-    _onSpell(event){//Bug dans le retirer la Psy
+    _onSpell(event){
         let mental =this.actor.system.mental;
         let bonus =this.actor.system.bonus;
         let malus =this.actor.system.malus;
@@ -605,7 +598,7 @@ export class LiberActorSheet extends ActorSheet {
         });
     }
 
-    _onInfo(event){//Bug dans le retirer la Psy
+    _onInfo(event){
         var name=event.target.dataset["name"];
         var desc=event.target.dataset["desc"];
         var img=event.target.dataset["img"];
@@ -971,6 +964,8 @@ export class LiberActorSheet extends ActorSheet {
         var armor= this.actor.system.armure;
         var maind= this.actor.system.armed;
         var maing= this.actor.system.armeg;
+        var img= event.target.dataset["img"];
+        var des= event.target.dataset["des"];
         var race = this.actor.system.race;
         var objetaequipe=event.target.dataset["name"];
         var degat=event.target.dataset["degat"];
@@ -982,10 +977,10 @@ export class LiberActorSheet extends ActorSheet {
                 }
             }
             if(equipe=="droite"){
-                this.actor.update({'system.armed': objetaequipe,'system.degatd': degat});
+                this.actor.update({'system.armed': objetaequipe,'system.degatd': degat,'system.imgd': img,'system.desd': des});
                 maind=objetaequipe;
             }else if(equipe=="gauche"){
-                this.actor.update({'system.armeg': objetaequipe,'system.degatg': degat});
+                this.actor.update({'system.armeg': objetaequipe,'system.degatg': degat,'system.imgg': img,'system.desg': des});
                 maing=objetaequipe;
             }
         }else if(equipe=="armure"){
@@ -1140,20 +1135,19 @@ export class LiberActorSheet extends ActorSheet {
                 this.actor.update({"system.etat.n":1});      
             }
         }
-
-
     }
+
     _onAttr(event){
         var val=event.target.dataset["val"];
         this.actor.update({"system.bonus":val}); 
     }
+
     _onRestAttr(event){
         var name=event.target.dataset["name"];
         if(name=="malus"){
             this.actor.update({"system.malus":0});
         }else if(name=="bonus"){
             this.actor.update({"system.bonus":0});  
-        }
-         
+        }   
     }
 }
