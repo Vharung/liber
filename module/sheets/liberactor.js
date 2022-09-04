@@ -5,7 +5,7 @@
 export class LiberActor extends Actor {
 
   /** @override */
-  prepareData() {.
+  prepareData() {
     super.prepareData();
     const actorData = this.system;
     //const data = actorData.data;

@@ -520,8 +520,8 @@ export class LiberActorSheet extends ActorSheet {
             succes="<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Echec</h4>";
         }
 
-        const texte = '<span style="flex:auto"><p class="resultatp">Jet de ' + name + " : " + inforesult +'/100</p>'+succes+'</span>';
-        //roll.roll().toMessage({
+        const texte = '<span style="flex:auto"><p class="resultatp">Jet de ' + name + " : " + inforesult +'/100</p>'+succes+'</span>'
+        //+'<button class="jetdedegat" type="text" data-name="Arme" data-dice="1d6">Arme</button>';
         roll.toMessage({
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
             flavor: texte
@@ -594,7 +594,7 @@ export class LiberActorSheet extends ActorSheet {
             psy=0;
             insoin= parseInt(insoin)+parseInt(diff);            
         }else {
-            console.log('sort lancer :'psy+'-'+cout)
+            console.log('sort lancer :'+psy+'-'+cout)
             psy = parseInt(psy)-parseInt(cout)
         }
         this.actor.update({"system.insoin": insoin,"system.hp.value": hp,"system.psy.value": psy});
