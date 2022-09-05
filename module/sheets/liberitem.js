@@ -1,4 +1,8 @@
-export class LiberItem extends Item {
+/**
+ * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
+ * @extends {Items}
+ */
+ export class LiberItem extends Item {
   static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
           classes: ["Liber", "sheet", "item"],
