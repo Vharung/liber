@@ -25,6 +25,9 @@
         if (this.actor.type == 'personnage' || this.actor.type == 'pnj' || this.actor.type == 'monstre') {
             this._prepareCharacterItems(data);
         }
+        if (this.actor.type == 'personnage' || this.actor.type == 'pnj' ) {
+            this._onEncom(data);
+        }
         return data;
     }
    
@@ -112,12 +115,6 @@
 
         //generateur
         html.find('.ficheperso').click(this._onGenerator.bind(this));
-        /*html.find('.racechoix').click(this._onAvantageRace.bind(this));
-        html.find('.clanchoix').click(this._onAvantageRace.bind(this));
-        html.find('.namegenerator').click(this._onName.bind(this));
-        html.find('.generator').click(this._onStory2.bind(this));
-        html.find('.caractergen').click(this._onStory.bind(this));
-        html.find('.metierchoix').click(this._onJob.bind(this));*/
 
         //point restant
         if(this.actor.type=="personnage"){
@@ -757,8 +754,6 @@
         this.actor.update({"system.posture": postures});
     }
     _onGenerator(event){
-
-        console.log('generator')
         //variable
         var race = this.actor.system.race;
         var sexe = this.actor.system.sexe;
@@ -986,13 +981,12 @@
         var distinguelist=[game.i18n.localize("liber.oui"),game.i18n.localize("liber.non"),game.i18n.localize("liber.bof")]
         var distingue=distinguelist[Math.floor(Math.random()*distinguelist.length)]
         
-        console.log(hp)
+        //var encombrement=(parseInt(forc) + parseInt(cpt37)) /2 + 20;
+
         //update
         this.actor.update({'name': name,'system.histoire': textgen,'system.bonusrace': avantagerace,'system.protection' : armureperso,'system.hp.max': hp,'system.hp.value': hp,'system.psy.max': psy,'system.psy.value': psy,'system.physique':phy,'system.force':forc,'system.agilite':agil,'system.social':soc,'system.sagacite':saga,'system.charisme':char,'system.mental':men,'system.ast':astu,'system.memoire':memo,'system.caracteristique.acrobatie':cpt0,'system.caracteristique.agilites':cpt1,'system.caracteristique.alchimie':cpt2,'system.caracteristique.apprentissage':cpt3,'system.caracteristique.hast':cpt4,'system.caracteristique.cc':cpt5,'system.caracteristique.lancer':cpt6,'system.caracteristique.melee':cpt7,'system.caracteristique.tir':cpt8,'system.caracteristique.art':cpt9,'system.caracteristique.assassinat':cpt10,'system.caracteristique.baton':cpt11,'system.caracteristique.bouclier':cpt12,'system.caracteristique.bricolage':cpt13,'system.caracteristique.presence':cpt14,'system.caracteristique.chercher':cpt15,'system.caracteristique.commander':cpt16,'system.caracteristique.concentration':cpt17,'system.caracteristique.nature':cpt18,'system.caracteristique.peuples':cpt19,'system.caracteristique.religions':cpt20,'system.caracteristique.geographique':cpt21,'system.caracteristique.rue':cpt22,'system.caracteristique.heretiques':cpt23,'system.caracteristique.combat':cpt24,'system.caracteristique.commerce':cpt25,'system.caracteristique.crochetage':cpt26,'system.caracteristique.discretion':cpt27,'system.caracteristique.dexterite':cpt28,'system.caracteristique.detection':cpt29,'system.caracteristique.dissimulation':cpt30,'system.caracteristique.dressage':cpt31,'system.caracteristique.ennemi':cpt32,'system.caracteristique.equilibre':cpt33,'system.caracteristique.equitation':cpt34,'system.caracteristique.escroquerie':cpt35,'system.caracteristique.esquiver':cpt36,'system.caracteristique.puissance':cpt37,'system.caracteristique.astuce':cpt38,'system.caracteristique.peur':cpt39,'system.caracteristique.joueur':cpt40,'system.caracteristique.maitrise':cpt41,'system.caracteristique.natation':cpt42,'system.caracteristique.navigation':cpt43,'system.caracteristique.orientation':cpt44,'system.caracteristique.persuasion':cpt45,'system.caracteristique.pister':cpt46,'system.caracteristique.prophetie':cpt47,'system.caracteristique.secours':cpt48,'system.caracteristique.resistance':cpt49,'system.caracteristique.psychologue':cpt50,'system.caracteristique.medecine':cpt51,'system.caracteristique.survie':cpt52,'system.caracteristique.tueur':cpt53,'system.caracteristique.objet':cpt54,'system.caracteristique.veterinaire':cpt55,'system.caracteristique.vigilance':cpt56,'system.caracteristique.vise':cpt57,'system.caractere.residence': resident,'system.caractere.sang': sang,'system.caractere.politique': politique,'system.caractere.interets': groupe,'system.caractere.deces': dc,'system.caractere.moral': moral,'system.caractere.amour': amour,'system.caractere.amitie': ami,'system.caractere.haine': haine,'system.caractere.principale': metier1,'system.caractere.secondaire': metier2,'system.caractere.passion': metier3,'system.caractere.caract': caractere,'system.caractere.personnalite': personnalite,'system.caractere.perception': vision,'system.caractere.objectif': objectif,'system.caractere.rancunier': racune,'system.caractere.tare': tare,'system.caractere.obsession': obsession,'system.caractere.distingue': distingue});
     }
     
-
-
     _onArmor(event){
         var equipe=event.target.dataset["equip"];
         var protection= this.actor.system.protection;
@@ -1184,5 +1178,12 @@
         }else if(name=="bonus"){
             this.actor.update({"system.bonus":0});  
         }   
+    }
+
+    _onEncom(data){
+        const adata = data.actor;
+        var enc=(parseInt(adata.system.force)+ parseInt(adata.system.caracteristique.puissance)) /2 + 35;
+        console.log('Encombrement:'+enc)
+        this.actor.update({"system.encombrement.max":enc});
     }
 }
