@@ -107,15 +107,18 @@ export class LiberActorSheet extends ActorSheet {
             });
 
         //generateur
-        html.find('.racechoix').click(this._onAvantageRace.bind(this));
+        html.find('.ficheperso').click(this._onGenerator.bind(this));
+        /*html.find('.racechoix').click(this._onAvantageRace.bind(this));
         html.find('.clanchoix').click(this._onAvantageRace.bind(this));
         html.find('.namegenerator').click(this._onName.bind(this));
         html.find('.generator').click(this._onStory2.bind(this));
         html.find('.caractergen').click(this._onStory.bind(this));
+        html.find('.metierchoix').click(this._onJob.bind(this));*/
 
         //point restant
         if(this.actor.type=="personnage"){
-            var espece=html.find('.race').val();
+            var espece=html.find('.raceliste').val();
+            console.log(espece)
             var phys=parseInt(html.find('.phys').val());
             var forc=parseInt(html.find('.forc').val());
             var agil=parseInt(html.find('.agil').val());
@@ -135,30 +138,79 @@ export class LiberActorSheet extends ActorSheet {
             }
             html.find('.pointrestant').val(reste);
             if(phys<(forc+agil)){
-                alert(game.i18n.localize("liber.alert1"))
+                //alert(game.i18n.localize("liber.alert1"))
+                html.find('.forc').css({"background":"red","color": "white"});
+                html.find('.agil').css({"background":"red","color": "white"});
             }
             if(soci<(char+saga)){
-                alert(game.i18n.localize("liber.alert2"))
+                //alert(game.i18n.localize("liber.alert2"))
+                html.find('.char').css({"background":"red","color": "white"});
+                html.find('.saga').css({"background":"red","color": "white"});
             }
             if(ment<(astu+memo)){
-                alert(game.i18n.localize("liber.alert3"))
+                //alert(game.i18n.localize("liber.alert3"))
+                html.find('.astu').css({"background":"red","color": "white"});
+                html.find('.memo').css({"background":"red","color": "white"});
             }
 
             //calcul point capacité
             var level = parseInt(html.find('.niveau').val());
             var resultat=35+(level*15);
+
+            //config joueur 
+            var clan=html.find('.clanliste').val();
+            if(clan==game.i18n.localize("liber.avantrace56") || clan==game.i18n.localize("liber.avantrace58")){
+                html.find('.metierliste').css({"display":"none"});
+                html.find('.metiertitre').css({"display":"none"});
+            }
+
             if(espece==game.i18n.localize("liber.avantrace60")){
                 resultat=resultat-20;
-            }else if(espece==game.i18n.localize("liber.avantrace61") || espece=='Semi-humain'){
+                html.find('.demon').css({"display":"none"})
+                html.find('.humain').css({"display":"none"})
+                html.find('.drauch').css({"display":"none"})
+            }else if(espece==game.i18n.localize("liber.avantrace61") ){
                 resultat=resultat+15;
                 var cap28=parseInt(html.find('.cpt28').val());
                 if(cap28<5){
                     html.find('.cpt28').val(5);
                 }
-            }else if(espece==game.i18n.localize("liber.avantrace64")){
-                resultat=resultat-40;
+                html.find('.demon').css({"display":"none"})
+                html.find('.dragon').css({"display":"none"})
+                html.find('.drauch').css({"display":"none"})
+                html.find('.vharung').css({"display":"none"})
+                html.find('.vaudou').css({"display":"none"})
             }else if(espece==game.i18n.localize("liber.avantrace62")){
                 resultat=resultat+10;
+                html.find('.dragon').css({"display":"none"})
+                html.find('.humain').css({"display":"none"})
+                html.find('.drauch').css({"display":"none"})
+            }else if(espece==game.i18n.localize("liber.avantrace63")){
+                html.find('.demon').css({"display":"none"})
+                html.find('.dragon').css({"display":"none"})
+                html.find('.corbeau').css({"display":"none"})
+                html.find('.humain').css({"display":"none"})
+                html.find('.vharung').css({"display":"none"})
+                html.find('.cercle').css({"display":"none"})
+            }else if(espece==game.i18n.localize("liber.avantrace64")){
+                resultat=resultat-40;
+                html.find('.demon').css({"display":"none"})
+                html.find('.dragon').css({"display":"none"})
+                html.find('.corbeau').css({"display":"none"})
+                html.find('.humain').css({"display":"none"})
+                html.find('.drauch').css({"display":"none"})
+                html.find('.autre').css({"display":"none"})
+                html.find('.aucun').css({"display":"none"}) 
+                html.find('.vharung').css({"display":"none"})
+                html.find('.cercle').css({"display":"none"})
+                html.find('.vaudou').css({"display":"none"})
+                html.find('.runes').css({"display":"none"})
+            }else if(espece==game.i18n.localize("liber.avantrace65")){
+                resultat=resultat+15;
+                var cap28=parseInt(html.find('.cpt28').val());
+                if(cap28<5){
+                    html.find('.cpt28').val(5);
+                }
             }else if(espece==game.i18n.localize("liber.avantrace68")){
                 resultat=resultat+30;
                 var cap28=parseInt(html.find('.cpt1').val());
@@ -267,7 +319,11 @@ export class LiberActorSheet extends ActorSheet {
             var pointxp=(level-1)*3;
             var calcultotxp=hpmax-PVmin+psymax-PSYmin;
             if(calcultotxp>pointxp && this.actor.type=="personnage" ){
-                alert(game.i18n.localize("liber.alert"));
+                //alert(game.i18n.localize("liber.alert"));
+                html.find('.psy').css({"background":"red","color": "white"});
+                html.find('.psymax').css({"background":"red","color": "white"});
+                html.find('.hp').css({"background":"red","color": "white"});
+                html.find('.hpmax').css({"background":"red","color": "white"});
             }
         }
         //test des capacités acrives
@@ -447,7 +503,9 @@ export class LiberActorSheet extends ActorSheet {
 
         //Jet de des
         html.find('.jetdedes').click(this._onRoll.bind(this)); 
-        html.find('.jetdedegat').click(this._onRoll2.bind(this)); 
+        html.find('.jetdedegat').click(this._onRoll2.bind(this));
+
+        
 
         //monstre level up
         if(this.actor.type=="monstre"){
@@ -603,7 +661,14 @@ export class LiberActorSheet extends ActorSheet {
         var desc=event.target.dataset["desc"];
         var img=event.target.dataset["img"];
         var cout=event.target.dataset["cout"];
-        const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +'</span><span class="desctchat" style="display:block;">'+desc+'<span style="text-align:right; float:right; margin-top:25px">Cout : '+cout+' Psy</span></span></p></span>';
+        var type=event.target.dataset["type"];
+        if(type=="sort"){
+            var cost='Cout : '+cout+' Psy';
+        }else{
+            var cost='Cout : '+cout+' écu'
+        }
+        var portrait='<img src="icons/svg/mystery-man.svg" width="36" height="36" class="chat-portrait-message-portrait-generic" style="border: 2px solid rgb(255, 255, 255);">';
+        const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +'</span><span class="desctchat" style="display:block;">'+desc+'<span style="text-align:right; float:right; margin-top:25px">'+cost+'</span></span></p></span>';
         let chatData = {
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
             content: texte
@@ -695,217 +760,31 @@ export class LiberActorSheet extends ActorSheet {
         ChatMessage.create(chatData, {});
         this.actor.update({"system.posture": postures});
     }
+    _onGenerator(event){
 
-    _onStory(event){
-        var demeure = [game.i18n.localize("liber.caract1"),game.i18n.localize("liber.caract2"),game.i18n.localize("liber.caract3"),game.i18n.localize("liber.caract4"),game.i18n.localize("liber.caract5"),game.i18n.localize("liber.caract6"),game.i18n.localize("liber.caract7"),game.i18n.localize("liber.caract8"),game.i18n.localize("liber.caract9"),game.i18n.localize("liber.caract10"),game.i18n.localize("liber.caract11"),game.i18n.localize("liber.caract12")];
-        var proximite=[game.i18n.localize("liber.caract13"),game.i18n.localize("liber.caract14"),game.i18n.localize("liber.caract15")];
-        var lieu=[game.i18n.localize("liber.caract16"),game.i18n.localize("liber.caract17"),game.i18n.localize("liber.caract18"),game.i18n.localize("liber.caract19"),game.i18n.localize("liber.caract20"),game.i18n.localize("liber.caract21"),game.i18n.localize("liber.caract22"),game.i18n.localize("liber.caract23"),game.i18n.localize("liber.caract24"),game.i18n.localize("liber.caract25"),game.i18n.localize("liber.caract26"),game.i18n.localize("liber.caract27"),game.i18n.localize("liber.caract28"),game.i18n.localize("liber.caract29"),game.i18n.localize("liber.caract30"),game.i18n.localize("liber.caract31"),game.i18n.localize("liber.caract32"),game.i18n.localize("liber.caract33"),game.i18n.localize("liber.caract34")];
-        var resident = demeure[Math.floor(Math.random()*demeure.length)]+" "+proximite[Math.floor(Math.random()*proximite.length)]+" "+lieu[Math.floor(Math.random()*lieu.length)];
-        this.actor.update({'system.caractere.residence': resident});
-
-        var famille = ["Crochet","Valone","Parker","Onile","Pasteur","Labrocante","Vincente","Auditoré","Laporte","Blanchart","Giroux","Lesourd","Houillons","Castagné","Delasaintecroix","Macon","Chaumont","Lucent","Hover","Packard","Curie","Lyon","Lallemand","Langlais","Lecure","Macdonald","Dupont","Lafontaine","Boucher","Boureau","Godspeak","Pierre","Solitaire","Beauregard","Charmant","Marechal","Dufour","Leroux","Lemoine","Lombart","Lefourbe","Boulanger","Petit","Blanc","Chevalier","Leroy","Lebrun","Silver","Delarue","Notigame","Forest","Tonneau","Does","Martin","Deschamps","Dupuis","Macalisteur","Leloup","Bouquin","Lafleur","","Dugrenier","Lacroix","Lecomte","Poulain","Dumas"];
-        var titre=[game.i18n.localize("liber.caract35"),game.i18n.localize("liber.caract36"),game.i18n.localize("liber.caract37"),game.i18n.localize("liber.caract38"),game.i18n.localize("liber.caract39"),game.i18n.localize("liber.caract40"),game.i18n.localize("liber.caract41"),game.i18n.localize("liber.caract42"),game.i18n.localize("liber.caract43"),game.i18n.localize("liber.caract44"),game.i18n.localize("liber.caract45"),game.i18n.localize("liber.caract46"),game.i18n.localize("liber.caract47"),game.i18n.localize("liber.caract48"),game.i18n.localize("liber.caract49"),game.i18n.localize("liber.caract50")];
-        var sang = titre[Math.floor(Math.random()*titre.length)]+" de la famille "+famille[Math.floor(Math.random()*famille.length)];
-        this.actor.update({'system.caractere.sang': sang});  
-
-        var rang=[game.i18n.localize("liber.caract51"),game.i18n.localize("liber.caract52"),game.i18n.localize("liber.caract53"),game.i18n.localize("liber.caract54"),game.i18n.localize("liber.caract55"),game.i18n.localize("liber.caract56"),game.i18n.localize("liber.caract57"),game.i18n.localize("liber.caract58"),game.i18n.localize("liber.caract59")]
-        var organisation=[game.i18n.localize("liber.caract60"),game.i18n.localize("liber.caract61"),game.i18n.localize("liber.caract62"),game.i18n.localize("liber.caract63"),game.i18n.localize("liber.caract64"),game.i18n.localize("liber.caract65"),game.i18n.localize("liber.caract66"),game.i18n.localize("liber.caract67"),game.i18n.localize("liber.caract68"),game.i18n.localize("liber.caract69"),game.i18n.localize("liber.caract70"),game.i18n.localize("liber.caract71"),game.i18n.localize("liber.caract72"),game.i18n.localize("liber.caract73"),game.i18n.localize("liber.caract74"),game.i18n.localize("liber.caract75"),game.i18n.localize("liber.caract76"),game.i18n.localize("liber.caract77"),game.i18n.localize("liber.caract78"),game.i18n.localize("liber.caract79")]
-        var politique=rang[Math.floor(Math.random()*rang.length)]+" "+organisation[Math.floor(Math.random()*organisation.length)];
-        this.actor.update({'system.caractere.politique': politique});
-
-        var intret=[game.i18n.localize("liber.caract80"),game.i18n.localize("liber.caract81"),game.i18n.localize("liber.caract82"),game.i18n.localize("liber.caract83"),game.i18n.localize("liber.caract84"),game.i18n.localize("liber.caract85"),game.i18n.localize("liber.caract86"),game.i18n.localize("liber.caract87"),game.i18n.localize("liber.caract88"),game.i18n.localize("liber.caract89"),game.i18n.localize("liber.caract90"),game.i18n.localize("liber.caract91"),game.i18n.localize("liber.caract92"),game.i18n.localize("liber.caract93"),game.i18n.localize("liber.caract94"),game.i18n.localize("liber.caract95"),game.i18n.localize("liber.caract96"),game.i18n.localize("liber.caract97"),game.i18n.localize("liber.caract98"),game.i18n.localize("liber.caract99"),game.i18n.localize("liber.caract100"),game.i18n.localize("liber.caract101"),game.i18n.localize("liber.caract102")]
-        var groupe=intret[Math.floor(Math.random()*intret.length)]
-        this.actor.update({'system.caractere.interets': groupe});
-
-        var pertes=[game.i18n.localize("liber.caract103"),game.i18n.localize("liber.caract104"),game.i18n.localize("liber.caract105"),game.i18n.localize("liber.caract106"),game.i18n.localize("liber.caract107"),game.i18n.localize("liber.caract108"),game.i18n.localize("liber.caract109"),game.i18n.localize("liber.caract110"),game.i18n.localize("liber.caract111"),game.i18n.localize("liber.caract112"),game.i18n.localize("liber.caract113"),game.i18n.localize("liber.caract114"),game.i18n.localize("liber.caract115"),game.i18n.localize("liber.caract116"),game.i18n.localize("liber.caract117"),game.i18n.localize("liber.caract118")]
-        var dc=pertes[Math.floor(Math.random()*pertes.length)]
-        this.actor.update({'system.caractere.deces': dc});
-
-        var valeur=[game.i18n.localize("liber.caract119"),game.i18n.localize("liber.caract120"),game.i18n.localize("liber.caract121"),game.i18n.localize("liber.caract122"),game.i18n.localize("liber.caract123"),game.i18n.localize("liber.caract124"),game.i18n.localize("liber.caract125"),game.i18n.localize("liber.caract126"),game.i18n.localize("liber.caract127"),game.i18n.localize("liber.caract128"),game.i18n.localize("liber.caract129"),game.i18n.localize("liber.caract130"),game.i18n.localize("liber.caract131")]
-        var moral=valeur[Math.floor(Math.random()*valeur.length)]
-        this.actor.update({'system.caractere.moral': moral});
-
-        var race=[game.i18n.localize("liber.caract132"),game.i18n.localize("liber.caract133"),game.i18n.localize("liber.caract134"),game.i18n.localize("liber.caract135"),game.i18n.localize("liber.caract136"),game.i18n.localize("liber.caract137")]
-        var rang=[game.i18n.localize("liber.caract138"),game.i18n.localize("liber.caract139"),game.i18n.localize("liber.caract140"),game.i18n.localize("liber.caract141"),game.i18n.localize("liber.caract142"),game.i18n.localize("liber.caract143"),game.i18n.localize("liber.caract144"),game.i18n.localize("liber.caract145")]
-        var organisation=[game.i18n.localize("liber.caract146"),game.i18n.localize("liber.caract147"),game.i18n.localize("liber.caract148"),game.i18n.localize("liber.caract149"),game.i18n.localize("liber.caract150"),game.i18n.localize("liber.caract151"),game.i18n.localize("liber.caract152"),game.i18n.localize("liber.caract153"),game.i18n.localize("liber.caract154"),game.i18n.localize("liber.caract155"),game.i18n.localize("liber.caract156"),game.i18n.localize("liber.caract157"),game.i18n.localize("liber.caract158"),game.i18n.localize("liber.caract159"),game.i18n.localize("liber.caract160"),game.i18n.localize("liber.caract161"),game.i18n.localize("liber.caract162"),game.i18n.localize("liber.caract163"),game.i18n.localize("liber.caract164"),game.i18n.localize("liber.caract165")];
-        var amour=race[Math.floor(Math.random()*race.length)]+" "+rang[Math.floor(Math.random()*rang.length)]+" "+organisation[Math.floor(Math.random()*organisation.length)];
-        this.actor.update({'system.caractere.amour': amour});
-
-        var ami=race[Math.floor(Math.random()*race.length)]+" "+rang[Math.floor(Math.random()*rang.length)]+" "+organisation[Math.floor(Math.random()*organisation.length)];
-        this.actor.update({'system.caractere.amitie': ami});
-
-        var haine=race[Math.floor(Math.random()*race.length)]+" "+rang[Math.floor(Math.random()*rang.length)]+" "+organisation[Math.floor(Math.random()*organisation.length)];
-        this.actor.update({'system.caractere.haine': haine});
-
-        var profession=[game.i18n.localize("liber.caract166"),game.i18n.localize("liber.caract167"),game.i18n.localize("liber.caract168"),game.i18n.localize("liber.caract169"),game.i18n.localize("liber.caract170"),game.i18n.localize("liber.caract171"),game.i18n.localize("liber.caract172"),game.i18n.localize("liber.caract173"),game.i18n.localize("liber.caract174"),game.i18n.localize("liber.caract175"),game.i18n.localize("liber.caract176"),game.i18n.localize("liber.caract177"),game.i18n.localize("liber.caract178"),game.i18n.localize("liber.caract179"),game.i18n.localize("liber.caract180"),game.i18n.localize("liber.caract181"),game.i18n.localize("liber.caract182"),game.i18n.localize("liber.caract183"),game.i18n.localize("liber.caract184"),game.i18n.localize("liber.caract185"),game.i18n.localize("liber.caract186"),game.i18n.localize("liber.caract187"),game.i18n.localize("liber.caract188"),game.i18n.localize("liber.caract189"),game.i18n.localize("liber.caract190"),game.i18n.localize("liber.caract191"),game.i18n.localize("liber.caract192"),game.i18n.localize("liber.caract193"),game.i18n.localize("liber.caract194"),game.i18n.localize("liber.caract195"),game.i18n.localize("liber.caract196"),game.i18n.localize("liber.caract197"),game.i18n.localize("liber.caract198"),game.i18n.localize("liber.caract199"),game.i18n.localize("liber.caract200"),game.i18n.localize("liber.caract201"),game.i18n.localize("liber.caract202"),game.i18n.localize("liber.caract203")]
-        var metier=profession[Math.floor(Math.random()*profession.length)]
-        this.actor.update({'system.caractere.principale': metier});
-
-        var metier=profession[Math.floor(Math.random()*profession.length)]
-        this.actor.update({'system.caractere.secondaire': metier});
-
-        var loisir=[game.i18n.localize("liber.caract204"),game.i18n.localize("liber.caract205"),game.i18n.localize("liber.caract206"),game.i18n.localize("liber.caract207"),game.i18n.localize("liber.caract208"),game.i18n.localize("liber.caract209"),game.i18n.localize("liber.caract210"),game.i18n.localize("liber.caract211"),game.i18n.localize("liber.caract212"),game.i18n.localize("liber.caract213"),game.i18n.localize("liber.caract214"),game.i18n.localize("liber.caract215"),game.i18n.localize("liber.caract216"),game.i18n.localize("liber.caract217"),game.i18n.localize("liber.caract218"),game.i18n.localize("liber.caract219"),game.i18n.localize("liber.caract220"),game.i18n.localize("liber.caract221"),game.i18n.localize("liber.caract222"),game.i18n.localize("liber.caract223"),game.i18n.localize("liber.caract224")]
-        var metier=loisir[Math.floor(Math.random()*loisir.length)]
-        this.actor.update({'system.caractere.passion': metier});
-
-        var caracterelist=[game.i18n.localize("liber.caract225"),game.i18n.localize("liber.caract226"),game.i18n.localize("liber.caract227"),game.i18n.localize("liber.caract228"),game.i18n.localize("liber.caract229"),game.i18n.localize("liber.caract230"),game.i18n.localize("liber.caract231"),game.i18n.localize("liber.caract232"),game.i18n.localize("liber.caract233"),game.i18n.localize("liber.caract234"),game.i18n.localize("liber.caract235"),game.i18n.localize("liber.caract236"),game.i18n.localize("liber.caract237")]
-        var caractere=caracterelist[Math.floor(Math.random()*caracterelist.length)]
-        this.actor.update({'system.caractere.caract': caractere});
-
-        var personnalitelist=[game.i18n.localize("liber.caract238"),game.i18n.localize("liber.caract239"),game.i18n.localize("liber.caract240"),game.i18n.localize("liber.caract241"),game.i18n.localize("liber.caract242"),game.i18n.localize("liber.caract243"),game.i18n.localize("liber.caract244"),game.i18n.localize("liber.caract245"),game.i18n.localize("liber.caract246"),game.i18n.localize("liber.caract247"),game.i18n.localize("liber.caract248"),game.i18n.localize("liber.caract249"),game.i18n.localize("liber.caract250"),game.i18n.localize("liber.caract251"),game.i18n.localize("liber.caract252"),game.i18n.localize("liber.caract253"),game.i18n.localize("liber.caract254"),game.i18n.localize("liber.caract255")]
-        var personnalite=personnalitelist[Math.floor(Math.random()*personnalitelist.length)]
-        this.actor.update({'system.caractere.personnalite': personnalite});
-
-        var visionlist=[game.i18n.localize("liber.caract256"),game.i18n.localize("liber.caract257"),game.i18n.localize("liber.caract258"),game.i18n.localize("liber.caract259"),game.i18n.localize("liber.caract260"),game.i18n.localize("liber.caract261"),game.i18n.localize("liber.caract262"),game.i18n.localize("liber.caract263"),game.i18n.localize("liber.caract264"),game.i18n.localize("liber.caract265"),game.i18n.localize("liber.caract266"),game.i18n.localize("liber.caract267"),game.i18n.localize("liber.caract268"),game.i18n.localize("liber.caract269"),game.i18n.localize("liber.avantrace62")]
-        var vision="Rempli de "+visionlist[Math.floor(Math.random()*visionlist.length)]
-        this.actor.update({'system.caractere.perception': vision});
-
-        var objectiflist=[game.i18n.localize("liber.caract270"),game.i18n.localize("liber.caract271"),game.i18n.localize("liber.caract275"),game.i18n.localize("liber.caract273"),game.i18n.localize("liber.caract274"),game.i18n.localize("liber.caract275"),game.i18n.localize("liber.caract276"),game.i18n.localize("liber.caract277"),game.i18n.localize("liber.caract278")]
-        var objectif=objectiflist[Math.floor(Math.random()*objectiflist.length)]
-        this.actor.update({'system.caractere.objectif': objectif});
-
-        var racunelist=[game.i18n.localize("liber.oui"),game.i18n.localize("liber.non"),game.i18n.localize("liber.bof")]
-        var racune=racunelist[Math.floor(Math.random()*racunelist.length)]
-        this.actor.update({'system.caractere.rancunier': racune});
-
-        var tarelist=[game.i18n.localize("liber.caract279"),game.i18n.localize("liber.caract280"),game.i18n.localize("liber.caract281"),game.i18n.localize("liber.caract282"),game.i18n.localize("liber.caract283"),game.i18n.localize("liber.caract284"),game.i18n.localize("liber.caract285"),game.i18n.localize("liber.caract286"),game.i18n.localize("liber.caract287"),game.i18n.localize("liber.caract288"),game.i18n.localize("liber.caract289"),game.i18n.localize("liber.caract290"),game.i18n.localize("liber.caract291"),game.i18n.localize("liber.caract292"),game.i18n.localize("liber.caract293"),game.i18n.localize("liber.caract294"),game.i18n.localize("liber.caract295"),game.i18n.localize("liber.caract296"),game.i18n.localize("liber.caract297"),game.i18n.localize("liber.caract298"),game.i18n.localize("liber.caract299"),game.i18n.localize("liber.caract300"),game.i18n.localize("liber.caract301"),game.i18n.localize("liber.caract302"),game.i18n.localize("liber.caract303"),game.i18n.localize("liber.caract304"),game.i18n.localize("liber.caract305"),game.i18n.localize("liber.caract306"),game.i18n.localize("liber.caract307"),game.i18n.localize("liber.caract308"),game.i18n.localize("liber.caract309"),game.i18n.localize("liber.caract310"),game.i18n.localize("liber.caract311"),game.i18n.localize("liber.caract312"),game.i18n.localize("liber.caract313"),game.i18n.localize("liber.caract314"),game.i18n.localize("liber.caract315"),game.i18n.localize("liber.caract316"),game.i18n.localize("liber.caract317"),game.i18n.localize("liber.caract318"),game.i18n.localize("liber.caract319"),game.i18n.localize("liber.caract320"),game.i18n.localize("liber.caract321"),game.i18n.localize("liber.caract322"),game.i18n.localize("liber.caract323"),game.i18n.localize("liber.caract324"),game.i18n.localize("liber.caract325"),game.i18n.localize("liber.caract326"),game.i18n.localize("liber.caract327"),game.i18n.localize("liber.caract328"),game.i18n.localize("liber.caract329"),game.i18n.localize("liber.caract330"),game.i18n.localize("liber.caract331"),game.i18n.localize("liber.caract332"),game.i18n.localize("liber.caract333"),game.i18n.localize("liber.caract334"),game.i18n.localize("liber.caract335"),game.i18n.localize("liber.caract336"),game.i18n.localize("liber.caract337"),game.i18n.localize("liber.caract338"),game.i18n.localize("liber.caract339"),game.i18n.localize("liber.caract340"),game.i18n.localize("liber.caract341"),game.i18n.localize("liber.caract342"),game.i18n.localize("liber.caract343"),game.i18n.localize("liber.caract344"),game.i18n.localize("liber.caract345"),game.i18n.localize("liber.caract346"),game.i18n.localize("liber.caract347"),game.i18n.localize("liber.caract348"),game.i18n.localize("liber.caract349"),game.i18n.localize("liber.caract350"),game.i18n.localize("liber.caract351"),game.i18n.localize("liber.caract352"),game.i18n.localize("liber.caract353"),game.i18n.localize("liber.caract354"),game.i18n.localize("liber.caract355"),game.i18n.localize("liber.caract356"),game.i18n.localize("liber.caract357"),game.i18n.localize("liber.caract358"),game.i18n.localize("liber.caract359"),game.i18n.localize("liber.caract360"),game.i18n.localize("liber.caract361"),game.i18n.localize("liber.caract362"),game.i18n.localize("liber.caract363"),game.i18n.localize("liber.caract364"),game.i18n.localize("liber.caract36"),game.i18n.localize("liber.caract366"),game.i18n.localize("liber.caract367"),game.i18n.localize("liber.caract368"),game.i18n.localize("liber.caract369"),game.i18n.localize("liber.caract370"),game.i18n.localize("liber.caract371"),game.i18n.localize("liber.caract372"),game.i18n.localize("liber.caract373"),game.i18n.localize("liber.caract374"),game.i18n.localize("liber.caract375"),game.i18n.localize("liber.caract376"),game.i18n.localize("liber.caract377"),game.i18n.localize("liber.caract378"),game.i18n.localize("liber.caract379"),game.i18n.localize("liber.caract380"),game.i18n.localize("liber.caract381"),game.i18n.localize("liber.caract382"),game.i18n.localize("liber.caract383"),game.i18n.localize("liber.caract384"),game.i18n.localize("liber.caract385"),game.i18n.localize("liber.caract386"),game.i18n.localize("liber.caract387"),game.i18n.localize("liber.caract388"),game.i18n.localize("liber.caract389"),game.i18n.localize("liber.caract390"),game.i18n.localize("liber.caract391"),game.i18n.localize("liber.caract392"),game.i18n.localize("liber.caract393"),game.i18n.localize("liber.caract394"),game.i18n.localize("liber.caract395"),game.i18n.localize("liber.caract396"),game.i18n.localize("liber.caract397"),game.i18n.localize("liber.caract398"),game.i18n.localize("liber.caract399"),game.i18n.localize("liber.caract400"),game.i18n.localize("liber.caract401"),game.i18n.localize("liber.caract402"),game.i18n.localize("liber.caract403"),game.i18n.localize("liber.caract404"),game.i18n.localize("liber.caract405"),game.i18n.localize("liber.caract406"),game.i18n.localize("liber.caract407"),game.i18n.localize("liber.caract408"),game.i18n.localize("liber.caract409"),game.i18n.localize("liber.caract410"),game.i18n.localize("liber.caract411"),game.i18n.localize("liber.caract412"),game.i18n.localize("liber.caract413"),game.i18n.localize("liber.caract414"),game.i18n.localize("liber.caract415"),game.i18n.localize("liber.caract416"),game.i18n.localize("liber.caract417"),game.i18n.localize("liber.caract418"),game.i18n.localize("liber.caract419"),game.i18n.localize("liber.caract420"),game.i18n.localize("liber.caract421"),game.i18n.localize("liber.caract422"),game.i18n.localize("liber.caract423"),game.i18n.localize("liber.caract424"),game.i18n.localize("liber.caract425"),game.i18n.localize("liber.caract426"),game.i18n.localize("liber.caract427"),game.i18n.localize("liber.caract428"),game.i18n.localize("liber.caract429"),game.i18n.localize("liber.caract430"),game.i18n.localize("liber.caract431")]
-        var tare=tarelist[Math.floor(Math.random()*tarelist.length)]
-        this.actor.update({'system.caractere.tare': tare});
-
-        var obsessionlist=[game.i18n.localize("liber.oui"),game.i18n.localize("liber.non"),game.i18n.localize("liber.bof")]
-        var obsession=obsessionlist[Math.floor(Math.random()*obsessionlist.length)]
-        this.actor.update({'system.caractere.obsession': obsession});
-
-        var distinguelist=[game.i18n.localize("liber.oui"),game.i18n.localize("liber.non"),game.i18n.localize("liber.bof")]
-        var distingue=distinguelist[Math.floor(Math.random()*distinguelist.length)]
-        this.actor.update({'system.caractere.distingue': distingue});
-    }
-
-    _onAvantageRace(event){
-        var clanliste =this.actor.system.clan;
-        var avantagerace="";
-        var armureperso=this.actor.system.protection;
-        this.actor.update({"acrobatie": 0,"agilites": 0,"alchimie": 0,"apprentissage": 0,"hast": 0,"cc": 0,"lancer": 0,"melee": 0,"tir": 0,"art": 0,"assassinat": 0,"baton": 0,"bouclier": 0,"bricolage": 0,"presence": 0,"chercher": 0,"commander": 0,"concentration": 0,"nature": 0,"peuples": 0,"religions": 0,"geographique": 0,"rue": 0,"heretiques": 0,"combat": 0,"commerce": 0,"crochetage": 0,"discretion": 0,"dexterite": 0,"detection": 0,"dissimulation": 0,"dressage": 0,"ennemi": 0,"equilibre": 0,"equitation": 0,"escroquerie": 0,"esquiver": 0,"puissance": 0,"astuce": 0,"peur": 0,"joueur": 0,"maitrise": 0,"natation": 0,"navigation": 0,"orientation": 0,"persuasion": 0,"pister": 0,"prophetie": 0,"secours": 0,"resistance": 0,"psychologue": 0,"medecine": 0,"survie": 0,"tueur": 0,"objet": 0,"veterinaire": 0,"vigilance": 0,"vise": "0"});
-        var raceliste=this.actor.system.race;
-        if(raceliste==game.i18n.localize("liber.avantrace60")){
-            this.actor.update({'.cpt27' : -10});
-            if(armureperso<2){
-                this.actor.update({'system.protection' : 2}); 
-            }
-            var avantagerace=game.i18n.localize("liber.avantrace1");
-        }else if(raceliste==game.i18n.localize("liber.avantrace61")){
-            var avantagerace=game.i18n.localize("liber.avantrace2");
-             this.actor.update({'.cpt28' : 5});
-        }else if(raceliste==game.i18n.localize("liber.avantrace62")){
-            var avantagerace=game.i18n.localize("liber.avantrace3");
-             this.actor.update({'.cpt39' : 10});
-        }else if(raceliste==game.i18n.localize("liber.avantrace63")){
-            var avantagerace=game.i18n.localize("liber.avantrace4");
-            if(armureperso<2){
-                this.actor.update({'system.protection' : 2}); 
-            }
-        }else if(raceliste==game.i18n.localize("liber.avantrace64")){
-             this.actor.update({'.cpt27' : -20});
-            var avantagerace=game.i18n.localize("liber.avantrace5");
-        }else if(raceliste==game.i18n.localize("liber.avantrace64")){
-             this.actor.update({'.cpt28' : 5});
-            var avantagerace=game.i18n.localize("liber.avantrace6");
-        }else if(raceliste==game.i18n.localize("liber.avantrace65")){
-             this.actor.update({'.cpt1' : 5});
-             this.actor.update({'.cpt3' : 5});
-            var avantagerace=game.i18n.localize("liber.avantrace7");
-        }else if(raceliste==game.i18n.localize("liber.avantrace66")){
-             this.actor.update({'.cpt1' : 5});
-             this.actor.update({'.cpt18' : 5});
-            var avantagerace=game.i18n.localize("liber.avantrace8");
-        }else if(raceliste==game.i18n.localize("liber.avantrace67")){
-             this.actor.update({'.cpt10' : 10});
-            var avantagerace=game.i18n.localize("liber.avantrace9");
-        }else if(raceliste==game.i18n.localize("liber.avantrace68")){
-             this.actor.update({'.cpt1' : 5});
-            var avantagerace=game.i18n.localize("liber.avantrace10");
-        }else if(raceliste==game.i18n.localize("liber.avantrace69")){
-             this.actor.update({'.cpt37' : 5});
-             this.actor.update({'.cpt40' : 5});
-            var avantagerace=game.i18n.localize("liber.avantrace11");
-        }else if(raceliste==game.i18n.localize("liber.avantrace70")){
-             this.actor.update({'.cpt1' : 5});
-             this.actor.update({'.cpt27' : 5});
-            var avantagerace=game.i18n.localize("liber.avantrace12");
-        }else if(raceliste==game.i18n.localize("liber.avantrace71")){
-             this.actor.update({'.cpt46' : 5});
-             this.actor.update({'.cpt28' : 5});
-            var avantagerace=game.i18n.localize("liber.avantrace13");
-        }else if(raceliste==game.i18n.localize("liber.avantrace72")){
-            var avantagerace=game.i18n.localize("liber.avantrace14");
-        }else if(raceliste==game.i18n.localize("liber.avantrace73")){
-             this.actor.update({'.cpt18' : 5});
-            var avantagerace=game.i18n.localize("liber.avantrace15");
-        }else if(raceliste==game.i18n.localize("liber.avantrace74")){
-            var avantagerace=game.i18n.localize("liber.avantrace16");
-        }else if(raceliste==game.i18n.localize("liber.avantrace75")){
-            var avantagerace=game.i18n.localize("liber.avantrace17");
-        }else if(raceliste==game.i18n.localize("liber.avantrace76")){
-             this.actor.update({'.cpt15' : 5});
-            var avantagerace=game.i18n.localize("liber.avantrace18");
-        }else if(raceliste==game.i18n.localize("liber.avantrace77")){
-             this.actor.update({'.cpt38' : -10});
-            var avantagerace=game.i18n.localize("liber.avantrace19");
-        }else {
-            var avantagerace="";
-        }
-
-        if(clanliste==game.i18n.localize("liber.avantrace40")){
-            avantagerace+=game.i18n.localize("liber.avantrace20");
-        }else if(clanliste==game.i18n.localize("liber.avantrace41")){
-            avantagerace+=game.i18n.localize("liber.avantrace21");
-        }else if(clanliste==game.i18n.localize("liber.avantrace42")){
-            avantagerace+=game.i18n.localize("liber.avantrace22");
-        }else if(clanliste==game.i18n.localize("liber.avantrace43")){
-            avantagerace+=game.i18n.localize("liber.avantrace23");
-        }else if(clanliste==game.i18n.localize("liber.avantrace44")){
-            avantagerace+=game.i18n.localize("liber.avantrace24");
-        }else if(clanliste==game.i18n.localize("liber.avantrace45")){
-            avantagerace+=game.i18n.localize("liber.avantrace25");
-        }else if(clanliste==game.i18n.localize("liber.avantrace46")){
-            avantagerace+=game.i18n.localize("liber.avantrace26");
-        }else if(clanliste==game.i18n.localize("liber.avantrace47")){
-            avantagerace+=game.i18n.localize("liber.avantrace27");
-        }else if(clanliste==game.i18n.localize("liber.avantrace48")){
-            avantagerace+=game.i18n.localize("liber.avantrace28");
-        }else if(clanliste==game.i18n.localize("liber.avantrace49")){
-            avantagerace+=game.i18n.localize("liber.avantrace29");
-        }else if(clanliste==game.i18n.localize("liber.avantrace50")){
-            avantagerace+=game.i18n.localize("liber.avantrace30");
-        }else if(clanliste==game.i18n.localize("liber.avantrace51")){
-            avantagerace+=game.i18n.localize("liber.avantrace31");
-        }else if(clanliste==game.i18n.localize("liber.avantrace52")){
-            avantagerace+=game.i18n.localize("liber.avantrace32");
-        }else if(clanliste==game.i18n.localize("liber.avantrace53")){
-            avantagerace+=game.i18n.localize("liber.avantrace33");
-        }else if(clanliste==game.i18n.localize("liber.avantrace54")){
-            avantagerace+=game.i18n.localize("liber.avantrace34");
-        }else if(clanliste==game.i18n.localize("liber.avantrace55")){
-            avantagerace+=game.i18n.localize("liber.avantrace35");
-        }else if(clanliste==game.i18n.localize("liber.avantrace56")){
-            avantagerace+=game.i18n.localize("liber.avantrace36");
-        }else if(clanliste==game.i18n.localize("liber.avantrace57")){
-            avantagerace+="";
-        }
-        this.actor.update({'system.bonusrace': avantagerace});
-    }
-
-    _onName(event){
+        console.log('generator')
+        //variable
         var race = this.actor.system.race;
         var sexe = this.actor.system.sexe;
-        if(race=="Dragon"){
+        var clan = this.actor.system.clan;
+        var reli = this.actor.system.religion;
+        var meti = this.actor.system.metier;
+
+        var avantagerace="";
+        var armureperso=this.actor.system.protection;
+
+        var hp=0; var psy=0; var phy=0; var forc=0; var agil=0; var soc=0; var saga=0; var char=0; var men=0; var astu=0; var memo=0; 
+        var cpt0 =0;var cpt1 =0;var cpt2 =0;var cpt3 =0;var cpt4 =0;var cpt5 =0;var cpt6 =0;var cpt7 =0;var cpt8 =0;var cpt9 =0;var cpt10 =0;var cpt11 =0;var cpt12 =0;var cpt13 =0;var cpt14 =0;var cpt15 =0;var cpt16 =0;var cpt17 =0;var cpt18 =0;var cpt19 =0;var cpt20 =0;var cpt21 =0;var cpt22 =0;var cpt23 =0;var cpt24 =0;var cpt25 =0;var cpt26 =0;var cpt27 =0;var cpt28 =0;var cpt29 =0;var cpt30 =0;var cpt31 =0;var cpt32 =0;var cpt33 =0;var cpt34 =0;var cpt35 =0;var cpt36 =0;var cpt37 =0;var cpt38 =0;var cpt39 =0;var cpt40 =0;var cpt41 =0;var cpt42 =0;var cpt43 =0;var cpt44 =0;var cpt45 =0;var cpt46 =0;var cpt47 =0;var cpt48 =0;var cpt49 =0;var cpt50 =0;var cpt51 =0;var cpt52 =0;var cpt53 =0;var cpt54 =0;var cpt55 =0;var cpt56 =0;var cpt57 =0;var cpt58 =0;
+
+        //nom
+        if(race==game.i18n.localize("liber.avantrace60")){
             var list =["","","","dova","pey","nig","key","bod","iroo","lex","blo","roo","daka","zul","zaa","zey","zoo","paa","ral","tur","tey","tel","daco","too","ook","roo","goo","pol","mel","nax","dao","paar","krey","vha","rung","ynon","kryn","bor","fax","soo","jey","aata","aatu","aati","thur","löng","yook","diir","ooko","aka","ack","apa","eaat","yata","uru","moo","bla","reb","pot","taa","rook","creedo","berk","dooit"];
             var pair1=list[Math.floor(Math.random()*list.length)];
             var pair2=list[Math.floor(Math.random()*list.length)];
             var pair3=list[Math.floor(Math.random()*list.length)];
             var pair4=list[Math.floor(Math.random()*list.length)];
             var name=pair1+pair2+" "+pair3+pair4;
-        }else if(race=="Humain"|| race=="Semi-humain"){
+        }else if(race==game.i18n.localize("liber.avantrace61") || race==game.i18n.localize("liber.avantrace65")){
             if(sexe=="Female"){
                 var list =["Emma","Jade","Louise","Alice","Lina","Chloé","Rose","Léa","Mila","Ambre","Mia","Anna","Julia","Inès","Léna","Juliette","Zoé","Manon","Agathe","Lou","Lola","Camille","Nina","Jeanne","Inaya","Romy","Éva","Romane","Léonie","Iris","Lucie","Luna","Adèle","Sarah","Louna","Charlotte","Margaux","Olivia","Sofia","Charlie","Victoria","Victoire","Nour","Margot","Mya","Giulia","Clémence","Alix","Aya","Clara","Éléna","Capucine","Lana","Lya","Lyna","Lyana","Théa","Léana","Anaïs","Gabrielle","Emy","Yasmine","Mathilde","Maëlys","Alicia","Lilou","Apolline","Roxane","Lise","Assia","Élise","Lily","Maria","Maya","Valentine","Héloïse","Marie","Noémie","Elsa","Lisa","Lila","Alya","Thaïs","Ilyana","Célia","Candice","Livia","Zélie","Salomé","Constance","Soline","Emmy","Maëlle","Éléna","Maryam","Amelia","Joy","Océane","Maïssa","Arya","Alice","Yumi","Lindsey","Mégumi","Elise","Louise","Valérie","Elodie","Adelaide","Stéphanie","Béatrice","Colombe","Eva","Laura","Bathide","Eloise","Françoise","Mylène","Maryline","Armande","Irene","Elvira","Iseult","Marie","Thérese","Jeanne","Genieve","Cunégonde","Charlotte","Aline","Geogette","Mariane","Helene","Elsa","Sonia","Lena"]
 
@@ -916,11 +795,11 @@ export class LiberActorSheet extends ActorSheet {
             var pair1=list[Math.floor(Math.random()*list.length)];
             var pair2=list2[Math.floor(Math.random()*list2.length)];
             var name=pair1+" "+pair2;
-        }else if(race=="Demon"){
+        }else if(race==game.i18n.localize("liber.avantrace62")){
             var list =["Alastor","Azazel","Appolyon","Asmodée","Astaroth","Abrahel","Botis","Bifrons","Caym","Eligos","Flauros","Gusoyn","Ipos","Lilith","Marbas","Moloch","Malack","Naberius","Paimon","Raum","Samigina","Titivillus","Valefor"]
             var pair1=list[Math.floor(Math.random()*list.length)];
             var name=pair1;
-        }else if(race=="Draauch"){
+        }else if(race==game.i18n.localize("liber.avantrace63")){
             var list =["Azog","Bolg","Golfimbul","Grishnákh","Shagrat","Snaga","Gothmog","Gotar","Gor","Galimus","Karl","Rack"]
             if(sexe=="Female"){
                 var list2 =["la brute","la dure","la séduisante","la puissante","la sournoise","la forte","la brute","","la sanguinaire"]
@@ -939,10 +818,101 @@ export class LiberActorSheet extends ActorSheet {
                 var name="John Dow";
             }
         }
-        this.actor.update({'name': name});
-    }
 
-    _onStory2(event){
+        //race
+        if(race==game.i18n.localize("liber.avantrace60")){
+            if(armureperso<2){
+                armureperso=2; 
+            }
+            cpt27=-10;avantagerace=game.i18n.localize("liber.avantrace1");
+        }else if(race==game.i18n.localize("liber.avantrace61")){
+            avantagerace=game.i18n.localize("liber.avantrace2");cpt28=5;
+        }else if(race==game.i18n.localize("liber.avantrace62")){
+            avantagerace=game.i18n.localize("liber.avantrace3");cpt39=10;
+        }else if(race==game.i18n.localize("liber.avantrace63")){
+            avantagerace=game.i18n.localize("liber.avantrace4");
+            if(armureperso<2){
+                armureperso=2;
+            }
+        }else if(race==game.i18n.localize("liber.avantrace64")){
+             cpt27=-20;
+            avantagerace=game.i18n.localize("liber.avantrace5");
+        }else if(race==game.i18n.localize("liber.avantrace64")){
+             cpt28=5;
+            avantagerace=game.i18n.localize("liber.avantrace6");
+        }else if(race==game.i18n.localize("liber.avantrace65")){
+             cpt1=5;cpt3=5;avantagerace=game.i18n.localize("liber.avantrace7");
+        }else if(race==game.i18n.localize("liber.avantrace66")){
+             cpt1=5;cpt18=5;avantagerace=game.i18n.localize("liber.avantrace8");
+        }else if(race==game.i18n.localize("liber.avantrace67")){
+             cpt10=10;avantagerace=game.i18n.localize("liber.avantrace9");
+        }else if(race==game.i18n.localize("liber.avantrace68")){
+             cpt1=5;
+            avantagerace=game.i18n.localize("liber.avantrace10");
+        }else if(race==game.i18n.localize("liber.avantrace69")){
+             cpt37=5;cpt40=5;avantagerace=game.i18n.localize("liber.avantrace11");
+        }else if(race==game.i18n.localize("liber.avantrace70")){
+             cpt1=5;cpt27=5;avantagerace=game.i18n.localize("liber.avantrace12");
+        }else if(race==game.i18n.localize("liber.avantrace71")){
+             cpt46=5;cpt28=5;avantagerace=game.i18n.localize("liber.avantrace13");
+        }else if(race==game.i18n.localize("liber.avantrace72")){
+            avantagerace=game.i18n.localize("liber.avantrace14");
+        }else if(race==game.i18n.localize("liber.avantrace73")){
+             cpt18=5;avantagerace=game.i18n.localize("liber.avantrace15");
+        }else if(race==game.i18n.localize("liber.avantrace74")){
+            avantagerace=game.i18n.localize("liber.avantrace16");
+        }else if(race==game.i18n.localize("liber.avantrace75")){
+            avantagerace=game.i18n.localize("liber.avantrace17");
+        }else if(race==game.i18n.localize("liber.avantrace76")){
+             cpt15=5;avantagerace=game.i18n.localize("liber.avantrace18");
+        }else if(race==game.i18n.localize("liber.avantrace77")){
+             cpt38=-10;avantagerace=game.i18n.localize("liber.avantrace19");
+        }else {
+            avantagerace="";
+        }
+
+        //clan
+
+        //metier
+        if(clan==game.i18n.localize("liber.avantrace58")){
+            hp=22;psy= 10;phy=65;forc=40;agil=20;soc=50;saga=25;char=25;men=65;astu=25;memo=40;cpt12=cpt12+5;cpt7=cpt7+5;cpt20=cpt20+10;cpt34=cpt34+5;cpt23=cpt23+10;
+        }else if(clan==game.i18n.localize("liber.avantrace56")){
+            hp=29;psy= 0;phy=75;forc=65;agil=10;soc=35;saga=5;char=30;men=60;astu=10;memo=50;cpt24=cpt24+5;cpt7=cpt7+5;cpt39=cpt39+10;cpt46=cpt46+5;cpt49=cpt49+5;
+       }else if(meti==game.i18n.localize("liber.metier1")){
+            hp=5;psy= 0;phy=10;forc=5;agil=5;soc=10;saga=5;char=5;men=10;astu=5;memo=5;
+       }else if(meti==game.i18n.localize("liber.metier2")){
+            hp=23;psy= 3;phy=70;forc=50;agil=20;soc=60;saga=50;char=10;men=40;astu=30;memo=10;cpt7=cpt7+5;cpt6=cpt6+5;cpt13=cpt13+5;cpt18=cpt18+10;cpt40=cpt40+5;
+        }else if(meti==game.i18n.localize("liber.metier3")){
+            hp=23;psy=5;phy=70;forc=40;agil=30;soc=40;saga=10;char=30;men=60;astu=30;memo=30;cpt24=cpt24+5;cpt22=cpt22+10;cpt45=cpt45+5;cpt29=cpt29+5;
+        }else if(meti==game.i18n.localize("liber.metier4")){
+            hp=23;psy= 6;phy=70;forc=50;agil=20;soc=35;saga=20;char=15;men=65;astu=40;memo=25;cpt7=cpt7+5;cpt12=cpt12+10;cpt37=cpt37+5;
+        }else if(meti==game.i18n.localize("liber.metier5")){
+            hp=23;psy= 5;phy=70;forc=55;agil=15;soc=50;saga=20;char=30;men=50;astu=25;memo=25;cpt34=cpt34+10;cpt7=cpt7+5;cpt14=cpt14+5;cpt12=cpt12+5;
+        }else if(meti==game.i18n.localize("liber.metier6")){
+            hp=23;psy= 6;phy=70;forc=40;agil=30;soc=40;saga=10;char=30;men=60;astu=10;memo=50;cpt7=cpt7+5;cpt23=cpt23+10;cpt12=cpt12+5;cpt39=cpt39+5;cpt20=cpt20+10;
+        }else if(meti==game.i18n.localize("liber.metier7")){
+            hp=22;psy= 8;phy=65;forc=30;agil=35;soc=45;saga=40;char=5;men=60;astu=40;memo=20;cpt7=cpt7+5;cpt30=cpt30+5;cpt46=cpt46+5;cpt45=cpt45+5;
+        }else if(meti==game.i18n.localize("liber.metier8")){
+            hp=22;psy= 7;phy=65;forc=30;agil=35;soc=50;saga=25;char=25;men=55;astu=30;memo=25;cpt0=cpt0+5;cpt18=cpt18+5;cpt8=cpt8+5;cpt52=cpt52+5;cpt46=cpt46+5;cpt31=cpt31+10;
+        }else if(meti==game.i18n.localize("liber.metier9")){
+            hp=22;psy= 6;phy=65;forc=30;agil=35;soc=55;saga=30;char=25;men=50;astu=25;memo=25;cpt6=cpt6+10;cpt43=cpt43+5;cpt19=cpt19+5;cpt42=cpt42+5;cpt40=cpt40+5;
+        }else if(meti==game.i18n.localize("liber.metier10")){
+            hp=22;psy= 8;phy=65;forc=15;agil=50;soc=45;saga=40;char=5;men=60;astu=40;memo=20;cpt8=cpt8+5;cpt10=cpt10+5;cpt22=cpt22+10;cpt30=cpt30+5;
+        }else if(meti==game.i18n.localize("liber.metier11")){
+            hp=22;psy= 6;phy=65;forc=30;agil=35;soc=55;saga=30;char=25;men=50;astu=25;memo=25;cpt0=cpt0+5;cpt8=cpt8+10;cpt18=cpt18+10;cpt31=cpt31+5;
+        }else if(meti==game.i18n.localize("liber.metier12")){
+            hp=13;psy= 17;phy=40;forc=10;agil=30;soc=70;saga=40;char=30;men=60;astu=30;memo=30;cpt0=cpt0+15;cpt19=cpt19+10;cpt22=cpt22+5;cpt18=cpt18+5;cpt30=cpt30+5;
+        }else if(meti==game.i18n.localize("liber.metier13")){
+            hp=13;psy= 18;phy=40;forc=20;agil=20;soc=65;saga=20;char=45;men=65;astu=20;memo=45;cpt3=cpt3+5;cpt11=cpt11+10;cpt50=cpt50+5;
+        }else if(meti==game.i18n.localize("liber.metier14")){
+            hp=12;psy= 20;phy=35;forc=5;agil=30;soc=65;saga=35;char=30;men=70;astu=30;memo=40;cpt2=cpt2+5;cpt50=cpt50+5;cpt54=cpt54+10;cpt17=cpt17+5;
+        }else if(meti==game.i18n.localize("liber.metier15")){
+            hp=10;psy= 22;phy=30;forc=5;agil=25;soc=70;saga=40;char=30;men=70;astu=30;memo=40;cpt11=cpt11+5;cpt20=cpt20+10;cpt51=cpt51+10;
+        }else if(meti==game.i18n.localize("liber.metier16")){
+            hp=8;psy= 25;phy=25;forc=5;agil=20;soc=70;saga=60;char=10;men=75;astu=60;memo=15;cpt15=cpt15+5;cpt47=cpt47+10;cpt50=cpt50+5;
+        }
+
+        //histoire
         var age = Math.floor((Math.random() * 34) + 16);
         var items0=[game.i18n.localize("liber.lang1"),game.i18n.localize("liber.lang2"),game.i18n.localize("liber.lang3"),game.i18n.localize("liber.lang4"),game.i18n.localize("liber.lang5"),game.i18n.localize("liber.lang6"),game.i18n.localize("liber.lang7"),game.i18n.localize("liber.lang8"),game.i18n.localize("liber.lang9"),game.i18n.localize("liber.lang10"),game.i18n.localize("liber.lang11"),game.i18n.localize("liber.lang12"),game.i18n.localize("liber.lang13"),game.i18n.localize("liber.lang14"),game.i18n.localize("liber.lang15"),game.i18n.localize("liber.lang16"),game.i18n.localize("liber.lang17"),game.i18n.localize("liber.lang18"),game.i18n.localize("liber.lang19")];
         var items1=[game.i18n.localize("liber.lang20"),game.i18n.localize("liber.lang21"),game.i18n.localize("liber.lang22"),game.i18n.localize("liber.lang23"),game.i18n.localize("liber.lang24"),game.i18n.localize("liber.lang25"),game.i18n.localize("liber.lang26"),game.i18n.localize("liber.lang27"),game.i18n.localize("liber.lang28"),game.i18n.localize("liber.lang29"),game.i18n.localize("liber.lang30"),game.i18n.localize("liber.lang31"),game.i18n.localize("liber.lang32"),game.i18n.localize("liber.lang33")];
@@ -955,8 +925,77 @@ export class LiberActorSheet extends ActorSheet {
         var motivation  = items3[Math.floor(Math.random()*items3.length)];
         var signeastro = items4[Math.floor(Math.random()*items4.length)];
         var textgen =game.i18n.localize("liber.lang77")+' '+age+' '+game.i18n.localize("liber.lang78")+' '+nomville+'. '+game.i18n.localize("liber.lang79")+' '+evenement+", "+motivation+' '+game.i18n.localize("liber.lang80")+' '+tonchoix+'. '+game.i18n.localize("liber.lang82")+' '+signeastro;
-        this.actor.update({'system.histoire': textgen});
+        
+        //caractère
+        var demeure = [game.i18n.localize("liber.caract1"),game.i18n.localize("liber.caract2"),game.i18n.localize("liber.caract3"),game.i18n.localize("liber.caract4"),game.i18n.localize("liber.caract5"),game.i18n.localize("liber.caract6"),game.i18n.localize("liber.caract7"),game.i18n.localize("liber.caract8"),game.i18n.localize("liber.caract9"),game.i18n.localize("liber.caract10"),game.i18n.localize("liber.caract11"),game.i18n.localize("liber.caract12")];
+        var proximite=[game.i18n.localize("liber.caract13"),game.i18n.localize("liber.caract14"),game.i18n.localize("liber.caract15")];
+        var lieu=[game.i18n.localize("liber.caract16"),game.i18n.localize("liber.caract17"),game.i18n.localize("liber.caract18"),game.i18n.localize("liber.caract19"),game.i18n.localize("liber.caract20"),game.i18n.localize("liber.caract21"),game.i18n.localize("liber.caract22"),game.i18n.localize("liber.caract23"),game.i18n.localize("liber.caract24"),game.i18n.localize("liber.caract25"),game.i18n.localize("liber.caract26"),game.i18n.localize("liber.caract27"),game.i18n.localize("liber.caract28"),game.i18n.localize("liber.caract29"),game.i18n.localize("liber.caract30"),game.i18n.localize("liber.caract31"),game.i18n.localize("liber.caract32"),game.i18n.localize("liber.caract33"),game.i18n.localize("liber.caract34")];
+        var resident = demeure[Math.floor(Math.random()*demeure.length)]+" "+proximite[Math.floor(Math.random()*proximite.length)]+" "+lieu[Math.floor(Math.random()*lieu.length)];
+        
+        var famille = ["Crochet","Valone","Parker","Onile","Pasteur","Labrocante","Vincente","Auditoré","Laporte","Blanchart","Giroux","Lesourd","Houillons","Castagné","Delasaintecroix","Macon","Chaumont","Lucent","Hover","Packard","Curie","Lyon","Lallemand","Langlais","Lecure","Macdonald","Dupont","Lafontaine","Boucher","Boureau","Godspeak","Pierre","Solitaire","Beauregard","Charmant","Marechal","Dufour","Leroux","Lemoine","Lombart","Lefourbe","Boulanger","Petit","Blanc","Chevalier","Leroy","Lebrun","Silver","Delarue","Notigame","Forest","Tonneau","Does","Martin","Deschamps","Dupuis","Macalisteur","Leloup","Bouquin","Lafleur","","Dugrenier","Lacroix","Lecomte","Poulain","Dumas"];
+        var titre=[game.i18n.localize("liber.caract35"),game.i18n.localize("liber.caract36"),game.i18n.localize("liber.caract37"),game.i18n.localize("liber.caract38"),game.i18n.localize("liber.caract39"),game.i18n.localize("liber.caract40"),game.i18n.localize("liber.caract41"),game.i18n.localize("liber.caract42"),game.i18n.localize("liber.caract43"),game.i18n.localize("liber.caract44"),game.i18n.localize("liber.caract45"),game.i18n.localize("liber.caract46"),game.i18n.localize("liber.caract47"),game.i18n.localize("liber.caract48"),game.i18n.localize("liber.caract49"),game.i18n.localize("liber.caract50")];
+        var sang = titre[Math.floor(Math.random()*titre.length)]+" de la famille "+famille[Math.floor(Math.random()*famille.length)];
+        
+        var rang=[game.i18n.localize("liber.caract51"),game.i18n.localize("liber.caract52"),game.i18n.localize("liber.caract53"),game.i18n.localize("liber.caract54"),game.i18n.localize("liber.caract55"),game.i18n.localize("liber.caract56"),game.i18n.localize("liber.caract57"),game.i18n.localize("liber.caract58"),game.i18n.localize("liber.caract59")]
+        var organisation=[game.i18n.localize("liber.caract60"),game.i18n.localize("liber.caract61"),game.i18n.localize("liber.caract62"),game.i18n.localize("liber.caract63"),game.i18n.localize("liber.caract64"),game.i18n.localize("liber.caract65"),game.i18n.localize("liber.caract66"),game.i18n.localize("liber.caract67"),game.i18n.localize("liber.caract68"),game.i18n.localize("liber.caract69"),game.i18n.localize("liber.caract70"),game.i18n.localize("liber.caract71"),game.i18n.localize("liber.caract72"),game.i18n.localize("liber.caract73"),game.i18n.localize("liber.caract74"),game.i18n.localize("liber.caract75"),game.i18n.localize("liber.caract76"),game.i18n.localize("liber.caract77"),game.i18n.localize("liber.caract78"),game.i18n.localize("liber.caract79")]
+        var politique=rang[Math.floor(Math.random()*rang.length)]+" "+organisation[Math.floor(Math.random()*organisation.length)];
+        
+        var intret=[game.i18n.localize("liber.caract80"),game.i18n.localize("liber.caract81"),game.i18n.localize("liber.caract82"),game.i18n.localize("liber.caract83"),game.i18n.localize("liber.caract84"),game.i18n.localize("liber.caract85"),game.i18n.localize("liber.caract86"),game.i18n.localize("liber.caract87"),game.i18n.localize("liber.caract88"),game.i18n.localize("liber.caract89"),game.i18n.localize("liber.caract90"),game.i18n.localize("liber.caract91"),game.i18n.localize("liber.caract92"),game.i18n.localize("liber.caract93"),game.i18n.localize("liber.caract94"),game.i18n.localize("liber.caract95"),game.i18n.localize("liber.caract96"),game.i18n.localize("liber.caract97"),game.i18n.localize("liber.caract98"),game.i18n.localize("liber.caract99"),game.i18n.localize("liber.caract100"),game.i18n.localize("liber.caract101"),game.i18n.localize("liber.caract102")]
+        var groupe=intret[Math.floor(Math.random()*intret.length)]
+
+        var pertes=[game.i18n.localize("liber.caract103"),game.i18n.localize("liber.caract104"),game.i18n.localize("liber.caract105"),game.i18n.localize("liber.caract106"),game.i18n.localize("liber.caract107"),game.i18n.localize("liber.caract108"),game.i18n.localize("liber.caract109"),game.i18n.localize("liber.caract110"),game.i18n.localize("liber.caract111"),game.i18n.localize("liber.caract112"),game.i18n.localize("liber.caract113"),game.i18n.localize("liber.caract114"),game.i18n.localize("liber.caract115"),game.i18n.localize("liber.caract116"),game.i18n.localize("liber.caract117"),game.i18n.localize("liber.caract118")]
+        var dc=pertes[Math.floor(Math.random()*pertes.length)]
+
+        var valeur=[game.i18n.localize("liber.caract119"),game.i18n.localize("liber.caract120"),game.i18n.localize("liber.caract121"),game.i18n.localize("liber.caract122"),game.i18n.localize("liber.caract123"),game.i18n.localize("liber.caract124"),game.i18n.localize("liber.caract125"),game.i18n.localize("liber.caract126"),game.i18n.localize("liber.caract127"),game.i18n.localize("liber.caract128"),game.i18n.localize("liber.caract129"),game.i18n.localize("liber.caract130"),game.i18n.localize("liber.caract131")]
+        var moral=valeur[Math.floor(Math.random()*valeur.length)]
+
+        var race=[game.i18n.localize("liber.caract132"),game.i18n.localize("liber.caract133"),game.i18n.localize("liber.caract134"),game.i18n.localize("liber.caract135"),game.i18n.localize("liber.caract136"),game.i18n.localize("liber.caract137")]
+        var rang=[game.i18n.localize("liber.caract138"),game.i18n.localize("liber.caract139"),game.i18n.localize("liber.caract140"),game.i18n.localize("liber.caract141"),game.i18n.localize("liber.caract142"),game.i18n.localize("liber.caract143"),game.i18n.localize("liber.caract144"),game.i18n.localize("liber.caract145")]
+        var organisation=[game.i18n.localize("liber.caract146"),game.i18n.localize("liber.caract147"),game.i18n.localize("liber.caract148"),game.i18n.localize("liber.caract149"),game.i18n.localize("liber.caract150"),game.i18n.localize("liber.caract151"),game.i18n.localize("liber.caract152"),game.i18n.localize("liber.caract153"),game.i18n.localize("liber.caract154"),game.i18n.localize("liber.caract155"),game.i18n.localize("liber.caract156"),game.i18n.localize("liber.caract157"),game.i18n.localize("liber.caract158"),game.i18n.localize("liber.caract159"),game.i18n.localize("liber.caract160"),game.i18n.localize("liber.caract161"),game.i18n.localize("liber.caract162"),game.i18n.localize("liber.caract163"),game.i18n.localize("liber.caract164"),game.i18n.localize("liber.caract165")];
+        var amour=race[Math.floor(Math.random()*race.length)]+" "+rang[Math.floor(Math.random()*rang.length)]+" "+organisation[Math.floor(Math.random()*organisation.length)];
+        
+        var ami=race[Math.floor(Math.random()*race.length)]+" "+rang[Math.floor(Math.random()*rang.length)]+" "+organisation[Math.floor(Math.random()*organisation.length)];
+
+        var haine=race[Math.floor(Math.random()*race.length)]+" "+rang[Math.floor(Math.random()*rang.length)]+" "+organisation[Math.floor(Math.random()*organisation.length)];
+
+        var profession=[game.i18n.localize("liber.caract166"),game.i18n.localize("liber.caract167"),game.i18n.localize("liber.caract168"),game.i18n.localize("liber.caract169"),game.i18n.localize("liber.caract170"),game.i18n.localize("liber.caract171"),game.i18n.localize("liber.caract172"),game.i18n.localize("liber.caract173"),game.i18n.localize("liber.caract174"),game.i18n.localize("liber.caract175"),game.i18n.localize("liber.caract176"),game.i18n.localize("liber.caract177"),game.i18n.localize("liber.caract178"),game.i18n.localize("liber.caract179"),game.i18n.localize("liber.caract180"),game.i18n.localize("liber.caract181"),game.i18n.localize("liber.caract182"),game.i18n.localize("liber.caract183"),game.i18n.localize("liber.caract184"),game.i18n.localize("liber.caract185"),game.i18n.localize("liber.caract186"),game.i18n.localize("liber.caract187"),game.i18n.localize("liber.caract188"),game.i18n.localize("liber.caract189"),game.i18n.localize("liber.caract190"),game.i18n.localize("liber.caract191"),game.i18n.localize("liber.caract192"),game.i18n.localize("liber.caract193"),game.i18n.localize("liber.caract194"),game.i18n.localize("liber.caract195"),game.i18n.localize("liber.caract196"),game.i18n.localize("liber.caract197"),game.i18n.localize("liber.caract198"),game.i18n.localize("liber.caract199"),game.i18n.localize("liber.caract200"),game.i18n.localize("liber.caract201"),game.i18n.localize("liber.caract202"),game.i18n.localize("liber.caract203")]
+        var metier1=profession[Math.floor(Math.random()*profession.length)]
+
+        var metier2=profession[Math.floor(Math.random()*profession.length)]
+
+        var loisir=[game.i18n.localize("liber.caract204"),game.i18n.localize("liber.caract205"),game.i18n.localize("liber.caract206"),game.i18n.localize("liber.caract207"),game.i18n.localize("liber.caract208"),game.i18n.localize("liber.caract209"),game.i18n.localize("liber.caract210"),game.i18n.localize("liber.caract211"),game.i18n.localize("liber.caract212"),game.i18n.localize("liber.caract213"),game.i18n.localize("liber.caract214"),game.i18n.localize("liber.caract215"),game.i18n.localize("liber.caract216"),game.i18n.localize("liber.caract217"),game.i18n.localize("liber.caract218"),game.i18n.localize("liber.caract219"),game.i18n.localize("liber.caract220"),game.i18n.localize("liber.caract221"),game.i18n.localize("liber.caract222"),game.i18n.localize("liber.caract223"),game.i18n.localize("liber.caract224")]
+        var metier3=loisir[Math.floor(Math.random()*loisir.length)]
+
+        var caracterelist=[game.i18n.localize("liber.caract225"),game.i18n.localize("liber.caract226"),game.i18n.localize("liber.caract227"),game.i18n.localize("liber.caract228"),game.i18n.localize("liber.caract229"),game.i18n.localize("liber.caract230"),game.i18n.localize("liber.caract231"),game.i18n.localize("liber.caract232"),game.i18n.localize("liber.caract233"),game.i18n.localize("liber.caract234"),game.i18n.localize("liber.caract235"),game.i18n.localize("liber.caract236"),game.i18n.localize("liber.caract237")]
+        var caractere=caracterelist[Math.floor(Math.random()*caracterelist.length)]
+
+        var personnalitelist=[game.i18n.localize("liber.caract238"),game.i18n.localize("liber.caract239"),game.i18n.localize("liber.caract240"),game.i18n.localize("liber.caract241"),game.i18n.localize("liber.caract242"),game.i18n.localize("liber.caract243"),game.i18n.localize("liber.caract244"),game.i18n.localize("liber.caract245"),game.i18n.localize("liber.caract246"),game.i18n.localize("liber.caract247"),game.i18n.localize("liber.caract248"),game.i18n.localize("liber.caract249"),game.i18n.localize("liber.caract250"),game.i18n.localize("liber.caract251"),game.i18n.localize("liber.caract252"),game.i18n.localize("liber.caract253"),game.i18n.localize("liber.caract254"),game.i18n.localize("liber.caract255")]
+        var personnalite=personnalitelist[Math.floor(Math.random()*personnalitelist.length)]
+
+        var visionlist=[game.i18n.localize("liber.caract256"),game.i18n.localize("liber.caract257"),game.i18n.localize("liber.caract258"),game.i18n.localize("liber.caract259"),game.i18n.localize("liber.caract260"),game.i18n.localize("liber.caract261"),game.i18n.localize("liber.caract262"),game.i18n.localize("liber.caract263"),game.i18n.localize("liber.caract264"),game.i18n.localize("liber.caract265"),game.i18n.localize("liber.caract266"),game.i18n.localize("liber.caract267"),game.i18n.localize("liber.caract268"),game.i18n.localize("liber.caract269"),game.i18n.localize("liber.avantrace62")]
+        var vision="Rempli de "+visionlist[Math.floor(Math.random()*visionlist.length)]
+
+        var objectiflist=[game.i18n.localize("liber.caract270"),game.i18n.localize("liber.caract271"),game.i18n.localize("liber.caract275"),game.i18n.localize("liber.caract273"),game.i18n.localize("liber.caract274"),game.i18n.localize("liber.caract275"),game.i18n.localize("liber.caract276"),game.i18n.localize("liber.caract277"),game.i18n.localize("liber.caract278")]
+        var objectif=objectiflist[Math.floor(Math.random()*objectiflist.length)]
+
+        var racunelist=[game.i18n.localize("liber.oui"),game.i18n.localize("liber.non"),game.i18n.localize("liber.bof")]
+        var racune=racunelist[Math.floor(Math.random()*racunelist.length)]
+
+        var tarelist=[game.i18n.localize("liber.caract279"),game.i18n.localize("liber.caract280"),game.i18n.localize("liber.caract281"),game.i18n.localize("liber.caract282"),game.i18n.localize("liber.caract283"),game.i18n.localize("liber.caract284"),game.i18n.localize("liber.caract285"),game.i18n.localize("liber.caract286"),game.i18n.localize("liber.caract287"),game.i18n.localize("liber.caract288"),game.i18n.localize("liber.caract289"),game.i18n.localize("liber.caract290"),game.i18n.localize("liber.caract291"),game.i18n.localize("liber.caract292"),game.i18n.localize("liber.caract293"),game.i18n.localize("liber.caract294"),game.i18n.localize("liber.caract295"),game.i18n.localize("liber.caract296"),game.i18n.localize("liber.caract297"),game.i18n.localize("liber.caract298"),game.i18n.localize("liber.caract299"),game.i18n.localize("liber.caract300"),game.i18n.localize("liber.caract301"),game.i18n.localize("liber.caract302"),game.i18n.localize("liber.caract303"),game.i18n.localize("liber.caract304"),game.i18n.localize("liber.caract305"),game.i18n.localize("liber.caract306"),game.i18n.localize("liber.caract307"),game.i18n.localize("liber.caract308"),game.i18n.localize("liber.caract309"),game.i18n.localize("liber.caract310"),game.i18n.localize("liber.caract311"),game.i18n.localize("liber.caract312"),game.i18n.localize("liber.caract313"),game.i18n.localize("liber.caract314"),game.i18n.localize("liber.caract315"),game.i18n.localize("liber.caract316"),game.i18n.localize("liber.caract317"),game.i18n.localize("liber.caract318"),game.i18n.localize("liber.caract319"),game.i18n.localize("liber.caract320"),game.i18n.localize("liber.caract321"),game.i18n.localize("liber.caract322"),game.i18n.localize("liber.caract323"),game.i18n.localize("liber.caract324"),game.i18n.localize("liber.caract325"),game.i18n.localize("liber.caract326"),game.i18n.localize("liber.caract327"),game.i18n.localize("liber.caract328"),game.i18n.localize("liber.caract329"),game.i18n.localize("liber.caract330"),game.i18n.localize("liber.caract331"),game.i18n.localize("liber.caract332"),game.i18n.localize("liber.caract333"),game.i18n.localize("liber.caract334"),game.i18n.localize("liber.caract335"),game.i18n.localize("liber.caract336"),game.i18n.localize("liber.caract337"),game.i18n.localize("liber.caract338"),game.i18n.localize("liber.caract339"),game.i18n.localize("liber.caract340"),game.i18n.localize("liber.caract341"),game.i18n.localize("liber.caract342"),game.i18n.localize("liber.caract343"),game.i18n.localize("liber.caract344"),game.i18n.localize("liber.caract345"),game.i18n.localize("liber.caract346"),game.i18n.localize("liber.caract347"),game.i18n.localize("liber.caract348"),game.i18n.localize("liber.caract349"),game.i18n.localize("liber.caract350"),game.i18n.localize("liber.caract351"),game.i18n.localize("liber.caract352"),game.i18n.localize("liber.caract353"),game.i18n.localize("liber.caract354"),game.i18n.localize("liber.caract355"),game.i18n.localize("liber.caract356"),game.i18n.localize("liber.caract357"),game.i18n.localize("liber.caract358"),game.i18n.localize("liber.caract359"),game.i18n.localize("liber.caract360"),game.i18n.localize("liber.caract361"),game.i18n.localize("liber.caract362"),game.i18n.localize("liber.caract363"),game.i18n.localize("liber.caract364"),game.i18n.localize("liber.caract36"),game.i18n.localize("liber.caract366"),game.i18n.localize("liber.caract367"),game.i18n.localize("liber.caract368"),game.i18n.localize("liber.caract369"),game.i18n.localize("liber.caract370"),game.i18n.localize("liber.caract371"),game.i18n.localize("liber.caract372"),game.i18n.localize("liber.caract373"),game.i18n.localize("liber.caract374"),game.i18n.localize("liber.caract375"),game.i18n.localize("liber.caract376"),game.i18n.localize("liber.caract377"),game.i18n.localize("liber.caract378"),game.i18n.localize("liber.caract379"),game.i18n.localize("liber.caract380"),game.i18n.localize("liber.caract381"),game.i18n.localize("liber.caract382"),game.i18n.localize("liber.caract383"),game.i18n.localize("liber.caract384"),game.i18n.localize("liber.caract385"),game.i18n.localize("liber.caract386"),game.i18n.localize("liber.caract387"),game.i18n.localize("liber.caract388"),game.i18n.localize("liber.caract389"),game.i18n.localize("liber.caract390"),game.i18n.localize("liber.caract391"),game.i18n.localize("liber.caract392"),game.i18n.localize("liber.caract393"),game.i18n.localize("liber.caract394"),game.i18n.localize("liber.caract395"),game.i18n.localize("liber.caract396"),game.i18n.localize("liber.caract397"),game.i18n.localize("liber.caract398"),game.i18n.localize("liber.caract399"),game.i18n.localize("liber.caract400"),game.i18n.localize("liber.caract401"),game.i18n.localize("liber.caract402"),game.i18n.localize("liber.caract403"),game.i18n.localize("liber.caract404"),game.i18n.localize("liber.caract405"),game.i18n.localize("liber.caract406"),game.i18n.localize("liber.caract407"),game.i18n.localize("liber.caract408"),game.i18n.localize("liber.caract409"),game.i18n.localize("liber.caract410"),game.i18n.localize("liber.caract411"),game.i18n.localize("liber.caract412"),game.i18n.localize("liber.caract413"),game.i18n.localize("liber.caract414"),game.i18n.localize("liber.caract415"),game.i18n.localize("liber.caract416"),game.i18n.localize("liber.caract417"),game.i18n.localize("liber.caract418"),game.i18n.localize("liber.caract419"),game.i18n.localize("liber.caract420"),game.i18n.localize("liber.caract421"),game.i18n.localize("liber.caract422"),game.i18n.localize("liber.caract423"),game.i18n.localize("liber.caract424"),game.i18n.localize("liber.caract425"),game.i18n.localize("liber.caract426"),game.i18n.localize("liber.caract427"),game.i18n.localize("liber.caract428"),game.i18n.localize("liber.caract429"),game.i18n.localize("liber.caract430"),game.i18n.localize("liber.caract431")]
+        var tare=tarelist[Math.floor(Math.random()*tarelist.length)]
+
+        var obsessionlist=[game.i18n.localize("liber.oui"),game.i18n.localize("liber.non"),game.i18n.localize("liber.bof")]
+        var obsession=obsessionlist[Math.floor(Math.random()*obsessionlist.length)]
+
+        var distinguelist=[game.i18n.localize("liber.oui"),game.i18n.localize("liber.non"),game.i18n.localize("liber.bof")]
+        var distingue=distinguelist[Math.floor(Math.random()*distinguelist.length)]
+        
+        console.log(hp)
+        //update
+        this.actor.update({'name': name,'system.histoire': textgen,'system.bonusrace': avantagerace,'system.protection' : armureperso,'system.hp.max': hp,'system.hp.value': hp,'system.psy.max': psy,'system.psy.value': psy,'system.physique':phy,'system.force':forc,'system.agilite':agil,'system.social':soc,'system.sagacite':saga,'system.charisme':char,'system.mental':men,'system.ast':astu,'system.memoire':memo,'system.caracteristique.acrobatie':cpt0,'system.caracteristique.agilites':cpt1,'system.caracteristique.alchimie':cpt2,'system.caracteristique.apprentissage':cpt3,'system.caracteristique.hast':cpt4,'system.caracteristique.cc':cpt5,'system.caracteristique.lancer':cpt6,'system.caracteristique.melee':cpt7,'system.caracteristique.tir':cpt8,'system.caracteristique.art':cpt9,'system.caracteristique.assassinat':cpt10,'system.caracteristique.baton':cpt11,'system.caracteristique.bouclier':cpt12,'system.caracteristique.bricolage':cpt13,'system.caracteristique.presence':cpt14,'system.caracteristique.chercher':cpt15,'system.caracteristique.commander':cpt16,'system.caracteristique.concentration':cpt17,'system.caracteristique.nature':cpt18,'system.caracteristique.peuples':cpt19,'system.caracteristique.religions':cpt20,'system.caracteristique.geographique':cpt21,'system.caracteristique.rue':cpt22,'system.caracteristique.heretiques':cpt23,'system.caracteristique.combat':cpt24,'system.caracteristique.commerce':cpt25,'system.caracteristique.crochetage':cpt26,'system.caracteristique.discretion':cpt27,'system.caracteristique.dexterite':cpt28,'system.caracteristique.detection':cpt29,'system.caracteristique.dissimulation':cpt30,'system.caracteristique.dressage':cpt31,'system.caracteristique.ennemi':cpt32,'system.caracteristique.equilibre':cpt33,'system.caracteristique.equitation':cpt34,'system.caracteristique.escroquerie':cpt35,'system.caracteristique.esquiver':cpt36,'system.caracteristique.puissance':cpt37,'system.caracteristique.astuce':cpt38,'system.caracteristique.peur':cpt39,'system.caracteristique.joueur':cpt40,'system.caracteristique.maitrise':cpt41,'system.caracteristique.natation':cpt42,'system.caracteristique.navigation':cpt43,'system.caracteristique.orientation':cpt44,'system.caracteristique.persuasion':cpt45,'system.caracteristique.pister':cpt46,'system.caracteristique.prophetie':cpt47,'system.caracteristique.secours':cpt48,'system.caracteristique.resistance':cpt49,'system.caracteristique.psychologue':cpt50,'system.caracteristique.medecine':cpt51,'system.caracteristique.survie':cpt52,'system.caracteristique.tueur':cpt53,'system.caracteristique.objet':cpt54,'system.caracteristique.veterinaire':cpt55,'system.caracteristique.vigilance':cpt56,'system.caracteristique.vise':cpt57,'system.caractere.residence': resident,'system.caractere.sang': sang,'system.caractere.politique': politique,'system.caractere.interets': groupe,'system.caractere.deces': dc,'system.caractere.moral': moral,'system.caractere.amour': amour,'system.caractere.amitie': ami,'system.caractere.haine': haine,'system.caractere.principale': metier1,'system.caractere.secondaire': metier2,'system.caractere.passion': metier3,'system.caractere.caract': caractere,'system.caractere.personnalite': personnalite,'system.caractere.perception': vision,'system.caractere.objectif': objectif,'system.caractere.rancunier': racune,'system.caractere.tare': tare,'system.caractere.obsession': obsession,'system.caractere.distingue': distingue});
     }
+    
+
 
     _onArmor(event){
         var equipe=event.target.dataset["equip"];
@@ -1033,7 +1072,6 @@ export class LiberActorSheet extends ActorSheet {
 
     _onCouv(event){
         var etats=['a','b','c','d','e','f','g','h','i','j','k','l','m','n'];
-    
         var chnget=event.target.dataset["etat"];console.log('etats'+etats[chnget])
         var et=etats[chnget];
         if(et=='a'){
@@ -1144,6 +1182,7 @@ export class LiberActorSheet extends ActorSheet {
 
     _onRestAttr(event){
         var name=event.target.dataset["name"];
+        console.log(name)
         if(name=="malus"){
             this.actor.update({"system.malus":0});
         }else if(name=="bonus"){

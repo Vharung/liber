@@ -8,23 +8,21 @@
 					<img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
 				</div>
 				<div class="headtext">
-					<input class="nomperso" name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
+					<input class="nomperso" name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'liber.name'}}"/>
 					<div class="rexrow">
 						<div class="grid-3col">
-							<p>{{localize 'liber.race'}} : <input class="race" name="system.race" type="text" value="{{data.system.race}}" placeholder="Race"/></p>
+							<p>{{localize 'liber.race'}} : <input class="race" type="text" titre="{{data.system.race}} - {{data.system.metier}}" value="{{data.system.race}}" placeholder="{{localize 'liber.race'}}" readonly="" /></p>
 						</div>
 						<div class="grid-3col">
-							<p>{{localize 'liber.clan'}} : <input class="clan" name="system.clan" type="text" value="{{data.system.clan}}" placeholder="Clan"/></p>
+							<p>{{localize 'liber.clan'}} : <input class="clan" type="text" titre="{{data.system.clan}}" value="{{data.system.clan}}" placeholder="{{localize 'liber.clan'}}" readonly="" /></p>
 						</div>
 						<div class="grid-3col">
-							<p>{{localize 'liber.religion'}} : <input class="religion" name="system.religion" type="text" value="{{data.system.religion}}" placeholder="Religion"/> <span class="levelup">↑</span></p>
+							<p>{{localize 'liber.religion'}} : <input class="religion" type="text" titre="{{data.system.religion}}" value="{{data.system.religion}}" placeholder="{{localize 'liber.religion'}} " readonly="" /></p>
 						</div>
-						<!--div class="separator"></div-->
-						<p>{{localize 'liber.bonus'}} : <input class="avantagerace" name="system.bonusrace" type="text" value="{{data.system.bonusrace}}" placeholder="Bonus"/>
-							{{localize 'liber.level'}} : <input class="niveau" name="system.level" type="text" value="{{data.system.level}}" placeholder="1"/><button class="aucune" title="Aucune"></button><button class="focus" title="Focus"></button><button class="defensif" title="Défensif"></button><button class="offensif" title="Offensif"></button>
+						<p>{{localize 'liber.bonus'}} : <input class="avantagerace" name="system.bonusrace" type="text" titre="{{data.system.bonusrace}}" value="{{data.system.bonusrace}}" placeholder="{{localize 'liber.bonus'}}"/>
+							{{localize 'liber.level'}} : <input class="niveau" name="system.level" type="text" value="{{data.system.level}}" placeholder="1"/><button class="aucune" title="Aucune" data-post="Aucune"></button><button class="focus" title="Focus" data-post="Focus"></button><button class="defensif" title="Défensif" data-post="Défensif"></button><button class="offensif" title="Offensif" data-post="Offensif"></button>
 							<input class="postures" name="system.posture" type="text" value="{{data.system.posture}}" style="display:none"/></span></p>
 					</div>
-					
 				</div>
 			</div>
 		</div>
@@ -114,7 +112,7 @@
 			<div class="rexrow modif" style="margin-top: 10px;">
 
 					<h2 class="center">{{localize 'liber.mj'}}</h2>
-					<button class="desequi resetmalus">🗑</button><input class="malussactor" name="system.malus" data-name="malus" type="text" value="{{data.system.malus}}" placeholder="0"/>
+					<button class="desequi resetmalus" data-name="malus">🗑</button><input class="malussactor" name="system.malus" type="text" value="{{data.system.malus}}" placeholder="0"/>
 
 
 			</div>
@@ -193,7 +191,7 @@
 			            <ul class="items-list">
 			            {{#each actor.inventaire as |item id|}}
 			                <li class="item fexrow" data-item-id="{{item._id}}">
-			                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+			                    <div class="item-image"><a class="item-control  item-info"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.valeur}}" data-type="{{item.type}}" data-img="{{item.img}}"/></a></div>
 			                    <div class="item-name" title="{{item.name}}">{{item.name}}</div>
 			                    <div class="item-type" title="{{item.type}}">{{item.type}}</div>
 			                   
@@ -235,7 +233,7 @@
 			                </li>
 			            {{#each actor.sort as |item id|}}
 			                <li class="item fexrow" data-item-id="{{item._id}}">
-			                    <div class="item-image"><a class="item-control item-info" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.cout}}" data-img="{{item.img}}"><img src="{{item.img}}" title="Lancer {{item.name}}" width="24" height="24" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.cout}}" data-img="{{item.img}}"/></a></div>
+			                    <div class="item-image"><a class="item-control item-info"><img src="{{item.img}}" title="Lancer {{item.name}}" width="24" height="24" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.cout}}" data-img="{{item.img}}" data-type="sort"/></a></div>
 			                    <div class="item-name"><span title="{{item.name}}">{{item.name}}</span></div>
 			                    <div class="item-classe">{{item.system.classe}}</div>
 			                    
