@@ -122,7 +122,6 @@
         //point restant
         if(this.actor.type=="personnage"){
             var espece=html.find('.raceliste').val();
-            console.log(espece)
             var phys=parseInt(html.find('.phys').val());
             var forc=parseInt(html.find('.forc').val());
             var agil=parseInt(html.find('.agil').val());
@@ -133,13 +132,6 @@
             var astu=parseInt(html.find('.astu').val());
             var memo=parseInt(html.find('.memo').val());
             var reste=170-(phys+soci+ment);
-            if(espece==game.i18n.localize("liber.avantrace61")){
-                if(soci<5){
-                    html.find('.soci').val(5);
-                    soci=5;
-                }
-                reste=reste+5;
-            }
             html.find('.pointrestant').val(reste);
             if(phys<(forc+agil)){
                 //alert(game.i18n.localize("liber.alert1"))
