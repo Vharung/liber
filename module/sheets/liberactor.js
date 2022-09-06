@@ -23,13 +23,9 @@ export class LiberActor extends Actor {
    * Prepare Character type specific data
    */
   _preparePJData(actorData) {
-    const data = actorData;
-    console.log(`Liber | Préparation Data PJ.\n`);
-    console.log(data);
-    // ici on peut ajouter au modele de donnée des stat dérivé comme par exemple le calcul des points de mana
-    //Calcul encombrement max
-    
+    const data = actorData;    
   }
+
   prepareBaseData() {
   }
 

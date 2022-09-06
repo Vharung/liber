@@ -87,11 +87,11 @@
 					<input class="phys" name="system.physique" type="text" value="{{data.system.physique}}" placeholder="{{data.system.physique}}" style="text-align: center"/>
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-name="Force" data-dice="1d"data-attDice="{{data.system.force}}" style="background: #dd8376;">{{localize 'liber.for'}}</label></p>
+					<p><label class="jetdedes secstat" data-name="Force" data-dice="1d"data-attDice="{{data.system.force}}">{{localize 'liber.for'}}</label></p>
 					<input class="forc" name="system.force" type="text" value="{{data.system.force}}" placeholder="5" style="width:40px" />
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-name="Agilite" data-dice="1d"data-attDice="{{data.system.agilite}}" style="background: #dd8376;">{{localize 'liber.agi'}}</label></p>
+					<p><label class="jetdedes secstat" data-name="Agilite" data-dice="1d"data-attDice="{{data.system.agilite}}">{{localize 'liber.agi'}}</label></p>
 					<input class="agil" name="system.agilite" type="text" value="{{data.system.agilite}}" placeholder="5" style="width:40px" />
 				</div>
 				<div class="grid-9col">
@@ -99,11 +99,11 @@
 					<input class="soci" name="system.social" type="text" value="{{data.system.social}}" placeholder="10" style="text-align: center"/>
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-name="Charisme" data-dice="1d"data-attDice="{{data.system.charisme}}" style="background: #dd8376;">{{localize 'liber.cha'}}</label></p>
+					<p><label class="jetdedes secstat" data-name="Charisme" data-dice="1d"data-attDice="{{data.system.charisme}}">{{localize 'liber.cha'}}</label></p>
 					<input class="char" name="system.charisme" type="text" value="{{data.system.charisme}}" placeholder="5" style="width:40px"/>
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-name="Sagacité" data-dice="1d"data-attDice="{{data.system.sagacite}}" style="background: #dd8376;">{{localize 'liber.sag'}}</label></p>
+					<p><label class="jetdedes secstat" data-name="Sagacité" data-dice="1d"data-attDice="{{data.system.sagacite}}">{{localize 'liber.sag'}}</label></p>
 					<input class="saga" name="system.sagacite" type="text" value="{{data.system.sagacite}}" placeholder="5" style="width:40px"/>
 				</div>
 				<div class="grid-9col">
@@ -111,11 +111,11 @@
 					<input class="mental" name="system.mental" type="text" value="{{data.system.mental}}" placeholder="10" style="text-align: center"/>
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-name="Astuce" data-dice="1d"data-attDice="{{data.system.astuce}}" style="background: #dd8376;">{{localize 'liber.ast'}}</label></p>
+					<p><label class="jetdedes secstat" data-name="Astuce" data-dice="1d"data-attDice="{{data.system.astuce}}">{{localize 'liber.ast'}}</label></p>
 					<input class="astu" name="system.ast" type="text" value="{{data.system.ast}}" placeholder="5" style="width:40px"/>
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-name="Mémoire" data-dice="1d"data-attDice="{{data.system.memoire}}" style="background: #dd8376;">{{localize 'liber.mem'}}</label></p>
+					<p><label class="jetdedes secstat" data-name="Mémoire" data-dice="1d"data-attDice="{{data.system.memoire}}">{{localize 'liber.mem'}}</label></p>
 					<input class="memo" name="system.memoire" type="text" value="{{data.system.memoire}}" placeholder="5" style="width:40px;margin-bottom: 5px;"/>
 				</div>
 				
@@ -333,10 +333,19 @@
 			                </li>
 			            {{/each}}
 		        		</ul>
+		        		<div class="rexrow stat">
+							<div class="grid-2col">
+		        				<button class="addsort item-create" data-type="objet">{{localize 'liber.creobjet'}}</button>
+		        			</div>
+		        			<div class="grid-2col">
+		        				<button class="addsort item-create" data-type="objet">{{localize 'liber.addobjet'}}</button>
+		        			</div>
+		        		</div>
 				</div>
 
 				{{!-- Pouvoirs Tab --}}
 				<div id="spells" class="tab spells" data-group="primary" data-tab="spells">
+
 				        <ol class="items-list">
 			                <li class="item fexrow item-header">
 			                  <div class="item-image"></div>
@@ -379,6 +388,14 @@
 				    </div>
 				    <div class="clear"></div>
 				    <p style="text-align: center;color:#eeeeee">*{{localize 'liber.plus'}}</p>
+				    <div class="rexrow stat">
+						<div class="grid-2col">
+	        				<button class="addsort item-create" data-type="objet">{{localize 'liber.cresort'}}</button>
+	        			</div>
+	        			<div class="grid-2col">
+	        				<button class="addsort item-create" data-type="magie">{{localize 'liber.addsort'}}</button>
+	        			</div>
+	        		</div>
 				</div>
 				{{!-- Lab Tab --}}
 				<div id="lab" class="tab stats" data-group="primary" data-tab="lab">

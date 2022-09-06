@@ -115,6 +115,7 @@
 
         //generateur
         html.find('.ficheperso').click(this._onGenerator.bind(this));
+        html.find('.addsort').click(this._onAddSort.bind(this));
 
         //point restant
         if(this.actor.type=="personnage"){
@@ -335,6 +336,8 @@
 
         //Se reposer
         html.find('.reposer').click(this._onSleep.bind(this));
+
+        
 
         //Avantage
         var avant=html.find('.avant').val();
@@ -1186,4 +1189,11 @@
         console.log('Encombrement:'+enc)
         this.actor.update({"system.encombrement.max":enc});
     }
+
+    _onAddSort(event){
+        var compendium="magie"
+        compendium.maximize()
+        //_onSearchFilter(event: any, query: any, rgx: any, html: any)
+    }
 }
+        

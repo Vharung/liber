@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-.Liber a.item.active,.Liber a.item.active:hover,.Liber textarea,.Liber main,.Liber .head .rexrow{background: #181003; }
-.Liber .talentliste,.Liber .faiblesseliste,.Liber .typerepos ,.Liber .jourliste,.Liber .heure,.Liber .items input.maingaucequi,.Liber .items input.maindroiequi,.Liber .items input.armurequi,.Liber .stat input,.Liber .stat2 input,.Liber .features input,.Liber .stats select,.Liber a.item:hover{background: #87765b; }
-.Liber .autres{background: #181003 url(font.png) bottom right no-repeat; }
-.Liber a.item,.Liber h2 ,.Liber .head,.Liber header,.Liber .tabs,.Liber .items-list .item-description,.Liber .items-list .item-description2{background: #4f3c1c;}
+.Liber a.item.active:hover,.Liber textarea,.Liber main,.Liber .head .rexrow{background:#4f3c1c ; }
+.Liber .talentliste,.Liber .faiblesseliste,.Liber .typerepos ,.Liber .jourliste,.Liber .heure,.Liber .items input.maingaucequi,.Liber .items input.maindroiequi,.Liber .items input.armurequi,.Liber .stat input,.Liber .stat2 input,.Liber .features input,.Liber .stats select,.Liber a.item:hover{background:#181003; }
+.Liber .autres{background: #4f3c1c url(font.png) bottom right no-repeat; }
+.Liber a.item.active{background: #8f1a28;}
+.Liber .stats input,.Liber .reposer,.Liber input[type="button"],.Liber .stat2 label,.Liber .modif button.desequi,.Liber .carac input[type="button"],.Liber .items .desequi,.Liber .items .jetdedegat,.Liber .addsort{background:#8f1a28;}/*e13b23*/
+.Liber .stat2 label.secstat:hover,.Liber .stats input:hover,.Liber .reposer:hover,.Liber input[type="button"]:hover,.Liber .stat2 label:hover,.Liber .modif button.desequi:hover,.Liber .carac input[type="button"]:hover,.Liber .items .desequi:hover,.Liber .items .jetdedegat:hover,.Liber .addsort:hover{background:#e13b23;}/*e13b23*/
+.Liber .stat2 label.secstat{background: #dd8376;}
+.Liber a.item,.Liber h2 ,.Liber .head,.Liber header,.Liber .tabs,.Liber .items-list .item-description,.Liber .items-list .item-description2{background: #181003;}
 .Liber .deno{width: 206px;border-bottom: 1px solid #643737;padding: 0px;display: block;margin: 0 5px 5px 5px;height: 28px;float: left;}
 .Liber.window-app .window-content{background-image: none;overflow:hidden }
 .Liber .fiche{display: block;height: 800px;width: 1200px;}
 .Liber header {color: #fff;}
 .Liber .col2{display: block;height: 752px;float: left;width: 590px;}
-.Liber{width:1196px;height: 800px;font-family: 'Roboto', sans-serif;display: block;overflow: hidden;}
+.Liber{width:1196px;height: 800px;font-family: 'Roboto', sans-serif;display: block;overflow: hidden;opacity: 0.9;}
 form.Liber{display: table-cell;overflow: auto;}
 .Liber .fiche nav.sheet-tabs{margin:0px;border-top:none;border-bottom:none;padding:0px 0;height: 35px;}
 .Liber .head input[type="text"]{background:none; border:none;}
@@ -49,11 +53,11 @@ form.Liber{display: table-cell;overflow: auto;}
 .Liber .stat2 p{text-align: center;margin-bottom: 0}
 .Liber .stat2 label{width:40px;display: block;}
 .Liber textarea{width: 100%;height: 177px;color:#fff;border:none;resize: none;}
-.Liber input[type="button"],.Liber .stat2 label{background:#e13b23;border:none;color:#fff;padding: 5px;font-weight: bold;cursor: pointer}
+.Liber input[type="button"],.Liber .stat2 label{border:none;color:#fff;padding: 5px;font-weight: bold;cursor: pointer}
 .Liber .clear{clear: both}.liber .center{text-align: center;}
 .Liber .malussactor,.Liber .bonusactor,.Liber .pointrestant {width:74px;border: none;background: none; font-size: 50px;height:50px;color: #fff; text-align: center;margin-left: calc(50% - 35px);}
 .Liber .coutmax,.Liber .maxsort {width:100%;border: none;background: none; font-size: 50px;height:50px;color: #fff; text-align: center;}
-.Liber .modif button.desequi{float: right;background: #e13b23;border: none;color: #fff;width: 50px;height: 50px;font-size: 2em;cursor: pointer}
+.Liber .modif button.desequi{float: right;border: none;color: #fff;width: 50px;height: 50px;font-size: 2em;cursor: pointer}
 .Liber a.item{display: inline-block;color:#a5a5a5;width:20%;padding: 9px 2px;margin: 0;text-align: center;transition: 0.5s;}
 .Liber a.item span{width: 103%; height: 20px;display: block}
 .Liber a.item:hover,.Liber a.active{color:#fff;}
@@ -67,7 +71,7 @@ form.Liber{display: table-cell;overflow: auto;}
 .Liber .carac .compt{width: 100%;display: block}
 .Liber .carac span{width:calc(30% - 5px);display: inline-block;margin-right: 5px;color:#eeeeee;font-size: 0.8em;text-align: right;}
 .Liber .carac input[type="text"]{width: 70%;display: inline-block;border:none;border-bottom: 1px solid #643737;color:#fff;background: none}
-.Liber .carac input[type="button"]{float: right;background: #e13b23;border: none;color: #fff;width: 100px;height: 30px;font-size: 1em;cursor: pointer; margin:3px;}
+.Liber .carac input[type="button"]{float: right;border: none;color: #fff;width: 100px;height: 30px;font-size: 1em;cursor: pointer; margin:3px;}
 .Liber .carac input[type="text"].talent,.Liber .carac input[type="text"].faiblesse{border:1px solid #643737;width:64%;height: 30px;}
 .Liber .talentliste,.Liber .faiblesseliste{width: 56%;display: inline-block;height: 30px;margin-top: 3px;border: none;color: #fff;}
 .Liber .items .encom{width: 100%;border: 1px solid #643737; height: 28px;margin-bottom: 20px}
@@ -75,8 +79,8 @@ form.Liber{display: table-cell;overflow: auto;}
 .Liber .items .barenc{width: 100%;background: #0080c0;height: 26px;display: block;}
 .Liber .items .encom input {border: none;background: none;color: #fff}
 .Liber .items input.maingaucequi,.Liber .items input.maindroiequi,.Liber .items input.armurequi{border:1px solid #643737;width:90%;height: 30px;color: #fff;margin-bottom: 5px;}
-.Liber .items .desequi{float: right;background: #e13b23;border: none;color: #fff;width: 30px;height: 30px;font-size: 1em;cursor: pointer;margin-right: 10px;}
-.Liber .items .jetdedegat{float: right;background: #e13b23;border: none;color: #fff;width: 105px;height: 25px;font-size: 0.8em;cursor: pointer;margin: 3px;text-align: center;}
+.Liber .items .desequi{float: right;border: none;color: #fff;width: 30px;height: 30px;font-size: 1em;cursor: pointer;margin-right: 10px;}
+.Liber .items .jetdedegat{float: right;border: none;color: #fff;width: 105px;height: 25px;font-size: 0.8em;cursor: pointer;margin: 3px;text-align: center;}
 .Liber .items-list {list-style: none;margin: 7px 0;padding: 0;overflow-y: auto;}
 .Liber .items-list .item-header {font-weight: bold;text-align: left;padding-left: 0;margin-left: 0;}
 .Liber .items-list .item {height: 30px;line-height: 24px;padding: 3px 0;border-bottom: 1px solid #BBB;overflow: hidden;color:#fff;font-weight: normal;opacity: 0.6}
@@ -98,7 +102,8 @@ form.Liber{display: table-cell;overflow: auto;}
 .Liber .items .items-list .item-controls{width: 55px;}
 .Liber .spells .items-list .item-controls{width: 75px;}
 .Liber .stats select{border: none;height: 30px;width: 50%; margin: 3px;color: #fff;}
-.Liber .stats input,.Liber .reposer{border: none;height: 30px;width: 40%;padding:5px;float: right;margin: 4px;background:#e13b23;border:none;color:#fff;padding: 5px;font-weight: bold;cursor: pointer}
+
+.Liber .stats input,.Liber .reposer{border: none;height: 30px;width: 40%;padding:5px;float: right;margin: 4px;border:none;color:#fff;padding: 5px;font-weight: bold;cursor: pointer}
 .Liber .stat input.insoin,.Liber .stat input.avant,.Liber .stat input.desan{border:none;color: #fff;text-align: right;opacity: 0.5}
 .Liber input.insoin{background:url("../assets/icon/pvi.png")left center no-repeat;background-size: contain;}
 .Liber input.avant{background:url("../assets/icon/avantage.png")left center no-repeat;background-size: contain;}
@@ -128,6 +133,5 @@ form.Liber{display: table-cell;overflow: auto;}
 .Liber .carac,.Liber .items,.Liber .spells,.Liber .stats {display: none; overflow: auto;}
 .resultatp{text-align: center;font-size: medium;background: #6a7885;padding: 5px;color: white;display: flex;}
 .desctchat{padding: 5px;background: #bcc2c7;color: #464646;display:none}
-.infosort:active .desctchat{
-	display: flex;
-}
+.infosort:active .desctchat{display: flex;}
+.Liber .addsort{width: 100%;border: none;color: #fff;font-size: 1.5em;height: 40px;margin: 0;line-height: 0;}
