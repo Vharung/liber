@@ -12,7 +12,7 @@
 .Liber .fiche{display: block;height: 800px;width: 1200px;}
 .Liber header {color: #fff;}
 .Liber .col2{display: block;height: 752px;float: left;width: 590px;}
-.Liber{width:1196px;height: 800px;font-family: 'Roboto', sans-serif;display: block;overflow: hidden;opacity: 0.9;}
+.Liber{width:1196px;height: 800px;font-family: 'Roboto', sans-serif;display: block;overflow: hidden;opacity: 0.95;}
 form.Liber{display: table-cell;overflow: auto;}
 .Liber .fiche nav.sheet-tabs{margin:0px;border-top:none;border-bottom:none;padding:0px 0;height: 35px;}
 .Liber .head input[type="text"]{background:none; border:none;}
