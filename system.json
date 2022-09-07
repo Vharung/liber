@@ -65,6 +65,14 @@
           "path": "./pack/regles.db",
           "system": "liber",
           "private": false
+        },
+        {
+          "name": "villes",
+          "label": "Villes",
+          "type": "Scene",
+          "path": "./pack/villes.db",
+          "system": "liber",
+          "private": true
         }
     ],
     "languages": [

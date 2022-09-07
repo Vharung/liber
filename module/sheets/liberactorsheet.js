@@ -115,7 +115,7 @@
 
         //generateur
         html.find('.ficheperso').click(this._onGenerator.bind(this));
-        html.find('.addsort').click(this._onAddSort.bind(this));
+        html.find('.item-sort').click(this._onAddSort.bind(this));
 
         //point restant
         if(this.actor.type=="personnage"){
@@ -1191,9 +1191,16 @@
     }
 
     _onAddSort(event){
-        var compendium="magie"
-        compendium.maximize()
-        //_onSearchFilter(event: any, query: any, rgx: any, html: any)
+        //var compendium=fromCompendium(document: any):
+        //var compendium=fromCompendium(document: any, [options]: { addFlags: 'data.classes'; }):
+        //fromCompendium("Compendium.liber.magie");
+        console.log(compendium)
+        /*var coutmax=event.target.dataset["coutmax"];
+        
+        for (var i = Things.compendium - 1; i >= 0; i--) {
+            if(cout<coutmax)
+            add Things[i]
+        }*/
     }
 }
         
