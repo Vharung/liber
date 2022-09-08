@@ -302,6 +302,11 @@
             console.log(armure)
             html.find('.armureperso').val(armure);
         });
+
+        var hp= html.find('.hp').val();
+        if(hp<=0){
+            html.find('.autres').css({"background":"url(systems/liber/css/parchemin-sang.jpg)",'background-size': 'cover'});
+        }
         
     }
 
