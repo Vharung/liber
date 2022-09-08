@@ -186,7 +186,10 @@
                 "hp":"",
                 "hpmax":"",
                 "listeobj":"",
-                "listemag":""
+                "listemag":{
+                    "mag1":"aucun",
+                    "mag2":"aucun"
+                }
               }
             }
         },
