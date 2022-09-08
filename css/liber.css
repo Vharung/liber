@@ -7,7 +7,7 @@
 .Liber .stat2 label.secstat:hover,.Liber .stats input:hover,.Liber .reposer:hover,.Liber input[type="button"]:hover,.Liber .stat2 label:hover,.Liber .modif button.desequi:hover,.Liber .carac input[type="button"]:hover,.Liber .items .desequi:hover,.Liber .items .jetdedegat:hover,.Liber .addsort:hover{background:#e13b23;}/*e13b23*/
 .Liber .stat2 label.secstat{background: #dd8376;}
 .Liber a.item,.Liber h2 ,.Liber .head,.Liber header,.Liber .tabs,.Liber .items-list .item-description,.Liber .items-list .item-description2{background: #181003;}
-.Liber .deno{width: 206px;border-bottom: 1px solid #643737;padding: 0px;display: block;margin: 0 5px 5px 5px;height: 28px;float: left;}
+.Liber .deno{width: 206px;border-bottom: 1px solid #20180d;padding: 0px;display: block;margin: 0 5px 5px 5px;height: 28px;float: left;}
 .Liber.window-app .window-content{background-image: none;overflow:hidden }
 .Liber .fiche{display: block;height: 800px;width: 1200px;}
 .Liber header {color: #fff;}
@@ -28,7 +28,7 @@ form.Liber{display: table-cell;overflow: auto;}
 .Liber .head input.nomperso{text-transform: uppercase;height: 20px; display: block; font-size: 1.2em;width:calc(100% - 130px);}
 .Liber .headtext{ padding:5px;}
 .Liber .head .rexrow{margin-top: 10px;color: #fff;height: 80px;width:590px;padding: 5px 5px 5px 130px;border-radius: 60px 0 0 60px;display: block;}
-.Liber .head .rexrow input{border-bottom:solid 1px #643737;;width:108px;}
+.Liber .head .rexrow input{border-bottom:solid 1px #20180d;width:108px;}
 .Liber .head .rexrow input.religion {width: 59px}
 .Liber .head .rexrow input.avantagerace {width: 186px}
 .Liber .head .rexrow input.niveau {width: 25px}
@@ -44,10 +44,10 @@ form.Liber{display: table-cell;overflow: auto;}
 .Liber main{height: 628px; margin-top: 5px;color:#fff;}
 .Liber .autres{ height: 753px; margin-left: 5px;}
 .Liber h2 {width:100%;color: #fff;font-size: 1em;padding: 5px;border-bottom: 0;}
-.Liber .deno{width: 206px;border-bottom: 1px solid #643737;padding: 0px;display: block;margin: 0 5px 5px 5px;height: 28px;float: left;}
+.Liber .deno{width: 206px;border-bottom: 1px solid #20180d;padding: 0px;display: block;margin: 0 5px 5px 5px;height: 28px;float: left;}
 .Liber .stat input,.Liber .stat2 input,.Liber .features input{margin:0;display: inline-block;float: left;height: 28px;width: 40px;color:#fff;text-align: center;}
-.Liber .stat input.hp,.Liber .stat input.psy, .Liber .stat input.armureperso, .Liber .stat input.protection, .Liber .stat2 input{border: 1px solid #643737;}
-.Liber .stat input.hpmax,.Liber .stat input.psymax{border-top: 1px solid #643737;border-bottom:1px solid #643737;border-right: 1px solid #643737; border-left:none}
+.Liber .stat input.hp,.Liber .stat input.psy, .Liber .stat input.armureperso, .Liber .stat input.protection, .Liber .stat2 input{border: 1px solid #20180d;}
+.Liber .stat input.hpmax,.Liber .stat input.psymax{border-top: 1px solid #20180d;border-bottom:1px solid #20180d;border-right: 1px solid #20180d; border-left:none}
 .Liber .second{padding-top: 5px}
 .Liber .stat2 input,.Liber .stat2 label{margin-left:calc(50% - 20px);margin-top: 0}
 .Liber .stat2 p{text-align: center;margin-bottom: 0}
@@ -62,23 +62,23 @@ form.Liber{display: table-cell;overflow: auto;}
 .Liber a.item span{width: 103%; height: 20px;display: block}
 .Liber a.item:hover,.Liber a.active{color:#fff;}
 .Liber .tab{padding: 20px 8px 0 5px;}
-.Liber .features button{float: left;width: 122px;height: 28px;font-weight: normal;text-align: left;border-bottom: 1px solid #643737;border:none;border-bottom:#643737 solid 1px;color:#eeeeee;background: none;margin-right: 5px;}
+.Liber .features button{float: left;width: 122px;height: 28px;font-weight: normal;text-align: left;border-bottom: 1px solid #20180d;border:none;border-bottom:#20180d solid 1px;color:#f5eaf57a;background: none;margin-right: 5px;}
 .Liber .features button:hover{color:#fff}
-.Liber .features input{border: 1px solid #643737;}
+.Liber .features input{border: 1px solid #20180d;}
 .Liber .features .compt{width: 182px; float: left; margin: 2px}
-.Liber .features .compt p{color:#eeeeee;font-size: 0.8em}
+.Liber .features .compt p{color:#f5eaf57a;font-size: 0.8em}
 .Liber .features input.restant{border:none;background: none;text-align: center;font-size: 1.4em;}
 .Liber .carac .compt{width: 100%;display: block}
-.Liber .carac span{width:calc(30% - 5px);display: inline-block;margin-right: 5px;color:#eeeeee;font-size: 0.8em;text-align: right;}
-.Liber .carac input[type="text"]{width: 70%;display: inline-block;border:none;border-bottom: 1px solid #643737;color:#fff;background: none}
+.Liber .carac span{width:calc(30% - 5px);display: inline-block;margin-right: 5px;color:#f5eaf57a;font-size: 0.8em;text-align: right;}
+.Liber .carac input[type="text"]{width: 70%;display: inline-block;border:none;border-bottom: 1px solid #20180d;color:#fff;background: none}
 .Liber .carac input[type="button"]{float: right;border: none;color: #fff;width: 100px;height: 30px;font-size: 1em;cursor: pointer; margin:3px;}
-.Liber .carac input[type="text"].talent,.Liber .carac input[type="text"].faiblesse{border:1px solid #643737;width:64%;height: 30px;}
+.Liber .carac input[type="text"].talent,.Liber .carac input[type="text"].faiblesse{border:1px solid #20180d;width:64%;height: 30px;}
 .Liber .talentliste,.Liber .faiblesseliste{width: 56%;display: inline-block;height: 30px;margin-top: 3px;border: none;color: #fff;}
-.Liber .items .encom{width: 100%;border: 1px solid #643737; height: 28px;margin-bottom: 20px}
+.Liber .items .encom{width: 100%;border: 1px solid #20180d; height: 28px;margin-bottom: 20px}
 .Liber .items .encom p{width: 100%;margin-left: 5px;height: 28px;font-size: 0.8em;color: #fff;margin-top: -26px;}
 .Liber .items .barenc{width: 100%;background: #0080c0;height: 26px;display: block;}
 .Liber .items .encom input {border: none;background: none;color: #fff}
-.Liber .items input.maingaucequi,.Liber .items input.maindroiequi,.Liber .items input.armurequi{border:1px solid #643737;width:90%;height: 30px;color: #fff;margin-bottom: 5px;}
+.Liber .items input.maingaucequi,.Liber .items input.maindroiequi,.Liber .items input.armurequi{border:1px solid #20180d;width:90%;height: 30px;color: #fff;margin-bottom: 5px;}
 .Liber .items .desequi{float: right;border: none;color: #fff;width: 30px;height: 30px;font-size: 1em;cursor: pointer;margin-right: 10px;}
 .Liber .items .jetdedegat{float: right;border: none;color: #fff;width: 105px;height: 25px;font-size: 0.8em;cursor: pointer;margin: 3px;text-align: center;}
 .Liber .items-list {list-style: none;margin: 7px 0;padding: 0;overflow-y: auto;}
@@ -88,8 +88,8 @@ form.Liber{display: table-cell;overflow: auto;}
 .Liber .items-list .item-image {-webkit-box-flex: 0;-ms-flex: 0 0 24px;flex: 0 0 24px;margin-right: 5px;width: 25px}
 .Liber .items-list .item img {display: block;}
 .Liber .items-list .item-description2,.Liber .items-list .item-cible,.Liber .items-list .item-cout,.Liber .items-list .item-duree,.Liber .items-list .item-classe,.Liber .items-list .item-controls,.Liber .items-list .item-image,.Liber .items-list .item-name,.Liber .items-list .item-description,.Liber .items-list .item-portee,.Liber .items-list .item-dommage,.Liber .items-list .item-poids,.Liber .items-list .item-valeur,.Liber .items-list .item-qty,.Liber .items-list .item-hand{display:block;height:25px;float: left;overflow: hidden;}
-.Liber .items-list .item-name {margin: 0;width: 180px;float: left;color:#eeeeee;}
-.Liber .items-list .item-name2 {margin: 0;width: 244px;;float: left;color:#eeeeee;}
+.Liber .items-list .item-name {margin: 0;width: 180px;float: left;}
+.Liber .items-list .item-name2 {margin: 0;width: 244px;;float: left;}
 .Liber .items-list .item-description,.Liber .items-list .item-description2{    width: calc(100% - 20px);height: auto;margin: 10px;padding: 5px;display: block;}
 .Liber .items-list .item-cible{width: 56px;float: left}
 .Liber .items-list .item-classe{width: 120px;float: left}
@@ -126,7 +126,7 @@ form.Liber{display: table-cell;overflow: auto;}
 .Liber .maindroite {background: url(" ../assets/icon/hand.png");background-size: cover;}
 .Liber .maingauche {background: url(" ../assets/icon/hand2.png");background-size: cover;}
 .Liber .armor {background: url(" ../assets/icon/armor.png");background-size: cover;}
-.Liber .typerepos ,.Liber .jourliste,.Liber .heure{border:  solid #643737 1px; color: white}
+.Liber .typerepos ,.Liber .jourliste,.Liber .heure{border:  solid #20180d 1px; color: white}
 .Liber .geo{width:200px;width: 195px;height: 275px;display: inline-block;background:url(systems/liber/assets/monstre/map0.png);background-size: contain;}
 .Liber .his{width: calc(100% - 200px);display: inline-block;float: right;}
 
