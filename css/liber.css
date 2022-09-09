@@ -10,6 +10,7 @@
 .filepicker .current-dir input[name="target"],.filepicker .filter-dir input,input[type="text"], input[type="number"], input[type="password"], input[type="date"], input[type="time"], input[type="search"]  {color: #fff;background: #20180d;}
 .filepicker .display-modes a.active {background: #a10001;}
 .filepicker .display-modes {background: #20180d;}
+option, optgroup,#chat-controls .roll-type-select{background: #20180d;}
 
 
 button,.dialog .dialog-buttons button.default,form button{background: rgb(143 26 40);border: none;color: #fff;}
