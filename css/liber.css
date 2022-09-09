@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+@font-face {font-family: "dova";src: url('Dovahkiin.otf'); }
+.dova { font-family: 'dova';}
+
 .Liber a.item.active,.Liber .head .rexrow{background:url(parchemin.jpg); }
 .Liber .talentliste,.Liber .faiblesseliste,.Liber .typerepos ,.Liber .jourliste,.Liber .heure,.Liber .items input.maingaucequi,.Liber .items input.maindroiequi,.Liber .items input.armurequi,.Liber .stat input,.Liber .stat2 input,.Liber .features input,.Liber .stats select{background:#181003; }
-.Liber main,.Liber .autres,#sidebar,.window-app .window-content{background: #4f3c1c url(parchemin.jpg);background-size: cover; }
+.Liber main,.Liber .autres,#sidebar,.window-app .window-content,.sheet.journal-entry .journal-entry-content{background: #4f3c1c url(parchemin.jpg);background-size: cover; }
 .window-app .window-content{color:#fff}
 .compendium-sidebar li.compendium-pack .compendium-footer{color:#20180d}
 .compendium-sidebar h3 {border: none;background: #20180d;}
