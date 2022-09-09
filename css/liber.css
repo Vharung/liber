@@ -1,14 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 .Liber a.item.active,.Liber .head .rexrow{background:url(parchemin.jpg); }
 .Liber .talentliste,.Liber .faiblesseliste,.Liber .typerepos ,.Liber .jourliste,.Liber .heure,.Liber .items input.maingaucequi,.Liber .items input.maindroiequi,.Liber .items input.armurequi,.Liber .stat input,.Liber .stat2 input,.Liber .features input,.Liber .stats select{background:#181003; }
-.Liber main,.Liber .autres{background: #4f3c1c url(parchemin.jpg);background-size: cover; }
+.Liber main,.Liber .autres,#sidebar,.window-app .window-content{background: #4f3c1c url(parchemin.jpg);background-size: cover; }
+.window-app .window-content{color:#fff}
+.compendium-sidebar li.compendium-pack .compendium-footer{color:#20180d}
+.compendium-sidebar h3 {border: none;background: #20180d;}
+.compendium-sidebar li.compendium-pack .status-icons {color: #20180d;}
+button,.dialog .dialog-buttons button.default{background: rgb(143 26 40);border: none;color: #fff;}
+.directory .directory-header .header-search input ,.dialog-content input,select{background: #30220c;border: none;color: #fff;}
+#sidebar-tabs {color: #20180d;}
 .Liber a.item:hover{background: #8f1a28;}
 .Liber .stats input,.Liber .reposer,.Liber input[type="button"],.Liber .stat2 label,.Liber .modif button.desequi,.Liber .carac input[type="button"],.Liber .items .desequi,.Liber .items .jetdedegat,.Liber .addsort{background:#8f1a28;}/*e13b23*/
 .Liber .stat2 label.secstat:hover,.Liber .stats input:hover,.Liber .reposer:hover,.Liber input[type="button"]:hover,.Liber .stat2 label:hover,.Liber .modif button.desequi:hover,.Liber .carac input[type="button"]:hover,.Liber .items .desequi:hover,.Liber .items .jetdedegat:hover,.Liber .addsort:hover{background:#e13b23;}/*e13b23*/
 .Liber .stat2 label.secstat{background: #dd8376;}
 .Liber a.item,.Liber h2 ,.Liber .head,.Liber header,.Liber .tabs,.Liber .items-list .item-description,.Liber .items-list .item-description2{background: #181003a1;}
 .Liber .deno{width: 206px;border-bottom: 1px solid #20180d;padding: 0px;display: block;margin: 0 5px 5px 5px;height: 28px;float: left;}
-.Liber.window-app .window-content{background-image: none;overflow:hidden }
+.Liber.window-app .window-content{background: none;overflow:hidden }
 .Liber .fiche{display: block;height: 800px;width: 1200px;}
 .Liber header {color: #fff;}
 .Liber .col2{display: block;height: 752px;float: left;width: 590px;}
