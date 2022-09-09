@@ -6,7 +6,13 @@
 .compendium-sidebar li.compendium-pack .compendium-footer{color:#20180d}
 .compendium-sidebar h3 {border: none;background: #20180d;}
 .compendium-sidebar li.compendium-pack .status-icons {color: #20180d;}
-button,.dialog .dialog-buttons button.default{background: rgb(143 26 40);border: none;color: #fff;}
+
+.filepicker .current-dir input[name="target"],.filepicker .filter-dir input,input[type="text"], input[type="number"], input[type="password"], input[type="date"], input[type="time"], input[type="search"]  {color: #fff;background: #20180d;}
+.filepicker .display-modes a.active {background: #a10001;}
+.filepicker .display-modes {background: #20180d;}
+
+
+button,.dialog .dialog-buttons button.default,form button{background: rgb(143 26 40);border: none;color: #fff;}
 .directory .directory-header .header-search input ,.dialog-content input,select{background: #30220c;border: none;color: #fff;}
 #sidebar-tabs {color: #20180d;}
 .Liber a.item:hover{background: #8f1a28;}
