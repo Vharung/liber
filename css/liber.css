@@ -12,9 +12,10 @@
 
 .filepicker .current-dir input[name="target"],.filepicker .filter-dir input,input[type="text"], input[type="number"], input[type="password"], input[type="date"], input[type="time"], input[type="search"]  {color: #fff;background: #20180d;}
 .filepicker .display-modes a.active {background: #a10001;}
-.filepicker .display-modes {background: #20180d;}
+.filepicker .display-modes,.chat-message {background: #20180d;}
 option, optgroup,#chat-controls .roll-type-select{background: #20180d;}
-
+.chat-message{color: #fff;border: none;}
+.chat-message .message-header{color: #fff}
 
 button,.dialog .dialog-buttons button.default,form button{background: rgb(143 26 40);border: none;color: #fff;}
 .directory .directory-header .header-search input ,.dialog-content input,select{background: #30220c;border: none;color: #fff;}
@@ -150,7 +151,7 @@ form.Liber{display: table-cell;overflow: auto;}
 .Liber .his{width: calc(100% - 200px);display: inline-block;float: right;}
 
 .Liber .carac,.Liber .items,.Liber .spells,.Liber .stats {display: none; overflow: auto;}
-.resultatp{text-align: center;font-size: medium;background: #6a7885;padding: 5px;color: white;display: flex;}
+.resultatp{text-align: center;font-size: medium;background: #4b3f25;padding: 5px;color: white;display: flex;}
 .desctchat{padding: 5px;background: #bcc2c7;color: #464646;display:none}
 .infosort:active .desctchat{display: flex;}
 .Liber .addsort{width: 100%;border: none;color: #fff;font-size: 1.5em;height: 40px;margin: 0;line-height: 0;}
