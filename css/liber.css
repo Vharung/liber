@@ -152,6 +152,6 @@ form.Liber{display: table-cell;overflow: auto;}
 
 .Liber .carac,.Liber .items,.Liber .spells,.Liber .stats {display: none; overflow: auto;}
 .resultatp{text-align: center;font-size: medium;background: #4b3f25;padding: 5px;color: white;display: flex;}
-.desctchat{padding: 5px;background: #bcc2c7;color: #464646;display:none}
+.desctchat{padding: 5px;background: #967b43;color: #fff;display:none}
 .infosort:active .desctchat{display: flex;}
 .Liber .addsort{width: 100%;border: none;color: #fff;font-size: 1.5em;height: 40px;margin: 0;line-height: 0;}
