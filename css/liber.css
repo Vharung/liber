@@ -144,6 +144,7 @@ form.Liber{display: table-cell;overflow: auto;}
 .Liber .etat10 {background: url(" ../assets/icon/etat-10.png");background-size: cover;}
 .Liber .etat11 {background: url(" ../assets/icon/etat-11.png");background-size: cover;}
 .Liber .etat12 {background: url(" ../assets/icon/aucune.png");background-size: cover;}
+.Liber .etat13 {background: url(" ../assets/icon/aucune.png");background-size: cover;}
 .Liber .maindroite,.Liber .maingauche,.Liber .armor{width: 20px; height: 20px; display: inline-block;cursor: pointer;}
 .Liber .maindroite {background: url(" ../assets/icon/hand.png");background-size: cover;}
 .Liber .maingauche {background: url(" ../assets/icon/hand2.png");background-size: cover;}

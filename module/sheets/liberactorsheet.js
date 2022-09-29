@@ -27,7 +27,7 @@
         data.dtypes = ["String", "Number", "Boolean"];
         console.log(data);        
         if (this.actor.type == 'personnage' || this.actor.type == 'pnj' || this.actor.type == 'monstre') {
-            this._prepareCharacterItems(data);this._onEffect(data);
+            this._prepareCharacterItems(data);//this._onEffect(data);
         }
         if (this.actor.type == 'personnage' || this.actor.type == 'pnj' ) {
             this._onEncom(data);this._onStat(data);
