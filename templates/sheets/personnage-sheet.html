@@ -66,13 +66,13 @@
 				<span style="float:left; margin-left:20px">
 					<input class="heure" name="system.heure" type="text" value="{{actor.system.heure}}" placeholder="0" style="width:40px;text-align:center"/>
 					<SELECT class="jourliste"  name="system.jour">
-		            	{{#select data.system.jour}}
+		            	{{#select actor.system.jour}}
 		                    <OPTION value="{{localize 'liber.heure'}}" title="{{localize 'liber.heure'}}">{{localize 'liber.heure'}}</OPTION>
 		                    <OPTION value="{{localize 'liber.jour'}}" title="{{localize 'liber.jour'}}">{{localize 'liber.jour'}}</OPTION>
 		                {{/select}}
 		            </SELECT>
 		            <SELECT class="typerepos"  name="system.repos">
-		            	{{#select data.system.repos}}
+		            	{{#select actor.system.repos}}
 		                    <OPTION value="{{localize 'liber.rapide'}}" title="{{localize 'liber.rapide'}}">{{localize 'liber.rapide'}}</OPTION>
 		                    <OPTION value="{{localize 'liber.calme'}}" title="{{localize 'liber.calme'}}">{{localize 'liber.calme'}}</OPTION>
 		                    <OPTION value="{{localize 'liber.calme2'}}" title="{{localize 'liber.calme2'}}">{{localize 'liber.calme2'}}</OPTION>
@@ -478,7 +478,7 @@
 	                	<div class="grid-2col" style="text-align: center;color:#fff">
 					    	<h2>{{localize 'liber.name'}}</h2>
 							<SELECT class="sexliste" name="system.sexe">
-									{{#select data.system.sexe}}
+									{{#select actor.system.sexe}}
 					                  	<option value="{{localize 'liber.sex1'}}">{{localize 'liber.sex1'}}</option>
 					                    <option value="{{localize 'liber.sex2'}}">{{localize 'liber.sex2'}}</option>
 					                    <option value="{{localize 'liber.sex0'}}">{{localize 'liber.sex0'}}</option>
@@ -488,7 +488,7 @@
 					    <div class="grid-2col" style="text-align: center;color:#fff">
 					    	<h2>{{localize 'liber.race'}}</h2>
 							<SELECT class="raceliste" name="system.race">
-								{{#select data.system.race}}
+								{{#select actor.system.race}}
 				                  	<option value="{{localize 'liber.avantrace60'}}">{{localize 'liber.avantrace60'}}</option>
 				                    <option value="{{localize 'liber.avantrace61'}}">{{localize 'liber.avantrace61'}}</option>
 				                    <option value="{{localize 'liber.avantrace62'}}">{{localize 'liber.avantrace62'}}</option>
@@ -520,7 +520,7 @@
 				    	<div class="grid-2col" style="text-align: center;color:#fff">
 							<h2>{{localize 'liber.talent'}}</h2>
 							<SELECT class="talentliste"  name="system.talent">
-								{{#select data.system.talent}}
+								{{#select actor.system.talent}}
                                     <OPTION value="{{localize 'liber.title58'}}" title="{{localize 'liber.title1'}}">{{localize 'liber.title58'}}</OPTION>
                                     <OPTION value="{{localize 'liber.title59'}}" title="{{localize 'liber.title2'}}">{{localize 'liber.title59'}}</OPTION>
                                     <OPTION value="{{localize 'liber.title60'}}" title="{{localize 'liber.title3'}}">{{localize 'liber.title60'}}</OPTION>
@@ -565,7 +565,7 @@
                         <div class="grid-2col" style="text-align: center;color:#fff">
                             <h2>{{localize 'liber.faiblesse'}}</h2>
                             <SELECT class="faiblesseliste"  name="system.faiblesse">
-                            	{{#select data.system.faiblesse}}
+                            	{{#select actor.system.faiblesse}}
                                     <OPTION value="{{localize 'liber.title96'}}" title="{{localize 'liber.title39'}}">{{localize 'liber.title96'}}</OPTION>
                                     <OPTION value="{{localize 'liber.title97'}}" title="{{localize 'liber.title40'}}">{{localize 'liber.title97'}}</OPTION>
                                     <OPTION value="{{localize 'liber.title98'}}" title="{{localize 'liber.title41'}}">{{localize 'liber.title98'}}</OPTION>
@@ -594,7 +594,7 @@
 				    	<div class="grid-2col" style="text-align: center;color:#fff">
 				    		<h2>Clan</h2>
 							<SELECT class="clanliste"  name="system.clan">
-								{{#select data.system.clan}}
+								{{#select actor.system.clan}}
 									<option class="aucun" style="{{actor.system.alert.aucun}}" value="{{localize 'liber.avantrace79'}}">{{localize 'liber.avantrace79'}}</option>
 				                    <option class="demon" style="{{actor.system.alert.demon}}" value="{{localize 'liber.avantrace39'}}">{{localize 'liber.avantrace39'}}</option>
 				                    <option class="dragon" style="{{actor.system.alert.dragon}}" value="{{localize 'liber.avantrace40'}}">{{localize 'liber.avantrace40'}}</option>
@@ -627,7 +627,7 @@
 						<div class="grid-2col" style="text-align: center;color:#fff">
 							<h2>Religion</h2>
 							<SELECT  name="system.religion">
-								{{#select data.system.religion}}
+								{{#select actor.system.religion}}
 									<option class="aucun" style="{{actor.system.alert.aucun}}" value="{{localize 'liber.avantrace79'}}">{{localize 'liber.avantrace79'}}</option>
 				                    <option class="vharung" style="{{actor.system.alert.vharung}}" value="{{localize 'liber.avantrace80'}}">{{localize 'liber.avantrace80'}}</option>
 				                    <option class="humain" style="{{actor.system.alert.humain}}" value="{{localize 'liber.avantrace81'}}">{{localize 'liber.avantrace81'}}</option>
@@ -652,7 +652,7 @@
 				    	<div class="grid-2col" style="text-align: center;color:#fff">
 							<h2 style="{{actor.system.alert.metiertitre}}">{{localize 'liber.metier'}}</h2>
 							<SELECT style="{{actor.system.alert.metiertitre}};" name="system.metier">
-								{{#select data.system.metier}}
+								{{#select actor.system.metier}}
 				                  	<option value="{{localize 'liber.metier1'}}">{{localize 'liber.metier1'}}</option>
 				                  	<option value="{{localize 'liber.metier2'}}">{{localize 'liber.metier2'}}</option>
 				                  	<option value="{{localize 'liber.metier3'}}">{{localize 'liber.metier3'}}</option>
