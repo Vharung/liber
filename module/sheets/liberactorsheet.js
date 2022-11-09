@@ -237,7 +237,7 @@
                 quantite.push($( this ).text());
             }
         });
-        for (var i = 1;i < poids.length ; i++) {
+        for (var i = 0;i < poids.length ; i++) {
            total=total+parseFloat(poids[i])*parseFloat(quantite[i]);
         }
         var enc=html.find('.enc').val();
