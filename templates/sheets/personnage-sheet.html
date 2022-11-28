@@ -255,13 +255,14 @@
 					<div class="rexrow">
 						<div class="grid-3col" style="text-align: center" class="unemain">
 							<h2>{{localize 'liber.gauche'}}</h2>
+							
 							<input class="maingaucequi" name="system.armeg" type="text" value="{{actor.system.armeg}}" placeholder="Main Gauche" readonly="" /><button class="desequi maingdes" data-equip="dgauche">🗑</button>
-							<input class="degatg jetdedegat" name="system.degatg" type="text" data-name="{{actor.system.armeg}}" value="{{actor.system.degatg}}" data-dice="{{actor.system.degatg}}" data-img="{{actor.system.imgg}}" data-desc="{{actor.system.desg}}" placeholder="Dégat" readonly="" />
+							<input class="degatg jetdedegat" name="system.degatg" type="text" data-name="{{actor.system.armeg}}" value="{{actor.system.degatg}}" data-dice="{{actor.system.degatg}}" data-img="{{actor.system.imgg}}" data-desc="{{actor.system.desg}}" placeholder="Dégat" readonly="" /><button class="attaque" data-name="attaque" data-img="{{actor.system.imgg}}" data-desc="{{actor.system.desg}}" title="Attaquer avec {{actor.system.armeg}}">⚔</button>
 						</div>
 						<div class="grid-3col" style="text-align: center">
 							<h2 class="deuxmains">{{localize 'liber.droite'}}</h2>
 							<input class="maindroiequi" name="system.armed" type="text" value="{{actor.system.armed}}" placeholder="Main droite" readonly="" /><button class="desequi mainddes" data-equip="ddroite">🗑</button>
-							<input class="degatd jetdedegat" name="system.degatd" type="text" data-name="{{actor.system.armed}}" value="{{actor.system.degatd}}" data-dice="{{actor.system.degatd}}"  data-img="{{actor.system.imgd}}" data-desc="{{actor.system.desd}}" placeholder="Dégat" readonly="" />
+							<input class="degatd jetdedegat" name="system.degatd" type="text" data-name="{{actor.system.armed}}" value="{{actor.system.degatd}}" data-dice="{{actor.system.degatd}}"  data-img="{{actor.system.imgd}}" data-desc="{{actor.system.desd}}" placeholder="Dégat" readonly="" /><button class="attaques" data-name="attaques" data-img="{{actor.system.imgd}}" data-desc="{{actor.system.desd}}" title="Attaquer avec {{actor.system.armed}}">⚔</button>
 						</div>
 						<div class="grid-3col" style="text-align: center">
 							<h2>{{localize 'liber.armor'}}</h2>
@@ -443,7 +444,7 @@
 			                    <div class="item-duree">{{item.system.duree}}</div>
 			                    <div class="item-cout">{{item.system.cout}}</div>
 			                    <div class="item-controls">
-			                    	<a class="item-control item-lancer" title="Lancer Sort"><i class="fa-solid fa-dice-d20" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.cout}}" data-img="{{item.img}}"></i></a>
+			                    	<a class="item-control item-lancer" title="Lancer Sort"><i class="fa-solid fa-dice-d20" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-class="{{item.system.classe}}" data-cout="{{item.system.cout}}" data-img="{{item.img}}"></i></a>
 			                        <a class="item-control item-desc" title="Desc Sort">&#128712;</a>
 			                        <a class="item-control item-edit" title="Edit Sort"><i class="fas fa-edit"></i></a>
 			                        <a class="item-control item-delete" title="Delete Sort"><i class="fas fa-trash"></i></a>

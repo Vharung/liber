@@ -111,6 +111,8 @@
         html.find('.focus').click(this._onPosture.bind(this));
         html.find('.aucune').click(this._onPosture.bind(this));
         html.find('.chnget').click(this._onCouv.bind(this));
+        html.find('.attaque').click(this._Attaque.bind(this));
+        html.find('.attaques').click(this._Attaque.bind(this));
 
         //edition items
         html.find('.item-edit').click(this._onItemEdit.bind(this));
@@ -388,11 +390,89 @@
         });
     }
 
-    _onSpell(event){
-        let mental =this.actor.system.mental;
+    _Attaque(event){
+        let maxstat = this.actor.system.physique;
         let bonus =this.actor.system.bonus;
         let malus =this.actor.system.malus;
         let posture =this.actor.system.posture;
+        const name = "Physique";
+        const jetdeDesFormule = "1d100";
+        var bonuspost=0;
+        var critique=5;
+        if(posture=="Focus"){
+            bonuspost=5;
+        }else if(posture=="Offensif"){
+            critique=10;
+        }
+
+        if(bonus==""){bonus=0;}
+        if(malus==""){malus=0;}
+        let inforesult=parseInt(maxstat)+parseInt(bonus)+bonuspost+parseInt(malus);
+        if(inforesult>95){
+            inforesult=95;
+        }else if(inforesult<5){
+            inforesult=5;
+        }
+        let r = new Roll("1d100");
+        var roll=r.evaluate({"async": false});
+        let retour=r.result; 
+        var succes="";
+        var degats=1;
+        if(retour>95){//lang
+            succes="<h4 class='result' style='background:#ff3333;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Echec critique</h4>";
+            degats=0;
+        }else if(retour<=critique){
+            succes="<h4 class='result' style='background:#7dff33;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Réussite critique</h4>";
+            degats=2;
+        }else if(retour<=inforesult){
+            succes="<h4 class='result' style='background:#78be50;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Réussite</h4>";
+            degats=1;
+        }else{
+            succes="<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Echec</h4>";
+            degats=0;
+        }
+
+        const texte = '<span style="flex:auto"><p class="resultatp">Jet de ' + name + " : " + inforesult +'/100</p>'+succes+'</span>'
+        //+'<button class="jetdedegat" type="text" data-name="Arme" data-dice="1d6">Arme</button>';
+        roll.toMessage({
+            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            flavor: texte
+        });
+        if(degats>0){
+            let qarme=event.target.dataset["name"];
+            if(qarme=="attaques"){
+                var monJetDeDes='('+this.actor.system.degatd+')*'+degats;
+                var nam = this.actor.system.armed;
+            }else{
+                var monJetDeDes='('+this.actor.system.degatg+')*'+degats;
+                var nam = this.actor.system.armeg;
+            }
+            console.log(monJetDeDes)
+            var img=event.target.dataset["img"];
+            var desc=event.target.dataset["desc"];
+            if(desc==""){
+                var info='';
+            }else {
+                var info='</span><span class="desctchat" style="display:block;">'+desc+'</span>';
+            }
+            let re = new Roll(monJetDeDes);
+            var rol=re.evaluate({"async": false});
+            const text = '<span style="flex:auto"><p class="resultatp"><img src="'+img+'"  width="24" height="24"/>&nbsp;Utilise ' + nam + '<p>'+info;
+            rol.toMessage({
+                speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+                flavor: text
+            });
+        }
+        
+    }
+    _onSpell(event){
+        let mental =this.actor.system.mental;
+        let physique =this.actor.system.physique;
+        let social =this.actor.system.social;
+        let bonus =this.actor.system.bonus;
+        let malus =this.actor.system.malus;
+        let posture =this.actor.system.posture;
+        let classe=event.target.dataset["class"];
         var cout=event.target.dataset["cout"];
         var name=event.target.dataset["name"];
         var desc=event.target.dataset["desc"];
@@ -410,7 +490,14 @@
         if(bonus==undefined){
             bonus=0;
         }
-        let inforesult=parseInt(mental)+parseInt(bonus)+bonuspost+parseInt(malus);
+        if(classe=="Corbeau"){
+            var inforesult=parseInt(physique)+parseInt(bonus)+bonuspost+parseInt(malus);
+        }else if(classe=="Troubadour"){
+            var inforesult=parseInt(social)+parseInt(bonus)+bonuspost+parseInt(malus);
+        }else {
+            var inforesult=parseInt(mental)+parseInt(bonus)+bonuspost+parseInt(malus);
+        }
+        
         if(inforesult>95){
         inforesult=95;
         }else if(inforesult<5){
@@ -1001,7 +1088,6 @@
         const adata = data.actor;
         const compt = data.actor.system.talent
         const faible = data.actor.system.faiblesse
-        console.log(compt)
         var enc=(parseInt(adata.system.force)+ parseInt(adata.system.caracteristique.puissance)) /2 + 35;
         //console.log('Encombrement:'+enc)
         if(compt=="Mulet"){

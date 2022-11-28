@@ -158,3 +158,4 @@ form.Liber{display: table-cell;overflow: auto;}
 .desctchat{padding: 5px;background: #967b43;color: #fff;display:none}
 .infosort:active .desctchat{display: flex;}
 .Liber .addsort{width: 100%;border: none;color: #fff;font-size: 1.5em;height: 40px;margin: 0;line-height: 0;}
+.Liber .attaque,.Liber .attaques{width: 28px;margin-left: 8px;}
