@@ -522,16 +522,22 @@
         if(cout<0){
             cout=0;
         }
-        if(psy<cout){
-            console.log('sort lancer :'+psy+'<'+cout)
-            var diff= parseInt(cout)-parseInt(psy)
-            hp=parseInt(hp)-parseInt(diff);
-            psy=0;
-            insoin= parseInt(insoin)+parseInt(diff);            
-        }else {
-            console.log('sort lancer :'+psy+'-'+cout)
-            psy = parseInt(psy)-parseInt(cout)
+        if(classe=="Corbeau"){
+            hp=parseInt(hp)-parseInt(cout);
+        }else{
+            if(psy<cout){
+                console.log('sort lancer :'+psy+'<'+cout)
+                var diff= parseInt(cout)-parseInt(psy)
+                hp=parseInt(hp)-parseInt(diff);
+                psy=0;
+                insoin= parseInt(insoin)+parseInt(diff);            
+            }else {
+                console.log('sort lancer :'+psy+'-'+cout)
+                psy = parseInt(psy)-parseInt(cout)
+            }
         }
+            
+
         this.actor.update({"system.insoin": insoin,"system.hp.value": hp,"system.psy.value": psy});
         const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +' : '+ inforesult +'/100</span><span class="desctchat">'+desc+'</span></p>'+succes+'</span>';
         roll.toMessage({
@@ -771,7 +777,10 @@
         //metier
         if(clan==game.i18n.localize("liber.avantrace58")){
             hp=22;psy= 10;phy=65;forc=40;agil=20;soc=50;saga=25;char=25;men=65;astu=25;memo=40;cpt12=cpt12+5;cpt7=cpt7+5;cpt20=cpt20+10;cpt34=cpt34+5;cpt23=cpt23+10;
-        }else if(clan==game.i18n.localize("liber.avantrace56")){
+        }else if(clan==game.i18n.localize("liber.avantrace56") || race==game.i18n.localize("liber.avantrace61")){
+            hp=29;psy= 0;phy=75;forc=65;agil=10;soc=40;saga=10;char=30;men=60;astu=10;memo=50;cpt24=cpt24+5;cpt7=cpt7+5;cpt39=cpt39+10;cpt46=cpt46+5;cpt49=cpt49+5;
+            if(cpt28<5){cpt28=5;}
+       }else if(clan==game.i18n.localize("liber.avantrace56")){
             hp=29;psy= 0;phy=75;forc=65;agil=10;soc=35;saga=5;char=30;men=60;astu=10;memo=50;cpt24=cpt24+5;cpt7=cpt7+5;cpt39=cpt39+10;cpt46=cpt46+5;cpt49=cpt49+5;
        }else if(meti==game.i18n.localize("liber.metier1")){
             hp=5;psy= 0;phy=10;forc=5;agil=5;soc=10;saga=5;char=5;men=10;astu=5;memo=5;
@@ -1133,7 +1142,12 @@
         let faible=this.actor.system.faiblesse
         var hpmax=this.actor.system.hp.max;
         var resultat=35+(parseInt(level)*15);
-        var reste=170-(parseInt(phys)+parseInt(soci)+parseInt(ment));
+        if(race==game.i18n.localize("liber.avantrace61")){
+            var reste=175-(parseInt(phys)+parseInt(soci)+parseInt(ment)); 
+        }else{
+            var reste=170-(parseInt(phys)+parseInt(soci)+parseInt(ment)); 
+        }
+       
         var aphy='#18100'; var afor='#18100'; var aagi='#18100';
         var asoc='#18100'; var acha='#18100'; var asag='#18100';
         var amen='#18100'; var aast='#18100'; var amem='#18100';
@@ -1157,6 +1171,11 @@
         if(race==game.i18n.localize("liber.avantrace60")){
             resultat=resultat-20;
             waetra='display:none;';demon='display:none;';humain='display:none;';drauch='display:none;';
+        }else if(race==game.i18n.localize("liber.avantrace61") || clan==game.i18n.localize("liber.avantrace56") ){
+            resultat=resultat+15;
+            console.log("humain corbeau")
+            if(cpt28<5){cpt28=5;}
+            demon='display:none;';dragon='display:none;';drauch='display:none;';vharung='display:none;';vaudou='display:none;';
         }else if(race==game.i18n.localize("liber.avantrace61") ){
             resultat=resultat+15;
             if(cpt28<5){cpt28=5;}
