@@ -474,6 +474,7 @@
     }
 
     _onSleep(event){//A verifier
+        const compt=this.actor.system.talent
         let heure =this.actor.system.heure;
         let jourliste =this.actor.system.jour;
         let typerepos =this.actor.system.repos;
@@ -493,17 +494,27 @@
             hpadd=((d+parseInt(level))*parseInt(heure))*j/8;
             psyadd=Math.floor((parseInt(level)*parseInt(heure))/2);
         }else if(typerepos==game.i18n.localize("liber.calme")){
+            
             d=Math. round(Math.random() * 6);
             hpadd=((d+parseInt(level))*parseInt(heure))*j/8;
             psyadd=Math.floor(parseInt(level)*parseInt(heure));
+            if(compt=="Bon dormeur"){
+                hpadd=parseInt(hpadd)+6;psyadd=parseInt(psyadd)+3
+            }
         }else if(typerepos==game.i18n.localize("liber.calme2")){
             d=Math. round(Math.random() * 6);insoin=0;
             hpadd=(d+parseInt(level))*parseInt(heure);
             psyadd=Math.floor(parseInt(level)*parseInt(heure));
+            if(compt=="Bon dormeur"){
+                hpadd=parseInt(hpadd)+6;psyadd=parseInt(psyadd)+3
+            }
         }else if(typerepos==game.i18n.localize("liber.intensif")){
             d=Math. round(Math.random() * 8);insoin=0;
             hpadd=((2*d)+parseInt(level))*parseInt(heure);
             psyadd=Math.floor(parseInt(level)*parseInt(heure));
+            if(compt=="Bon dormeur"){
+                hpadd=parseInt(hpadd)+6;psyadd=parseInt(psyadd)+3
+            }
         }    
         var diff=parseInt(hpmax)-parseInt(hp);
         if(hpadd>diff){
@@ -525,6 +536,7 @@
             hp=parseInt(hpmax)-parseInt(insoin);
             hpadd=parseInt(hpadd)-parseInt(insoin);console.log(hpadd)
         }
+
         this.actor.update({"system.insoin": insoin});
         this.actor.update({"system.hp.value": hp});
         this.actor.update({"system.psy.value": psy});
@@ -987,8 +999,17 @@
 
     _onEncom(data){
         const adata = data.actor;
+        const compt = data.actor.system.talent
+        const faible = data.actor.system.faiblesse
+        console.log(compt)
         var enc=(parseInt(adata.system.force)+ parseInt(adata.system.caracteristique.puissance)) /2 + 35;
         //console.log('Encombrement:'+enc)
+        if(compt=="Mulet"){
+            enc=parseInt(enc)+10
+        }
+        if(faible=="Faible"){
+            enc=parseInt(enc)-10
+        }
         this.actor.update({"system.encombrement.max":enc});
     }
 
@@ -1022,8 +1043,9 @@
         let psy=this.actor.system.psy.max;
         let psyvalue=this.actor.system.psy.value;
         var hp=this.actor.system.hp.value;
+        let compt=this.actor.system.talent
+        let faible=this.actor.system.faiblesse
         var hpmax=this.actor.system.hp.max;
-
         var resultat=35+(parseInt(level)*15);
         var reste=170-(parseInt(phys)+parseInt(soci)+parseInt(ment));
         var aphy='#18100'; var afor='#18100'; var aagi='#18100';
@@ -1124,9 +1146,18 @@
             var b_psy=Math.round((parseInt(ment)+(parseInt(soci)/2)-parseInt(phys)+5)/4+2);
             var b_nb=Math.round(parseInt(b_psy)/4)+1+parseInt(level);
             var b_cout=Math.round((parseInt(b_psy)-parseInt(b_nb))/2)+3;
+            if(compt=="Aura"){
+                b_psy=parseInt(b_psy)+5
+            } 
         //stat actuel
             
             var PVmin=Math.round(parseInt(phys)/3);
+            if(compt=="Vigoureux"){
+                PVmin=parseInt(PVmin)+5
+            }
+            if(faible=="Prisonnier"){
+                PVmin=parseInt(PVmin)-5
+            }
             var PSYmin=b_psy;
             var cout=Math.round((parseInt(psy)-parseInt(b_nb))/2)+3;
             //calcul cout et nb sort
@@ -1134,6 +1165,7 @@
             if(clan !=game.i18n.localize("liber.avantrace56")){
                 xcout=level;
             }
+
             var listsort=this.actor.sort;
             var nbsorts=listsort.length;
             var calsort=parseInt(b_nb)-parseInt(nbsorts);
@@ -1148,6 +1180,7 @@
             if(psy<PSYmin && this.actor.type=="personnage" && psy!=0 && corbeau !=game.i18n.localize("liber.avantrace56")){
                psy=PSYmin;
             }
+
             var pointxp=(parseInt(level)-1)*3;
             var xp=parseInt(pointxp)+parseInt(PVmin)+parseInt(PSYmin)
             var calcultotxp=parseInt(hpmax)+parseInt(psy)
