@@ -37,7 +37,7 @@
 				</div>
 				<div class="grid-2col">
 					<p><span class="deno">⛉ {{localize 'liber.armor'}}</span><input class="armureperso" name="system.protection" type="text" value="{{actor.system.protection}}" placeholder="0"/>
-					<span class="deno">⛉ {{localize 'liber.protection'}}</span> <input class="protection" name="system.protection-magique" type="text" value="{{actor.system.protection-magique}}" placeholder="0"/> </p>
+					<span class="deno">⛉ {{localize 'liber.protection'}}</span> <input class="protection" name="system.protectionmagique" type="text" value="{{actor.system.protectionmagique}}" placeholder="0"/> </p>
 				</div>
 				<div class="etat">
 					<input class="insoin" name="system.insoin" type="text" value="{{actor.system.insoin}}" placeholder="0"/>
@@ -444,13 +444,13 @@
 			                    <div class="item-duree">{{item.system.duree}}</div>
 			                    <div class="item-cout">{{item.system.cout}}</div>
 			                    <div class="item-controls">
-			                    	<a class="item-control item-lancer" title="Lancer Sort"><i class="fa-solid fa-dice-d20" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-class="{{item.system.classe}}" data-cout="{{item.system.cout}}" data-img="{{item.img}}"></i></a>
+			                    	<a class="item-control item-lancer" title="Lancer Sort"><i class="fa-solid fa-dice-d20" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-class="{{item.system.classe}}" data-cout="{{item.system.cout}}" data-img="{{item.img}}" data-img="{{item.degat}}"></i></a>
 			                        <a class="item-control item-desc" title="Desc Sort">&#128712;</a>
 			                        <a class="item-control item-edit" title="Edit Sort"><i class="fas fa-edit"></i></a>
 			                        <a class="item-control item-delete" title="Delete Sort"><i class="fas fa-trash"></i></a>
 			                    </div>
 
-			                    <div class="item-description2"><span title="{{item.system.description}}">{{item.system.description}}</span></div>
+			                    <div class="item-description2"><span title="{{item.system.description}}">{{item.system.description}} / {{item.system.degat}}</span></div>
 			                </li>
 			            {{/each}}
 		        		</ol>
@@ -677,6 +677,11 @@
 		                	<h2>{{localize 'liber.fiche'}}</h2>
 			                <input type="button" value="{{localize 'liber.generer'}}" class="ficheperso">
 			            </div>
+			            <select class="magieslistes">
+			            {{#each system.listemag.liste as |ability id|}}
+			            	<option>{{ability.name}}</option>
+			            {{/each}}
+			            </select>
 					</div>
 				</div>
 			</section>

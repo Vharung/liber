@@ -441,13 +441,20 @@
         if(degats>0){
             let qarme=event.target.dataset["name"];
             if(qarme=="attaques"){
-                var monJetDeDes='('+this.actor.system.degatd+')*'+degats;
+                if(degats==2){
+                    var monJetDeDes='('+this.actor.system.degatd+')*'+degats;
+                }else{
+                    var monJetDeDes=this.actor.system.degatd;
+                }
                 var nam = this.actor.system.armed;
             }else{
-                var monJetDeDes='('+this.actor.system.degatg+')*'+degats;
+                if(degats==2){
+                    var monJetDeDes='('+this.actor.system.degatg+')*'+degats;
+                }else{
+                    var monJetDeDes=this.actor.system.degatg;
+                }
                 var nam = this.actor.system.armeg;
             }
-            console.log(monJetDeDes)
             var img=event.target.dataset["img"];
             var desc=event.target.dataset["desc"];
             if(desc==""){
@@ -457,11 +464,55 @@
             }
             let re = new Roll(monJetDeDes);
             var rol=re.evaluate({"async": false});
+
+            //mise à jour des pv des cibles 
+            var hp=null;
+            var nom='';
+            game.user.targets.forEach(i => { //dev
+                console.log(i)
+                nom=i.document.name;
+                hp = i.document._actor.system.hp.value;
+                var armor=i.document.actor.system.protection
+                var armormag=i.document.actor.system.protectionmagique;
+                var perce=["Dague","Masse d'arme","Masse Lourd","Arbalète"]
+                var passe=0;
+                for (var j = perce.length - 1; j >= 0; j--) {
+                    if(nam==perce[j]){
+                        passe=1
+                    }
+                }
+                if(passe==0){
+                    var degat=parseInt(rol.total)-parseInt(armor)-parseInt(armormag)
+                }else{
+                    var degat=parseInt(rol.total)-parseInt(armormag)
+                }   
+
+                if(degat>0){
+                    hp=parseInt(hp)-degat;
+                    if(hp<0){
+                        hp=0;//mort automatique //dev
+
+                    }
+                    i.actor.update({'system.hp.value': hp});
+                } 
+            })  
+
             const text = '<span style="flex:auto"><p class="resultatp"><img src="'+img+'"  width="24" height="24"/>&nbsp;Utilise ' + nam + '<p>'+info;
             rol.toMessage({
                 speaker: ChatMessage.getSpeaker({ actor: this.actor }),
                 flavor: text
             });
+
+            if(hp==0){
+                var tuer=['Vient de tuer ','A massacrer ','A occis ',"N'a pas eu de pitier pour ","A oté la vie de ","A trucidé "];
+                var d=Math. round(Math.random() * tuer.length);
+                const texte = "<span style='flex:auto'><p class='resultatp'>"+tuer[d]+"&nbsp; <span style='text-transform:uppercase;font-weight: bold;'> "+nom+"</span></span></span>";
+                let chatData = {
+                    speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+                    content: texte
+                };
+                ChatMessage.create(chatData, {});
+            }
         }
         
     }
@@ -507,14 +558,15 @@
         var roll=r.evaluate({"async": false});
         let retour=r.result; 
         var succes="";
+        var degat=0;
         if(retour>95){
-            succes="<h4 class='result' style='background:#ff3333;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang82")+"</h4>";
+            succes="<h4 class='result' style='background:#ff3333;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang82")+"</h4>";degat=0;
         }else if(retour<=critique){
-            succes="<h4 class='result' style='background:#7dff33;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang83")+"</h4>";
+            succes="<h4 class='result' style='background:#7dff33;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang83")+"</h4>";degat=2;
         }else if(retour<=inforesult){
-            succes="<h4 class='result' style='background:#78be50;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang84")+"</h4>";
+            succes="<h4 class='result' style='background:#78be50;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang84")+"</h4>";degat=1;
         }else{
-            succes="<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang85")+"</h4>";
+            succes="<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang85")+"</h4>";degat=0;
         }
         if(posture=="Focus"){
            cout=parseInt(cout)-1; 
@@ -536,7 +588,7 @@
                 psy = parseInt(psy)-parseInt(cout)
             }
         }
-            
+        
 
         this.actor.update({"system.insoin": insoin,"system.hp.value": hp,"system.psy.value": psy});
         const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +' : '+ inforesult +'/100</span><span class="desctchat">'+desc+'</span></p>'+succes+'</span>';
@@ -544,6 +596,33 @@
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),//bug
             flavor: texte
         });
+
+
+        /*if(degats>0){//dev
+        //mise à jour des pv des cibles 
+            let degat=event.target.dataset["degat"];
+            if(degat!== null && degat !=='' && degat>0){
+                let re = new Roll(monJetDeDes);
+                var rol=re.evaluate({"async": false});
+
+                //mise à jour des pv des cibles 
+                var listesoin=['Eau de vie','Cautérisation']
+                var volpsy=['Vol de magique']
+                game.user.targets.forEach(i => {
+                    var hp = i.document._actor.system.hp.value;
+                    hp=parseInt(hp)-parseInt(rol.total);
+                    if(hp<0){hp=0}
+                    i.actor.update({'system.hp.value': hp});
+                })  
+
+                const text = '<span style="flex:auto"><p class="resultatp"><img src="'+img+'"  width="24" height="24"/>&nbsp; Prends ' + degat + ' : '+ rol.total +'<p>';
+                rol.toMessage({
+                    speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+                    flavor: text
+                });
+            }
+            
+        }*/
     }
 
     _onInfo(event){
@@ -777,7 +856,7 @@
         //metier
         if(clan==game.i18n.localize("liber.avantrace58")){
             hp=22;psy= 10;phy=65;forc=40;agil=20;soc=50;saga=25;char=25;men=65;astu=25;memo=40;cpt12=cpt12+5;cpt7=cpt7+5;cpt20=cpt20+10;cpt34=cpt34+5;cpt23=cpt23+10;
-        }else if(clan==game.i18n.localize("liber.avantrace56") || race==game.i18n.localize("liber.avantrace61")){
+        }else if(clan==game.i18n.localize("liber.avantrace56") && race==game.i18n.localize("liber.avantrace61")){
             hp=29;psy= 0;phy=75;forc=65;agil=10;soc=40;saga=10;char=30;men=60;astu=10;memo=50;cpt24=cpt24+5;cpt7=cpt7+5;cpt39=cpt39+10;cpt46=cpt46+5;cpt49=cpt49+5;
             if(cpt28<5){cpt28=5;}
        }else if(clan==game.i18n.localize("liber.avantrace56")){
@@ -1173,7 +1252,6 @@
             waetra='display:none;';demon='display:none;';humain='display:none;';drauch='display:none;';
         }else if(race==game.i18n.localize("liber.avantrace61") || clan==game.i18n.localize("liber.avantrace56") ){
             resultat=resultat+15;
-            console.log("humain corbeau")
             if(cpt28<5){cpt28=5;}
             demon='display:none;';dragon='display:none;';drauch='display:none;';vharung='display:none;';vaudou='display:none;';
         }else if(race==game.i18n.localize("liber.avantrace61") ){
@@ -1264,7 +1342,12 @@
                 PVmin=parseInt(PVmin)-5
             }
             var PSYmin=b_psy;
-            var cout=Math.round((parseInt(psy)-parseInt(b_nb))/2)+3;
+            if(clan==game.i18n.localize("liber.avantrace56")){
+                var cout=parseInt(level)+1;
+            }else {
+                var cout=Math.round((parseInt(psy)-parseInt(b_nb))/2)+3;
+            }
+            
             //calcul cout et nb sort
             var xcout=Math.floor((parseInt(psy)-parseInt(b_nb))/2+3);//cout sort        
             if(clan !=game.i18n.localize("liber.avantrace56")){
@@ -1277,7 +1360,6 @@
             var color1='color:white;';var color2='color:white;';
             var apsy='';var apsymax=''; var ahp='';var ahpmax='';
             if(calsort<0){color1='color:red';}
-
         //Verif stat
             if(hpmax<PVmin && this.actor.type=="personnage" && hpmax!=0){
                hpmax=PVmin;
@@ -1295,12 +1377,14 @@
                 ahp='background:red';
                 ahpmax='background:red';
             }
-            if(hp>hpmax){
+            if(parseInt(hp)>parseInt(hpmax)){
                 hp=hpmax;
+                console.log('egal')
             }
-            if(psyvalue>psy){
+            if(parseInt(psyvalue)>parseInt(psy)){
                 psyvalue=psy;
             }
+
 
         //Insoignable
             var insoin=this.actor.system.insoin;
@@ -1308,11 +1392,6 @@
                 hp=parseInt(hpmax)-parseInt(insoin);
             }
 
-        //liste des sorts possible
-        /*const abc = await game.packs.get('liber.magie');
-        var obj = JSON.stringify(abc.index);
-        obj = JSON.parse(obj);
-        var long = obj.length;*/
         var mag1='aucun';var mag2='aucun';var all=0;
         if(race==game.i18n.localize("liber.avantrace61")){
             mag1='humain';
@@ -1393,6 +1472,22 @@
         }else if(reli==game.i18n.localize("liber.avantrace91")){
             mag2='illusion';
         }
+
+        //liste des sorts possible //dev
+        /*const abc = await game.packs.get('liber.magie');
+        var obj = JSON.stringify(abc.index);
+        obj = JSON.parse(obj);
+        var long = obj.length;
+        var magdispo=[];
+        console.log(obj)
+        for (var i=0; i<long; i++){
+            magdispo.push(obj[i].name)   
+        }
+        console.log(magdispo)
+
+        this.actor.update({"system.listemag.liste":magdispo})
+
+        //liste de sorts disponible à l'ajout en fonction des options choisis
         /*var option='';
         for (var i=0; i<long; i++){
             if(all==1){
