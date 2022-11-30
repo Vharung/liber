@@ -491,7 +491,7 @@
                     hp=parseInt(hp)-degat;
                     if(hp<0){
                         hp=0;//mort automatique //dev
-
+                        //i.ActiveEffect('dead');
                     }
                     i.actor.update({'system.hp.value': hp});
                 } 
@@ -606,8 +606,9 @@
                 var rol=re.evaluate({"async": false});
 
                 //mise à jour des pv des cibles 
-                var listesoin=['Eau de vie','Cautérisation']
-                var volpsy=['Vol de magique']
+                var listesoin=['La Grande Ourse','Constellations',Appel à  Nekarx : Demon de la Vie.',Eau de vie','Cautérisation','Soin vétérinaire','Voix de la sagesse','Musique réconfortante','Cicatrisation de Waetra']
+                var perse=['Le Dragon','Le Petit Lion',"Dague d'ombres",'Souffle mortel','Propulsion','Malédiction de Vharung','Unité','Arcanes secrètes','La loi du sang']
+                var volpsy=['Vol de magique','Absorption de magie','Ultra son','Dernière symphonie','Sournoiserie de Waetra']
                 game.user.targets.forEach(i => {
                     var hp = i.document._actor.system.hp.value;
                     hp=parseInt(hp)-parseInt(rol.total);
