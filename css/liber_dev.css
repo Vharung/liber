@@ -17,9 +17,8 @@ option, optgroup,#chat-controls .roll-type-select{background: #20180d;}
 .chat-message{color: #fff;border: none;margin-bottom: 15px;}
 .chat-message .message-header{color: #fff}
 .chat-message.whisper,.chat-message.blind {background: #967b43;border:none;}
-.window-app .window-header {flex: 100%;text-align: right;}
-.window-app .window-header h4 {float: left;}
-.sheet nav.sheet-tabs{border: none;margin: 0px}
+
+
 button,.dialog .dialog-buttons button.default,form button{background: rgb(143 26 40);border: none;color: #fff;}
 .directory .directory-header .header-search input ,.dialog-content input,select{background: #30220c;border: none;color: #fff;}
 #sidebar-tabs {color: #20180d;}
@@ -29,12 +28,12 @@ button,.dialog .dialog-buttons button.default,form button{background: rgb(143 26
 .Liber .stat2 label.secstat{background: #dd8376;}
 .Liber a.item,.Liber h2 ,.Liber .head,.Liber header,.Liber .tabs,.Liber .items-list .item-description,.Liber .items-list .item-description2{background: #181003a1;}
 .Liber .deno{width: 206px;border-bottom: 1px solid #20180d;padding: 0px;display: block;margin: 0 5px 5px 5px;height: 28px;float: left;}
-.Liber.window-app .window-content{background: none;overflow:auto;height: 773px;}
-.Liber .fiche{display: flex;flex-direction: row;height: 800px;width: 1200px;}
+.Liber.window-app .window-content{background: none;overflow:hidden }
+.Liber .fiche{display: block;height: 800px;width: 1200px;}
 .Liber header {color: #fff;}
 .Liber .col2{display: block;height: 752px;float: left;width: 590px;}
-.Liber .colonne{width:600px;float: left;display:flex;flex-direction: column;flex:1;flex-grow: initial;padding-right: 5px;}
-.Liber{font-family: 'Roboto', sans-serif;display: flex;flex-direction: row;flex-flow: row wrap;}
+.Liber .colonne{width: 592px;float: left;display: inline-block;}
+.Liber{width:1196px;height: 800px;font-family: 'Roboto', sans-serif;display: block;overflow: hidden;}
 /*form.Liber{display: table-cell;}*/
 .Liber .fiche nav.sheet-tabs{margin:0px;border-top:none;border-bottom:none;padding:0px 0;height: 35px;}
 .Liber .head input[type="text"]{background:none; border:none;}
@@ -64,7 +63,7 @@ button,.dialog .dialog-buttons button.default,form button{background: rgb(143 26
 .Liber button.defensif{background:url("../assets/icon/defensif.png");background-size: cover;opacity: 0.5;}
 .Liber button.offensif{background:url("../assets/icon/offensif.png");background-size: cover;opacity: 0.5;}
 .Liber main{height: 628px; margin-top: 5px;color:#20180d;}
-.Liber .autres{ height: 753px;}
+.Liber .autres{ height: 753px; margin-left: 5px;}
 .Liber h2 {width:100%;color: #fff;font-size: 1em;padding: 5px;border-bottom: 0;}
 .Liber .deno{width: 206px;border-bottom: 1px solid #20180d;padding: 0px;display: block;margin: 0 5px 5px 5px;height: 28px;float: left;}
 .Liber .stat input,.Liber .stat2 input,.Liber .features input{margin:0;display: inline-block;float: left;height: 28px;width: 40px;color:#fff;text-align: center;}
