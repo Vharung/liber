@@ -478,19 +478,6 @@
             ChatMessage.create(chatData, {});
         }
     }
-
-    /*_onEffet(event){
-        let effet='';
-        this.actor.createEmbeddedDocuments("ActiveEffect", [
-          {label: 'EFFECT.StatusDead', icon: 'icons/svg/skull.svg', flags: { core: { statusId: 'dead' } } }
-        ]);
-        texte = "<span style='flex:auto'><p class='resultatp'>"+tuer[d]+"&nbsp; <span style='text-transform:uppercase;font-weight: bold;'> "+nom+"</span></span></span>";
-            let chatData = {
-                speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-                content: texte
-            };
-            ChatMessage.create(chatData, {});
-    }*/
     
     _onSpell(event){
         let mental =this.actor.system.mental;
@@ -1060,7 +1047,7 @@
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
             content: texte
         };
-        ChatMessage.create(chatData, {});*/
+        ChatMessage.create(chatData, {}); //dev */
     }
 
     _onAttr(event){
