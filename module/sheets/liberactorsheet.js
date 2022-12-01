@@ -1027,110 +1027,7 @@
 
     }
 
-    _onCouv(event){ //dev
-        /*var etats=['a','b','c','d','e','f','g','h','i','j','k','l','m','n'];
-        var chnget=event.target.dataset["lettre"];console.log('etats'+etats[chnget])
-        var et=etats[chnget];
-        if(et=='a'){
-            var etat=this.actor.system.etat.a;
-            if(etat==1){
-                this.actor.update({"system.etat.a":0.5});    
-            }else {
-                this.actor.update({"system.etat.a":1});      
-            }
-        }else if(et=='b'){
-            var etat=this.actor.system.etat.b;
-            if(etat==1){
-                this.actor.update({"system.etat.b":0.5});    
-            }else {
-                this.actor.update({"system.etat.b":1});      
-            }
-        }else if(et=='c'){
-            var etat=this.actor.system.etat.c;
-            if(etat==1){
-                this.actor.update({"system.etat.c":0.5});    
-            }else {
-                this.actor.update({"system.etat.c":1});      
-            }
-        }else if(et=='d'){
-            var etat=this.actor.system.etat.d;
-            if(etat==1){
-                this.actor.update({"system.etat.d":0.5});    
-            }else {
-                this.actor.update({"system.etat.d":1});      
-            }
-        }else if(et=='e'){
-            var etat=this.actor.system.etat.e;
-            if(etat==1){
-                this.actor.update({"system.etat.e":0.5});    
-            }else {
-                this.actor.update({"system.etat.e":1});      
-            }
-        }else if(et=='f'){
-            var etat=this.actor.system.etat.f;
-            if(etat==1){
-                this.actor.update({"system.etat.f":0.5});    
-            }else {
-                this.actor.update({"system.etat.f":1});      
-            }
-        }else if(et=='g'){
-            var etat=this.actor.system.etat.g;
-            if(etat==1){
-                this.actor.update({"system.etat.g":0.5});    
-            }else {
-                this.actor.update({"system.etat.g":1});      
-            }
-        }else if(et=='h'){
-            var etat=this.actor.system.etat.h;
-            if(etat==1){
-                this.actor.update({"system.etat.h":0.5});    
-            }else {
-                this.actor.update({"system.etat.h":1});      
-            }
-        }else if(et=='i'){
-            var etat=this.actor.system.etat.i;
-            if(etat==1){
-                this.actor.update({"system.etat.i":0.5});    
-            }else {
-                this.actor.update({"system.etat.i":1});      
-            }
-        }else if(et=='j'){
-            var etat=this.actor.system.etat.j;
-            if(etat==1){
-                this.actor.update({"system.etat.j":0.5});    
-            }else {
-                this.actor.update({"system.etat.j":1});      
-            }
-        }else if(et=='k'){
-            var etat=this.actor.system.etat.k;
-            if(etat==1){
-                this.actor.update({"system.etat.k":0.5});    
-            }else {
-                this.actor.update({"system.etat.k":1});      
-            }
-        }else if(et=='l'){
-            var etat=this.actor.system.etat.l;
-            if(etat==1){
-                this.actor.update({"system.etat.l":0.5});    
-            }else {
-                this.actor.update({"system.etat.l":1});      
-            }
-        }else if(et=='m'){
-            var etat=this.actor.system.etat.m;
-            if(etat==1){
-                this.actor.update({"system.etat.m":0.5});    
-            }else {
-                this.actor.update({"system.etat.m":1});      
-            }
-        }else if(et=='n'){
-            var etat=this.actor.system.etat.n;
-            if(etat==1){
-                this.actor.update({"system.etat.n":0.5});    
-            }else {
-                this.actor.update({"system.etat.n":1});      
-            }
-        }*/
-        //dev
+    _onCouv(event){
         let idn=event.target.dataset["lettre"];  //recupére l'id du bouton
         let etats=['a','b','c','d','e','f','g','h','i','j','k','l','m','n'];
         var active=[this.actor.system.etat.a, this.actor.system.etat.b, this.actor.system.etat.c, this.actor.system.etat.d, this.actor.system.etat.e, this.actor.system.etat.f, this.actor.system.etat.g, this.actor.system.etat.h, this.actor.system.etat.i, this.actor.system.etat.j, this.actor.system.etat.k, this.actor.system.etat.l, this.actor.system.etat.m, this.actor.system.etat.n]
@@ -1480,7 +1377,7 @@
             mag2='illusion';
         }
 
-        //activer les effets//dev
+        //activer les effets
         let effet=this.actor.effects;
         var effets=[];
         //var etats=['a','b','c','d','e','f','g','h','i','j','k','l','m','n'];
@@ -1502,18 +1399,22 @@
         }
 
         //liste des sorts possible //dev
-        /*const abc = await game.packs.get('liber.magie');
+        const abc = await game.packs.get('liber.magie');
         var obj = JSON.stringify(abc.index);
         obj = JSON.parse(obj);
         var long = obj.length;
-        var magdispo=[];
-        console.log(obj)
+        var listem=[];
+        var img=[];
         for (var i=0; i<long; i++){
-            magdispo.push(obj[i].name)   
+            img.push(obj[i].img)   
         }
-        console.log(magdispo)
-
-        this.actor.update({"system.listemag.liste":magdispo})
+        for (var i = img.length - 1; i >= 0; i--) {
+            if(img[i]=='systems/liber/assets/magie/'+mag1+'.jpg' || img[i]=='systems/liber/assets/magie/'+mag2+'.jpg'){
+                listem.push({'id':obj[i]._id,'name':obj[i].name})
+            }
+        }
+        console.log(listem)
+        //this.actor.update({"system.listemag.liste":magdispo})
 
         //liste de sorts disponible à l'ajout en fonction des options choisis
         /*var option='';
@@ -1556,7 +1457,7 @@
         $('#LiberActorSheet-Actor-'+a_id+' .listemag').html(option);*/
 
         //update  'system.alert.listemag':option,'system.alert.listeobj':options,
-        this.actor.update({"system.etat.a":active[0],"system.etat.b":active[1],"system.etat.c":active[2],"system.etat.d":active[3],"system.etat.e":active[4],"system.etat.f":active[5],"system.etat.g":active[6],"system.etat.h":active[7],"system.etat.i":active[8],"system.etat.j":active[9],"system.etat.k":active[10],"system.etat.l":active[11],"system.etat.m":active[12],"system.etat.n":active[13],"system.reste":reste,'system.alert.listemag.img1':mag1,'system.alert.listemag.img2':mag2,'system.alert.psy':apsy,'system.alert.psymax':apsymax,'system.alert.hp':ahp,'system.alert.hpmax':ahp,'system.hp.max':hpmax,'system.hp.value':hp,'system.psy.max':psy,'system.psy.value':psyvalue,"system.restant":resultat,'system.maxsort':calsort,'system.coutmax':cout,'system.alert.maxsort':color1,'system.alert.coutmax':color2,'system.alert.physique':aphy,'system.alert.force':afor,'system.alert.agilite':agil,'system.alert.social':asoc,'system.alert.charisme':acha,'system.alert.sagacite':asag,'system.alert.mental':amen,'system.alert.astuce':aast,'system.alert.memoire':amem,'system.alert.waetra':waetra,'system.alert.demon':demon,'system.alert.humain':humain,'system.alert.dragon':dragon,'system.alert.drauch':drauch,'system.alert.vharung':vharung,'system.alert.vaudou':vaudou,'system.alert.corbeau':corbeau,'system.alert.cercle':cercle,'system.alert.autre':autre,'system.alert.aucun':aucun,'system.alert.metiertitre':metiertitre,'system.caracteristique.acrobatie':cpts[0],'system.caracteristique.agilites':cpts[1],'system.caracteristique.alchimie':cpts[2],'system.caracteristique.apprentissage':cpts[3],'system.caracteristique.hast':cpts[4],'system.caracteristique.cc':cpts[5],'system.caracteristique.lancer':cpts[6],'system.caracteristique.melee':cpts[7],'system.caracteristique.tir':cpts[8],'system.caracteristique.art':cpts[9],'system.caracteristique.assassinat':cpts[10],'system.caracteristique.baton':cpts[11],'system.caracteristique.bouclier':cpts[12],'system.caracteristique.bricolage':cpts[13],'system.caracteristique.presence':cpts[14],'system.caracteristique.chercher':cpts[15],'system.caracteristique.commander':cpts[16],'system.caracteristique.concentration':cpts[17],'system.caracteristique.nature':cpts[18],'system.caracteristique.peuples':cpts[19],'system.caracteristique.religions':cpts[20],'system.caracteristique.geographique':cpts[21],'system.caracteristique.rue':cpts[22],'system.caracteristique.heretiques':cpts[23],'system.caracteristique.combat':cpts[24],'system.caracteristique.commerce':cpts[25],'system.caracteristique.crochetage':cpts[26],'system.caracteristique.discretion':cpts[27],'system.caracteristique.dexterite':cpts[28],'system.caracteristique.detection':cpts[29],'system.caracteristique.dissimulation':cpts[30],'system.caracteristique.dressage':cpts[31],'system.caracteristique.ennemi':cpts[32],'system.caracteristique.equilibre':cpts[33],'system.caracteristique.equitation':cpts[34],'system.caracteristique.escroquerie':cpts[35],'system.caracteristique.esquiver':cpts[36],'system.caracteristique.puissance':cpts[37],'system.caracteristique.astuce':cpts[38],'system.caracteristique.peur':cpts[39],'system.caracteristique.joueur':cpts[40],'system.caracteristique.maitrise':cpts[41],'system.caracteristique.natation':cpts[42],'system.caracteristique.navigation':cpts[43],'system.caracteristique.orientation':cpts[44],'system.caracteristique.persuasion':cpts[45],'system.caracteristique.pister':cpts[46],'system.caracteristique.prophetie':cpts[47],'system.caracteristique.secours':cpts[48],'system.caracteristique.resistance':cpts[49],'system.caracteristique.psychologue':cpts[50],'system.caracteristique.medecine':cpts[51],'system.caracteristique.survie':cpts[52],'system.caracteristique.tueur':cpts[53],'system.caracteristique.objet':cpts[54],'system.caracteristique.veterinaire':cpts[55],'system.caracteristique.vigilance':cpts[56],'system.caracteristique.vise':cpts[57]});
+        this.actor.update({"system.etat.a":active[0],"system.etat.b":active[1],"system.etat.c":active[2],"system.etat.d":active[3],"system.etat.e":active[4],"system.etat.f":active[5],"system.etat.g":active[6],"system.etat.h":active[7],"system.etat.i":active[8],"system.etat.j":active[9],"system.etat.k":active[10],"system.etat.l":active[11],"system.etat.m":active[12],"system.etat.n":active[13],"system.reste":reste,'system.alert.listemag.liste':listem,'system.alert.listemag.img1':mag1,'system.alert.listemag.img2':mag2,'system.alert.psy':apsy,'system.alert.psymax':apsymax,'system.alert.hp':ahp,'system.alert.hpmax':ahp,'system.hp.max':hpmax,'system.hp.value':hp,'system.psy.max':psy,'system.psy.value':psyvalue,"system.restant":resultat,'system.maxsort':calsort,'system.coutmax':cout,'system.alert.maxsort':color1,'system.alert.coutmax':color2,'system.alert.physique':aphy,'system.alert.force':afor,'system.alert.agilite':agil,'system.alert.social':asoc,'system.alert.charisme':acha,'system.alert.sagacite':asag,'system.alert.mental':amen,'system.alert.astuce':aast,'system.alert.memoire':amem,'system.alert.waetra':waetra,'system.alert.demon':demon,'system.alert.humain':humain,'system.alert.dragon':dragon,'system.alert.drauch':drauch,'system.alert.vharung':vharung,'system.alert.vaudou':vaudou,'system.alert.corbeau':corbeau,'system.alert.cercle':cercle,'system.alert.autre':autre,'system.alert.aucun':aucun,'system.alert.metiertitre':metiertitre,'system.caracteristique.acrobatie':cpts[0],'system.caracteristique.agilites':cpts[1],'system.caracteristique.alchimie':cpts[2],'system.caracteristique.apprentissage':cpts[3],'system.caracteristique.hast':cpts[4],'system.caracteristique.cc':cpts[5],'system.caracteristique.lancer':cpts[6],'system.caracteristique.melee':cpts[7],'system.caracteristique.tir':cpts[8],'system.caracteristique.art':cpts[9],'system.caracteristique.assassinat':cpts[10],'system.caracteristique.baton':cpts[11],'system.caracteristique.bouclier':cpts[12],'system.caracteristique.bricolage':cpts[13],'system.caracteristique.presence':cpts[14],'system.caracteristique.chercher':cpts[15],'system.caracteristique.commander':cpts[16],'system.caracteristique.concentration':cpts[17],'system.caracteristique.nature':cpts[18],'system.caracteristique.peuples':cpts[19],'system.caracteristique.religions':cpts[20],'system.caracteristique.geographique':cpts[21],'system.caracteristique.rue':cpts[22],'system.caracteristique.heretiques':cpts[23],'system.caracteristique.combat':cpts[24],'system.caracteristique.commerce':cpts[25],'system.caracteristique.crochetage':cpts[26],'system.caracteristique.discretion':cpts[27],'system.caracteristique.dexterite':cpts[28],'system.caracteristique.detection':cpts[29],'system.caracteristique.dissimulation':cpts[30],'system.caracteristique.dressage':cpts[31],'system.caracteristique.ennemi':cpts[32],'system.caracteristique.equilibre':cpts[33],'system.caracteristique.equitation':cpts[34],'system.caracteristique.escroquerie':cpts[35],'system.caracteristique.esquiver':cpts[36],'system.caracteristique.puissance':cpts[37],'system.caracteristique.astuce':cpts[38],'system.caracteristique.peur':cpts[39],'system.caracteristique.joueur':cpts[40],'system.caracteristique.maitrise':cpts[41],'system.caracteristique.natation':cpts[42],'system.caracteristique.navigation':cpts[43],'system.caracteristique.orientation':cpts[44],'system.caracteristique.persuasion':cpts[45],'system.caracteristique.pister':cpts[46],'system.caracteristique.prophetie':cpts[47],'system.caracteristique.secours':cpts[48],'system.caracteristique.resistance':cpts[49],'system.caracteristique.psychologue':cpts[50],'system.caracteristique.medecine':cpts[51],'system.caracteristique.survie':cpts[52],'system.caracteristique.tueur':cpts[53],'system.caracteristique.objet':cpts[54],'system.caracteristique.veterinaire':cpts[55],'system.caracteristique.vigilance':cpts[56],'system.caracteristique.vise':cpts[57]});
         
     }
 }

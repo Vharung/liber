@@ -32,8 +32,9 @@ button,.dialog .dialog-buttons button.default,form button{background: rgb(143 26
 .Liber .fiche{display: block;height: 800px;width: 1200px;}
 .Liber header {color: #fff;}
 .Liber .col2{display: block;height: 752px;float: left;width: 590px;}
+.Liber .colonne{width: 592px;float: left;display: inline-block;}
 .Liber{width:1196px;height: 800px;font-family: 'Roboto', sans-serif;display: block;overflow: hidden;}
-form.Liber{display: table-cell;overflow: auto;}
+/*form.Liber{display: table-cell;}*/
 .Liber .fiche nav.sheet-tabs{margin:0px;border-top:none;border-bottom:none;padding:0px 0;height: 35px;}
 .Liber .head input[type="text"]{background:none; border:none;}
 .Liber .head,.Liber main,.Liber .autres,.Liber .autre{width: 595px;display:block;}

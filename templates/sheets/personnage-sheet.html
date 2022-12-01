@@ -1,7 +1,7 @@
 <form class="{{cssClass}} Liber flexcol" autocomplete="off">
-<div class="fiche">
+<!--div class="fiche"-->
 	{{!-- Sheet Header --}}
-	<div style="width: 592px;float: left;display: inline-block;">
+	<div class="colonne">
 		<div class="sheet-header flexcol" id="pj-titre" style="flex: 0 0 515px;">
 			<div class="head">
 				<div class="avatar"> 
@@ -136,7 +136,7 @@
 			</div>
 		</main>
 	</div>
-	<div style="width: 592px;float: left;display: inline-block;">
+	<div class="colonne">
 		<div class="autres">
 			{{!-- Sheet Tab Navigation --}}
 		    <nav class="sheet-tabs tabs" data-group="primary">
@@ -417,7 +417,15 @@
 
 				{{!-- Pouvoirs Tab --}}
 				<div id="spells" class="tab spells" data-group="primary" data-tab="spells">
-
+					<div class="rexrow stat" style="display: none;"><!--dev-->
+				    	<select class="magieslistes">
+		                    {{#select actor.system.magie}}
+			                    {{#each actor.system.alert.listemag.liste}}
+			                    <option value="{{this.id}}">{{this.name}}</option>
+			                    {{/each}}
+		                    {{/select}}
+		                </select>
+	        		</div>
 				        <ol class="items-list">
 			                <li class="item fexrow item-header">
 			                  <div class="item-image"></div>
@@ -468,8 +476,7 @@
 				    </div>
 				    <div class="clear"></div>
 				    <p style="text-align: center;color:#eeeeee">*{{localize 'liber.plus'}}</p>
-				    <div class="rexrow stat">
-	        		</div>
+
 				</div>
 				{{!-- Lab Tab --}}
 				<div id="lab" class="tab stats" data-group="primary" data-tab="lab">
@@ -675,16 +682,11 @@
 		                <div class="grid-2col" style="text-align: center;color:#fff">
 		                	<h2>{{localize 'liber.fiche'}}</h2>
 			                <input type="button" value="{{localize 'liber.generer'}}" class="ficheperso">
-			            </div>
-			            <select class="magieslistes">
-			            {{#each system.listemag.liste as |ability id|}}
-			            	<option>{{ability.name}}</option>
-			            {{/each}}
-			            </select>
+			            </div>			            
 					</div>
 				</div>
 			</section>
 		</div>
 	</div>	
-</div>
+<!--/div-->
 </form>
