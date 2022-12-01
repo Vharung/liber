@@ -43,22 +43,21 @@
 					<input class="insoin" name="system.insoin" type="text" value="{{actor.system.insoin}}" placeholder="0"/>
 					<input class="avant" name="system.avantage" type="text" value="{{actor.system.avantage}}" placeholder="0"/>
 					<input class="desan" name="system.desavantage" type="text" value="{{actor.system.desavantage}}" placeholder="0"/>
-				</div>
+				</div>				
 				<div class="etat" style="height: 100px">
-					<button class="etat0 chnget" data-etat="0" style="opacity: {{actor.system.etat.a}};"></button>
-					<button class="etat1 chnget" data-etat="1" style="opacity: {{actor.system.etat.b}};"></button>
-					<button class="etat2 chnget" data-etat="2" style="opacity: {{actor.system.etat.c}};"></button>
-					<button class="etat3 chnget" data-etat="3" style="opacity: {{actor.system.etat.d}};"></button>
-					<button class="etat4 chnget" data-etat="4" style="opacity: {{actor.system.etat.e}};"></button>
-					<button class="etat5 chnget" data-etat="5" style="opacity: {{actor.system.etat.f}};"></button>
-					<button class="etat6 chnget" data-etat="6" style="opacity: {{actor.system.etat.g}};"></button>
-					<button class="etat7 chnget" data-etat="7" style="opacity: {{actor.system.etat.h}};"></button>
-					<button class="etat8 chnget" data-etat="8" style="opacity: {{actor.system.etat.i}};"></button>
-					<button class="etat9 chnget" data-etat="9" style="opacity: {{actor.system.etat.j}};"></button>
-					<button class="etat10 chnget" data-etat="10" style="opacity: {{actor.system.etat.k}};"></button>
-					<button class="etat11 chnget" data-etat="11" style="opacity: {{actor.system.etat.l}};"></button>
-					<button class="etat12 chnget" data-etat="12" style="opacity: {{actor.system.etat.m}};"></button>
-					<!--button class="etat13 chnget" data-etat="13" style="opacity: {{actor.system.etat.n}};"></button-->
+					<button class="etat0 chnget" data-lettre="0" data-etat="Endormi" style="opacity: {{actor.system.etat.a}};"></button>
+					<button class="etat1 chnget" data-lettre="1" data-etat="Etourdi" style="opacity: {{actor.system.etat.b}};"></button>
+					<button class="etat2 chnget" data-lettre="2" data-etat="Aveugle" style="opacity: {{actor.system.etat.c}};"></button>
+					<button class="etat3 chnget" data-lettre="3" data-etat="Sourd" style="opacity: {{actor.system.etat.d}};"></button>
+					<button class="etat4 chnget" data-lettre="4" data-etat="Réduit au silence" style="opacity: {{actor.system.etat.e}};"></button>
+					<button class="etat5 chnget" data-lettre="5" data-etat="Apeuré" style="opacity: {{actor.system.etat.f}};"></button>
+					<button class="etat6 chnget" data-lettre="6" data-etat="Brûlant" style="opacity: {{actor.system.etat.g}};"></button>
+					<button class="etat7 chnget" data-lettre="7" data-etat="Gelé" style="opacity: {{actor.system.etat.h}};"></button>
+					<button class="etat8 chnget" data-lettre="8" data-etat="Invisible" style="opacity: {{actor.system.etat.i}};"></button>
+					<button class="etat9 chnget" data-lettre="9" data-etat="Béni" style="opacity: {{actor.system.etat.j}};"></button>
+					<button class="etat10 chnget" data-lettre="10" data-etat="Empoisonné" style="opacity: {{actor.system.etat.k}};"></button>
+					<button class="etat11 chnget" data-lettre="11" data-etat="Saignement" style="opacity: {{actor.system.etat.l}};"></button>
+					<button class="etat12 chnget" data-lettre="12" data-etat="Inconscient" style="opacity: {{actor.system.etat.m}};"></button>
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -83,39 +82,39 @@
 			<h2 style="margin-top: 10px;">{{localize 'liber.attributs'}}</h2>
 			<div class="rexrow stat2">
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-name="Physique" data-dice="1d"data-attDice="{{actor.system.physique}}">{{localize 'liber.phy'}}</label></p>
+					<p><label class="jetdedes" data-type="jetdedes" data-name="Physique" data-dice="1d"data-attDice="{{actor.system.physique}}">{{localize 'liber.phy'}}</label></p>
 					<input class="phys" name="system.physique" type="text" value="{{actor.system.physique}}" placeholder="{{actor.system.physique}}" style="text-align: center; background:{{actor.system.alert.physique}} ;"/>
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes secstat" data-name="Force" data-dice="1d"data-attDice="{{actor.system.force}}">{{localize 'liber.for'}}</label></p>
+					<p><label class="jetdedes secstat" data-type="jetdedes" data-name="Force" data-dice="1d"data-attDice="{{actor.system.force}}">{{localize 'liber.for'}}</label></p>
 					<input class="forc" name="system.force" type="text" value="{{actor.system.force}}" placeholder="5" style="width:40px;background:{{actor.system.alert.force}} ;" />
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes secstat" data-name="Agilite" data-dice="1d"data-attDice="{{actor.system.agilite}}">{{localize 'liber.agi'}}</label></p>
+					<p><label class="jetdedes secstat" data-type="jetdedes" data-name="Agilite" data-dice="1d"data-attDice="{{actor.system.agilite}}">{{localize 'liber.agi'}}</label></p>
 					<input class="agil" name="system.agilite" type="text" value="{{actor.system.agilite}}" placeholder="5" style="width:40px;background:{{actor.system.alert.force}} ;" />
 				</div>
 				<div class="grid-9col">
-					<p style="text-align: center" style="text-align: center"><label class="jetdedes" data-name="Social" data-dice="1d"data-attDice="{{actor.system.social}}">{{localize 'liber.soc'}}</label></p>
+					<p style="text-align: center" style="text-align: center"><label class="jetdedes" data-type="jetdedes" data-name="Social" data-dice="1d"data-attDice="{{actor.system.social}}">{{localize 'liber.soc'}}</label></p>
 					<input class="soci" name="system.social" type="text" value="{{actor.system.social}}" placeholder="10" style="text-align: center;background:{{actor.system.alert.social}} ;"/>
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes secstat" data-name="Charisme" data-dice="1d"data-attDice="{{actor.system.charisme}}">{{localize 'liber.cha'}}</label></p>
+					<p><label class="jetdedes secstat" data-type="jetdedes" data-name="Charisme" data-dice="1d"data-attDice="{{actor.system.charisme}}">{{localize 'liber.cha'}}</label></p>
 					<input class="char" name="system.charisme" type="text" value="{{actor.system.charisme}}" placeholder="5" style="width:40px;background:{{actor.system.alert.charisme}} ;"/>
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes secstat" data-name="Sagacité" data-dice="1d"data-attDice="{{actor.system.sagacite}}">{{localize 'liber.sag'}}</label></p>
+					<p><label class="jetdedes secstat" data-type="jetdedes" data-type="jetdedes"data-name="Sagacité" data-dice="1d"data-attDice="{{actor.system.sagacite}}">{{localize 'liber.sag'}}</label></p>
 					<input class="saga" name="system.sagacite" type="text" value="{{actor.system.sagacite}}" placeholder="5" style="width:40px;background:{{actor.system.alert.sagacite}} ;"/>
 				</div>
 				<div class="grid-9col">
-					<p style="text-align: center"><label class="jetdedes" data-name="Mental" data-dice="1d"data-attDice="{{actor.system.mental}}">{{localize 'liber.men'}}</label></p>
+					<p style="text-align: center"><label class="jetdedes" data-type="jetdedes" data-name="Mental" data-dice="1d"data-attDice="{{actor.system.mental}}">{{localize 'liber.men'}}</label></p>
 					<input class="mental" name="system.mental" type="text" value="{{actor.system.mental}}" placeholder="10" style="text-align: center;background:{{actor.system.alert.mental}} ;"/>
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes secstat" data-name="Astuce" data-dice="1d" data-attDice="{{actor.system.ast}}">{{localize 'liber.ast'}}</label></p>
+					<p><label class="jetdedes secstat" data-type="jetdedes" data-name="Astuce" data-dice="1d" data-attDice="{{actor.system.ast}}">{{localize 'liber.ast'}}</label></p>
 					<input class="astu" name="system.ast" type="text" value="{{actor.system.ast}}" placeholder="5" style="width:40px;background:{{actor.system.alert.astuce}} ;"/>
 				</div>
 				<div class="grid-9col">
-					<p><label class="jetdedes secstat" data-name="Mémoire" data-dice="1d"data-attDice="{{actor.system.memoire}}">{{localize 'liber.mem'}}</label></p>
+					<p><label class="jetdedes secstat" data-type="jetdedes" data-name="Mémoire" data-dice="1d"data-attDice="{{actor.system.memoire}}">{{localize 'liber.mem'}}</label></p>
 					<input class="memo" name="system.memoire" type="text" value="{{actor.system.memoire}}" placeholder="5" style="width:40px;margin-bottom: 5px;;background:{{actor.system.alert.memoire}} ;"/>
 				</div>
 				
@@ -257,12 +256,12 @@
 							<h2>{{localize 'liber.gauche'}}</h2>
 							
 							<input class="maingaucequi" name="system.armeg" type="text" value="{{actor.system.armeg}}" placeholder="Main Gauche" readonly="" /><button class="desequi maingdes" data-equip="dgauche">🗑</button>
-							<input class="degatg jetdedegat" name="system.degatg" type="text" data-name="{{actor.system.armeg}}" value="{{actor.system.degatg}}" data-dice="{{actor.system.degatg}}" data-img="{{actor.system.imgg}}" data-desc="{{actor.system.desg}}" placeholder="Dégat" readonly="" /><button class="attaque" data-name="attaque" data-img="{{actor.system.imgg}}" data-desc="{{actor.system.desg}}" title="Attaquer avec {{actor.system.armeg}}">⚔</button>
+							<input class="degatg jetdedegat" name="system.degatg" type="text" data-name="{{actor.system.armeg}}" value="{{actor.system.degatg}}" data-dice="{{actor.system.degatg}}" data-img="{{actor.system.imgg}}" data-desc="{{actor.system.desg}}" data-type="jetdedegat" placeholder="Dégat" readonly="" /><button class="attaque" data-name="attaque" data-img="{{actor.system.imgg}}" data-desc="{{actor.system.desg}}" data-type="auto" title="Attaquer avec {{actor.system.armeg}}">⚔</button>
 						</div>
 						<div class="grid-3col" style="text-align: center">
 							<h2 class="deuxmains">{{localize 'liber.droite'}}</h2>
 							<input class="maindroiequi" name="system.armed" type="text" value="{{actor.system.armed}}" placeholder="Main droite" readonly="" /><button class="desequi mainddes" data-equip="ddroite">🗑</button>
-							<input class="degatd jetdedegat" name="system.degatd" type="text" data-name="{{actor.system.armed}}" value="{{actor.system.degatd}}" data-dice="{{actor.system.degatd}}"  data-img="{{actor.system.imgd}}" data-desc="{{actor.system.desd}}" placeholder="Dégat" readonly="" /><button class="attaques" data-name="attaques" data-img="{{actor.system.imgd}}" data-desc="{{actor.system.desd}}" title="Attaquer avec {{actor.system.armed}}">⚔</button>
+							<input class="degatd jetdedegat" name="system.degatd" type="text" data-name="{{actor.system.armed}}" value="{{actor.system.degatd}}" data-dice="{{actor.system.degatd}}"  data-img="{{actor.system.imgd}}" data-desc="{{actor.system.desd}}"  data-type="jetdedegat" placeholder="Dégat" readonly="" /><button class="attaques" data-name="attaques" data-img="{{actor.system.imgd}}" data-desc="{{actor.system.desd}}" title="Attaquer avec {{actor.system.armed}}">⚔</button>
 						</div>
 						<div class="grid-3col" style="text-align: center">
 							<h2>{{localize 'liber.armor'}}</h2>

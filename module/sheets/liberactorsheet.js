@@ -88,7 +88,8 @@
 
         //Jet de des
         html.find('.jetdedes').click(this._onRoll.bind(this)); 
-        html.find('.jetdedegat').click(this._onRoll2.bind(this));
+        //html.find('.jetdedegat').click(this._onRoll2.bind(this));
+        html.find('.jetdedegat').click(this._onRoll.bind(this));
         
         //generateur
         html.find('.ficheperso').click(this._onGenerator.bind(this));
@@ -111,8 +112,10 @@
         html.find('.focus').click(this._onPosture.bind(this));
         html.find('.aucune').click(this._onPosture.bind(this));
         html.find('.chnget').click(this._onCouv.bind(this));
-        html.find('.attaque').click(this._Attaque.bind(this));
-        html.find('.attaques').click(this._Attaque.bind(this));
+        html.find('.attaque').click(this._onRoll.bind(this));
+        //html.find('.attaque').click(this._Attaque.bind(this));
+        html.find('.attaques').click(this._onRoll.bind(this));
+        //html.find('.attaques').click(this._Attaque.bind(this));
 
         //edition items
         html.find('.item-edit').click(this._onItemEdit.bind(this));
@@ -323,199 +326,170 @@
         const item = this.getItemFromEvent(event);
         item.sheet.render(true);
     }
+ 
+    _onRoll(event){ //lancer de dés
+    //déclaration des variables
+        var monJetDeDes = event.target.dataset["dice"];
+        var name = event.target.dataset["name"];
+        let type=event.target.dataset["type"];
+        var texte='';
+        var roll=null;
 
-    //lancer de dés
-    _onRoll(event){
-        let monJetDeDes = event.target.dataset["dice"];
-        let maxstat = event.target.dataset["attdice"];
+        //var compétence
         let bonus =this.actor.system.bonus;
         let malus =this.actor.system.malus;
         let posture =this.actor.system.posture;
-        const name = event.target.dataset["name"];
-        const jetdeDesFormule = monJetDeDes.replace("d", "d100");
+        let maxstat = event.target.dataset["attdice"];
         var bonuspost=0;
         var critique=5;
-        if(posture=="Focus"){
-            bonuspost=5;
-        }else if(posture=="Offensif"){
-            critique=10;
-        }
-
-        if(bonus==""){bonus=0;}
-        if(malus==""){malus=0;}
-        let inforesult=parseInt(maxstat)+parseInt(bonus)+bonuspost+parseInt(malus);
-        if(inforesult>95){
-            inforesult=95;
-        }else if(inforesult<5){
-            inforesult=5;
-        }
-        let r = new Roll("1d100");
-        var roll=r.evaluate({"async": false});
-        let retour=r.result; 
         var succes="";
-        if(retour>95){//lang
-            succes="<h4 class='result' style='background:#ff3333;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Echec critique</h4>";
-        }else if(retour<=critique){
-            succes="<h4 class='result' style='background:#7dff33;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Réussite critique</h4>";
-        }else if(retour<=inforesult){
-            succes="<h4 class='result' style='background:#78be50;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Réussite</h4>";
-        }else{
-            succes="<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Echec</h4>";
-        }
+        var degats=0;
 
-        const texte = '<span style="flex:auto"><p class="resultatp">Jet de ' + name + " : " + inforesult +'/100</p>'+succes+'</span>'
-        //+'<button class="jetdedegat" type="text" data-name="Arme" data-dice="1d6">Arme</button>';
-        roll.toMessage({
-            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-            flavor: texte
-        });
-    }
-
-    _onRoll2(event){
-        let monJetDeDes = event.target.dataset["dice"];
-        const name = event.target.dataset["name"];
+        //var degat
         var img=event.target.dataset["img"];
         var desc=event.target.dataset["desc"];
-        if(desc==""){
-            var info='';
-        }else {
-            var info='</span><span class="desctchat" style="display:block;">'+desc+'</span>';
-        }
-        let r = new Roll(monJetDeDes);
-        var roll=r.evaluate({"async": false});
-        const texte = '<span style="flex:auto"><p class="resultatp"><img src="'+img+'"  width="24" height="24"/>&nbsp;Utilise ' + name + '<p>'+info;
-        roll.toMessage({
-            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-            flavor: texte
-        });
-    }
+        let qarme=event.target.dataset["name"];
 
-    _Attaque(event){
-        let maxstat = this.actor.system.physique;
-        let bonus =this.actor.system.bonus;
-        let malus =this.actor.system.malus;
-        let posture =this.actor.system.posture;
-        const name = "Physique";
-        const jetdeDesFormule = "1d100";
-        var bonuspost=0;
-        var critique=5;
-        if(posture=="Focus"){
-            bonuspost=5;
-        }else if(posture=="Offensif"){
-            critique=10;
-        }
+        //var automatisation
+        let statphy = this.actor.system.physique;
+        var hp=null;
+        var nom='';    
 
-        if(bonus==""){bonus=0;}
-        if(malus==""){malus=0;}
-        let inforesult=parseInt(maxstat)+parseInt(bonus)+bonuspost+parseInt(malus);
-        if(inforesult>95){
-            inforesult=95;
-        }else if(inforesult<5){
-            inforesult=5;
-        }
-        let r = new Roll("1d100");
-        var roll=r.evaluate({"async": false});
-        let retour=r.result; 
-        var succes="";
-        var degats=1;
-        if(retour>95){//lang
-            succes="<h4 class='result' style='background:#ff3333;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Echec critique</h4>";
-            degats=0;
-        }else if(retour<=critique){
-            succes="<h4 class='result' style='background:#7dff33;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Réussite critique</h4>";
-            degats=2;
-        }else if(retour<=inforesult){
-            succes="<h4 class='result' style='background:#78be50;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Réussite</h4>";
-            degats=1;
-        }else{
-            succes="<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Echec</h4>";
-            degats=0;
-        }
-
-        const texte = '<span style="flex:auto"><p class="resultatp">Jet de ' + name + " : " + inforesult +'/100</p>'+succes+'</span>'
-        //+'<button class="jetdedegat" type="text" data-name="Arme" data-dice="1d6">Arme</button>';
-        roll.toMessage({
-            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-            flavor: texte
-        });
-        if(degats>0){
-            let qarme=event.target.dataset["name"];
-            if(qarme=="attaques"){
-                if(degats==2){
-                    var monJetDeDes='('+this.actor.system.degatd+')*'+degats;
-                }else{
-                    var monJetDeDes=this.actor.system.degatd;
-                }
-                var nam = this.actor.system.armed;
+    //Jet de dès  compétences
+        if(type=="jetdedes" || type=="auto"){
+            if(type=="auto"){name='Physique';maxstat=this.actor.system.physique;}
+            if(posture=="Focus"){bonuspost=5;}
+            else if(posture=="Offensif"){critique=10;}
+            if(bonus==""){bonus=0;}
+            if(malus==""){malus=0;}
+            let inforesult=parseInt(maxstat)+parseInt(bonus)+bonuspost+parseInt(malus);
+            if(inforesult>95){inforesult=95;}
+            else if(inforesult<5){inforesult=5;}
+            let r = new Roll("1d100");
+            roll=r.evaluate({"async": false});
+            let retour=r.result; 
+            if(retour>95){//lang
+                succes="<h4 class='result' style='background:#ff3333;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Echec critique</h4>";
+                degats=0;
+            }else if(retour<=critique){
+                succes="<h4 class='result' style='background:#7dff33;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Réussite critique</h4>";
+                degats=2;
+            }else if(retour<=inforesult){
+                succes="<h4 class='result' style='background:#78be50;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Réussite</h4>";
+                degats=1;
             }else{
-                if(degats==2){
-                    var monJetDeDes='('+this.actor.system.degatg+')*'+degats;
-                }else{
-                    var monJetDeDes=this.actor.system.degatg;
-                }
-                var nam = this.actor.system.armeg;
+                succes="<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Echec</h4>";
+                degats=0;
             }
-            var img=event.target.dataset["img"];
-            var desc=event.target.dataset["desc"];
-            if(desc==""){
-                var info='';
-            }else {
-                var info='</span><span class="desctchat" style="display:block;">'+desc+'</span>';
-            }
-            let re = new Roll(monJetDeDes);
-            var rol=re.evaluate({"async": false});
-
-            //mise à jour des pv des cibles 
-            var hp=null;
-            var nom='';
-            game.user.targets.forEach(i => { //dev
-                console.log(i)
-                nom=i.document.name;
-                hp = i.document._actor.system.hp.value;
-                var armor=i.document.actor.system.protection
-                var armormag=i.document.actor.system.protectionmagique;
-                var perce=["Dague","Masse d'arme","Masse Lourd","Arbalète"]
-                var passe=0;
-                for (var j = perce.length - 1; j >= 0; j--) {
-                    if(nam==perce[j]){
-                        passe=1
+            if(degats>0 && type=="auto"){
+                if(qarme=="attaques"){
+                    if(degats==2){
+                        monJetDeDes='('+this.actor.system.degatd+')*'+degats;
+                    }else{
+                        monJetDeDes=this.actor.system.degatd;
                     }
-                }
-                if(passe==0){
-                    var degat=parseInt(rol.total)-parseInt(armor)-parseInt(armormag)
+                    var nam = this.actor.system.armed;
                 }else{
-                    var degat=parseInt(rol.total)-parseInt(armormag)
-                }   
-
-                if(degat>0){
-                    hp=parseInt(hp)-degat;
-                    if(hp<0){
-                        hp=0;//mort automatique //dev
-                        //i.ActiveEffect('dead');
+                    if(degats==2){
+                        var monJetDeDes='('+this.actor.system.degatg+')*'+degats;
+                    }else{
+                        var monJetDeDes=this.actor.system.degatg;
                     }
-                    i.actor.update({'system.hp.value': hp});
-                } 
-            })  
-
-            const text = '<span style="flex:auto"><p class="resultatp"><img src="'+img+'"  width="24" height="24"/>&nbsp;Utilise ' + nam + '<p>'+info;
-            rol.toMessage({
+                    var nam = this.actor.system.armeg;
+                }
+            }
+            texte = '<span style="flex:auto"><p class="resultatp">Jet de ' + name + " : " + inforesult +'/100</p>'+succes+'</span>'
+            //info Tchat    
+            roll.toMessage({
                 speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-                flavor: text
+                flavor: texte
             });
 
-            if(hp==0){
-                var tuer=['Vient de tuer ','A massacrer ','A occis ',"N'a pas eu de pitier pour ","A oté la vie de ","A trucidé "];
-                var d=Math. round(Math.random() * tuer.length);
-                const texte = "<span style='flex:auto'><p class='resultatp'>"+tuer[d]+"&nbsp; <span style='text-transform:uppercase;font-weight: bold;'> "+nom+"</span></span></span>";
-                let chatData = {
-                    speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-                    content: texte
-                };
-                ChatMessage.create(chatData, {});
-            }
         }
         
+    //Jet de dégât
+        if(type=="jetdedegat" || type=="auto"){
+            if(desc==""){var info='';}
+            else {var info='</span><span class="desctchat" style="display:block;">'+desc+'</span>';}
+            if(degats>0 || type=="jetdedegat"){
+                let r = new Roll(monJetDeDes);
+                roll=r.evaluate({"async": false});  
+            }
+            if(type=="auto"){
+                game.user.targets.forEach(i => {
+                    console.log(i)
+                    nom=i.document.name;
+                    hp = i.document._actor.system.hp.value;
+                    var armor=i.document.actor.system.protection
+                    var armormag=i.document.actor.system.protectionmagique;
+                    var perce=["Dague","Masse d'arme","Masse Lourd","Arbalète"]
+                    var passe=0;
+                    for (var j = perce.length - 1; j >= 0; j--) {
+                        if(nam==perce[j]){
+                            passe=1
+                        }
+                    }
+                    if(passe==0){
+                        var degat=parseInt(roll.total)-parseInt(armor)-parseInt(armormag)
+                    }else{
+                        var degat=parseInt(roll.total)-parseInt(armormag)
+                    }   
+
+                    if(degat>0){
+                        hp=parseInt(hp)-degat;
+                        if(hp<0){
+                            console.log(i)
+                            hp=0;//mort automatique 
+                            i.actor.createEmbeddedDocuments("ActiveEffect", [
+                              {label: 'Mort', icon: 'icons/svg/skull.svg', flags: { core: { statusId: 'dead' } } }
+                            ]);
+                            console.log(i)
+
+                        }
+                        i.actor.update({'system.hp.value': hp});
+                    } 
+                })  
+
+            }
+            if(degats>0 || type=="jetdedegat"){
+                texte = '<span style="flex:auto"><p class="resultatp"><img src="'+img+'"  width="24" height="24"/>&nbsp;Utilise ' + name + '<p>'+info;
+        
+                //info Tchat    
+                roll.toMessage({
+                    speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+                    flavor: texte
+                });  
+            }
+            
+        } 
+        
+    
+    // Mort de la cible
+        if(hp==0 && type=="auto") {
+            var tuer=['Vient de tuer ','A massacrer ','A occis ',"N'a pas eu de pitier pour ","A oté la vie de ","A trucidé "];
+            var d=Math. round(Math.random() * tuer.length);
+            texte = "<span style='flex:auto'><p class='resultatp'>"+tuer[d]+"&nbsp; <span style='text-transform:uppercase;font-weight: bold;'> "+nom+"</span></span></span>";
+            let chatData = {
+                speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+                content: texte
+            };
+            ChatMessage.create(chatData, {});
+        }
     }
+
+    /*_onEffet(event){
+        let effet='';
+        this.actor.createEmbeddedDocuments("ActiveEffect", [
+          {label: 'EFFECT.StatusDead', icon: 'icons/svg/skull.svg', flags: { core: { statusId: 'dead' } } }
+        ]);
+        texte = "<span style='flex:auto'><p class='resultatp'>"+tuer[d]+"&nbsp; <span style='text-transform:uppercase;font-weight: bold;'> "+nom+"</span></span></span>";
+            let chatData = {
+                speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+                content: texte
+            };
+            ChatMessage.create(chatData, {});
+    }*/
+    
     _onSpell(event){
         let mental =this.actor.system.mental;
         let physique =this.actor.system.physique;
@@ -1053,9 +1027,9 @@
 
     }
 
-    _onCouv(event){
-        var etats=['a','b','c','d','e','f','g','h','i','j','k','l','m','n'];
-        var chnget=event.target.dataset["etat"];console.log('etats'+etats[chnget])
+    _onCouv(event){ //dev
+        /*var etats=['a','b','c','d','e','f','g','h','i','j','k','l','m','n'];
+        var chnget=event.target.dataset["lettre"];console.log('etats'+etats[chnget])
         var et=etats[chnget];
         if(et=='a'){
             var etat=this.actor.system.etat.a;
@@ -1155,7 +1129,39 @@
             }else {
                 this.actor.update({"system.etat.n":1});      
             }
+        }*/
+        //dev
+        let idn=event.target.dataset["lettre"];  //recupére l'id du bouton
+        let etats=['a','b','c','d','e','f','g','h','i','j','k','l','m','n'];
+        var active=[this.actor.system.etat.a, this.actor.system.etat.b, this.actor.system.etat.c, this.actor.system.etat.d, this.actor.system.etat.e, this.actor.system.etat.f, this.actor.system.etat.g, this.actor.system.etat.h, this.actor.system.etat.i, this.actor.system.etat.j, this.actor.system.etat.k, this.actor.system.etat.l, this.actor.system.etat.m, this.actor.system.etat.n]
+        let lists=['Endormi','Etourdi','Aveugle','Sourd','Réduit au silence','Apeuré','Brûlant','Gelé','Invisible','Béni','Empoisonné','Saignement','Inconscient','Mort']
+        let icon=['sleep','daze','blind','deaf','silenced','terror','fire','frozen','invisible','angel','poison','blood','unconscious','dead']
+        let effet=this.actor.effects;
+        var ids=null;
+        let etat=active[idn];
+        console.log(idn+' '+active[idn]+' '+lists[idn])
+        if(etat==0.5){
+            this.actor.createEmbeddedDocuments("ActiveEffect", [
+              {label: lists[idn], icon: 'icons/svg/'+icon[idn]+'.svg', flags: { core: { statusId: icon[idn] } } }
+            ]);
+            this.actor.update({[`system.etat.${etats[idn]}`]:1});
+        }else {
+            
+            effet.forEach(function(item, index, array) {
+                if(item.label==lists[idn]){
+                    ids=item.id;
+                }
+            });            
+            this.actor.deleteEmbeddedDocuments("ActiveEffect", [ids]);
+            this.actor.update({[`system.etat.${etats[idn]}`]:0.5});
         }
+
+        /*var texte = "<span style='flex:auto'><p class='resultatp'>"+tuer[d]+"&nbsp; <span style='text-transform:uppercase;font-weight: bold;'> "+nom+"</span></span></span>";
+        let chatData = {
+            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            content: texte
+        };
+        ChatMessage.create(chatData, {});*/
     }
 
     _onAttr(event){
@@ -1474,6 +1480,27 @@
             mag2='illusion';
         }
 
+        //activer les effets//dev
+        let effet=this.actor.effects;
+        var effets=[];
+        //var etats=['a','b','c','d','e','f','g','h','i','j','k','l','m','n'];
+        var active=[0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+        var lists=['Endormi','Etourdi','Aveugle','Sourd','Réduit au silence','Apeuré','Brûlant','Gelé','Invisible','Béni','Empoisonné','Saignement','Inconscient','Mort']
+        effet.forEach(function(item, index, array) {
+            if(item.label!=''){
+                effets.push(item.label);
+            }
+        });
+
+        for(var i=0; i<lists.length; i++){
+            for (var j=0; j < effets.length; j++) {
+                if(lists[i]== effets[j]){
+                    active[i]=1;
+                    console.log(i+' : '+effets[j]) 
+                }
+            }
+        }
+
         //liste des sorts possible //dev
         /*const abc = await game.packs.get('liber.magie');
         var obj = JSON.stringify(abc.index);
@@ -1529,7 +1556,8 @@
         $('#LiberActorSheet-Actor-'+a_id+' .listemag').html(option);*/
 
         //update  'system.alert.listemag':option,'system.alert.listeobj':options,
-        this.actor.update({"system.reste":reste,'system.alert.listemag.img1':mag1,'system.alert.listemag.img2':mag2,'system.alert.psy':apsy,'system.alert.psymax':apsymax,'system.alert.hp':ahp,'system.alert.hpmax':ahp,'system.hp.max':hpmax,'system.hp.value':hp,'system.psy.max':psy,'system.psy.value':psyvalue,"system.restant":resultat,'system.maxsort':calsort,'system.coutmax':cout,'system.alert.maxsort':color1,'system.alert.coutmax':color2,'system.alert.physique':aphy,'system.alert.force':afor,'system.alert.agilite':agil,'system.alert.social':asoc,'system.alert.charisme':acha,'system.alert.sagacite':asag,'system.alert.mental':amen,'system.alert.astuce':aast,'system.alert.memoire':amem,'system.alert.waetra':waetra,'system.alert.demon':demon,'system.alert.humain':humain,'system.alert.dragon':dragon,'system.alert.drauch':drauch,'system.alert.vharung':vharung,'system.alert.vaudou':vaudou,'system.alert.corbeau':corbeau,'system.alert.cercle':cercle,'system.alert.autre':autre,'system.alert.aucun':aucun,'system.alert.metiertitre':metiertitre,'system.caracteristique.acrobatie':cpts[0],'system.caracteristique.agilites':cpts[1],'system.caracteristique.alchimie':cpts[2],'system.caracteristique.apprentissage':cpts[3],'system.caracteristique.hast':cpts[4],'system.caracteristique.cc':cpts[5],'system.caracteristique.lancer':cpts[6],'system.caracteristique.melee':cpts[7],'system.caracteristique.tir':cpts[8],'system.caracteristique.art':cpts[9],'system.caracteristique.assassinat':cpts[10],'system.caracteristique.baton':cpts[11],'system.caracteristique.bouclier':cpts[12],'system.caracteristique.bricolage':cpts[13],'system.caracteristique.presence':cpts[14],'system.caracteristique.chercher':cpts[15],'system.caracteristique.commander':cpts[16],'system.caracteristique.concentration':cpts[17],'system.caracteristique.nature':cpts[18],'system.caracteristique.peuples':cpts[19],'system.caracteristique.religions':cpts[20],'system.caracteristique.geographique':cpts[21],'system.caracteristique.rue':cpts[22],'system.caracteristique.heretiques':cpts[23],'system.caracteristique.combat':cpts[24],'system.caracteristique.commerce':cpts[25],'system.caracteristique.crochetage':cpts[26],'system.caracteristique.discretion':cpts[27],'system.caracteristique.dexterite':cpts[28],'system.caracteristique.detection':cpts[29],'system.caracteristique.dissimulation':cpts[30],'system.caracteristique.dressage':cpts[31],'system.caracteristique.ennemi':cpts[32],'system.caracteristique.equilibre':cpts[33],'system.caracteristique.equitation':cpts[34],'system.caracteristique.escroquerie':cpts[35],'system.caracteristique.esquiver':cpts[36],'system.caracteristique.puissance':cpts[37],'system.caracteristique.astuce':cpts[38],'system.caracteristique.peur':cpts[39],'system.caracteristique.joueur':cpts[40],'system.caracteristique.maitrise':cpts[41],'system.caracteristique.natation':cpts[42],'system.caracteristique.navigation':cpts[43],'system.caracteristique.orientation':cpts[44],'system.caracteristique.persuasion':cpts[45],'system.caracteristique.pister':cpts[46],'system.caracteristique.prophetie':cpts[47],'system.caracteristique.secours':cpts[48],'system.caracteristique.resistance':cpts[49],'system.caracteristique.psychologue':cpts[50],'system.caracteristique.medecine':cpts[51],'system.caracteristique.survie':cpts[52],'system.caracteristique.tueur':cpts[53],'system.caracteristique.objet':cpts[54],'system.caracteristique.veterinaire':cpts[55],'system.caracteristique.vigilance':cpts[56],'system.caracteristique.vise':cpts[57]});
+        this.actor.update({"system.etat.a":active[0],"system.etat.b":active[1],"system.etat.c":active[2],"system.etat.d":active[3],"system.etat.e":active[4],"system.etat.f":active[5],"system.etat.g":active[6],"system.etat.h":active[7],"system.etat.i":active[8],"system.etat.j":active[9],"system.etat.k":active[10],"system.etat.l":active[11],"system.etat.m":active[12],"system.etat.n":active[13],"system.reste":reste,'system.alert.listemag.img1':mag1,'system.alert.listemag.img2':mag2,'system.alert.psy':apsy,'system.alert.psymax':apsymax,'system.alert.hp':ahp,'system.alert.hpmax':ahp,'system.hp.max':hpmax,'system.hp.value':hp,'system.psy.max':psy,'system.psy.value':psyvalue,"system.restant":resultat,'system.maxsort':calsort,'system.coutmax':cout,'system.alert.maxsort':color1,'system.alert.coutmax':color2,'system.alert.physique':aphy,'system.alert.force':afor,'system.alert.agilite':agil,'system.alert.social':asoc,'system.alert.charisme':acha,'system.alert.sagacite':asag,'system.alert.mental':amen,'system.alert.astuce':aast,'system.alert.memoire':amem,'system.alert.waetra':waetra,'system.alert.demon':demon,'system.alert.humain':humain,'system.alert.dragon':dragon,'system.alert.drauch':drauch,'system.alert.vharung':vharung,'system.alert.vaudou':vaudou,'system.alert.corbeau':corbeau,'system.alert.cercle':cercle,'system.alert.autre':autre,'system.alert.aucun':aucun,'system.alert.metiertitre':metiertitre,'system.caracteristique.acrobatie':cpts[0],'system.caracteristique.agilites':cpts[1],'system.caracteristique.alchimie':cpts[2],'system.caracteristique.apprentissage':cpts[3],'system.caracteristique.hast':cpts[4],'system.caracteristique.cc':cpts[5],'system.caracteristique.lancer':cpts[6],'system.caracteristique.melee':cpts[7],'system.caracteristique.tir':cpts[8],'system.caracteristique.art':cpts[9],'system.caracteristique.assassinat':cpts[10],'system.caracteristique.baton':cpts[11],'system.caracteristique.bouclier':cpts[12],'system.caracteristique.bricolage':cpts[13],'system.caracteristique.presence':cpts[14],'system.caracteristique.chercher':cpts[15],'system.caracteristique.commander':cpts[16],'system.caracteristique.concentration':cpts[17],'system.caracteristique.nature':cpts[18],'system.caracteristique.peuples':cpts[19],'system.caracteristique.religions':cpts[20],'system.caracteristique.geographique':cpts[21],'system.caracteristique.rue':cpts[22],'system.caracteristique.heretiques':cpts[23],'system.caracteristique.combat':cpts[24],'system.caracteristique.commerce':cpts[25],'system.caracteristique.crochetage':cpts[26],'system.caracteristique.discretion':cpts[27],'system.caracteristique.dexterite':cpts[28],'system.caracteristique.detection':cpts[29],'system.caracteristique.dissimulation':cpts[30],'system.caracteristique.dressage':cpts[31],'system.caracteristique.ennemi':cpts[32],'system.caracteristique.equilibre':cpts[33],'system.caracteristique.equitation':cpts[34],'system.caracteristique.escroquerie':cpts[35],'system.caracteristique.esquiver':cpts[36],'system.caracteristique.puissance':cpts[37],'system.caracteristique.astuce':cpts[38],'system.caracteristique.peur':cpts[39],'system.caracteristique.joueur':cpts[40],'system.caracteristique.maitrise':cpts[41],'system.caracteristique.natation':cpts[42],'system.caracteristique.navigation':cpts[43],'system.caracteristique.orientation':cpts[44],'system.caracteristique.persuasion':cpts[45],'system.caracteristique.pister':cpts[46],'system.caracteristique.prophetie':cpts[47],'system.caracteristique.secours':cpts[48],'system.caracteristique.resistance':cpts[49],'system.caracteristique.psychologue':cpts[50],'system.caracteristique.medecine':cpts[51],'system.caracteristique.survie':cpts[52],'system.caracteristique.tueur':cpts[53],'system.caracteristique.objet':cpts[54],'system.caracteristique.veterinaire':cpts[55],'system.caracteristique.vigilance':cpts[56],'system.caracteristique.vise':cpts[57]});
+        
     }
 }
    
