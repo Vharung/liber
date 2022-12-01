@@ -17,8 +17,8 @@ option, optgroup,#chat-controls .roll-type-select{background: #20180d;}
 .chat-message{color: #fff;border: none;margin-bottom: 15px;}
 .chat-message .message-header{color: #fff}
 .chat-message.whisper,.chat-message.blind {background: #967b43;border:none;}
-.window-app .window-header {flex: 100%;text-align: right;}
-.window-app .window-header h4 {float: left;}
+.Liber .window-header {flex: 100%;text-align: right;}
+.Liber .window-header h4 {float: left;}
 .sheet nav.sheet-tabs{border: none;margin: 0px}
 button,.dialog .dialog-buttons button.default,form button{background: rgb(143 26 40);border: none;color: #fff;}
 .directory .directory-header .header-search input ,.dialog-content input,select{background: #30220c;border: none;color: #fff;}
