@@ -85,12 +85,12 @@
         html.find('.maingauche').click(this._onArmor.bind(this));
         html.find('.armor').click(this._onArmor.bind(this));
         html.find('.attribut').click(this._onAttr.bind(this));
+        html.find('.desequi').click(this._onArmor.bind(this));
         html.find('.resetbonus').click(this._onRestAttr.bind(this));
         html.find('.resetmalus').click(this._onRestAttr.bind(this));
 
         //Jet de des
         html.find('.jetdedes').click(this._onRoll.bind(this)); 
-        //html.find('.jetdedegat').click(this._onRoll2.bind(this));
         html.find('.jetdedegat').click(this._onRoll.bind(this));
         
         //generateur
@@ -115,9 +115,7 @@
         html.find('.aucune').click(this._onPosture.bind(this));
         html.find('.chnget').click(this._onCouv.bind(this));
         html.find('.attaque').click(this._onRoll.bind(this));
-        //html.find('.attaque').click(this._Attaque.bind(this));
         html.find('.attaques').click(this._onRoll.bind(this));
-        //html.find('.attaques').click(this._Attaque.bind(this));
 
         //edition items
         html.find('.item-edit').click(this._onItemEdit.bind(this));
@@ -268,48 +266,6 @@
         html.find('.encours').val(total);
         html.find('.barenc').css({"width":pourcentage+"%"});
 
-        //Equipé
-        html.find('.desequi').click('click',function(){
-            var equipe=$(this).attr('data-equip');
-            var race=html.find('.race').val();
-            var maing=html.find('.maingaucequi').val();
-            var maind=html.find('.maindroiequi').val();
-            var protection=html.find('.armurequi').val();
-            if(equipe=="dgauche"){
-                html.find('.maingaucequi').val('');
-                html.find('.degatg').val('');
-                maing='';
-            }else if(equipe=="ddroite"){
-                html.find('.maindroiequi').val('');
-                html.find('.degatd').val('');
-                maind='';
-            }else if(equipe=="darmure"){
-                html.find('.armurequi').val('');
-                protection='';
-            }
-            
-            var armure = 0;
-            if(race==game.i18n.localize("liber.avantrace60")){
-                armure = 2;
-            }
-
-            
-            if(maind=="Bouclier"){armure=armure+1;}
-            else if(maind=="Grand Bouclier"){armure=armure+2;} 
-
-            if(maing=="Bouclier"){armure=armure+1;}
-            else if(maing=="Grand Bouclier"){armure=armure+2;}
-
-            if(protection=="Bouclier"){armure=armure+1;} 
-            else if(protection=="Cuir souple"){armure=armure+1;}
-            else if(protection=="Grand Bouclier"){armure=armure+2;} 
-            else if(protection=="Cuir rigide"){armure=armure+2;} 
-            else if(protection=="Cote de maille"){armure=armure+3;}
-            else if(protection=="Armure de plaques"){armure=armure+4;}     
-            console.log(armure)
-            html.find('.armureperso').val(armure);
-        });
-
         var hp= html.find('.hp').val();
         if(hp<=0){
             html.find('.autres').css({"background":"url(systems/liber/css/parchemin-sang.jpg)",'background-size': 'cover'});
@@ -439,7 +395,7 @@
 
                     if(degat>0){
                         hp=parseInt(hp)-degat;
-                        if(hp<0){
+                        if(hp<=0){
                             console.log(i)
                             hp=0;//mort automatique 
                             i.actor.createEmbeddedDocuments("ActiveEffect", [
@@ -971,6 +927,14 @@
         }else if(equipe=="armure"){
             this.actor.update({'system.armure': objetaequipe});
             armor=objetaequipe;
+        }else{
+            if(equipe=="ddroite"){
+                this.actor.update({'system.armed': '','system.degatd': '','system.imgd': '','system.desd': ''});
+            }else if(equipe=="dgauche"){
+                this.actor.update({'system.armeg': '','system.degatg': '','system.imgg': '','system.desg': ''});
+            }else {
+                this.actor.update({'system.armure': ''});
+            }
         } 
 
         var armure = 0;
@@ -1396,6 +1360,8 @@
         var long = obj.length;
         var listem=[];
         var img=[];
+        console.log(abc)
+        console.log(obj)
         for (var i=0; i<long; i++){
             img.push(obj[i].img)   
         }

@@ -116,6 +116,7 @@
   "liber.gauche": "Main gauche",
   "liber.droite": "Main droite",
   "liber.name": "Nom",
+  "liber.sex": "Sexe",
   "liber.sex1": "Male",
   "liber.sex2": "Female",
   "liber.sex0": "Autre",
