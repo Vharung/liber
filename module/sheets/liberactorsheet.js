@@ -1367,7 +1367,17 @@
         }
         for (var i = img.length - 1; i >= 0; i--) {
             if(img[i]=='systems/liber/assets/magie/'+mag1+'.jpg' || img[i]=='systems/liber/assets/magie/'+mag2+'.jpg'){
-                listem.push({'id':obj[i]._id,'name':obj[i].name})
+                var ids=obj[i]._id; var name=obj[i].name
+                listem.push({'id':ids,'name':name})
+                
+                /*let itemData= this.actor.items.filter(i=>i.name == chargequi);                 
+                var iditem= itemData[0].id;
+                var qty = itemData[0].system.quantite;
+                if(perte==10){
+                    itemData[0].NunsMoins();
+                }else{
+                    itemData[0].MunMoins();
+                }*/
             }
         }
         //this.actor.update({"system.listemag.liste":magdispo})
