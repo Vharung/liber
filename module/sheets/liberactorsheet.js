@@ -1077,6 +1077,7 @@
         let compt=this.actor.system.talent
         let faible=this.actor.system.faiblesse
         var hpmax=this.actor.system.hp.max;
+        var metier=this.actor.system.metier
         var resultat=35+(parseInt(level)*15);
         if(race==game.i18n.localize("liber.avantrace61")){
             var reste=175-(parseInt(phys)+parseInt(soci)+parseInt(ment)); 
@@ -1251,10 +1252,11 @@
 
         var mag1='aucun';var mag2='aucun';var all=0;
         if(clan==game.i18n.localize("liber.avantrace56")){
-            mag1='corbeau';mag2='rune';
+            mag1='corbeau';
+        }else if(metier==game.i18n.localize("liber.metier12")){
+            mag1='Troubadour';
         }else if(race==game.i18n.localize("liber.avantrace61")){
-            mag1='humain';
-            
+            mag1='humain';  
         }else if(race==game.i18n.localize("liber.avantrace62")){
             mag1='demon';
             
@@ -1301,12 +1303,12 @@
             mag1='vie';
         }else if(clan==game.i18n.localize("liber.avantrace55")){
             mag1='ombre';
-        }else if(clan==game.i18n.localize("liber.avantrace56")){
-            mag1='corbeau';mag2='rune';
-        }else if(clan==game.i18n.localize("liber.avantrace56")){
+        }else if(clan==game.i18n.localize("liber.avantrace59")){
             mag1='constellation';
         }
-        if(reli==game.i18n.localize("liber.avantrace80")){
+        if(clan==game.i18n.localize("liber.avantrace56")){
+            mag2='rune';
+        }else if(reli==game.i18n.localize("liber.avantrace80")){
             mag2='Vharung';
         }else if(reli==game.i18n.localize("liber.avantrace81")){
             mag2='nouvelordre';
@@ -1331,7 +1333,7 @@
         }else if(reli==game.i18n.localize("liber.avantrace91")){
             mag2='illusion';
         }
-
+        console.log(metier+'='+game.i18n.localize("liber.metier12")+'-'+mag1+' - '+mag2)
         //activer les effets
         let effet=this.actor.effects;
         var effets=[];
@@ -1360,8 +1362,8 @@
         var long = obj.length;
         var listem=[];
         var img=[];
-        console.log(abc)
-        console.log(obj)
+        //console.log(abc)
+        //console.log(obj)
         for (var i=0; i<long; i++){
             img.push(obj[i].img)   
         }
