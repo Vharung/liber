@@ -524,7 +524,7 @@
         this.actor.update({"system.insoin": insoin,"system.hp.value": hp,"system.psy.value": psy});
         const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +' : '+ inforesult +'/100</span><span class="desctchat">'+desc+'</span></p>'+succes+'</span>';
         roll.toMessage({
-            speaker: ChatMessage.getSpeaker({ actor: this.actor }),//bug
+            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
             flavor: texte
         });
     }
