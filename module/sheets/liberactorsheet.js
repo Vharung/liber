@@ -627,13 +627,14 @@
     }
 
     _onPosture(event){
-        var postures=event.target.dataset["post"];
+        var postures=$(event.target).attr("class");
+        console.log(postures)
         var texte = '';
-        if(postures=="Focus"){
+        if(postures=="focus"){
             texte = '<span style="flex:auto"><p class="resultatp">'+ game.i18n.localize("liber.lang88")+'</p></span>';
-        }else if(postures=="Offensif"){
+        }else if(postures=="offensif"){
             texte = '<span style="flex:auto"><p class="resultatp">'+ game.i18n.localize("liber.lang86")+'</p></span>';           
-        }else if(postures=="Défensif"){
+        }else if(postures=="defensif"){
             texte = '<span style="flex:auto"><p class="resultatp">'+ game.i18n.localize("liber.lang87")+'</p></span>';
         }else{
             texte = '<span style="flex:auto"><p class="resultatp">'+ game.i18n.localize("liber.lang89")+'</p></span>';
@@ -973,6 +974,7 @@
         let effet=this.actor.effects;
         var ids=null;
         let etat=active[idn];
+        var etre='Est'
         console.log(idn+' '+active[idn]+' '+lists[idn])
         if(etat==0.5){
             this.actor.createEmbeddedDocuments("ActiveEffect", [
@@ -988,9 +990,10 @@
             });            
             this.actor.deleteEmbeddedDocuments("ActiveEffect", [ids]);
             this.actor.update({[`system.etat.${etats[idn]}`]:0.5});
+            etre="N'est plus";
         }
 
-        var texte = "<span style='flex:auto'><p class='resultatp'>Est &nbsp; <span style='text-transform:uppercase;font-weight: bold;'> "+lists[idn]+"</span></span></span>";
+        var texte = "<span style='flex:auto'><p class='resultatp'>"+etre+" &nbsp; <span style='text-transform:uppercase;font-weight: bold;'> "+lists[idn]+"</span></span></span>";
         let chatData = {
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
             content: texte
