@@ -88,14 +88,13 @@
         html.find('.desequi').click(this._onArmor.bind(this));
         html.find('.resetbonus').click(this._onRestAttr.bind(this));
         html.find('.resetmalus').click(this._onRestAttr.bind(this));
-
+        
         //Jet de des
         html.find('.jetdedes').click(this._onRoll.bind(this)); 
         html.find('.jetdedegat').click(this._onRoll.bind(this));
         
         //generateur
         html.find('.ficheperso').click(this._onGenerator.bind(this));
-        html.find('.item-sort').click(this._onAddSort.bind(this));
 
         //monstre level up
         if(this.actor.type=="monstre"){
@@ -149,6 +148,19 @@
                 $(this).parent().parent().css({"height":"30px"});
             }
         });
+
+        html.find('.addsort').click(ev => {
+            event.preventDefault();
+            const name=html.find('.magieslistes option:selected').val()
+            const description=html.find('.magieslistes option:selected').data('description');
+            const cout=html.find('.magieslistes option:selected').data('cout');
+            const classe=html.find('.magieslistes option:selected').data('classe');
+            const cible=html.find('.magieslistes option:selected').data('cible');
+            const degat=html.find('.magieslistes option:selected').data('degat');
+            const duree=html.find('.magieslistes option:selected').data('duree');
+            this.actor.createEmbeddedDocuments('Item', [{ name: name, type: 'magie', 'system.description' : description, 'system.classe' : classe, 'system.cible' : cible, 'system.cout' : cout, 'system.duree' : duree }], { renderSheet: false })
+        }); 
+
         
         html.find( ".compt input" ).each(function() {
               var valor= $( this ).val();
@@ -515,34 +527,6 @@
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),//bug
             flavor: texte
         });
-
-
-        /*if(degats>0){//dev
-        //mise à jour des pv des cibles 
-            let degat=event.target.dataset["degat"];
-            if(degat!== null && degat !=='' && degat>0){
-                let re = new Roll(monJetDeDes);
-                var rol=re.evaluate({"async": false});
-
-                //mise à jour des pv des cibles 
-                var listesoin=['La Grande Ourse','Constellations',Appel à  Nekarx : Demon de la Vie.',Eau de vie','Cautérisation','Soin vétérinaire','Voix de la sagesse','Musique réconfortante','Cicatrisation de Waetra']
-                var perse=['Le Dragon','Le Petit Lion',"Dague d'ombres",'Souffle mortel','Propulsion','Malédiction de Vharung','Unité','Arcanes secrètes','La loi du sang']
-                var volpsy=['Vol de magique','Absorption de magie','Ultra son','Dernière symphonie','Sournoiserie de Waetra']
-                game.user.targets.forEach(i => {
-                    var hp = i.document._actor.system.hp.value;
-                    hp=parseInt(hp)-parseInt(rol.total);
-                    if(hp<0){hp=0}
-                    i.actor.update({'system.hp.value': hp});
-                })  
-
-                const text = '<span style="flex:auto"><p class="resultatp"><img src="'+img+'"  width="24" height="24"/>&nbsp; Prends ' + degat + ' : '+ rol.total +'<p>';
-                rol.toMessage({
-                    speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-                    flavor: text
-                });
-            }
-            
-        }*/
     }
 
     _onInfo(event){
@@ -1006,12 +990,12 @@
             this.actor.update({[`system.etat.${etats[idn]}`]:0.5});
         }
 
-        /*var texte = "<span style='flex:auto'><p class='resultatp'>"+tuer[d]+"&nbsp; <span style='text-transform:uppercase;font-weight: bold;'> "+nom+"</span></span></span>";
+        var texte = "<span style='flex:auto'><p class='resultatp'>Est &nbsp; <span style='text-transform:uppercase;font-weight: bold;'> "+lists[idn]+"</span></span></span>";
         let chatData = {
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
             content: texte
         };
-        ChatMessage.create(chatData, {}); //dev */
+        ChatMessage.create(chatData, {}); //dev 
     }
 
     _onAttr(event){
@@ -1042,19 +1026,6 @@
             enc=parseInt(enc)-10
         }
         this.actor.update({"system.encombrement.max":enc});
-    }
-
-    _onAddSort(event){
-        const pack = game.packs.get("liber.magie", item => item.img.toLowerCase() == 'systems/liber/assets/magie/air.jpg');
-        // recupérer les sorts
-        var sort=pack.index;
-        var long =sort.length;//undefined
-        for (var i=0; i<10; i++){ 
-            console.log(sort[i]);//undefined
-            
-        }
-        console.log(long);
-        console.log(sort);       
     }
 
     async _onStat(event){
@@ -1107,15 +1078,15 @@
         }
         if(race==game.i18n.localize("liber.avantrace60")){
             resultat=resultat-20;
-            waetra='display:none;';demon='display:none;';humain='display:none;';drauch='display:none;';
-        }else if(race==game.i18n.localize("liber.avantrace61") || clan==game.i18n.localize("liber.avantrace56") ){
+            waetra='display:none;';demon='display:none;';humain='display:none;';drauch='display:none;';waetra='display:none;';
+        }else if(race==game.i18n.localize("liber.avantrace39") ){
             resultat=resultat+15;
-            if(cpt28<5){cpt28=5;}
-            demon='display:none;';dragon='display:none;';drauch='display:none;';vharung='display:none;';vaudou='display:none;';
+            if(cpt39<10){cpt39=10;}
+            dragon='display:none;';drauch='display:none;';humain='display:none;';
         }else if(race==game.i18n.localize("liber.avantrace61") ){
             resultat=resultat+15;
             if(cpt28<5){cpt28=5;}
-            demon='display:none;';dragon='display:none;';drauch='display:none;';vharung='display:none;';vaudou='display:none;';
+            demon='display:none;';dragon='display:none;';drauch='display:none;';vaudou='display:none;';
         }else if(race==game.i18n.localize("liber.avantrace62")){
             resultat=resultat+10;
             dragon='display:none;';humain='display:none;';drauch='display:none;';
@@ -1200,10 +1171,11 @@
                 PVmin=parseInt(PVmin)-5
             }
             var PSYmin=b_psy;
+            var cout=0;
             if(clan==game.i18n.localize("liber.avantrace56")){
-                var cout=parseInt(level)+1;
+                cout=parseInt(level)+1;
             }else {
-                var cout=Math.round((parseInt(psy)-parseInt(b_nb))/2)+3;
+                cout=Math.round((parseInt(psy)-parseInt(b_nb))/2)+3;
             }
             
             //calcul cout et nb sort
@@ -1257,7 +1229,7 @@
             mag1='Troubadour';
         }else if(race==game.i18n.localize("liber.avantrace61")){
             mag1='humain';  
-        }else if(race==game.i18n.localize("liber.avantrace62")){
+        }else if(race==game.i18n.localize("liber.avantrace39")){
             mag1='demon';
             
         }else if(race==game.i18n.localize("liber.avantrace62")){
@@ -1333,7 +1305,6 @@
         }else if(reli==game.i18n.localize("liber.avantrace91")){
             mag2='illusion';
         }
-        console.log(metier+'='+game.i18n.localize("liber.metier12")+'-'+mag1+' - '+mag2)
         //activer les effets
         let effet=this.actor.effects;
         var effets=[];
@@ -1356,75 +1327,18 @@
         }
 
         //liste des sorts possible //dev
-        const abc = await game.packs.get('liber.magie');
-        var obj = JSON.stringify(abc.index);
-        obj = JSON.parse(obj);
-        var long = obj.length;
-        var listem=[];
-        var img=[];
-        //console.log(abc)
-        //console.log(obj)
-        for (var i=0; i<long; i++){
-            img.push(obj[i].img)   
-        }
-        for (var i = img.length - 1; i >= 0; i--) {
-            if(img[i]=='systems/liber/assets/magie/'+mag1+'.jpg' || img[i]=='systems/liber/assets/magie/'+mag2+'.jpg'){
-                var ids=obj[i]._id; var name=obj[i].name
-                listem.push({'id':ids,'name':name})
-                
-                /*let itemData= this.actor.items.filter(i=>i.name == chargequi);                 
-                var iditem= itemData[0].id;
-                var qty = itemData[0].system.quantite;
-                if(perte==10){
-                    itemData[0].NunsMoins();
-                }else{
-                    itemData[0].MunMoins();
-                }*/
+        //const abc = await game.packs.get('liber.magie');
+        var listem=[]
+        const pack = game.packs.get('liber.magie');
+        const tables = await pack.getDocuments();
+        $.each( tables, function( key, value ) {
+            if(value.system.classe==mag1 || value.system.classe==mag2){ 
+                var coutm=parseInt(value.system.cout)
+                if(coutm<=value.system.cout || cout=="X"){
+                    listem.push({'name':value.name,'cible':value.system.cible,'classe':value.system.classe,'cout':value.system.cout,'degat':value.system.degat,'description':value.system.description,'duree':value.system.duree})
+                }
             }
-        }
-        //this.actor.update({"system.listemag.liste":magdispo})
-
-        //liste de sorts disponible à l'ajout en fonction des options choisis
-        /*var option='';
-        for (var i=0; i<long; i++){
-            if(all==1){
-                option+='<option data-id="'+obj[i]._id+'">'+obj[i].name+'</option>';
-            }else if (obj[i].img=="systems/liber/assets/magie/"+mag1+".jpg" || obj[i].img=="systems/liber/assets/magie/"+mag2+".jpg"){
-                option+='<option data-id="'+obj[i]._id+'">'+obj[i].name+'</option>';
-            }
-        }
-
-        //liste des objets possible
-        const abcd = await game.packs.get('liber.objet');
-        var objs = JSON.stringify(abcd.index);
-        objs = JSON.parse(objs);
-        var longs = objs.length;
-        var options='';
-        for (var i=0; i<long; i++){
-            options+='<option data-id="'+obj[i]._id+'">'+obj[i].name+'</option>';
-            
-        }
-        const abcde = await game.packs.get('liber.arme');
-        var objs = JSON.stringify(abcde.index);
-        objs = JSON.parse(objs);
-        var longs = objs.length;
-        for (var i=0; i<long; i++){
-            options+='<option data-id="'+obj[i]._id+'">'+obj[i].name+'</option>';
-            
-        }
-        const abcdef = await game.packs.get('liber.armure');
-        var objs = JSON.stringify(abcdef.index);
-        objs = JSON.parse(objs);
-        var longs = objs.length;
-        for (var i=0; i<long; i++){
-            options+='<option data-id="'+obj[i]._id+'">'+obj[i].name+'</option>';   
-        }
-
-        /*var a_id=this.actor._id;
-        console.log(a_id)
-        $('#LiberActorSheet-Actor-'+a_id+' .listemag').html(option);*/
-
-        //update  'system.alert.listemag':option,'system.alert.listeobj':options,
+        });
         this.actor.update({"system.etat.a":active[0],"system.etat.b":active[1],"system.etat.c":active[2],"system.etat.d":active[3],"system.etat.e":active[4],"system.etat.f":active[5],"system.etat.g":active[6],"system.etat.h":active[7],"system.etat.i":active[8],"system.etat.j":active[9],"system.etat.k":active[10],"system.etat.l":active[11],"system.etat.m":active[12],"system.etat.n":active[13],"system.reste":reste,'system.alert.listemag.liste':listem,'system.alert.listemag.img1':mag1,'system.alert.listemag.img2':mag2,'system.alert.psy':apsy,'system.alert.psymax':apsymax,'system.alert.hp':ahp,'system.alert.hpmax':ahp,'system.hp.max':hpmax,'system.hp.value':hp,'system.psy.max':psy,'system.psy.value':psyvalue,"system.restant":resultat,'system.maxsort':calsort,'system.coutmax':cout,'system.alert.maxsort':color1,'system.alert.coutmax':color2,'system.alert.physique':aphy,'system.alert.force':afor,'system.alert.agilite':agil,'system.alert.social':asoc,'system.alert.charisme':acha,'system.alert.sagacite':asag,'system.alert.mental':amen,'system.alert.astuce':aast,'system.alert.memoire':amem,'system.alert.waetra':waetra,'system.alert.demon':demon,'system.alert.humain':humain,'system.alert.dragon':dragon,'system.alert.drauch':drauch,'system.alert.vharung':vharung,'system.alert.vaudou':vaudou,'system.alert.corbeau':corbeau,'system.alert.cercle':cercle,'system.alert.autre':autre,'system.alert.aucun':aucun,'system.alert.metiertitre':metiertitre,'system.caracteristique.acrobatie':cpts[0],'system.caracteristique.agilites':cpts[1],'system.caracteristique.alchimie':cpts[2],'system.caracteristique.apprentissage':cpts[3],'system.caracteristique.hast':cpts[4],'system.caracteristique.cc':cpts[5],'system.caracteristique.lancer':cpts[6],'system.caracteristique.melee':cpts[7],'system.caracteristique.tir':cpts[8],'system.caracteristique.art':cpts[9],'system.caracteristique.assassinat':cpts[10],'system.caracteristique.baton':cpts[11],'system.caracteristique.bouclier':cpts[12],'system.caracteristique.bricolage':cpts[13],'system.caracteristique.presence':cpts[14],'system.caracteristique.chercher':cpts[15],'system.caracteristique.commander':cpts[16],'system.caracteristique.concentration':cpts[17],'system.caracteristique.nature':cpts[18],'system.caracteristique.peuples':cpts[19],'system.caracteristique.religions':cpts[20],'system.caracteristique.geographique':cpts[21],'system.caracteristique.rue':cpts[22],'system.caracteristique.heretiques':cpts[23],'system.caracteristique.combat':cpts[24],'system.caracteristique.commerce':cpts[25],'system.caracteristique.crochetage':cpts[26],'system.caracteristique.discretion':cpts[27],'system.caracteristique.dexterite':cpts[28],'system.caracteristique.detection':cpts[29],'system.caracteristique.dissimulation':cpts[30],'system.caracteristique.dressage':cpts[31],'system.caracteristique.ennemi':cpts[32],'system.caracteristique.equilibre':cpts[33],'system.caracteristique.equitation':cpts[34],'system.caracteristique.escroquerie':cpts[35],'system.caracteristique.esquiver':cpts[36],'system.caracteristique.puissance':cpts[37],'system.caracteristique.astuce':cpts[38],'system.caracteristique.peur':cpts[39],'system.caracteristique.joueur':cpts[40],'system.caracteristique.maitrise':cpts[41],'system.caracteristique.natation':cpts[42],'system.caracteristique.navigation':cpts[43],'system.caracteristique.orientation':cpts[44],'system.caracteristique.persuasion':cpts[45],'system.caracteristique.pister':cpts[46],'system.caracteristique.prophetie':cpts[47],'system.caracteristique.secours':cpts[48],'system.caracteristique.resistance':cpts[49],'system.caracteristique.psychologue':cpts[50],'system.caracteristique.medecine':cpts[51],'system.caracteristique.survie':cpts[52],'system.caracteristique.tueur':cpts[53],'system.caracteristique.objet':cpts[54],'system.caracteristique.veterinaire':cpts[55],'system.caracteristique.vigilance':cpts[56],'system.caracteristique.vise':cpts[57]});
         
     }

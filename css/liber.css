@@ -161,3 +161,5 @@ button,.dialog .dialog-buttons button.default,form button{background: rgb(143 26
 .infosort:active .desctchat{display: flex;}
 .Liber .addsort{width: 100%;border: none;color: #fff;font-size: 1.5em;height: 40px;margin: 0;line-height: 0;}
 .Liber .attaque,.Liber .attaques{width: 28px;margin-left: 8px;}
+
+.Liber .resetmalus,.Liber .resetbonus{width: 42px;height: 50px;float: right;}

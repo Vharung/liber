@@ -417,15 +417,20 @@
 
 				{{!-- Pouvoirs Tab --}}
 				<div id="spells" class="tab spells" data-group="primary" data-tab="spells">
-					<!--div class="rexrow stat"><dev>
-				    	<select class="magieslistes">
-		                    {{#select actor.system.magie}}
-			                    {{#each actor.system.alert.listemag.liste}}
-			                    <option value="{{this.id}}">{{this.name}}</option>
-			                    {{/each}}
-		                    {{/select}}
-		                </select>
-	        		</div-->
+					<div class="rexrow stat" style="display: flex;">
+						<div class="grid-2col">
+					    	<select class="magieslistes" style="height: 40px;">
+			                    {{#select actor.system.magie}}
+				                    {{#each actor.system.alert.listemag.liste}}
+				                    <option value="{{this.name}}" title="{{this.description}} - {{this.cout}}" data-cout="{{this.cout}}" data-classe="{{this.classe}}" data-cible="{{this.cible}}" data-degat="{{this.degat}}" data-description="{{this.description}}" data-duree="{{this.duree}}">{{this.name}}</option>
+				                    {{/each}}
+			                    {{/select}}
+			                </select>
+			            </div>
+			            <div class="grid-2col">
+			            	<button class="addsort">{{localize 'liber.addsort'}}</button>
+			            </div>
+	        		</div>
 				        <ol class="items-list">
 			                <li class="item fexrow item-header">
 			                  <div class="item-image"></div>
@@ -641,7 +646,7 @@
 				                    <option class="humain" style="{{actor.system.alert.humain}}" value="{{localize 'liber.avantrace82'}}">{{localize 'liber.avantrace82'}}</option>
 				                    <option class="humain" style="{{actor.system.alert.humain}}" value="{{localize 'liber.avantrace83'}}">{{localize 'liber.avantrace83'}}</option>
 				                    <option class="dragon" style="{{actor.system.alert.dragon}}" value="{{localize 'liber.avantrace84'}}">{{localize 'liber.avantrace84'}}</option>
-				                    <option class="demon" style="{{actor.system.alert.demon}}" value="{{localize 'liber.avantrace85'}}">{{localize 'liber.avantrace85'}}</option>
+				                    <option class="demon" style="{{actor.system.alert.waetra}}" value="{{localize 'liber.avantrace85'}}">{{localize 'liber.avantrace85'}}</option>
 				                    <option class="demon" style="{{actor.system.alert.demon}}" value="{{localize 'liber.avantrace86'}}">{{localize 'liber.avantrace86'}}</option>
 				                    <option class="humain" style="{{actor.system.alert.humain}}" value="{{localize 'liber.avantrace87'}}">{{localize 'liber.avantrace87'}}</option>
 				                    <option class="cercle" style="{{actor.system.alert.cercle}}" value="{{localize 'liber.avantrace88'}}">{{localize 'liber.avantrace88'}}</option>
