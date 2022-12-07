@@ -417,7 +417,7 @@
 
 				{{!-- Pouvoirs Tab --}}
 				<div id="spells" class="tab spells" data-group="primary" data-tab="spells">
-					<div class="rexrow stat" style="display: flex;">
+					<div class="rexrow stat bucketmagie" style="display: flex;">
 						<div class="grid-2col">
 					    	<select class="magieslistes" style="height: 40px;">
 			                    {{#select actor.system.magie}}
@@ -638,7 +638,7 @@
 						</div>
 						<div class="grid-2col" style="text-align: center;color:#fff">
 							<h2>Religion</h2>
-							<SELECT  name="system.religion">
+							<SELECT class="religionliste" name="system.religion">
 								{{#select actor.system.religion}}
 									<option class="aucun" style="{{actor.system.alert.aucun}}" value="{{localize 'liber.avantrace79'}}">{{localize 'liber.avantrace79'}}</option>
 				                    <option class="vharung" style="{{actor.system.alert.vharung}}" value="{{localize 'liber.avantrace80'}}">{{localize 'liber.avantrace80'}}</option>

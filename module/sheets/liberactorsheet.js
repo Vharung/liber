@@ -277,7 +277,11 @@
         }
         html.find('.encours').val(total);
         html.find('.barenc').css({"width":pourcentage+"%"});
-
+        var autre=html.find('.clanliste option:selected').val()
+        var autres=html.find('.religionliste option:selected').val()
+        if(autre==game.i18n.localize("liber.avantrace79") && autres==game.i18n.localize("liber.avantrace79")){
+            html.find('.bucketmagie').css({"display":"none"});
+        }
         var hp= html.find('.hp').val();
         if(hp<=0){
             html.find('.autres').css({"background":"url(systems/liber/css/parchemin-sang.jpg)",'background-size': 'cover'});
@@ -696,12 +700,27 @@
             var pair1=list[Math.floor(Math.random()*list.length)];
             var pair2=list2[Math.floor(Math.random()*list2.length)];
             var name=pair1+" "+pair2;
-        }else {
+        }else if(race==game.i18n.localize("liber.avantrace92") || race==game.i18n.localize("liber.avantrace66") || race==game.i18n.localize("liber.avantrace67") || race==game.i18n.localize("liber.avantrace68")){
             if(sexe=="Female"){
-                var name="Janes Dow";
-            }else{
-                var name="John Dow";
+                var list =["Aerin","Aglari","Amandil","Amarië","Anardil : amie du soleil","Arafinwë : royale","Arachné","Aranwë","Arcadia","Ardamírë","Aredhel","Ardamir : Joyaux du monde","Argadil :","Ariarhen","Arminas","Artaher : noble dame","Artanis : noble femme","Arwen","Ashana","Astal : la vaillante","Athelleen : guerrière des flammes","Baliena","Barmahir","Belwen","Brindal","Caliawen : la lumineuse","Carafinwë : L’habile","Castamir : joyaux","Celebrían : reine d’argent","Celeanar : soleil d’argent","Circë : magicienne","Ciryandil : amie des navires","Dairiun","Danica","Danywen","Daenara","Dhaunare","Dralsa","Diningal","Eärendil : amie de la mer","Earwen : jeune fille de la mer","Eilinel","Elendë : ami des elfes/des étoiles","Elemmacil : étoile épée","Elbereth : étoile-reine","Eledhwen : au teint d’elfe","Elemire : étoile joyaux","Elwë : à la robe grise","Enetari : étoile-reine","Elenwë","Elentir : qui scrute les étoile","Elessar : pierre elfique","Elerinna : couronnée d’étoiles","Elwing (pluie d’étoiles)","Emeldiz","Endaria","Estë : repos","Eänwen : jeune fille de la mer","Eldalótë : fleur elfique","Eönwë","Eressëa : la solitaire","Estrid : la mystique","Falathar : esprit du feu","Fëanturi : maîtresse des esprits","Fíriel : femme mortelle","Finduilas","Galadriel","Galata","Galdor","Glingal : la flamme suspendue","Glóredhel","Gilestel : étoile de l’espoir","Gilgalad : étoile rayonnante","Glorfindel : tête d’or","Heldaria","Idril","Ilmarë","Indis","Irwaen","Imarune","Isil : la lune","Itarillë : petite étincelle","Izilbêth","Kardryar : la puissante","Kementari : reine de la terre","Lalwendë : jeune fille rieuse","Lalaith : rire","Laurelin : le chant d’or","Limstella","Linaewen : lac des oiseaux","Lindorië","Luinil : étoile à la lumière bleue","Lúthien","Macalaure : qui forge l’or","Mahal","Maeglin : œil vif","Manîthil : esprit de lune","Melian","Míriel","Mormegil : l’épée noire","Morwën : noire forêt","Nandil : Reine du lac","Nennvial : lac du crépuscule","Nerdanel","Nessa","Nerwen","Nenwende : fille masculine","Nienor/Nior (deuil)","Níniel : fille aux larmes","Ninquelotë : fleur blanche","Ñolofinwë : sagesse","Númendil : amie de l’ouest","Oilossë : neige toujours blanche","Oromë : musicienne","Olórin","Olwë","Ondolindë : chant de pierre","Qorwyn : la maléfique","Rathlóriel : lit d’or","Rían","Rúmil : la savante","Serindë : la brodeuse","Silana","Siltiama : colère de feu","Sirthaal : ce qui est caché","Thuringwethil : femme secrète","Tintallë : la lumière","Tinúviel : fille du Crépuscule","Unyen","Vairë : la tisseuse","Valandil","Vàna","Varda : la très haute","Virani : reine","Volanarë : celle qui devine","Voronwë : l’inébranlable","Wilwarin : le papillon","Wondrel","Yarayn","Yavana : dispensatrice des fruits","Ylengil","Yndreth","Yndris"]
+
+            }else {
+                var list =["Adanedhel : homme-elfe","Adûnakhôr : seigneur de l’Ouest","Aeglos : pointe de Neige","Aegnor : feu cruel","Aerandir vagabond des mers","Argawaen taché de sang","Aldaron seigneur des arbres","Anario : soleil","Arcadio","Aranrùth : la colère du roi","Ancalagon","Anfauglith : poussière d’agonie","Atanatar : pére des hommes","Astaldo : le vaillant","Aulendil : ami d’aulë","Aulendur : serviteur","Balan","Baragund","Belegund","Bëor","Boromir : Joyau Loyal","Bregolas","Bronweg","Bruithwir","Calimehtar : guérrier de lumière","Calimmacil : épée de lumière","Calion : le lumineux","Calywen","Carcharoth : les mâchoires sanglantes","Castamir : joyaux","Celeborn : arbre d’argent","Ciryaher : seigneur des navires","Ciryandil : ami des navires","Ciryatan : constructeur de navire","Círyon","Círdan : le bâtisseur","Cirth : les runes","Cuthalion : arc de fer","Daeron","Dagnir : le tourmenteur","Deldúwath : horreur des Ombres de la Nuit","Denethor","Dimrost : les marches de la pluie","Dovahkiin : enfant des dragons","Duinhir : Seigneur de la rivière","Eärendur : serviteur de la mer","Eldacar : heaume","Eldarion :","Elendur : serviteur des étoiles","Elendil : ami des elfes/ étoiles","Elrond : voûte étoilée","Elros (écume d’étoile)","Eöl","Erchamion : le manchot","Falastur : seigneur des côtes","Fantur : maitre","Faramir : Joyau Suffisant","Fëanor[o] : l’esprit du feu","Felagund : seigneur des cavernes","Finwë","Fírimar : mortels","Gondolin : le roc caché","Gorthol : heaume de terreur","Gundor","Gurthang : le fer de la mort","Gwindor","Helevorn : verre noir","Herendil : ami de la fortune","Herumor : seigneur noir","Herunúmes : seigneur de l’ouest","Hyamendacil : vainqueur du sud","Imlach","Ingwë","Irmo","Isil : éclat argenté","Isildur","Lastalaica : celui qui écoute","Legolas : vertes feuilles","Lenwë","Lómelindi : chanteur de crépuscule","Lómion : fils du crépuscule","Lorgan","Lórindol : tête d’or","Maedhros","Mahtan","Mardil : ami du roi","Maglor","Magor","Meneldil","Narmacil : épée de feu","Nandor : ceux qui font demi-tour","Nómin : le sage","Ohtar : guerrier","Ostoher : seigneur de la citadelle","Radagast","Radhruin","Ragnor","Rána : le voyageur","Palantir : qui regarde au loin et partout","Pelendul : serviteur de la cité","Rauros : grondement d’écume","Rorhirrim : prince à cheval","Rómendacil : vainqueur de l’est","Russandol : tête de cuivre","Saeros","Salmar","Saruman : homme habile","Sauron : le détesté","Seregon : sang de pierre","Silmarien","Siriondil : ami de sirion","Sindar : manteau gris","Súlimo : celui qui respire","Tarannon : don royal","Targen","Terendul : grand ténébreux","Turindo : maitre de son coeur","Tauron : seigneur des forêts","Turucàno : seigneur et maitre","Tyeplerinquar : poigne d’argent","Telchar","Telemnar","Teleri : les derniers","Thalion : inébranlable fort","Thalos","Thorondor : Roi des aigles","Tilion","Tulkas : le plus grand pour la force et la vaillance","Turambar : maître du destin","Uldor","Ulmo : celui qui aime la pluie","Ulwarth","Umarth : mauvais sort","Urthel","Urulóki : serpent de feu","Valar : les puissants","Valacar : Heaume de puissance","Valaraukar : démons de la terreur","Vanyar : blond","Vása : le dévoreur","Vorondil : ami véritable"]
             }
+            var pair1=list[Math.floor(Math.random()*list.length)];
+            var name=pair1;
+        }else if(race==game.i18n.localize("liber.avantrace69")){
+            var list=["Bodruith","Fangluin l’Ancien","Naugladur","Telchar","Anar","Balin","Bifur","Bofur","Bombur","Borin","Burin","Dáin","Dís","Dori","Durin","Dwalin","Farin","Fíli","Fimbulfambi","Flói","Frár","Frerin","Frór","Fundin","Gandalf","Gimli","Glóin","Grór","Hannar","Kíli","Lofar","Lóni","Mîm","Náin","Náli","Nar","Nár","Narfi","Narvi","Nori","Oi","Óin","Ori","Thorin","Thráin","Thrór","Thrym","Azaghâl","Gamil","Zirak","Ibun","Khîm"]
+            var pair1=list[Math.floor(Math.random()*list.length)];
+            var name=pair1;
+        }else if(race==game.i18n.localize("liber.avantrace76")){
+            var list=["Akasha","Alucard","Alucard","Angel","Armand","Baron","Tarquin","Bloodscream","Dio","Claudia","Comtesse","Michael","Alice","Carlisle","Edward","Emmett","Esmée","Darla","David","Walter","Dracula","Dracula","Drusilla","Frankenpen","Deacon","Gabrielle","Grand","Jasper","Rosalie","Jane","Jessica","Jubilé","Kain","Harmony","Khayman","Hannibal","Lestat","Louis","MaelLe","Marceline","Marius","MonaMorbius","Nicolas","NosferatuLa","Pandora","Katherine","Raziel","Rüdiger","Damon","Stefan","Selene","Soma","Spike","Bella","Theodora","Vampi","Vampirella","Seras","Victoria","Lucy","Zara la vampire"]
+            var pair1=list[Math.floor(Math.random()*list.length)];
+            var name=pair1;
+        }else {
+            var list=["Aegnor","Aerandir","Ainaros","Amarië","Amdír","Amras","Amrod","Amroth","Anairë","Angrod","Annael","Aranel","Aranwë","Aredhel","Argon","Arminas","Arwen","Auredhir","Ausir","Beleg","Bronweg","Bruithwir","Caranthir","Celeborn ","Celebrían","Celebrimbor","Celebrindal","Celegorm","Círdan","Curufin","Curufinwë","Cúthalion","Daeron","Daurin","Denethor","Eärendil","Eärwen","Ecthelio","Edrahil","Egalmoth","Egnor","Elemmakil","Elfrith","Elladan et Elrohir","Elu Thingol","Elmo","Elrond","Eltas","Eluchíl","Eluréd","Elurín","Elwë","Elwing","Enel","Enelyë","Enerdhil","Eöl","Ereinion","Erellont","Erestor","Evranin","Evromord","Faelivrin","Falathar","Fëanor","Felagund","Finarfin","Findis","Finduilas","Finrod","Finwë","Galadhon","Galadriel ","Galathil","Galdor","Galion","Galweg","Gelmir","Gereth","Gil-estel","Gilfanon","Gil-galad","Gilmith","Glorfindel","Gwindor","Haldir","Hendor","Heorrenda","Idril","Ilverin","Imin","Iminyë","Indis","Ingil","Inglorion","Ingwë Ingweron","Írimë","Ithilbor","Ivárë","Lalwen","Legolas ","Lenwë","Lindir","Lindo","Lómion","Lúthien","Mablon","Mablung","Maedhros","Maeglin","Maglor","Mahtan","Meleth","Melinir","Meril-i-Turinqi","Míriel","Mithrellas"]
+            var pair1=list[Math.floor(Math.random()*list.length)];
+            var name=pair1;
         }
 
         //race
@@ -1244,9 +1263,9 @@
         }else if(race==game.i18n.localize("liber.avantrace62")){
             mag1='feu';
             
-        }else if(race==game.i18n.localize("liber.avantrace92") || race==game.i18n.localize("liber.avantrace66") || race==game.i18n.localize("liber.avantrace67") || race==game.i18n.localize("liber.avantrace68") ||race==game.i18n.localize("liber.avantrace69") || race==game.i18n.localize("liber.avantrace70") || race==game.i18n.localize("liber.avantrace71") || race==game.i18n.localize("liber.avantrace72") || race==game.i18n.localize("liber.avantrace73") || race==game.i18n.localize("liber.avantrace74") || race==game.i18n.localize("liber.avantrace75") || race==game.i18n.localize("liber.avantrace76") || race==game.i18n.localize("liber.avantrace77") || race==game.i18n.localize("liber.avantrace78")){
+        }/*else if(race==game.i18n.localize("liber.avantrace92") || race==game.i18n.localize("liber.avantrace66") || race==game.i18n.localize("liber.avantrace67") || race==game.i18n.localize("liber.avantrace68") ||race==game.i18n.localize("liber.avantrace69") || race==game.i18n.localize("liber.avantrace70") || race==game.i18n.localize("liber.avantrace71") || race==game.i18n.localize("liber.avantrace72") || race==game.i18n.localize("liber.avantrace73") || race==game.i18n.localize("liber.avantrace74") || race==game.i18n.localize("liber.avantrace75") || race==game.i18n.localize("liber.avantrace76") || race==game.i18n.localize("liber.avantrace77") || race==game.i18n.localize("liber.avantrace78")){
             all=1;
-        }else if(clan==game.i18n.localize("liber.avantrace40")){
+        }*/else if(clan==game.i18n.localize("liber.avantrace40")){
             mag1='air';
         }else if(clan==game.i18n.localize("liber.avantrace41")){
             mag1='eau';
@@ -1280,6 +1299,8 @@
             mag1='ombre';
         }else if(clan==game.i18n.localize("liber.avantrace59")){
             mag1='constellation';
+        }else if(clan==game.i18n.localize("liber.avantrace78")){
+            mag1='Autre';
         }
         if(clan==game.i18n.localize("liber.avantrace56")){
             mag2='rune';
@@ -1331,11 +1352,13 @@
 
         //liste des sorts possible //dev
         //const abc = await game.packs.get('liber.magie');
+        //|| race==game.i18n.localize("liber.avantrace92") || race==game.i18n.localize("liber.avantrace66") || race==game.i18n.localize("liber.avantrace67") || race==game.i18n.localize("liber.avantrace68")  || race==game.i18n.localize("liber.avantrace69") || race==game.i18n.localize("liber.avantrace70") || race==game.i18n.localize("liber.avantrace71")  || race==game.i18n.localize("liber.avantrace72") || race==game.i18n.localize("liber.avantrace73") || race==game.i18n.localize("liber.avantrace74") || race==game.i18n.localize("liber.avantrace75") || race==game.i18n.localize("liber.avantrace76") || race==game.i18n.localize("liber.avantrace77") || race==game.i18n.localize("liber.avantrace78")
         var listem=[]
+        console.log(clan+"-"+mag1)
         const pack = game.packs.get('liber.magie');
         const tables = await pack.getDocuments();
         $.each( tables, function( key, value ) {
-            if(value.system.classe==mag1 || value.system.classe==mag2){ 
+            if(value.system.classe==mag1 || value.system.classe==mag2 || mag1==game.i18n.localize("liber.avantrace78") ){ 
                 var coutm=parseInt(value.system.cout)
                 if(coutm<=value.system.cout || cout=="X"){
                     listem.push({'name':value.name,'cible':value.system.cible,'classe':value.system.classe,'cout':value.system.cout,'degat':value.system.degat,'description':value.system.description,'duree':value.system.duree})
