@@ -7,7 +7,7 @@
 					<img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
 				</div>
 				<div class="headtext">
-					<input class="nomperso" name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'liber.name'}}"/>
+					<img src="systems/liber/assets/icon/{{actor.system.metier}}.png" style="height: 30px;width: 30px;position: absolute;left: 570px;border:none"/><input class="nomperso" name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'liber.name'}}"/>
 					<div class="rexrow">
 						<div class="grid-3col">
 							<p style="color: #f5eaf57a;">{{localize 'liber.race'}} : <input class="race" type="text" title="{{actor.system.race}} - {{actor.system.metier}}" value="{{actor.system.race}} - {{actor.system.metier}}" placeholder="{{localize 'liber.race'}}" readonly="" /></p>

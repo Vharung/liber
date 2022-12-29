@@ -1098,7 +1098,7 @@
 
         var waetra='display:block'; var demon='display:block;';var humain='display:block;';var dragon='display:block;';var drauch='display:block;';var vharung='display:block;';var vaudou='display:block;';var corbeau='display:block;';var cercle='display:block;';var autre='display:block;';var aucun='display:block;';var metiertitre='';
         if(clan==game.i18n.localize("liber.avantrace56") || clan==game.i18n.localize("liber.avantrace58")){
-            metiertitre='display:none;';
+            metiertitre='display:none;';this.actor.update({"system.metier":"Guerrier"});
         }
         if(race==game.i18n.localize("liber.avantrace60")){
             resultat=resultat-20;
