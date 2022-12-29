@@ -666,7 +666,7 @@
         var cpt0 =0;var cpt1 =0;var cpt2 =0;var cpt3 =0;var cpt4 =0;var cpt5 =0;var cpt6 =0;var cpt7 =0;var cpt8 =0;var cpt9 =0;var cpt10 =0;var cpt11 =0;var cpt12 =0;var cpt13 =0;var cpt14 =0;var cpt15 =0;var cpt16 =0;var cpt17 =0;var cpt18 =0;var cpt19 =0;var cpt20 =0;var cpt21 =0;var cpt22 =0;var cpt23 =0;var cpt24 =0;var cpt25 =0;var cpt26 =0;var cpt27 =0;var cpt28 =0;var cpt29 =0;var cpt30 =0;var cpt31 =0;var cpt32 =0;var cpt33 =0;var cpt34 =0;var cpt35 =0;var cpt36 =0;var cpt37 =0;var cpt38 =0;var cpt39 =0;var cpt40 =0;var cpt41 =0;var cpt42 =0;var cpt43 =0;var cpt44 =0;var cpt45 =0;var cpt46 =0;var cpt47 =0;var cpt48 =0;var cpt49 =0;var cpt50 =0;var cpt51 =0;var cpt52 =0;var cpt53 =0;var cpt54 =0;var cpt55 =0;var cpt56 =0;var cpt57 =0;var cpt58 =0;
 
         //nom
-        if(race==game.i18n.localize("liber.avantrace60")){
+        if(race==game.i18n.localize("liber.avantrace60") || race==game.i18n.localize("liber.avantrace92") ){
             var list =["","","","dova","pey","nig","key","bod","iroo","lex","blo","roo","daka","zul","zaa","zey","zoo","paa","ral","tur","tey","tel","daco","too","ook","roo","goo","pol","mel","nax","dao","paar","krey","vha","rung","ynon","kryn","bor","fax","soo","jey","aata","aatu","aati","thur","löng","yook","diir","ooko","aka","ack","apa","eaat","yata","uru","moo","bla","reb","pot","taa","rook","creedo","berk","dooit"];
             var pair1=list[Math.floor(Math.random()*list.length)];
             var pair2=list[Math.floor(Math.random()*list.length)];
@@ -729,6 +729,8 @@
                 armureperso=2; 
             }
             cpt27=-10;avantagerace=game.i18n.localize("liber.avantrace1");
+        }else if(race==game.i18n.localize("liber.avantrace92")){
+            cpt1=5;cpt27=5;avantagerace=game.i18n.localize("liber.avantrace0");
         }else if(race==game.i18n.localize("liber.avantrace61")){
             avantagerace=game.i18n.localize("liber.avantrace2");cpt28=5;
         }else if(race==game.i18n.localize("liber.avantrace62")){
@@ -1100,6 +1102,9 @@
         }
         if(race==game.i18n.localize("liber.avantrace60")){
             resultat=resultat-20;
+            waetra='display:none;';demon='display:none;';humain='display:none;';drauch='display:none;';waetra='display:none;';
+        }if(race==game.i18n.localize("liber.avantrace92")){
+            resultat=resultat-25;
             waetra='display:none;';demon='display:none;';humain='display:none;';drauch='display:none;';waetra='display:none;';
         }else if(race==game.i18n.localize("liber.avantrace39") ){
             resultat=resultat+15;
