@@ -68,7 +68,7 @@
             argent.push(i);
           }
         }
-
+        sort.sort((a, b) => a.system.cout - b.system.cout);
         // Assign and return
         actorData.inventaire = inventaire;
         actorData.sort = sort;
@@ -632,7 +632,6 @@
 
     _onPosture(event){
         var postures=$(event.target).attr("class");
-        console.log(postures)
         var texte = '';
         if(postures=="focus"){
             texte = '<span style="flex:auto"><p class="resultatp">'+ game.i18n.localize("liber.lang88")+'</p></span>';
@@ -1041,7 +1040,11 @@
         const adata = data.actor;
         const compt = data.actor.system.talent
         const faible = data.actor.system.faiblesse
-        var enc=(parseInt(adata.system.force)+ parseInt(adata.system.caracteristique.puissance)) /2 + 35;
+        let forc=adata.system.force
+        let puis=adata.system.caracteristique.puissance
+        if(forc==''){forc=0}
+        if(puis==''){puis=0}
+        var enc=(parseInt(forc)+ parseInt(puis)) /2 + 35;
         //console.log('Encombrement:'+enc)
         if(compt=="Mulet"){
             enc=parseInt(enc)+10
@@ -1079,7 +1082,15 @@
         }else{
             var reste=170-(parseInt(phys)+parseInt(soci)+parseInt(ment)); 
         }
-       
+        if(phys==''){let phys=10}
+        if(forc==''){let force=5}
+        if(agil==''){let agilite=5}
+        if(soci==''){let social=10}
+        if(char==''){let charisme=5}
+        if(saga==''){let sagacite=5}
+        if(ment==''){let mental=10}
+        if(astu==''){let astuce=5}
+        if(memo==''){let physique=5}
         var aphy='#18100'; var afor='#18100'; var aagi='#18100';
         var asoc='#18100'; var acha='#18100'; var asag='#18100';
         var amen='#18100'; var aast='#18100'; var amem='#18100';
