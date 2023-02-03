@@ -60,6 +60,7 @@
           }
           else if (i.type === 'objet') {
             inventaire.push(i);
+            console.log(i.name)
           }
           else if (i.type === 'magie') {
             sort.push(i);
@@ -69,6 +70,9 @@
           }
         }
         sort.sort((a, b) => a.system.cout - b.system.cout);
+        inventaire.sort(function (a, b) {if (a.name < b.name) {return -1;} else {return 1;}});
+        arme.sort(function (a, b) {if (a.name < b.name) {return -1;} else {return 1;}});
+        armure.sort(function (a, b) {if (a.name < b.name) {return -1;} else {return 1;}});
         // Assign and return
         actorData.inventaire = inventaire;
         actorData.sort = sort;
