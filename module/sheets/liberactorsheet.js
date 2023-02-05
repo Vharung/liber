@@ -643,7 +643,7 @@
             texte = '<span style="flex:auto"><p class="resultatp">'+ game.i18n.localize("liber.lang86")+'</p></span>';           
         }else if(postures=="defensif"){
             texte = '<span style="flex:auto"><p class="resultatp">'+ game.i18n.localize("liber.lang87")+'</p></span>';
-        }else{
+        }else if(postures=="defensif"){
             texte = '<span style="flex:auto"><p class="resultatp">'+ game.i18n.localize("liber.lang89")+'</p></span>';
         }
         let chatData = {
