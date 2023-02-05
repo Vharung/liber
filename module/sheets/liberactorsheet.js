@@ -13,7 +13,7 @@
     }
 
     get template() {
-        console.log(`Liber | Récupération du fichier html ${this.actor.type}-sheet.`);
+        //console.log(`Liber | Récupération du fichier html ${this.actor.type}-sheet.`);
         if(this.actor.type=='pnj' || this.actor.type=='personnage'){
             return `systems/liber/templates/sheets/personnage-sheet.html`;
         }else {
@@ -60,7 +60,6 @@
           }
           else if (i.type === 'objet') {
             inventaire.push(i);
-            console.log(i.name)
           }
           else if (i.type === 'magie') {
             sort.push(i);
@@ -112,16 +111,13 @@
         //Se reposer
         html.find('.reposer').click(this._onSleep.bind(this));
 
-        html.find('.offensif').click(this._onPosture.bind(this));
-        html.find('.defensif').click(this._onPosture.bind(this));
-        html.find('.focus').click(this._onPosture.bind(this));
-        html.find('.aucune').click(this._onPosture.bind(this));
+        html.find('.posture').click(this._onPosture.bind(this));
         html.find('.chnget').click(this._onCouv.bind(this));
         html.find('.attaque').click(this._onRoll.bind(this));
         html.find('.attaques').click(this._onRoll.bind(this));
 
         //edition items
-        html.find('.item-edit').click(this._onItemEdit.bind(this));
+        html.find('.fa-edit').click(this._onItemEdit.bind(this));
 
         // Delete Inventory Item
         html.find('.item-delete').click(ev => {
@@ -209,41 +205,19 @@
         }
 
         //Posture
-        var postures=html.find('.postures').val();
-        if(postures=="Focus"){
+        let postures=html.find('.postures').val();
+        if(postures=="focus"){
             html.find('.focus').css("opacity", "1");
-        }else if(postures=="Offensif"){
+        }else if(postures=="offensif"){
             html.find('.offensif').css("opacity", "1");
                     
-        }else if(postures=="Défensif"){
+        }else if(postures=="defensif"){
             html.find('.defensif').css("opacity", "1");
             
         }else{
             html.find('.aucune').css("opacity", "1");
             
         }
-        $('.aucune').on('click',function(){
-            $(this).parent().children("button").css({"opacity": "0.5"});
-            //$(this).css("opacity", "1");
-            $(this).parent().find(".postures").val("Aucune");
-
-        });
-        $('.focus').on('click',function(){
-            $(this).parent().children("button").css({"opacity": "0.5"});
-            //$(this).css("opacity", "1");
-            $(this).parent().find(".postures").val("Focus");
-        });
-        $('.offensif').on('click',function(){
-            $(this).parent().children("button").css({"opacity": "0.5"});
-            //$(this).css("opacity", "1");
-            $(this).parent().find(".postures").val("Offensif");
-        });
-        $('.defensif').on('click',function(){
-            $(this).parent().children("button").css({"opacity": "0.5"});
-            //$(this).css("opacity", "1");
-            $(this).parent().find(".postures").val("Défensif");
-        });
-
         //Poids encombrement
         var poids=[];
         var quantite=[];
@@ -474,7 +448,7 @@
         var critique=5;
         if(posture=="Focus"){
             bonuspost=5;
-        }else if(posture="Offensif"){
+        }else if(posture=="Offensif"){
             critique=10;
         }
         if(bonus==undefined){
@@ -635,15 +609,15 @@
     }
 
     _onPosture(event){
-        var postures=$(event.target).attr("class");
-        var texte = '';
+        let postures=event.target.dataset["posture"];
+        let texte = '';
         if(postures=="focus"){
             texte = '<span style="flex:auto"><p class="resultatp">'+ game.i18n.localize("liber.lang88")+'</p></span>';
         }else if(postures=="offensif"){
             texte = '<span style="flex:auto"><p class="resultatp">'+ game.i18n.localize("liber.lang86")+'</p></span>';           
         }else if(postures=="defensif"){
             texte = '<span style="flex:auto"><p class="resultatp">'+ game.i18n.localize("liber.lang87")+'</p></span>';
-        }else if(postures=="defensif"){
+        }else if(postures=="aucune"){
             texte = '<span style="flex:auto"><p class="resultatp">'+ game.i18n.localize("liber.lang89")+'</p></span>';
         }
         let chatData = {
@@ -651,7 +625,8 @@
             content: texte
         };
         ChatMessage.create(chatData, {});
-        this.actor.update({"system.posture": postures});
+        this.actor.update({"system.posture": postures}); 
+        
     }
 
     _onGenerator(event){
@@ -1374,7 +1349,6 @@
         //const abc = await game.packs.get('liber.magie');
         //|| race==game.i18n.localize("liber.avantrace92") || race==game.i18n.localize("liber.avantrace66") || race==game.i18n.localize("liber.avantrace67") || race==game.i18n.localize("liber.avantrace68")  || race==game.i18n.localize("liber.avantrace69") || race==game.i18n.localize("liber.avantrace70") || race==game.i18n.localize("liber.avantrace71")  || race==game.i18n.localize("liber.avantrace72") || race==game.i18n.localize("liber.avantrace73") || race==game.i18n.localize("liber.avantrace74") || race==game.i18n.localize("liber.avantrace75") || race==game.i18n.localize("liber.avantrace76") || race==game.i18n.localize("liber.avantrace77") || race==game.i18n.localize("liber.avantrace78")
         var listem=[]
-        console.log(clan+"-"+mag1)
         const pack = game.packs.get('liber.magie');
         const tables = await pack.getDocuments();
         $.each( tables, function( key, value ) {
@@ -1415,6 +1389,3 @@
         this.actor.update({"system.etat.a":active[0],"system.etat.b":active[1],"system.etat.c":active[2],"system.etat.d":active[3],"system.etat.e":active[4],"system.etat.f":active[5],"system.etat.g":active[6],"system.etat.h":active[7],"system.etat.i":active[8],"system.etat.j":active[9],"system.etat.k":active[10],"system.etat.l":active[11],"system.etat.m":active[12],"system.etat.n":active[13]});        
     }
 }
-   
-
-        
