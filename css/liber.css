@@ -162,3 +162,18 @@ option, optgroup,#chat-controls .roll-type-select{background: #20180d;}
 .Liber .addsort{padding: 8px;border: none;color: #fff;width: 100%;font-size: 1.2em;display: block;margin: 3px 3px 3px 8px;text-align: center;margin-left: 8px;}
 .Liber .resetmalus,.Liber .resetbonus{width: 42px;float: right;font-size: 3em;text-align: center;t;}
 .Liber .item-controls a,.Liber a.item-control , .Liber .window-header a{background: none}
+
+#sidebar a.item i{display: none}
+#sidebar a.item[data-tab="chat"]{background:url(" ../assets/icon/roi.png") no-repeat center center;background-size: 80%;}
+#sidebar a.item[data-tab="combat"]{background:url(" ../assets/icon/bouclier.png") no-repeat center center;background-size: 80%;}
+#sidebar a.item[data-tab="scenes"]{background:url(" ../assets/icon/plans.png") no-repeat center center;background-size: 80%;}
+#sidebar a.item[data-tab="actors"]{background:url(" ../assets/icon/chevaliers.png") no-repeat center center;background-size: 80%;}
+#sidebar a.item[data-tab="items"]{background:url(" ../assets/icon/potion.png") no-repeat center center;background-size: 80%;}
+#sidebar a.item[data-tab="journal"]{background:url(" ../assets/icon/faire-defiler.png") no-repeat center center;background-size: 80%;}
+#sidebar a.item[data-tab="tables"]{background:url(" ../assets/icon/hache.png") no-repeat center center;background-size: 80%;}
+#sidebar a.item[data-tab="cards"]{background:url(" ../assets/icon/coin.png") no-repeat center center;background-size: 80%;}
+#sidebar a.item[data-tab="playlists"]{background:url(" ../assets/icon/fou-du-roi.png") no-repeat center center;background-size: 80%;}
+#sidebar a.item[data-tab="compendium"]{background:url(" ../assets/icon/epee.png") no-repeat center center;background-size: 80%;}
+#sidebar a.item[data-tab="settings"]{background:url(" ../assets/icon/forgeron.png") no-repeat center center;background-size: 80%;}
+#sidebar a.item.active,#sidebar a.item.active:hover{filter:invert(100%);}
+#sidebar a.item:hover{filter:invert(80%); transition:0.5s}
