@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 @font-face {font-family: "dova";src: url('Dovahkiin.otf'); }
 .dova { font-family: 'dova';}
+body{background: url()}
 
 .Liber a.item.active,.Liber .head .rexrow{background:url(parchemin.jpg); }
 .Liber .talentliste,.Liber .faiblesseliste,.Liber .typerepos ,.Liber .jourliste,.Liber .heure,.Liber .items input.maingaucequi,.Liber .items input.maindroiequi,.Liber .items input.armurequi,.Liber .stat input,.Liber .stat2 input,.Liber .features input,.Liber .stats select{background:#181003; }
@@ -177,3 +178,5 @@ option, optgroup,#chat-controls .roll-type-select{background: #20180d;}
 #sidebar a.item[data-tab="settings"]{background:url(" ../assets/icon/forgeron.png") no-repeat center center;background-size: 80%;}
 #sidebar a.item.active,#sidebar a.item.active:hover{filter:invert(100%);}
 #sidebar a.item:hover{filter:invert(80%); transition:0.5s}
+
+footer.nue {color: #c9c7b8;}
