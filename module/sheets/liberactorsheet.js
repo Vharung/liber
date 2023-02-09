@@ -107,6 +107,7 @@
         //Magie lancer un sort
         html.find('.item-lancer').click(this._onSpell.bind(this));
         html.find('.item-info').click(this._onInfo.bind(this));
+        html.find('.item-random').click(this._onRandom.bind(this));
 
         //Se reposer
         html.find('.reposer').click(this._onSleep.bind(this));
@@ -152,13 +153,14 @@
         html.find('.addsort').click(ev => {
             event.preventDefault();
             const name=html.find('.magieslistes option:selected').val()
+            const img=html.find('.magieslistes option:selected').data('img')
             const description=html.find('.magieslistes option:selected').data('description');
             const cout=html.find('.magieslistes option:selected').data('cout');
             const classe=html.find('.magieslistes option:selected').data('classe');
             const cible=html.find('.magieslistes option:selected').data('cible');
             const degat=html.find('.magieslistes option:selected').data('degat');
             const duree=html.find('.magieslistes option:selected').data('duree');
-            this.actor.createEmbeddedDocuments('Item', [{ name: name, type: 'magie', 'system.description' : description, 'system.classe' : classe, 'system.cible' : cible, 'system.cout' : cout, 'system.duree' : duree }], { renderSheet: false })
+            this.actor.createEmbeddedDocuments('Item', [{ name: name,img: img, type: 'magie', 'system.description' : description, 'system.classe' : classe, 'system.cible' : cible, 'system.cout' : cout, 'system.duree' : duree }], { renderSheet: false })
         }); 
 
         
@@ -1355,7 +1357,7 @@
             if(value.system.classe==mag1 || value.system.classe==mag2 || mag1==game.i18n.localize("liber.avantrace78") ){ 
                 var coutm=parseInt(value.system.cout)
                 if(coutm<=value.system.cout || cout=="X"){
-                    listem.push({'name':value.name,'cible':value.system.cible,'classe':value.system.classe,'cout':value.system.cout,'degat':value.system.degat,'description':value.system.description,'duree':value.system.duree})
+                    listem.push({'name':value.name,'img':value.img,'cible':value.system.cible,'classe':value.system.classe,'cout':value.system.cout,'degat':value.system.degat,'description':value.system.description,'duree':value.system.duree})
                 }
             }
         });
@@ -1387,5 +1389,42 @@
         }
 
         this.actor.update({"system.etat.a":active[0],"system.etat.b":active[1],"system.etat.c":active[2],"system.etat.d":active[3],"system.etat.e":active[4],"system.etat.f":active[5],"system.etat.g":active[6],"system.etat.h":active[7],"system.etat.i":active[8],"system.etat.j":active[9],"system.etat.k":active[10],"system.etat.l":active[11],"system.etat.m":active[12],"system.etat.n":active[13]});        
+    }
+
+    async _onRandom(event){
+        let listem=[]
+        let type=event.target.dataset["type"]
+        console.log(type)
+        if(type=='objet'){
+             const pack = game.packs.get('liber.objet');
+            const tables = await pack.getDocuments();
+            $.each( tables, function( key, value ) {
+                listem.push({'name':value.name,'img':value.img,'description':value.system.description,'poids':value.system.poids,'valeur':value.system.valeur})
+            });
+            let qt=Math.floor(Math.random() * 10) + 1;
+            let nbobj=Math.floor(Math.random()*9)+1;
+            for (var i = nbobj; i >= 0; i--) {
+                let r=Math.floor(Math.random()*listem.length)
+                this.actor.createEmbeddedDocuments('Item', [{ name: listem[r].name, type:'objet','img':listem[r].img, 'system.description' : listem[r].description, 'system.poids' : listem[r].poids, 'system.quantite' : qt, 'system.valeur' : listem[r].valeur}], { renderSheet: false });
+            }
+        }else if(type=='arme'){
+            const pack = game.packs.get('liber.arme');
+            const tables = await pack.getDocuments();
+            $.each( tables, function( key, value ) {
+                listem.push({'name':value.name,'img':value.img,'description':value.system.description,'degat':value.system.degat,'poids':value.system.poids,'portee':value.system.portee,'valeur':value.system.valeur})
+            });
+            let r=Math.floor(Math.random()*listem.length)
+            this.actor.createEmbeddedDocuments('Item', [{ name: listem[r].name, type:'arme','img':listem[r].img, 'system.description' : listem[r].description, 'system.degat' : listem[r].degat,'system.poids' : listem[r].poids,'system.quantite' : 1, 'system.portee' : listem[r].portee, 'system.valeur' : listem[r].valeur}], { renderSheet: false }) 
+        }else if(type=='armure'){
+            const pack = game.packs.get('liber.armure');
+            const tables = await pack.getDocuments();
+            $.each( tables, function( key, value ) {
+                listem.push({'name':value.name,'img':value.img,'description':value.system.description,'protection':value.system.protection,'poids':value.system.poids,'valeur':value.system.valeur})
+            });
+            let r=Math.floor(Math.random()*listem.length)
+            this.actor.createEmbeddedDocuments('Item', [{ name: listem[r].name, type:'armure','img':listem[r].img, 'system.description' : listem[r].description, 'system.protection' : listem[r].protection,'system.poids' : listem[r].poids,'system.quantite' : 1, 'system.valeur' : listem[r].valeur}], { renderSheet: false }) 
+        }
+       
+
     }
 }

@@ -293,7 +293,7 @@
 			        	</ul>
 				     </div>
 				     <div class="clear"></div>
-					<h2>{{localize 'liber.arme'}}<a class="item-control item-create" title="Create Item" data-type="arme" style="float: right;"><i class="fas fa-plus"></i></a></h2>
+					<h2>{{localize 'liber.arme'}}<a class="item-control item-create" title="Create Item" data-type="arme" style="float: right;margin-left: 5px;"><i class="fas fa-plus"></i></a><a class="item-control item-random" title="random Item" data-type="arme" style="float: right;"><i class="fas fa-dice" data-type="arme"></i></a></h2>
 
 						<ol class="items-list">
 			                <li class="item fexrow item-header">
@@ -336,7 +336,7 @@
 			            {{/each}}
 		        		</ul>
 
-		        		<h2>{{localize 'liber.armure'}} <a class="item-control item-create" title="Create Item" data-type="armure" style="float: right;"><i class="fas fa-plus"></i></a></h2>
+		        		<h2>{{localize 'liber.armure'}} <a class="item-control item-create" title="Create Item" data-type="armure" style="float: right;margin-left: 5px;"><i class="fas fa-plus"></i></a><a class="item-control item-random" title="random Item" data-type="armure" style="float: right;"><i class="fas fa-dice" data-type="armure"></i></a></h2>
 
 						<ol class="items-list">
 			                <li class="item fexrow item-header">
@@ -375,7 +375,7 @@
 			                </li>
 			            {{/each}}
 		        		</ul>
-		        		<h2>{{localize 'liber.invent'}} <a class="item-control item-create" title="Create Item" data-type="objet" style="float: right;"><i class="fas fa-plus"></i></a></h2>
+		        		<h2>{{localize 'liber.invent'}} <a class="item-control item-create" title="Create Item" data-type="objet" style="float: right;    margin-left: 5px;"><i class="fas fa-plus"></i></a><a class="item-control item-random" title="random Item" data-type="objet" style="float: right;"><i class="fas fa-dice" data-type="objet"></i></a> </h2>
 
 						<ol class="items-list">
 			                <li class="item fexrow item-header">
@@ -426,7 +426,7 @@
 					    	<select class="magieslistes" style="height: 40px;">
 			                    {{#select actor.system.magie}}
 				                    {{#each actor.system.alert.listemag.liste}}
-				                    <option value="{{this.name}}" title="{{this.description}} - {{this.cout}}" data-cout="{{this.cout}}" data-classe="{{this.classe}}" data-cible="{{this.cible}}" data-degat="{{this.degat}}" data-description="{{this.description}}" data-duree="{{this.duree}}">{{this.name}}</option>
+				                    <option value="{{this.name}}" title="{{this.description}} - {{this.cout}}" data-cout="{{this.cout}}" data-classe="{{this.classe}}" data-cible="{{this.cible}}" data-img="{{this.img}}" data-degat="{{this.degat}}" data-description="{{this.description}}" data-duree="{{this.duree}}">{{this.name}}</option>
 				                    {{/each}}
 			                    {{/select}}
 			                </select>

@@ -21,7 +21,7 @@ option, optgroup,#chat-controls .roll-type-select{background: #20180d;}
 .Liber .window-header {flex: 100%;text-align: right;}
 .Liber .window-header h4 {float: left;}
 .sheet nav.sheet-tabs{border: none;margin: 0px}
-.Liber a,.dialog .dialog-as a.default,form a{background: rgb(143 26 40);border: none;color: #fff;}
+.Liber a,.dialog .dialog-as a.default,form a,form button,.Liber button,.dialog .dialog-buttons button.default,.dialog .dialog-buttons button{background: rgb(143 26 40);border: none;color: #fff;}
 .directory .directory-header .header-search input ,.dialog-content input,select{background: #30220c;border: none;color: #fff;}
 #sidebar-tabs {color: #20180d;}
 .Liber a.item:hover{background: #8f1a28;}
@@ -163,6 +163,7 @@ option, optgroup,#chat-controls .roll-type-select{background: #20180d;}
 .Liber .addsort{padding: 8px;border: none;color: #fff;width: 100%;font-size: 1.2em;display: block;margin: 3px 3px 3px 8px;text-align: center;margin-left: 8px;}
 .Liber .resetmalus,.Liber .resetbonus{width: 42px;float: right;font-size: 3em;text-align: center;t;}
 .Liber .item-controls a,.Liber a.item-control , .Liber .window-header a{background: none}
+.generer2{padding: 10px;margin-top: 10px;display: block;}
 
 #sidebar a.item i{display: none}
 #sidebar a.item[data-tab="chat"]{background:url(" ../assets/icon/roi.png") no-repeat center center;background-size: 80%;}
@@ -176,7 +177,7 @@ option, optgroup,#chat-controls .roll-type-select{background: #20180d;}
 #sidebar a.item[data-tab="playlists"]{background:url(" ../assets/icon/fou-du-roi.png") no-repeat center center;background-size: 80%;}
 #sidebar a.item[data-tab="compendium"]{background:url(" ../assets/icon/epee.png") no-repeat center center;background-size: 80%;}
 #sidebar a.item[data-tab="settings"]{background:url(" ../assets/icon/forgeron.png") no-repeat center center;background-size: 80%;}
-#sidebar a.item.active,#sidebar a.item.active:hover{filter:invert(100%);}
-#sidebar a.item:hover{filter:invert(80%); transition:0.5s}
+#sidebar a.item.active,#sidebar a.item.active:hover{border: 1px solid #0ff;border-bottom: none;box-shadow: 0 0 10px #0178a2;filter:invert(100%);}
+#sidebar a.item:hover{border: 1px solid #0ff;border-bottom: none;box-shadow: 0 0 10px #0178a2;filter:invert(80%); transition:0.5s}
 
 footer.nue {color: #c9c7b8;}

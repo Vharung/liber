@@ -86,11 +86,4 @@
     }
     
   }
-
-  /*Sortmagie(){
-    let itemData = this.system;
-    let qty=itemData.quantite;
-    qty=qty-10;
-    this.update({'system.quantite':qty});
-  }*/
 }
