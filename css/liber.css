@@ -181,3 +181,5 @@ option, optgroup,#chat-controls .roll-type-select{background: #20180d;}
 #sidebar a.item:hover{border: 1px solid #0ff;border-bottom: none;box-shadow: 0 0 10px #0178a2;filter:invert(80%); transition:0.5s}
 
 footer.nue {color: #c9c7b8;}
+
+.item-piles-even-color:nth-child(even){background: rgb(32 24 13}
