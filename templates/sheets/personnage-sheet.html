@@ -226,11 +226,11 @@
 				        <a class="item2 all3 mautr" data-tab="all3"></a>
 				    </nav>
 				    <input class="secondary" type="text" name="system.secondary" value="{{actor.system.secondary}}" style="display: none;">
-				    <div id="all" class="tab2 invten actif" data-group="secondary" data-tab="all">
+				    <div id="all" class="tab2 all invten actif" data-group="secondary" data-tab="all">
 				    	<ul class="items-list">
 				    	{{#each actor.arme as |item id|}}
 				    		
-					    		<li class="item fexrow">
+					    		<li class="item fexrow" data-item-id="{{item._id}}">
 					    			<div class="item-name" title="{{item.name}}">{{item.name}}</div>
 				                    <div class="item-image"><div class="item-qty">{{item.system.quantite}}</div><img src="{{item.img}}" title="{{item.system.description}}"/></div>
 				                    <div class="item-description item-info" data-item-id="{{item._id}}" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.valeur}}" data-type="{{item.type}}" data-img="{{item.img}}"><span title="{{item.system.description}}">{{item.system.description}}</span></div>
@@ -289,7 +289,7 @@
 		        		<ul class="items-list">
 		        			{{#each actor.arme as |item id|}}
 				    		
-					    		<li class="item fexrow">
+					    		<li class="item fexrow" data-item-id="{{item._id}}">
 					    			<div class="item-name" title="{{item.name}}">{{item.name}}</div>
 				                    <div class="item-image"><div class="item-qty">{{item.system.quantite}}</div><img src="{{item.img}}" title="{{item.system.description}}"/></div>
 				                    <div class="item-description item-info" data-item-id="{{item._id}}" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.valeur}}" data-type="{{item.type}}" data-img="{{item.img}}"><span title="{{item.system.description}}">{{item.system.description}}</span></div>

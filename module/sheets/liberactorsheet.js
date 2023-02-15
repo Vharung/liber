@@ -226,12 +226,12 @@
         var poids=[];
         var quantite=[];
         var total=0;
-        html.find( ".item-poids" ).each(function( index ) {
+        html.find( ".all .item-poids" ).each(function( index ) {
             if($( this ).text()!="Pds"){
                 poids.push($( this ).text());
             }
         });
-        html.find( ".item-qty" ).each(function( index ) {
+        html.find( ".all .item-qty" ).each(function( index ) {
             if($( this ).text()!="Qte"){
                 quantite.push($( this ).text());
             }
