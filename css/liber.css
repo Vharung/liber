@@ -1,11 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 @font-face {font-family: "dova";src: url('Dovahkiin.otf'); }
 .dova { font-family: 'dova';}
-body{background: url()}
 
-.Liber a.item.active,.Liber .head .rexrow{background:url(parchemin.jpg); }
+.Liber .col3{display: inline-block;width: 400px; float: left; }
+.Liber .inter{background:url(parchemin.jpg);/*background: linear-gradient(0deg, rgba(51,52,44,1) 0%, rgba(60,62,49,1) 100%);*/ border:thick double #12130f;margin-bottom: 5px}
+.Liber .avatar{height: 80px;width: 80px;display: inline-block; margin: 10px}
+.Liber .head{display: inline-block;width: 280px;vertical-align: top;padding-top: 10px}
+.Liber .head input{width: 135px;}
+.Liber .head input.nomperso{text-transform: uppercase;height: 20px; font-size: 1.2em;width: 280px;}
+.Liber .head input[type="text"]{background:none; border:none;}
+
+.Liber .reposer{border: none;height: 30px;width: 120px;padding:5px;float: right;margin: 4px;border:none;color:#fff;padding: 5px;font-weight: bold;cursor: pointer;font-family: 'MedievalSharp', cursive;}
+.Liber input.insoin,.Liber input.avant,.Liber input.desan{border:none;color: #fff;text-align: right;opacity: 0.5;width: 40px;border:none;}
+.Liber input.insoin{background:url("../assets/icon/pvi.png")left center no-repeat;background-size: contain;}
+.Liber input.avant{background:url("../assets/icon/avantage.png")left center no-repeat;background-size: contain;}
+.Liber input.desan{background:url("../assets/icon/avantage-2.png")left center no-repeat;background-size: contain;}
+.Liber .ligne{width: 100%; margin-bottom: 5px}
+.Liber .ligne a{width: 25px;height: 25px;border:none;opacity: 0.5;display: inline-block;}
+.Liber .etat0 {background: url(" ../assets/icon/sleep.png");background-size: cover;;}
+.Liber .etat1 {background: url(" ../assets/icon/daze.png");background-size: cover;}
+.Liber .etat2 {background: url(" ../assets/icon/blind.png");background-size: cover;}
+.Liber .etat3 {background: url(" ../assets/icon/deaf.png");background-size: cover;}
+.Liber .etat4 {background: url(" ../assets/icon/silenced.png");background-size: cover;}
+.Liber .etat5 {background: url(" ../assets/icon/terror.png");background-size: cover;}
+.Liber .etat6 {background: url(" ../assets/icon/fire.png");background-size: cover;}
+.Liber .etat7 {background: url(" ../assets/icon/frozen.png");background-size: cover;}
+.Liber .etat8 {background: url(" ../assets/icon/invisible.png");background-size: cover;}
+.Liber .etat9 {background: url(" ../assets/icon/angel.png");background-size: cover;}
+.Liber .etat10 {background: url(" ../assets/icon/poison.png");background-size: cover;}
+.Liber .etat11 {background: url(" ../assets/icon/blood.png");background-size: cover;}
+.Liber .etat12 {background: url(" ../assets/icon/unconscious.png");background-size: cover;}
+.Liber .etat13 {background: url(" ../assets/icon/skull.png");background-size: cover;}
+.Liber .separator{border-top: 1px solid #12130f;width: 260px;margin: 10px 60px;}
+.Liber input {border: none}
+.Liber input.hp,.Liber input.psy,.Liber input.hpmax,.Liber input.psymax, .Liber input.armureperso, .Liber input.protection{text-align: center;margin-left: 5px;border: none;width: 40px;display:inline-block;}
+.Liber .deno{width: 100%;border-bottom: 1px solid #20180d;padding: 0px;display: block;margin: 0 5px 5px 5px;height: 28px;}
+.Liber .modif{margin-top: 5px}
+.Liber .vue{background: url()}
+
+.Liber .items-list li {margin: 0;width:82px;display: inline-block;float:left;margin:0 5px 0px 0}
+.Liber .items-list .item-name,.Liber .items-list .item-controls {margin: 0;width: 82px;background: #221808;padding: 3px;text-align: center;font-size: 0.8em;height: 20px;overflow: hidden;}
+.Liber .items-list .item-image img{height: 82px;width: 82px;display: block;}
+.Liber .items-list .item-description{opacity:0;width: 82px;height: 82px;padding: 5px;display: block;position: relative;margin-top: -82px;z-index: 80;font-family: 'Signika';font-size: 0.8em;overflow: hidden;}
+.Liber .items-list .item-description:hover,.Liber .items-list li:hover .item-controls{opacity:0.95;transition: 0.5s}
+.Liber .items-list .item-hand{width: 62px;float: left;filter: invert(1);}
+.Liber .maindroite,.Liber .maingauche,.Liber .armor{width: 12px; height: 12px; display: inline-block;cursor: pointer;filter: invert(100%);}
+.Liber .maindroite {background: url(" ../assets/icon/hand.png");background-size: cover;}
+.Liber .maingauche {background: url(" ../assets/icon/hand2.png");background-size: cover;}
+.Liber .armor {background: url(" ../assets/icon/armor.png");background-size: cover;}
+.Liber .items-list .item-qty,.Liber .items-list .item-cout{margin-bottom: -27px;padding: 5px;background: #221808;opacity: 0.8;text-align: center;}
+.Liber .items-list .item-controls{opacity: 0}
+.Liber .tab2{display: none;}
+.Liber .actif{display: block;}
+
+
+
 .Liber .talentliste,.Liber .faiblesseliste,.Liber .typerepos ,.Liber .jourliste,.Liber .heure,.Liber .items input.maingaucequi,.Liber .items input.maindroiequi,.Liber .items input.armurequi,.Liber .stat input,.Liber .stat2 input,.Liber .features input,.Liber .stats select{background:#181003; }
-.Liber main,.Liber .autres,#sidebar,.window-app .window-content,.sheet.journal-entry .journal-entry-content{background: #4f3c1c url(parchemin.jpg);background-size: cover; }
+.Liber .autres,#sidebar,.window-app .window-content,.sheet.journal-entry .journal-entry-content,.Liber .colonne{background: #4f3c1c url(parchemin.jpg);background-size: cover; }
 .window-app .window-content{color:#fff}
 .compendium-sidebar li.compendium-pack .compendium-footer{color:#20180d}
 .compendium-sidebar h3 {border: none;background: #20180d;}
@@ -24,12 +75,11 @@ option, optgroup,#chat-controls .roll-type-select{background: #20180d;}
 .Liber a,.dialog .dialog-as a.default,form a,form button,.Liber button,.dialog .dialog-buttons button.default,.dialog .dialog-buttons button{background: rgb(143 26 40);border: none;color: #fff;}
 .directory .directory-header .header-search input ,.dialog-content input,select{background: #30220c;border: none;color: #fff;}
 #sidebar-tabs {color: #20180d;}
-.Liber a.item:hover{background: #8f1a28;}
-.Liber .stats input,.Liber .reposer,.Liber input[type="a"],.Liber .stat2 label,.Liber .modif a.desequi,.Liber .carac input[type="a"],.Liber .items .desequi,.Liber .items .jetdedegat,.Liber .addsort{background:#8f1a28;}/*e13b23*/
-.Liber .stat2 label.secstat:hover,.Liber .stats input:hover,.Liber .reposer:hover,.Liber input[type="a"]:hover,.Liber .stat2 label:hover,.Liber .modif a.desequi:hover,.Liber .carac input[type="a"]:hover,.Liber .items .desequi:hover,.Liber .items .jetdedegat:hover,.Liber .addsort:hover{background:#e13b23;}/*e13b23*/
-.Liber .stat2 label.secstat{background: #dd8376;}
-.Liber a.item,.Liber h2 ,.Liber .head,.Liber header,.Liber .tabs,.Liber .items-list .item-description,.Liber .items-list .item-description2{background: #181003a1;}
-.Liber .deno{width: 206px;border-bottom: 1px solid #20180d;padding: 0px;display: block;margin: 0 5px 5px 5px;height: 28px;float: left;}
+
+.Liber .reposer,.Liber input[type="a"],.Liber .stat2 label,.Liber .modif a.desequi,.Liber .carac input[type="a"],.Liber .items .desequi,.Liber .items .jetdedegat,.Liber .addsort{background:#33250e;}/*e13b23*/
+.Liber .stat2 label.secstat:hover,.Liber .reposer:hover,.Liber input[type="a"]:hover,.Liber .modif a.desequi:hover,.Liber .carac input[type="a"]:hover,.Liber .items .desequi:hover,.Liber .items .jetdedegat:hover,.Liber .addsort:hover{background:#e13b23;}/*e13b23*/
+.Liber .stat2 label.secstat{background: #6a4f22;}
+.Liber a.item,.Liber h2 ,.Liber header,.Liber .tabs,.Liber .items-list .item-description,.Liber .items-list .item-description2{background: #181003;}
 .Liber.window-app .window-content{background: none;overflow:auto;height: 773px;}
 .Liber .fiche{display: flex;flex-direction: row;height: 800px;width: 1200px;}
 .Liber header {color: #fff;}
@@ -38,25 +88,27 @@ option, optgroup,#chat-controls .roll-type-select{background: #20180d;}
 .Liber{font-family: 'Roboto', sans-serif;display: flex;flex-direction: row;flex-flow: row wrap;}
 /*form.Liber{display: table-cell;}*/
 .Liber .fiche nav.sheet-tabs{margin:0px;border-top:none;border-bottom:none;padding:0px 0;height: 35px;}
-.Liber .head input[type="text"]{background:none; border:none;}
-.Liber .head,.Liber main,.Liber .autres,.Liber .autre{width: 595px;display:block;}
-.Liber .autre{float: left;}
-.Liber .head{height: 120px;border-radius:60px 0 0 60px;}
-.Liber .head .avatar img{height: 100%;max-width: none}
-.Liber .head .avatar{height: 120px; width: 120px;border-radius: 50%; display:inline-block;overflow: hidden;float: left}
+.Liber .list{width: 80px;height: 80px;display: inline-block;}
+.Liber .invten{width: 348px;height: 629px;overflow: auto;margin: 20px 0 0 20px;}
+.Liber .items ul {list-style: none;display: block;list-style-type: disc;margin-block-start: 0;margin-block-end: 0;margin-inline-start: 0px;margin-inline-end: 0px;padding-inline-start: 0;}
+
+.Liber a.invent{background: url(swap-bag.png) no-repeat center center;background-size: 30%;opacity: 0.5;transition: 0.5s}
+.Liber a.magi{background: url(magic-swirl.png) no-repeat center center;background-size: 30%;opacity: 0.5;transition: 0.5s}
+.Liber a.compe{background: url(battle-gear.png) no-repeat center center;background-size: 30%;opacity: 0.5;transition: 0.5s}
+.Liber a.carac{background: url(bookshelf.png) no-repeat center center;background-size: 30%;opacity: 0.5;transition: 0.5s}
+.Liber a.confi{background: url(gears.png) no-repeat center center;background-size: 30%;opacity: 0.5;transition: 0.5s}
+.Liber a.marme{background: url(sword-wound.png) no-repeat center center;background-size: 30%;opacity: 0.5;transition: 0.5s}
+.Liber a.marmu{background: url(chest-armor2.png) no-repeat center center;background-size: 30%;opacity: 0.5;transition: 0.5s}
+.Liber a.mautr{background: url(chicken-oven.png) no-repeat center center;background-size: 30%;opacity: 0.5;transition: 0.5s}
+.Liber a.item:hover,.Liber a.item.acti,.Liber a.item.active,.Liber a.item2:hover,.Liber a.item2.acti,.Liber a.item2.active{opacity: 1}
+.Liber a.item,.Liber a.item2{height: 30px}
+
 .Liber option{background:none;}
 .Liber {font-family: 'MedievalSharp', cursive;}
 /*.Liber .head span.post {height: 20px;width: 20px;display: inline-block; float: right; margin-right: 10px}*/
-.Liber .head input{color:#fff}
-.Liber .head input.nomperso{text-transform: uppercase;height: 20px; display: block; font-size: 1.2em;width:calc(100% - 130px);}
-.Liber .headtext{ padding:5px;}
-.Liber .head .rexrow{margin-top: 10px;color: #fff;height: 80px;width:590px;padding: 5px 5px 5px 130px;border-radius: 60px 0 0 60px;display: block;}
-.Liber .head .rexrow input{border-bottom:solid 1px #20180d;width:108px;}
-.Liber .head .rexrow input.religion {width: 59px}
-.Liber .head .rexrow input.avantagerace {width: 186px}
-.Liber .head .rexrow input.niveau {width: 25px}
+
 .grid-2col,.grid-3col,.grid-9col {float:left;}
-.grid-2col {width:50%;}.grid-3col {width:33.33%;}.grid-9col {width:11%;}
+.grid-2col {width:49%;}.grid-3col {width:33.33%;}.grid-9col {width:11%;}
 .Liber .sheet nav.sheet-tabs {border:none}
 /*.Liber .head .separator{width:calc(100% - 10px);height: 0px; border-top: 1px solid #fff;margin:27px 5px 7px 5px;}*/
 .Liber a.aucune,.Liber a.focus,.Liber a.defensif,.Liber a.offensif{width: 20px;height: 20px;display: inline-block;border: none;float:right;}
@@ -64,32 +116,41 @@ option, optgroup,#chat-controls .roll-type-select{background: #20180d;}
 .Liber a.focus{background:url("../assets/icon/focus.png");background-size: cover;opacity: 0.5;}
 .Liber a.defensif{background:url("../assets/icon/defensif.png");background-size: cover;opacity: 0.5;}
 .Liber a.offensif{background:url("../assets/icon/offensif.png");background-size: cover;opacity: 0.5;}
-.Liber main{height: 628px; margin-top: 5px;color:#20180d;}
-.Liber .autres{ height: 753px;}
-.Liber h2 {width:100%;color: #fff;font-size: 1em;padding: 5px;border-bottom: 0;}
+.Liber .autres{ height: 712px;}
+.Liber h2 {width:100%;color: #ffd725;font-size: 1em;padding: 5px;border-bottom: 0; text-align: center;text-transform: uppercase;}
 .Liber .deno{width: 206px;border-bottom: 1px solid #20180d;padding: 0px;display: block;margin: 0 5px 5px 5px;height: 28px;float: left;}
-.Liber .stat input,.Liber .stat2 input,.Liber .features input{margin:0;display: inline-block;float: left;height: 28px;width: 40px;color:#fff;text-align: center;}
-.Liber .stat input.hp,.Liber .stat input.psy, .Liber .stat input.armureperso, .Liber .stat input.protection, .Liber .stat2 input{border: 1px solid #20180d;}
-.Liber .stat input.hpmax,.Liber .stat input.psymax{border-top: 1px solid #20180d;border-bottom:1px solid #20180d;border-right: 1px solid #20180d; border-left:none}
+.Liber .stat input,.Liber .stat2 input{margin:0;display: inline-block;float: left;height: 28px;width: 40px;color:#fff;text-align: center;}
 .Liber .second{padding-top: 5px}
 .Liber .stat2 input,.Liber .stat2 label{margin-left:calc(50% - 20px);margin-top: 0}
 .Liber .stat2 p{text-align: center;margin-bottom: 0}
 .Liber .stat2 label{width:40px;display: block;}
-.Liber textarea{width: 100%;height: 177px;color:#20180d;border:none;resize: none;font-family: 'MedievalSharp', cursive;}
+.Liber textarea{width: 100%;height: 187px;color:#20180d;border:none;resize: none;font-family: 'MedievalSharp', cursive;}
 .Liber textarea:hover{color:#fff;}
-.Liber input[type="a"],.Liber .stat2 label{border:none;color:#fff;padding: 5px;font-weight: bold;cursor: pointer}
+.Liber input[type="a"],.Liber .stat2 label{border: none;color: #fff;padding: 10px 5px;font-weight: bold;cursor: pointer;text-align: center;}
 .Liber .clear{clear: both}.liber .center{text-align: center;}
 .Liber .malussactor,.Liber .bonusactor,.Liber .pointrestant {width:74px;border: none;background: none; font-size: 50px;height:50px;color: #fff; text-align: center;margin-left: calc(50% - 35px);}
 .Liber .coutmax,.Liber .maxsort {width:100%;border: none;background: none; font-size: 50px;height:50px;color: #fff; text-align: center;}
 .Liber .modif a.desequi{float: right;border: none;color: #fff;width: 50px;height: 50px;font-size: 2em;cursor: pointer}
-.Liber a.item{display: inline-block;color:#a5a5a5;width:20%;padding: 9px 2px;margin: 0;text-align: center;transition: 0.5s;}
+.Liber a.item,.Liber a.item2{display: inline-block;color:#a5a5a5;width:20%;padding: 9px 2px;margin: 0;text-align: center;transition: 0.5s;}
 .Liber a.item span{width: 103%; height: 20px;display: block}
-.Liber a.item:hover,.Liber a.active{color:#fff;}
-.Liber .tab{padding: 20px 8px 0 5px;}
-.Liber .features a{float: left;width: 122px;height: 28px;font-weight: normal;text-align: left;border-bottom: 1px solid #20180d;border:none;border-bottom:#20180d solid 1px;color:#191106;background: none;margin-right: 5px;}
+.Liber .stats select{width: 100%;height: 35px}
+.Liber .attaque,.Liber .desequi{font-size: 1.2em;display: block;height: 24px; text-align: center;}
+.Liber .ecu li{list-style: none;margin: -20px -22px;;padding: 0;display: block;}
+.Liber .ecu{width: 80px; height: 80px; display: block;margin-top: 20px; float: right;background: url(ecu.png);background-size: contain;margin-right: 20px}
+.Liber .ecu .item-controls{background: rgb(143 26 40);width:80px;border: none;height: 20px;color: #fff;}
+.Liber .unemain,.Liber .deuxmains,.Liber .arm{width: 80px; display: inline-block;margin-top: 150px;margin-left: 35px;}
+.Liber .unemain{background: url(hand2.png) no-repeat center center;background-size: contain;}
+.Liber .deuxmains{background: url(hand.png) no-repeat center center;background-size: contain;}
+.Liber .arm{background: url(chest-armor.png) no-repeat top center;background-size: contain;}
+.Liber .unemain div,.Liber .deuxmains div,.Liber .arm div,.Liber .ecu{border:1px solid #2d1e0a}
+.Liber .unemain span ,.Liber .deuxmains span ,.Liber .arm span {opacity:0;pointer-events:none ;background: #181003a1;color: #fff;text-align: center;width: 80px;height: 80px;display: block;padding-top: 20px;}
+.Liber .unemain:hover span ,.Liber .deuxmains:hover span ,.Liber .arm:hover span,.Liber .unemain:hover a ,.Liber .deuxmains:hover a ,.Liber .arm:hover a{transition:0.5s;opacity: 1}
+.Liber .unemain a ,.Liber .deuxmains a ,.Liber .arm a{opacity: 0}
+.Liber .features input{margin: 0;display: inline-block;float: left;height: 20px;width: 30px;color: #fff;text-align: center;font-size: 0.9em;}
+.Liber .features a{float: left;width: 80px;height: 25px;font-weight: normal;text-align: left;border: none;border-bottom: #20180d solid 1px;color: #191106;background: none;margin-right: 5px;font-family: 'Signika';font-size: 0.8em;}
 .Liber .features a:hover{color:#fff}
 .Liber .features input{border: 1px solid #20180d;}
-.Liber .features .compt{width: 182px; float: left; margin: 2px}
+.Liber .features .compt{width: 120px; float: left; margin: 2px}
 .Liber .features .compt p{color:##20180d;font-size: 0.8em}
 .Liber .features input.restant{border:none;background: none;text-align: center;font-size: 1.4em;}
 .Liber .carac .compt{width: 100%;display: block}
@@ -106,52 +167,13 @@ option, optgroup,#chat-controls .roll-type-select{background: #20180d;}
 .Liber .items input.maingaucequi,.Liber .items input.maindroiequi,.Liber .items input.armurequi{border:1px solid #20180d;width:90%;height: 30px;color: #fff;margin-bottom: 5px;}
 .Liber .items .desequi{float: right;border: none;color: #fff;width: 30px;height: 30px;font-size: 1em;cursor: pointer;margin-right: 10px;}
 .Liber .items .jetdedegat{float: right;border: none;color: #fff;width: 105px;height: 25px;font-size: 0.8em;cursor: pointer;margin: 3px;text-align: center;}
-.Liber .items-list {list-style: none;margin: 7px 0;padding: 0;overflow-y: auto;}
-.Liber .items-list .item-header {font-weight: bold;text-align: left;padding-left: 0;margin-left: 0;}
-.Liber .items-list .item {height: 30px;line-height: 24px;padding: 3px 0;border-bottom: 1px solid #BBB;overflow: hidden;color:#20180d;font-weight: normal;opacity: 0.8}
-.Liber .items-list .item:hover {opacity:1; color:#fff}
-.Liber .items-list .item-image {-webkit-box-flex: 0;-ms-flex: 0 0 24px;flex: 0 0 24px;margin-right: 5px;width: 25px}
-.Liber .items-list .item img {display: block;}
-.Liber .items-list .item-description2,.Liber .items-list .item-cible,.Liber .items-list .item-cout,.Liber .items-list .item-duree,.Liber .items-list .item-classe,.Liber .items-list .item-controls,.Liber .items-list .item-image,.Liber .items-list .item-name,.Liber .items-list .item-description,.Liber .items-list .item-portee,.Liber .items-list .item-dommage,.Liber .items-list .item-poids,.Liber .items-list .item-poid,.Liber .items-list .item-valeur,.Liber .items-list .item-qty,.Liber .items-list .item-qt,.Liber .items-list .item-hand{display:block;height:25px;float: left;overflow: hidden;}
-.Liber .items-list .item-name {margin: 0;width: 180px;float: left;}
-.Liber .items-list .item-name2 {margin: 0;width: 244px;;float: left;}
-.Liber .items-list .item-description,.Liber .items-list .item-description2{    width: calc(100% - 20px);height: auto;margin: 10px;padding: 5px;display: block;}
-.Liber .items-list .item-cible{width: 56px;float: left}
-.Liber .items-list .item-classe{width: 120px;float: left}
-.Liber .items-list .item-type{width: 50px;float: left}
-.Liber .items-list .item-duree{width:82px;float: left}
-.Liber .items-list .item-cout{width: 28px;float: left;text-align: center;}
-.Liber .items-list .item-portee,.Liber .items-list .item-dommage,.Liber .items-list .item-poids,.Liber .items-list .item-poid,.Liber .items-list .item-valeur,.Liber .items-list .item-qty,.Liber .items-list .item-qt{width: 39px;float: left;text-align: center}
-.Liber .items-list .item-hand{width: 62px;float: left;filter: invert(1);}
-.Liber .items-list .item-controls{-webkit-box-flex: 0;-ms-flex: 0 0 86px;flex: 0 0 86px;text-align: right;}
-.Liber .items .items-list .item-controls{width: 55px;}
-.Liber .spells .items-list .item-controls{width: 75px;}
-.Liber .stats select{border: none;height: 30px;width: 50%; margin: 3px;color: #fff;}
 
-.Liber .stats input,.Liber .reposer{border: none;height: 30px;width: 40%;padding:5px;float: right;margin: 4px;border:none;color:#fff;padding: 5px;font-weight: bold;cursor: pointer;font-family: 'MedievalSharp', cursive;}
-.Liber .stat input.insoin,.Liber .stat input.avant,.Liber .stat input.desan{border:none;color: #fff;text-align: right;opacity: 0.5}
-.Liber input.insoin{background:url("../assets/icon/pvi.png")left center no-repeat;background-size: contain;}
-.Liber input.avant{background:url("../assets/icon/avantage.png")left center no-repeat;background-size: contain;}
-.Liber input.desan{background:url("../assets/icon/avantage-2.png")left center no-repeat;background-size: contain;}
-.Liber .etat a{width: 28px;height: 28px;border:none;opacity: 0.5;display: inline-block;}
-.Liber .etat0 {background: url(" ../assets/icon/sleep.png");background-size: cover;margin-left: 20px;}
-.Liber .etat1 {background: url(" ../assets/icon/daze.png");background-size: cover;}
-.Liber .etat2 {background: url(" ../assets/icon/blind.png");background-size: cover;}
-.Liber .etat3 {background: url(" ../assets/icon/deaf.png");background-size: cover;}
-.Liber .etat4 {background: url(" ../assets/icon/silenced.png");background-size: cover;}
-.Liber .etat5 {background: url(" ../assets/icon/terror.png");background-size: cover;}
-.Liber .etat6 {background: url(" ../assets/icon/fire.png");background-size: cover;}
-.Liber .etat7 {background: url(" ../assets/icon/frozen.png");background-size: cover;}
-.Liber .etat8 {background: url(" ../assets/icon/invisible.png");background-size: cover;}
-.Liber .etat9 {background: url(" ../assets/icon/angel.png");background-size: cover;}
-.Liber .etat10 {background: url(" ../assets/icon/poison.png");background-size: cover;}
-.Liber .etat11 {background: url(" ../assets/icon/blood.png");background-size: cover;}
-.Liber .etat12 {background: url(" ../assets/icon/unconscious.png");background-size: cover;}
-.Liber .etat13 {background: url(" ../assets/icon/skull.png");background-size: cover;}
-.Liber .maindroite,.Liber .maingauche,.Liber .armor{width: 20px; height: 20px; display: inline-block;cursor: pointer;}
-.Liber .maindroite {background: url(" ../assets/icon/hand.png");background-size: cover;}
-.Liber .maingauche {background: url(" ../assets/icon/hand2.png");background-size: cover;}
-.Liber .armor {background: url(" ../assets/icon/armor.png");background-size: cover;}
+
+
+
+
+
+
 .Liber .typerepos ,.Liber .jourliste,.Liber .heure{border:  solid #20180d 1px; color: white}
 .Liber .geo{width:200px;width: 195px;height: 275px;display: inline-block;background:url(systems/liber/assets/monstre/map0.png);background-size: contain;}
 .Liber .his{width: calc(100% - 200px);display: inline-block;float: right;}
@@ -161,7 +183,7 @@ option, optgroup,#chat-controls .roll-type-select{background: #20180d;}
 .desctchat{padding: 5px;background: #967b43;color: #fff;display:none}
 .infosort:active .desctchat{display: flex;}
 .Liber .addsort{padding: 8px;border: none;color: #fff;width: 100%;font-size: 1.2em;display: block;margin: 3px 3px 3px 8px;text-align: center;margin-left: 8px;}
-.Liber .resetmalus,.Liber .resetbonus{width: 42px;float: right;font-size: 3em;text-align: center;t;}
+.Liber .resetmalus,.Liber .resetbonus{width: 20px;height: 20px;float: right;font-size: 1em;text-align: center;border-radius: 50%;margin-right: 5px;}
 .Liber .item-controls a,.Liber a.item-control , .Liber .window-header a{background: none}
 .generer2{padding: 10px;margin-top: 10px;display: block;}
 

@@ -1,0 +1,47 @@
+{
+  "name": "{{title}}",
+  "type": "monstre",
+  "img": "icons/svg/mystery-man.svg",
+  "data": {
+    "hp": {
+      "value": "{{hp}}",
+      "max": "{{hp}}"
+    },
+    "psy": {
+      "value": "{{psy}}",
+      "max": "{{psy}}"
+    },
+    "protection": "{{pro}}",
+    "protection-magique": "",
+    "avantage": "",
+    "desavantage": "",
+    "encombrement": {
+      "value": "",
+      "max": ""
+    },
+    "physique": "{{phy}}",
+    "force": "{{forc}}",
+    "agilite": "{{agil}}",
+    "social": "{{soc}}",
+    "charisme": "{{char}}",
+    "sagacite": "{{saga}}",
+    "mental": "{{men}}",
+    "ast": "{{astu}}",
+    "memoire": "{{memo}}",
+    "histoire": "Inflige {{dg}}+{{fixe}}, {{desc}}, {{bonus}}",
+    "race": "",
+    "bonusrace": "",
+    "clan": "",
+    "religion": "",
+    "talent": "",
+    "faiblesse": "",
+    "posture": "",
+    "level": "1",
+    "etat": "",
+    "armed": "",
+    "armeg": "",
+    "armure": "",
+    "inventaire": [],
+    "sort": []
+  }
+}

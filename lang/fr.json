@@ -1,8 +1,11 @@
 {
+  "liber.person": "Personnage",
+  "liber.etat": "Etat",
   "liber.race": "Race",
   "liber.clan": "Clan",
   "liber.religion": "Religion",
   "liber.bonus": "Bonus race",
+  "liber.bonu": "Bonus",
   "liber.level": "Niveau",
   "liber.histoire": "Histoire",
   "liber.feuille": "Feuille de personnages",
@@ -23,7 +26,7 @@
   "liber.repos": "Repos",
   "liber.restant": "Points restants",
   "liber.mj": "Bonus MJ",
-  "liber.compt": "Bonus Compétence",
+  "liber.compt": "Compétence",
   "liber.compte": "Compétence",
   "liber.caract": "Caractère",
   "liber.invent": "Inventaire",
@@ -946,7 +949,7 @@
   "liber.metier14": "Magicien",
   "liber.metier15": "Clerc",
   "liber.metier16": "Oracle",
-  "liber.fiche": "Générer la fiche de personnage"
+  "liber.fiche": "Générer un personnage"
 
 
 }

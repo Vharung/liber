@@ -116,9 +116,10 @@
         html.find('.chnget').click(this._onCouv.bind(this));
         html.find('.attaque').click(this._onRoll.bind(this));
         html.find('.attaques').click(this._onRoll.bind(this));
+        html.find('.item2').click(this._onSecondary.bind(this));
 
         //edition items
-        html.find('.fa-edit').click(this._onItemEdit.bind(this));
+        html.find('.item-edit').click(this._onItemEdit.bind(this));
 
         // Delete Inventory Item
         html.find('.item-delete').click(ev => {
@@ -140,15 +141,6 @@
             const name = `New ${dataType.capitalize()}`;
             this.actor.createEmbeddedDocuments('Item', [{ name: name, type: dataType }], { renderSheet: true })
         }); 
-
-        html.find('.item-desc').on('click',function(){
-           var hauteur= $(this).parent().parent().css("height");
-           if(hauteur=='30px'){
-                $(this).parent().parent().css({"height":"auto"});
-            }else{
-                $(this).parent().parent().css({"height":"30px"});
-            }
-        });
 
         html.find('.addsort').click(ev => {
             event.preventDefault();
@@ -184,6 +176,16 @@
             $( this ).css({"background":"#a51b1b","color": "white"});
           }
         });
+
+        let tab=html.find('.secondary').val()
+        if(tab!=''){
+            let tab1='.'+tab;
+            let tab2='#'+tab;
+            $(".actif").removeClass("actif");
+            $('.items .acti').removeClass("acti");
+            html.find(tab1).addClass('acti');
+            html.find(tab2).addClass('actif');
+        }
 
 
         //Avantage
@@ -911,7 +913,7 @@
                 maing=objetaequipe;
             }
         }else if(equipe=="armure"){
-            this.actor.update({'system.armure': objetaequipe});
+            this.actor.update({'system.armure': objetaequipe,'system.imga': img});
             armor=objetaequipe;
         }else{
             if(equipe=="ddroite"){
@@ -919,7 +921,7 @@
             }else if(equipe=="dgauche"){
                 this.actor.update({'system.armeg': '','system.degatg': '','system.imgg': '','system.desg': ''});
             }else {
-                this.actor.update({'system.armure': ''});
+                this.actor.update({'system.armure': '','system.imga': ''});
             }
         } 
 
@@ -1426,5 +1428,10 @@
         }
        
 
+    }
+
+    _onSecondary(event){
+        let tab=event.target.dataset["tab"];
+        this.actor.update({"system.secondary":tab});
     }
 }
