@@ -76,8 +76,9 @@ option, optgroup,#chat-controls .roll-type-select{background: #20180d;}
 .directory .directory-header .header-search input ,.dialog-content input,select{background: #30220c;border: none;color: #fff;}
 #sidebar-tabs {color: #20180d;}
 
-.Liber .reposer,.Liber input[type="a"],.Liber .stat2 label,.Liber .modif a.desequi,.Liber .carac input[type="a"],.Liber .items .desequi,.Liber .items .jetdedegat,.Liber .addsort{background:#33250e;}/*e13b23*/
-.Liber .stat2 label.secstat:hover,.Liber .reposer:hover,.Liber input[type="a"]:hover,.Liber .modif a.desequi:hover,.Liber .carac input[type="a"]:hover,.Liber .items .desequi:hover,.Liber .items .jetdedegat:hover,.Liber .addsort:hover{background:#e13b23;}/*e13b23*/
+button {color:#fff;border:none}
+button,.Liber .reposer,.Liber input[type="a"],.Liber .stat2 label,.Liber .modif a.desequi,.Liber .carac input[type="a"],.Liber .items .desequi,.Liber .items .jetdedegat,.Liber .addsort{background:#33250e;}/*e13b23*/
+button:hover,.Liber .stat2 label.secstat:hover,.Liber .reposer:hover,.Liber input[type="a"]:hover,.Liber .modif a.desequi:hover,.Liber .carac input[type="a"]:hover,.Liber .items .desequi:hover,.Liber .items .jetdedegat:hover,.Liber .addsort:hover{background:#e13b23;}/*e13b23*/
 .Liber .stat2 label.secstat{background: #6a4f22;}
 .Liber a.item,.Liber h2 ,.Liber header,.Liber .tabs,.Liber .items-list .item-description,.Liber .items-list .item-description2{background: #181003;}
 .Liber.window-app .window-content{background: none;overflow:auto;height: 773px;}
