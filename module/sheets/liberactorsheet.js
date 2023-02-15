@@ -517,11 +517,12 @@
 
     _onInfo(event){
         var name=event.target.dataset["name"];
+        console.log(name)
         var desc=event.target.dataset["desc"];
         var img=event.target.dataset["img"];
         var cout=event.target.dataset["cout"];
         var type=event.target.dataset["type"];
-        if(type=="sort"){
+        if(type=="magie"){
             var cost='Cout : '+cout+' Psy';
         }else{
             var cost='Cout : '+cout+' écu'

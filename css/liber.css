@@ -43,6 +43,7 @@
 .Liber .items-list .item-image img{height: 82px;width: 82px;display: block;}
 .Liber .items-list .item-description{opacity:0;width: 82px;height: 82px;padding: 5px;display: block;position: relative;margin-top: -82px;z-index: 80;font-family: 'Signika';font-size: 0.8em;overflow: hidden;}
 .Liber .items-list .item-description:hover,.Liber .items-list li:hover .item-controls{opacity:0.95;transition: 0.5s}
+.Liber .items-list .item-description span{pointer-events: none;}
 .Liber .items-list .item-hand{width: 62px;float: left;filter: invert(1);}
 .Liber .maindroite,.Liber .maingauche,.Liber .armor{width: 12px; height: 12px; display: inline-block;cursor: pointer;filter: invert(100%);}
 .Liber .maindroite {background: url(" ../assets/icon/hand.png");background-size: cover;}
