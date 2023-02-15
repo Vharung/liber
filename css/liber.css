@@ -130,7 +130,7 @@ button:hover,.Liber .stat2 label.secstat:hover,.Liber .reposer:hover,.Liber inpu
 .Liber textarea:hover{color:#fff;}
 .Liber input[type="a"],.Liber .stat2 label{border: none;color: #fff;padding: 10px 5px;font-weight: bold;cursor: pointer;text-align: center;}
 .Liber .clear{clear: both}.liber .center{text-align: center;}
-.Liber .malussactor,.Liber .bonusactor,.Liber .pointrestant {width:74px;border: none;background: none; font-size: 50px;height:50px;color: #fff; text-align: center;margin-left: calc(50% - 35px);}
+.Liber .malussactor,.Liber .bonusactor,.Liber .pointrestant {width:104px;border: none;background: none; font-size: 50px;height:50px;color: #fff; text-align: center;}
 .Liber .coutmax,.Liber .maxsort {width:100%;border: none;background: none; font-size: 50px;height:50px;color: #fff; text-align: center;}
 .Liber .modif a.desequi{float: right;border: none;color: #fff;width: 50px;height: 50px;font-size: 2em;cursor: pointer}
 .Liber a.item,.Liber a.item2{display: inline-block;color:#a5a5a5;width:20%;padding: 9px 2px;margin: 0;text-align: center;transition: 0.5s;}
