@@ -119,9 +119,8 @@
 				
 	                <li class="item fexrow" data-item-id="{{item._id}}">
 	                    <div class="item-poids" style="display:none">{{item.system.poids}}</div>
-	                    <div class="item-qty" style="text-align: center;height: 80px;margin-top: 19px;padding: 30px;background: #181003a1;width: 80px;">{{item.system.quantite}}</div>
+	                    <div class="item-qty item-edit" style="text-align: center;height: 80px;margin-top: 19px;padding: 30px;background: #181003a1;width: 80px;">{{item.system.quantite}}</div>
 	                    <div class="item-controls" style="text-align: right;padding-right: 5px;padding-top: 2px;">
-	                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
 	                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
 	                    </div>
 	                </li>
@@ -474,6 +473,7 @@
 				                    <option value="{{localize 'liber.avantrace77'}}">{{localize 'liber.avantrace77'}}</option>
 				                    <option value="{{localize 'liber.avantrace78'}}">{{localize 'liber.avantrace78'}}</option>
 				                    <option value="{{localize 'liber.avantrace92'}}">{{localize 'liber.avantrace92'}}</option>
+				                    
 				                {{/select}}
 			                </SELECT>
 					    </div>
@@ -524,6 +524,7 @@
                                     <OPTION value="{{localize 'liber.title93'}}" title="{{localize 'liber.title36'}}">{{localize 'liber.title93'}}</OPTION>
                                     <OPTION value="{{localize 'liber.title94'}}" title="{{localize 'liber.title37'}}">{{localize 'liber.title94'}}</OPTION>
                                     <OPTION value="{{localize 'liber.title95'}}" title="{{localize 'liber.title38'}}">{{localize 'liber.title95'}}</OPTION>
+
                                 {{/select}}
                             </SELECT>   
                         </div>
@@ -616,25 +617,26 @@
 					<div class="clear"></div>
 	                <div class="rexrow" style="margin-top: 30px;">
 				    	<div class="grid-2col" style="text-align: center;color:#fff">
-							<h2 style="{{actor.system.alert.metiertitre}}">{{localize 'liber.metier'}}</h2>
-							<SELECT style="{{actor.system.alert.metiertitre}};" name="system.metier">
+							<h2>{{localize 'liber.metier'}}</h2>
+							<SELECT name="system.metier">
 								{{#select actor.system.metier}}
-				                  	<option value="{{localize 'liber.metier1'}}">{{localize 'liber.metier1'}}</option>
-				                  	<option value="{{localize 'liber.metier2'}}">{{localize 'liber.metier2'}}</option>
-				                  	<option value="{{localize 'liber.metier3'}}">{{localize 'liber.metier3'}}</option>
-				                  	<option value="{{localize 'liber.metier4'}}">{{localize 'liber.metier4'}}</option>
-				                  	<option value="{{localize 'liber.metier5'}}">{{localize 'liber.metier5'}}</option>
-				                  	<option value="{{localize 'liber.metier6'}}">{{localize 'liber.metier6'}}</option>
-				                  	<option value="{{localize 'liber.metier7'}}">{{localize 'liber.metier7'}}</option>
-				                  	<option value="{{localize 'liber.metier8'}}">{{localize 'liber.metier8'}}</option>
-				                  	<option value="{{localize 'liber.metier9'}}">{{localize 'liber.metier9'}}</option>
-				                  	<option value="{{localize 'liber.metier10'}}">{{localize 'liber.metier10'}}</option>
-				                  	<option value="{{localize 'liber.metier11'}}">{{localize 'liber.metier11'}}</option>
-				                  	<option value="{{localize 'liber.metier12'}}">{{localize 'liber.metier12'}}</option>
-				                  	<option value="{{localize 'liber.metier13'}}">{{localize 'liber.metier13'}}</option>
-				                  	<option value="{{localize 'liber.metier14'}}">{{localize 'liber.metier14'}}</option>
-				                  	<option value="{{localize 'liber.metier15'}}">{{localize 'liber.metier15'}}</option>
-				                  	<option value="{{localize 'liber.metier16'}}">{{localize 'liber.metier16'}}</option>
+				                  	<option value="{{localize 'liber.metier1'}}" style="{{actor.system.alert.metiertitre}}">{{localize 'liber.metier1'}}</option>
+				                  	<option value="{{localize 'liber.metier2'}}" style="{{actor.system.alert.metiertitre}}">{{localize 'liber.metier2'}}</option>
+				                  	<option value="{{localize 'liber.metier3'}}" style="{{actor.system.alert.metiertitre}}">{{localize 'liber.metier3'}}</option>
+				                  	<option value="{{localize 'liber.metier4'}}" style="{{actor.system.alert.metiertitre}}">{{localize 'liber.metier4'}}</option>
+				                  	<option value="{{localize 'liber.metier5'}}" style="{{actor.system.alert.metiertitre}}">{{localize 'liber.metier5'}}</option>
+				                  	<option value="{{localize 'liber.metier6'}}" style="{{actor.system.alert.metiertitre}}">{{localize 'liber.metier6'}}</option>
+				                  	<option value="{{localize 'liber.metier7'}}" style="{{actor.system.alert.metiertitre}}">{{localize 'liber.metier7'}}</option>
+				                  	<option value="{{localize 'liber.metier8'}}" style="{{actor.system.alert.metiertitre}}">{{localize 'liber.metier8'}}</option>
+				                  	<option value="{{localize 'liber.metier9'}}" style="{{actor.system.alert.metiertitre}}">{{localize 'liber.metier9'}}</option>
+				                  	<option value="{{localize 'liber.metier10'}}" style="{{actor.system.alert.metiertitre}}">{{localize 'liber.metier10'}}</option>
+				                  	<option value="{{localize 'liber.metier11'}}" style="{{actor.system.alert.metiertitre}}">{{localize 'liber.metier11'}}</option>
+				                  	<option value="{{localize 'liber.metier12'}}" style="{{actor.system.alert.metiertitre}}">{{localize 'liber.metier12'}}</option>
+				                  	<option value="{{localize 'liber.metier13'}}" style="{{actor.system.alert.metiertitre}}">{{localize 'liber.metier13'}}</option>
+				                  	<option value="{{localize 'liber.metier14'}}" style="{{actor.system.alert.metiertitre}}">{{localize 'liber.metier14'}}</option>
+				                  	<option value="{{localize 'liber.metier15'}}" style="{{actor.system.alert.metiertitre}}">{{localize 'liber.metier15'}}</option>
+				                  	<option value="{{localize 'liber.metier16'}}" style="{{actor.system.alert.metiertitre}}">{{localize 'liber.metier16'}}</option>
+				                  	<option value="{{localize 'liber.avantrace93'}}" style="{{actor.system.alert.metiertitre2}}">{{localize 'liber.avantrace93'}}</option>
 				                {{/select}}
 			                </SELECT>&nbsp;
 						</div>
