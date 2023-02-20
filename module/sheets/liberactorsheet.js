@@ -116,7 +116,7 @@
         html.find('.chnget').click(this._onCouv.bind(this));
         html.find('.attaque').click(this._onRoll.bind(this));
         html.find('.attaques').click(this._onRoll.bind(this));
-        html.find('.item2').click(this._onSecondary.bind(this));
+        //html.find('.item-filter ').click(this._onSecondary.bind(this));
 
         //edition items
         html.find('.item-edit').click(this._onItemEdit.bind(this));
@@ -177,15 +177,40 @@
           }
         });
 
-        let tab=html.find('.secondary').val()
-        if(tab!=''){
-            let tab1='.'+tab;
-            let tab2='#'+tab;
-            $(".actif").removeClass("actif");
-            $('.items .acti').removeClass("acti");
-            html.find(tab1).addClass('acti');
-            html.find(tab2).addClass('actif');
-        }
+        /*let tab=html.find('.secondary').val()
+        html.find('.items a').removeClass('active');
+        html.find('.items li').removeClass('active');
+        if(tab=='' || tab=='tous'){
+            html.find('.items li').addClass('active');
+            html.find('.items a.tous').addClass('active');
+        }else if(tab=='armes'){
+            $('.items a.armes').addClass("active");
+            $('.items li.armes').addClass("active");
+        }else if(tab=='armures'){
+            $('.items a.armures').addClass("active");
+            $('.items li.armures').addClass("active");
+        }else if(tab=='objets'){
+            $('.items a.objets').addClass("active");
+            $('.items li.objets').addClass("active");
+        }*/
+        html.find('.item-filter').click(ev => {
+            const tab=$(ev.currentTarget).data('tab');
+            html.find('.items a').removeClass('acti');
+            html.find('.items li').removeClass('active');
+             if(tab=='' || tab=='tous'){
+                html.find('.items li').addClass('active');
+                html.find('.items a.tous').addClass('acti');
+            }else if(tab=='armes'){
+                $('.items a.armes').addClass("acti");
+                $('.items li.armes').addClass("active");
+            }else if(tab=='armures'){
+                $('.items a.armures').addClass("acti");
+                $('.items li.armures').addClass("active");
+            }else if(tab=='objets'){
+                $('.items a.objets').addClass("acti");
+                $('.items li.objets').addClass("active");
+            }
+        }); 
 
 
         //Avantage
@@ -226,12 +251,12 @@
         var poids=[];
         var quantite=[];
         var total=0;
-        html.find( ".all .item-poids" ).each(function( index ) {
+        html.find( ".item-poids" ).each(function( index ) {
             if($( this ).text()!="Pds"){
                 poids.push($( this ).text());
             }
         });
-        html.find( ".all .item-qty" ).each(function( index ) {
+        html.find( ".item-qty" ).each(function( index ) {
             if($( this ).text()!="Qte"){
                 quantite.push($( this ).text());
             }

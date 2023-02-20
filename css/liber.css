@@ -4,7 +4,7 @@
 
 .Liber .col3{display: inline-block;width: 400px; float: left; }
 .Liber .inter{background:url(parchemin.jpg);/*background: linear-gradient(0deg, rgba(51,52,44,1) 0%, rgba(60,62,49,1) 100%);*/ border:thick double #12130f;margin-bottom: 5px}
-.Liber .avatar{height: 80px;width: 80px;display: inline-block; margin: 10px}
+.Liber .avatar{height: 80px;width: 80px;display: inline-block; margin: 10px;overflow: hidden;}
 .Liber .head{display: inline-block;width: 280px;vertical-align: top;padding-top: 10px}
 .Liber .head input{width: 135px;}
 .Liber .head input.nomperso{text-transform: uppercase;height: 20px; font-size: 1.2em;width: 280px;}
@@ -38,7 +38,8 @@
 .Liber .modif{margin-top: 5px}
 .Liber .vue{background: url()}
 
-.Liber .items-list li {margin: 0;width:82px;display: inline-block;float:left;margin:0 5px 0px 0}
+.Liber .items .items-list li,.Liber .spells .items-list li {margin: 0;width:82px;display: none;float:left;margin:0 5px 0px 0}
+.Liber .spells .items-list li {display: inline-block;}
 .Liber .items-list .item-name,.Liber .items-list .item-controls {margin: 0;width: 82px;background: #221808;padding: 3px;text-align: center;font-size: 0.8em;height: 20px;overflow: hidden;}
 .Liber .items-list .item-image img{height: 82px;width: 82px;display: block;}
 .Liber .items-list .item-description{opacity:0;width: 82px;height: 82px;padding: 5px;display: block;position: relative;margin-top: -82px;z-index: 80;font-family: 'Signika';font-size: 0.8em;overflow: hidden;}
@@ -52,7 +53,7 @@
 .Liber .items-list .item-qty,.Liber .items-list .item-cout{margin-bottom: -27px;padding: 5px;background: #221808;opacity: 0.8;text-align: center;}
 .Liber .items-list .item-controls{opacity: 0}
 .Liber .tab2{display: none;}
-.Liber .actif{display: block;}
+.Liber .items-list li.active{display: inline-block;}
 
 
 
@@ -92,18 +93,18 @@ button:hover,.Liber .stat2 label.secstat:hover,.Liber .reposer:hover,.Liber inpu
 .Liber .fiche nav.sheet-tabs{margin:0px;border-top:none;border-bottom:none;padding:0px 0;height: 35px;}
 .Liber .list{width: 80px;height: 80px;display: inline-block;}
 .Liber .invten{width: 368px;height: 629px;overflow: auto;margin: 20px 0 0 20px;}
-.Liber .items ul {list-style: none;display: block;list-style-type: disc;margin-block-start: 0;margin-block-end: 0;margin-inline-start: 0px;margin-inline-end: 0px;padding-inline-start: 0;}
+.Liber .items ul,.Liber .spells ul {list-style: none;display: block;margin-top: 10px;}
 
-.Liber a.invent{background: url(swap-bag.png) no-repeat center center;background-size: 30%;opacity: 0.5;transition: 0.5s}
+.Liber a.invent,.Liber a.tous{background: url(swap-bag.png) no-repeat center center;background-size: 30%;opacity: 0.5;transition: 0.5s}
 .Liber a.magi{background: url(magic-swirl.png) no-repeat center center;background-size: 30%;opacity: 0.5;transition: 0.5s}
 .Liber a.compe{background: url(battle-gear.png) no-repeat center center;background-size: 30%;opacity: 0.5;transition: 0.5s}
 .Liber a.carac{background: url(bookshelf.png) no-repeat center center;background-size: 30%;opacity: 0.5;transition: 0.5s}
 .Liber a.confi{background: url(gears.png) no-repeat center center;background-size: 30%;opacity: 0.5;transition: 0.5s}
-.Liber a.marme{background: url(sword-wound.png) no-repeat center center;background-size: 30%;opacity: 0.5;transition: 0.5s}
-.Liber a.marmu{background: url(chest-armor2.png) no-repeat center center;background-size: 30%;opacity: 0.5;transition: 0.5s}
-.Liber a.mautr{background: url(chicken-oven.png) no-repeat center center;background-size: 30%;opacity: 0.5;transition: 0.5s}
-.Liber a.item:hover,.Liber a.item.acti,.Liber a.item.active,.Liber a.item2:hover,.Liber a.item2.acti,.Liber a.item2.active{opacity: 1}
-.Liber a.item,.Liber a.item2{height: 30px}
+.Liber a.armes{background: url(sword-wound.png) no-repeat center center;background-size: 30%;opacity: 0.5;transition: 0.5s}
+.Liber a.armures{background: url(chest-armor2.png) no-repeat center center;background-size: 30%;opacity: 0.5;transition: 0.5s}
+.Liber a.objets{background: url(chicken-oven.png) no-repeat center center;background-size: 30%;opacity: 0.5;transition: 0.5s}
+.Liber a.item:hover,.Liber a.item.active,.Liber a.item-filter:hover,.Liber a.item-filter.acti{opacity: 1}
+.Liber a.item,.Liber .items a{height: 30px;width:70px;}
 
 .Liber option{background:none;}
 .Liber {font-family: 'MedievalSharp', cursive;}
@@ -182,6 +183,7 @@ button:hover,.Liber .stat2 label.secstat:hover,.Liber .reposer:hover,.Liber inpu
 .Liber .his{width: calc(100% - 200px);display: inline-block;float: right;}
 
 .Liber .carac,.Liber .items,.Liber .spells,.Liber .stats {display: none; overflow: auto;}
+.Liber .items.active {display: block;}
 .resultatp{text-align: center;font-size: medium;background: #4b3f25;padding: 5px;color: white;display: flex;}
 .desctchat{padding: 5px;background: #967b43;color: #fff;display:none}
 .infosort:active .desctchat{display: flex;}
