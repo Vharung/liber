@@ -210,7 +210,7 @@
 				    
 				    	<ul class="items-list">
 				    	{{#each actor.arme as |item id|}}		    		
-					    		<li class="item fexrow armes" data-item-id="{{item._id}}">
+					    		<li class="item fexrow armes active" data-item-id="{{item._id}}">
 					    			<div class="item-name" title="{{item.name}}">{{item.name}}</div>
 				                    <div class="item-image"><div class="item-qty">{{item.system.quantite}}</div><img src="{{item.img}}" title="{{item.system.description}}"/></div>
 				                    <div class="item-description item-info" data-item-id="{{item._id}}" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.valeur}}" data-type="{{item.type}}" data-img="{{item.img}}"><span title="{{item.system.description}}">{{item.system.description}}</span></div>
@@ -228,7 +228,7 @@
 				                </li>
 			            {{/each}}
 			            {{#each actor.armure as |item id|}}
-			            		<li class="item fexrow armures" data-item-id="{{item._id}}">
+			            		<li class="item fexrow armures active" data-item-id="{{item._id}}">
 					    			<div class="item-name" title="{{item.name}}">{{item.name}}</div>
 				                    <div class="item-image"><div class="item-qty">{{item.system.quantite}}</div><img src="{{item.img}}" title="{{item.system.description}}"/></div>
 				                    <div class="item-description item-info" data-item-id="{{item._id}}" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.valeur}}" data-type="{{item.type}}" data-img="{{item.img}}"><span title="{{item.system.description}}">{{item.system.description}}</span></div>
@@ -247,7 +247,7 @@
 				                </li>
 			            {{/each}}
 			            {{#each actor.inventaire as |item id|}}
-			            		<li class="item fexrow objets" data-item-id="{{item._id}}">
+			            		<li class="item fexrow objets active" data-item-id="{{item._id}}">
 					    			<div class="item-name" title="{{item.name}}">{{item.name}}</div>
 				                    <div class="item-image"><div class="item-qty">{{item.system.quantite}}</div><img src="{{item.img}}" title="{{item.system.description}}"/></div>
 				                    <div class="item-description item-info" data-item-id="{{item._id}}" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.valeur}}" data-type="{{item.type}}" data-img="{{item.img}}"><span title="{{item.system.description}}">{{item.system.description}}</span></div>
