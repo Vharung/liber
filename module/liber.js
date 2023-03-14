@@ -1,4 +1,4 @@
-import { Liber } from "./sheets/config.js";
+import { liber } from "./sheets/config.js";
 //import { LiberChat } from "./sheets/liberchat.js";
 import { LiberActor } from "./sheets/liberactor.js";
 import { LiberActorSheet } from "./sheets/liberactorsheet.js";
@@ -8,14 +8,17 @@ import { LiberItemSheet } from "./sheets/liberitemsheet.js";
 
 //const myInstance = new MyClass();
 Hooks.once("init", async function() {
-    console.log(Liber.ASCII)
+    console.log(liber.ASCII)
+    CONFIG.liber = liber;
 	CONFIG.Actor.documentClass = LiberActor;
     CONFIG.Item.documentClass = LiberItem;
+    
 
     CONFIG.Combat.initiative = {
 	    formula: "1d6",
 	    decimals: 2
 	};
+
 
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("liber", LiberItemSheet, { makeDefault: true });
