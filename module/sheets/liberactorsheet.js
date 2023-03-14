@@ -27,12 +27,12 @@
         data.dtypes = ["String", "Number", "Boolean"];
         console.log(data);        
         if (this.actor.type == 'personnage' || this.actor.type == 'pnj' || this.actor.type == 'monstre') {
-            this._prepareCharacterItems(data);//this._onEffect(data);
+            this._prepareCharacterItems(data);
         }
         if (this.actor.type == 'personnage' || this.actor.type == 'pnj' ) {
-            this._onEncom(data);this._onStat(data);
+            this._onEncom();this._onStat();
         }else if (this.actor.type == 'monstre'){
-            this._onStatM(data);
+            //this._onStatM();
         }
         return data;
     }
@@ -47,7 +47,9 @@
         const inventaire = [];
         const sort = [];
         const argent = [];
-        
+
+        //let cpt0=this.actor.system.caracteristique.acrobatie;var cpt1=this.actor.system.caracteristique.agilites;var cpt2=this.actor.system.caracteristique.alchimie;var cpt3=this.actor.system.caracteristique.apprentissage;var cpt4=this.actor.system.caracteristique.hast;var cpt5=this.actor.system.caracteristique.cc;var cpt6=this.actor.system.caracteristique.lancer;var cpt7=this.actor.system.caracteristique.melee;var cpt8=this.actor.system.caracteristique.tir;var cpt9=this.actor.system.caracteristique.art;var cpt10=this.actor.system.caracteristique.assassinat;var cpt11=this.actor.system.caracteristique.baton;var cpt12=this.actor.system.caracteristique.bouclier;var cpt13=this.actor.system.caracteristique.bricolage;var cpt14=this.actor.system.caracteristique.presence;var cpt15=this.actor.system.caracteristique.chercher;var cpt16=this.actor.system.caracteristique.commander;var cpt17=this.actor.system.caracteristique.concentration;var cpt18=this.actor.system.caracteristique.nature;var cpt19=this.actor.system.caracteristique.peuples;var cpt20=this.actor.system.caracteristique.religions;var cpt21=this.actor.system.caracteristique.geographique;var cpt22=this.actor.system.caracteristique.rue;var cpt23=this.actor.system.caracteristique.heretiques;var cpt24=this.actor.system.caracteristique.combat;var cpt25=this.actor.system.caracteristique.commerce;var cpt26=this.actor.system.caracteristique.crochetage;var cpt27=this.actor.system.caracteristique.discretion;var cpt28=this.actor.system.caracteristique.dexterite;var cpt29=this.actor.system.caracteristique.detection;var cpt30=this.actor.system.caracteristique.dissimulation;var cpt31=this.actor.system.caracteristique.dressage;var cpt32=this.actor.system.caracteristique.ennemi;var cpt33=this.actor.system.caracteristique.equilibre;var cpt34=this.actor.system.caracteristique.equitation;var cpt35=this.actor.system.caracteristique.escroquerie;var cpt36=this.actor.system.caracteristique.esquiver;var cpt37=this.actor.system.caracteristique.puissance;var cpt38=this.actor.system.caracteristique.astuce;var cpt39=this.actor.system.caracteristique.peur;var cpt40=this.actor.system.caracteristique.joueur;var cpt41=this.actor.system.caracteristique.maitrise;var cpt42=this.actor.system.caracteristique.natation;var cpt43=this.actor.system.caracteristique.navigation;var cpt44=this.actor.system.caracteristique.orientation;var cpt45=this.actor.system.caracteristique.persuasion;var cpt46=this.actor.system.caracteristique.pister;var cpt47=this.actor.system.caracteristique.prophetie;var cpt48=this.actor.system.caracteristique.secours;var cpt49=this.actor.system.caracteristique.resistance;var cpt50=this.actor.system.caracteristique.psychologue;var cpt51=this.actor.system.caracteristique.medecine;var cpt52=this.actor.system.caracteristique.survie;var cpt53=this.actor.system.caracteristique.tueur;var cpt54=this.actor.system.caracteristique.objet;
+        //let cpts=[{"cpt":"cpt0","label":game.i18n.localize("liber.acro"),"value":cpt0,"cpt":"cpt1","label":game.i18n.localize("liber.agil"),"value":cpt1,"cpt":"cpt2","label":game.i18n.localize("liber.alch"),"value":cpt2,"cpt":"cpt3","label":game.i18n.localize("liber.appr"),"value":cpt3,"cpt":"cpt4","label":game.i18n.localize("liber.hast"),"value":cpt4,"cpt":"cpt5","label":game.i18n.localize("liber.corp"),"value":cpt5,"cpt":"cpt6","label":game.i18n.localize("liber.lanc"),"value":cpt6,"cpt":"cpt7","label":game.i18n.localize("liber.mele"),"value":cpt7,"cpt":"cpt8","label":game.i18n.localize("liber.atir"),"value":cpt8,"cpt":"cpt9","label":game.i18n.localize("liber.arti"),"value":cpt9,"cpt":"cpt10","label":game.i18n.localize("liber.assa"),"value":cpt10,"cpt":"cpt11","label":game.i18n.localize("liber.bato"),"value":cpt11,"cpt":"cpt12","label":game.i18n.localize("liber.bouc"),"value":cpt12,"cpt":"cpt13","label":game.i18n.localize("liber.bric"),"value":cpt13,"cpt":"cpt14","label":game.i18n.localize("liber.char"),"value":cpt14,"cpt":"cpt15","label":game.i18n.localize("liber.conc"),"value":cpt15,"cpt":"cpt16","label":game.i18n.localize("liber.natu"),"value":cpt16,"cpt":"cpt17","label":game.i18n.localize("liber.peup"),"value":cpt17,"cpt":"cpt18","label":game.i18n.localize("liber.reli"),"value":cpt18,"cpt":"cpt19","label":game.i18n.localize("liber.geog"),"value":cpt19,"cpt":"cpt20","label":game.i18n.localize("liber.arue"),"value":cpt20,"cpt":"cpt21","label":game.i18n.localize("liber.here"),"value":cpt21,"cpt":"cpt22","label":game.i18n.localize("liber.comb"),"value":cpt22,"cpt":"cpt23","label":game.i18n.localize("liber.comm"),"value":cpt23,"cpt":"cpt24","label":game.i18n.localize("liber.croc"),"value":cpt24,"cpt":"cpt25","label":game.i18n.localize("liber.disc"),"value":cpt25,"cpt":"cpt26","label":game.i18n.localize("liber.dext"),"value":cpt26,"cpt":"cpt27","label":game.i18n.localize("liber.dect"),"value":cpt27,"cpt":"cpt28","label":game.i18n.localize("liber.diss"),"value":cpt28,"cpt":"cpt29","label":game.i18n.localize("liber.dres"),"value":cpt29,"cpt":"cpt30","label":game.i18n.localize("liber.enne"),"value":cpt30,"cpt":"cpt31","label":game.i18n.localize("liber.equi"),"value":cpt31,"cpt":"cpt32","label":game.i18n.localize("liber.equt"),"value":cpt32,"cpt":"cpt33","label":game.i18n.localize("liber.escr"),"value":cpt33,"cpt":"cpt34","label":game.i18n.localize("liber.esqu"),"value":cpt34,"cpt":"cpt35","label":game.i18n.localize("liber.forc"),"value":cpt35,"cpt":"cpt36","label":game.i18n.localize("liber.inte"),"value":cpt36,"cpt":"cpt37","label":game.i18n.localize("liber.peur"),"value":cpt37,"cpt":"cpt38","label":game.i18n.localize("liber.joue"),"value":cpt38,"cpt":"cpt39","label":game.i18n.localize("liber.mait"),"value":cpt39,"cpt":"cpt40","label":game.i18n.localize("liber.nata"),"value":cpt40,"cpt":"cpt41","label":game.i18n.localize("liber.navi"),"value":cpt41,"cpt":"cpt42","label":game.i18n.localize("liber.orie"),"value":cpt42,"cpt":"cpt43","label":game.i18n.localize("liber.pers"),"value":cpt43,"cpt":"cpt44","label":game.i18n.localize("liber.prop"),"value":cpt44,"cpt":"cpt45","label":game.i18n.localize("liber.pist"),"value":cpt45,"cpt":"cpt46","label":game.i18n.localize("liber.resi"),"value":cpt46,"cpt":"cpt47","label":game.i18n.localize("liber.seco"),"value":cpt47,"cpt":"cpt48","label":game.i18n.localize("liber.saga"),"value":cpt48,"cpt":"cpt49","label":game.i18n.localize("liber.mede"),"value":cpt49,"cpt":"cpt50","label":game.i18n.localize("liber.surv"),"value":cpt50,"cpt":"cpt51","label":game.i18n.localize("liber.tueu"),"value":cpt51,"cpt":"cpt52","label":game.i18n.localize("liber.obje"),"value":cpt52,"cpt":"cpt53","label":game.i18n.localize("liber.vete"),"value":cpt53,"cpt":"cpt54","label":game.i18n.localize("liber.vigi"),"value":cpt54}]
         // let totalWeight = 0;
         for (let i of sheetData.items) {
           let item = i.items;
@@ -78,6 +80,8 @@
         actorData.argent = argent;
         actorData.armure = armure;
         actorData.arme = arme;
+        //console.log(cpt)
+        //actorData.cpt=cpts;
     }
 
 
@@ -177,22 +181,6 @@
           }
         });
 
-        /*let tab=html.find('.secondary').val()
-        html.find('.items a').removeClass('active');
-        html.find('.items li').removeClass('active');
-        if(tab=='' || tab=='tous'){
-            html.find('.items li').addClass('active');
-            html.find('.items a.tous').addClass('active');
-        }else if(tab=='armes'){
-            $('.items a.armes').addClass("active");
-            $('.items li.armes').addClass("active");
-        }else if(tab=='armures'){
-            $('.items a.armures').addClass("active");
-            $('.items li.armures').addClass("active");
-        }else if(tab=='objets'){
-            $('.items a.objets').addClass("active");
-            $('.items li.objets').addClass("active");
-        }*/
         html.find('.item-filter').click(ev => {
             const tab=$(ev.currentTarget).data('tab');
             html.find('.items a').removeClass('acti');
@@ -293,6 +281,42 @@
         if(hp<=0){
             html.find('.autres').css({"background":"url(systems/liber/css/parchemin-sang.jpg)",'background-size': 'cover'});
         }
+
+
+        //test stat
+        let phys=html.find('.physiqueValue').val();
+        let forc=html.find('.forceValue').val();
+        let agil=html.find('.agiliteValue').val();
+        let soci=html.find('.socialValue').val();
+        let char=html.find('.charismeValue').val();
+        let saga=html.find('.sagaciteValue').val();
+        let ment=html.find('.mentalValue').val();
+        let astu=html.find('.astValue').val();
+        let memo=html.find('.memoireValue').val();
+        let race=html.find('.race').val();
+        let max=170;
+        if(race==game.i18n.localize("liber.avantrace61")){
+            max=175;
+        }
+        console.log(astu+'+'+memo+'='+ment)
+        if(phys<(parseInt(forc)+parseInt(agil))){
+            html.find('.force').css({"background":"red"});    
+            html.find('.agilite').css({"background":"red"});    
+        }
+        if(soci<(parseInt(char)+parseInt(saga))){
+            html.find('.charisme').css({"background":"red"});    
+            html.find('.sagacite').css({"background":"red"})
+        }
+        if(ment<(parseInt(astu)+parseInt(memo))){
+            html.find('.ast').css({"background":"red"});    
+            html.find('.memoire').css({"background":"red"})
+        }
+        if((parseInt(phys)+parseInt(soci)+parseInt(ment))>max){
+            html.find('.physique').css({"background":"red"});    
+            html.find('.social').css({"background":"red"})
+            html.find('.mental').css({"background":"red"})
+        }
+
         
     }
 
@@ -332,13 +356,13 @@
         let qarme=event.target.dataset["name"];
 
         //var automatisation
-        let statphy = this.actor.system.physique;
+        let statphy = this.actor.system.ability.physique;
         var hp=null;
         var nom='';    
 
     //Jet de dès  compétences
         if(type=="jetdedes" || type=="auto"){
-            if(type=="auto"){name='Physique';maxstat=this.actor.system.physique;}
+            if(type=="auto"){name='Physique';maxstat=this.actor.system.ability.physique;}
             if(posture=="Focus"){bonuspost=5;}
             else if(posture=="Offensif"){critique=10;}
             if(bonus==""){bonus=0;}
@@ -460,8 +484,8 @@
     
     _onSpell(event){
         let mental =this.actor.system.mental;
-        let physique =this.actor.system.physique;
-        let social =this.actor.system.social;
+        let physique =this.actor.system.ability.physique;
+        let social =this.actor.system.ability.social;
         let bonus =this.actor.system.bonus;
         let malus =this.actor.system.malus;
         let posture =this.actor.system.posture;
@@ -470,6 +494,7 @@
         var name=event.target.dataset["name"];
         var desc=event.target.dataset["desc"];
         var img=event.target.dataset["img"];
+        var dice=event.target.dataset["dice"];
         var psy=this.actor.system.psy.value;
         var hp=this.actor.system.hp.value;
         var insoin=this.actor.system.insoin;
@@ -533,13 +558,17 @@
         
 
         this.actor.update({"system.insoin": insoin,"system.hp.value": hp,"system.psy.value": psy});
-        const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +' : '+ inforesult +'/100</span><span class="desctchat">'+desc+'</span></p>'+succes+'</span>'
-        //+'<button class="attaque" data-name="'+name+'" data-dice="1d4" data-img="'+img+'" data-desc="'+desc+'" data-type="jetdedegat">Attaque</button>  ';
+        const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +' : '+ inforesult +'/100</span><span class="desctchat">'+desc+'</span></p>'+succes
+        //+'<button class="resultatp" style="cursor:pointer" data-name="'+name+'" data-dice="'+dice+'" data-img="'+img+'" data-desc="'+desc+'" data-type="jetdedegat" onclick="alert(\'bonjour\')">Attaque</button>  '
+        +'<button class="attack" style="cursor:pointer" data-item-id="'+name+'" data-dice="'+dice+'" data-img="'+img+'" data-desc="'+desc+'" data-type="jetdedegat">Attaque</button>  '
+        +'</span>';
         roll.toMessage({
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
             flavor: texte
         });
     }
+
+
 
     _onInfo(event){
         var name=event.target.dataset["name"];
@@ -562,7 +591,7 @@
         ChatMessage.create(chatData, {});
     }
 
-    _onSleep(event){//A verifier
+    _onSleep(event){
         const compt=this.actor.system.talent
         let heure =this.actor.system.heure;
         let jourliste =this.actor.system.jour;
@@ -829,7 +858,9 @@
         }else if(meti==game.i18n.localize("liber.metier16")){
             hp=8;psy= 25;phy=25;forc=5;agil=20;soc=70;saga=60;char=10;men=75;astu=60;memo=15;cpt15=cpt15+5;cpt47=cpt47+10;cpt50=cpt50+5;
         }
-
+        if(race==game.i18n.localize("liber.avantrace61")){
+            soc=soc+5;
+        }
         //histoire
         var age = Math.floor((Math.random() * 34) + 16);
         var items0=[game.i18n.localize("liber.lang1"),game.i18n.localize("liber.lang2"),game.i18n.localize("liber.lang3"),game.i18n.localize("liber.lang4"),game.i18n.localize("liber.lang5"),game.i18n.localize("liber.lang6"),game.i18n.localize("liber.lang7"),game.i18n.localize("liber.lang8"),game.i18n.localize("liber.lang9"),game.i18n.localize("liber.lang10"),game.i18n.localize("liber.lang11"),game.i18n.localize("liber.lang12"),game.i18n.localize("liber.lang13"),game.i18n.localize("liber.lang14"),game.i18n.localize("liber.lang15"),game.i18n.localize("liber.lang16"),game.i18n.localize("liber.lang17"),game.i18n.localize("liber.lang18"),game.i18n.localize("liber.lang19")];
@@ -911,7 +942,7 @@
         //var encombrement=(parseInt(forc) + parseInt(cpt37)) /2 + 20;
 
         //update
-        this.actor.update({'name': name,'system.histoire': textgen,'system.bonusrace': avantagerace,'system.protection' : armureperso,'system.hp.max': hp,'system.hp.value': hp,'system.psy.max': psy,'system.psy.value': psy,'system.physique':phy,'system.force':forc,'system.agilite':agil,'system.social':soc,'system.sagacite':saga,'system.charisme':char,'system.mental':men,'system.ast':astu,'system.memoire':memo,'system.caracteristique.acrobatie':cpt0,'system.caracteristique.agilites':cpt1,'system.caracteristique.alchimie':cpt2,'system.caracteristique.apprentissage':cpt3,'system.caracteristique.hast':cpt4,'system.caracteristique.cc':cpt5,'system.caracteristique.lancer':cpt6,'system.caracteristique.melee':cpt7,'system.caracteristique.tir':cpt8,'system.caracteristique.art':cpt9,'system.caracteristique.assassinat':cpt10,'system.caracteristique.baton':cpt11,'system.caracteristique.bouclier':cpt12,'system.caracteristique.bricolage':cpt13,'system.caracteristique.presence':cpt14,'system.caracteristique.chercher':cpt15,'system.caracteristique.commander':cpt16,'system.caracteristique.concentration':cpt17,'system.caracteristique.nature':cpt18,'system.caracteristique.peuples':cpt19,'system.caracteristique.religions':cpt20,'system.caracteristique.geographique':cpt21,'system.caracteristique.rue':cpt22,'system.caracteristique.heretiques':cpt23,'system.caracteristique.combat':cpt24,'system.caracteristique.commerce':cpt25,'system.caracteristique.crochetage':cpt26,'system.caracteristique.discretion':cpt27,'system.caracteristique.dexterite':cpt28,'system.caracteristique.detection':cpt29,'system.caracteristique.dissimulation':cpt30,'system.caracteristique.dressage':cpt31,'system.caracteristique.ennemi':cpt32,'system.caracteristique.equilibre':cpt33,'system.caracteristique.equitation':cpt34,'system.caracteristique.escroquerie':cpt35,'system.caracteristique.esquiver':cpt36,'system.caracteristique.puissance':cpt37,'system.caracteristique.astuce':cpt38,'system.caracteristique.peur':cpt39,'system.caracteristique.joueur':cpt40,'system.caracteristique.maitrise':cpt41,'system.caracteristique.natation':cpt42,'system.caracteristique.navigation':cpt43,'system.caracteristique.orientation':cpt44,'system.caracteristique.persuasion':cpt45,'system.caracteristique.pister':cpt46,'system.caracteristique.prophetie':cpt47,'system.caracteristique.secours':cpt48,'system.caracteristique.resistance':cpt49,'system.caracteristique.psychologue':cpt50,'system.caracteristique.medecine':cpt51,'system.caracteristique.survie':cpt52,'system.caracteristique.tueur':cpt53,'system.caracteristique.objet':cpt54,'system.caracteristique.veterinaire':cpt55,'system.caracteristique.vigilance':cpt56,'system.caracteristique.vise':cpt57,'system.caractere.residence': resident,'system.caractere.sang': sang,'system.caractere.politique': politique,'system.caractere.interets': groupe,'system.caractere.deces': dc,'system.caractere.moral': moral,'system.caractere.amour': amour,'system.caractere.amitie': ami,'system.caractere.haine': haine,'system.caractere.principale': metier1,'system.caractere.secondaire': metier2,'system.caractere.passion': metier3,'system.caractere.caract': caractere,'system.caractere.personnalite': personnalite,'system.caractere.perception': vision,'system.caractere.objectif': objectif,'system.caractere.rancunier': racune,'system.caractere.tare': tare,'system.caractere.obsession': obsession,'system.caractere.distingue': distingue});
+        this.actor.update({'name': name,'system.histoire': textgen,'system.bonusrace': avantagerace,'system.protection' : armureperso,'system.hp.max': hp,'system.hp.value': hp,'system.psy.max': psy,'system.psy.value': psy,'system.ability.physique':phy,'system.ability.force':forc,'system.ability.agilite':agil,'system.ability.social':soc,'system.ability.sagacite':saga,'system.ability.charisme':char,'system.ability.mental':men,'system.ability.ast':astu,'system.ability.memoire':memo,'system.caracteristique.acrobatie':cpt0,'system.caracteristique.agilites':cpt1,'system.caracteristique.alchimie':cpt2,'system.caracteristique.apprentissage':cpt3,'system.caracteristique.hast':cpt4,'system.caracteristique.cc':cpt5,'system.caracteristique.lancer':cpt6,'system.caracteristique.melee':cpt7,'system.caracteristique.tir':cpt8,'system.caracteristique.art':cpt9,'system.caracteristique.assassinat':cpt10,'system.caracteristique.baton':cpt11,'system.caracteristique.bouclier':cpt12,'system.caracteristique.bricolage':cpt13,'system.caracteristique.presence':cpt14,'system.caracteristique.chercher':cpt15,'system.caracteristique.commander':cpt16,'system.caracteristique.concentration':cpt17,'system.caracteristique.nature':cpt18,'system.caracteristique.peuples':cpt19,'system.caracteristique.religions':cpt20,'system.caracteristique.geographique':cpt21,'system.caracteristique.rue':cpt22,'system.caracteristique.heretiques':cpt23,'system.caracteristique.combat':cpt24,'system.caracteristique.commerce':cpt25,'system.caracteristique.crochetage':cpt26,'system.caracteristique.discretion':cpt27,'system.caracteristique.dexterite':cpt28,'system.caracteristique.detection':cpt29,'system.caracteristique.dissimulation':cpt30,'system.caracteristique.dressage':cpt31,'system.caracteristique.ennemi':cpt32,'system.caracteristique.equilibre':cpt33,'system.caracteristique.equitation':cpt34,'system.caracteristique.escroquerie':cpt35,'system.caracteristique.esquiver':cpt36,'system.caracteristique.puissance':cpt37,'system.caracteristique.astuce':cpt38,'system.caracteristique.peur':cpt39,'system.caracteristique.joueur':cpt40,'system.caracteristique.maitrise':cpt41,'system.caracteristique.natation':cpt42,'system.caracteristique.navigation':cpt43,'system.caracteristique.orientation':cpt44,'system.caracteristique.persuasion':cpt45,'system.caracteristique.pister':cpt46,'system.caracteristique.prophetie':cpt47,'system.caracteristique.secours':cpt48,'system.caracteristique.resistance':cpt49,'system.caracteristique.psychologue':cpt50,'system.caracteristique.medecine':cpt51,'system.caracteristique.survie':cpt52,'system.caracteristique.tueur':cpt53,'system.caracteristique.objet':cpt54,'system.caracteristique.veterinaire':cpt55,'system.caracteristique.vigilance':cpt56,'system.caracteristique.vise':cpt57,'system.caractere.residence': resident,'system.caractere.sang': sang,'system.caractere.politique': politique,'system.caractere.interets': groupe,'system.caractere.deces': dc,'system.caractere.moral': moral,'system.caractere.amour': amour,'system.caractere.amitie': ami,'system.caractere.haine': haine,'system.caractere.principale': metier1,'system.caractere.secondaire': metier2,'system.caractere.passion': metier3,'system.caractere.caract': caractere,'system.caractere.personnalite': personnalite,'system.caractere.perception': vision,'system.caractere.objectif': objectif,'system.caractere.rancunier': racune,'system.caractere.tare': tare,'system.caractere.obsession': obsession,'system.caractere.distingue': distingue});
     }
     
     _onArmor(event){
@@ -1005,7 +1036,6 @@
         var ids=null;
         let etat=active[idn];
         var etre='Est'
-        console.log(idn+' '+active[idn]+' '+lists[idn])
         if(etat==0.5){
             this.actor.createEmbeddedDocuments("ActiveEffect", [
               {label: lists[idn], icon: 'icons/svg/'+icon[idn]+'.svg', flags: { core: { statusId: icon[idn] } } }
@@ -1028,7 +1058,7 @@
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
             content: texte
         };
-        ChatMessage.create(chatData, {}); //dev 
+        ChatMessage.create(chatData, {});
     }
 
     _onAttr(event){
@@ -1046,12 +1076,11 @@
         }   
     }
 
-    _onEncom(data){
-        const adata = data.actor;
-        const compt = data.actor.system.talent
-        const faible = data.actor.system.faiblesse
-        let forc=adata.system.force
-        let puis=adata.system.caracteristique.puissance
+    _onEncom(){
+        const compt = this.actor.system.talent
+        const faible = this.actor.system.faiblesse
+        let forc=this.actor.system.ability.force;
+        let puis=this.actor.system.caracteristique.puissance
         if(forc==''){forc=0}
         if(puis==''){puis=0}
         var enc=(parseInt(forc)+ parseInt(puis)) /2 + 35;
@@ -1067,15 +1096,15 @@
 
     async _onStat(event){
         let race=this.actor.system.race;
-        let phys=this.actor.system.physique;
-        let forc=this.actor.system.force;
-        let agil=this.actor.system.agilite;
-        let soci=this.actor.system.social;
-        let char=this.actor.system.charisme;
-        let saga=this.actor.system.sagacite;
-        let ment=this.actor.system.mental;
-        let astu=this.actor.system.astuce;
-        let memo=this.actor.system.physique;
+        let phys=this.actor.system.ability.physique;
+        let forc=this.actor.system.ability.force;
+        let agil=this.actor.system.ability.agilite;
+        let soci=this.actor.system.ability.social;
+        let char=this.actor.system.ability.charisme;
+        let saga=this.actor.system.ability.sagacite;
+        let ment=this.actor.system.ability.mental;
+        let astu=this.actor.system.ability.astuce;
+        let memo=this.actor.system.ability.memoire;
         let level=this.actor.system.level;
         let clan=this.actor.system.clan;
         let reli=this.actor.system.religion;
@@ -1101,21 +1130,9 @@
         if(ment==''){let mental=10}
         if(astu==''){let astuce=5}
         if(memo==''){let physique=5}
-        var aphy='#18100'; var afor='#18100'; var aagi='#18100';
-        var asoc='#18100'; var acha='#18100'; var asag='#18100';
-        var amen='#18100'; var aast='#18100'; var amem='#18100';
         var cpt0=this.actor.system.caracteristique.acrobatie;var cpt1=this.actor.system.caracteristique.agilites;var cpt2=this.actor.system.caracteristique.alchimie;var cpt3=this.actor.system.caracteristique.apprentissage;var cpt4=this.actor.system.caracteristique.hast;var cpt5=this.actor.system.caracteristique.cc;var cpt6=this.actor.system.caracteristique.lancer;var cpt7=this.actor.system.caracteristique.melee;var cpt8=this.actor.system.caracteristique.tir;var cpt9=this.actor.system.caracteristique.art;var cpt10=this.actor.system.caracteristique.assassinat;var cpt11=this.actor.system.caracteristique.baton;var cpt12=this.actor.system.caracteristique.bouclier;var cpt13=this.actor.system.caracteristique.bricolage;var cpt14=this.actor.system.caracteristique.presence;var cpt15=this.actor.system.caracteristique.chercher;var cpt16=this.actor.system.caracteristique.commander;var cpt17=this.actor.system.caracteristique.concentration;var cpt18=this.actor.system.caracteristique.nature;var cpt19=this.actor.system.caracteristique.peuples;var cpt20=this.actor.system.caracteristique.religions;var cpt21=this.actor.system.caracteristique.geographique;var cpt22=this.actor.system.caracteristique.rue;var cpt23=this.actor.system.caracteristique.heretiques;var cpt24=this.actor.system.caracteristique.combat;var cpt25=this.actor.system.caracteristique.commerce;var cpt26=this.actor.system.caracteristique.crochetage;var cpt27=this.actor.system.caracteristique.discretion;var cpt28=this.actor.system.caracteristique.dexterite;var cpt29=this.actor.system.caracteristique.detection;var cpt30=this.actor.system.caracteristique.dissimulation;var cpt31=this.actor.system.caracteristique.dressage;var cpt32=this.actor.system.caracteristique.ennemi;var cpt33=this.actor.system.caracteristique.equilibre;var cpt34=this.actor.system.caracteristique.equitation;var cpt35=this.actor.system.caracteristique.escroquerie;var cpt36=this.actor.system.caracteristique.esquiver;var cpt37=this.actor.system.caracteristique.puissance;var cpt38=this.actor.system.caracteristique.astuce;var cpt39=this.actor.system.caracteristique.peur;var cpt40=this.actor.system.caracteristique.joueur;var cpt41=this.actor.system.caracteristique.maitrise;var cpt42=this.actor.system.caracteristique.natation;var cpt43=this.actor.system.caracteristique.navigation;var cpt44=this.actor.system.caracteristique.orientation;var cpt45=this.actor.system.caracteristique.persuasion;var cpt46=this.actor.system.caracteristique.pister;var cpt47=this.actor.system.caracteristique.prophetie;var cpt48=this.actor.system.caracteristique.secours;var cpt49=this.actor.system.caracteristique.resistance;var cpt50=this.actor.system.caracteristique.psychologue;var cpt51=this.actor.system.caracteristique.medecine;var cpt52=this.actor.system.caracteristique.survie;var cpt53=this.actor.system.caracteristique.tueur;var cpt54=this.actor.system.caracteristique.objet;
         var cpts=[cpt0,cpt1,cpt2,cpt3,cpt4,cpt5,cpt6,cpt7,cpt8,cpt9,cpt10,cpt11,cpt12,cpt13,cpt14,cpt15,cpt16,cpt17,cpt18,cpt19,cpt20,cpt21,cpt22,cpt23,cpt24,cpt25,cpt26,cpt27,cpt28,cpt29,cpt30,cpt31,cpt32,cpt33,cpt34,cpt35,cpt36,cpt37,cpt38,cpt39,cpt40,cpt41,cpt42,cpt43,cpt44,cpt45,cpt46,cpt47,cpt48,cpt49,cpt50,cpt51,cpt52,cpt53,cpt54]
 
-        if(phys<(parseInt(forc)+parseInt(agil))){
-            afor="red";aagi="red";
-        }
-        if(soci<(parseInt(char)+parseInt(saga))){
-            acha="red";asag="red";
-        }
-        if(ment<(parseInt(astu)+parseInt(memo))){
-            aast="red";amem="red";
-        }
         var metiertitre2='display:none;'
         var waetra='display:block'; var demon='display:block;';var humain='display:block;';var dragon='display:block;';var drauch='display:block;';var vharung='display:block;';var vaudou='display:block;';var corbeau='display:block;';var cercle='display:block;';var autre='display:block;';var aucun='display:block;';var metiertitre='';
         if(clan==game.i18n.localize("liber.avantrace56") || clan==game.i18n.localize("liber.avantrace58")){
@@ -1391,7 +1408,7 @@
             }
         });
         listem.sort((a, b) => a.cout - b.cout);
-        this.actor.update({"system.etat.a":active[0],"system.etat.b":active[1],"system.etat.c":active[2],"system.etat.d":active[3],"system.etat.e":active[4],"system.etat.f":active[5],"system.etat.g":active[6],"system.etat.h":active[7],"system.etat.i":active[8],"system.etat.j":active[9],"system.etat.k":active[10],"system.etat.l":active[11],"system.etat.m":active[12],"system.etat.n":active[13],"system.reste":reste,'system.alert.listemag.liste':listem,'system.alert.listemag.img1':mag1,'system.alert.listemag.img2':mag2,'system.alert.psy':apsy,'system.alert.psymax':apsymax,'system.alert.hp':ahp,'system.alert.hpmax':ahp,'system.hp.max':hpmax,'system.hp.value':hp,'system.psy.max':psy,'system.psy.value':psyvalue,"system.restant":resultat,'system.maxsort':calsort,'system.coutmax':cout,'system.alert.maxsort':color1,'system.alert.coutmax':color2,'system.alert.physique':aphy,'system.alert.force':afor,'system.alert.agilite':agil,'system.alert.social':asoc,'system.alert.charisme':acha,'system.alert.sagacite':asag,'system.alert.mental':amen,'system.alert.astuce':aast,'system.alert.memoire':amem,'system.alert.waetra':waetra,'system.alert.demon':demon,'system.alert.humain':humain,'system.alert.dragon':dragon,'system.alert.drauch':drauch,'system.alert.vharung':vharung,'system.alert.vaudou':vaudou,'system.alert.corbeau':corbeau,'system.alert.cercle':cercle,'system.alert.autre':autre,'system.alert.aucun':aucun,'system.alert.metiertitre':metiertitre,'system.alert.metiertitre2':metiertitre2,'system.caracteristique.acrobatie':cpts[0],'system.caracteristique.agilites':cpts[1],'system.caracteristique.alchimie':cpts[2],'system.caracteristique.apprentissage':cpts[3],'system.caracteristique.hast':cpts[4],'system.caracteristique.cc':cpts[5],'system.caracteristique.lancer':cpts[6],'system.caracteristique.melee':cpts[7],'system.caracteristique.tir':cpts[8],'system.caracteristique.art':cpts[9],'system.caracteristique.assassinat':cpts[10],'system.caracteristique.baton':cpts[11],'system.caracteristique.bouclier':cpts[12],'system.caracteristique.bricolage':cpts[13],'system.caracteristique.presence':cpts[14],'system.caracteristique.chercher':cpts[15],'system.caracteristique.commander':cpts[16],'system.caracteristique.concentration':cpts[17],'system.caracteristique.nature':cpts[18],'system.caracteristique.peuples':cpts[19],'system.caracteristique.religions':cpts[20],'system.caracteristique.geographique':cpts[21],'system.caracteristique.rue':cpts[22],'system.caracteristique.heretiques':cpts[23],'system.caracteristique.combat':cpts[24],'system.caracteristique.commerce':cpts[25],'system.caracteristique.crochetage':cpts[26],'system.caracteristique.discretion':cpts[27],'system.caracteristique.dexterite':cpts[28],'system.caracteristique.detection':cpts[29],'system.caracteristique.dissimulation':cpts[30],'system.caracteristique.dressage':cpts[31],'system.caracteristique.ennemi':cpts[32],'system.caracteristique.equilibre':cpts[33],'system.caracteristique.equitation':cpts[34],'system.caracteristique.escroquerie':cpts[35],'system.caracteristique.esquiver':cpts[36],'system.caracteristique.puissance':cpts[37],'system.caracteristique.astuce':cpts[38],'system.caracteristique.peur':cpts[39],'system.caracteristique.joueur':cpts[40],'system.caracteristique.maitrise':cpts[41],'system.caracteristique.natation':cpts[42],'system.caracteristique.navigation':cpts[43],'system.caracteristique.orientation':cpts[44],'system.caracteristique.persuasion':cpts[45],'system.caracteristique.pister':cpts[46],'system.caracteristique.prophetie':cpts[47],'system.caracteristique.secours':cpts[48],'system.caracteristique.resistance':cpts[49],'system.caracteristique.psychologue':cpts[50],'system.caracteristique.medecine':cpts[51],'system.caracteristique.survie':cpts[52],'system.caracteristique.tueur':cpts[53],'system.caracteristique.objet':cpts[54],'system.caracteristique.veterinaire':cpts[55],'system.caracteristique.vigilance':cpts[56],'system.caracteristique.vise':cpts[57]});
+        this.actor.update({"system.etat.a":active[0],"system.etat.b":active[1],"system.etat.c":active[2],"system.etat.d":active[3],"system.etat.e":active[4],"system.etat.f":active[5],"system.etat.g":active[6],"system.etat.h":active[7],"system.etat.i":active[8],"system.etat.j":active[9],"system.etat.k":active[10],"system.etat.l":active[11],"system.etat.m":active[12],"system.etat.n":active[13],"system.reste":reste,'system.alert.listemag.liste':listem,'system.alert.listemag.img1':mag1,'system.alert.listemag.img2':mag2,'system.alert.psy':apsy,'system.alert.psymax':apsymax,'system.alert.hp':ahp,'system.alert.hpmax':ahp,'system.hp.max':hpmax,'system.hp.value':hp,'system.psy.max':psy,'system.psy.value':psyvalue,"system.restant":resultat,'system.maxsort':calsort,'system.coutmax':cout,'system.alert.maxsort':color1,'system.alert.coutmax':color2,'system.alert.waetra':waetra,'system.alert.demon':demon,'system.alert.humain':humain,'system.alert.dragon':dragon,'system.alert.drauch':drauch,'system.alert.vharung':vharung,'system.alert.vaudou':vaudou,'system.alert.corbeau':corbeau,'system.alert.cercle':cercle,'system.alert.autre':autre,'system.alert.aucun':aucun,'system.alert.metiertitre':metiertitre,'system.alert.metiertitre2':metiertitre2,'system.caracteristique.acrobatie':cpts[0],'system.caracteristique.agilites':cpts[1],'system.caracteristique.alchimie':cpts[2],'system.caracteristique.apprentissage':cpts[3],'system.caracteristique.hast':cpts[4],'system.caracteristique.cc':cpts[5],'system.caracteristique.lancer':cpts[6],'system.caracteristique.melee':cpts[7],'system.caracteristique.tir':cpts[8],'system.caracteristique.art':cpts[9],'system.caracteristique.assassinat':cpts[10],'system.caracteristique.baton':cpts[11],'system.caracteristique.bouclier':cpts[12],'system.caracteristique.bricolage':cpts[13],'system.caracteristique.presence':cpts[14],'system.caracteristique.chercher':cpts[15],'system.caracteristique.commander':cpts[16],'system.caracteristique.concentration':cpts[17],'system.caracteristique.nature':cpts[18],'system.caracteristique.peuples':cpts[19],'system.caracteristique.religions':cpts[20],'system.caracteristique.geographique':cpts[21],'system.caracteristique.rue':cpts[22],'system.caracteristique.heretiques':cpts[23],'system.caracteristique.combat':cpts[24],'system.caracteristique.commerce':cpts[25],'system.caracteristique.crochetage':cpts[26],'system.caracteristique.discretion':cpts[27],'system.caracteristique.dexterite':cpts[28],'system.caracteristique.detection':cpts[29],'system.caracteristique.dissimulation':cpts[30],'system.caracteristique.dressage':cpts[31],'system.caracteristique.ennemi':cpts[32],'system.caracteristique.equilibre':cpts[33],'system.caracteristique.equitation':cpts[34],'system.caracteristique.escroquerie':cpts[35],'system.caracteristique.esquiver':cpts[36],'system.caracteristique.puissance':cpts[37],'system.caracteristique.astuce':cpts[38],'system.caracteristique.peur':cpts[39],'system.caracteristique.joueur':cpts[40],'system.caracteristique.maitrise':cpts[41],'system.caracteristique.natation':cpts[42],'system.caracteristique.navigation':cpts[43],'system.caracteristique.orientation':cpts[44],'system.caracteristique.persuasion':cpts[45],'system.caracteristique.pister':cpts[46],'system.caracteristique.prophetie':cpts[47],'system.caracteristique.secours':cpts[48],'system.caracteristique.resistance':cpts[49],'system.caracteristique.psychologue':cpts[50],'system.caracteristique.medecine':cpts[51],'system.caracteristique.survie':cpts[52],'system.caracteristique.tueur':cpts[53],'system.caracteristique.objet':cpts[54],'system.caracteristique.veterinaire':cpts[55],'system.caracteristique.vigilance':cpts[56],'system.caracteristique.vise':cpts[57]});
         
     }
 

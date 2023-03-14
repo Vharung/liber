@@ -16,7 +16,7 @@
 .Liber input.avant{background:url("../assets/icon/avantage.png")left center no-repeat;background-size: contain;}
 .Liber input.desan{background:url("../assets/icon/avantage-2.png")left center no-repeat;background-size: contain;}
 .Liber .ligne{width: 100%; margin-bottom: 5px}
-.Liber .ligne a{width: 25px;height: 25px;border:none;opacity: 0.5;display: inline-block;}
+.Liber .ligne a{width: 23px;height: 23px;border:none;opacity: 0.5;display: inline-block;}
 .Liber .etat0 {background: url(" ../assets/icon/sleep.png");background-size: cover;;}
 .Liber .etat1 {background: url(" ../assets/icon/daze.png");background-size: cover;}
 .Liber .etat2 {background: url(" ../assets/icon/blind.png");background-size: cover;}
@@ -80,8 +80,8 @@ option, optgroup,#chat-controls .roll-type-select{background: #20180d;}
 
 button {color:#fff;border:none}
 button,.Liber .reposer,.Liber input[type="a"],.Liber .stat2 label,.Liber .modif a.desequi,.Liber .carac input[type="a"],.Liber .items .desequi,.Liber .items .jetdedegat,.Liber .addsort{background:#33250e;}/*e13b23*/
-button:hover,.Liber .stat2 label.secstat:hover,.Liber .reposer:hover,.Liber input[type="a"]:hover,.Liber .modif a.desequi:hover,.Liber .carac input[type="a"]:hover,.Liber .items .desequi:hover,.Liber .items .jetdedegat:hover,.Liber .addsort:hover{background:#e13b23;}/*e13b23*/
-.Liber .stat2 label.secstat{background: #6a4f22;}
+button:hover,.Liber .stat2 label:hover,.Liber .reposer:hover,.Liber input[type="a"]:hover,.Liber .modif a.desequi:hover,.Liber .carac input[type="a"]:hover,.Liber .items .desequi:hover,.Liber .items .jetdedegat:hover,.Liber .addsort:hover{background:#e13b23;}/*e13b23*/
+.Liber label.force,.Liber label.agilite,.Liber label.charisme,.Liber label.sagacite,.Liber label.ast,.Liber label.memoire{background: #6a4f22;}
 .Liber a.item,.Liber h2 ,.Liber header,.Liber .tabs,.Liber .items-list .item-description,.Liber .items-list .item-description2{background: #181003;}
 .Liber.window-app .window-content{background: none;overflow:auto;height: 773px;}
 .Liber .fiche{display: flex;flex-direction: row;height: 800px;width: 1200px;}
@@ -151,15 +151,15 @@ button:hover,.Liber .stat2 label.secstat:hover,.Liber .reposer:hover,.Liber inpu
 .Liber .unemain:hover span ,.Liber .deuxmains:hover span ,.Liber .arm:hover span,.Liber .unemain:hover a ,.Liber .deuxmains:hover a ,.Liber .arm:hover a{transition:0.5s;opacity: 1}
 .Liber .unemain a ,.Liber .deuxmains a ,.Liber .arm a{opacity: 0}
 .Liber .features input{margin: 0;display: inline-block;float: left;height: 20px;width: 30px;color: #fff;text-align: center;font-size: 0.9em;}
-.Liber .features a{float: left;width: 80px;height: 25px;font-weight: normal;text-align: left;border: none;border-bottom: #20180d solid 1px;color: #191106;background: none;margin-right: 5px;font-family: 'Signika';font-size: 0.8em;}
+.Liber .features a{float: left;width: 80px;height: 25px;font-weight: normal;text-align: left;border: none;border-bottom: #20180d solid 1px;color: #181003;background: none;margin-right: 5px;font-family: 'Signika';}
 .Liber .features a:hover{color:#fff}
 .Liber .features input{border: 1px solid #20180d;}
-.Liber .features .compt{width: 120px; float: left; margin: 2px}
+.Liber .features .compt{width: 120px; float: left; margin: 2px;height: 26px}
 .Liber .features .compt p{color:##20180d;font-size: 0.8em}
 .Liber .features input.restant{border:none;background: none;text-align: center;font-size: 1.4em;}
 .Liber .carac .compt{width: 100%;display: block}
-.Liber .carac span{width:calc(30% - 5px);display: inline-block;margin-right: 5px;color:##20180d;font-size: 0.8em;text-align: right;}
-.Liber .carac input[type="text"]{width: 70%;display: inline-block;border:none;border-bottom: 1px solid #20180d;color: #20180d;background: none;font-weight: bold;}
+.Liber .carac span{width:calc(30% - 5px);display: inline-block;margin-right: 5px;color:#20180d;font-size: 0.8em;text-align: right;}
+.Liber .carac input[type="text"]{width: 68%;display: inline-block;border:none;border-bottom: 1px solid #20180d;color: #20180d;background: none;font-weight: bold;}
 .Liber .carac input[type="text"]:hover{color: #fff;}
 .Liber .carac input[type="a"]{float: right;border: none;color: #20180d;width: 100px;height: 30px;font-size: 1em;cursor: pointer; margin:3px;}
 .Liber .carac input[type="text"].talent,.Liber .carac input[type="text"].faiblesse{border:1px solid #20180d;width:64%;height: 30px;}

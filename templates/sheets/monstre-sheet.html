@@ -29,19 +29,9 @@
 			</div>			
 			<div class="separator"></div>	
 			<div class="ligne">
-				<a class="etat0 chnget" data-lettre="0" style="opacity: {{actor.system.etat.a}};"></a>
-				<a class="etat1 chnget" data-lettre="1" style="opacity: {{actor.system.etat.b}};"></a>
-				<a class="etat2 chnget" data-lettre="2" style="opacity: {{actor.system.etat.c}};"></a>
-				<a class="etat3 chnget" data-lettre="3" style="opacity: {{actor.system.etat.d}};"></a>
-				<a class="etat4 chnget" data-lettre="4" style="opacity: {{actor.system.etat.e}};"></a>
-				<a class="etat5 chnget" data-lettre="5" style="opacity: {{actor.system.etat.f}};"></a>
-				<a class="etat6 chnget" data-lettre="6" style="opacity: {{actor.system.etat.g}};"></a>
-				<a class="etat7 chnget" data-lettre="7" style="opacity: {{actor.system.etat.h}};"></a>
-				<a class="etat8 chnget" data-lettre="8" style="opacity: {{actor.system.etat.i}};"></a>
-				<a class="etat9 chnget" data-lettre="9" style="opacity: {{actor.system.etat.j}};"></a>
-				<a class="etat10 chnget" data-lettre="10" style="opacity: {{actor.system.etat.k}};"></a>
-				<a class="etat11 chnget" data-lettre="11" style="opacity: {{actor.system.etat.l}};"></a>
-				<a class="etat12 chnget" data-lettre="12" style="opacity: {{actor.system.etat.m}};"></a>
+				{{#each actor.system.etat as |value etat|}}
+				  <a class="etat{{@index}} chnget" data-lettre="{{@index}}" style="opacity: {{value}};"></a>
+				{{/each}}
 			</div>
 		</div>
 		<div class="inter">
@@ -60,42 +50,12 @@
 			</div>
 
 			<div class="rexrow stat2">
+				{{#each actor.system.ability as |value ability|}}
 				<div class="grid-9col">
-					<p><label class="jetdedes" data-type="jetdedes" data-name="Physique" data-dice="1d" data-attDice="{{actor.system.physique}}">{{localize 'liber.phy'}}</label></p>
-					<input class="phys" name="system.physique" type="text" value="{{actor.system.physique}}" placeholder="{{actor.system.physique}}" style="text-align: center; background:{{actor.system.alert.physique}} ;"/>
+				  <p><label class="{{ability}} jetdedes" data-type="jetdedes" data-name="{{ability}}" data-dice="1d" data-attDice="{{value}}">{{localize ability}}</label></p>
+				  <input class="phys" name="system.ability.{{ability}}" type="text" value="{{value}}" placeholder="{{value}}"/>
 				</div>
-				<div class="grid-9col">
-					<p><label class="jetdedes secstat" data-type="jetdedes" data-name="Force" data-dice="1d" data-attDice="{{actor.system.force}}">{{localize 'liber.for'}}</label></p>
-					<input class="forc" name="system.force" type="text" value="{{actor.system.force}}" placeholder="5" style="width:40px;background:{{actor.system.alert.force}} ;" />
-				</div>
-				<div class="grid-9col">
-					<p><label class="jetdedes secstat" data-type="jetdedes" data-name="Agilite" data-dice="1d" data-attDice="{{actor.system.agilite}}">{{localize 'liber.agi'}}</label></p>
-					<input class="agil" name="system.agilite" type="text" value="{{actor.system.agilite}}" placeholder="5" style="width:40px;background:{{actor.system.alert.force}} ;" />
-				</div>
-				<div class="grid-9col">
-					<p style="text-align: center" style="text-align: center"><label class="jetdedes" data-type="jetdedes" data-name="Social" data-dice="1d"data-attDice="{{actor.system.social}}">{{localize 'liber.soc'}}</label></p>
-					<input class="soci" name="system.social" type="text" value="{{actor.system.social}}" placeholder="10" style="text-align: center;background:{{actor.system.alert.social}} ;"/>
-				</div>
-				<div class="grid-9col">
-					<p><label class="jetdedes secstat" data-type="jetdedes" data-name="Charisme" data-dice="1d" data-attDice="{{actor.system.charisme}}">{{localize 'liber.cha'}}</label></p>
-					<input class="char" name="system.charisme" type="text" value="{{actor.system.charisme}}" placeholder="5" style="width:40px;background:{{actor.system.alert.charisme}} ;"/>
-				</div>
-				<div class="grid-9col">
-					<p><label class="jetdedes secstat" data-type="jetdedes" data-type="jetdedes"data-name="Sagacité" data-dice="1d"data-attDice="{{actor.system.sagacite}}">{{localize 'liber.sag'}}</label></p>
-					<input class="saga" name="system.sagacite" type="text" value="{{actor.system.sagacite}}" placeholder="5" style="width:40px;background:{{actor.system.alert.sagacite}} ;"/>
-				</div>
-				<div class="grid-9col">
-					<p style="text-align: center"><label class="jetdedes" data-type="jetdedes" data-name="Mental" data-dice="1d"data-attDice="{{actor.system.mental}}">{{localize 'liber.men'}}</label></p>
-					<input class="mental" name="system.mental" type="text" value="{{actor.system.mental}}" placeholder="10" style="text-align: center;background:{{actor.system.alert.mental}} ;"/>
-				</div>
-				<div class="grid-9col">
-					<p><label class="jetdedes secstat" data-type="jetdedes" data-name="Astuce" data-dice="1d" data-attDice="{{actor.system.ast}}">{{localize 'liber.ast'}}</label></p>
-					<input class="astu" name="system.ast" type="text" value="{{actor.system.ast}}" placeholder="5" style="width:40px;background:{{actor.system.alert.astuce}} ;"/>
-				</div>
-				<div class="grid-9col">
-					<p><label class="jetdedes secstat" data-type="jetdedes" data-name="Mémoire" data-dice="1d" data-attDice="{{actor.system.memoire}}">{{localize 'liber.mem'}}</label></p>
-					<input class="memo" name="system.memoire" type="text" value="{{actor.system.memoire}}" placeholder="5" style="width:40px;margin-bottom: 5px;;background:{{actor.system.alert.memoire}} ;"/>
-				</div>
+				{{/each}}
 				
 			</div>
 			<div class="clear"></div>
