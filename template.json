@@ -160,15 +160,6 @@
               "maxsort":0,
               "coutmax":0,
               "alert": {
-                "physique": "#18100",
-                "force": "#18100",
-                "agilite": "#18100",
-                "social": "#18100",
-                "charisme": "#18100",
-                "sagacite": "#18100",
-                "mental": "#18100",
-                "astuce": "#18100",
-                "memoire":"#18100",
                 "waetra":"",
                 "demon":"",
                 "humain":"",
@@ -190,8 +181,8 @@
                 "hpmax":"",
                 "listeobj":"",
                 "listemag":{
-                    "img1":"",
-                    "img2":"",
+                    "img1":"aucun",
+                    "img2":"aucun",
                     "mag1":"aucun",
                     "mag2":"aucun",
                     "liste":{}
