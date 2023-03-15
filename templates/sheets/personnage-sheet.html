@@ -90,19 +90,19 @@
 	            </ul>
 				<div class="clear"></div>
 				<div class="unemain">
-					<a class="attaque" data-name="attaque" data-img="{{actor.system.imgg}}" data-desc="{{actor.system.desg}}" data-type="auto" title="Attaquer avec {{actor.system.armeg}}">⚔</a>
-					<div class="degatg jetdedegat" name="system.degatg" data-name="{{actor.system.armeg}}" data-dice="{{actor.system.degatg}}" data-img="{{actor.system.imgg}}" data-desc="{{actor.system.desg}}" data-type="jetdedegat" style="text-align: center; width:80px;height: 80px; background: url({{actor.system.imgg}});background-size: contain;">	<span>{{actor.system.armeg}} <br> {{actor.system.degatg}}</span>   
+					<a class="attaque" data-name="attaque" data-img="{{actor.system.armeuse.imgg}}" data-desc="{{actor.system.armeuse.desg}}" data-type="auto" title="Attaquer avec {{actor.system.armeuse.armeg}}">⚔</a>
+					<div class="degatg jetdedegat" name="system.armeuse.degatg" data-name="{{actor.system.armeuse.armeg}}" data-dice="{{actor.system.degatg}}" data-img="{{actor.system.imgg}}" data-desc="{{actor.system.armeuse.desg}}" data-type="jetdedegat" style="text-align: center; width:80px;height: 80px; background: url({{actor.system.armeuse.imgg}});background-size: contain;">	<span>{{actor.system.armeuse.armeg}} <br> {{actor.system.armeuse.degatg}}</span>   
 					</div>	
 					<a class="desequi maingdes" data-equip="dgauche">🗑</a>				                     
 				</div>
 				<div class="arm">
-					<div class="armurequi" style="text-align: center; width:80px;height: 80px; background: url({{actor.system.imga}});background-size: contain;">	<span>{{actor.system.armure}}</span>   
+					<div class="armurequi" style="text-align: center; width:80px;height: 80px; background: url({{actor.system.armeuse.imga}});background-size: contain;">	<span>{{actor.system.armeuse.armure}}</span>   
 					</div>	
 					<a class="desequi armordes" data-equip="darmure">🗑</a>				                     
 				</div>
 				<div class="deuxmains">
-					<a class="attaque" data-name="attaque" data-img="{{actor.system.imgd}}" data-desc="{{actor.system.desd}}" data-type="auto" title="Attaquer avec {{actor.system.armed}}">⚔</a>
-					<div class="degatd jetdedegat" name="system.degatd"data-name="{{actor.system.armed}}" data-dice="{{actor.system.degatd}}" data-img="{{actor.system.imgd}}" data-desc="{{actor.system.desd}}" data-type="jetdedegat" style="text-align: center; width:80px;height: 80px; background: url({{actor.system.imgd}});background-size: contain;">	<span>{{actor.system.armed}} <br> {{actor.system.degatd}}</span>   
+					<a class="attaque" data-name="attaque" data-img="{{actor.system.armeuse.imgd}}" data-desc="{{actor.system.armeuse.desd}}" data-type="auto" title="Attaquer avec {{actor.system.armeuse.armed}}">⚔</a>
+					<div class="degatd jetdedegat" name="system.armeuse.degatd"data-name="{{actor.system.armeuse.armed}}" data-dice="{{actor.system.armeuse.degatd}}" data-img="{{actor.system.armeuse.imgd}}" data-desc="{{actor.system.armeuse.desd}}" data-type="jetdedegat" style="text-align: center; width:80px;height: 80px; background: url({{actor.system.armeuse.imgd}});background-size: contain;">	<span>{{actor.system.armeuse.armed}} <br> {{actor.system.armeuse.degatd}}</span>   
 					</div>	
 					<a class="desequi mainddes" data-equip="ddroite">🗑</a>				                     
 				</div>
@@ -324,8 +324,8 @@
 				    		<input class="maxsort" style="{{actor.system.alert.maxsort}}" type="text" value="{{actor.system.maxsort}}" readonly><br>{{localize 'liber.nb'}}*
 				    	</span>
 				    	<span class="grid-2col">
-	        				<img src="systems/liber/assets/magie/{{actor.system.alert.listemag.img1}}.jpg" style="height: 40px; width: 40px; float: right;"/>
-	        				<img src="systems/liber/assets/magie/{{actor.system.alert.listemag.img2}}.jpg" style="height: 40px; width: 40px; float: right;"/></span><div class="clear"></div></h2>
+	        				<img src="systems/liber/assets/magie/{{actor.system.listemag.img1}}.jpg" style="height: 40px; width: 40px; float: right;"/>
+	        				<img src="systems/liber/assets/magie/{{actor.system.listemag.img2}}.jpg" style="height: 40px; width: 40px; float: right;"/></span><div class="clear"></div></h2>
 				    	
 				    </div>
 				    <div class="clear"></div>
@@ -387,55 +387,47 @@
 				    	<div class="grid-2col" style="text-align: center;color:#fff">
 				    		<h2>{{localize 'liber.clan'}}</h2>
 							<SELECT class="clanliste"  name="system.clan">
-								{{#select actor.system.clan}}
-									<option class="aucun" style="{{actor.system.alert.aucun}}" value="{{localize 'liber.avantrace79'}}">{{localize 'liber.avantrace79'}}</option>
-				                    <option class="demon" style="{{actor.system.alert.demon}}" value="{{localize 'liber.avantrace39'}}">{{localize 'liber.avantrace39'}}</option>
-				                    <option class="dragon" style="{{actor.system.alert.dragon}}" value="{{localize 'liber.avantrace40'}}">{{localize 'liber.avantrace40'}}</option>
-				                    <option class="dragon" style="{{actor.system.alert.dragon}}" value="{{localize 'liber.avantrace41'}}">{{localize 'liber.avantrace41'}}</option>
-				                    <option class="dragon" style="{{actor.system.alert.dragon}}" value="{{localize 'liber.avantrace42'}}">{{localize 'liber.avantrace42'}}</option>
-				                    <option class="dragon" style="{{actor.system.alert.dragon}}" value="{{localize 'liber.avantrace43'}}">{{localize 'liber.avantrace43'}}</option>
-				                    <option class="dragon" style="{{actor.system.alert.dragon}}" value="{{localize 'liber.avantrace44'}}">{{localize 'liber.avantrace44'}}</option>
-				                    <option class="dragon" style="{{actor.system.alert.dragon}}" value="{{localize 'liber.avantrace45'}}">{{localize 'liber.avantrace45'}}</option>
-				                    <option class="dragon" style="{{actor.system.alert.dragon}}" value="{{localize 'liber.avantrace46'}}">{{localize 'liber.avantrace46'}}</option>
-				                    <option class="dragon" style="{{actor.system.alert.dragon}}" value="{{localize 'liber.avantrace47'}}">{{localize 'liber.avantrace47'}}</option>
-				                    <option class="dragon" style="{{actor.system.alert.dragon}}" value="{{localize 'liber.avantrace48'}}">{{localize 'liber.avantrace48'}}</option>
-				                    <option class="dragon" style="{{actor.system.alert.dragon}}" value="{{localize 'liber.avantrace49'}}">{{localize 'liber.avantrace49'}}</option>
-				                    <option class="dragon" style="{{actor.system.alert.dragon}}" value="{{localize 'liber.avantrace50'}}">{{localize 'liber.avantrace50'}}</option>
-				                    <option class="dragon" style="{{actor.system.alert.dragon}}" value="{{localize 'liber.avantrace51'}}">{{localize 'liber.avantrace51'}}</option>
-				                    <option class="dragon" style="{{actor.system.alert.dragon}}" value="{{localize 'liber.avantrace52'}}">{{localize 'liber.avantrace52'}}</option>
-				                    <option class="dragon" style="{{actor.system.alert.dragon}}" value="{{localize 'liber.avantrace53'}}">{{localize 'liber.avantrace53'}}</option>
-				                    <option class="dragon" style="{{actor.system.alert.dragon}}" value="{{localize 'liber.avantrace54'}}">{{localize 'liber.avantrace54'}}</option>
-				                    <option class="dragon" style="{{actor.system.alert.dragon}}" value="{{localize 'liber.avantrace55'}}">{{localize 'liber.avantrace55'}}</option>
-				                    <option class="dragon" style="{{actor.system.alert.dragon}}" value="{{localize 'liber.avantrace59'}}">{{localize 'liber.avantrace59'}}</option>
-				                    <option class="corbeau" style="{{actor.system.alert.corbeau}}" value="{{localize 'liber.avantrace56'}}">{{localize 'liber.avantrace56'}}</option>
-				                    <option class="humain" style="{{actor.system.alert.humain}}" value="{{localize 'liber.avantrace57'}}">{{localize 'liber.avantrace57'}}</option>			
-				                    <option class="humain" style="{{actor.system.alert.humain}}" value="{{localize 'liber.avantrace58'}}">{{localize 'liber.avantrace58'}}</option>
-				                    <option class="drauch" style="{{actor.system.alert.drauch}}" value="{{localize 'liber.avantrace91'}}">{{localize 'liber.avantrace91'}}</option>
-				                    <option class="autre" style="{{actor.system.alert.autre}}" value="{{localize 'liber.avantrace78'}}">{{localize 'liber.avantrace78'}}</option>
-				                    
-				                    
-				                {{/select}}
+							{{#select actor.system.clan}}
+								
+								{{#each config.clanDragonTypes as |clan|}}
+								<option class="dragon" value="{{localize clan}}">{{localize clan}}</option>
+								{{/each}}
+								{{#each config.clanHumainTypes as |clan|}}
+								<option class="humain" value="{{localize clan}}">{{localize clan}}</option>
+								{{/each}}
+								{{#each config.clanDemonTypes as |clan|}}
+								<option class="demon" value="{{localize clan}}">{{localize clan}}</option>
+								{{/each}}
+								{{#each config.clanDrauchTypes as |clan|}}
+								<option class="drauch" value="{{localize clan}}">{{localize clan}}</option>
+								{{/each}}  
+								{{#each config.clanAllTypes as |clan|}}
+								<option class="all" value="{{localize clan}}">{{localize clan}}</option>
+								{{/each}}                         
+			                {{/select}}
 			                </SELECT>
 						</div>
 						<div class="grid-2col" style="text-align: center;color:#fff">
 							<h2>Religion</h2>
 							<SELECT class="religionliste" name="system.religion">
-								{{#select actor.system.religion}}
-									<option class="aucun" style="{{actor.system.alert.aucun}}" value="{{localize 'liber.avantrace79'}}">{{localize 'liber.avantrace79'}}</option>
-				                    <option class="vharung" style="{{actor.system.alert.vharung}}" value="{{localize 'liber.avantrace80'}}">{{localize 'liber.avantrace80'}}</option>
-				                    <option class="humain" style="{{actor.system.alert.humain}}" value="{{localize 'liber.avantrace81'}}">{{localize 'liber.avantrace81'}}</option>
-				                    <option class="humain" style="{{actor.system.alert.humain}}" value="{{localize 'liber.avantrace82'}}">{{localize 'liber.avantrace82'}}</option>
-				                    <option class="humain" style="{{actor.system.alert.humain}}" value="{{localize 'liber.avantrace83'}}">{{localize 'liber.avantrace83'}}</option>
-				                    <option class="dragon" style="{{actor.system.alert.dragon}}" value="{{localize 'liber.avantrace84'}}">{{localize 'liber.avantrace84'}}</option>
-				                    <option class="demon" style="{{actor.system.alert.waetra}}" value="{{localize 'liber.avantrace85'}}">{{localize 'liber.avantrace85'}}</option>
-				                    <option class="demon" style="{{actor.system.alert.demon}}" value="{{localize 'liber.avantrace86'}}">{{localize 'liber.avantrace86'}}</option>
-				                    <option class="humain" style="{{actor.system.alert.humain}}" value="{{localize 'liber.avantrace87'}}">{{localize 'liber.avantrace87'}}</option>
-				                    <option class="cercle" style="{{actor.system.alert.cercle}}" value="{{localize 'liber.avantrace88'}}">{{localize 'liber.avantrace88'}}</option>
-				                    <option class="vaudou"  style="{{actor.system.alert.vaudou}}"value="{{localize 'liber.avantrace89'}}">{{localize 'liber.avantrace89'}}</option>
-				                    <option class="runes" style="{{actor.system.alert.runes}}" value="{{localize 'liber.avantrace90'}}">{{localize 'liber.avantrace90'}}</option>
-				                    <option class="autre" style="{{actor.system.alert.autre}}" value="{{localize 'liber.avantrace78'}}">{{localize 'liber.avantrace78'}}</option>
-				                    
-				                {{/select}}
+							{{#select actor.system.religion}}
+								{{#each config.religionHumainTypes as |religion|}}
+								<option class="humain" value="{{localize religion}}">{{localize religion}}</option>
+								{{/each}}
+								{{#each config.religionDragonTypes as |religion|}}
+								<option class="dragon" value="{{localize religion}}">{{localize religion}}</option>
+								{{/each}}
+								{{#each config.religionDemonTypes as |religion|}}
+								<option class="demon" value="{{localize religion}}">{{localize religion}}</option>
+								{{/each}}
+								{{#each config.religionDrauchTypes as |religion|}}
+								<option class="drauch" value="{{localize religion}}">{{localize religion}}</option>
+								{{/each}}
+								{{#each config.religionAllTypes as |religion|}}
+								<option class="all" value="{{localize religion}}">{{localize religion}}</option>
+								{{/each}}
+								<option class="aucun" value="{{localize 'liber.avantrace79'}}">{{localize 'liber.avantrace79'}}</option>
+				            {{/select}}
 			                </SELECT>
 						</div>
 					</div>

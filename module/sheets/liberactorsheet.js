@@ -32,9 +32,7 @@ import { liber } from "./config.js";
         }
         if (this.actor.type == 'personnage' || this.actor.type == 'pnj' ) {
             this._onEncom();this._onStat();
-        }/*else if (this.actor.type == 'monstre'){
-            //this._onStatM();
-        }*/
+        }
         return data;
     }
 
@@ -85,17 +83,12 @@ import { liber } from "./config.js";
     activateListeners(html){
         super.activateListeners(html);
 
-        html.find('.maindroite').click(this._onArmor.bind(this));
-        html.find('.maingauche').click(this._onArmor.bind(this));
-        html.find('.armor').click(this._onArmor.bind(this));
+        html.find('.maindroite, .maingauche, .armor, .desequi').click(this._onArmor.bind(this));
         html.find('.attribut').click(this._onAttr.bind(this));
-        html.find('.desequi').click(this._onArmor.bind(this));
-        html.find('.resetbonus').click(this._onRestAttr.bind(this));
-        html.find('.resetmalus').click(this._onRestAttr.bind(this));
+        html.find('.resetbonus, .resetmalus').click(this._onRestAttr.bind(this));
         
         //Jet de des
-        html.find('.jetdedes').click(this._onRoll.bind(this)); 
-        html.find('.jetdedegat').click(this._onRoll.bind(this));
+        html.find('.jetdedes, .jetdedegat, .attaque, .attaques').click(this._onRoll.bind(this)); 
         
         //generateur
         html.find('.ficheperso').click(this._onGenerator.bind(this));
@@ -115,8 +108,6 @@ import { liber } from "./config.js";
 
         html.find('.posture').click(this._onPosture.bind(this));
         html.find('.chnget').click(this._onCouv.bind(this));
-        html.find('.attaque').click(this._onRoll.bind(this));
-        html.find('.attaques').click(this._onRoll.bind(this));
         //html.find('.item-filter ').click(this._onSecondary.bind(this));
 
         //edition items
@@ -312,19 +303,33 @@ import { liber } from "./config.js";
             html.find('.social').css({"background":"red"})
             html.find('.mental').css({"background":"red"})
         }
-        //cacher metier
-        let clan=html.find('.clanliste option:selected').val(); 
-        if(clan==game.i18n.localize("liber.avantrace56")){
-            html.find('.classique').css({"display":"none"})
-            html.find('.croiser').css({"display":"none"})
-            html.find('.guerrier').css({"display":"block"})
-        }if(clan==game.i18n.localize("liber.avantrace58")){
-            html.find('.classique').css({"display":"none"})
-            html.find('.croiser').css({"display":"block"})
-            html.find('.guerrier').css({"display":"none"})
-        }
 
-        
+        //cacher clan
+        const races = {
+            [game.i18n.localize('liber.avantrace60')]: [".humain", ".demon", ".drauch"],
+            [game.i18n.localize('liber.avantrace92')]: [".humain", ".demon", ".drauch"],
+            [game.i18n.localize('liber.avantrace61')]: [".dragon", ".demon", ".drauch"],
+            [game.i18n.localize('liber.avantrace62')]: [".dragon", ".humain", ".drauch"],
+            [game.i18n.localize('liber.avantrace63')]: [".dragon", ".humain", ".demon"],
+            [game.i18n.localize('liber.avantrace64')]: [".dragon", ".demon", ".drauch", ".humain", ".religionliste .all"]
+        };
+
+        const raceElements = races[race];
+        if (raceElements) {
+            raceElements.forEach(element => {
+                html.find(element).css({"display": "none"});
+            });
+        }
+        //cacher metier
+        const clan = html.find('.clanliste option:selected').val();
+
+        if (clan === game.i18n.localize("liber.avantrace56")) {
+          html.find('.guerrier').css("display", "block");
+        }else if (clan === game.i18n.localize("liber.avantrace58")) {
+          html.find('.croiser').css("display", "block");
+        }else {
+          html.find('.classique').css("display", "block");  
+        }   
     }
 
 
@@ -599,76 +604,76 @@ import { liber } from "./config.js";
     }
 
     _onSleep(event){
-        const compt=this.actor.system.talent
-        let heure =this.actor.system.heure;
-        let jourliste =this.actor.system.jour;
-        let typerepos =this.actor.system.repos;
-        let level =this.actor.system.level;
-        var psy=this.actor.system.psy.value;
-        var psymax=this.actor.system.psy.max;
-        var hp=this.actor.system.hp.value;
-        var hpmax=this.actor.system.hp.max;
-        var insoin=this.actor.system.insoin;
-        var d=0;var hpadd=0;var psyadd=0;var j=0
-        if(jourliste==game.i18n.localize("liber.jour")){
-            heure=parseInt(heure)*24;
-            j=Math.floor(parseInt(heure)/3)
-        }
-        if(typerepos==game.i18n.localize("liber.rapide")){
-            d=Math. round(Math.random() * 4);
-            hpadd=((d+parseInt(level))*parseInt(heure))*j/8;
-            psyadd=Math.floor((parseInt(level)*parseInt(heure))/2);
-        }else if(typerepos==game.i18n.localize("liber.calme")){
-            
-            d=Math. round(Math.random() * 6);
-            hpadd=((d+parseInt(level))*parseInt(heure))*j/8;
-            psyadd=Math.floor(parseInt(level)*parseInt(heure));
-            if(compt=="Bon dormeur"){
-                hpadd=parseInt(hpadd)+6;psyadd=parseInt(psyadd)+3
-            }
-        }else if(typerepos==game.i18n.localize("liber.calme2")){
-            d=Math. round(Math.random() * 6);insoin=0;
-            hpadd=(d+parseInt(level))*parseInt(heure);
-            psyadd=Math.floor(parseInt(level)*parseInt(heure));
-            if(compt=="Bon dormeur"){
-                hpadd=parseInt(hpadd)+6;psyadd=parseInt(psyadd)+3
-            }
-        }else if(typerepos==game.i18n.localize("liber.intensif")){
-            d=Math. round(Math.random() * 8);insoin=0;
-            hpadd=((2*d)+parseInt(level))*parseInt(heure);
-            psyadd=Math.floor(parseInt(level)*parseInt(heure));
-            if(compt=="Bon dormeur"){
-                hpadd=parseInt(hpadd)+6;psyadd=parseInt(psyadd)+3
-            }
-        }    
-        var diff=parseInt(hpmax)-parseInt(hp);
-        if(hpadd>diff){
-            hpadd=diff;
-        }
-        hp=parseInt(hpadd)+parseInt(hp)
-        if(hp>hpmax){
-            hp=hpmax;
-        }
-        var diff=parseInt(psymax)-parseInt(psy);
-        if(psyadd>diff){
-            psyadd=diff;
-        }
-        psy=parseInt(psy)+parseInt(psyadd);
-        if(psy>psymax){
-            psy=psymax;
-        }
-        if(hpmax==hp && insoin>0){
-            hp=parseInt(hpmax)-parseInt(insoin);
-            hpadd=parseInt(hpadd)-parseInt(insoin);console.log(hpadd)
+        let { talent, heure, jour, repos, level, psy: { value: psy, max: psymax }, hp: { value: hp, max: hpmax }, insoin } = this.actor.system;
+        let d = 0, hpadd = 0, psyadd = 0, j = 0;
+
+        if (jour === game.i18n.localize("liber.jour")) {
+          heure = parseInt(heure) * 24;
+          j = Math.floor(parseInt(heure) / 3);
         }
 
-        this.actor.update({"system.insoin": insoin});
-        this.actor.update({"system.hp.value": hp});
-        this.actor.update({"system.psy.value": psy});
+        switch (repos) {
+          case game.i18n.localize("liber.rapide"):
+            d = Math.round(Math.random() * 4);
+            hpadd = ((d + parseInt(level)) * parseInt(heure)) * j / 8;
+            psyadd = Math.floor((parseInt(level) * parseInt(heure)) / 2);
+            break;
 
-        
-        let texte ='<span style="flex:auto"><p class="resultatp">'+game.i18n.localize("liber.repos") +' '+ typerepos+' +'+hpadd+'hp'+' / +'+psyadd+'psy </p></span>';
-        let chatData = {
+          case game.i18n.localize("liber.calme"):
+            d = Math.round(Math.random() * 6);
+            hpadd = ((d + parseInt(level)) * parseInt(heure)) * j / 8;
+            psyadd = Math.floor(parseInt(level) * parseInt(heure));
+            if (talent === "Bon dormeur") {
+              hpadd = parseInt(hpadd) + 6;
+              psyadd = parseInt(psyadd) + 3;
+            }
+            break;
+
+          case game.i18n.localize("liber.calme2"):
+            d = Math.round(Math.random() * 6);
+            insoin = 0;
+            hpadd = (d + parseInt(level)) * parseInt(heure);
+            psyadd = Math.floor(parseInt(level) * parseInt(heure));
+            if (talent === "Bon dormeur") {
+              hpadd = parseInt(hpadd) + 6;
+              psyadd = parseInt(psyadd) + 3;
+            }
+            break;
+
+          case game.i18n.localize("liber.intensif"):
+            d = Math.round(Math.random() * 8);
+            insoin = 0;
+            hpadd = ((2 * d) + parseInt(level)) * parseInt(heure);
+            psyadd = Math.floor(parseInt(level) * parseInt(heure));
+            if (talent === "Bon dormeur") {
+              hpadd = parseInt(hpadd) + 6;
+              psyadd = parseInt(psyadd) + 3;
+            }
+            break;
+
+          default:
+            break;
+        }
+
+        hpadd = Math.min(hpadd, parseInt(hpmax) - parseInt(hp));
+        hp = parseInt(hpadd) + parseInt(hp);
+
+        if (hp > hpmax) {hp = hpmax;}
+
+        psyadd = Math.min(psyadd, parseInt(psymax) - parseInt(psy));
+        psy = parseInt(psy) + parseInt(psyadd);
+
+        if (psy > psymax) {psy = psymax;}
+
+        if (hpmax === hp && insoin > 0) {
+          hp = parseInt(hpmax) - parseInt(insoin);
+          hpadd = parseInt(hpadd) - parseInt(insoin);
+        }
+
+        this.actor.update({ "system.insoin": insoin, "system.hp.value": hp, "system.psy.value": psy });
+
+        const texte = '<span style="flex:auto"><p class="resultatp">' + game.i18n.localize("liber.repos") + ' ' + repos + ' +' + hpadd + 'hp / +' + psyadd + 'psy </p></span>';
+        const chatData = {
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
             content: texte
         };
@@ -676,24 +681,22 @@ import { liber } from "./config.js";
     }
 
     _onPosture(event){
-        let postures=event.target.dataset["posture"];
-        let texte = '';
-        if(postures=="focus"){
-            texte = '<span style="flex:auto"><p class="resultatp">'+ game.i18n.localize("liber.lang88")+'</p></span>';
-        }else if(postures=="offensif"){
-            texte = '<span style="flex:auto"><p class="resultatp">'+ game.i18n.localize("liber.lang86")+'</p></span>';           
-        }else if(postures=="defensif"){
-            texte = '<span style="flex:auto"><p class="resultatp">'+ game.i18n.localize("liber.lang87")+'</p></span>';
-        }else if(postures=="aucune"){
-            texte = '<span style="flex:auto"><p class="resultatp">'+ game.i18n.localize("liber.lang89")+'</p></span>';
-        }
-        let chatData = {
-            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-            content: texte
+        const POSTURE_MESSAGES = {
+          focus: game.i18n.localize("liber.lang88"),
+          offensif: game.i18n.localize("liber.lang86"),
+          defensif: game.i18n.localize("liber.lang87"),
+          aucune: game.i18n.localize("liber.lang89"),
+        };
+
+        const postures = event.target.dataset["posture"];
+        const texte = `<span style="flex:auto"><p class="resultatp">${POSTURE_MESSAGES[postures]}</p></span>`;
+
+        const chatData = {
+          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+          content: texte,
         };
         ChatMessage.create(chatData, {});
-        this.actor.update({"system.posture": postures}); 
-        
+        this.actor.update({"system.posture": postures});
     }
 
     _onGenerator(event){
@@ -954,58 +957,58 @@ import { liber } from "./config.js";
     }
     
     _onArmor(event){
-        var equipe=event.target.dataset["equip"];
-        var protection= this.actor.system.protection;
-        var armor= this.actor.system.armure;
-        var maind= this.actor.system.armed;
-        var maing= this.actor.system.armeg;
-        var img= event.target.dataset["img"];
-        var des= event.target.dataset["des"];
-        var race = this.actor.system.race;
-        var objetaequipe=event.target.dataset["name"];
-        var degat=event.target.dataset["degat"];
-        if(equipe=="droite"||equipe=="gauche"){
-            var listedemain =['Rapière','Bâton','Espadon','Hallebarde','Fléaux d\'arme','Epée à deux main','Masse d\'arme','Hache de bataille','Faux de Guerre','Lance Lourde']//lang
-            for (var i = listedemain.length - 1; i >= 0; i--) {
-                if(objetaequipe==listedemain[i] || maind == listedemain[i]){
-                    this.actor.update({'system.armed': '','system.degatd': '','system.armeg': '','system.degatg': ''});
-                }
-            }
-            if(equipe=="droite"){
-                this.actor.update({'system.armed': objetaequipe,'system.degatd': degat,'system.imgd': img,'system.desd': des});
-                maind=objetaequipe;
-            }else if(equipe=="gauche"){
-                this.actor.update({'system.armeg': objetaequipe,'system.degatg': degat,'system.imgg': img,'system.desg': des});
-                maing=objetaequipe;
-            }
-        }else if(equipe=="armure"){
-            this.actor.update({'system.armure': objetaequipe,'system.imga': img});
-            armor=objetaequipe;
-        }else{
-            if(equipe=="ddroite"){
-                this.actor.update({'system.armed': '','system.degatd': '','system.imgd': '','system.desd': ''});
-            }else if(equipe=="dgauche"){
-                this.actor.update({'system.armeg': '','system.degatg': '','system.imgg': '','system.desg': ''});
-            }else {
-                this.actor.update({'system.armure': '','system.imga': ''});
-            }
-        } 
+        const equipe=event.target.dataset["equip"];
+        const listedemain =['Rapière','Bâton','Espadon','Hallebarde','Fléaux d\'arme','Epée à deux main','Masse d\'arme','Hache de bataille','Faux de Guerre','Lance Lourde']
+        let { protection,race} = this.actor.system;
+        let { armure,desa,imga,armed,degatd,desd,imgd,armeg,degatg,desg,imgg} = this.actor.system.armeuse;
+        const { img, des, name, degat } = event.target.dataset;
+        let armor = 0;
+        let arm=armure; let ard=desa; let ari=imga;
+        const DROITE = "droite";const GAUCHE = "gauche";const ARMEG_PROP = "armeg";const DEGATG_PROP = "degatg";const DESG_PROP = "desg";const IMGG_PROP = "imgg";const ARMED_PROP = "armed";const DEGATD_PROP = "degatd";const DESD_PROP = "desd";const IMGD_PROP = "imgd";
 
-        var armure = 0;
-        if(race==game.i18n.localize("liber.avantrace60")){
-            armure = 2;
+        if (equipe === DROITE || equipe === GAUCHE || equipe === "ddroite" || equipe === "dgauche") {
+          for (let i = listedemain.length - 1; i >= 0; i--) {
+            const nameInListedemain = name.includes(listedemain[i]);
+            const armedInListedemain = armed.includes(listedemain[i]);
+            const armegInListedemain = armeg.includes(listedemain[i]);
+
+            if (nameInListedemain || armedInListedemain || armegInListedemain) {
+              equipe === DROITE ? (armeg = "", degatg = "", desg = "", imgg = "") : (equipe === GAUCHE ? (armed = "", degatd = "", desd = "", imgd = "") : null);
+            }
+          }
+
+          equipe === DROITE
+            ? ((armed = name), (degatd = degat), (desd = des), (imgd = img))
+            : equipe === GAUCHE
+            ? ((armeg = name), (degatg = degat), (desg = des), (imgg = img))
+            : equipe === "ddroite"
+            ? ((armed = DEGATD_PROP), (degatd = DEGATD_PROP), (desd = DESD_PROP), (imgd = IMGD_PROP))
+            : equipe === "dgauche"
+            ? ((armeg = ARMEG_PROP), (degatg = DEGATG_PROP), (desg = DESG_PROP), (imgg = IMGG_PROP))
+            : null;
+        }else {
+            if(equipe=== 'armure'){
+                arm=name; ard=des; ari=img;
+            }else if(equipe=== 'darmure'){
+                arm=''; ard=''; ari='';
+            }
         }
-        if(maind=="Bouclier"){armure=armure+1;}
-        else if(maind=="Grand Bouclier"){armure=armure+2;} 
-        if(maing=="Bouclier"){armure=armure+1;}
-        else if(maing=="Grand Bouclier"){armure=armure+2;}
-        if(armor=="Bouclier"){armure=armure+1;} 
-        else if(armor=="Cuir souple"){armure=armure+1;}
-        else if(armor=="Grand Bouclier"){armure=armure+2;} 
-        else if(armor=="Cuir rigide"){armure=armure+2;} 
-        else if(armor=="Cote de maille"){armure=armure+3;}
-        else if(armor=="Armure de plaques"){armure=armure+4;}     
-        this.actor.update({'system.protection': armure}); 
+
+        if(race==game.i18n.localize("liber.avantrace60")){
+            armor = 2;
+        }
+        if(armed=="Bouclier"){armor=armor+1;}
+        else if(armed=="Grand Bouclier"){armor=armor+2;} 
+        if(armeg=="Bouclier"){armor=armor+1;}
+        else if(armeg=="Grand Bouclier"){armor=armor+2;}
+        if(arm=="Bouclier"){armor=armor+1;} 
+        else if(arm=="Cuir souple"){armor=armor+1;}
+        else if(arm=="Grand Bouclier"){armor=armor+2;} 
+        else if(arm=="Cuir rigide"){armor=armor+2;} 
+        else if(arm=="Cote de maille"){armor=armor+3;}
+        else if(arm=="Armure de plaques"){armor=armor+4;}     
+        this.actor.update({'system.protection': armor,'system.armeuse.armure': arm,'system.armeuse.desa': ard,'system.armeuse.imga': ari,'system.armeuse.armed': armed,'system.armeuse.degatd': degatd,'system.armeuse.imgd': imgd,'system.armeuse.desd': desd,'system.armeuse.armeg': armeg,'system.armeuse.degatg': degatg,'system.armeuse.imgg': imgg,'system.armeuse.desg': desg});
+
     }
 
     _onLevelUp(event){
@@ -1140,308 +1143,246 @@ import { liber } from "./config.js";
         if(memo==''){let physique=5}
         var cpt0=this.actor.system.caracteristique.acrobatie;var cpt1=this.actor.system.caracteristique.agilites;var cpt2=this.actor.system.caracteristique.alchimie;var cpt3=this.actor.system.caracteristique.apprentissage;var cpt4=this.actor.system.caracteristique.hast;var cpt5=this.actor.system.caracteristique.cc;var cpt6=this.actor.system.caracteristique.lancer;var cpt7=this.actor.system.caracteristique.melee;var cpt8=this.actor.system.caracteristique.tir;var cpt9=this.actor.system.caracteristique.art;var cpt10=this.actor.system.caracteristique.assassinat;var cpt11=this.actor.system.caracteristique.baton;var cpt12=this.actor.system.caracteristique.bouclier;var cpt13=this.actor.system.caracteristique.bricolage;var cpt14=this.actor.system.caracteristique.presence;var cpt15=this.actor.system.caracteristique.chercher;var cpt16=this.actor.system.caracteristique.commander;var cpt17=this.actor.system.caracteristique.concentration;var cpt18=this.actor.system.caracteristique.nature;var cpt19=this.actor.system.caracteristique.peuples;var cpt20=this.actor.system.caracteristique.religions;var cpt21=this.actor.system.caracteristique.geographique;var cpt22=this.actor.system.caracteristique.rue;var cpt23=this.actor.system.caracteristique.heretiques;var cpt24=this.actor.system.caracteristique.combat;var cpt25=this.actor.system.caracteristique.commerce;var cpt26=this.actor.system.caracteristique.crochetage;var cpt27=this.actor.system.caracteristique.discretion;var cpt28=this.actor.system.caracteristique.dexterite;var cpt29=this.actor.system.caracteristique.detection;var cpt30=this.actor.system.caracteristique.dissimulation;var cpt31=this.actor.system.caracteristique.dressage;var cpt32=this.actor.system.caracteristique.ennemi;var cpt33=this.actor.system.caracteristique.equilibre;var cpt34=this.actor.system.caracteristique.equitation;var cpt35=this.actor.system.caracteristique.escroquerie;var cpt36=this.actor.system.caracteristique.esquiver;var cpt37=this.actor.system.caracteristique.puissance;var cpt38=this.actor.system.caracteristique.astuce;var cpt39=this.actor.system.caracteristique.peur;var cpt40=this.actor.system.caracteristique.joueur;var cpt41=this.actor.system.caracteristique.maitrise;var cpt42=this.actor.system.caracteristique.natation;var cpt43=this.actor.system.caracteristique.navigation;var cpt44=this.actor.system.caracteristique.orientation;var cpt45=this.actor.system.caracteristique.persuasion;var cpt46=this.actor.system.caracteristique.pister;var cpt47=this.actor.system.caracteristique.prophetie;var cpt48=this.actor.system.caracteristique.secours;var cpt49=this.actor.system.caracteristique.resistance;var cpt50=this.actor.system.caracteristique.psychologue;var cpt51=this.actor.system.caracteristique.medecine;var cpt52=this.actor.system.caracteristique.survie;var cpt53=this.actor.system.caracteristique.tueur;var cpt54=this.actor.system.caracteristique.objet;
         var cpts=[cpt0,cpt1,cpt2,cpt3,cpt4,cpt5,cpt6,cpt7,cpt8,cpt9,cpt10,cpt11,cpt12,cpt13,cpt14,cpt15,cpt16,cpt17,cpt18,cpt19,cpt20,cpt21,cpt22,cpt23,cpt24,cpt25,cpt26,cpt27,cpt28,cpt29,cpt30,cpt31,cpt32,cpt33,cpt34,cpt35,cpt36,cpt37,cpt38,cpt39,cpt40,cpt41,cpt42,cpt43,cpt44,cpt45,cpt46,cpt47,cpt48,cpt49,cpt50,cpt51,cpt52,cpt53,cpt54]
-
-        var waetra='display:block'; var demon='display:block;';var humain='display:block;';var dragon='display:block;';var drauch='display:block;';var vharung='display:block;';var vaudou='display:block;';var corbeau='display:block;';var cercle='display:block;';var autre='display:block;';var aucun='display:block;';var metiertitre='';
         
-        if(race==game.i18n.localize("liber.avantrace60")){
-            resultat=resultat-20;
-            waetra='display:none;';demon='display:none;';humain='display:none;';drauch='display:none;';waetra='display:none;';
-        }if(race==game.i18n.localize("liber.avantrace92")){
-            resultat=resultat-25;
-            waetra='display:none;';demon='display:none;';humain='display:none;';drauch='display:none;';waetra='display:none;';
-        }else if(race==game.i18n.localize("liber.avantrace39") ){
-            resultat=resultat+15;
-            if(cpt39<10){cpt39=10;}
-            dragon='display:none;';drauch='display:none;';humain='display:none;';
-        }else if(race==game.i18n.localize("liber.avantrace61") ){
-            resultat=resultat+15;
-            if(cpt28<5){cpt28=5;}
-            demon='display:none;';dragon='display:none;';drauch='display:none;';vaudou='display:none;';
-        }else if(race==game.i18n.localize("liber.avantrace62")){
-            resultat=resultat+10;
-            dragon='display:none;';humain='display:none;';drauch='display:none;';
-        }else if(race==game.i18n.localize("liber.avantrace63")){
-            waetra='display:none;';demon='display:none;';dragon='display:none;';corbeau='display:none;';humain='display:none;';vharung='display:none;';cercle='display:none;';
-        }else if(race==game.i18n.localize("liber.avantrace64")){
-            resultat=resultat-40;
-            waetra='display:none;';demon='display:none;';dragon='display:none;';corbeau='display:none;';humain='display:none;';drauch='display:none;';autre='display:none;';aucun='display:none;';vharung='display:none;';cercle='display:none;';vaudou='display:none;';runes='display:none;';
-        }else if(race==game.i18n.localize("liber.avantrace65")){
-            resultat=resultat+15;
-            if(cpt28<5){cpt28=5;}
-        }else if(race==game.i18n.localize("liber.avantrace68")){
-            resultat=resultat+30;
-            if(cpt1<5){cpt1=5;}
-            if(cpt3<5){cpt3=5;}
-        }else if(race==game.i18n.localize("liber.avantrace66")){
-            resultat=resultat+20;
-            if(cpt1<5){cpt1=5;}
-            if(cpt18<5){cpt18=5;}
-        }else if(race==game.i18n.localize("liber.avantrace67")){
-            resultat=resultat+20;
-            if(cpt10<10){cpt10=10;}
-        }else if(race==game.i18n.localize("liber.avantrace68")){
-            resultat=resultat+15;
-            if(cpt1<5){cpt1=5;}
-            if(cpt3<5){cpt3=5;}
-        }else if(race==game.i18n.localize("liber.avantrace69")){
-            resultat=resultat+20;
-            if(cpt37<5){cpt37=5;}
-            if(cpt40<5){cpt40=5;}
-        }else if(race==game.i18n.localize("liber.avantrace70")){
-            resultat=resultat+25;
-            if(cpt1<5){cpt1=5;}
-            if(cpt27<5){cpt27=5;}
-        }else if(race==game.i18n.localize("liber.avantrace71")){
-            resultat=resultat+20;
-            if(cpt46<5){cpt46=5;}
-            if(cpt28<5){cpt28=5;}
-        }else if(race==game.i18n.localize("liber.avantrace73")){
-            resultat=resultat+5;
-            if(cpt18<5){cpt18=5;}
-        }else if(race==game.i18n.localize("liber.avantrace76")){
-            resultat=resultat+5;
-            if(cpt15<5){cpt15=5;}
-        }else if(race==game.i18n.localize("liber.avantrace77")){
-            resultat=resultat-30;
-        }else if(race==game.i18n.localize("liber.avantrace91")){
-            resultat=resultat+15;
-            if(cpt1<5){cpt1=5;}
+        switch(race) {
+          case game.i18n.localize("liber.avantrace60"):
+            resultat -= 20;
+            break;
+          case game.i18n.localize("liber.avantrace92"):
+            resultat -= 25;
+            break;
+          case game.i18n.localize("liber.avantrace39"):
+            resultat += 15;
+            cpt39 = Math.max(cpt39, 10);
+            break;
+          case game.i18n.localize("liber.avantrace61"):
+            resultat += 15;
+            cpt28 = Math.max(cpt28, 5);
+            break;
+          case game.i18n.localize("liber.avantrace62"):
+            resultat += 10;
+            break;
+          case game.i18n.localize("liber.avantrace63"):
+            break;
+          case game.i18n.localize("liber.avantrace64"):
+            resultat -= 40;
+            break;
+          case game.i18n.localize("liber.avantrace65"):
+            resultat += 15;
+            cpt28 = Math.max(cpt28, 5);
+            break;
+          case game.i18n.localize("liber.avantrace66"):
+            resultat += 20;
+            cpt1 = Math.max(cpt1, 5);
+            cpt18 = Math.max(cpt18, 5);
+            break;
+          case game.i18n.localize("liber.avantrace67"):
+            resultat += 20;
+            cpt10 = Math.max(cpt10, 10);
+            break;
+          case game.i18n.localize("liber.avantrace68"):
+            resultat += 15;
+            cpt1 = Math.max(cpt1, 5);
+            cpt3 = Math.max(cpt3, 5);
+            break;
+          case game.i18n.localize("liber.avantrace69"):
+            resultat += 20;
+            cpt37 = Math.max(cpt37, 5);
+            cpt40 = Math.max(cpt40, 5);
+            break;
+          case game.i18n.localize("liber.avantrace70"):
+            resultat += 25;
+            cpt1 = Math.max(cpt1, 5);
+            cpt27 = Math.max(cpt27, 5);
+            break;
+          case game.i18n.localize("liber.avantrace71"):
+            resultat += 20;
+            cpt46 = Math.max(cpt46, 5);
+            cpt28 = Math.max(cpt28, 5);
+            break;
+          case game.i18n.localize("liber.avantrace73"):
+            resultat += 5;
+            cpt18 = Math.max(cpt18, 5);
+            break;
+          case game.i18n.localize("liber.avantrace76"):
+            resultat += 5;
+            cpt15 = Math.max(cpt15, 5);
+            break;
+          case game.i18n.localize("liber.avantrace77"):
+            resultat -= 30;
+            break;
+          case game.i18n.localize("liber.avantrace91"):
+            resultat += 15;
+            cpt1 = Math.max(cpt1, 5);
+            break;
+          default:
+            break;
         }
 
-        for(var i=0;i<55;i++){
-            var ajout=cpts[i];
-            if(cpts[i]>20){
-                cpts[i]=20;
-                ajout=20;
-            }
-            if(i==1 || i==3 || i==4 || i==5 || i==6 || i==7 || i==8 || i==14 || i==17 || i==24 || i==28 || i==30 || i==37 || i==38 || i==41 || i==45 || i==47 || i==50 || i==51 || i==56){
-                var muti=3;
-            }else if(i==2 || i==10 || i==11 || i==12 || i==16 || i==25 || i==27 || i==29 || i==52 || i==57){
-                var muti=2;
-            }else{
-                var muti=1;
-            }
-            resultat=resultat-(ajout*muti);
+        for (var i = 0; i < 55; i++) {
+          var ajout = cpts[i];
+          if (ajout > 20) {
+            ajout = 20;
+            cpts[i] = 20;
+          }
+          var muti = 1;
+          if ([1, 3, 4, 5, 6, 7, 8, 14, 17, 24, 28, 30, 37, 38, 41, 45, 47, 50, 51, 56].includes(i)) {
+            muti = 3;
+          } else if ([2, 10, 11, 12, 16, 25, 27, 29, 52, 57].includes(i)) {
+            muti = 2;
+          }
+          resultat -= ajout * muti;
         }
         
         //Stat base
-            var b_psy=Math.round((parseInt(ment)+(parseInt(soci)/2)-parseInt(phys)+5)/4+2);
-            var b_nb=Math.round(parseInt(b_psy)/4)+1+parseInt(level);
-            var b_cout=Math.round((parseInt(b_psy)-parseInt(b_nb))/2)+3;
-            if(compt=="Aura"){
-                b_psy=parseInt(b_psy)+5
-            } 
-        //stat actuel
-            
-            var PVmin=Math.round(parseInt(phys)/3);
-            if(compt=="Vigoureux"){
-                PVmin=parseInt(PVmin)+5
-            }
-            if(faible=="Prisonnier"){
-                PVmin=parseInt(PVmin)-5
-            }
-            var PSYmin=b_psy;
-            var cout=0;
-            if(clan==game.i18n.localize("liber.avantrace56")){
-                cout=parseInt(level)+1;
-            }else {
-                cout=Math.round((parseInt(psy)-parseInt(b_nb))/2)+3;
-            }
-            
-            //calcul cout et nb sort
-            var xcout=Math.floor((parseInt(psy)-parseInt(b_nb))/2+3);//cout sort        
-            if(clan !=game.i18n.localize("liber.avantrace56")){
-                xcout=level;
-            }
+        const b_psy = Math.round((parseInt(ment) + parseInt(soci)/2 - parseInt(phys) + 5) / 4 + 2);
+        const b_nb = Math.round(parseInt(b_psy) / 4) + 1 + parseInt(level);
+        let b_cout = Math.round((parseInt(b_psy) - parseInt(b_nb)) / 2) + 3;
+        if (compt === "Aura") {
+            b_psy += 5;
+        }
 
-            var listsort=this.actor.sort;
-            var nbsorts=listsort.length;
-            var calsort=parseInt(b_nb)-parseInt(nbsorts);
-            var color1='color:white;';var color2='color:white;';
-            var apsy='';var apsymax=''; var ahp='';var ahpmax='';
-            if(calsort<0){color1='color:red';}
+        //Stat actuel
+        let PVmin = Math.round(parseInt(phys) / 3);
+        if (compt === "Vigoureux") {
+            PVmin += 5;
+        }
+        if (faible === "Prisonnier") {
+            PVmin -= 5;
+        }
+        const PSYmin = b_psy;
+        let cout = 0;
+        if (clan === game.i18n.localize("liber.avantrace56")) {
+            cout = parseInt(level) + 1;
+        } else {
+            cout = Math.round((parseInt(psy) - parseInt(b_nb)) / 2) + 3;
+        }
+
+        //calcul cout et nb sort
+        let xcout = Math.floor((parseInt(psy) - parseInt(b_nb)) / 2 + 3); //cout sort
+        if (clan !== game.i18n.localize("liber.avantrace56")) {
+            xcout = level;
+        }
+
+        const listsort = this.actor.sort;
+        const nbsorts = listsort.length;
+        const calsort = parseInt(b_nb) - parseInt(nbsorts);
+        let color1 = 'color:white;';
+        let color2 = 'color:white;';
+        let apsy = '';
+        let apsymax = '';
+        let ahp = '';
+        let ahpmax = '';
+        if (calsort < 0) {
+            color1 = 'color:red';
+        }
+
         //Verif stat
-            if(hpmax<PVmin && this.actor.type=="personnage" && hpmax!=0){
-               hpmax=PVmin;
-            }
-            if(psy<PSYmin && this.actor.type=="personnage" && psy!=0 && corbeau !=game.i18n.localize("liber.avantrace56")){
-               psy=PSYmin;
-            }
+        if (hpmax < PVmin && this.actor.type === "personnage" && hpmax !== 0) {
+            hpmax = PVmin;
+        }
+        if (psy < PSYmin && this.actor.type === "personnage" && psy !== 0 && clan !== game.i18n.localize("liber.avantrace56")) {
+            psy = PSYmin;
+        }
 
-            var pointxp=(parseInt(level)-1)*3;
-            var xp=parseInt(pointxp)+parseInt(PVmin)+parseInt(PSYmin)
-            var calcultotxp=parseInt(hpmax)+parseInt(psy)
-            if(calcultotxp>xp && this.actor.type=="personnage" ){
-                apsy='background:red';
-                apsymax='background:red';
-                ahp='background:red';
-                ahpmax='background:red';
-            }
-            if(parseInt(hp)>parseInt(hpmax)){
-                hp=hpmax;
-                console.log('egal')
-            }
-            if(parseInt(psyvalue)>parseInt(psy)){
-                psyvalue=psy;
-            }
-
+        const pointxp = (parseInt(level) - 1) * 3;
+        const xp = parseInt(pointxp) + parseInt(PVmin) + parseInt(PSYmin);
+        const calcultotxp = parseInt(hpmax) + parseInt(psy);
+        if (calcultotxp > xp && this.actor.type === "personnage") {
+            apsy = 'background:red';
+            apsymax = 'background:red';
+            ahp = 'background:red';
+            ahpmax = 'background:red';
+        }
+        if (parseInt(hp) > parseInt(hpmax)) {
+            hp = hpmax;
+            console.log('egal');
+        }
+        if (parseInt(psyvalue) > parseInt(psy)) {
+            psyvalue = psy;
+        }
 
         //Insoignable
-            var insoin=this.actor.system.insoin;
-            if(hpmax==hp && insoin>0){
-                hp=parseInt(hpmax)-parseInt(insoin);
-            }
+        const insoin = this.actor.system.insoin;
+        if (hpmax === hp && insoin > 0) {
+            hp = parseInt(hpmax) - parseInt(insoin);
+        }
 
-        var mag1='aucun';var mag2='aucun';var all=0;
-        if(clan==game.i18n.localize("liber.avantrace56")){
-            mag1='corbeau';
-        }else if(metier==game.i18n.localize("liber.metier12")){
-            mag1='troubadour';
-        }else if(race==game.i18n.localize("liber.avantrace61")){
-            mag1='humain';  
-        }else if(race==game.i18n.localize("liber.avantrace39")){
-            mag1='demon';
-            
-        }else if(race==game.i18n.localize("liber.avantrace62")){
-            mag1='demon';
-            
-        }else if(race==game.i18n.localize("liber.avantrace62")){
-            mag1='feu';
-            
-        }else if(race==game.i18n.localize("liber.avantrace62")){
-            mag1='feu';
-            
-        }/*else if(race==game.i18n.localize("liber.avantrace92") || race==game.i18n.localize("liber.avantrace66") || race==game.i18n.localize("liber.avantrace67") || race==game.i18n.localize("liber.avantrace68") ||race==game.i18n.localize("liber.avantrace69") || race==game.i18n.localize("liber.avantrace70") || race==game.i18n.localize("liber.avantrace71") || race==game.i18n.localize("liber.avantrace72") || race==game.i18n.localize("liber.avantrace73") || race==game.i18n.localize("liber.avantrace74") || race==game.i18n.localize("liber.avantrace75") || race==game.i18n.localize("liber.avantrace76") || race==game.i18n.localize("liber.avantrace77") || race==game.i18n.localize("liber.avantrace78")){
-            all=1;
-        }*/else if(clan==game.i18n.localize("liber.avantrace40")){
-            mag1='air';
-        }else if(clan==game.i18n.localize("liber.avantrace41")){
-            mag1='eau';
-        }else if(clan==game.i18n.localize("liber.avantrace42")){
-            mag1='esprit';
-        }else if(clan==game.i18n.localize("liber.avantrace43")){
-            mag1='feu';
-        }else if(clan==game.i18n.localize("liber.avantrace44")){
-            mag1='foudre';
-        }else if(clan==game.i18n.localize("liber.avantrace45")){
-            mag1='glace';
-        }else if(clan==game.i18n.localize("liber.avantrace46")){
-            mag1='illusion';
-        }else if(clan==game.i18n.localize("liber.avantrace47")){
-            mag1='invocation';
-        }else if(clan==game.i18n.localize("liber.avantrace48")){
-            mag1='mort';
-        }else if(clan==game.i18n.localize("liber.avantrace49")){
-            mag1='nature';
-        }else if(clan==game.i18n.localize("liber.avantrace50")){
-            mag1='poison';
-        }else if(clan==game.i18n.localize("liber.avantrace51")){
-            mag1='telekenesie';
-        }else if(clan==game.i18n.localize("liber.avantrace52")){
-            mag1='terre';
-        }else if(clan==game.i18n.localize("liber.avantrace53")){
-            mag1='ultime';
-        }else if(clan==game.i18n.localize("liber.avantrace54")){
-            mag1='vie';
-        }else if(clan==game.i18n.localize("liber.avantrace55")){
-            mag1='ombre';
-        }else if(clan==game.i18n.localize("liber.avantrace59")){
-            mag1='constellation';
-        }else if(clan==game.i18n.localize("liber.avantrace78")){
-            mag1='autre';
+        let mag1 = 'aucun';let mag2 = 'aucun';let all = 0;
+        const raceMagMap = {
+          [game.i18n.localize('liber.avantrace56')]: 'corbeau',
+          [game.i18n.localize('liber.metier12')]: 'troubadour',
+          [game.i18n.localize('liber.avantrace61')]: 'humain',
+          [game.i18n.localize('liber.avantrace39')]: 'demon',
+          [game.i18n.localize('liber.avantrace62')]: 'feu',
+          [game.i18n.localize('liber.avantrace40')]: 'air',
+          [game.i18n.localize('liber.avantrace41')]: 'eau',
+          [game.i18n.localize('liber.avantrace42')]: 'esprit',
+          [game.i18n.localize('liber.avantrace43')]: 'feu',
+          [game.i18n.localize('liber.avantrace44')]: 'foudre',
+          [game.i18n.localize('liber.avantrace45')]: 'glace',
+          [game.i18n.localize('liber.avantrace46')]: 'illusion',
+          [game.i18n.localize('liber.avantrace47')]: 'invocation',
+          [game.i18n.localize('liber.avantrace48')]: 'mort',
+          [game.i18n.localize('liber.avantrace49')]: 'nature',
+          [game.i18n.localize('liber.avantrace50')]: 'poison',
+          [game.i18n.localize('liber.avantrace51')]: 'telekenesie',
+          [game.i18n.localize('liber.avantrace52')]: 'terre',
+          [game.i18n.localize('liber.avantrace53')]: 'ultime',
+          [game.i18n.localize('liber.avantrace54')]: 'vie',
+          [game.i18n.localize('liber.avantrace55')]: 'ombre',
+          [game.i18n.localize('liber.avantrace59')]: 'constellation',
+          [game.i18n.localize('liber.avantrace78')]: 'autre'
+        };
+
+        const reliMagMap = {
+          [game.i18n.localize('liber.avantrace56')]: 'rune',
+          [game.i18n.localize('liber.avantrace80')]: 'vharung',
+          [game.i18n.localize('liber.avantrace81')]: 'nouvelordre',
+          [game.i18n.localize('liber.avantrace82')]: 'croise',
+          [game.i18n.localize('liber.avantrace83')]: 'lumiere',
+          [game.i18n.localize('liber.avantrace84')]: 'ombre',
+          [game.i18n.localize('liber.avantrace85')]: 'waetra',
+        };
+
+        if (raceMagMap[race]) {
+          mag1 = raceMagMap[race];
+        } else if (clan && clan !== 'undefined' && raceMagMap[clan]) {
+          mag1 = raceMagMap[clan];
         }
-        if(clan==game.i18n.localize("liber.avantrace56")){
-            mag2='rune';
-        }else if(reli==game.i18n.localize("liber.avantrace80")){
-            mag2='vharung';
-        }else if(reli==game.i18n.localize("liber.avantrace81")){
-            mag2='nouvelordre';
-        }else if(reli==game.i18n.localize("liber.avantrace82")){
-            mag2='croise';
-        }else if(reli==game.i18n.localize("liber.avantrace83")){
-            mag2='lumiere';
-        }else if(reli==game.i18n.localize("liber.avantrace84")){
-            mag2='ombre';
-        }else if(reli==game.i18n.localize("liber.avantrace85")){
-            mag2='waetra';
-        }else if(reli==game.i18n.localize("liber.avantrace86")){
-            mag2='ancien';
-        }else if(reli==game.i18n.localize("liber.avantrace87")){
-            mag2='baphomet';
-        }else if(reli==game.i18n.localize("liber.avantrace88")){
-            mag2='cercle';
-        }else if(reli==game.i18n.localize("liber.avantrace89")){
-            mag2='vaudou';
-        }else if(reli==game.i18n.localize("liber.avantrace90")){
-            mag2='rune';
-        }else if(reli==game.i18n.localize("liber.avantrace91")){
-            mag2='illusion';
+
+        if (reliMagMap[reli]) {
+          mag2 = reliMagMap[reli];
         }
+        
         //activer les effets
-        let effet=this.actor.effects;
-        var effets=[];
-        //var etats=['a','b','c','d','e','f','g','h','i','j','k','l','m','n'];
-        var active=[0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
-        var lists=['Endormi','Etourdi','Aveugle','Sourd','Réduit au silence','Apeuré','Brûlant','Gelé','Invisible','Béni','Empoisonné','Saignement','Inconscient','Mort']
-        effet.forEach(function(item, index, array) {
-            if(item.label!=''){
-                effets.push(item.label);
-            }
-        });
+        const effets = this.actor.effects.filter(item => item.label !== '').map(item => item.label);
+        const lists = ['Endormi','Etourdi','Aveugle','Sourd','Réduit au silence','Apeuré','Brûlant','Gelé','Invisible','Béni','Empoisonné','Saignement','Inconscient','Mort'];
+        const active = lists.map(list => effets.includes(list) ? 1 : 0.5);
 
-        for(var i=0; i<lists.length; i++){
-            for (var j=0; j < effets.length; j++) {
-                if(lists[i]== effets[j]){
-                    active[i]=1;
-                    console.log(i+' : '+effets[j]) 
-                }
-            }
-        }
-
-        //liste des sorts possible //dev
-        //const abc = await game.packs.get('liber.magie');
-        //|| race==game.i18n.localize("liber.avantrace92") || race==game.i18n.localize("liber.avantrace66") || race==game.i18n.localize("liber.avantrace67") || race==game.i18n.localize("liber.avantrace68")  || race==game.i18n.localize("liber.avantrace69") || race==game.i18n.localize("liber.avantrace70") || race==game.i18n.localize("liber.avantrace71")  || race==game.i18n.localize("liber.avantrace72") || race==game.i18n.localize("liber.avantrace73") || race==game.i18n.localize("liber.avantrace74") || race==game.i18n.localize("liber.avantrace75") || race==game.i18n.localize("liber.avantrace76") || race==game.i18n.localize("liber.avantrace77") || race==game.i18n.localize("liber.avantrace78")
-        var listem=[]
+        //liste des sorts possible
         const pack = game.packs.get('liber.magie');
         const tables = await pack.getDocuments();
-        $.each( tables, function( key, value ) {
-            if(value.system.classe==mag1 || value.system.classe==mag2 || mag1==game.i18n.localize("liber.avantrace78") ){ 
-                var coutm=parseInt(value.system.cout)
-                if(coutm<=cout || cout=="X"){
-                    listem.push({'name':value.name,'img':value.img,'cible':value.system.cible,'classe':value.system.classe,'cout':value.system.cout,'degat':value.system.degat,'description':value.system.description,'duree':value.system.duree})
-                }
-            }
-        });
-        listem.sort((a, b) => a.cout - b.cout);
-        this.actor.update({"system.etat.a":active[0],"system.etat.b":active[1],"system.etat.c":active[2],"system.etat.d":active[3],"system.etat.e":active[4],"system.etat.f":active[5],"system.etat.g":active[6],"system.etat.h":active[7],"system.etat.i":active[8],"system.etat.j":active[9],"system.etat.k":active[10],"system.etat.l":active[11],"system.etat.m":active[12],"system.etat.n":active[13],"system.reste":reste,'system.alert.listemag.liste':listem,'system.alert.listemag.img1':mag1,'system.alert.listemag.img2':mag2,'system.alert.psy':apsy,'system.alert.psymax':apsymax,'system.alert.hp':ahp,'system.alert.hpmax':ahp,'system.hp.max':hpmax,'system.hp.value':hp,'system.psy.max':psy,'system.psy.value':psyvalue,"system.restant":resultat,'system.maxsort':calsort,'system.coutmax':cout,'system.alert.maxsort':color1,'system.alert.coutmax':color2,'system.alert.waetra':waetra,'system.alert.demon':demon,'system.alert.humain':humain,'system.alert.dragon':dragon,'system.alert.drauch':drauch,'system.alert.vharung':vharung,'system.alert.vaudou':vaudou,'system.alert.corbeau':corbeau,'system.alert.cercle':cercle,'system.alert.autre':autre,'system.alert.aucun':aucun,'system.caracteristique.acrobatie':cpts[0],'system.caracteristique.agilites':cpts[1],'system.caracteristique.alchimie':cpts[2],'system.caracteristique.apprentissage':cpts[3],'system.caracteristique.hast':cpts[4],'system.caracteristique.cc':cpts[5],'system.caracteristique.lancer':cpts[6],'system.caracteristique.melee':cpts[7],'system.caracteristique.tir':cpts[8],'system.caracteristique.art':cpts[9],'system.caracteristique.assassinat':cpts[10],'system.caracteristique.baton':cpts[11],'system.caracteristique.bouclier':cpts[12],'system.caracteristique.bricolage':cpts[13],'system.caracteristique.presence':cpts[14],'system.caracteristique.chercher':cpts[15],'system.caracteristique.commander':cpts[16],'system.caracteristique.concentration':cpts[17],'system.caracteristique.nature':cpts[18],'system.caracteristique.peuples':cpts[19],'system.caracteristique.religions':cpts[20],'system.caracteristique.geographique':cpts[21],'system.caracteristique.rue':cpts[22],'system.caracteristique.heretiques':cpts[23],'system.caracteristique.combat':cpts[24],'system.caracteristique.commerce':cpts[25],'system.caracteristique.crochetage':cpts[26],'system.caracteristique.discretion':cpts[27],'system.caracteristique.dexterite':cpts[28],'system.caracteristique.detection':cpts[29],'system.caracteristique.dissimulation':cpts[30],'system.caracteristique.dressage':cpts[31],'system.caracteristique.ennemi':cpts[32],'system.caracteristique.equilibre':cpts[33],'system.caracteristique.equitation':cpts[34],'system.caracteristique.escroquerie':cpts[35],'system.caracteristique.esquiver':cpts[36],'system.caracteristique.puissance':cpts[37],'system.caracteristique.astuce':cpts[38],'system.caracteristique.peur':cpts[39],'system.caracteristique.joueur':cpts[40],'system.caracteristique.maitrise':cpts[41],'system.caracteristique.natation':cpts[42],'system.caracteristique.navigation':cpts[43],'system.caracteristique.orientation':cpts[44],'system.caracteristique.persuasion':cpts[45],'system.caracteristique.pister':cpts[46],'system.caracteristique.prophetie':cpts[47],'system.caracteristique.secours':cpts[48],'system.caracteristique.resistance':cpts[49],'system.caracteristique.psychologue':cpts[50],'system.caracteristique.medecine':cpts[51],'system.caracteristique.survie':cpts[52],'system.caracteristique.tueur':cpts[53],'system.caracteristique.objet':cpts[54],'system.caracteristique.veterinaire':cpts[55],'system.caracteristique.vigilance':cpts[56],'system.caracteristique.vise':cpts[57]});
+        const listem = tables.filter(value =>
+            value.system.classe == mag1 ||
+            value.system.classe == mag2 ||
+            mag1 == game.i18n.localize("liber.avantrace78")
+        ).filter(value =>
+            parseInt(value.system.cout) <= cout || cout == "X"
+        ).map(value => ({
+            'name': value.name,
+            'img': value.img,
+            'cible': value.system.cible,
+            'classe': value.system.classe,
+            'cout': value.system.cout,
+            'degat': value.system.degat,
+            'description': value.system.description,
+            'duree': value.system.duree
+        })).sort((a, b) => a.cout - b.cout);
+        this.actor.update({"system.etat.a":active[0],"system.etat.b":active[1],"system.etat.c":active[2],"system.etat.d":active[3],"system.etat.e":active[4],"system.etat.f":active[5],"system.etat.g":active[6],"system.etat.h":active[7],"system.etat.i":active[8],"system.etat.j":active[9],"system.etat.k":active[10],"system.etat.l":active[11],"system.etat.m":active[12],"system.etat.n":active[13],"system.reste":reste,'system.listemag.liste':listem,'system.listemag.img1':mag1,'system.listemag.img2':mag2,'system.alert.psy':apsy,'system.alert.psymax':apsymax,'system.alert.hp':ahp,'system.alert.hpmax':ahp,'system.hp.max':hpmax,'system.hp.value':hp,'system.psy.max':psy,'system.psy.value':psyvalue,"system.restant":resultat,'system.maxsort':calsort,'system.coutmax':cout,'system.alert.maxsort':color1,'system.alert.coutmax':color2,'system.caracteristique.acrobatie':cpts[0],'system.caracteristique.agilites':cpts[1],'system.caracteristique.alchimie':cpts[2],'system.caracteristique.apprentissage':cpts[3],'system.caracteristique.hast':cpts[4],'system.caracteristique.cc':cpts[5],'system.caracteristique.lancer':cpts[6],'system.caracteristique.melee':cpts[7],'system.caracteristique.tir':cpts[8],'system.caracteristique.art':cpts[9],'system.caracteristique.assassinat':cpts[10],'system.caracteristique.baton':cpts[11],'system.caracteristique.bouclier':cpts[12],'system.caracteristique.bricolage':cpts[13],'system.caracteristique.presence':cpts[14],'system.caracteristique.chercher':cpts[15],'system.caracteristique.commander':cpts[16],'system.caracteristique.concentration':cpts[17],'system.caracteristique.nature':cpts[18],'system.caracteristique.peuples':cpts[19],'system.caracteristique.religions':cpts[20],'system.caracteristique.geographique':cpts[21],'system.caracteristique.rue':cpts[22],'system.caracteristique.heretiques':cpts[23],'system.caracteristique.combat':cpts[24],'system.caracteristique.commerce':cpts[25],'system.caracteristique.crochetage':cpts[26],'system.caracteristique.discretion':cpts[27],'system.caracteristique.dexterite':cpts[28],'system.caracteristique.detection':cpts[29],'system.caracteristique.dissimulation':cpts[30],'system.caracteristique.dressage':cpts[31],'system.caracteristique.ennemi':cpts[32],'system.caracteristique.equilibre':cpts[33],'system.caracteristique.equitation':cpts[34],'system.caracteristique.escroquerie':cpts[35],'system.caracteristique.esquiver':cpts[36],'system.caracteristique.puissance':cpts[37],'system.caracteristique.astuce':cpts[38],'system.caracteristique.peur':cpts[39],'system.caracteristique.joueur':cpts[40],'system.caracteristique.maitrise':cpts[41],'system.caracteristique.natation':cpts[42],'system.caracteristique.navigation':cpts[43],'system.caracteristique.orientation':cpts[44],'system.caracteristique.persuasion':cpts[45],'system.caracteristique.pister':cpts[46],'system.caracteristique.prophetie':cpts[47],'system.caracteristique.secours':cpts[48],'system.caracteristique.resistance':cpts[49],'system.caracteristique.psychologue':cpts[50],'system.caracteristique.medecine':cpts[51],'system.caracteristique.survie':cpts[52],'system.caracteristique.tueur':cpts[53],'system.caracteristique.objet':cpts[54],'system.caracteristique.veterinaire':cpts[55],'system.caracteristique.vigilance':cpts[56],'system.caracteristique.vise':cpts[57]});
         
     }
 
-    async _onStatM(event){
-
-        //activer les effets
-        let effet=this.actor.effects;
-        var effets=[];
-        //var etats=['a','b','c','d','e','f','g','h','i','j','k','l','m','n'];
-        var active=[0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
-        var lists=['Endormi','Etourdi','Aveugle','Sourd','Réduit au silence','Apeuré','Brûlant','Gelé','Invisible','Béni','Empoisonné','Saignement','Inconscient','Mort']
-        effet.forEach(function(item, index, array) {
-            if(item.label!=''){
-                effets.push(item.label);
-            }
-        });
-
-        for(var i=0; i<lists.length; i++){
-            for (var j=0; j < effets.length; j++) {
-                if(lists[i]== effets[j]){
-                    active[i]=1;
-                    console.log(i+' : '+effets[j]) 
-                }
-            }
-        }
-
-        this.actor.update({"system.etat.a":active[0],"system.etat.b":active[1],"system.etat.c":active[2],"system.etat.d":active[3],"system.etat.e":active[4],"system.etat.f":active[5],"system.etat.g":active[6],"system.etat.h":active[7],"system.etat.i":active[8],"system.etat.j":active[9],"system.etat.k":active[10],"system.etat.l":active[11],"system.etat.m":active[12],"system.etat.n":active[13]});        
-    }
 
     async _onRandom(event){
         let listem=[]

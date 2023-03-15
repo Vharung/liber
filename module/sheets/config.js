@@ -116,3 +116,66 @@ liber.metierTypes={
 	m14:"liber.metier15",
 	m15:"liber.metier16"
 }
+
+
+liber.clanDragonTypes={
+    c2:"liber.avantrace40",
+    c3:"liber.avantrace41",
+    c4:"liber.avantrace42",
+    c5:"liber.avantrace43",
+    c6:"liber.avantrace44",
+    c7:"liber.avantrace45",
+    c8:"liber.avantrace46",
+    c9:"liber.avantrace47",
+    c10:"liber.avantrace48",
+    c11:"liber.avantrace49",
+    c12:"liber.avantrace50",
+    c13:"liber.avantrace51",
+    c14:"liber.avantrace52",
+    c15:"liber.avantrace53",
+    c16:"liber.avantrace54",
+    c17:"liber.avantrace55",
+    c18:"liber.avantrace59"
+}
+
+liber.clanAllTypes={
+    c19:"liber.avantrace56",
+    c23:"liber.avantrace78",
+    c0:"liber.avantrace79"
+}
+
+liber.clanHumainTypes={
+    c20:"liber.avantrace57",			
+    c21:"liber.avantrace58"
+}
+liber.clanDemonTypes={
+    c20:"liber.avantrace39"
+}
+liber.clanDrauchTypes={
+    c22:"liber.avantrace91"
+}
+
+liber.religionHumainTypes={
+    r0:"liber.avantrace81",
+    r1:"liber.avantrace82",
+    r2:"liber.avantrace83",
+    r3:"liber.avantrace87",
+    r4:"liber.avantrace85"
+}
+liber.religionAllTypes={
+    r4:"liber.avantrace80",
+    r5:"liber.avantrace88",
+    r6:"liber.avantrace89",
+    r7:"liber.avantrace90",
+    r8:"liber.avantrace78"
+}
+liber.religionDragonTypes={
+    r10:"liber.avantrace84"
+}
+liber.religionDrauchTypes={
+    r11:"liber.avantrace85"
+}
+liber.religionDemonTypes={
+    r12:"liber.avantrace85",
+    r13:"liber.avantrace86"
+}

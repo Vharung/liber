@@ -144,49 +144,37 @@
                 "vigilance": "0",
                 "vise": "0"
               },
-              "armed": "",
-              "armeg": "",
-              "degatd": "",
-              "degatg": "",
-              "imgd":"",
-              "imgg":"",
-              "desd":"",
-              "desg":"",
-              "armure": "",
+              "armeuse":{
+                "armed": "",
+                "armeg": "",
+                "degatd": "",
+                "degatg": "",
+                "imgd":"",
+                "imgg":"",
+                "desd":"",
+                "desg":"",
+                "armure": "",
+                "desa":"",
+                "imga":""
+              },              
               "insoin": "0",
               "geo":"",
               "reste":0,
               "restant":0,
               "maxsort":0,
               "coutmax":0,
+              "listemag":{
+                    "img1":"aucun",
+                    "img2":"aucun",
+                    "liste":{}
+                },
               "alert": {
-                "waetra":"",
-                "demon":"",
-                "humain":"",
-                "dragon":"",
-                "drauch":"",
-                "vharung":"",
-                "waetra":"",
-                "vaudou":"",
-                "corbeau":"",
-                "cercle":"",
-                "autre":"",
-                "aucun":"",
-                "metiertitre":"",
                 "maxsort":0,
                 "coutmax":0,
                 "psy":"",
                 "psymax":"",
                 "hp":"",
-                "hpmax":"",
-                "listeobj":"",
-                "listemag":{
-                    "img1":"aucun",
-                    "img2":"aucun",
-                    "mag1":"aucun",
-                    "mag2":"aucun",
-                    "liste":{}
-                }
+                "hpmax":""                
               }
             }
         },

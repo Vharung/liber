@@ -172,7 +172,7 @@ button:hover,.Liber .stat2 label:hover,.Liber .reposer:hover,.Liber input[type="
 .Liber .items .desequi{float: right;border: none;color: #fff;width: 30px;height: 30px;font-size: 1em;cursor: pointer;margin-right: 10px;}
 .Liber .items .jetdedegat{float: right;border: none;color: #fff;width: 105px;height: 25px;font-size: 0.8em;cursor: pointer;margin: 3px;text-align: center;}
 
-.Liber .guerrier,.Liber .croiser{display: none}
+.Liber .guerrier,.Liber .croiser,.Liber .classique{display: none}
 
 .Liber .typerepos ,.Liber .jourliste,.Liber .heure{border:  solid #20180d 1px; color: white}
 .Liber .geo{width:200px;width: 195px;height: 275px;display: inline-block;background:url(systems/liber/assets/monstre/map0.png);background-size: contain;}
