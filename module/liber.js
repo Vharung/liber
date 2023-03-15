@@ -1,10 +1,9 @@
 import { liber } from "./sheets/config.js";
-//import { LiberChat } from "./sheets/liberchat.js";
 import { LiberActor } from "./sheets/liberactor.js";
 import { LiberActorSheet } from "./sheets/liberactorsheet.js";
 import { LiberItem } from "./sheets/liberitem.js";
 import { LiberItemSheet } from "./sheets/liberitemsheet.js";
-
+import * as Chat from "./sheets/liberchat.js";
 
 //const myInstance = new MyClass();
 Hooks.once("init", async function() {
@@ -27,4 +26,5 @@ Hooks.once("init", async function() {
     Actors.registerSheet("liber", LiberActorSheet, { makeDefault: true });
 
 });
+
 

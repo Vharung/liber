@@ -495,7 +495,7 @@ import { liber } from "./config.js";
     }
     
     _onSpell(event){
-        let mental =this.actor.system.mental;
+        let mental =this.actor.system.ability.mental;
         let physique =this.actor.system.ability.physique;
         let social =this.actor.system.ability.social;
         let bonus =this.actor.system.bonus;
@@ -568,19 +568,18 @@ import { liber } from "./config.js";
             }
         }
         
-
+        let button ='';
+        if(dice !=''){
+            button='<button class="roll-damage" style="cursor:pointer" data-name="'+name+'" data-actorid="'+this.actor._id+'" data-dice="'+dice+'" data-img="'+img+'" data-desc="'+desc+'" data-type="jetdedegat">Lancer les dès</button>'
+        }
         this.actor.update({"system.insoin": insoin,"system.hp.value": hp,"system.psy.value": psy});
         const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +' : '+ inforesult +'/100</span><span class="desctchat">'+desc+'</span></p>'+succes
-        //+'<button class="resultatp" style="cursor:pointer" data-name="'+name+'" data-dice="'+dice+'" data-img="'+img+'" data-desc="'+desc+'" data-type="jetdedegat" onclick="alert(\'bonjour\')">Attaque</button>  '
-        +'<button class="attack" style="cursor:pointer" data-item-id="'+name+'" data-dice="'+dice+'" data-img="'+img+'" data-desc="'+desc+'" data-type="jetdedegat">Attaque</button>  '
-        +'</span>';
+        button+'</span>';
         roll.toMessage({
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
             flavor: texte
         });
     }
-
-
 
     _onInfo(event){
         var name=event.target.dataset["name"];
