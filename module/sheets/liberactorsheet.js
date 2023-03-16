@@ -370,7 +370,7 @@ import { liber } from "./config.js";
         //var automatisation
         let statphy = this.actor.system.ability.physique;
         var hp=null;
-        var nom='';    
+        var nom='';let button='';    
 
     //Jet de dès  compétences
         if(type=="jetdedes" || type=="auto"){
@@ -415,7 +415,23 @@ import { liber } from "./config.js";
                     var nam = this.actor.system.armeg;
                 }
             }
-            texte = '<span style="flex:auto"><p class="resultatp">Jet de ' + name + " : " + inforesult +'/100</p>'+succes+'</span>'
+            texte = '<span style="flex:auto"><p class="resultatp">Jet de ' + name + " : " + inforesult +'/100</p>'+succes
+            if(name=="physique"){
+                let {armed,degatd,desd,imgd,armeg,degatg,desg,imgg} = this.actor.system.armeuse;
+                if(armed){
+                    button+='<button class="roll-damage" style="cursor:pointer;margin-bottom: 5px;" data-name="'+armed+'" data-actorid="'+
+                this.actor._id+'" data-dice="'+degatd+'" data-img="'+imgd
+                +'" data-desc="'+desd+'" data-type="jetdedegat">Utiliser '+armed+'</button>';
+                }
+                if(armeg){
+                    button+='<button class="roll-damage" style="cursor:pointer" data-name="'+armeg+'" data-actorid="'+
+                this.actor._id+'" data-dice="'+degatg+'" data-img="'+imgg
+                +'" data-desc="'+desg+'" data-type="jetdedegat">Utiliser '+armeg+'</button>';
+                }
+                
+
+            }
+            texte+=button+'</span>';
             //info Tchat    
             roll.toMessage({
                 speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -569,11 +585,11 @@ import { liber } from "./config.js";
         }
         
         let button ='';
-        if(dice !=''){
+        if(dice){
             button='<button class="roll-damage" style="cursor:pointer" data-name="'+name+'" data-actorid="'+this.actor._id+'" data-dice="'+dice+'" data-img="'+img+'" data-desc="'+desc+'" data-type="jetdedegat">Lancer les dès</button>'
         }
         this.actor.update({"system.insoin": insoin,"system.hp.value": hp,"system.psy.value": psy});
-        const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +' : '+ inforesult +'/100</span><span class="desctchat">'+desc+'</span></p>'+succes
+        const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +' : '+ inforesult +'/100</span><span class="desctchat">'+desc+'</span></p>'+succes+
         button+'</span>';
         roll.toMessage({
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -963,13 +979,14 @@ import { liber } from "./config.js";
         const { img, des, name, degat } = event.target.dataset;
         let armor = 0;
         let arm=armure; let ard=desa; let ari=imga;
-        const DROITE = "droite";const GAUCHE = "gauche";const ARMEG_PROP = "armeg";const DEGATG_PROP = "degatg";const DESG_PROP = "desg";const IMGG_PROP = "imgg";const ARMED_PROP = "armed";const DEGATD_PROP = "degatd";const DESD_PROP = "desd";const IMGD_PROP = "imgd";
+        const DROITE = "droite";const GAUCHE = "gauche";
+
 
         if (equipe === DROITE || equipe === GAUCHE || equipe === "ddroite" || equipe === "dgauche") {
           for (let i = listedemain.length - 1; i >= 0; i--) {
-            const nameInListedemain = name.includes(listedemain[i]);
-            const armedInListedemain = armed.includes(listedemain[i]);
-            const armegInListedemain = armeg.includes(listedemain[i]);
+            const nameInListedemain = name && name.includes(listedemain[i]);
+            const armedInListedemain = armed && armed.includes(listedemain[i]);
+            const armegInListedemain = armeg && armeg.includes(listedemain[i]);
 
             if (nameInListedemain || armedInListedemain || armegInListedemain) {
               equipe === DROITE ? (armeg = "", degatg = "", desg = "", imgg = "") : (equipe === GAUCHE ? (armed = "", degatd = "", desd = "", imgd = "") : null);
@@ -981,9 +998,9 @@ import { liber } from "./config.js";
             : equipe === GAUCHE
             ? ((armeg = name), (degatg = degat), (desg = des), (imgg = img))
             : equipe === "ddroite"
-            ? ((armed = DEGATD_PROP), (degatd = DEGATD_PROP), (desd = DESD_PROP), (imgd = IMGD_PROP))
+            ? ((armed = ''), (degatd = ''), (desd = ''), (imgd = ''))
             : equipe === "dgauche"
-            ? ((armeg = ARMEG_PROP), (degatg = DEGATG_PROP), (desg = DESG_PROP), (imgg = IMGG_PROP))
+            ? ((armeg = ''), (degatg = ''), (desg = ''), (imgg = ''))
             : null;
         }else {
             if(equipe=== 'armure'){
@@ -1029,7 +1046,7 @@ import { liber } from "./config.js";
         lvl++;
         let itemData= this.actor.items.filter(i=>i.name == "Attaque");   
         var iditem= itemData[0].id;
-        var dgt = itemData[0].data.system.degat;
+        var dgt = itemData[0].data.system.degats;
         itemData[0].DegatLvl();
 
         this.actor.update({'system.hp.max': pv,'system.hp.value': pv,'system.psy.max': ps,'system.psy.value': ps,'system.protection': ar,'system.level': lvl});
@@ -1374,7 +1391,7 @@ import { liber } from "./config.js";
             'cible': value.system.cible,
             'classe': value.system.classe,
             'cout': value.system.cout,
-            'degat': value.system.degat,
+            'degat': value.system.degats,
             'description': value.system.description,
             'duree': value.system.duree
         })).sort((a, b) => a.cout - b.cout);
@@ -1403,10 +1420,10 @@ import { liber } from "./config.js";
             const pack = game.packs.get('liber.arme');
             const tables = await pack.getDocuments();
             $.each( tables, function( key, value ) {
-                listem.push({'name':value.name,'img':value.img,'description':value.system.description,'degat':value.system.degat,'poids':value.system.poids,'portee':value.system.portee,'valeur':value.system.valeur})
+                listem.push({'name':value.name,'img':value.img,'description':value.system.description,'degat':value.system.degats,'poids':value.system.poids,'portee':value.system.portee,'valeur':value.system.valeur})
             });
             let r=Math.floor(Math.random()*listem.length)
-            this.actor.createEmbeddedDocuments('Item', [{ name: listem[r].name, type:'arme','img':listem[r].img, 'system.description' : listem[r].description, 'system.degat' : listem[r].degat,'system.poids' : listem[r].poids,'system.quantite' : 1, 'system.portee' : listem[r].portee, 'system.valeur' : listem[r].valeur}], { renderSheet: false }) 
+            this.actor.createEmbeddedDocuments('Item', [{ name: listem[r].name, type:'arme','img':listem[r].img, 'system.description' : listem[r].description, 'system.degats' : listem[r].degat,'system.poids' : listem[r].poids,'system.quantite' : 1, 'system.portee' : listem[r].portee, 'system.valeur' : listem[r].valeur}], { renderSheet: false }) 
         }else if(type=='armure'){
             const pack = game.packs.get('liber.armure');
             const tables = await pack.getDocuments();

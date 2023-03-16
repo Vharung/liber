@@ -1,4 +1,5 @@
 import { liber } from "./sheets/config.js";
+//import { LiberMacro } from "./sheets/macro.js";
 import { LiberActor } from "./sheets/liberactor.js";
 import { LiberActorSheet } from "./sheets/liberactorsheet.js";
 import { LiberItem } from "./sheets/liberitem.js";
