@@ -24,11 +24,12 @@ Hooks.on('renderChatMessage', (message, html) => {
   });
 });
 
+
 Hooks.on('renderActorSheet', (sheet, html) => {
   // Récupérer la liste d'items dans la fiche du personnage
   const items = html.find('.sheet-body li');
   const stat=html.find('.stat2 label');
-  
+  //const actor = sheet.actor;
   // Ajouter l'événement de drag sur chaque item
   items.each((index, item) => {
     $(item).attr('draggable', true);
@@ -47,11 +48,11 @@ Hooks.on('renderActorSheet', (sheet, html) => {
 
 
   // Ajouter l'événement de drop sur la barre des macros
-  const macroBar = $('.macro');
+  let macroBar = $('.macro');
   macroBar.on('drop', async (event) => {
     event.preventDefault();
     const statId=['physique','force','agilite','social','charisme','sagacite','mental','ast','memoire']
-    const itemId = event.originalEvent.dataTransfer.getData('text/plain');
+    let itemId = event.originalEvent.dataTransfer.getData('text/plain');
     let item='';let command='';
     if (statId.includes(itemId)) {
       item = {
@@ -70,15 +71,15 @@ Hooks.on('renderActorSheet', (sheet, html) => {
 
     }
     if (item) {
-      const macroData = {
+      let macroData = {
         name: item.name,
         type: 'script',
         img: item.img,
         command: command,
         flags: {"liber.itemMacro": true}
       };
-      const macro = await Macro.create(macroData);
-      const macroSlot = $(event.target).closest('.macro').data('slot');
+      let macro = await Macro.create(macroData);
+      let macroSlot = $(event.target).closest('.macro').data('slot');
       //game.user.assignHotbarMacro(macro, macroSlot);
       let mArray = game.user.getHotbarMacros(1);
       let existingMacro = mArray[macroSlot];
@@ -87,18 +88,11 @@ Hooks.on('renderActorSheet', (sheet, html) => {
       } else {
         game.user.assignHotbarMacro(macro, macroSlot);
       }
-      
+      sheet.render(true);
     }
+    console.log(item)
   });
 
-  // Permettre le drop sur la barre des macros
-  macroBar.on('dragover', (event) => {
-    event.preventDefault();
-  });
 
-  // Ajouter l'événement de dragenter sur la barre des macros
-  macroBar.on('dragenter', (event) => {
-    event.preventDefault();
-  });
 });
 

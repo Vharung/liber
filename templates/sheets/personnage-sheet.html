@@ -278,9 +278,9 @@
 				<div id="spells" class="tab spells" data-group="primary" data-tab="spells" style="height: 690px;">
 					<div class="rexrow stat bucketmagie" style="display: flex;">
 						<div class="grid-2col">
-					    	<select class="magieslistes" style="height: 40px;">
+					    	<select class="magieslistes" name="system.magie" style="height: 40px;width: 200px;">
 			                    {{#select actor.system.magie}}
-				                    {{#each actor.system.alert.listemag.liste}}
+				                    {{#each actor.system.listemag.liste}}
 				                    <option value="{{this.name}}" title="{{this.description}} - {{this.cout}}" data-cout="{{this.cout}}" data-classe="{{this.classe}}" data-cible="{{this.cible}}" data-img="{{this.img}}" data-degat="{{this.degat}}" data-description="{{this.description}}" data-duree="{{this.duree}}">{{this.name}}</option>
 				                    {{/each}}
 			                    {{/select}}
@@ -324,8 +324,8 @@
 				    		<input class="maxsort" style="{{actor.system.alert.maxsort}}" type="text" value="{{actor.system.maxsort}}" readonly><br>{{localize 'liber.nb'}}*
 				    	</span>
 				    	<span class="grid-2col">
-	        				<img src="systems/liber/assets/magie/{{actor.system.listemag.img1}}.jpg" style="height: 40px; width: 40px; float: right;"/>
-	        				<img src="systems/liber/assets/magie/{{actor.system.listemag.img2}}.jpg" style="height: 40px; width: 40px; float: right;"/></span><div class="clear"></div></h2>
+	        				<img src="systems/liber/assets/magie/{{actor.system.listemag.img1}}-0.jpg" style="height: 40px; width: 40px; float: right;"/>
+	        				<img src="systems/liber/assets/magie/{{actor.system.listemag.img2}}-0.jpg" style="height: 40px; width: 40px; float: right;"/></span><div class="clear"></div></h2>
 				    	
 				    </div>
 				    <div class="clear"></div>
