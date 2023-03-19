@@ -25,6 +25,7 @@ Hooks.on('renderChatMessage', (message, html) => {
 });
 
 
+/*bug
 Hooks.on('renderActorSheet', (sheet, html) => {
   // Récupérer la liste d'items dans la fiche du personnage
   const items = html.find('.sheet-body li');
@@ -96,3 +97,4 @@ Hooks.on('renderActorSheet', (sheet, html) => {
 
 });
 
+*/

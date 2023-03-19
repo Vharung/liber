@@ -82,6 +82,7 @@ import { liber } from "./config.js";
 
     activateListeners(html){
         super.activateListeners(html);
+        this.addDragAndDropListeners();
 
         html.find('.maindroite, .maingauche, .armor, .desequi').click(this._onArmor.bind(this));
         html.find('.attribut').click(this._onAttr.bind(this));
@@ -330,8 +331,123 @@ import { liber } from "./config.js";
         }else {
           html.find('.classique').css("display", "block");  
         }   
+        
+
+
+
+
+
+        /*// Récupérer la liste d'items dans la fiche du personnage
+        const items = html.find('.sheet-body li');
+        const stat=html.find('.stat2 label');
+        //const actor = sheet.actor;
+        // Ajouter l'événement de drag sur chaque item
+        items.each((index, item) => {
+          $(item).attr('draggable', true);
+          const itemId = $(item).data('item-id'); // Récupérer l'ID de l'item à partir de l'élément
+          $(item).on('dragstart', (event) => {
+            event.originalEvent.dataTransfer.setData('text/plain', $(item).data('item-id'));
+          });
+        });
+
+        // Ajouter l'événement de drag sur chaque item
+        stat.each((index, item) => {
+          $(item).attr('draggable', true);
+          $(item).on('dragstart', (event) => {
+            event.originalEvent.dataTransfer.setData('text/plain', $(stat).data('name'));
+           });
+        });*/
+
+
+
+
+
+        
     }
 
+    addDragAndDropListeners() {
+        const html = this.element;
+        const items = html.find('.sheet-body li');
+        const stat=html.find('.stat2 label');
+
+        // Ajouter l'événement de drag sur chaque item
+        items.each((index, item) => {
+            $(item).attr('draggable', true);
+            const itemId = $(item).data('item-id'); // Récupérer l'ID de l'item à partir de l'élément
+            $(item).on('dragstart', (event) => {
+                event.originalEvent.dataTransfer.setData('text/plain', $(item).data('item-id'));
+            });
+            $(item).on('dragend', (event) => {
+                this.addDragAndDropListeners(); // Réinitialiser les écouteurs de glisser-déposer
+            });
+        });
+
+        // Ajouter l'événement de drag sur chaque item
+        stat.each((index, item) => {
+            $(item).attr('draggable', true);
+            $(item).on('dragstart', (event) => {
+                event.originalEvent.dataTransfer.setData('text/plain', $(stat).data('name'));
+            });
+            $(item).on('dragend', (event) => {
+                this.addDragAndDropListeners(); // Réinitialiser les écouteurs de glisser-déposer
+            });
+        });
+
+        // Ajouter l'événement de drop sur la barre des macros
+        let macroBar = $('.macro');
+        macroBar.on('drop', async (event) => {
+          console.log('macro')
+            event.preventDefault();
+            const itemId = event.originalEvent.dataTransfer.getData('text/plain');
+            const statId=['physique','force','agilite','social','charisme','sagacite','mental','ast','memoire']
+            let item='';let command='';
+            //const item = game.items.get(itemId);
+            if (statId.includes(itemId)) {
+              item = {
+                name:itemId,
+                img:'systems/liber/assets/item/'+itemId+'.jpg',
+              };
+              command='let r = new Roll("1d100");roll=r.evaluate({"async": false});ChatMessage.create({user: game.user._id,speaker: ChatMessage.getSpeaker({token: actor}),content: `<span style="flex:auto"><p class="resultatp"><img src="'+item.img+'"  width="24" height="24"/>&nbsp;Utilise '+item.name+'<p><div class="dice-roll"><div class="dice-result"><div class="dice-formula">`+r.result+`</div><h4 class="dice-total">`+r.total+`</h4></div></div>`});';
+              //recupérer la posture
+              //tester la posture
+              //recuperer les bonus
+              //tester le resultat
+              //affiche le texte
+            }else {
+              item = this.actor.items.get(itemId);//bug a partir d'ici sheet no reconnu
+              //command='let r = new Roll("'+item.system.degats+'");roll=r.evaluate({"async": false});ChatMessage.create({user: game.user._id,speaker: ChatMessage.getSpeaker({token: actor}),content: `<span style="flex:auto"><p class="resultatp"><img src="'+item.img+'"  width="24" height="24"/>&nbsp;Utilise '+item.name+'<p>'+item.system.description+'<div class="dice-roll"><div class="dice-result"><div class="dice-formula">`+r.result+`</div><h4 class="dice-total">`+r.total+`</h4></div></div>`});';
+              command='1d4'
+            }
+            if (item) {
+              let macroData = {
+                name: item.name,
+                type: 'script',
+                img: item.img,
+                command: command,
+                flags: {"liber.itemMacro": true}
+              };
+              let macro = await Macro.create(macroData);
+              let macroSlot = $(event.target).closest('.macro').data('slot');
+              //game.user.assignHotbarMacro(macro, macroSlot);
+              let mArray = game.user.getHotbarMacros(1);
+              let existingMacro = mArray[macroSlot];
+              console.log(existingMacro)
+                game.user.assignHotbarMacro(macro, macroSlot);
+
+              /*if (existingMacro.macro) {
+                existingMacro.update(macro);
+              } else {
+                game.user.assignHotbarMacro(macro, macroSlot);
+              }*/
+            }
+         });
+    }
+
+    async onRender() {
+        await super.onRender();
+        this.addDragAndDropListeners();
+    }
+    
 
     getItemFromEvent = (ev) => {
         const parent = $(ev.currentTarget).parents(".item");
