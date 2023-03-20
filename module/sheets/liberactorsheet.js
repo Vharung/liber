@@ -337,30 +337,6 @@ import { liber } from "./config.js";
 
 
 
-        /*// Récupérer la liste d'items dans la fiche du personnage
-        const items = html.find('.sheet-body li');
-        const stat=html.find('.stat2 label');
-        //const actor = sheet.actor;
-        // Ajouter l'événement de drag sur chaque item
-        items.each((index, item) => {
-          $(item).attr('draggable', true);
-          const itemId = $(item).data('item-id'); // Récupérer l'ID de l'item à partir de l'élément
-          $(item).on('dragstart', (event) => {
-            event.originalEvent.dataTransfer.setData('text/plain', $(item).data('item-id'));
-          });
-        });
-
-        // Ajouter l'événement de drag sur chaque item
-        stat.each((index, item) => {
-          $(item).attr('draggable', true);
-          $(item).on('dragstart', (event) => {
-            event.originalEvent.dataTransfer.setData('text/plain', $(stat).data('name'));
-           });
-        });*/
-
-
-
-
 
         
     }
@@ -394,9 +370,9 @@ import { liber } from "./config.js";
         });
 
         // Ajouter l'événement de drop sur la barre des macros
+        let page=$('#macro-list').data('page');
         let macroBar = $('.macro');
         macroBar.on('drop', async (event) => {
-          console.log('macro')
             event.preventDefault();
             const itemId = event.originalEvent.dataTransfer.getData('text/plain');
             const statId=['physique','force','agilite','social','charisme','sagacite','mental','ast','memoire']
@@ -415,8 +391,7 @@ import { liber } from "./config.js";
               //affiche le texte
             }else {
               item = this.actor.items.get(itemId);//bug a partir d'ici sheet no reconnu
-              //command='let r = new Roll("'+item.system.degats+'");roll=r.evaluate({"async": false});ChatMessage.create({user: game.user._id,speaker: ChatMessage.getSpeaker({token: actor}),content: `<span style="flex:auto"><p class="resultatp"><img src="'+item.img+'"  width="24" height="24"/>&nbsp;Utilise '+item.name+'<p>'+item.system.description+'<div class="dice-roll"><div class="dice-result"><div class="dice-formula">`+r.result+`</div><h4 class="dice-total">`+r.total+`</h4></div></div>`});';
-              command='1d4'
+              command='let r = new Roll("'+item.system.degats+'");roll=r.evaluate({"async": false});ChatMessage.create({user: game.user._id,speaker: ChatMessage.getSpeaker({token: actor}),content: `<span style="flex:auto"><p class="resultatp"><img src="'+item.img+'"  width="24" height="24"/>&nbsp;Utilise '+item.name+'<p>'+item.system.description+'<div class="dice-roll"><div class="dice-result"><div class="dice-formula">`+r.result+`</div><h4 class="dice-total">`+r.total+`</h4></div></div>`});';
             }
             if (item) {
               let macroData = {
@@ -428,26 +403,23 @@ import { liber } from "./config.js";
               };
               let macro = await Macro.create(macroData);
               let macroSlot = $(event.target).closest('.macro').data('slot');
-              //game.user.assignHotbarMacro(macro, macroSlot);
-              let mArray = game.user.getHotbarMacros(1);
-              let existingMacro = mArray[macroSlot];
-              console.log(existingMacro)
-                game.user.assignHotbarMacro(macro, macroSlot);
-
-              /*if (existingMacro.macro) {
-                existingMacro.update(macro);
+              let mArray = game.user.getHotbarMacros(page);
+              let slot=macroSlot;
+              for (var i = mArray.length - 1; i >= 0; i--) {
+                  if(mArray[i].slot==macroSlot){
+                    slot=i;
+                  }
+              }
+              let existingMacro = mArray[slot];
+              if (existingMacro.macro) {
+                existingMacro.macro.update(macroData);
               } else {
                 game.user.assignHotbarMacro(macro, macroSlot);
-              }*/
+              }
             }
          });
     }
 
-    async onRender() {
-        await super.onRender();
-        this.addDragAndDropListeners();
-    }
-    
 
     getItemFromEvent = (ev) => {
         const parent = $(ev.currentTarget).parents(".item");
