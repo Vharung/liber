@@ -346,6 +346,8 @@ import { liber } from "./config.js";
         const items = html.find('.sheet-body li');
         const stat=html.find('.stat2 label');
 
+
+
         // Ajouter l'événement de drag sur chaque item
         items.each((index, item) => {
             $(item).attr('draggable', true);
@@ -369,6 +371,7 @@ import { liber } from "./config.js";
             });
         });
         console.log("addDragAndDropListeners")
+
         // Ajouter l'événement de drop sur la barre des macros
         let page=$('#macro-list').data('page');
         let macroBar = $('.macro');
@@ -414,11 +417,6 @@ import { liber } from "./config.js";
               }
             }
          });
-        // Ajouter l'événement dragend
-        $('.macro').on('dragend', (event) => {
-          // Réinitialiser les écouteurs de glisser-déposer
-          this.addDragAndDropListeners();
-        });
     }
 
 
