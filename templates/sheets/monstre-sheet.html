@@ -51,10 +51,10 @@
 
 			<div class="rexrow stat2">
 				{{#each actor.system.ability as |value ability|}}
-				<div class="grid-9col">
-				  <p><label class="{{ability}} jetdedes" data-type="jetdedes" data-name="{{ability}}" data-dice="1d" data-attDice="{{value}}">{{localize ability}}</label></p>
-				  <input class="phys" name="system.ability.{{ability}}" type="text" value="{{value}}" placeholder="{{value}}"/>
-				</div>
+				  <div class="grid-9col">
+				    <p><label class="{{ability}} jetdedes" data-type="jetdedes" data-name="{{ability}}" data-item-id="{{@index}}" data-dice="1d" data-attDice="{{value}}">{{localize ability}}</label></p>
+				    <input class="{{ability}}Value" name="system.ability.{{ability}}" type="text" value="{{value}}" placeholder="{{value}}"/>
+				  </div>
 				{{/each}}
 				
 			</div>

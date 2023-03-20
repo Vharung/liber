@@ -351,10 +351,10 @@ import { liber } from "./config.js";
             $(item).attr('draggable', true);
             const itemId = $(item).data('item-id'); // Récupérer l'ID de l'item à partir de l'élément
             $(item).on('dragstart', (event) => {
-                event.originalEvent.dataTransfer.setData('text/plain', $(item).data('item-id'));
+                event.originalEvent.dataTransfer.setData('text/plain', $(event.currentTarget).data('item-id'));
             });
             $(item).on('dragend', (event) => {
-                this.addDragAndDropListeners(); // Réinitialiser les écouteurs de glisser-déposer
+                this.addDragAndDropListeners();// Réinitialiser les écouteurs de glisser-déposer
             });
         });
 
@@ -362,33 +362,29 @@ import { liber } from "./config.js";
         stat.each((index, item) => {
             $(item).attr('draggable', true);
             $(item).on('dragstart', (event) => {
-                event.originalEvent.dataTransfer.setData('text/plain', $(stat).data('name'));
+                event.originalEvent.dataTransfer.setData('text/plain', $(event.currentTarget).data('name'));
             });
             $(item).on('dragend', (event) => {
                 this.addDragAndDropListeners(); // Réinitialiser les écouteurs de glisser-déposer
             });
         });
-
+        console.log("addDragAndDropListeners")
         // Ajouter l'événement de drop sur la barre des macros
         let page=$('#macro-list').data('page');
         let macroBar = $('.macro');
-        macroBar.on('drop', async (event) => {
+        macroBar.on('drop', async (event) => {//bug 1/2 marche
             event.preventDefault();
             const itemId = event.originalEvent.dataTransfer.getData('text/plain');
             const statId=['physique','force','agilite','social','charisme','sagacite','mental','ast','memoire']
             let item='';let command='';
-            //const item = game.items.get(itemId);
+            console.log(itemId)
             if (statId.includes(itemId)) {
               item = {
                 name:itemId,
                 img:'systems/liber/assets/item/'+itemId+'.jpg',
               };
               command='let r = new Roll("1d100");roll=r.evaluate({"async": false});ChatMessage.create({user: game.user._id,speaker: ChatMessage.getSpeaker({token: actor}),content: `<span style="flex:auto"><p class="resultatp"><img src="'+item.img+'"  width="24" height="24"/>&nbsp;Utilise '+item.name+'<p><div class="dice-roll"><div class="dice-result"><div class="dice-formula">`+r.result+`</div><h4 class="dice-total">`+r.total+`</h4></div></div>`});';
-              //recupérer la posture
-              //tester la posture
-              //recuperer les bonus
-              //tester le resultat
-              //affiche le texte
+              //recupérer la posture, tester la posture, recuperer les bonus, tester le resultat, affiche le texte
             }else {
               item = this.actor.items.get(itemId);//bug a partir d'ici sheet no reconnu
               command='let r = new Roll("'+item.system.degats+'");roll=r.evaluate({"async": false});ChatMessage.create({user: game.user._id,speaker: ChatMessage.getSpeaker({token: actor}),content: `<span style="flex:auto"><p class="resultatp"><img src="'+item.img+'"  width="24" height="24"/>&nbsp;Utilise '+item.name+'<p>'+item.system.description+'<div class="dice-roll"><div class="dice-result"><div class="dice-formula">`+r.result+`</div><h4 class="dice-total">`+r.total+`</h4></div></div>`});';
@@ -418,7 +414,13 @@ import { liber } from "./config.js";
               }
             }
          });
+        // Ajouter l'événement dragend
+        $('.macro').on('dragend', (event) => {
+          // Réinitialiser les écouteurs de glisser-déposer
+          this.addDragAndDropListeners();
+        });
     }
+
 
 
     getItemFromEvent = (ev) => {
