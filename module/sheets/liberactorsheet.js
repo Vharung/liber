@@ -9,6 +9,7 @@ import { liber } from "./config.js";
           classes: ["Liber", "sheet", "actor"],
           width: 1224,
           height: 800,
+          dragDrop: [{dragSelector: ".draggable", dropSelector: null}],
           tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
         });
     }
@@ -82,7 +83,6 @@ import { liber } from "./config.js";
 
     activateListeners(html){
         super.activateListeners(html);
-        this.addDragAndDropListeners();
 
         html.find('.maindroite, .maingauche, .armor, .desequi').click(this._onArmor.bind(this));
         html.find('.attribut').click(this._onAttr.bind(this));
@@ -370,53 +370,6 @@ import { liber } from "./config.js";
                 this.addDragAndDropListeners(); // Réinitialiser les écouteurs de glisser-déposer
             });
         });
-        console.log("addDragAndDropListeners")
-
-        // Ajouter l'événement de drop sur la barre des macros
-        let page=$('#macro-list').data('page');
-        let macroBar = $('.macro');
-        macroBar.on('drop', async (event) => {//bug 1/2 marche
-            event.preventDefault();
-            const itemId = event.originalEvent.dataTransfer.getData('text/plain');
-            const statId=['physique','force','agilite','social','charisme','sagacite','mental','ast','memoire']
-            let item='';let command='';
-            console.log(itemId)
-            if (statId.includes(itemId)) {
-              item = {
-                name:itemId,
-                img:'systems/liber/assets/item/'+itemId+'.jpg',
-              };
-              command='let r = new Roll("1d100");roll=r.evaluate({"async": false});ChatMessage.create({user: game.user._id,speaker: ChatMessage.getSpeaker({token: actor}),content: `<span style="flex:auto"><p class="resultatp"><img src="'+item.img+'"  width="24" height="24"/>&nbsp;Utilise '+item.name+'<p><div class="dice-roll"><div class="dice-result"><div class="dice-formula">`+r.result+`</div><h4 class="dice-total">`+r.total+`</h4></div></div>`});';
-              //recupérer la posture, tester la posture, recuperer les bonus, tester le resultat, affiche le texte
-            }else {
-              item = this.actor.items.get(itemId);//bug a partir d'ici sheet no reconnu
-              command='let r = new Roll("'+item.system.degats+'");roll=r.evaluate({"async": false});ChatMessage.create({user: game.user._id,speaker: ChatMessage.getSpeaker({token: actor}),content: `<span style="flex:auto"><p class="resultatp"><img src="'+item.img+'"  width="24" height="24"/>&nbsp;Utilise '+item.name+'<p>'+item.system.description+'<div class="dice-roll"><div class="dice-result"><div class="dice-formula">`+r.result+`</div><h4 class="dice-total">`+r.total+`</h4></div></div>`});';
-            }
-            if (item) {
-              let macroData = {
-                name: item.name,
-                type: 'script',
-                img: item.img,
-                command: command,
-                flags: {"liber.itemMacro": true}
-              };
-              let macro = await Macro.create(macroData);
-              let macroSlot = $(event.target).closest('.macro').data('slot');
-              let mArray = game.user.getHotbarMacros(page);
-              let slot=macroSlot;
-              for (var i = mArray.length - 1; i >= 0; i--) {
-                  if(mArray[i].slot==macroSlot){
-                    slot=i;
-                  }
-              }
-              let existingMacro = mArray[slot];
-              if (existingMacro.macro) {
-                existingMacro.macro.update(macroData);
-              } else {
-                game.user.assignHotbarMacro(macro, macroSlot);
-              }
-            }
-         });
     }
 
 

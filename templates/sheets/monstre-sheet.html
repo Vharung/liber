@@ -170,7 +170,7 @@
 				    
 				    	<ul class="items-list">
 				    	{{#each actor.arme as |item id|}}		    		
-					    		<li class="item fexrow armes active" data-item-id="{{item._id}}">
+					    		<li class="item fexrow armes active draggable" data-item-id="{{item._id}}">
 					    			<div class="item-name" title="{{item.name}}">{{item.name}}</div>
 				                    <div class="item-image"><div class="item-qty">{{item.system.quantite}}</div><img src="{{item.img}}" title="{{item.system.description}}"/></div>
 				                    <div class="item-description item-info" data-item-id="{{item._id}}" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.valeur}}" data-type="{{item.type}}" data-img="{{item.img}}"><span title="{{item.system.description}}">{{item.system.description}}</span></div>
@@ -188,7 +188,7 @@
 				                </li>
 			            {{/each}}
 			            {{#each actor.armure as |item id|}}
-			            		<li class="item fexrow armures active" data-item-id="{{item._id}}">
+			            		<li class="item fexrow armures active draggable" data-item-id="{{item._id}}">
 					    			<div class="item-name" title="{{item.name}}">{{item.name}}</div>
 				                    <div class="item-image"><div class="item-qty">{{item.system.quantite}}</div><img src="{{item.img}}" title="{{item.system.description}}"/></div>
 				                    <div class="item-description item-info" data-item-id="{{item._id}}" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.valeur}}" data-type="{{item.type}}" data-img="{{item.img}}"><span title="{{item.system.description}}">{{item.system.description}}</span></div>
@@ -207,7 +207,7 @@
 				                </li>
 			            {{/each}}
 			            {{#each actor.inventaire as |item id|}}
-			            		<li class="item fexrow objets active" data-item-id="{{item._id}}">
+			            		<li class="item fexrow objets active draggable" data-item-id="{{item._id}}">
 					    			<div class="item-name" title="{{item.name}}">{{item.name}}</div>
 				                    <div class="item-image"><div class="item-qty">{{item.system.quantite}}</div><img src="{{item.img}}" title="{{item.system.description}}"/></div>
 				                    <div class="item-description item-info" data-item-id="{{item._id}}" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.valeur}}" data-type="{{item.type}}" data-img="{{item.img}}"><span title="{{item.system.description}}">{{item.system.description}}</span></div>
@@ -229,7 +229,7 @@
 				<div id="spells" class="tab spells" data-group="primary" data-tab="spells" style="height: 696px;">
 					<ul class="items-list">
 						{{#each actor.sort as |item id|}}
-					    		<li class="item fexrow" data-item-id="{{item._id}}">
+					    		<li class="item fexrow draggable" data-item-id="{{item._id}}">
 					    			<div class="item-name" title="{{item.name}}" style="height: 30px;">{{item.name}}</div>
 				                    <div class="item-image"><div class="item-cout">{{item.system.cout}}</div><img src="{{item.img}}" title="{{item.system.description}}"/></div>
 				                    <div class="item-description item-info" data-item-id="{{item._id}}" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.valeur}}" data-type="{{item.type}}" data-img="{{item.img}}"><span title="{{item.system.description}}">{{item.system.description}}</span></div>
