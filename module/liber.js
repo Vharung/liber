@@ -35,5 +35,6 @@ Hooks.on("hotbarDrop", (bar, data, slot) => {
     if (["Item"].includes(data.type)) {
         Macros.createLiberMacro(data, slot);
         return false;
-    }
+    }//op
+
 });

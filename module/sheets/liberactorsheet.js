@@ -341,7 +341,7 @@ import { liber } from "./config.js";
         
     }
 
-    addDragAndDropListeners() {
+    /*addDragAndDropListeners() {
         const html = this.element;
         const items = html.find('.sheet-body li');
         const stat=html.find('.stat2 label');
@@ -370,7 +370,7 @@ import { liber } from "./config.js";
                 this.addDragAndDropListeners(); // Réinitialiser les écouteurs de glisser-déposer
             });
         });
-    }
+    }*/
 
 
 
