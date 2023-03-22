@@ -9,7 +9,7 @@ import { liber } from "./config.js";
           classes: ["Liber", "sheet", "actor"],
           width: 1224,
           height: 800,
-          dragDrop: [{dragSelector: ".draggable", dropSelector: null}],
+          dragDrop: [{dragSelector: ".draggable", dropSelector: null},{dragSelector: ".ability", dropSelector: null}],
           tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
         });
     }
@@ -83,6 +83,7 @@ import { liber } from "./config.js";
 
     activateListeners(html){
         super.activateListeners(html);
+        //this.addDragAndDropListeners();
 
         html.find('.maindroite, .maingauche, .armor, .desequi').click(this._onArmor.bind(this));
         html.find('.attribut').click(this._onAttr.bind(this));
@@ -341,13 +342,11 @@ import { liber } from "./config.js";
         
     }
 
-    /*addDragAndDropListeners() {
+    /*
+    addDragAndDropListeners() {
         const html = this.element;
         const items = html.find('.sheet-body li');
         const stat=html.find('.stat2 label');
-
-
-
         // Ajouter l'événement de drag sur chaque item
         items.each((index, item) => {
             $(item).attr('draggable', true);
@@ -359,7 +358,6 @@ import { liber } from "./config.js";
                 this.addDragAndDropListeners();// Réinitialiser les écouteurs de glisser-déposer
             });
         });
-
         // Ajouter l'événement de drag sur chaque item
         stat.each((index, item) => {
             $(item).attr('draggable', true);
@@ -370,6 +368,7 @@ import { liber } from "./config.js";
                 this.addDragAndDropListeners(); // Réinitialiser les écouteurs de glisser-déposer
             });
         });
+        console.log("addDragAndDropListeners")
     }*/
 
 
@@ -1488,4 +1487,33 @@ import { liber } from "./config.js";
         this.actor.update({"system.secondary":tab});
     }
 
+      /** @override */
+  _onDragStart(event) {
+    const li = event.currentTarget;
+    if ( event.target.classList.contains("content-link") ) return;
+
+    // Create drag data
+    let dragData;
+
+    if ( li.dataset.type == "jetdedes") {
+      dragData = { "type": "ability", "name": li.dataset.name, "item": li.dataset.itemId, "dice": li.dataset.dice, "attDice": li.dataset.attdice }
+    }
+
+    // Owned Items
+    else if ( li.dataset.itemId ) {
+      const item = this.actor.items.get(li.dataset.itemId);
+      dragData = item.toDragData();
+    }
+
+    // Active Effect
+    if ( li.dataset.effectId ) {
+      const effect = this.actor.effects.get(li.dataset.effectId);
+      dragData = effect.toDragData();
+    }
+
+    if ( !dragData ) return;
+
+    // Set data transfer
+    event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
+  }
 }

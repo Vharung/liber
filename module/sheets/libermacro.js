@@ -1,27 +1,27 @@
 export class Macros {
 
     static createLiberMacro = async function(dropData, slot) {
-              console.log(dropData.type)
               // Créer une macro pour les items
               if (dropData.type == "Item") {
                 const item = await fromUuid(dropData.uuid);
                 const actor = item.actor;
-
+    
                 let command = null;
                 let macroName = null;
-
+        
                 if (["arme","armure","objet","magie"].includes(item.type)) {
-                  let rolldice='';
-                    if(item.system.degats){
-                      command = 'let r = new Roll("'+item.system.degats+'");roll=r.evaluate({"async": false});ChatMessage.create({user: game.user._id,speaker: ChatMessage.getSpeaker({token: actor}),content: `<span style="flex:auto"><p class="resultatp"><img src="'+item.img+'"  width="24" height="24"/>&nbsp;Utilise '+item.name+'<p>'+item.system.description+'<div class="dice-roll"><div class="dice-result"><div class="dice-formula">`+r.result+`</div><h4 class="dice-total">`+r.total+`</h4></div></div>`});';
-
-                    }else{
-                      command = 'ChatMessage.create({user: game.user._id,speaker: ChatMessage.getSpeaker({token: actor}),content: `<span style="flex:auto"><p class="resultatp"><img src="'+item.img+'"  width="24" height="24"/>&nbsp;Utilise '+item.name+'<p>'+item.system.description+'`});';
-
-                    }
+                    command = 'let r = new Roll("'+item.system.degats+'");roll=r.evaluate({"async": false});ChatMessage.create({user: game.user._id,speaker: ChatMessage.getSpeaker({token: actor}),content: `<span style="flex:auto"><p class="resultatp"><img src="'+item.img+'"  width="24" height="24"/>&nbsp;Utilise '+item.name+'<p>'+item.system.description+'<div class="dice-roll"><div class="dice-result"><div class="dice-formula">`+r.result+`</div><h4 class="dice-total">`+r.total+`</h4></div></div>`});';
                     macroName = item.name + " (" + game.actors.get(actor.id).name + ")";                
                 }
                 if (command !== null) { this.createMacro(slot, macroName, command, item.img); } 
+            }
+
+            // "type": "ability", "name": li.dataset.name, "item": li.dataset.itemId, "dice": li.dataset.dice, "attDice": li.dataset.attdice
+            if (dropData.type == "ability") {
+                let macroName = dropData.name;
+                let img = 'systems/liber/assets/item/' + dropData.name + '.jpg';
+                let command = 'let r = new Roll("1d100");roll=r.evaluate({"async": false});ChatMessage.create({user: game.user._id,speaker: ChatMessage.getSpeaker({token: actor}),content: `<span style="flex:auto"><p class="resultatp"><img src="' + img + '"  width="24" height="24"/>&nbsp;Utilise ' + macroName + '<p><div class="dice-roll"><div class="dice-result"><div class="dice-formula">`+r.result+`</div><h4 class="dice-total">`+r.total+`</h4></div></div>`});';                
+                this.createMacro(slot, macroName, command, img);
             }
     }
 

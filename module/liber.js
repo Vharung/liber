@@ -10,14 +10,14 @@ import { Macros } from "./sheets/libermacro.js";
 Hooks.once("init", async function() {
     console.log(liber.ASCII)
     CONFIG.liber = liber;
-	CONFIG.Actor.documentClass = LiberActor;
+    CONFIG.Actor.documentClass = LiberActor;
     CONFIG.Item.documentClass = LiberItem;
     
 
     CONFIG.Combat.initiative = {
-	    formula: "1d6",
-	    decimals: 2
-	};
+        formula: "1d6",
+        decimals: 2
+    };
 
 
     Items.unregisterSheet("core", ItemSheet);
@@ -32,9 +32,8 @@ Hooks.once("init", async function() {
  * Crée une macro au drop d'un objet sur la hotbar 
  */
 Hooks.on("hotbarDrop", (bar, data, slot) => {
-    if (["Item"].includes(data.type)) {
+    if (["Item", "ability"].includes(data.type)) {
         Macros.createLiberMacro(data, slot);
         return false;
-    }//op
-
+    }
 });

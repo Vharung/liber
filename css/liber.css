@@ -188,6 +188,7 @@ button:hover,.Liber .stat2 label:hover,.Liber .reposer:hover,.Liber input[type="
 .Liber .item-controls a,.Liber a.item-control , .Liber .window-header a{background: none}
 .generer2{padding: 10px;margin-top: 10px;display: block;}
 
+#sidebar a.item{filter: invert(60%);}
 #sidebar a.item i{display: none}
 #sidebar a.item[data-tab="chat"]{background:url(" ../assets/icon/roi.png") no-repeat center center;background-size: 80%;}
 #sidebar a.item[data-tab="combat"]{background:url(" ../assets/icon/bouclier.png") no-repeat center center;background-size: 80%;}
