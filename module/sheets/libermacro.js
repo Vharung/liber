@@ -16,7 +16,6 @@ export class Macros {
                 if (command !== null) { this.createMacro(slot, macroName, command, item.img); } 
             }
 
-            // "type": "ability", "name": li.dataset.name, "item": li.dataset.itemId, "dice": li.dataset.dice, "attDice": li.dataset.attdice
             if (dropData.type == "ability") {
                 let macroName = dropData.name;
                 let img = 'systems/liber/assets/item/' + dropData.name + '.jpg';

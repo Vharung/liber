@@ -22,6 +22,15 @@ Hooks.on('renderChatMessage', (message, html) => {
 
     ChatMessage.create(chatData, {});
   });
+
+  html.find('.addfats').click(event => {
+    const button = event.currentTarget;
+    const actorId = button.dataset.actorid;
+    const actor = game.actors.get(actorId);
+    let fatigue=actor.system.fatigue;
+    fatigue++;
+    actor.update({'system.fatigue': fatigue});
+  });
 });
 
 

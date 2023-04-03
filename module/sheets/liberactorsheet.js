@@ -397,7 +397,6 @@ import { liber } from "./config.js";
         let type=event.target.dataset["type"];
         var texte='';
         var roll=null;
-
         //var compétence
         let bonus =this.actor.system.bonus;
         let malus =this.actor.system.malus;
@@ -463,9 +462,9 @@ import { liber } from "./config.js";
                     var nam = this.actor.system.armeuse.armed;
                 }else{
                     if(degats==2){
-                        var monJetDeDes='('+this.actor.system.armeuse.degatg+')*'+degats;
+                        monJetDeDes='('+this.actor.system.armeuse.degatg+')*'+degats;
                     }else{
-                        var monJetDeDes=this.actor.system.armeuse.degatg;
+                        monJetDeDes=this.actor.system.armeuse.degatg;
                     }
                     var nam = this.actor.system.armeuse.armeg;
                 }
@@ -473,6 +472,12 @@ import { liber } from "./config.js";
             texte = '<span style="flex:auto"><p class="resultatp">Jet de ' + name + " : " + inforesult +'/100</p>'+succes
             if(name=="physique"){
                 let {armed,degatd,desd,imgd,armeg,degatg,desg,imgg} = this.actor.system.armeuse;
+                for (let i = listedemain.length - 1; i >= 0; i--) {
+                    if(armed.includes(listedemain[i]) || armeg.includes(listedemain[i])){
+                        button+='<button class="addfats" style="cursor:pointer;margin-bottom: 5px;" data-actorid="'+ this.actor._id+'">Ajouter un point de fatigue</button>';
+                    }
+                }
+                
                 if(armed){
                     button+='<button class="roll-damage" style="cursor:pointer;margin-bottom: 5px;" data-name="'+armed+'" data-actorid="'+
                 this.actor._id+'" data-dice="'+degatd+'" data-img="'+imgd
@@ -483,6 +488,7 @@ import { liber } from "./config.js";
                 this.actor._id+'" data-dice="'+degatg+'" data-img="'+imgg
                 +'" data-desc="'+desg+'" data-type="jetdedegat">Utiliser '+armeg+'</button>';
                 }
+               
                 
 
             }
@@ -504,8 +510,14 @@ import { liber } from "./config.js";
                 roll=r.evaluate({"async": false});  
             }
             if(type=="auto"){
+                let {armed,degatd,desd,imgd,armeg,degatg,desg,imgg} = this.actor.system.armeuse;
+                for (let i = listedemain.length - 1; i >= 0; i--) {
+                    if(armed.includes(listedemain[i]) || armeg.includes(listedemain[i])){
+                        fatigue++;
+                        this.actor.update({'system.fatigue': fatigue});
+                    }
+                }
                 game.user.targets.forEach(i => {
-                    console.log(i)
                     nom=i.document.name;
                     hp = i.document._actor.system.hp.value;
                     var armor=i.document.actor.system.protection
