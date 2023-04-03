@@ -77,10 +77,12 @@ liber.talentTypes={
 }
 
 liber.faiblesseTypes={
+	f18:"liber.title114",
 	f0:"liber.title96",
 	f1:"liber.title97",
 	f2:"liber.title98",
 	f3:"liber.title99",
+	f19:"liber.title115",
 	f4:"liber.title00",
 	f5:"liber.title01",
 	f6:"liber.title02",
@@ -94,9 +96,7 @@ liber.faiblesseTypes={
 	f14:"liber.title110",
 	f15:"liber.title111",
 	f16:"liber.title112",
-	f17:"liber.title113",
-	f18:"liber.title114",	
-	f19:"liber.title115"	
+	f17:"liber.title113"	
 }
 
 liber.metierTypes={
