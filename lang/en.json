@@ -24,6 +24,8 @@
   "ast": "Tri",
   "memoire": "Mém",
   "liber.repos":"Rest",
+  "liber.fatigue": "Tired",
+  "liber.stat": "Statistique",
   "liber.restant":"Pt. remaining",
   "liber.mj":"GM bonus",
   "liber.compt":"Skill",

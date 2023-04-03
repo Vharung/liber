@@ -19,6 +19,7 @@
               "protectionmagique": "0",
               "avantage": "0",
               "desavantage": "0",
+              "fatigue":"0",
               "encombrement": {
                 "value": "0",
                 "max": 0

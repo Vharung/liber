@@ -11,10 +11,11 @@
 .Liber .head input[type="text"]{background:none; border:none;}
 
 .Liber .reposer{border: none;height: 30px;width: 120px;padding:5px;float: right;margin: 4px;border:none;color:#fff;padding: 5px;font-weight: bold;cursor: pointer;font-family: 'MedievalSharp', cursive;}
-.Liber input.insoin,.Liber input.avant,.Liber input.desan{border:none;color: #fff;text-align: right;opacity: 0.5;width: 40px;border:none;}
+.Liber input.insoin,.Liber input.avant,.Liber input.desan,.Liber input.fatig{border:none;color: #fff;text-align: right;opacity: 0.5;width: 40px;border:none;}
 .Liber input.insoin{background:url("../assets/icon/pvi.png")left center no-repeat;background-size: contain;}
 .Liber input.avant{background:url("../assets/icon/avantage.png")left center no-repeat;background-size: contain;}
 .Liber input.desan{background:url("../assets/icon/avantage-2.png")left center no-repeat;background-size: contain;}
+.Liber input.fatig{background:url("../assets/icon/fatigue.png")left center no-repeat;background-size: contain;}
 .Liber .ligne{width: 100%; margin-bottom: 5px}
 .Liber .ligne a{width: 23px;height: 23px;border:none;opacity: 0.5;display: inline-block;}
 .Liber .etat0 {background: url(" ../assets/icon/sleep.png");background-size: cover;;}
@@ -40,7 +41,9 @@
 
 .Liber .items .items-list li,.Liber .spells .items-list li {margin: 0;width:82px;display: none;float:left;margin:0 5px 0px 0}
 .Liber .spells .items-list li {display: inline-block;}
-.Liber .items-list .item-name,.Liber .items-list .item-controls {margin: 0;width: 82px;background: #221808;padding: 3px;text-align: center;font-size: 0.8em;height: 20px;overflow: hidden;}
+.Liber .items-list .item-name,.Liber .items-list .item-controls {margin: 0;width: 82px;background: #221808;padding: 3px;text-align: center;font-size: 0.8em;overflow: hidden;}
+.Liber .items-list .item-name{height: 30px;}
+.Liber .items-list .item-controls {height: 20px;}
 .Liber .items-list .item-image img{height: 82px;width: 82px;display: block;}
 .Liber .items-list .item-description{opacity:0;width: 82px;height: 82px;padding: 5px;display: block;position: relative;margin-top: -82px;z-index: 80;font-family: 'Signika';font-size: 0.8em;overflow: hidden;}
 .Liber .items-list .item-description:hover,.Liber .items-list li:hover .item-controls{opacity:0.95;transition: 0.5s}

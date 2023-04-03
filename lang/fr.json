@@ -24,6 +24,8 @@
   "ast": "Ast",
   "memoire": "Mém",
   "liber.repos": "Repos",
+  "liber.fatigue": "Fatigue",
+  "liber.stat": "Statistique",
   "liber.restant": "Points restants",
   "liber.mj": "Bonus MJ",
   "liber.compt": "Compétence",
@@ -465,6 +467,7 @@
   "liber.title112": "Traitre",
   "liber.title113": "Sucidaire",
   "liber.title114": "Alcolyque",
+  "liber.title115": "Egocentrique",
   
   "liber.caract1": "Maison",
   "liber.caract2": "Hotel",

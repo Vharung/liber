@@ -95,7 +95,8 @@ liber.faiblesseTypes={
 	f15:"liber.title111",
 	f16:"liber.title112",
 	f17:"liber.title113",
-	f18:"liber.title114"	
+	f18:"liber.title114",	
+	f19:"liber.title115"	
 }
 
 liber.metierTypes={

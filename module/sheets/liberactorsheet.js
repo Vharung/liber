@@ -195,6 +195,7 @@ import { liber } from "./config.js";
         var avant=html.find('.avant').val();
         var desan=html.find('.desan').val();
         var insoin=html.find('.insoin').val();
+        var fatigue=html.find('.fatig').val();
         if(avant>0){
             html.find('.avant').css("opacity", "1");
         }else {
@@ -209,6 +210,11 @@ import { liber } from "./config.js";
             html.find('.insoin').css("opacity", "1");
         }else {
             html.find('.insoin').css("opacity", "0.5");
+        }
+        if(fatigue>0){
+            html.find('.fatig').css("opacity", "1");
+        }else {
+            html.find('.fatig').css("opacity", "0.5");
         }
 
         //Posture
@@ -397,10 +403,13 @@ import { liber } from "./config.js";
         let malus =this.actor.system.malus;
         let posture =this.actor.system.posture;
         let maxstat = event.target.dataset["attdice"];
+        let fatigue = this.actor.system.fatigue;
         var bonuspost=0;
         var critique=5;
         var succes="";
         var degats=0;
+        let addfat=0;
+        const listedemain =['Rapière','Bâton','Espadon','Hallebarde','Fléaux d\'arme','Epée à deux main','Masse d\'arme','Hache de bataille','Faux de Guerre','Lance Lourde']
 
         //var degat
         var img=event.target.dataset["img"];
@@ -419,12 +428,16 @@ import { liber } from "./config.js";
             else if(posture=="Offensif"){critique=10;}
             if(bonus==""){bonus=0;}
             if(malus==""){malus=0;}
-            let inforesult=parseInt(maxstat)+parseInt(bonus)+bonuspost+parseInt(malus);
+            if(name=='physique' || name=='force' || name=='agilite'){
+                addfat=5*parseInt(fatigue)
+            }
+            let inforesult=parseInt(maxstat)+parseInt(bonus)+bonuspost+parseInt(malus)-parseInt(addfat);
             if(inforesult>95){inforesult=95;}
             else if(inforesult<5){inforesult=5;}
             let r = new Roll("1d100");
             roll=r.evaluate({"async": false});
             let retour=r.result; 
+
             if(retour>95){//lang
                 succes="<h4 class='result' style='background:#ff3333;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Echec critique</h4>";
                 degats=0;
@@ -438,21 +451,23 @@ import { liber } from "./config.js";
                 succes="<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Echec</h4>";
                 degats=0;
             }
+
             if(degats>0 && type=="auto"){
+
                 if(qarme=="attaques"){
                     if(degats==2){
-                        monJetDeDes='('+this.actor.system.degatd+')*'+degats;
+                        monJetDeDes='('+this.actor.system.armeuse.degatd+')*'+degats;
                     }else{
-                        monJetDeDes=this.actor.system.degatd;
+                        monJetDeDes=this.actor.system.armeuse.degatd;
                     }
-                    var nam = this.actor.system.armed;
+                    var nam = this.actor.system.armeuse.armed;
                 }else{
                     if(degats==2){
-                        var monJetDeDes='('+this.actor.system.degatg+')*'+degats;
+                        var monJetDeDes='('+this.actor.system.armeuse.degatg+')*'+degats;
                     }else{
-                        var monJetDeDes=this.actor.system.degatg;
+                        var monJetDeDes=this.actor.system.armeuse.degatg;
                     }
-                    var nam = this.actor.system.armeg;
+                    var nam = this.actor.system.armeuse.armeg;
                 }
             }
             texte = '<span style="flex:auto"><p class="resultatp">Jet de ' + name + " : " + inforesult +'/100</p>'+succes
@@ -659,8 +674,8 @@ import { liber } from "./config.js";
     }
 
     _onSleep(event){
-        let { talent, heure, jour, repos, level, psy: { value: psy, max: psymax }, hp: { value: hp, max: hpmax }, insoin } = this.actor.system;
-        let d = 0, hpadd = 0, psyadd = 0, j = 0;
+        let { talent, heure, jour, repos, level, psy: { value: psy, max: psymax }, hp: { value: hp, max: hpmax }, insoin, fatigue } = this.actor.system;
+        let d = 0, hpadd = 0, psyadd = 0, j = 0, fatadd = 0;
 
         if (jour === game.i18n.localize("liber.jour")) {
           heure = parseInt(heure) * 24;
@@ -678,9 +693,11 @@ import { liber } from "./config.js";
             d = Math.round(Math.random() * 6);
             hpadd = ((d + parseInt(level)) * parseInt(heure)) * j / 8;
             psyadd = Math.floor(parseInt(level) * parseInt(heure));
+            fatadd = Math.floor(1 * parseInt(heure));
             if (talent === "Bon dormeur") {
               hpadd = parseInt(hpadd) + 6;
               psyadd = parseInt(psyadd) + 3;
+              fatadd = parseInt(fatadd) + 1;
             }
             break;
 
@@ -689,9 +706,11 @@ import { liber } from "./config.js";
             insoin = 0;
             hpadd = (d + parseInt(level)) * parseInt(heure);
             psyadd = Math.floor(parseInt(level) * parseInt(heure));
+            fatadd = Math.floor(2 * parseInt(heure));
             if (talent === "Bon dormeur") {
               hpadd = parseInt(hpadd) + 6;
               psyadd = parseInt(psyadd) + 3;
+              fatadd = parseInt(fatadd) + 1;
             }
             break;
 
@@ -700,9 +719,11 @@ import { liber } from "./config.js";
             insoin = 0;
             hpadd = ((2 * d) + parseInt(level)) * parseInt(heure);
             psyadd = Math.floor(parseInt(level) * parseInt(heure));
+            fatadd = Math.floor(3 * parseInt(heure));
             if (talent === "Bon dormeur") {
               hpadd = parseInt(hpadd) + 6;
               psyadd = parseInt(psyadd) + 3;
+              fatadd = parseInt(fatadd) + 1;
             }
             break;
 
@@ -712,20 +733,20 @@ import { liber } from "./config.js";
 
         hpadd = Math.min(hpadd, parseInt(hpmax) - parseInt(hp));
         hp = parseInt(hpadd) + parseInt(hp);
-
+        fatigue=parseInt(fatigue)-fatadd
         if (hp > hpmax) {hp = hpmax;}
 
         psyadd = Math.min(psyadd, parseInt(psymax) - parseInt(psy));
         psy = parseInt(psy) + parseInt(psyadd);
 
         if (psy > psymax) {psy = psymax;}
+        if (fatigue < 0) {fatigue = 0;}
 
         if (hpmax === hp && insoin > 0) {
           hp = parseInt(hpmax) - parseInt(insoin);
           hpadd = parseInt(hpadd) - parseInt(insoin);
         }
-
-        this.actor.update({ "system.insoin": insoin, "system.hp.value": hp, "system.psy.value": psy });
+        this.actor.update({ "system.insoin": insoin, "system.hp.value": hp, "system.psy.value": psy, "system.fatigue": fatigue });
 
         const texte = '<span style="flex:auto"><p class="resultatp">' + game.i18n.localize("liber.repos") + ' ' + repos + ' +' + hpadd + 'hp / +' + psyadd + 'psy </p></span>';
         const chatData = {
