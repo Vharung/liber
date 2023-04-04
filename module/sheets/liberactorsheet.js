@@ -266,7 +266,8 @@ import { liber } from "./config.js";
         if(pourcentage>100){
             pourcentage=100;
         }
-        html.find('.encours').val(total);
+        //html.find('.encours').val(total);
+        this.actor.update({'system.encombrement.value': total});
         html.find('.barenc').css({"width":pourcentage+"%"});
         var autre=html.find('.clanliste option:selected').val()
         var autres=html.find('.religionliste option:selected').val()
@@ -408,6 +409,9 @@ import { liber } from "./config.js";
         var succes="";
         var degats=0;
         let addfat=0;
+        let encours=this.actor.system.encombrement.value;
+        let encmax=this.actor.system.encombrement.max;
+        let encdif=0;
         const listedemain =['Rapière','Bâton','Espadon','Hallebarde','Fléaux d\'arme','Epée à deux main','Masse d\'arme','Hache de bataille','Faux de Guerre','Lance Lourde']
 
         //var degat
@@ -419,7 +423,7 @@ import { liber } from "./config.js";
         let statphy = this.actor.system.ability.physique;
         var hp=null;
         var nom='';let button='';    
-
+        console.log(encours+'-'+encmax)
     //Jet de dès  compétences
         if(type=="jetdedes" || type=="auto"){
             if(type=="auto"){name='Physique';maxstat=this.actor.system.ability.physique;}
@@ -428,7 +432,13 @@ import { liber } from "./config.js";
             if(bonus==""){bonus=0;}
             if(malus==""){malus=0;}
             if(name=='physique' || name=='force' || name=='agilite'){
-                addfat=5*parseInt(fatigue)
+                if(encours>encmax){
+                    encdif=Math.floor(parseInt(encours)-parseInt(encmax));
+                    console.log(encours+'-'+encmax)
+                }
+                console.log(encdif)
+
+                addfat=5*parseInt(fatigue)+encdif
             }
             let inforesult=parseInt(maxstat)+parseInt(bonus)+bonuspost+parseInt(malus)-parseInt(addfat);
             if(inforesult>95){inforesult=95;}
