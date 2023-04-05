@@ -58,8 +58,6 @@
 .Liber .tab2{display: none;}
 .Liber .items-list li.active{display: inline-block;}
 
-
-
 .Liber .talentliste,.Liber .faiblesseliste,.Liber .typerepos ,.Liber .jourliste,.Liber .heure,.Liber .items input.maingaucequi,.Liber .items input.maindroiequi,.Liber .items input.armurequi,.Liber .stat input,.Liber .stat2 input,.Liber .features input,.Liber .stats select{background:#181003; }
 .Liber .autres,#sidebar,.window-app .window-content,.sheet.journal-entry .journal-entry-content,.Liber .colonne{background: #4f3c1c url(parchemin.jpg);background-size: cover; }
 .window-app .window-content{color:#fff}
@@ -74,7 +72,7 @@ option, optgroup,#chat-controls .roll-type-select{background: #20180d;}
 .chat-message{color: #fff;border: none;margin-bottom: 15px;}
 .chat-message .message-header{color: #fff}
 .chat-message.whisper,.chat-message.blind {background: #967b43;border:none;}
-.Liber .window-header {flex: 100%;text-align: right;}
+.Liber .window-header {flex: 100%;text-align: right;height: 30px}
 .Liber .window-header h4 {float: left;}
 .sheet nav.sheet-tabs{border: none;margin: 0px}
 .Liber a,.dialog .dialog-as a.default,form a,form button,.Liber button,.dialog .dialog-buttons button.default,.dialog .dialog-buttons button{background: rgb(143 26 40);border: none;color: #fff;}
@@ -91,7 +89,7 @@ button:hover,.Liber .stat2 label:hover,.Liber .reposer:hover,.Liber input[type="
 .Liber header {color: #fff;}
 .Liber .col2{display: block;height: 752px;float: left;width: 590px;}
 .Liber .colonne{width:600px;float: left;display:flex;flex-direction: column;flex:1;flex-grow: initial;padding-right: 5px;}
-.Liber{font-family: 'Roboto', sans-serif;display: flex;flex-direction: row;flex-flow: row wrap;}
+.Liber{display: flex;flex-direction: row;flex-flow: row wrap;font-family: 'MedievalSharp', cursive;overflow: auto}
 /*form.Liber{display: table-cell;}*/
 .Liber .fiche nav.sheet-tabs{margin:0px;border-top:none;border-bottom:none;padding:0px 0;height: 35px;}
 .Liber .list{width: 80px;height: 80px;display: inline-block;}
@@ -110,7 +108,7 @@ button:hover,.Liber .stat2 label:hover,.Liber .reposer:hover,.Liber input[type="
 .Liber a.item,.Liber .items a{height: 30px;width:70px;}
 
 .Liber option{background:none;}
-.Liber {font-family: 'MedievalSharp', cursive;}
+.Liber .overflow{height: 755px;overflow: hidden;}
 /*.Liber .head span.post {height: 20px;width: 20px;display: inline-block; float: right; margin-right: 10px}*/
 
 .grid-2col,.grid-3col,.grid-9col {float:left;}
@@ -210,3 +208,7 @@ button:hover,.Liber .stat2 label:hover,.Liber .reposer:hover,.Liber input[type="
 footer.nue {color: #c9c7b8;}
 
 .item-piles-even-color:nth-child(even){background: rgb(32 24 13}
+::-webkit-scrollbar {
+	width: 0px !important;
+	height: 0px;
+}
