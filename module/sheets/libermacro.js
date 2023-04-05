@@ -2,7 +2,7 @@ export class Macros {
 
     static createLiberMacro = async function(dropData, slot) {
               // Créer une macro pour les items
-              if (dropData.type == "Item") {
+            if (dropData.type == "Item") {
                 const item = await fromUuid(dropData.uuid);
                 const actor = item.actor;
     
@@ -17,7 +17,14 @@ export class Macros {
             }
 
             if (dropData.type == "ability") {
-                let macroName = dropData.name;
+                let id = '';
+                  const letters = 'abcdefghijklmnopqrstuvwxyz';
+
+                  for (let i = 0; i < 20; i++) {
+                    const randomIndex = Math.floor(Math.random() * letters.length);
+                    id += letters[randomIndex];
+                  }
+                let macroName = dropData.name +' ('+id+')';
                 let img = 'systems/liber/assets/item/' + dropData.name + '.jpg';
                 let command = 'let r = new Roll("1d100");roll=r.evaluate({"async": false});ChatMessage.create({user: game.user._id,speaker: ChatMessage.getSpeaker({token: actor}),content: `<span style="flex:auto"><p class="resultatp"><img src="' + img + '"  width="24" height="24"/>&nbsp;Utilise ' + macroName + '<p><div class="dice-roll"><div class="dice-result"><div class="dice-formula">`+r.result+`</div><h4 class="dice-total">`+r.total+`</h4></div></div>`});';                
                 this.createMacro(slot, macroName, command, img);

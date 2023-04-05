@@ -338,47 +338,8 @@ import { liber } from "./config.js";
           html.find('.croiser').css("display", "block");
         }else {
           html.find('.classique').css("display", "block");  
-        }   
-        
-
-
-
-
-
-
-        
+        }         
     }
-
-    /*
-    addDragAndDropListeners() {
-        const html = this.element;
-        const items = html.find('.sheet-body li');
-        const stat=html.find('.stat2 label');
-        // Ajouter l'événement de drag sur chaque item
-        items.each((index, item) => {
-            $(item).attr('draggable', true);
-            const itemId = $(item).data('item-id'); // Récupérer l'ID de l'item à partir de l'élément
-            $(item).on('dragstart', (event) => {
-                event.originalEvent.dataTransfer.setData('text/plain', $(event.currentTarget).data('item-id'));
-            });
-            $(item).on('dragend', (event) => {
-                this.addDragAndDropListeners();// Réinitialiser les écouteurs de glisser-déposer
-            });
-        });
-        // Ajouter l'événement de drag sur chaque item
-        stat.each((index, item) => {
-            $(item).attr('draggable', true);
-            $(item).on('dragstart', (event) => {
-                event.originalEvent.dataTransfer.setData('text/plain', $(event.currentTarget).data('name'));
-            });
-            $(item).on('dragend', (event) => {
-                this.addDragAndDropListeners(); // Réinitialiser les écouteurs de glisser-déposer
-            });
-        });
-        console.log("addDragAndDropListeners")
-    }*/
-
-
 
     getItemFromEvent = (ev) => {
         const parent = $(ev.currentTarget).parents(".item");
@@ -639,34 +600,32 @@ import { liber } from "./config.js";
             succes="<h4 class='result' style='background:#78be50;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang84")+"</h4>";degat=1;
         }else{
             succes="<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang85")+"</h4>";degat=0;
-        }
-        if(posture=="Focus"){
+        }console.log(posture)
+        if(posture=="focus"){
            cout=parseInt(cout)-1; 
         }
         if(cout<0){
             cout=0;
         }
-        if(classe=="Corbeau"){
-            hp=parseInt(hp)-parseInt(cout);
+        cout=parseInt(cout);psy=parseInt(psy)
+        if(cout<psy){
+            console.log('sort lancer :'+psy+'-'+cout)//bug
+            psy = parseInt(psy)-parseInt(cout)
         }else{
-            if(psy<cout){
-                console.log('sort lancer :'+psy+'<'+cout)
-                var diff= parseInt(cout)-parseInt(psy)
-                hp=parseInt(hp)-parseInt(diff);
-                psy=0;
-                insoin= parseInt(insoin)+parseInt(diff);            
-            }else {
-                console.log('sort lancer :'+psy+'-'+cout)
-                psy = parseInt(psy)-parseInt(cout)
-            }
+            console.log('sort lancer insoin :'+psy+'<'+cout)//bug
+            var diff= parseInt(cout)-parseInt(psy)
+            hp=parseInt(hp)-parseInt(diff);
+            psy=0;
+            insoin= parseInt(insoin)+parseInt(diff);            
         }
+        
         
         let button ='';
         if(dice){
             button='<button class="roll-damage" style="cursor:pointer" data-name="'+name+'" data-actorid="'+this.actor._id+'" data-dice="'+dice+'" data-img="'+img+'" data-desc="'+desc+'" data-type="jetdedegat">Lancer les dès</button>'
         }
         this.actor.update({"system.insoin": insoin,"system.hp.value": hp,"system.psy.value": psy});
-        const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +' : '+ inforesult +'/100</span><span class="desctchat">'+desc+'</span></p>'+succes+
+        const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +' : '+ mental +'/100</span><span class="desctchat">'+desc+'</span></p>'+succes+
         button+'</span>';
         roll.toMessage({
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
