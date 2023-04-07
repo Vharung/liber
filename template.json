@@ -195,7 +195,8 @@
             "armure",
             "objet",
             "magie",
-            "argent"
+            "argent",
+            "outil"
         ],
         "arme": {
             "description": "",
@@ -230,6 +231,24 @@
             "duree":"",
             "cout": "",
             "degat":""
+        },
+        "outil":{
+          "description": "",
+          "listem":"",
+          "monstres":{
+            "monstre0":{"m_nb":1,"m_name":"montre","m_level":1},
+            "monstre1":{"m_nb":1,"m_name":"montre","m_level":1},
+            "monstre2":{"m_nb":1,"m_name":"montre","m_level":1},
+            "monstre3":{"m_nb":1,"m_name":"montre","m_level":1},
+            "monstre4":{"m_nb":1,"m_name":"montre","m_level":1},
+            "monstre5":{"m_nb":1,"m_name":"montre","m_level":1},
+            "monstre6":{"m_nb":1,"m_name":"montre","m_level":1},
+            "monstre7":{"m_nb":1,"m_name":"montre","m_level":1},
+            "monstre8":{"m_nb":1,"m_name":"montre","m_level":1},
+            "monstre9":{"m_nb":1,"m_name":"montre","m_level":1}
+          }, 
+          "pv":0,
+          "nb":4
         }
     }
 }

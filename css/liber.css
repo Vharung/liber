@@ -189,6 +189,13 @@ button:hover,.Liber .stat2 label:hover,.Liber .reposer:hover,.Liber input[type="
 .Liber .item-controls a,.Liber a.item-control , .Liber .window-header a{background: none}
 .generer2{padding: 10px;margin-top: 10px;display: block;}
 
+/*outil*/
+ul.m_list {list-style: none;}
+.m_nb, .m_name, .m_lvl,.m_degat,.m_pv,.m_ar{display: inline-block;}
+.m_nb, .m_lvl,.m_degat,.m_pv,.m_ar{width:40px}
+input.m_degat,input.m_pv,input.m_ar{color:grey}
+.m_name{width:200px}
+
 #sidebar a.item{filter: invert(60%);}
 #sidebar a.item i{display: none}
 #sidebar a.item[data-tab="chat"]{background:url(" ../assets/icon/roi.png") no-repeat center center;background-size: 80%;}
@@ -212,3 +219,4 @@ footer.nue {color: #c9c7b8;}
 	width: 0px !important;
 	height: 0px;
 }
+

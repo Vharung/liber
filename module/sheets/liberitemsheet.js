@@ -5,6 +5,9 @@
  export class LiberItemSheet extends ItemSheet{
     get template(){
         console.log(`Liber | Récupération du fichier html ${this.item.type}-sheet.`);
+        if(this.item.type=='outil'){
+            this._onAidemonstre();
+        }
         return `systems/liber/templates/sheets/${this.item.type}-sheet.html`;
     }
 
@@ -18,6 +21,152 @@
     activateListeners(html){
         super.activateListeners(html);
         html.find('.generer2').click(this._onGenerator2.bind(this));
+        if(this.item.type=="outil"){
+            let pv=html.find('.j_pv').val();
+            let nb=html.find('.j_nb').val();
+            for(let j=0;j<10;j++){
+                let name=html.find('.m'+j+' .m_name option:selected').val();
+                let img=html.find('.m'+j+' .m_name option:selected').data('img');
+                let hp=html.find('.m'+j+' .m_name option:selected').data('hp');
+                let dg=html.find('.m'+j+' .m_name option:selected').data('dg');
+                let ar=html.find('.m'+j+' .m_name option:selected').data('ar');
+                let lvl=html.find('.m'+j+' input.m_lvl').val();
+                
+                let dgt=0;
+                /*degat en fonction du level*/
+                hp=parseInt(hp)+(3*(lvl-1));
+
+                /* armure*/
+                if(ar==undefined||ar==""){ar=0;}
+                ar=ar+(lvl-1);
+                if(ar>8){ar=8;} 
+
+                /*Degat en fonction du niveau*/
+                for (let i=1; i < lvl; i++) {
+                    let dgt=dg;
+                    let fixe = dgt.split('+');
+                    let des=fixe[0].split('d');
+                    let number=fixe[1];
+                    let nb=des[0];
+                    let type=des[1];
+                    if(number==undefined||number==""){number=0;}
+                    let limite=4;
+                    if(number<limite){number++;}
+                    else {
+                        number=3;
+                        if(nb<limite){nb++;}
+                        else{
+                          nb=3;
+                          if(type==4){
+                            type=6
+                          }else if(type==6){
+                            type=8
+                          }else if(type==8){
+                            type=10
+                          }else if(type==10){
+                            type=12
+                          }else if(type==12){
+                            type=20
+                          }else if(type==20){
+                            type=100
+                          }else if(type==100){
+                            if(nb<limite){
+                              nb++;
+                            }
+                          }
+                        }
+                        
+                    }
+                    dg=nb+'d'+type+'+'+number;
+                }
+                
+                /*calcul dg moyen*/
+                if(dg!=0){
+                    let dgm=dg.split('+');
+                    if(dgm[1]==undefined){dgm[1]=0}
+                    let dgm2=dgm[0].split('d');
+                    dgt=parseInt(dgm2[0])*(parseInt(dgm2[1])/2)+parseInt(dgm[1])
+                }  
+                html.find('.m'+j+' .m_pv').val(hp);
+                html.find('.m'+j+' .m_degat').val(dgt);
+                html.find('.m'+j+' .m_ar').val(ar);              
+            }
+
+            //Récupération des données
+            let list_nb=[];
+            let list_dg=[];
+            let list_pv=[];
+            let list_ar=[]
+            html.find( "li .m_nb" ).each(function() {
+                let valor= parseInt($( this ).val());
+                list_nb.push(valor);
+            });
+            html.find( "li .m_degat" ).each(function() {
+                let valor= parseInt($( this ).val());
+                list_dg.push(valor);
+
+            });
+            html.find( "li .m_pv" ).each(function() {
+                let valor= parseInt($( this ).val());
+                list_pv.push(valor);
+            });
+            html.find( "li .m_ar" ).each(function() {
+                let valor= parseInt($( this ).val());
+                list_ar.push(valor);
+
+            });
+            console.log(list_nb)
+            console.log(list_dg)
+            console.log(list_pv)
+            console.log(list_ar)
+            /*calcul de defaite*/
+            let dpt=0;
+            for (var i = list_dg.length - 1; i >= 0; i--) {
+                if(list_dg[i]>0){
+                    
+                    let d=list_dg[i]-3;
+                    if(d<1){d=1}
+                    dpt=dpt+(d*list_nb[i]);
+                    console.log(dpt+'+(('+d+'-3)*'+list_nb[i]+')');
+                }
+                
+            }
+            let defaite=Math.round(pv/(dpt/nb)); //tour pour la defaite
+            console.log(defaite+'='+pv+'/('+dpt+'/'+nb+')')
+
+            /*cacul de réussite*/
+            let tpvm=0;
+            for (var i = list_dg.length - 1; i >= 0; i--) {
+                tpvm=tpvm+((list_pv[i]+list_ar[i])*list_nb[i]);
+            }
+            let dgj=nb*5;
+            let reussite=Math.ceil(tpvm/dgj) //tour de reussite
+
+            console.log(reussite)
+            /*calcul difficulte*/
+            let difficulty=reussite-defaite;
+            console.log(difficulty)
+
+            let niveau='';
+            let css='';
+            if(difficulty > 25){
+                niveau='Très difficile';css='#000000';
+            }else if(difficulty > 15){
+                niveau='Difficile';css='#8B0000';
+            }else if(difficulty > 5){
+                niveau='Dur';css='#FF0000';
+            }else if(difficulty > -5){
+                niveau='Moyen';css='#FFA500';
+            }else if(difficulty > -15){
+                niveau='Facile';css='#FFFF00';
+            }else {
+                niveau='Très facile';css='#00FF00';
+            }
+            html.find('.difficulty').val(niveau);
+            html.find('.difficulty').css({"background":css,'color':'white'})
+
+        }
+        
     }
 
     _onGenerator2(event){
@@ -59,5 +208,20 @@
         let poids=Math.floor(Math.random()*10);
         this.document.update({'name':item_type+' '+item_nom,'system.description':item_effet+' '+restriction,'system.valeur':cout,'system.poids':poids})
 
+    }
+
+    async _onAidemonstre(event){
+        const pack = game.packs.get('liber.monstre');
+        const tabl = await pack.getDocuments();
+        const listm = tabl.map(value => ({
+            'name': value.name,
+            'img': value.img,
+            'hp': value.system.hp.max,
+            'dg': value.system.armeuse.degatg,
+            'ar': value.system.protection
+        }));
+        listm.sort(function (a, b) {if (a.name < b.name) {return -1;} else {return 1;}});
+        this.item.update({'system.listem':listm})
+        
     }
 }
