@@ -57,6 +57,7 @@
 .Liber .items-list .item-controls{opacity: 0}
 .Liber .tab2{display: none;}
 .Liber .items-list li.active{display: inline-block;}
+.Liber .items a.item-random{padding: 5px;text-align: center;width: 130px;display: inline-block;background: #181003;margin-top: -5px;margin-bottom: 10px;}
 
 .Liber .talentliste,.Liber .faiblesseliste,.Liber .typerepos ,.Liber .jourliste,.Liber .heure,.Liber .items input.maingaucequi,.Liber .items input.maindroiequi,.Liber .items input.armurequi,.Liber .stat input,.Liber .stat2 input,.Liber .features input,.Liber .stats select{background:#181003; }
 .Liber .autres,#sidebar,.window-app .window-content,.sheet.journal-entry .journal-entry-content,.Liber .colonne{background: #4f3c1c url(parchemin.jpg);background-size: cover; }

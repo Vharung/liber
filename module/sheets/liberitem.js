@@ -8,6 +8,7 @@
           classes: ["Liber", "sheet", "item"],
           width: 600,
           height: 400,
+          tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "monstre" }]
         });
     }
 

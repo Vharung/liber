@@ -4,24 +4,18 @@
             <div class="grid-2col" style="max-width: 134px;">
                 <img src="systems/liber/assets/icon/config.jpg" data-edit="img" title="{{item.name}}" height="128" width="128"/>
             </div>
+            <div class="grid-2col">
+                <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+            </div>
             
         </div>
-    </div>  
-    {{!-- Sheet Tab Navigation --}}
-            <nav class="sheet-tabs tabs" data-group="primary">
-                <a class="item invent active" data-tab="items"></a>
-                <a class="item compe" data-tab="features"></a>
-            </nav>
-    <div class="objet">
-    {{!-- Sheet Body --}}
-        <section class="sheet-body">
-            {{!-- Items Tab --}}
-            <div id="items" class="items" data-group="primary" data-tab="items">
+    </div>
+    
+    <div id="monstre" class="tab monstre" data-tabs="monstre">  
 
         <h1>Monstre(s)</h1>
         <ul class="m_list">
 
-            
             <ol>
                 <p class="m_nb">Nb</p>
                 <p class="m_name">Nom</p>
@@ -191,9 +185,6 @@
                     <input class="m_ar" readonly type="text" placeholder="8" style="width:40px">
                     <a class="m_add" style="width:40px;display: inline-block;text-align: center;" title="Ajouter au acteur">+</a>
                 </li>
-            
-
-        
         </ul>
 
 
@@ -213,11 +204,5 @@
             <input class="difficulty" type="text" value="" readonly>
         </label>
 
-        </div>
-        {{!-- Features Tab --}}
-                <div id="features" class="tab features"  data-group="primary" data-tab="features">
-        <h1>Trésor générator</h1>   
-        </div>         
-        
-    </div>
+    </div>         
 </form>

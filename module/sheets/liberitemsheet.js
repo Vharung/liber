@@ -21,6 +21,8 @@
     activateListeners(html){
         super.activateListeners(html);
         html.find('.generer2').click(this._onGenerator2.bind(this));
+        html.find('.tresorg').click(this._onGenerator.bind(this));
+
         if(this.item.type=="outil"){
             let pv=html.find('.j_pv').val();
             let nb=html.find('.j_nb').val();
@@ -207,6 +209,42 @@
         let cout=Math.floor(Math.random()*10)*100;
         let poids=Math.floor(Math.random()*10);
         this.document.update({'name':item_type+' '+item_nom,'system.description':item_effet+' '+restriction,'system.valeur':cout,'system.poids':poids})
+
+    }
+
+    async _onGenerator(event){
+        let listem=[]
+        let listo=[];
+        let pack = game.packs.get('liber.objet');
+        let tables = await pack.getDocuments();
+        $.each( tables, function( key, value ) {
+            listem.push({'name':value.name,'img':value.img,'description':value.system.description,'poids':value.system.poids,'valeur':value.system.valeur})
+        });
+        let qt=Math.floor(Math.random() * 10) + 1;
+        let nbobj=Math.floor(Math.random()*9)+1;
+        for (var i = nbobj; i >= 0; i--) {
+            let r=Math.floor(Math.random()*listem.length)
+            listo.push({'name':value.name,'img':value.img,'description':value.system.description,'poids':value.system.poids,'valeur':value.system.valeur})
+        }
+        pack = game.packs.get('liber.arme');
+        tables = await pack.getDocuments();
+        $.each( tables, function( key, value ) {
+            listem.push({'name':value.name,'img':value.img,'description':value.system.description,'degat':value.system.degats,'poids':value.system.poids,'portee':value.system.portee,'valeur':value.system.valeur})
+        });
+        let r=Math.floor(Math.random()*listem.length)
+        listeo.push({'name':value.name,'img':value.img,'description':value.system.description,'degat':value.system.degats,'poids':value.system.poids,'portee':value.system.portee,'valeur':value.system.valeur})
+        
+        pack = game.packs.get('liber.armure');
+        tables = await pack.getDocuments();
+        $.each( tables, function( key, value ) {
+            listem.push({'name':value.name,'img':value.img,'description':value.system.description,'protection':value.system.protection,'poids':value.system.poids,'valeur':value.system.valeur})
+        });
+        r=Math.floor(Math.random()*listem.length)
+        listeo.push({'name':value.name,'img':value.img,'description':value.system.description,'protection':value.system.protection,'poids':value.system.poids,'valeur':value.system.valeur})
+
+        console.log(listo)
+        
+       
 
     }
 

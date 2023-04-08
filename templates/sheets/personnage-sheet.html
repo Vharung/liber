@@ -186,7 +186,17 @@
 				        <a class="item-filter objets" data-tab="objets"></a>
 				    </nav> 
 				    <input class="secondary" type="text" name="system.secondary" value="{{actor.system.secondary}}" style="display: none;">
-				    
+		        		<div class="rexrow modif">
+							<div class="grid-3col">
+								<a class="item-random" data-type="arme">Arme au hazard</a>
+							</div>
+							<div class="grid-3col">
+								<a class="item-random" data-type="armure">Armure au hazard</a>
+							</div>
+							<div class="grid-3col">
+								<a class="item-random" data-type="objet">Objet au hazard</a>
+							</div>
+						</div>
 				    	<ul class="items-list">
 				    	{{#each actor.arme as |item id|}}		    		
 					    		<li class="item fexrow armes active draggable" data-item-id="{{item._id}}">
@@ -243,6 +253,8 @@
 				                </li>
 			            {{/each}}
 		        		</ul>
+
+		        		
 				</div>
 				{{!-- Features Tab --}}
 				<div id="features" class="tab features"  data-group="primary" data-tab="features" style="height: 696px;">

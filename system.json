@@ -2,7 +2,7 @@
     "id": "liber",
     "title": "Liber Chronicles",
     "description": "The Liber Chronicles system for FoundryVTT!",
-    "version": "2.11",
+    "version": "2.12",
     "compatibility": {
       "minimum": "10",
       "verified": "11.293",
@@ -35,6 +35,13 @@
           "label": "Armure",
           "system": "liber",
           "path": "./pack/armures.db",
+          "type": "Item"
+        },
+        {
+          "name": "aide",
+          "label": "Aide au MJ",
+          "system": "liber",
+          "path": "./pack/aide-mj.db",
           "type": "Item"
         },
         {
