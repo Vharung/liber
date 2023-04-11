@@ -22,6 +22,7 @@
         super.activateListeners(html);
         html.find('.generer2').click(this._onGenerator2.bind(this));
         html.find('.tresorg').click(this._onGenerator.bind(this));
+        html.find('.m_add').click(this._onAddactor.bind(this));
 
         if(this.item.type=="outil"){
             let pv=html.find('.j_pv').val();
@@ -32,6 +33,7 @@
                 let hp=html.find('.m'+j+' .m_name option:selected').data('hp');
                 let dg=html.find('.m'+j+' .m_name option:selected').data('dg');
                 let ar=html.find('.m'+j+' .m_name option:selected').data('ar');
+                let id=html.find('.m'+j+' .m_name option:selected').data('id');
                 let lvl=html.find('.m'+j+' input.m_lvl').val();
                 
                 let dgt=0;
@@ -91,7 +93,8 @@
                 }  
                 html.find('.m'+j+' .m_pv').val(hp);
                 html.find('.m'+j+' .m_degat').val(dgt);
-                html.find('.m'+j+' .m_ar').val(ar);              
+                html.find('.m'+j+' .m_ar').val(ar);   
+                html.find('.m'+j+' .m_id').val(id);            
             }
 
             //Récupération des données
@@ -117,10 +120,7 @@
                 list_ar.push(valor);
 
             });
-            console.log(list_nb)
-            console.log(list_dg)
-            console.log(list_pv)
-            console.log(list_ar)
+
             /*calcul de defaite*/
             let dpt=0;
             for (var i = list_dg.length - 1; i >= 0; i--) {
@@ -129,12 +129,10 @@
                     let d=list_dg[i]-3;
                     if(d<1){d=1}
                     dpt=dpt+(d*list_nb[i]);
-                    console.log(dpt+'+(('+d+'-3)*'+list_nb[i]+')');
                 }
                 
             }
             let defaite=Math.round(pv/(dpt/nb)); //tour pour la defaite
-            console.log(defaite+'='+pv+'/('+dpt+'/'+nb+')')
 
             /*cacul de réussite*/
             let tpvm=0;
@@ -144,10 +142,8 @@
             let dgj=nb*5;
             let reussite=Math.ceil(tpvm/dgj) //tour de reussite
 
-            console.log(reussite)
             /*calcul difficulte*/
             let difficulty=reussite-defaite;
-            console.log(difficulty)
 
             let niveau='';
             let css='';
@@ -242,16 +238,13 @@
         r=Math.floor(Math.random()*listem.length)
         listeo.push({'name':value.name,'img':value.img,'description':value.system.description,'protection':value.system.protection,'poids':value.system.poids,'valeur':value.system.valeur})
 
-        console.log(listo)
-        
-       
-
     }
 
     async _onAidemonstre(event){
         const pack = game.packs.get('liber.monstre');
         const tabl = await pack.getDocuments();
         const listm = tabl.map(value => ({
+            'id':value.id,
             'name': value.name,
             'img': value.img,
             'hp': value.system.hp.max,
@@ -261,5 +254,21 @@
         listm.sort(function (a, b) {if (a.name < b.name) {return -1;} else {return 1;}});
         this.item.update({'system.listem':listm})
         
+    }
+
+    async _onAddactor(event){
+        const nb=event.target.dataset["nb"];
+        const id = $('.m'+nb+' .m_id').val();
+        const qt = parseInt($('.m'+nb+' .m_nb').val());
+        
+        const pack = game.packs.get('liber.monstre');
+        const tables = await pack.getDocuments();
+        
+        const listem2 = tables.filter(value =>
+            value.id == id
+        )
+        for (var i = qt; i > 0; i--) {
+           let actor = await Actor.create(listem2);
+        }        
     }
 }

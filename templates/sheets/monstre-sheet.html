@@ -1,4 +1,4 @@
-<form class="{{cssClass}} Liber flexcol" autocomplete="off">
+<form class="{{cssClass}} Liber flexcol" autocomplete="off" style="overflow: auto;">
 	{{!-- Sheet Header --}}
 	<div class="col3">
 		<div class="inter" style="height: 200px;">
@@ -52,7 +52,7 @@
 			<div class="rexrow stat2">
 				{{#each actor.system.ability as |value ability|}}
 				  <div class="grid-9col">
-				    <p><label class="{{ability}} jetdedes ability" data-type="jetdedes" data-name="{{ability}}" data-item-id="{{@index}}" data-dice="1d" data-attDice="{{value}}">{{localize ability}}</label></p>
+				    <p><label class="{{ability}} jetdedes ability" data-type="jetdedes" data-name="{{ability}}"  data-item-id="{{@index}}" data-dice="1d" data-attDice="{{value}}">{{localize ability}}</label></p>
 				    <input class="{{ability}}Value" name="system.ability.{{ability}}" type="text" value="{{value}}" placeholder="{{value}}"/>
 				  </div>
 				{{/each}}
@@ -166,6 +166,17 @@
 				        <a class="item-filter armures" data-tab="armures"></a>
 				        <a class="item-filter objets" data-tab="objets"></a>
 				    </nav> 
+				    <div class="rexrow modif">
+						<div class="grid-3col">
+							<a class="item-random" data-type="arme">Arme au hazard</a>
+						</div>
+						<div class="grid-3col">
+							<a class="item-random" data-type="armure">Armure au hazard</a>
+						</div>
+						<div class="grid-3col">
+							<a class="item-random" data-type="objet">Objet au hazard</a>
+						</div>
+					</div>
 				    <input class="secondary" type="text" name="system.secondary" value="{{actor.system.secondary}}" style="display: none;">
 				    
 				    	<ul class="items-list">

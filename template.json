@@ -236,16 +236,16 @@
           "description": "",
           "listem":"",
           "monstres":{
-            "monstre0":{"m_nb":1,"m_name":"montre","m_level":1},
-            "monstre1":{"m_nb":1,"m_name":"montre","m_level":1},
-            "monstre2":{"m_nb":1,"m_name":"montre","m_level":1},
-            "monstre3":{"m_nb":1,"m_name":"montre","m_level":1},
-            "monstre4":{"m_nb":1,"m_name":"montre","m_level":1},
-            "monstre5":{"m_nb":1,"m_name":"montre","m_level":1},
-            "monstre6":{"m_nb":1,"m_name":"montre","m_level":1},
-            "monstre7":{"m_nb":1,"m_name":"montre","m_level":1},
-            "monstre8":{"m_nb":1,"m_name":"montre","m_level":1},
-            "monstre9":{"m_nb":1,"m_name":"montre","m_level":1}
+            "monstre0":{"m_nb":1,"m_name":"montre","m_level":1,"m_id":""},
+            "monstre1":{"m_nb":1,"m_name":"montre","m_level":1,"m_id":""},
+            "monstre2":{"m_nb":1,"m_name":"montre","m_level":1,"m_id":""},
+            "monstre3":{"m_nb":1,"m_name":"montre","m_level":1,"m_id":""},
+            "monstre4":{"m_nb":1,"m_name":"montre","m_level":1,"m_id":""},
+            "monstre5":{"m_nb":1,"m_name":"montre","m_level":1,"m_id":""},
+            "monstre6":{"m_nb":1,"m_name":"montre","m_level":1,"m_id":""},
+            "monstre7":{"m_nb":1,"m_name":"montre","m_level":1,"m_id":""},
+            "monstre8":{"m_nb":1,"m_name":"montre","m_level":1,"m_id":""},
+            "monstre9":{"m_nb":1,"m_name":"montre","m_level":1,"m_id":""}
           }, 
           "pv":0,
           "nb":4

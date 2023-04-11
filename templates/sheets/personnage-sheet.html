@@ -1,4 +1,4 @@
-<form class="{{cssClass}} Liber flexcol" autocomplete="off">
+<form class="{{cssClass}} Liber flexcol" autocomplete="off" style="overflow: auto;">
 <div class="overflow">
 	{{!-- Sheet Header --}}
 	<div class="col3">
@@ -277,7 +277,7 @@
 
 				{{!-- Carac Tab --}}
 				<div id="carac" class="tab carac" data-group="primary" data-tab="carac" style="height: 696px;">
-					<h2>{{localize 'liber.perso'}}</h2>
+					<h2>{{localize 'liber.caract'}}</h2>
 					{{#each actor.system.caractere as |value caract|}}
 					<div class="compt">
 						<span>{{localize caract}} :</span><input class="{{caract}}" name="system.caractere.{{caractt}}" type="text" value="{{value}}"/>

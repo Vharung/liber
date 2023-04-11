@@ -383,8 +383,7 @@ import { liber } from "./config.js";
         //var automatisation
         let statphy = this.actor.system.ability.physique;
         var hp=null;
-        var nom='';let button='';    
-        console.log(encours+'-'+encmax)
+        var nom='';let button='';
     //Jet de dès  compétences
         if(type=="jetdedes" || type=="auto"){
             if(type=="auto"){name='Physique';maxstat=this.actor.system.ability.physique;}
@@ -393,13 +392,14 @@ import { liber } from "./config.js";
             if(bonus==""){bonus=0;}
             if(malus==""){malus=0;}
             if(name=='physique' || name=='force' || name=='agilite'){
-                if(encours>encmax){
-                    encdif=Math.floor(parseInt(encours)-parseInt(encmax));
-                    console.log(encours+'-'+encmax)
+                if(this.actor.type=="monstre"){
+                    addfat=0
+                }else {
+                    if(encours>encmax){
+                        encdif=Math.floor(parseInt(encours)-parseInt(encmax));
+                    }
+                    addfat=5*parseInt(fatigue)+encdif
                 }
-                console.log(encdif)
-
-                addfat=5*parseInt(fatigue)+encdif
             }
             let inforesult=parseInt(maxstat)+parseInt(bonus)+bonuspost+parseInt(malus)-parseInt(addfat);
             if(inforesult>95){inforesult=95;}

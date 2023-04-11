@@ -24,7 +24,7 @@ export class Macros {
                     const randomIndex = Math.floor(Math.random() * letters.length);
                     id += letters[randomIndex];
                   }
-                let macroName = dropData.name +' ('+id+')';
+                let macroName = dropData.name +'<span style="display:none">('+id+')</span>';
                 let img = 'systems/liber/assets/item/' + dropData.name + '.jpg';
                 let command = 'let r = new Roll("1d100");roll=r.evaluate({"async": false});ChatMessage.create({user: game.user._id,speaker: ChatMessage.getSpeaker({token: actor}),content: `<span style="flex:auto"><p class="resultatp"><img src="' + img + '"  width="24" height="24"/>&nbsp;Utilise ' + macroName + '<p><div class="dice-roll"><div class="dice-result"><div class="dice-formula">`+r.result+`</div><h4 class="dice-total">`+r.total+`</h4></div></div>`});';                
                 this.createMacro(slot, macroName, command, img);

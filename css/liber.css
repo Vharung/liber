@@ -90,7 +90,7 @@ button:hover,.Liber .stat2 label:hover,.Liber .reposer:hover,.Liber input[type="
 .Liber header {color: #fff;}
 .Liber .col2{display: block;height: 752px;float: left;width: 590px;}
 .Liber .colonne{width:600px;float: left;display:flex;flex-direction: column;flex:1;flex-grow: initial;padding-right: 5px;}
-.Liber{display: flex;flex-direction: row;flex-flow: row wrap;font-family: 'MedievalSharp', cursive;overflow: auto}
+.Liber{display: flex;flex-direction: row;flex-flow: row wrap;font-family: 'MedievalSharp', cursive;overflow: hidden;}
 /*form.Liber{display: table-cell;}*/
 .Liber .fiche nav.sheet-tabs{margin:0px;border-top:none;border-bottom:none;padding:0px 0;height: 35px;}
 .Liber .list{width: 80px;height: 80px;display: inline-block;}
@@ -180,7 +180,7 @@ button:hover,.Liber .stat2 label:hover,.Liber .reposer:hover,.Liber input[type="
 .Liber .geo{width:200px;width: 195px;height: 275px;display: inline-block;background:url(systems/liber/assets/monstre/map0.png);background-size: contain;}
 .Liber .his{width: calc(100% - 200px);display: inline-block;float: right;}
 
-.Liber .carac,.Liber .items,.Liber .spells,.Liber .stats {display: none; overflow: auto;}
+.Liber .carac,.Liber .items,.Liber .spells,.Liber .stats {display: none; overflow-y: auto;overflow-x: hidden;}
 .Liber .items.active {display: block;}
 .resultatp{text-align: center;font-size: medium;background: #4b3f25;padding: 5px;color: white;display: flex;}
 .desctchat{padding: 5px;background: #967b43;color: #fff;display:none}
