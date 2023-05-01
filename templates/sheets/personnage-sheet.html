@@ -186,7 +186,8 @@
 				        <a class="item-filter objets" data-tab="objets"></a>
 				    </nav> 
 				    <input class="secondary" type="text" name="system.secondary" value="{{actor.system.secondary}}" style="display: none;">
-		        		<div class="rexrow modif">
+		        		
+						<div class="rexrow modif">
 							<div class="grid-3col">
 								<a class="item-random" data-type="arme">Arme au hazard</a>
 							</div>
@@ -197,6 +198,7 @@
 								<a class="item-random" data-type="objet">Objet au hazard</a>
 							</div>
 						</div>
+						
 				    	<ul class="items-list">
 				    	{{#each actor.arme as |item id|}}		    		
 					    		<li class="item fexrow armes active draggable" data-item-id="{{item._id}}">
@@ -377,7 +379,7 @@
 							<SELECT class="talentliste"  name="system.talent">
 								{{#select actor.system.talent}}
 									{{#each config.talentTypes as |talent|}}
-										<option value="{{localize talent}}">{{localize talent}}</option>
+										<option value="{{localize talent.name}}" title="{{localize talent.title}}">{{localize talent.name}}</option>
 									{{/each}}
                                 {{/select}}
                             </SELECT>   
@@ -387,7 +389,7 @@
                             <SELECT class="faiblesseliste"  name="system.faiblesse">
                             	{{#select actor.system.faiblesse}}
                                     {{#each config.faiblesseTypes as |faiblesse|}}
-										<option value="{{localize faiblesse}}">{{localize faiblesse}}</option>
+										<option value="{{localize faiblesse.name}}" title="{{localize faiblesse.title}}">{{localize faiblesse.name}}</option>
 									{{/each}}
                                 {{/select}}
 		                    </SELECT>

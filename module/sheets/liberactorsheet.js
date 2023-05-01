@@ -149,6 +149,12 @@ import { liber } from "./config.js";
             this.actor.createEmbeddedDocuments('Item', [{ name: name,img: img, type: 'magie', 'system.description' : description, 'system.classe' : classe, 'system.cible' : cible, 'system.cout' : cout, 'system.duree' : duree }], { renderSheet: false })
         }); 
 
+        //title talent et faiblesse
+        var ttitle=html.find('.talentliste option:selected').attr('title');
+        var ftitle=html.find('.faiblesseliste option:selected').attr('title');
+        html.find('.talent').attr('title',ttitle);
+        html.find('.faiblesse').attr('title',ftitle);
+
         
         html.find( ".compt input" ).each(function() {
               var valor= $( this ).val();
