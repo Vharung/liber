@@ -90,7 +90,7 @@ button:hover,.Liber .stat2 label:hover,.Liber .reposer:hover,.Liber input[type="
 .Liber header {color: #fff;}
 .Liber .col2{display: block;height: 752px;float: left;width: 590px;}
 .Liber .colonne{width:600px;float: left;display:flex;flex-direction: column;flex:1;flex-grow: initial;padding-right: 5px;}
-.Liber{display: flex;flex-direction: row;flex-flow: row wrap;font-family: 'MedievalSharp', cursive;overflow: hidden;}
+.Liber{display: flex;flex-direction: row;flex-flow: row wrap;font-family: 'MedievalSharp', cursive;overflow: hidden;zoom:0.95}
 /*form.Liber{display: table-cell;}*/
 .Liber .fiche nav.sheet-tabs{margin:0px;border-top:none;border-bottom:none;padding:0px 0;height: 35px;}
 .Liber .list{width: 80px;height: 80px;display: inline-block;}
