@@ -1,6 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 @font-face {font-family: "dova";src: url('Dovahkiin.otf'); }
 .dova { font-family: 'dova';}
+form.Liber { 
+    width: calc(100% - 20px);
+    height: calc(100% - 50px);
+    position: absolute;}
+.Liber .overflow{    overflow: hidden;
+    width: 1204px;
+    height: 759px;
+    display: block;
+    position: absolute;}
 
 .Liber .col3{display: inline-block;width: 400px; float: left; }
 .Liber .inter{background:url(parchemin.jpg);/*background: linear-gradient(0deg, rgba(51,52,44,1) 0%, rgba(60,62,49,1) 100%);*/ border:thick double #12130f;margin-bottom: 5px}
@@ -85,12 +94,12 @@ button,.Liber .reposer,.Liber input[type="a"],.Liber .stat2 label,.Liber .modif 
 button:hover,.Liber .stat2 label:hover,.Liber .reposer:hover,.Liber input[type="a"]:hover,.Liber .modif a.desequi:hover,.Liber .carac input[type="a"]:hover,.Liber .items .desequi:hover,.Liber .items .jetdedegat:hover,.Liber .addsort:hover{background:#e13b23;}/*e13b23*/
 .Liber label.force,.Liber label.agilite,.Liber label.charisme,.Liber label.sagacite,.Liber label.ast,.Liber label.memoire{background: #6a4f22;}
 .Liber a.item,.Liber h2 ,.Liber header,.Liber .tabs,.Liber .items-list .item-description,.Liber .items-list .item-description2{background: #181003;}
-.Liber.window-app .window-content{background: none;overflow:auto;height: 773px;}
+.Liber.window-app .window-content{background: none;height: 773px;}
 .Liber .fiche{display: flex;flex-direction: row;height: 800px;width: 1200px;}
 .Liber header {color: #fff;}
 .Liber .col2{display: block;height: 752px;float: left;width: 590px;}
 .Liber .colonne{width:600px;float: left;display:flex;flex-direction: column;flex:1;flex-grow: initial;padding-right: 5px;}
-.Liber{display: flex;flex-direction: row;flex-flow: row wrap;font-family: 'MedievalSharp', cursive;overflow: hidden;zoom:0.95}
+.Liber{display: flex;flex-direction: row;flex-flow: row wrap;font-family: 'MedievalSharp', cursive;}
 /*form.Liber{display: table-cell;}*/
 .Liber .fiche nav.sheet-tabs{margin:0px;border-top:none;border-bottom:none;padding:0px 0;height: 35px;}
 .Liber .list{width: 80px;height: 80px;display: inline-block;}

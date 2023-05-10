@@ -7,8 +7,8 @@ import { liber } from "./config.js";
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
           classes: ["Liber", "sheet", "actor"],
-          width: 1224,
-          height: 800,
+          width: 1225,
+          height: 820,
           dragDrop: [{dragSelector: ".draggable", dropSelector: null},{dragSelector: ".ability", dropSelector: null}],
           tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
         });
