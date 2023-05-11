@@ -777,7 +777,7 @@ import { liber } from "./config.js";
         var cpt0 =0;var cpt1 =0;var cpt2 =0;var cpt3 =0;var cpt4 =0;var cpt5 =0;var cpt6 =0;var cpt7 =0;var cpt8 =0;var cpt9 =0;var cpt10 =0;var cpt11 =0;var cpt12 =0;var cpt13 =0;var cpt14 =0;var cpt15 =0;var cpt16 =0;var cpt17 =0;var cpt18 =0;var cpt19 =0;var cpt20 =0;var cpt21 =0;var cpt22 =0;var cpt23 =0;var cpt24 =0;var cpt25 =0;var cpt26 =0;var cpt27 =0;var cpt28 =0;var cpt29 =0;var cpt30 =0;var cpt31 =0;var cpt32 =0;var cpt33 =0;var cpt34 =0;var cpt35 =0;var cpt36 =0;var cpt37 =0;var cpt38 =0;var cpt39 =0;var cpt40 =0;var cpt41 =0;var cpt42 =0;var cpt43 =0;var cpt44 =0;var cpt45 =0;var cpt46 =0;var cpt47 =0;var cpt48 =0;var cpt49 =0;var cpt50 =0;var cpt51 =0;var cpt52 =0;var cpt53 =0;var cpt54 =0;var cpt55 =0;var cpt56 =0;var cpt57 =0;var cpt58 =0;
 
         //nom
-        if(race==game.i18n.localize("liber.avantrace60") || race==game.i18n.localize("liber.avantrace92") ){
+        if(race==game.i18n.localize("liber.avantrace60") || race==game.i18n.localize("liber.avantrace63") ){
             var list =["","","","dova","pey","nig","key","bod","iroo","lex","blo","roo","daka","zul","zaa","zey","zoo","paa","ral","tur","tey","tel","daco","too","ook","roo","goo","pol","mel","nax","dao","paar","krey","vha","rung","ynon","kryn","bor","fax","soo","jey","aata","aatu","aati","thur","löng","yook","diir","ooko","aka","ack","apa","eaat","yata","uru","moo","bla","reb","pot","taa","rook","creedo","berk","dooit"];
             var pair1=list[Math.floor(Math.random()*list.length)];
             var pair2=list[Math.floor(Math.random()*list.length)];
@@ -799,7 +799,7 @@ import { liber } from "./config.js";
             var list =["Alastor","Azazel","Appolyon","Asmodée","Astaroth","Abrahel","Botis","Bifrons","Caym","Eligos","Flauros","Gusoyn","Ipos","Lilith","Marbas","Moloch","Malack","Naberius","Paimon","Raum","Samigina","Titivillus","Valefor"]
             var pair1=list[Math.floor(Math.random()*list.length)];
             var name=pair1;
-        }else if(race==game.i18n.localize("liber.avantrace63")){
+        }else if(race==game.i18n.localize("liber.avantrace77")){
             var list =["Azog","Bolg","Golfimbul","Grishnákh","Shagrat","Snaga","Gothmog","Gotar","Gor","Galimus","Karl","Rack"]
             if(sexe=="Female"){
                 var list2 =["la brute","la dure","la séduisante","la puissante","la sournoise","la forte","la brute","","la sanguinaire"]
@@ -843,7 +843,7 @@ import { liber } from "./config.js";
         }else if(race==game.i18n.localize("liber.avantrace92")){
             cpt1=5;cpt27=5;avantagerace=game.i18n.localize("liber.avantrace0");
         }else if(race==game.i18n.localize("liber.avantrace61")){
-            avantagerace=game.i18n.localize("liber.avantrace2");cpt28=5;
+            avantagerace=game.i18n.localize("liber.avantrace2");cpt28=5;cpt50=5;
         }else if(race==game.i18n.localize("liber.avantrace62")){
             avantagerace=game.i18n.localize("liber.avantrace3");cpt39=10;
         }else if(race==game.i18n.localize("liber.avantrace63")){
@@ -931,9 +931,7 @@ import { liber } from "./config.js";
         }else if(meti==game.i18n.localize("liber.metier16")){
             hp=8;psy= 25;phy=25;forc=5;agil=20;soc=70;saga=60;char=10;men=75;astu=60;memo=15;cpt15=cpt15+5;cpt47=cpt47+10;cpt50=cpt50+5;
         }
-        if(race==game.i18n.localize("liber.avantrace61") && clan!=game.i18n.localize("liber.avantrace56") && clan!=game.i18n.localize("liber.avantrace58")){
-            soc=soc+5;char=char+5;
-        }
+        
 
         //histoire
         var age = Math.floor((Math.random() * 34) + 16);
@@ -1195,11 +1193,8 @@ import { liber } from "./config.js";
             level=1;
         }
 
-        if(race==game.i18n.localize("liber.avantrace61")){
-            var reste=175-(parseInt(phys)+parseInt(soci)+parseInt(ment)); 
-        }else{
-            var reste=170-(parseInt(phys)+parseInt(soci)+parseInt(ment)); 
-        }
+        var reste=170-(parseInt(phys)+parseInt(soci)+parseInt(ment)); 
+        
         if(phys==''){let phys=10}
         if(forc==''){let force=5}
         if(agil==''){let agilite=5}
@@ -1209,9 +1204,7 @@ import { liber } from "./config.js";
         if(ment==''){let mental=10}
         if(astu==''){let astuce=5}
         if(memo==''){let physique=5}
-        var cpt0=this.actor.system.caracteristique.acrobatie;var cpt1=this.actor.system.caracteristique.agilites;var cpt2=this.actor.system.caracteristique.alchimie;var cpt3=this.actor.system.caracteristique.apprentissage;var cpt4=this.actor.system.caracteristique.hast;var cpt5=this.actor.system.caracteristique.cc;var cpt6=this.actor.system.caracteristique.lancer;var cpt7=this.actor.system.caracteristique.melee;var cpt8=this.actor.system.caracteristique.tir;var cpt9=this.actor.system.caracteristique.art;var cpt10=this.actor.system.caracteristique.assassinat;var cpt11=this.actor.system.caracteristique.baton;var cpt12=this.actor.system.caracteristique.bouclier;var cpt13=this.actor.system.caracteristique.bricolage;var cpt14=this.actor.system.caracteristique.presence;var cpt15=this.actor.system.caracteristique.chercher;var cpt16=this.actor.system.caracteristique.commander;var cpt17=this.actor.system.caracteristique.concentration;var cpt18=this.actor.system.caracteristique.nature;var cpt19=this.actor.system.caracteristique.peuples;var cpt20=this.actor.system.caracteristique.religions;var cpt21=this.actor.system.caracteristique.geographique;var cpt22=this.actor.system.caracteristique.rue;var cpt23=this.actor.system.caracteristique.heretiques;var cpt24=this.actor.system.caracteristique.combat;var cpt25=this.actor.system.caracteristique.commerce;var cpt26=this.actor.system.caracteristique.crochetage;var cpt27=this.actor.system.caracteristique.discretion;var cpt28=this.actor.system.caracteristique.dexterite;var cpt29=this.actor.system.caracteristique.detection;var cpt30=this.actor.system.caracteristique.dissimulation;var cpt31=this.actor.system.caracteristique.dressage;var cpt32=this.actor.system.caracteristique.ennemi;var cpt33=this.actor.system.caracteristique.equilibre;var cpt34=this.actor.system.caracteristique.equitation;var cpt35=this.actor.system.caracteristique.escroquerie;var cpt36=this.actor.system.caracteristique.esquiver;var cpt37=this.actor.system.caracteristique.puissance;var cpt38=this.actor.system.caracteristique.astuce;var cpt39=this.actor.system.caracteristique.peur;var cpt40=this.actor.system.caracteristique.joueur;var cpt41=this.actor.system.caracteristique.maitrise;var cpt42=this.actor.system.caracteristique.natation;var cpt43=this.actor.system.caracteristique.navigation;var cpt44=this.actor.system.caracteristique.orientation;var cpt45=this.actor.system.caracteristique.persuasion;var cpt46=this.actor.system.caracteristique.pister;var cpt47=this.actor.system.caracteristique.prophetie;var cpt48=this.actor.system.caracteristique.secours;var cpt49=this.actor.system.caracteristique.resistance;var cpt50=this.actor.system.caracteristique.psychologue;var cpt51=this.actor.system.caracteristique.medecine;var cpt52=this.actor.system.caracteristique.survie;var cpt53=this.actor.system.caracteristique.tueur;var cpt54=this.actor.system.caracteristique.objet;
-        var cpts=[cpt0,cpt1,cpt2,cpt3,cpt4,cpt5,cpt6,cpt7,cpt8,cpt9,cpt10,cpt11,cpt12,cpt13,cpt14,cpt15,cpt16,cpt17,cpt18,cpt19,cpt20,cpt21,cpt22,cpt23,cpt24,cpt25,cpt26,cpt27,cpt28,cpt29,cpt30,cpt31,cpt32,cpt33,cpt34,cpt35,cpt36,cpt37,cpt38,cpt39,cpt40,cpt41,cpt42,cpt43,cpt44,cpt45,cpt46,cpt47,cpt48,cpt49,cpt50,cpt51,cpt52,cpt53,cpt54]
-        
+        var cpt0=this.actor.system.caracteristique.acrobatie;var cpt1=this.actor.system.caracteristique.agilites;var cpt2=this.actor.system.caracteristique.alchimie;var cpt3=this.actor.system.caracteristique.apprentissage;var cpt4=this.actor.system.caracteristique.hast;var cpt5=this.actor.system.caracteristique.cc;var cpt6=this.actor.system.caracteristique.lancer;var cpt7=this.actor.system.caracteristique.melee;var cpt8=this.actor.system.caracteristique.tir;var cpt9=this.actor.system.caracteristique.art;var cpt10=this.actor.system.caracteristique.assassinat;var cpt11=this.actor.system.caracteristique.baton;var cpt12=this.actor.system.caracteristique.bouclier;var cpt13=this.actor.system.caracteristique.bricolage;var cpt14=this.actor.system.caracteristique.presence;var cpt15=this.actor.system.caracteristique.chercher;var cpt16=this.actor.system.caracteristique.commander;var cpt17=this.actor.system.caracteristique.concentration;var cpt18=this.actor.system.caracteristique.nature;var cpt19=this.actor.system.caracteristique.peuples;var cpt20=this.actor.system.caracteristique.religions;var cpt21=this.actor.system.caracteristique.geographique;var cpt22=this.actor.system.caracteristique.rue;var cpt23=this.actor.system.caracteristique.heretiques;var cpt24=this.actor.system.caracteristique.combat;var cpt25=this.actor.system.caracteristique.commerce;var cpt26=this.actor.system.caracteristique.crochetage;var cpt27=this.actor.system.caracteristique.discretion;var cpt28=this.actor.system.caracteristique.dexterite;var cpt29=this.actor.system.caracteristique.detection;var cpt30=this.actor.system.caracteristique.dissimulation;var cpt31=this.actor.system.caracteristique.dressage;var cpt32=this.actor.system.caracteristique.ennemi;var cpt33=this.actor.system.caracteristique.equilibre;var cpt34=this.actor.system.caracteristique.equitation;var cpt35=this.actor.system.caracteristique.escroquerie;var cpt36=this.actor.system.caracteristique.esquiver;var cpt37=this.actor.system.caracteristique.puissance;var cpt38=this.actor.system.caracteristique.astuce;var cpt39=this.actor.system.caracteristique.peur;var cpt40=this.actor.system.caracteristique.joueur;var cpt41=this.actor.system.caracteristique.maitrise;var cpt42=this.actor.system.caracteristique.natation;var cpt43=this.actor.system.caracteristique.navigation;var cpt44=this.actor.system.caracteristique.orientation;var cpt45=this.actor.system.caracteristique.persuasion;var cpt46=this.actor.system.caracteristique.pister;var cpt47=this.actor.system.caracteristique.prophetie;var cpt48=this.actor.system.caracteristique.secours;var cpt49=this.actor.system.caracteristique.resistance;var cpt50=this.actor.system.caracteristique.psychologue;var cpt51=this.actor.system.caracteristique.medecine;var cpt52=this.actor.system.caracteristique.survie;var cpt53=this.actor.system.caracteristique.tueur;var cpt54=this.actor.system.caracteristique.objet;var cpt55=this.actor.system.caracteristique.veterinaire;var cpt56=this.actor.system.caracteristique.vigilance;var cpt57=this.actor.system.caracteristique.vise;
         switch(race) {
           case game.i18n.localize("liber.avantrace60"):
             resultat -= 20;
@@ -1221,11 +1214,12 @@ import { liber } from "./config.js";
             break;
           case game.i18n.localize("liber.avantrace39"):
             resultat += 15;
-            cpt39 = Math.max(cpt39, 10);
+            if(cpt39<10){cpt39=10}
             break;
           case game.i18n.localize("liber.avantrace61"):
-            resultat += 15;
-            cpt28 = Math.max(cpt28, 5);
+            resultat += 30;
+            if(cpt28<5){cpt28=5}
+            if(cpt50<5){cpt50=5}
             break;
           case game.i18n.localize("liber.avantrace62"):
             resultat += 10;
@@ -1237,57 +1231,58 @@ import { liber } from "./config.js";
             break;
           case game.i18n.localize("liber.avantrace65"):
             resultat += 15;
-            cpt28 = Math.max(cpt28, 5);
+            if(cpt28<5){cpt28=5}
             break;
           case game.i18n.localize("liber.avantrace66"):
             resultat += 20;
-            cpt1 = Math.max(cpt1, 5);
-            cpt18 = Math.max(cpt18, 5);
+            if(cpt1<5){cpt1=5}
+            if(cpt18<5){cpt18=5}
             break;
           case game.i18n.localize("liber.avantrace67"):
             resultat += 20;
-            cpt10 = Math.max(cpt10, 10);
+            if(cpt10<5){cpt28=10}
             break;
           case game.i18n.localize("liber.avantrace68"):
             resultat += 15;
-            cpt1 = Math.max(cpt1, 5);
-            cpt3 = Math.max(cpt3, 5);
+            if(cpt1<5){cpt1=5}
+            if(cpt3<5){cpt3=5}
             break;
           case game.i18n.localize("liber.avantrace69"):
             resultat += 20;
-            cpt37 = Math.max(cpt37, 5);
-            cpt40 = Math.max(cpt40, 5);
+            if(cpt37<5){cpt37=5}
+            if(cpt40<5){cpt40=5}
             break;
           case game.i18n.localize("liber.avantrace70"):
             resultat += 25;
-            cpt1 = Math.max(cpt1, 5);
-            cpt27 = Math.max(cpt27, 5);
+            if(cpt1<5){cpt1=5}
+            if(cpt27<5){cpt27=5}
             break;
           case game.i18n.localize("liber.avantrace71"):
             resultat += 20;
-            cpt46 = Math.max(cpt46, 5);
-            cpt28 = Math.max(cpt28, 5);
+            if(cpt46<5){cpt46=5}
+            if(cpt28<5){cpt28=5}
             break;
           case game.i18n.localize("liber.avantrace73"):
             resultat += 5;
-            cpt18 = Math.max(cpt18, 5);
+            if(cpt18<5){cpt18=5}
             break;
           case game.i18n.localize("liber.avantrace76"):
             resultat += 5;
-            cpt15 = Math.max(cpt15, 5);
+            if(cpt15<5){cpt15=5}
             break;
           case game.i18n.localize("liber.avantrace77"):
             resultat -= 30;
             break;
           case game.i18n.localize("liber.avantrace91"):
             resultat += 15;
-            cpt1 = Math.max(cpt1, 5);
+            if(cpt1<5){cpt1=5}
             break;
           default:
             break;
         }
+        var cpts=[cpt0,cpt1,cpt2,cpt3,cpt4,cpt5,cpt6,cpt7,cpt8,cpt9,cpt10,cpt11,cpt12,cpt13,cpt14,cpt15,cpt16,cpt17,cpt18,cpt19,cpt20,cpt21,cpt22,cpt23,cpt24,cpt25,cpt26,cpt27,cpt28,cpt29,cpt30,cpt31,cpt32,cpt33,cpt34,cpt35,cpt36,cpt37,cpt38,cpt39,cpt40,cpt41,cpt42,cpt43,cpt44,cpt45,cpt46,cpt47,cpt48,cpt49,cpt50,cpt51,cpt52,cpt53,cpt54,cpt55,cpt56,cpt57]
 
-        for (var i = 0; i < 55; i++) {
+        for (var i = 0; i < 58; i++) {
           var ajout = cpts[i];
           if (ajout > 20) {
             ajout = 20;
