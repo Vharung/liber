@@ -777,7 +777,7 @@ import { liber } from "./config.js";
         var cpt0 =0;var cpt1 =0;var cpt2 =0;var cpt3 =0;var cpt4 =0;var cpt5 =0;var cpt6 =0;var cpt7 =0;var cpt8 =0;var cpt9 =0;var cpt10 =0;var cpt11 =0;var cpt12 =0;var cpt13 =0;var cpt14 =0;var cpt15 =0;var cpt16 =0;var cpt17 =0;var cpt18 =0;var cpt19 =0;var cpt20 =0;var cpt21 =0;var cpt22 =0;var cpt23 =0;var cpt24 =0;var cpt25 =0;var cpt26 =0;var cpt27 =0;var cpt28 =0;var cpt29 =0;var cpt30 =0;var cpt31 =0;var cpt32 =0;var cpt33 =0;var cpt34 =0;var cpt35 =0;var cpt36 =0;var cpt37 =0;var cpt38 =0;var cpt39 =0;var cpt40 =0;var cpt41 =0;var cpt42 =0;var cpt43 =0;var cpt44 =0;var cpt45 =0;var cpt46 =0;var cpt47 =0;var cpt48 =0;var cpt49 =0;var cpt50 =0;var cpt51 =0;var cpt52 =0;var cpt53 =0;var cpt54 =0;var cpt55 =0;var cpt56 =0;var cpt57 =0;var cpt58 =0;
 
         //nom
-        if(race==game.i18n.localize("liber.avantrace60") || race==game.i18n.localize("liber.avantrace63") ){
+        if(race==game.i18n.localize("liber.avantrace60") || race==game.i18n.localize("liber.avantrace63") || race==game.i18n.localize("liber.avantrace92") ){
             var list =["","","","dova","pey","nig","key","bod","iroo","lex","blo","roo","daka","zul","zaa","zey","zoo","paa","ral","tur","tey","tel","daco","too","ook","roo","goo","pol","mel","nax","dao","paar","krey","vha","rung","ynon","kryn","bor","fax","soo","jey","aata","aatu","aati","thur","löng","yook","diir","ooko","aka","ack","apa","eaat","yata","uru","moo","bla","reb","pot","taa","rook","creedo","berk","dooit"];
             var pair1=list[Math.floor(Math.random()*list.length)];
             var pair2=list[Math.floor(Math.random()*list.length)];
@@ -811,7 +811,7 @@ import { liber } from "./config.js";
             var pair1=list[Math.floor(Math.random()*list.length)];
             var pair2=list2[Math.floor(Math.random()*list2.length)];
             var name=pair1+" "+pair2;
-        }else if(race==game.i18n.localize("liber.avantrace92") || race==game.i18n.localize("liber.avantrace66") || race==game.i18n.localize("liber.avantrace67") || race==game.i18n.localize("liber.avantrace68")){
+        }else if(race==game.i18n.localize("liber.avantrace10a") || race==game.i18n.localize("liber.avantrace66") || race==game.i18n.localize("liber.avantrace67") || race==game.i18n.localize("liber.avantrace68")){
             if(sexe=="Female"){
                 var list =["Aerin","Aglari","Amandil","Amarië","Anardil : amie du soleil","Arafinwë : royale","Arachné","Aranwë","Arcadia","Ardamírë","Aredhel","Ardamir : Joyaux du monde","Argadil :","Ariarhen","Arminas","Artaher : noble dame","Artanis : noble femme","Arwen","Ashana","Astal : la vaillante","Athelleen : guerrière des flammes","Baliena","Barmahir","Belwen","Brindal","Caliawen : la lumineuse","Carafinwë : L’habile","Castamir : joyaux","Celebrían : reine d’argent","Celeanar : soleil d’argent","Circë : magicienne","Ciryandil : amie des navires","Dairiun","Danica","Danywen","Daenara","Dhaunare","Dralsa","Diningal","Eärendil : amie de la mer","Earwen : jeune fille de la mer","Eilinel","Elendë : ami des elfes/des étoiles","Elemmacil : étoile épée","Elbereth : étoile-reine","Eledhwen : au teint d’elfe","Elemire : étoile joyaux","Elwë : à la robe grise","Enetari : étoile-reine","Elenwë","Elentir : qui scrute les étoile","Elessar : pierre elfique","Elerinna : couronnée d’étoiles","Elwing (pluie d’étoiles)","Emeldiz","Endaria","Estë : repos","Eänwen : jeune fille de la mer","Eldalótë : fleur elfique","Eönwë","Eressëa : la solitaire","Estrid : la mystique","Falathar : esprit du feu","Fëanturi : maîtresse des esprits","Fíriel : femme mortelle","Finduilas","Galadriel","Galata","Galdor","Glingal : la flamme suspendue","Glóredhel","Gilestel : étoile de l’espoir","Gilgalad : étoile rayonnante","Glorfindel : tête d’or","Heldaria","Idril","Ilmarë","Indis","Irwaen","Imarune","Isil : la lune","Itarillë : petite étincelle","Izilbêth","Kardryar : la puissante","Kementari : reine de la terre","Lalwendë : jeune fille rieuse","Lalaith : rire","Laurelin : le chant d’or","Limstella","Linaewen : lac des oiseaux","Lindorië","Luinil : étoile à la lumière bleue","Lúthien","Macalaure : qui forge l’or","Mahal","Maeglin : œil vif","Manîthil : esprit de lune","Melian","Míriel","Mormegil : l’épée noire","Morwën : noire forêt","Nandil : Reine du lac","Nennvial : lac du crépuscule","Nerdanel","Nessa","Nerwen","Nenwende : fille masculine","Nienor/Nior (deuil)","Níniel : fille aux larmes","Ninquelotë : fleur blanche","Ñolofinwë : sagesse","Númendil : amie de l’ouest","Oilossë : neige toujours blanche","Oromë : musicienne","Olórin","Olwë","Ondolindë : chant de pierre","Qorwyn : la maléfique","Rathlóriel : lit d’or","Rían","Rúmil : la savante","Serindë : la brodeuse","Silana","Siltiama : colère de feu","Sirthaal : ce qui est caché","Thuringwethil : femme secrète","Tintallë : la lumière","Tinúviel : fille du Crépuscule","Unyen","Vairë : la tisseuse","Valandil","Vàna","Varda : la très haute","Virani : reine","Volanarë : celle qui devine","Voronwë : l’inébranlable","Wilwarin : le papillon","Wondrel","Yarayn","Yavana : dispensatrice des fruits","Ylengil","Yndreth","Yndris"]
 
@@ -1209,8 +1209,14 @@ import { liber } from "./config.js";
           case game.i18n.localize("liber.avantrace60"):
             resultat -= 20;
             break;
+          case game.i18n.localize("liber.avantrace68"):
+            resultat -= 15;
+            if(cpt1<5){cpt1=5}
+            break;
           case game.i18n.localize("liber.avantrace92"):
-            resultat -= 25;
+            if(cpt1<5){cpt1=5}
+            if(cpt27<5){cpt27=5}
+            resultat += 25;
             break;
           case game.i18n.localize("liber.avantrace39"):
             resultat += 15;
@@ -1242,8 +1248,8 @@ import { liber } from "./config.js";
             resultat += 20;
             if(cpt10<5){cpt28=10}
             break;
-          case game.i18n.localize("liber.avantrace68"):
-            resultat += 15;
+          case game.i18n.localize("liber.avantrace10a"):
+            resultat += 30;
             if(cpt1<5){cpt1=5}
             if(cpt3<5){cpt3=5}
             break;

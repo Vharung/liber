@@ -18,7 +18,7 @@ liber.raceTypes={
 	r3:"liber.avantrace63",
 	r4:"liber.avantrace64",
 	r5:"liber.avantrace65",
-	r6:"liber.avantrace92",
+	r6:"liber.avantrace10a",
 	r7:"liber.avantrace66",
 	r8:"liber.avantrace67",
 	r9:"liber.avantrace68",
