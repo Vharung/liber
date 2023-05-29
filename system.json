@@ -28,7 +28,7 @@
           "system": "liber",
           "path": "./pack/monstre.db",
           "type": "Actor",
-          "private": true
+          "visibility": "trusted"
         },
         {
           "name": "armure",
@@ -42,7 +42,8 @@
           "label": "Aide au MJ",
           "system": "liber",
           "path": "./pack/aide-mj.db",
-          "type": "Item"
+          "type": "Item",
+          "visibility": "trusted"
         },
         {
           "name": "arme",
@@ -70,8 +71,7 @@
           "label": "Régles",
           "type": "JournalEntry",
           "path": "./pack/regles.db",
-          "system": "liber",
-          "private": false
+          "system": "liber"
         },
         {
           "name": "villes",
@@ -79,7 +79,7 @@
           "type": "Scene",
           "path": "./pack/villes.db",
           "system": "liber",
-          "private": true
+          "visibility": "trusted"
         }
     ],
     "languages": [
