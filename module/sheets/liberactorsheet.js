@@ -892,7 +892,7 @@ import { liber } from "./config.js";
 
         //metier
         if(clan==game.i18n.localize("liber.avantrace58")){
-            hp=22;psy= 9;phy=65;forc=40;agil=20;soc=40;saga=20;char=20;men=65;astu=25;memo=40;cpt12=cpt12+5;cpt7=cpt7+5;cpt20=cpt20+10;cpt34=cpt34+5;cpt23=cpt23+10;
+            hp=22;psy= 8;phy=65;forc=40;agil=20;soc=40;saga=20;char=20;men=65;astu=25;memo=40;cpt12=cpt12+5;cpt7=cpt7+5;cpt20=cpt20+10;cpt34=cpt34+5;cpt23=cpt23+10;
         }else if(clan==game.i18n.localize("liber.avantrace56") && race==game.i18n.localize("liber.avantrace61")){
             hp=29;psy= 0;phy=75;forc=65;agil=10;soc=40;saga=10;char=30;men=60;astu=10;memo=50;cpt24=cpt24+5;cpt7=cpt7+5;cpt39=cpt39+10;cpt46=cpt46+5;cpt49=cpt49+5;
             if(cpt28<5){cpt28=5;}
