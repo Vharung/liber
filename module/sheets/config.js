@@ -135,11 +135,10 @@ liber.clanDragonTypes={
     c14:"liber.avantrace52",
     c15:"liber.avantrace53",
     c16:"liber.avantrace54",
-    c17:"liber.avantrace55",
-    c18:"liber.avantrace59"
-}
+    c17:"liber.avantrace55"}
 
 liber.clanAllTypes={
+    c18:"liber.avantrace59",
     c19:"liber.avantrace56",
     c23:"liber.avantrace78",
     c0:"liber.avantrace79"
