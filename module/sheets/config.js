@@ -146,8 +146,7 @@ liber.clanAllTypes={
 }
 
 liber.clanHumainTypes={
-    c20:"liber.avantrace57",			
-    c21:"liber.avantrace58"
+    c20:"liber.avantrace57"
 }
 liber.clanDemonTypes={
     c20:"liber.avantrace39"
@@ -166,9 +165,7 @@ liber.religionHumainTypes={
 liber.religionAllTypes={
     r4:"liber.avantrace80",
     r5:"liber.avantrace88",
-    r6:"liber.avantrace89",
-    r7:"liber.avantrace90",
-    r8:"liber.avantrace78"
+    r6:"liber.avantrace89"
 }
 liber.religionDragonTypes={
     r10:"liber.avantrace84"

@@ -337,11 +337,17 @@ import { liber } from "./config.js";
         }
         //cacher metier
         const clan = html.find('.clanliste option:selected').val();
-
+        const reli = html.find('.religionliste option:selected').val();
+        html.find('.classique').css("display", "none");
+        html.find('.guerrier').css("display", "none");
+        html.find('.croiser').css("display", "none");
+        
         if (clan === game.i18n.localize("liber.avantrace56")) {
           html.find('.guerrier').css("display", "block");
-        }else if (clan === game.i18n.localize("liber.avantrace58")) {
-          html.find('.croiser').css("display", "block");
+          html.find('.religionliste option').css("display", "none");
+          html.find('.religionliste option.aucun').css("display", "block");
+        }else if (reli === game.i18n.localize("liber.avantrace82")) {
+          html.find('.croiser').css("display", "block");console.log('reli')
         }else {
           html.find('.classique').css("display", "block");  
         }         
