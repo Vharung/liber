@@ -895,7 +895,43 @@ import { liber } from "./config.js";
         }
 
         //clan
-
+        if(clan==game.i18n.localize("liber.avantrace40")){
+            avantagerace+=game.i18n.localize("liber.avantrace20");
+        }else if(clan==game.i18n.localize("liber.avantrace41")){
+            avantagerace+=game.i18n.localize("liber.avantrace21");
+        }else if(clan==game.i18n.localize("liber.avantrace42")){
+            avantagerace+=game.i18n.localize("liber.avantrace22");
+        }else if(clan==game.i18n.localize("liber.avantrace43")){
+            avantagerace+=game.i18n.localize("liber.avantrace23");
+        }else if(clan==game.i18n.localize("liber.avantrace44")){
+            avantagerace+=game.i18n.localize("liber.avantrace24");
+        }else if(clan==game.i18n.localize("liber.avantrace45")){
+            avantagerace+=game.i18n.localize("liber.avantrace25");
+        }else if(clan==game.i18n.localize("liber.avantrace46")){
+            avantagerace+=game.i18n.localize("liber.avantrace26");
+        }else if(clan==game.i18n.localize("liber.avantrace47")){
+            avantagerace+=game.i18n.localize("liber.avantrace27");
+        }else if(clan==game.i18n.localize("liber.avantrace48")){
+            avantagerace+=game.i18n.localize("liber.avantrace28");
+        }else if(clan==game.i18n.localize("liber.avantrace49")){
+            avantagerace+=game.i18n.localize("liber.avantrace29");
+        }else if(clan==game.i18n.localize("liber.avantrace50")){
+            avantagerace+=game.i18n.localize("liber.avantrace30");
+        }else if(clan==game.i18n.localize("liber.avantrace51")){
+            avantagerace+=game.i18n.localize("liber.avantrace31");
+        }else if(clan==game.i18n.localize("liber.avantrace52")){
+            avantagerace+=game.i18n.localize("liber.avantrace32");
+        }else if(clan==game.i18n.localize("liber.avantrace53")){
+            avantagerace+=game.i18n.localize("liber.avantrace33");
+        }else if(clan==game.i18n.localize("liber.avantrace54")){
+            avantagerace+=game.i18n.localize("liber.avantrace34");
+        }else if(clan==game.i18n.localize("liber.avantrace55")){
+            avantagerace+=game.i18n.localize("liber.avantrace35");
+        }else if(clan==game.i18n.localize("liber.avantrace56")){
+            avantagerace+=game.i18n.localize("liber.avantrace36");
+        }else if(reli==game.i18n.localize("liber.avantrace82")){
+            avantagerace+=game.i18n.localize("liber.avantrace36b");
+        }
         //metier
         if(clan==game.i18n.localize("liber.avantrace58")){
             hp=22;psy= 8;phy=65;forc=40;agil=20;soc=40;saga=20;char=20;men=65;astu=25;memo=40;cpt12=cpt12+5;cpt7=cpt7+5;cpt20=cpt20+10;cpt34=cpt34+5;cpt23=cpt23+10;
