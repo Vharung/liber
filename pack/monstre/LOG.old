@@ -1,8 +1,15 @@
-2023/06/08-05:50:47.560353 7f6d577fe700 Recovering log #72
-2023/06/08-05:50:47.564708 7f6d577fe700 Delete type=0 #72
-2023/06/08-05:50:47.564729 7f6d577fe700 Delete type=3 #70
-2023/06/08-07:00:13.027845 7f6ad67ef700 Level-0 table #77: started
-2023/06/08-07:00:13.028227 7f6ad67ef700 Level-0 table #77: 0 bytes OK
-2023/06/08-07:00:13.030233 7f6ad67ef700 Delete type=0 #75
-2023/06/08-07:00:13.033909 7f6ad67ef700 Manual compaction at level-0 from '!actors!0plFCgtdHI4yCPxg' @ 72057594037927935 : 1 .. '!actors.items!zsgtYw6nIANh51h4.uUwQCQPPuqRftlFL' @ 0 : 0; will stop at (end)
-2023/06/08-07:00:13.033949 7f6ad67ef700 Manual compaction at level-1 from '!actors!0plFCgtdHI4yCPxg' @ 72057594037927935 : 1 .. '!actors.items!zsgtYw6nIANh51h4.uUwQCQPPuqRftlFL' @ 0 : 0; will stop at (end)
+2023/06/08-07:00:19.571899 7f6d56ffd700 Recovering log #76
+2023/06/08-07:00:19.577956 7f6d56ffd700 Delete type=0 #76
+2023/06/08-07:00:19.577982 7f6d56ffd700 Delete type=3 #74
+2023/06/08-11:43:54.969286 7f6ad67ef700 Level-0 table #81: started
+2023/06/08-11:43:54.970822 7f6ad67ef700 Level-0 table #81: 9089 bytes OK
+2023/06/08-11:43:54.972185 7f6ad67ef700 Delete type=0 #79
+2023/06/08-11:43:54.972429 7f6ad67ef700 Manual compaction at level-0 from '!actors!0plFCgtdHI4yCPxg' @ 72057594037927935 : 1 .. '!actors.items!zsgtYw6nIANh51h4.uUwQCQPPuqRftlFL' @ 0 : 0; will stop at (end)
+2023/06/08-11:43:54.974142 7f6ad67ef700 Manual compaction at level-1 from '!actors!0plFCgtdHI4yCPxg' @ 72057594037927935 : 1 .. '!actors.items!zsgtYw6nIANh51h4.uUwQCQPPuqRftlFL' @ 0 : 0; will stop at '!actors!1WQNtzbnoHjKZZcR' @ 232 : 1
+2023/06/08-11:43:54.974149 7f6ad67ef700 Compacting 1@1 + 1@2 files
+2023/06/08-11:43:54.979338 7f6ad67ef700 Generated table #82@1: 231 keys, 251308 bytes
+2023/06/08-11:43:54.979351 7f6ad67ef700 Compacted 1@1 + 1@2 files => 251308 bytes
+2023/06/08-11:43:54.980560 7f6ad67ef700 compacted to: files[ 0 0 1 0 0 0 0 ]
+2023/06/08-11:43:54.980620 7f6ad67ef700 Delete type=2 #81
+2023/06/08-11:43:54.980699 7f6ad67ef700 Delete type=2 #5
+2023/06/08-11:43:54.985523 7f6ad67ef700 Manual compaction at level-1 from '!actors!1WQNtzbnoHjKZZcR' @ 232 : 1 .. '!actors.items!zsgtYw6nIANh51h4.uUwQCQPPuqRftlFL' @ 0 : 0; will stop at (end)
