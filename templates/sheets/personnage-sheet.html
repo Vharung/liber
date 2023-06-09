@@ -178,7 +178,7 @@
 			{{!-- Sheet Body --}}
 			<section class="sheet-body" style="height: 696px;">
 				{{!-- Items Tab --}}
-				<div id="items" class="tab items" data-group="primary" data-tab="items" style="height: 696px;">
+				<div id="items" class="tab items" data-group="primary" data-tab="items" style="height: 632px;">
 					<nav class="sheet-tabs tabs">
 				        <a class="item-filter tous acti" data-tab="tous"></a>
 				        <a class="item-filter armes" data-tab="armes"></a>
@@ -255,7 +255,28 @@
 				                </li>
 			            {{/each}}
 		        		</ul>
-
+		        	<div class="clear"></div>
+					<div class=" rexrow" style="position: absolute;bottom: 10px;width: 390px;">
+						<div class="grid-2col" style="text-align: center;color:#fff">
+							<h2>Action</h2>
+							<img src="systems/liber/assets/icon/arme_a_deux_mains.jpg" title="Utiliser une armes à deux mains" class="action"/>
+							<img src="systems/liber/assets/icon/discours.jpg" title="Faire un discours" class="action"/>
+							<img src="systems/liber/assets/icon/sort.jpg" title="Lancer un sort" class="action"/>
+							<img src="systems/liber/assets/icon/tir.jpg" title="Tirer à l'arc ou l'arbalète" class="action"/>
+							<img src="systems/liber/assets/icon/courrir.jpg" title="Courrir" class="action"/>
+						</div>
+						<div class="grid-2col" style="text-align: center;color:#fff">
+							<h2>Demi-Action</h2>
+							<img src="systems/liber/assets/icon/aide.jpg" title="aider quelqu'un à se lever" class="action"/>
+							<img src="systems/liber/assets/icon/arme_une_main.jpg" title="utiliser une arme à une main" class="action"/>
+							<img src="systems/liber/assets/icon/boire_une_potion.jpg" title="boire une potion" class="action"/>
+							<img src="systems/liber/assets/icon/parler.jpg" title="parler" class="action"/>
+							<img src="systems/liber/assets/icon/prendre.jpg" title="Prendre une objet" class="action"/>
+							<img src="systems/liber/assets/icon/se_deplacer.jpg" title="Se deplacer" class="action"/>
+							<img src="systems/liber/assets/icon/se_lever.jpg"  title="Se lever" class="action"/>
+						</div>
+						
+					</div>
 		        		
 				</div>
 				{{!-- Features Tab --}}
@@ -467,6 +488,7 @@
 			                <input type="a" value="{{localize 'liber.generer'}}" class="ficheperso">
 			            </div>			            
 					</div>
+					
 				</div>
 				<div class="clear"></div>
 			</section>

@@ -47,7 +47,7 @@ form.Liber {
 .Liber .deno{width: 100%;border-bottom: 1px solid #20180d;padding: 0px;display: block;margin: 0 5px 5px 5px;height: 28px;}
 .Liber .modif{margin-top: 5px}
 .Liber .vue{background: url()}
-
+.Liber .action{height: 20px;display: inline-block;}
 .Liber .items .items-list li,.Liber .spells .items-list li {margin: 0;width:82px;display: none;float:left;margin:0 5px 0px 0}
 .Liber .spells .items-list li {display: inline-block;}
 .Liber .items-list .item-name,.Liber .items-list .item-controls {margin: 0;width: 82px;background: #221808;padding: 3px;text-align: center;font-size: 0.8em;overflow: hidden;}
