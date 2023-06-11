@@ -40,7 +40,6 @@ import { liber } from "./config.js";
    
     _prepareCharacterItems(sheetData) {
         const actorData = sheetData.actor;
-
         // Initialize containers.
         const arme = [];
         const armure = [];
@@ -1377,7 +1376,10 @@ import { liber } from "./config.js";
 
         const listsort = this.actor.sort;
         const nbsorts = listsort.length;
-        const calsort = parseInt(b_nb) - parseInt(nbsorts);
+        let calsort = parseInt(b_nb) - parseInt(nbsorts);
+        if(compt==game.i18n.localize("liber.title81")){
+            calsort=parseInt(calsort)+1;
+        }
         let color1 = 'color:white;';
         let color2 = 'color:white;';
         let apsy = '';
@@ -1454,6 +1456,7 @@ import { liber } from "./config.js";
           [game.i18n.localize('liber.avantrace83')]: 'lumiere',
           [game.i18n.localize('liber.avantrace84')]: 'ombre',
           [game.i18n.localize('liber.avantrace85')]: 'waetra',
+          [game.i18n.localize('liber.caract63b')]: 'cercle',
           [game.i18n.localize('liber.avantrace90')]: 'rune'
         };
 
@@ -1467,12 +1470,14 @@ import { liber } from "./config.js";
         if (reliMagMap[reli]) {
           mag2 = reliMagMap[reli];
         }
+        console.log(mag2)
         //activer les effets
         const effets = this.actor.effects.filter(item => item.label !== '').map(item => item.label);
         const lists = ['Endormi','Etourdi','Aveugle','Sourd','Réduit au silence','Apeuré','Brûlant','Gelé','Invisible','Béni','Empoisonné','Saignement','Inconscient','Mort'];
         const active = lists.map(list => effets.includes(list) ? 1 : 0.5);
 
         //liste des sorts possible
+
         const pack = game.packs.get('liber.magie');
         const tables = await pack.getDocuments();
         const listem = tables.filter(value =>
