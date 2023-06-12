@@ -1071,24 +1071,45 @@ import { liber } from "./config.js";
 
         if (equipe === DROITE || equipe === GAUCHE || equipe === "ddroite" || equipe === "dgauche") {
           for (let i = listedemain.length - 1; i >= 0; i--) {
-            const nameInListedemain = name && name.includes(listedemain[i]);
-            const armedInListedemain = armed && armed.includes(listedemain[i]);
-            const armegInListedemain = armeg && armeg.includes(listedemain[i]);
+              const nameInListedemain = name && name.includes(listedemain[i]);
+              const armedInListedemain = armed && armed.includes(listedemain[i]);
+              const armegInListedemain = armeg && armeg.includes(listedemain[i]);
 
-            if (nameInListedemain || armedInListedemain || armegInListedemain) {
-              equipe === DROITE ? (armeg = "", degatg = "", desg = "", imgg = "") : (equipe === GAUCHE ? (armed = "", degatd = "", desd = "", imgd = "") : null);
+              if (nameInListedemain || armedInListedemain || armegInListedemain) {
+                if (equipe === DROITE) {
+                  armeg = "";
+                  degatg = "";
+                  desg = "";
+                  imgg = "";
+                } else if (equipe === GAUCHE) {
+                  armed = "";
+                  degatd = "";
+                  desd = "";
+                  imgd = "";
+                }
+              }
             }
-          }
-
-          equipe === DROITE
-            ? ((armed = name), (degatd = degat), (desd = des), (imgd = img))
-            : equipe === GAUCHE
-            ? ((armeg = name), (degatg = degat), (desg = des), (imgg = img))
-            : equipe === "ddroite"
-            ? ((armed = ''), (degatd = ''), (desd = ''), (imgd = ''))
-            : equipe === "dgauche"
-            ? ((armeg = ''), (degatg = ''), (desg = ''), (imgg = ''))
-            : null;
+            if (equipe === DROITE) {
+              armed = name;
+              degatd = degat;
+              desd = des;
+              imgd = img;
+            } else if (equipe === GAUCHE) {
+              armeg = name;
+              degatg = degat;
+              desg = des;
+              imgg = img;
+            } else if (equipe === "ddroite") {
+              armed = "";
+              degatd = "";
+              desd = "";
+              imgd = "";
+            } else if (equipe === "dgauche") {
+              armeg = "";
+              degatg = "";
+              desg = "";
+              imgg = "";
+            }
         }else {
             if(equipe=== 'armure'){
                 arm=name; ard=des; ari=img;
@@ -1096,7 +1117,6 @@ import { liber } from "./config.js";
                 arm=''; ard=''; ari='';
             }
         }
-
         if(race==game.i18n.localize("liber.avantrace60")){
             armor = 2;
         }
@@ -1109,7 +1129,7 @@ import { liber } from "./config.js";
         else if(arm=="Grand Bouclier"){armor=armor+2;} 
         else if(arm=="Cuir rigide"){armor=armor+2;} 
         else if(arm=="Cote de maille"){armor=armor+3;}
-        else if(arm=="Armure de plaques"){armor=armor+4;}     
+        else if(arm=="Armure de plaques"){armor=armor+4;}    
         this.actor.update({'system.protection': armor,'system.armeuse.armure': arm,'system.armeuse.desa': ard,'system.armeuse.imga': ari,'system.armeuse.armed': armed,'system.armeuse.degatd': degatd,'system.armeuse.imgd': imgd,'system.armeuse.desd': desd,'system.armeuse.armeg': armeg,'system.armeuse.degatg': degatg,'system.armeuse.imgg': imgg,'system.armeuse.desg': desg});
 
     }
@@ -1470,7 +1490,6 @@ import { liber } from "./config.js";
         if (reliMagMap[reli]) {
           mag2 = reliMagMap[reli];
         }
-        console.log(mag2)
         //activer les effets
         const effets = this.actor.effects.filter(item => item.label !== '').map(item => item.label);
         const lists = ['Endormi','Etourdi','Aveugle','Sourd','Réduit au silence','Apeuré','Brûlant','Gelé','Invisible','Béni','Empoisonné','Saignement','Inconscient','Mort'];
