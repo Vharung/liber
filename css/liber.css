@@ -224,6 +224,8 @@ input.m_degat,input.m_pv,input.m_ar{color:grey}
 
 footer.nue {color: #c9c7b8;}
 
+.Liber .item-cout{z-index: 2;position: relative;}
+
 .item-piles-even-color:nth-child(even){background: rgb(32 24 13}
 ::-webkit-scrollbar {
 	width: 0px !important;
