@@ -384,7 +384,7 @@ import { liber } from "./config.js";
         let encours=this.actor.system.encombrement.value;
         let encmax=this.actor.system.encombrement.max;
         let encdif=0;
-        const listedemain =['Rapière','Bâton','Espadon','Hallebarde','Fléaux d\'arme','Epée à deux main','Masse d\'arme','Hache de bataille','Faux de Guerre','Lance Lourde']
+        const listedemain =['Bâton','Espadon','Hallebarde','Fléaux d\'arme','Epée à deux main','Masse d\'arme','Hache de bataille','Faux de Guerre','Lance Lourde']
 
         //var degat
         var img=event.target.dataset["img"];
@@ -618,7 +618,7 @@ import { liber } from "./config.js";
         if(cout<0){
             cout=0;
         }
-        cout=parseInt(cout);psy=parseInt(psy)
+        cout=parseInt(cout);psy=parseInt(psy);
         if(cout<psy){
             console.log('sort lancer :'+psy+'-'+cout)//bug
             psy = parseInt(psy)-parseInt(cout)
@@ -1060,7 +1060,7 @@ import { liber } from "./config.js";
     
     _onArmor(event){
         const equipe=event.target.dataset["equip"];
-        const listedemain =['Rapière','Bâton','Espadon','Hallebarde','Fléaux d\'arme','Epée à deux main','Masse d\'arme','Hache de bataille','Faux de Guerre','Lance Lourde']
+        const listedemain =['Bâton','Espadon','Hallebarde','Fléaux d\'arme','Epée à deux main','Masse d\'arme','Hache de bataille','Faux de Guerre','Lance Lourde']
         let { protection,race} = this.actor.system;
         let { armure,desa,imga,armed,degatd,desd,imgd,armeg,degatg,desg,imgg} = this.actor.system.armeuse;
         const { img, des, name, degat } = event.target.dataset;
@@ -1211,6 +1211,7 @@ import { liber } from "./config.js";
     }
 
     _onEncom(){
+        console.log('_onEncom')
         const compt = this.actor.system.talent
         const faible = this.actor.system.faiblesse
         let forc=this.actor.system.ability.force;
@@ -1229,6 +1230,7 @@ import { liber } from "./config.js";
     }
 
     async _onStat(event){
+        console.log('_onStat')
         let race=this.actor.system.race;
         let phys=this.actor.system.ability.physique;
         let forc=this.actor.system.ability.force;
@@ -1253,7 +1255,8 @@ import { liber } from "./config.js";
         if(level==''){
             level=1;
         }
-
+        if(psy=='' || psy==undefined){psy=0;}
+        
         var reste=170-(parseInt(phys)+parseInt(soci)+parseInt(ment)); 
         
         if(phys==''){let phys=10}
@@ -1363,7 +1366,7 @@ import { liber } from "./config.js";
           }
           resultat -= ajout * muti;
         }
-        
+
         //Stat base
         let b_psy = Math.round((parseInt(ment) + parseInt(soci)/2 - parseInt(phys) + 5) / 4 + 2);
         let b_nb = Math.round(parseInt(b_psy) / 4) + 1 + parseInt(level);
@@ -1563,32 +1566,32 @@ import { liber } from "./config.js";
     }
 
       /** @override */
-  _onDragStart(event) {
-    const li = event.currentTarget;
-    if ( event.target.classList.contains("content-link") ) return;
+    _onDragStart(event) {
+        const li = event.currentTarget;
+        if ( event.target.classList.contains("content-link") ) return;
 
-    // Create drag data
-    let dragData;
+        // Create drag data
+        let dragData;
 
-    if ( li.dataset.type == "jetdedes") {
-      dragData = { "type": "ability", "name": li.dataset.name, "item": li.dataset.itemId, "dice": li.dataset.dice, "attDice": li.dataset.attdice }
-    }
+        if ( li.dataset.type == "jetdedes") {
+          dragData = { "type": "ability", "name": li.dataset.name, "item": li.dataset.itemId, "dice": li.dataset.dice, "attDice": li.dataset.attdice }
+        }
 
-    // Owned Items
-    else if ( li.dataset.itemId ) {
-      const item = this.actor.items.get(li.dataset.itemId);
-      dragData = item.toDragData();
-    }
+        // Owned Items
+        else if ( li.dataset.itemId ) {
+          const item = this.actor.items.get(li.dataset.itemId);
+          dragData = item.toDragData();
+        }
 
-    // Active Effect
-    if ( li.dataset.effectId ) {
-      const effect = this.actor.effects.get(li.dataset.effectId);
-      dragData = effect.toDragData();
-    }
+        // Active Effect
+        if ( li.dataset.effectId ) {
+          const effect = this.actor.effects.get(li.dataset.effectId);
+          dragData = effect.toDragData();
+        }
 
-    if ( !dragData ) return;
+        if ( !dragData ) return;
 
-    // Set data transfer
-    event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
-  }
+        // Set data transfer
+        event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
+      }
 }
