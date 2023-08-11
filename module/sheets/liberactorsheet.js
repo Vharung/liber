@@ -349,7 +349,11 @@ import { liber } from "./config.js";
           html.find('.croiser').css("display", "block");console.log('reli')
         }else {
           html.find('.classique').css("display", "block");  
-        }         
+        }  
+        if(race==game.i18n.localize('liber.avantrace64')){
+            html.find('.magi').css("display", "none");
+            html.find('.religionliste').css("display", "none");
+        }       
     }
 
     getItemFromEvent = (ev) => {
@@ -477,7 +481,7 @@ import { liber } from "./config.js";
             texte+=button+'</span>';
             //info Tchat    
             roll.toMessage({
-                speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+                speaker: ChatMessage.getSpeaker({ actor: this }),
                 flavor: texte
             });
 
@@ -538,7 +542,7 @@ import { liber } from "./config.js";
         
                 //info Tchat    
                 roll.toMessage({
-                    speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+                    speaker: ChatMessage.getSpeaker({ actor: this }),
                     flavor: texte
                 });  
             }
@@ -552,7 +556,7 @@ import { liber } from "./config.js";
             var d=Math. round(Math.random() * tuer.length);
             texte = "<span style='flex:auto'><p class='resultatp'>"+tuer[d]+"&nbsp; <span style='text-transform:uppercase;font-weight: bold;'> "+nom+"</span></span></span>";
             let chatData = {
-                speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+                speaker: ChatMessage.getSpeaker({ actor: this }),
                 content: texte
             };
             ChatMessage.create(chatData, {});
@@ -639,7 +643,7 @@ import { liber } from "./config.js";
         const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +' : '+ mental +'/100</span><span class="desctchat">'+desc+'</span></p>'+succes+
         button+'</span>';
         roll.toMessage({
-            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            speaker: ChatMessage.getSpeaker({ actor: this }),
             flavor: texte
         });
     }
@@ -659,7 +663,7 @@ import { liber } from "./config.js";
         var portrait='<img src="icons/svg/mystery-man.svg" width="36" height="36" class="chat-portrait-message-portrait-generic" style="border: 2px solid rgb(255, 255, 255);">';
         const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +'</span><span class="desctchat" style="display:block;">'+desc+'<span style="text-align:right; float:right; margin-top:25px">'+cost+'</span></span></p></span>';
         let chatData = {
-            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            speaker: ChatMessage.getSpeaker({ actor: this }),
             content: texte
         };
         ChatMessage.create(chatData, {});
@@ -742,7 +746,7 @@ import { liber } from "./config.js";
 
         const texte = '<span style="flex:auto"><p class="resultatp">' + game.i18n.localize("liber.repos") + ' ' + repos + ' +' + hpadd + 'hp / +' + psyadd + 'psy </p></span>';
         const chatData = {
-            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            speaker: ChatMessage.getSpeaker({ actor: this }),
             content: texte
         };
         ChatMessage.create(chatData, {});
@@ -760,9 +764,10 @@ import { liber } from "./config.js";
         const texte = `<span style="flex:auto"><p class="resultatp">${POSTURE_MESSAGES[postures]}</p></span>`;
 
         const chatData = {
-          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+          speaker: ChatMessage.getSpeaker({ actor: this}),
           content: texte,
         };
+        console.log('chat')
         ChatMessage.create(chatData, {});
         this.actor.update({"system.posture": postures});
     }
@@ -1160,7 +1165,7 @@ import { liber } from "./config.js";
 
     }
 
-    _onCouv(event){
+    _onCouv(event){//bug
         let idn=event.target.dataset["lettre"];  //recupére l'id du bouton
         let etats=['a','b','c','d','e','f','g','h','i','j','k','l','m','n'];
         var active=[this.actor.system.etat.a, this.actor.system.etat.b, this.actor.system.etat.c, this.actor.system.etat.d, this.actor.system.etat.e, this.actor.system.etat.f, this.actor.system.etat.g, this.actor.system.etat.h, this.actor.system.etat.i, this.actor.system.etat.j, this.actor.system.etat.k, this.actor.system.etat.l, this.actor.system.etat.m, this.actor.system.etat.n]
@@ -1169,19 +1174,21 @@ import { liber } from "./config.js";
         let effet=this.actor.effects;
         var ids=null;
         let etat=active[idn];
-        var etre='Est'
+        var etre='Est';
+        console.log(idn)
+        console.log(etat)
+        console.log(active)
         if(etat==0.5){
             this.actor.createEmbeddedDocuments("ActiveEffect", [
-              {label: lists[idn], icon: 'icons/svg/'+icon[idn]+'.svg', flags: { core: { statusId: icon[idn] } } }
+              {name: lists[idn], icon: 'icons/svg/'+icon[idn]+'.svg'}
             ]);
             this.actor.update({[`system.etat.${etats[idn]}`]:1});
-        }else {
-            
+        }else if(etat==1){
             effet.forEach(function(item, index, array) {
-                if(item.label==lists[idn]){
+                if(item.name==lists[idn]){
                     ids=item.id;
                 }
-            });            
+            });           
             this.actor.deleteEmbeddedDocuments("ActiveEffect", [ids]);
             this.actor.update({[`system.etat.${etats[idn]}`]:0.5});
             etre="N'est plus";
@@ -1189,10 +1196,12 @@ import { liber } from "./config.js";
 
         var texte = "<span style='flex:auto'><p class='resultatp'>"+etre+" &nbsp; <span style='text-transform:uppercase;font-weight: bold;'> "+lists[idn]+"</span></span></span>";
         let chatData = {
-            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            speaker: ChatMessage.getSpeaker({ actor: this }),
             content: texte
         };
-        ChatMessage.create(chatData, {});
+        ChatMessage.create(chatData, {});        
+        console.log(active)
+
     }
 
     _onAttr(event){
@@ -1488,13 +1497,16 @@ import { liber } from "./config.js";
 
         } else if (clan && clan !== 'undefined' && raceMagMap[clan]) {
           mag1 = raceMagMap[clan];
+        } 
+        if(clan==game.i18n.localize('liber.avantrace56')){
+           mag1= 'corbeau'
         }
 
         if (reliMagMap[reli]) {
           mag2 = reliMagMap[reli];
         }
         //activer les effets
-        const effets = this.actor.effects.filter(item => item.label !== '').map(item => item.label);
+        const effets = this.actor.effects.filter(item => item.name !== '').map(item => item.name);
         const lists = ['Endormi','Etourdi','Aveugle','Sourd','Réduit au silence','Apeuré','Brûlant','Gelé','Invisible','Béni','Empoisonné','Saignement','Inconscient','Mort'];
         const active = lists.map(list => effets.includes(list) ? 1 : 0.5);
 
