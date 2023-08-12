@@ -1165,42 +1165,34 @@ import { liber } from "./config.js";
 
     }
 
-    _onCouv(event){//bug
-        let idn=event.target.dataset["lettre"];  //recupére l'id du bouton
-        let etats=['a','b','c','d','e','f','g','h','i','j','k','l','m','n'];
-        var active=[this.actor.system.etat.a, this.actor.system.etat.b, this.actor.system.etat.c, this.actor.system.etat.d, this.actor.system.etat.e, this.actor.system.etat.f, this.actor.system.etat.g, this.actor.system.etat.h, this.actor.system.etat.i, this.actor.system.etat.j, this.actor.system.etat.k, this.actor.system.etat.l, this.actor.system.etat.m, this.actor.system.etat.n]
-        let lists=['Endormi','Etourdi','Aveugle','Sourd','Réduit au silence','Apeuré','Brûlant','Gelé','Invisible','Béni','Empoisonné','Saignement','Inconscient','Mort']
-        let icon=['sleep','daze','blind','deaf','silenced','terror','fire','frozen','invisible','angel','poison','blood','unconscious','dead']
+    async _onCouv(event){//bug
+        let idn=event.target.dataset["lettre"];
         let effet=this.actor.effects;
-        var ids=null;
-        let etat=active[idn];
+        let lists=['Endormi','Etourdi','Aveugle','Sourd','Réduit au silence','Apeuré','Brûlant','Gelé','Invisible','Béni','Empoisonné','Saignement','Inconscient','Mort']
+        var nomRecherche=lists[idn];
+        var estPresent = effet.some(function(element) {
+            return element.name === nomRecherche;
+        });
         var etre='Est';
-        console.log(idn)
-        console.log(etat)
-        console.log(active)
-        if(etat==0.5){
-            this.actor.createEmbeddedDocuments("ActiveEffect", [
-              {name: lists[idn], icon: 'icons/svg/'+icon[idn]+'.svg'}
-            ]);
-            this.actor.update({[`system.etat.${etats[idn]}`]:1});
-        }else if(etat==1){
-            effet.forEach(function(item, index, array) {
-                if(item.name==lists[idn]){
-                    ids=item.id;
-                }
-            });           
-            this.actor.deleteEmbeddedDocuments("ActiveEffect", [ids]);
-            this.actor.update({[`system.etat.${etats[idn]}`]:0.5});
-            etre="N'est plus";
-        }
+        if (estPresent) {
+            var effetAChercher = this.actor.effects.find(function(effect) {
+                return effect.name === nomRecherche;
+            });
+            var idEffet = effetAChercher._id;
 
+            // Suppression de l'effet en utilisant l'ID
+            this.actor.deleteEmbeddedDocuments("ActiveEffect", [idEffet])
+            etre="N'est plus";
+        } else {
+            this.actor.createEmbeddedDocuments("ActiveEffect", [{name: nomRecherche}]);
+        }
         var texte = "<span style='flex:auto'><p class='resultatp'>"+etre+" &nbsp; <span style='text-transform:uppercase;font-weight: bold;'> "+lists[idn]+"</span></span></span>";
         let chatData = {
             speaker: ChatMessage.getSpeaker({ actor: this }),
             content: texte
         };
         ChatMessage.create(chatData, {});        
-        console.log(active)
+        
 
     }
 
