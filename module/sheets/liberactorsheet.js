@@ -232,6 +232,9 @@ import { liber } from "./config.js";
         }else if(postures=="defensif"){
             html.find('.defensif').css("opacity", "1");
             
+        }else if(postures=="presage"){
+            html.find('.presage').css("opacity", "1");
+            
         }else{
             html.find('.aucune').css("opacity", "1");
             
@@ -757,6 +760,7 @@ import { liber } from "./config.js";
           focus: game.i18n.localize("liber.lang88"),
           offensif: game.i18n.localize("liber.lang86"),
           defensif: game.i18n.localize("liber.lang87"),
+          presage: game.i18n.localize("liber.lang90"),
           aucune: game.i18n.localize("liber.lang89"),
         };
 

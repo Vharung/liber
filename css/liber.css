@@ -126,11 +126,12 @@ button:hover,.Liber .stat2 label:hover,.Liber .reposer:hover,.Liber input[type="
 .Liber .spells .grid-2col {width:49%;}
 .Liber .sheet nav.sheet-tabs {border:none}
 /*.Liber .head .separator{width:calc(100% - 10px);height: 0px; border-top: 1px solid #fff;margin:27px 5px 7px 5px;}*/
-.Liber a.aucune,.Liber a.focus,.Liber a.defensif,.Liber a.offensif{width: 25px;height: 25px;display: inline-block;border: none;float:right;}
+.Liber a.aucune,.Liber a.focus,.Liber a.defensif,.Liber a.offensif,.Liber a.presage{width: 25px;height: 25px;display: inline-block;border: none;float:right;}
 .Liber a.aucune{background:url("../assets/icon/aucune.png") ;background-size: cover;opacity: 0.5;margin-right: 10px}
 .Liber a.focus{background:url("../assets/icon/focus.png");background-size: cover;opacity: 0.5;}
 .Liber a.defensif{background:url("../assets/icon/defensif.png");background-size: cover;opacity: 0.5;}
 .Liber a.offensif{background:url("../assets/icon/offensif.png");background-size: cover;opacity: 0.5;}
+.Liber a.presage{background:url("../assets/icon/feather.png");background-size: cover;opacity: 0.5;}
 .Liber .autres{ height: 712px;}
 .Liber h2 {width:100%;color: #ffd725;font-size: 1em;padding: 5px;border-bottom: 0; text-align: center;text-transform: uppercase;}
 .Liber .deno{width: 206px;border-bottom: 1px solid #20180d;padding: 0px;display: block;margin: 0 5px 5px 5px;height: 28px;float: left;}
