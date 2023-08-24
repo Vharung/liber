@@ -405,8 +405,8 @@ import { liber } from "./config.js";
     //Jet de dès  compétences
         if(type=="jetdedes" || type=="auto"){
             if(type=="auto"){name='Physique';maxstat=this.actor.system.ability.physique;}
-            if(posture=="Focus"){bonuspost=5;}
-            else if(posture=="Offensif"){critique=10;}
+            if(posture=="focus"){bonuspost=5;}
+            else if(posture=="offensif"){critique=10;}
             if(bonus==""){bonus=0;}
             if(malus==""){malus=0;}
             if(name=='physique' || name=='force' || name=='agilite'){
