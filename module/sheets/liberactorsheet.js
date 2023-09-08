@@ -1391,16 +1391,18 @@ import { liber } from "./config.js";
         const PSYmin = b_psy;
         let cout = 0;
         if (clan === game.i18n.localize("liber.avantrace56")) {
-            cout = parseInt(level) + 1;
+            cout = parseInt(level);//corbeau
+            b_nb=parseInt(level)+2;
         } else {
-            cout = Math.round((parseInt(psy) - parseInt(b_nb)) / 2) + 3;
+            cout = b_cout + (psy - b_psy);
+            
         }
 
         //calcul cout et nb sort
-        let xcout = Math.floor((parseInt(psy) - parseInt(b_nb)) / 2 + 3); //cout sort
+        /*let xcout = Math.floor((parseInt(psy) - parseInt(b_nb)) / 2 + 3); //cout sort
         if (clan !== game.i18n.localize("liber.avantrace56")) {
             xcout = level;
-        }
+        }*/
 
         const listsort = this.actor.sort;
         const nbsorts = listsort.length;
