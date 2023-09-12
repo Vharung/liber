@@ -2,7 +2,7 @@
     "id": "liber",
     "title": "Liber Chronicles",
     "description": "The Liber Chronicles system for FoundryVTT!",
-    "version": "2.18",
+    "version": "2.19",
     "compatibility": {
       "minimum": "10",
       "verified": "11.299",
