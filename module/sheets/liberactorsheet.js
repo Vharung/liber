@@ -1469,7 +1469,7 @@ import { liber } from "./config.js";
           [game.i18n.localize('liber.avantrace48')]: 'mort',
           [game.i18n.localize('liber.avantrace49')]: 'nature',
           [game.i18n.localize('liber.avantrace50')]: 'poison',
-          [game.i18n.localize('liber.avantrace51')]: 'telekenesie',
+          [game.i18n.localize('liber.avantrace51')]: 'telekinesie',
           [game.i18n.localize('liber.avantrace52')]: 'terre',
           [game.i18n.localize('liber.avantrace53')]: 'ultime',
           [game.i18n.localize('liber.avantrace54')]: 'vie',
