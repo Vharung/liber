@@ -1,6 +1,7 @@
-body{background:url(fond.jpg) no-repeat top center; }
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 @font-face {font-family: "dova";src: url('Dovahkiin.otf'); }
+body{background:url(fond.jpg) no-repeat top center; }
+
 .dova { font-family: 'dova';}
 form.Liber { 
     width: calc(100% - 20px);
