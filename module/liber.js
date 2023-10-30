@@ -33,7 +33,11 @@ Hooks.once("init", async function() {
  */
 Hooks.on("hotbarDrop", (bar, data, slot) => {
     if (["Item", "ability"].includes(data.type)) {
+        console.log("Type:", data.type);
+        console.log("Slot:", slot);
+
         Macros.createLiberMacro(data, slot);
+        console.log("Macro created successfully!");
         return false;
     }
 });

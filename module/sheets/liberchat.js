@@ -7,6 +7,7 @@ Hooks.on('renderChatMessage', (message, html) => {
     const name =button.dataset.name;
     const desc =button.dataset.desc;
 
+
     const actor = game.actors.get(actorId);
     //const damageRoll = new Roll(dice).roll();
     let r = new Roll(dice);

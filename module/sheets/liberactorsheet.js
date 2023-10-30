@@ -583,12 +583,13 @@ import { liber } from "./config.js";
         var hp=this.actor.system.hp.value;
         var insoin=this.actor.system.insoin;
         var bonuspost=0;
-        var critique=5;
-        if(posture=="Focus"){
+        var critique=5
+        if(posture=="focus"){
             bonuspost=5;
-        }else if(posture=="Offensif"){
+        }else if(posture=="offensif"){
             critique=10;
         }
+
         if(bonus==undefined){
             bonus=0;
         }
@@ -599,7 +600,7 @@ import { liber } from "./config.js";
         }else {
             var inforesult=parseInt(mental)+parseInt(bonus)+bonuspost+parseInt(malus);
         }
-        
+
         if(inforesult>95){
         inforesult=95;
         }else if(inforesult<5){
@@ -607,7 +608,7 @@ import { liber } from "./config.js";
         }
         let r = new Roll("1d100");
         var roll=r.evaluate({"async": false});
-        let retour=r.result; 
+        let retour=r.result;
         var succes="";
         var degat=0;
         if(retour>95){
@@ -618,7 +619,7 @@ import { liber } from "./config.js";
             succes="<h4 class='result' style='background:#78be50;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang84")+"</h4>";degat=1;
         }else{
             succes="<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang85")+"</h4>";degat=0;
-        }console.log(posture)
+        }
         if(posture=="focus"){
            cout=parseInt(cout)-1; 
         }
@@ -643,7 +644,7 @@ import { liber } from "./config.js";
             button='<button class="roll-damage" style="cursor:pointer" data-name="'+name+'" data-actorid="'+this.actor._id+'" data-dice="'+dice+'" data-img="'+img+'" data-desc="'+desc+'" data-type="jetdedegat">Lancer les dès</button>'
         }
         this.actor.update({"system.insoin": insoin,"system.hp.value": hp,"system.psy.value": psy});
-        const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +' : '+ mental +'/100</span><span class="desctchat">'+desc+'</span></p>'+succes+
+        const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +' : '+ inforesult +'/100</span><span class="desctchat">'+desc+'</span></p>'+succes+
         button+'</span>';
         roll.toMessage({
             speaker: ChatMessage.getSpeaker({ actor: this }),
