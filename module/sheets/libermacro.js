@@ -35,22 +35,24 @@ function showInputDialogWithSelect(options, callback) {
     new Dialog({
         title: "Entrer une valeur et choisir une option",
         content: \`
+          <p>Sélectionnez une option :</p>
+            <div class="form-group">
+              <select id="selectedOption" name="selectedOption" style="width:50%">
+                    \${selectOptions}
+              </select>
+              <select id="userposture" name="userposture" style="width:49%">
+                  <option value="focus">Focus</option>
+                  <option value="offensif">Offensif</option>
+                  <option value="defensif">Défensif</option>
+                  <option value="anticipatif">Anticipatif</option>
+              </select>
+            </div>
             <p>Entrez le bonus/malus :</p>
             <div class="form-group">
-                <input type="text" id="userInput" name="userInput" value="0"/>
+                <input type="text" id="userInput" name="userInput" value="0" style="text-align:center"/>
             </div>
-            <p>Sélectionnez une option :</p>
-            <div class="form-group">
-                <select id="selectedOption" name="selectedOption">
-                    \${selectOptions}
-                </select>
-                <select id="userposture" name="userposture">
-                    <option value="focus">Focus</option>
-                    <option value="offensif">Offensif</option>
-                    <option value="defensif">Défensif</option>
-                    <option value="anticipatif">Anticipatif</option>
-                </select>
-            </div>
+            <p></p>
+            
         \`,
         buttons: {
             ok: {
@@ -133,7 +135,8 @@ showInputDialogWithSelect(options, (userInput, selectedOption,userposture) => {
     console.log("Valeur entrée par l'utilisateur :", userInput);
     console.log("Option sélectionnée :", selectedOption);
   }else{
-    let texte = \`<span style="flex:auto"><p class="infosort"><span class="resultatp"><img src="${item.img}"  width="24" height="24"/>&nbsp; Jet de ${macroName}</span><span class="desctchat" style="display:block">${item.system.description}</span></p>\`;
+    console.log(${item.system.cout})
+    let texte = \`<span style="flex:auto"><p class="infosort"><span class="resultatp"><img src="${item.img}"  width="24" height="24"/>&nbsp; Jet de ${macroName}</span><span class="desctchat" style="display:block">${item.system.description}<span style="text-align:right; float:right; margin-top:25px">'${item.system.cout}'</span></span></p></span>\`;
     texte+='</span>';
     let chatData = {
         speaker: ChatMessage.getSpeaker({ actor: this }),
