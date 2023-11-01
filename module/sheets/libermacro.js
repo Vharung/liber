@@ -115,7 +115,7 @@ showInputDialogWithSelect(options, (userInput, selectedOption,userposture) => {
           succes="<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Echec</h4>";
           degats=0;
       }
-      texte = \`<span style="flex:auto"><p class="infosort"><span class="resultatp"><img src="${item.img}"  width="24" height="24"/>&nbsp; Jet de ${macroName} :\`  + retour +\`+\`+selectedOption+\`</span><span class="desctchat">${item.system.description}</span></p>\`+succes;
+      texte = \`<span style="flex:auto"><p class="infosort"><span class="resultatp"><img src="${item.img}"  width="24" height="24"/>&nbsp; Jet de ${macroName} : \`  + retour +\`/\`+selectedOption+\`</span><span class="desctchat">${item.system.description}</span></p>\`+succes;
       `;
 
       if(item.system.degats){
@@ -135,7 +135,6 @@ showInputDialogWithSelect(options, (userInput, selectedOption,userposture) => {
     console.log("Valeur entrée par l'utilisateur :", userInput);
     console.log("Option sélectionnée :", selectedOption);
   }else{
-    console.log(${item.system.cout})
     let texte = \`<span style="flex:auto"><p class="infosort"><span class="resultatp"><img src="${item.img}"  width="24" height="24"/>&nbsp; Jet de ${macroName}</span><span class="desctchat" style="display:block">${item.system.description}<span style="text-align:right; float:right; margin-top:25px">'${item.system.cout}'</span></span></p></span>\`;
     texte+='</span>';
     let chatData = {
@@ -148,30 +147,6 @@ showInputDialogWithSelect(options, (userInput, selectedOption,userposture) => {
 
 `;
                 this.createMacro(slot, macroName, command, item.img);
-
-
-
-
-
-
-
-
-               
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             }
