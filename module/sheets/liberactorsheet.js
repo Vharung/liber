@@ -972,7 +972,7 @@ import { liber } from "./config.js";
         }else if(meti==game.i18n.localize("liber.metier11")){
             hp=22;psy= 6;phy=65;forc=30;agil=35;soc=55;saga=30;char=25;men=50;astu=25;memo=25;cpt0=cpt0+5;cpt8=cpt8+10;cpt18=cpt18+10;cpt31=cpt31+5;
         }else if(meti==game.i18n.localize("liber.metier12")){
-            hp=13;psy= 17;phy=40;forc=10;agil=30;soc=70;saga=40;char=30;men=60;astu=30;memo=30;cpt0=cpt0+15;cpt9=cpt9+10;cpt22=cpt22+5;cpt18=cpt18+5;cpt30=cpt30+5;
+            hp=13;psy= 17;phy=40;forc=10;agil=30;soc=70;saga=40;char=30;men=60;astu=30;memo=30;cpt0=cpt0+15;cpt19=cpt19+10;cpt22=cpt22+5;cpt18=cpt18+5;cpt30=cpt30+5;
         }else if(meti==game.i18n.localize("liber.metier13")){
             hp=13;psy= 18;phy=40;forc=20;agil=20;soc=65;saga=20;char=45;men=65;astu=20;memo=45;cpt3=cpt3+5;cpt11=cpt11+10;cpt50=cpt50+5;
         }else if(meti==game.i18n.localize("liber.metier14")){
