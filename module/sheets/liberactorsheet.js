@@ -940,6 +940,8 @@ import { liber } from "./config.js";
             avantagerace+=game.i18n.localize("liber.avantrace36");
         }else if(reli==game.i18n.localize("liber.avantrace82")){
             avantagerace+=game.i18n.localize("liber.avantrace36b");
+        }else if(reli==game.i18n.localize("liber.avantrace59")){
+            avantagerace+=game.i18n.localize("liber.avantrace59b");
         }
         //metier
         if(clan==game.i18n.localize("liber.avantrace58")){
