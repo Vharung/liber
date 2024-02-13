@@ -1293,10 +1293,6 @@ import { liber } from "./config.js";
             if(cpt27<5){cpt27=5}
             resultat += 25;
             break;
-          case game.i18n.localize("liber.avantrace39"):
-            resultat += 15;
-            if(cpt39<10){cpt39=10}
-            break;
           case game.i18n.localize("liber.avantrace61"):
             resultat += 30;
             if(cpt28<5){cpt28=5}
@@ -1304,6 +1300,7 @@ import { liber } from "./config.js";
             break;
           case game.i18n.localize("liber.avantrace62"):
             resultat += 10;
+            if(cpt39<10){cpt39=10}
             break;
           case game.i18n.localize("liber.avantrace63"):
             break;
@@ -1353,10 +1350,6 @@ import { liber } from "./config.js";
             break;
           case game.i18n.localize("liber.avantrace77"):
             resultat -= 30;
-            break;
-          case game.i18n.localize("liber.avantrace91"):
-            resultat += 15;
-            if(cpt1<5){cpt1=5}
             break;
           default:
             break;
@@ -1457,13 +1450,12 @@ import { liber } from "./config.js";
             hp = parseInt(hpmax) - parseInt(insoin);
         }
 
-        let mag1 = 'aucun';let mag2 = 'aucun';let all = 0;
+        let mag0 = 'aucun';let mag1 = 'aucun';let mag2 = 'aucun';let all = 0;
         const raceMagMap = {
           [game.i18n.localize('liber.avantrace56')]: 'corbeau',
           [game.i18n.localize('liber.metier12')]: 'troubadour',
-          [game.i18n.localize('liber.avantrace61')]: 'humain',
+          [game.i18n.localize('liber.avantrace57')]: 'humain',
           [game.i18n.localize('liber.avantrace39')]: 'demon',
-          [game.i18n.localize('liber.avantrace62')]: 'demon',
           [game.i18n.localize('liber.avantrace40')]: 'air',
           [game.i18n.localize('liber.avantrace41')]: 'eau',
           [game.i18n.localize('liber.avantrace42')]: 'esprit',
@@ -1481,9 +1473,9 @@ import { liber } from "./config.js";
           [game.i18n.localize('liber.avantrace54')]: 'vie',
           [game.i18n.localize('liber.avantrace55')]: 'ombre',
           [game.i18n.localize('liber.avantrace59')]: 'constellation',
+          [game.i18n.localize('liber.avantrace56')]: 'corbeau',
           [game.i18n.localize('liber.avantrace78')]: 'autre'
         };
-
         const reliMagMap = {
           [game.i18n.localize('liber.avantrace56')]: 'rune',
           [game.i18n.localize('liber.avantrace80')]: 'vharung',
@@ -1493,18 +1485,20 @@ import { liber } from "./config.js";
           [game.i18n.localize('liber.avantrace84')]: 'ombre',
           [game.i18n.localize('liber.avantrace85')]: 'waetra',
           [game.i18n.localize('liber.caract63b')]: 'cercle',
-          [game.i18n.localize('liber.avantrace90')]: 'rune'
+          [game.i18n.localize('liber.avantrace90')]: 'rune',
+          [game.i18n.localize('liber.avantrace86')]: 'ancien',
+          [game.i18n.localize('liber.avantrace87')]: 'baphomet',
+          [game.i18n.localize('liber.avantrace89')]: 'vaudou',
+          [game.i18n.localize('liber.avantrace78')]: 'autre'
         };
 
-        if (raceMagMap[race]) {
-          mag1 = raceMagMap[race];
-
+        if(clan==game.i18n.localize('liber.avantrace91')){
+            mag0 = "illusion";
+            mag1 = "feu";
         } else if (clan && clan !== 'undefined' && raceMagMap[clan]) {
           mag1 = raceMagMap[clan];
         } 
-        if(clan==game.i18n.localize('liber.avantrace56')){
-           mag1= 'corbeau'
-        }
+        
 
         if(metier==game.i18n.localize('liber.metier12')){
            mag1= 'troubadour'
@@ -1526,22 +1520,41 @@ import { liber } from "./config.js";
 
         const pack = game.packs.get('liber.magie');
         const tables = await pack.getDocuments();
-        const listem = tables.filter(value =>
-            value.system.classe == mag1 ||
-            value.system.classe == mag2 ||
-            mag1 == game.i18n.localize("liber.avantrace78")
-        ).filter(value =>
-            parseInt(value.system.cout) <= cout || cout == "X"
-        ).map(value => ({
-            'name': value.name,
-            'img': value.img,
-            'cible': value.system.cible,
-            'classe': value.system.classe,
-            'cout': value.system.cout,
-            'degat': value.system.degats,
-            'description': value.system.description,
-            'duree': value.system.duree
-        })).sort((a, b) => a.cout - b.cout);
+        let listem;
+        if(mag1=='autre' || mag2=='autre'){
+            console.log('mag all')
+            listem = tables.filter(value =>
+                parseInt(value.system.cout) <= cout || cout == "X"
+            ).map(value => ({
+                'name': value.name,
+                'img': value.img,
+                'cible': value.system.cible,
+                'classe': value.system.classe,
+                'cout': value.system.cout,
+                'degat': value.system.degats,
+                'description': value.system.description,
+                'duree': value.system.duree
+            })).sort((a, b) => a.cout - b.cout);
+        }else{
+            listem = tables.filter(value =>
+                value.system.classe == mag0 ||
+                value.system.classe == mag1 ||
+                value.system.classe == mag2 ||
+                mag1 == game.i18n.localize("liber.avantrace78")
+            ).filter(value =>
+                parseInt(value.system.cout) <= cout || cout == "X"
+            ).map(value => ({
+                'name': value.name,
+                'img': value.img,
+                'cible': value.system.cible,
+                'classe': value.system.classe,
+                'cout': value.system.cout,
+                'degat': value.system.degats,
+                'description': value.system.description,
+                'duree': value.system.duree
+            })).sort((a, b) => a.cout - b.cout);
+        }
+        console.log(listem)
         //console.log(pack)
         this.actor.update({"system.level":level,"system.etat.a":active[0],"system.etat.b":active[1],"system.etat.c":active[2],"system.etat.d":active[3],"system.etat.e":active[4],"system.etat.f":active[5],"system.etat.g":active[6],"system.etat.h":active[7],"system.etat.i":active[8],"system.etat.j":active[9],"system.etat.k":active[10],"system.etat.l":active[11],"system.etat.m":active[12],"system.etat.n":active[13],"system.reste":reste,'system.listemag.liste':listem,'system.listemag.img1':mag1,'system.listemag.img2':mag2,'system.alert.psy':apsy,'system.alert.psymax':apsymax,'system.alert.hp':ahp,'system.alert.hpmax':ahp,'system.hp.max':hpmax,'system.hp.value':hp,'system.psy.max':psy,'system.psy.value':psyvalue,"system.restant":resultat,'system.maxsort':calsort,'system.coutmax':cout,'system.alert.maxsort':color1,'system.alert.coutmax':color2,'system.caracteristique.acrobatie':cpts[0],'system.caracteristique.agilites':cpts[1],'system.caracteristique.alchimie':cpts[2],'system.caracteristique.apprentissage':cpts[3],'system.caracteristique.hast':cpts[4],'system.caracteristique.cc':cpts[5],'system.caracteristique.lancer':cpts[6],'system.caracteristique.melee':cpts[7],'system.caracteristique.tir':cpts[8],'system.caracteristique.art':cpts[9],'system.caracteristique.assassinat':cpts[10],'system.caracteristique.baton':cpts[11],'system.caracteristique.bouclier':cpts[12],'system.caracteristique.bricolage':cpts[13],'system.caracteristique.presence':cpts[14],'system.caracteristique.chercher':cpts[15],'system.caracteristique.commander':cpts[16],'system.caracteristique.concentration':cpts[17],'system.caracteristique.nature':cpts[18],'system.caracteristique.peuples':cpts[19],'system.caracteristique.religions':cpts[20],'system.caracteristique.geographique':cpts[21],'system.caracteristique.rue':cpts[22],'system.caracteristique.heretiques':cpts[23],'system.caracteristique.combat':cpts[24],'system.caracteristique.commerce':cpts[25],'system.caracteristique.crochetage':cpts[26],'system.caracteristique.discretion':cpts[27],'system.caracteristique.dexterite':cpts[28],'system.caracteristique.detection':cpts[29],'system.caracteristique.dissimulation':cpts[30],'system.caracteristique.dressage':cpts[31],'system.caracteristique.ennemi':cpts[32],'system.caracteristique.equilibre':cpts[33],'system.caracteristique.equitation':cpts[34],'system.caracteristique.escroquerie':cpts[35],'system.caracteristique.esquiver':cpts[36],'system.caracteristique.puissance':cpts[37],'system.caracteristique.astuce':cpts[38],'system.caracteristique.peur':cpts[39],'system.caracteristique.joueur':cpts[40],'system.caracteristique.maitrise':cpts[41],'system.caracteristique.natation':cpts[42],'system.caracteristique.navigation':cpts[43],'system.caracteristique.orientation':cpts[44],'system.caracteristique.persuasion':cpts[45],'system.caracteristique.pister':cpts[46],'system.caracteristique.prophetie':cpts[47],'system.caracteristique.secours':cpts[48],'system.caracteristique.resistance':cpts[49],'system.caracteristique.psychologue':cpts[50],'system.caracteristique.medecine':cpts[51],'system.caracteristique.survie':cpts[52],'system.caracteristique.tueur':cpts[53],'system.caracteristique.objet':cpts[54],'system.caracteristique.veterinaire':cpts[55],'system.caracteristique.vigilance':cpts[56],'system.caracteristique.vise':cpts[57]});
         
