@@ -300,9 +300,9 @@ import { liber } from "./config.js";
         let memo=html.find('.memoireValue').val();
         let race=html.find('.race').val();
         let max=170;
-        if(race==game.i18n.localize("liber.avantrace61")){
+        /*if(race==game.i18n.localize("liber.avantrace61")){
             max=175;
-        }
+        }*/
         if(phys<(parseInt(forc)+parseInt(agil))){
             html.find('.force').css({"background":"red"});    
             html.find('.agilite').css({"background":"red"});    
