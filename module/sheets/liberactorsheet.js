@@ -781,13 +781,13 @@ import { liber } from "./config.js";
     }
 
     _onGenerator(event){
+        console.log('gen')
         //variable
         var race = this.actor.system.race;
         var sexe = this.actor.system.sexe;
         var clan = this.actor.system.clan;
         var reli = this.actor.system.religion;
         var meti = this.actor.system.metier;
-
         var avantagerace="";
         var armureperso=this.actor.system.protection;
 
@@ -1318,7 +1318,7 @@ import { liber } from "./config.js";
             break;
           case game.i18n.localize("liber.avantrace67"):
             resultat += 20;
-            if(cpt10<5){cpt28=10}
+            if(cpt10<10){cpt10=10}
             break;
           case game.i18n.localize("liber.avantrace10a"):
             resultat += 30;
@@ -1353,6 +1353,32 @@ import { liber } from "./config.js";
             break;
           default:
             break;
+        }
+        switch(clan) {
+            case game.i18n.localize("liber.avantrace51"):
+                if(cpt29<5){cpt29=10}
+                resultat += 20;
+                break;
+            case game.i18n.localize("liber.avantrace53"):
+                if(cpt19<10){cpt19=10}
+                if(cpt20<10){cpt20=10}
+                resultat+=20;
+                break;
+            case game.i18n.localize("liber.avantrace55"):
+                if(race==game.i18n.localize("liber.avantrace67")){
+                    if(cpt10<15){cpt10=15}
+                }else {
+                    if(cpt10<5){cpt10=5}
+                }
+                if(race==game.i18n.localize("liber.avantrace70")){
+                    if(cpt27<10){cpt27=10}
+                }else {
+                    if(cpt27<5){cpt27=5}
+                }
+                resultat+=20;
+                break;
+            default:
+                break;
         }
         var cpts=[cpt0,cpt1,cpt2,cpt3,cpt4,cpt5,cpt6,cpt7,cpt8,cpt9,cpt10,cpt11,cpt12,cpt13,cpt14,cpt15,cpt16,cpt17,cpt18,cpt19,cpt20,cpt21,cpt22,cpt23,cpt24,cpt25,cpt26,cpt27,cpt28,cpt29,cpt30,cpt31,cpt32,cpt33,cpt34,cpt35,cpt36,cpt37,cpt38,cpt39,cpt40,cpt41,cpt42,cpt43,cpt44,cpt45,cpt46,cpt47,cpt48,cpt49,cpt50,cpt51,cpt52,cpt53,cpt54,cpt55,cpt56,cpt57]
 
@@ -1473,11 +1499,9 @@ import { liber } from "./config.js";
           [game.i18n.localize('liber.avantrace54')]: 'vie',
           [game.i18n.localize('liber.avantrace55')]: 'ombre',
           [game.i18n.localize('liber.avantrace59')]: 'constellation',
-          [game.i18n.localize('liber.avantrace56')]: 'corbeau',
           [game.i18n.localize('liber.avantrace78')]: 'autre'
         };
         const reliMagMap = {
-          [game.i18n.localize('liber.avantrace56')]: 'rune',
           [game.i18n.localize('liber.avantrace80')]: 'vharung',
           [game.i18n.localize('liber.avantrace81')]: 'nouvelordre',
           [game.i18n.localize('liber.avantrace82')]: 'croise',
