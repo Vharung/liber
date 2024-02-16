@@ -1590,7 +1590,7 @@ import { liber } from "./config.js";
         let type=event.target.dataset["type"]
         console.log(type)
         if(type=='objet'){
-             const pack = game.packs.get('liber.objet');
+            const pack = game.packs.get('liber.objet');
             const tables = await pack.getDocuments();
             $.each( tables, function( key, value ) {
                 listem.push({'name':value.name,'img':value.img,'description':value.system.description,'poids':value.system.poids,'valeur':value.system.valeur})

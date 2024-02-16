@@ -2,7 +2,7 @@
     "id": "liber",
     "title": "Liber Chronicles",
     "description": "The Liber Chronicles system for FoundryVTT!",
-    "version": "2.202",
+    "version": "2.204",
     "compatibility": {
       "minimum": "10",
       "verified": "11.299",
@@ -23,63 +23,85 @@
     "scripts": [],
     "packs": [
         {
+          "name": "invocation",
+          "label": "Invocation",
+          "system": "liber",
+          "path": "./pack/invocation",
+          "type": "Actor",
+          "private": true,
+          "flags": {}
+        },
+        {
           "name": "monstre",
           "label": "Monstres",
           "system": "liber",
-          "path": "./pack/monstre.db",
+          "path": "./pack/monstre",
           "type": "Actor",
-          "visibility": "trusted"
+          "private": true,
+          "flags": {}
         },
         {
           "name": "armure",
           "label": "Armure",
           "system": "liber",
-          "path": "./pack/armures.db",
-          "type": "Item"
+          "path": "./pack/armures",
+          "type": "Item",
+          "private": false,
+          "flags": {}
         },
         {
           "name": "aide",
           "label": "Aide au MJ",
           "system": "liber",
-          "path": "./pack/aide-mj.db",
+          "path": "./pack/aide-mj",
           "type": "Item",
-          "visibility": "trusted"
+          "private": false,
+          "flags": {}
         },
         {
           "name": "arme",
           "label": "Arme",
           "system": "liber",
-          "path": "./pack/armes.db",
-          "type": "Item"
+          "path": "./pack/armes",
+          "type": "Item",
+          "private": false,
+          "flags": {}
         },
         {
           "name": "objet",
           "label": "Objet",
           "system": "liber",
-          "path": "./pack/objet.db",
-          "type": "Item"
+          "path": "./pack/objet",
+          "type": "Item",
+          "private": false,
+          "flags": {}
         },
         {
           "name": "magie",
           "label": "Magie",
           "system": "liber",
-          "path": "./pack/magie.db",
-          "type": "Item"
+          "path": "./pack/magie",
+          "type": "Item",
+          "private": false,
+          "flags": {}
         },
         {
           "name": "regles",
           "label": "Régles",
           "type": "JournalEntry",
-          "path": "./pack/regles.db",
-          "system": "liber"
+          "path": "./pack/regles",
+          "system": "liber",
+          "private": false,
+          "flags": {}
         },
         {
           "name": "villes",
           "label": "Villes",
           "type": "Scene",
-          "path": "./pack/villes.db",
+          "path": "./pack/villes",
           "system": "liber",
-          "visibility": "trusted"
+          "private": false,
+          "flags": {}
         }
     ],
     "languages": [
