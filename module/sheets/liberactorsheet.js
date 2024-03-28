@@ -303,23 +303,27 @@ import { liber } from "./config.js";
         /*if(race==game.i18n.localize("liber.avantrace61")){
             max=175;
         }*/
-        if(phys<(parseInt(forc)+parseInt(agil))){
-            html.find('.force').css({"background":"red"});    
-            html.find('.agilite').css({"background":"red"});    
-        }
-        if(soci<(parseInt(char)+parseInt(saga))){
-            html.find('.charisme').css({"background":"red"});    
-            html.find('.sagacite').css({"background":"red"})
-        }
-        if(ment<(parseInt(astu)+parseInt(memo))){
-            html.find('.ast').css({"background":"red"});    
-            html.find('.memoire').css({"background":"red"})
-        }
+        
         if((parseInt(phys)+parseInt(soci)+parseInt(ment))>max){
             html.find('.physique').css({"background":"red"});    
             html.find('.social').css({"background":"red"})
             html.find('.mental').css({"background":"red"})
         }
+        if(this.actor.type!="monstre"){
+            if(phys<(parseInt(forc)+parseInt(agil))){
+                html.find('.force').css({"background":"red"});    
+                html.find('.agilite').css({"background":"red"});    
+            }
+            if(soci<(parseInt(char)+parseInt(saga))){
+                html.find('.charisme').css({"background":"red"});    
+                html.find('.sagacite').css({"background":"red"})
+            }
+            if(ment<(parseInt(astu)+parseInt(memo))){
+                html.find('.ast').css({"background":"red"});    
+                html.find('.memoire').css({"background":"red"})
+            }
+        }
+        
 
         //cacher clan
         const races = {

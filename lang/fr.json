@@ -1044,7 +1044,7 @@
   "liber.new11": "Maniaque",
   "liber.new11a": "Obsession compulsive pour une tâche ou un objet, ce qui peut entraîner des distractions et des problèmes dans d'autres domaines. Des jets de concentrations peuvent être demandés par le MJ à tout moment.",
   "liber.new11": "Muet",
-  "liber.new11": "Incapable de parler, ce qui peut compliquer la communication et les interactions sociales.",
+  "liber.new11a": "Incapable de parler, ce qui peut compliquer la communication et les interactions sociales.",
   "liber.new12": "Sourd",
   "liber.new12a": "Incapable d’entendre, ce qui peut compliquer la communication et les interactions sociales.",
   "liber.new13": "Paranoïaque",
@@ -1054,6 +1054,6 @@
   "liber.new15": "Pyromane",
   "liber.new15a": "Attiré par le feu et incapable de résister à l'envie de l'allumer, ce qui peut entraîner des incendies accidentels et des conflits avec les autorités.",
   "liber.new16": "Solitaire",
-  "liber.new16a": "Mal à l'aise en compagnie d'autres personnes, ce qui peut entraîner des difficultés dans les situations sociales et des problèmes pour former des liens avec les autres.  -20 en Social.",
+  "liber.new16a": "Mal à l'aise en compagnie d'autres personnes, ce qui peut entraîner des difficultés dans les situations sociales et des problèmes pour former des liens avec les autres.  -20 en Social."
 
 }
