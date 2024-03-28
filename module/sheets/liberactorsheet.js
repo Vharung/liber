@@ -986,8 +986,9 @@ import { liber } from "./config.js";
             hp=10;psy= 22;phy=30;forc=5;agil=25;soc=70;saga=40;char=30;men=70;astu=30;memo=40;cpt11=cpt11+5;cpt20=cpt20+10;cpt51=cpt51+10;
         }else if(meti==game.i18n.localize("liber.metier16")){
             hp=8;psy= 25;phy=25;forc=5;agil=20;soc=70;saga=60;char=10;men=75;astu=60;memo=15;cpt15=cpt15+5;cpt47=cpt47+10;cpt50=cpt50+5;
+        }else if(meti==game.i18n.localize("liber.metier17")){
+            hp=23;psy= 5;phy=70;forc=40;agil=20;soc=50;saga=20;char=30;men=50;astu=35;memo=15;cpt43=cpt43+10;cpt7=cpt7+5;cpt57=cpt57+5;cpt27=cpt27+5;cpt39=cpt39+5;
         }
-        
 
         //histoire
         var age = Math.floor((Math.random() * 34) + 16);

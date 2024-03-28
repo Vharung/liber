@@ -73,7 +73,10 @@ liber.talentTypes={
 	t34:{name:"liber.title92",title:"liber.title92a"},
 	t35:{name:"liber.title93",title:"liber.title93a"},
 	t36:{name:"liber.title94",title:"liber.title94a"},
-	t37:{name:"liber.title95",title:"liber.title95a"}	
+	t37:{name:"liber.title95",title:"liber.title95a"},	
+	t38:{name:"liber.new1",title:"liber.new1a"},	
+	t39:{name:"liber.new2",title:"liber.new2a"},	
+	t40:{name:"liber.new3",title:"liber.new3a"}	
 }
 
 liber.faiblesseTypes={
@@ -96,7 +99,22 @@ liber.faiblesseTypes={
 	f14:{name:"liber.title110",title:"liber.title110a"},
 	f15:{name:"liber.title111",title:"liber.title111a"},
 	f16:{name:"liber.title112",title:"liber.title112a"},
-	f17:{name:"liber.title113",title:"liber.title113a"}	
+	f17:{name:"liber.title113",title:"liber.title113a"},
+	f18:{name:"liber.new3",title:"liber.new3a"},	
+	f19:{name:"liber.new4",title:"liber.new4a"},	
+	f20:{name:"liber.new5",title:"liber.new5a"},	
+	f21:{name:"liber.new6",title:"liber.new6a"},	
+	f22:{name:"liber.new7",title:"liber.new7a"},	
+	f23:{name:"liber.new8",title:"liber.new8a"},	
+	f24:{name:"liber.new9",title:"liber.new9a"},	
+	f25:{name:"liber.new10",title:"liber.new10a"},	
+	f26:{name:"liber.new11",title:"liber.new11a"},	
+	f27:{name:"liber.new12",title:"liber.new12a"},	
+	f28:{name:"liber.new13",title:"liber.new13a"},	
+	f29:{name:"liber.new14",title:"liber.new14a"},	
+	f30:{name:"liber.new15",title:"liber.new15a"},	
+	f31:{name:"liber.new16",title:"liber.new16a"},	
+
 }
 
 liber.metierTypes={
@@ -115,7 +133,8 @@ liber.metierTypes={
 	m12:"liber.metier13",
 	m13:"liber.metier14",
 	m14:"liber.metier15",
-	m15:"liber.metier16"
+	m15:"liber.metier16",
+	m15:"liber.metier17"
 }
 
 
