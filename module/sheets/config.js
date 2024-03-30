@@ -101,6 +101,7 @@ liber.faiblesseTypes={
 	f15:{name:"liber.title111",title:"liber.title111a"},
 	f16:{name:"liber.title112",title:"liber.title112a"},
 	f17:{name:"liber.title113",title:"liber.title113a"},
+	f17:{name:"liber.title114",title:"liber.title114a"},
 	f18:{name:"liber.new3",title:"liber.new3a"},	
 	f19:{name:"liber.new4",title:"liber.new4a"},	
 	f20:{name:"liber.new5",title:"liber.new5a"},	
