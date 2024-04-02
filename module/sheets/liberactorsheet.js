@@ -850,6 +850,15 @@ import { liber } from "./config.js";
             var list=["Akasha","Alucard","Alucard","Angel","Armand","Baron","Tarquin","Bloodscream","Dio","Claudia","Comtesse","Michael","Alice","Carlisle","Edward","Emmett","Esmée","Darla","David","Walter","Dracula","Dracula","Drusilla","Frankenpen","Deacon","Gabrielle","Grand","Jasper","Rosalie","Jane","Jessica","Jubilé","Kain","Harmony","Khayman","Hannibal","Lestat","Louis","MaelLe","Marceline","Marius","MonaMorbius","Nicolas","NosferatuLa","Pandora","Katherine","Raziel","Rüdiger","Damon","Stefan","Selene","Soma","Spike","Bella","Theodora","Vampi","Vampirella","Seras","Victoria","Lucy","Zara la vampire"]
             var pair1=list[Math.floor(Math.random()*list.length)];
             var name=pair1;
+        }else if(race==game.i18n.localize("liber.avantrace77a")){
+            if(sexe=="Female"){
+                var list =['Ariel','Azrael','Cassiel','Gabriel','Haniel','Jophiel','Metatron','Michael','Raguel','Raphael','Raziel','Sachiel','Samael','Sandalphon','Uriel','Zadkiel','Chamuel','Jeremiel','Barachiel','Phanuel']
+
+            }else {
+                var list =['Gabriel','Raphael','Uriel','Ariel','Azrael','Metatron','Chamuel','Zadkiel','Jophiel','Haniel','Raziel','Sariel','Barachiel','Cassiel','Sachiel','Raguel','Remiel','Jeremiel','Phanuel']
+            }
+            var pair1=list[Math.floor(Math.random()*list.length)];
+            var name=pair1;
         }else {
             var list=["Aegnor","Aerandir","Ainaros","Amarië","Amdír","Amras","Amrod","Amroth","Anairë","Angrod","Annael","Aranel","Aranwë","Aredhel","Argon","Arminas","Arwen","Auredhir","Ausir","Beleg","Bronweg","Bruithwir","Caranthir","Celeborn ","Celebrían","Celebrimbor","Celebrindal","Celegorm","Círdan","Curufin","Curufinwë","Cúthalion","Daeron","Daurin","Denethor","Eärendil","Eärwen","Ecthelio","Edrahil","Egalmoth","Egnor","Elemmakil","Elfrith","Elladan et Elrohir","Elu Thingol","Elmo","Elrond","Eltas","Eluchíl","Eluréd","Elurín","Elwë","Elwing","Enel","Enelyë","Enerdhil","Eöl","Ereinion","Erellont","Erestor","Evranin","Evromord","Faelivrin","Falathar","Fëanor","Felagund","Finarfin","Findis","Finduilas","Finrod","Finwë","Galadhon","Galadriel ","Galathil","Galdor","Galion","Galweg","Gelmir","Gereth","Gil-estel","Gilfanon","Gil-galad","Gilmith","Glorfindel","Gwindor","Haldir","Hendor","Heorrenda","Idril","Ilverin","Imin","Iminyë","Indis","Ingil","Inglorion","Ingwë Ingweron","Írimë","Ithilbor","Ivárë","Lalwen","Legolas ","Lenwë","Lindir","Lindo","Lómion","Lúthien","Mablon","Mablung","Maedhros","Maeglin","Maglor","Mahtan","Meleth","Melinir","Meril-i-Turinqi","Míriel","Mithrellas"]
             var pair1=list[Math.floor(Math.random()*list.length)];
@@ -906,6 +915,8 @@ import { liber } from "./config.js";
              cpt15=5;avantagerace=game.i18n.localize("liber.avantrace18");
         }else if(race==game.i18n.localize("liber.avantrace77")){
              cpt38=-10;avantagerace=game.i18n.localize("liber.avantrace19");
+        }else if(race==game.i18n.localize("liber.avantrace77a")){
+             cpt38=-10;avantagerace=game.i18n.localize("liber.avantrace19a");
         }else {
             avantagerace="";
         }
@@ -1481,7 +1492,7 @@ import { liber } from "./config.js";
             hp = parseInt(hpmax) - parseInt(insoin);
         }
 
-        let mag0 = 'aucun';let mag1 = 'aucun';let mag2 = 'aucun';let all = 0;
+        let mag0 = 'aucun';let mag1 = 'aucun';let mag2 = 'aucun';;let mag3 = 'aucun';;let mag4 = 'aucun';;let mag5 = 'aucun';let all = 0;
         const raceMagMap = {
           [game.i18n.localize('liber.avantrace56')]: 'corbeau',
           [game.i18n.localize('liber.metier12')]: 'troubadour',
@@ -1518,12 +1529,20 @@ import { liber } from "./config.js";
           [game.i18n.localize('liber.avantrace86')]: 'ancien',
           [game.i18n.localize('liber.avantrace87')]: 'baphomet',
           [game.i18n.localize('liber.avantrace89')]: 'vaudou',
+          [game.i18n.localize('liber.avantrace95')]: 'monnaie',
           [game.i18n.localize('liber.avantrace78')]: 'autre'
         };
 
         if(clan==game.i18n.localize('liber.avantrace91')){
             mag0 = "illusion";
             mag1 = "feu";
+        }else if(race==game.i18n.localize('liber.avantrace77a')){
+            mag0 = "lumiere";
+            mag1 = "croise";
+            mag2 = "humain";
+            mag3 = "nouvelordre";
+            mag4 = "vharung";
+            mag5 = "vie";
         } else if (clan && clan !== 'undefined' && raceMagMap[clan]) {
           mag1 = raceMagMap[clan];
         } 
@@ -1569,6 +1588,9 @@ import { liber } from "./config.js";
                 value.system.classe == mag0 ||
                 value.system.classe == mag1 ||
                 value.system.classe == mag2 ||
+                value.system.classe == mag3 ||
+                value.system.classe == mag4 ||
+                value.system.classe == mag5 ||
                 mag1 == game.i18n.localize("liber.avantrace78")
             ).filter(value =>
                 parseInt(value.system.cout) <= cout || cout == "X"
