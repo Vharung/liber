@@ -1554,7 +1554,6 @@ import { liber } from "./config.js";
         if(metier==game.i18n.localize('liber.metier12')){
            mag1= 'troubadour'
         }
-        console.log(reliMagMap[reli])
         if (reliMagMap[reli]) {
           mag2 = reliMagMap[reli];
         }
