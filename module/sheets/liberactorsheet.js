@@ -362,6 +362,7 @@ import { liber } from "./config.js";
             html.find('.religionliste').css("display", "none");
         }  else if(race==game.i18n.localize('liber.avantrace77a')){
             html.find('.faiblesseliste').val(game.i18n.localize('liber.title07'));
+            this.actor.update({'system.faiblesse': game.i18n.localize('liber.title07')});
         }
         if(clan==game.i18n.localize('liber.avantrace59')){
             html.find('.religionliste').css("display", "none");
