@@ -1495,7 +1495,7 @@ import { liber } from "./config.js";
             hp = parseInt(hpmax) - parseInt(insoin);
         }
 
-        let mag0 = 'aucun';let mag1 = 'aucun';let mag2 = 'aucun';;let mag3 = 'aucun';;let mag4 = 'aucun';;let mag5 = 'aucun';let all = 0;
+        let mag0 = 'aucun';let mag1 = 'aucun';let mag2 = 'aucun';;let mag3 = 'aucun';let mag4 = 'aucun';let mag5 = 'aucun';let all = 0;
         const raceMagMap = {
           [game.i18n.localize('liber.avantrace56')]: 'corbeau',
           [game.i18n.localize('liber.metier12')]: 'troubadour',
@@ -1532,15 +1532,16 @@ import { liber } from "./config.js";
           [game.i18n.localize('liber.avantrace86')]: 'ancien',
           [game.i18n.localize('liber.avantrace87')]: 'baphomet',
           [game.i18n.localize('liber.avantrace89')]: 'vaudou',
+          [game.i18n.localize('liber.avantrace95')]: 'monnaie',
           [game.i18n.localize('liber.avantrace78')]: 'autre'
         };
 
         if(clan==game.i18n.localize('liber.avantrace91')){
-            mag0 = "illusion";
-            mag1 = "feu";
+            mag1 = "illusion";
+            mag2 = "feu";
         }else if(race==game.i18n.localize('liber.avantrace77a')){
             mag0 = "lumiere";
-            mag1 = "croiser";
+            mag1 = "croise";
             mag2 = "humain";
             mag3 = "nouvelordre";
             mag4 = "vharung";
@@ -1553,7 +1554,7 @@ import { liber } from "./config.js";
         if(metier==game.i18n.localize('liber.metier12')){
            mag1= 'troubadour'
         }
-
+        console.log(reliMagMap[reli])
         if (reliMagMap[reli]) {
           mag2 = reliMagMap[reli];
         }
