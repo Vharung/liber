@@ -1,9 +1,13 @@
 import { liber } from "./config.js";
+//import { liber } from "./classe.js";
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
  */
- export class LiberActorSheet extends ActorSheet {
+
+
+
+export class LiberActorSheet extends ActorSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
           classes: ["Liber", "sheet", "actor"],
@@ -788,8 +792,14 @@ import { liber } from "./config.js";
     }
 
     _onGenerator(event){
-        console.log('gen')
-        //variable
+        /*test
+        const personnage = new Personnage();
+        personnage.choisirRace(game.i18n.localize("liber.avantrace60"));
+        const nomGenerer = personnage.caractere.genererNom();
+        personnage.caractere.attribuerAvantageRace();
+        fin test*/
+
+        variable
         var race = this.actor.system.race;
         var sexe = this.actor.system.sexe;
         var clan = this.actor.system.clan;
