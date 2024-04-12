@@ -6,4 +6,3 @@ import NameGenerator from "./class/nom_class.js";
 import CharacterGenerator from "./class/generator_class.js";
 import Character from "./class/character_class.js";
 import EquipementManager from "./class/equip_class.js";
-import { races, clans, reli, metiers, raceMagMap, reliMagMap, noms, armes, character } from  "./class/const.js";
