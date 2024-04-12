@@ -364,19 +364,18 @@ export class LiberActorSheet extends ActorSheet {
         if(race==game.i18n.localize('liber.avantrace64')){
             html.find('.magi').css("display", "none");
             html.find('.religionliste').css("display", "none");
-        }  else if(race==game.i18n.localize('liber.avantrace77a')){
-            html.find('.faiblesseliste').val(game.i18n.localize('liber.title07'));
-            this.actor.update({'system.faiblesse': game.i18n.localize('liber.title07')});
-        }
+        }  
         if(clan==game.i18n.localize('liber.avantrace59')){
             html.find('.religionliste').css("display", "none");
+        }
+
+        if(race==game.i18n.localize('liber.avantrace77a')){
+            html.find('.faiblesseliste').val(game.i18n.localize('liber.title07'));
         }else if(clan==game.i18n.localize('liber.avantrace56')){ 
             html.find('.metier').val(game.i18n.localize('liber.avantrace93'));
-            this.actor.update({'system.metier': game.i18n.localize('liber.avantrace93')});
         }else if(clan==game.i18n.localize('liber.avantrace58')){ 
             html.find('.metier').val(game.i18n.localize('liber.avantrace94'));
-            this.actor.update({'system.metier': game.i18n.localize('liber.avantrace94')});
-        }   
+        }  
     }
 
     getItemFromEvent = (ev) => {
@@ -1023,7 +1022,6 @@ export class LiberActorSheet extends ActorSheet {
         }else if(meti==game.i18n.localize("liber.metier17")){
             hp=23;psy= 5;phy=70;forc=40;agil=20;soc=50;saga=20;char=30;men=50;astu=35;memo=15;cpt43=cpt43+10;cpt7=cpt7+5;cpt57=cpt57+5;cpt27=cpt27+5;cpt39=cpt39+5;
         }
-
         //histoire
         var age = Math.floor((Math.random() * 34) + 16);
         var items0=[game.i18n.localize("liber.lang1"),game.i18n.localize("liber.lang2"),game.i18n.localize("liber.lang3"),game.i18n.localize("liber.lang4"),game.i18n.localize("liber.lang5"),game.i18n.localize("liber.lang6"),game.i18n.localize("liber.lang7"),game.i18n.localize("liber.lang8"),game.i18n.localize("liber.lang9"),game.i18n.localize("liber.lang10"),game.i18n.localize("liber.lang11"),game.i18n.localize("liber.lang12"),game.i18n.localize("liber.lang13"),game.i18n.localize("liber.lang14"),game.i18n.localize("liber.lang15"),game.i18n.localize("liber.lang16"),game.i18n.localize("liber.lang17"),game.i18n.localize("liber.lang18"),game.i18n.localize("liber.lang19")];
@@ -1623,7 +1621,6 @@ export class LiberActorSheet extends ActorSheet {
                 'duree': value.system.duree
             })).sort((a, b) => a.cout - b.cout);
         }
-        console.log(listem)
         //console.log(pack)
         this.actor.update({"system.level":level,"system.etat.a":active[0],"system.etat.b":active[1],"system.etat.c":active[2],"system.etat.d":active[3],"system.etat.e":active[4],"system.etat.f":active[5],"system.etat.g":active[6],"system.etat.h":active[7],"system.etat.i":active[8],"system.etat.j":active[9],"system.etat.k":active[10],"system.etat.l":active[11],"system.etat.m":active[12],"system.etat.n":active[13],"system.reste":reste,'system.listemag.liste':listem,'system.listemag.img1':mag1,'system.listemag.img2':mag2,'system.alert.psy':apsy,'system.alert.psymax':apsymax,'system.alert.hp':ahp,'system.alert.hpmax':ahp,'system.hp.max':hpmax,'system.hp.value':hp,'system.psy.max':psy,'system.psy.value':psyvalue,"system.restant":resultat,'system.maxsort':calsort,'system.coutmax':cout,'system.alert.maxsort':color1,'system.alert.coutmax':color2,'system.caracteristique.acrobatie':cpts[0],'system.caracteristique.agilites':cpts[1],'system.caracteristique.alchimie':cpts[2],'system.caracteristique.apprentissage':cpts[3],'system.caracteristique.hast':cpts[4],'system.caracteristique.cc':cpts[5],'system.caracteristique.lancer':cpts[6],'system.caracteristique.melee':cpts[7],'system.caracteristique.tir':cpts[8],'system.caracteristique.art':cpts[9],'system.caracteristique.assassinat':cpts[10],'system.caracteristique.baton':cpts[11],'system.caracteristique.bouclier':cpts[12],'system.caracteristique.bricolage':cpts[13],'system.caracteristique.presence':cpts[14],'system.caracteristique.chercher':cpts[15],'system.caracteristique.commander':cpts[16],'system.caracteristique.concentration':cpts[17],'system.caracteristique.nature':cpts[18],'system.caracteristique.peuples':cpts[19],'system.caracteristique.religions':cpts[20],'system.caracteristique.geographique':cpts[21],'system.caracteristique.rue':cpts[22],'system.caracteristique.heretiques':cpts[23],'system.caracteristique.combat':cpts[24],'system.caracteristique.commerce':cpts[25],'system.caracteristique.crochetage':cpts[26],'system.caracteristique.discretion':cpts[27],'system.caracteristique.dexterite':cpts[28],'system.caracteristique.detection':cpts[29],'system.caracteristique.dissimulation':cpts[30],'system.caracteristique.dressage':cpts[31],'system.caracteristique.ennemi':cpts[32],'system.caracteristique.equilibre':cpts[33],'system.caracteristique.equitation':cpts[34],'system.caracteristique.escroquerie':cpts[35],'system.caracteristique.esquiver':cpts[36],'system.caracteristique.puissance':cpts[37],'system.caracteristique.astuce':cpts[38],'system.caracteristique.peur':cpts[39],'system.caracteristique.joueur':cpts[40],'system.caracteristique.maitrise':cpts[41],'system.caracteristique.natation':cpts[42],'system.caracteristique.navigation':cpts[43],'system.caracteristique.orientation':cpts[44],'system.caracteristique.persuasion':cpts[45],'system.caracteristique.pister':cpts[46],'system.caracteristique.prophetie':cpts[47],'system.caracteristique.secours':cpts[48],'system.caracteristique.resistance':cpts[49],'system.caracteristique.psychologue':cpts[50],'system.caracteristique.medecine':cpts[51],'system.caracteristique.survie':cpts[52],'system.caracteristique.tueur':cpts[53],'system.caracteristique.objet':cpts[54],'system.caracteristique.veterinaire':cpts[55],'system.caracteristique.vigilance':cpts[56],'system.caracteristique.vise':cpts[57]});
        
