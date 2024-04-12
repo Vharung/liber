@@ -370,7 +370,13 @@ export class LiberActorSheet extends ActorSheet {
         }
         if(clan==game.i18n.localize('liber.avantrace59')){
             html.find('.religionliste').css("display", "none");
-        }    
+        }else if(clan==game.i18n.localize('liber.avantrace56')){ 
+            html.find('.metier').val(game.i18n.localize('liber.avantrace93'));
+            this.actor.update({'system.metier': game.i18n.localize('liber.avantrace93')});
+        }else if(clan==game.i18n.localize('liber.avantrace58')){ 
+            html.find('.metier').val(game.i18n.localize('liber.avantrace94'));
+            this.actor.update({'system.metier': game.i18n.localize('liber.avantrace94')});
+        }   
     }
 
     getItemFromEvent = (ev) => {
@@ -799,7 +805,7 @@ export class LiberActorSheet extends ActorSheet {
         personnage.caractere.attribuerAvantageRace();
         fin test*/
 
-        variable
+        //variable
         var race = this.actor.system.race;
         var sexe = this.actor.system.sexe;
         var clan = this.actor.system.clan;
