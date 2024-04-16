@@ -1,0 +1,218 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <div id="pj-titre">
+        <div class="flexrow objet">
+            <div class="grid-2col" style="max-width: 134px;">
+                <img src="systems/liber/assets/icon/config.jpg" data-edit="img" title="{{item.name}}" height="128" width="128"/>
+            </div>
+            <div class="grid-2col">
+                <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div id="monstre" class="tab monstre" data-tabs="monstre">  
+
+        <h1>Monstre(s)</h1>
+        <ul class="m_list">
+
+            <ol>
+                <p class="m_nb">Nb</p>
+                <p class="m_name">Nom</p>
+                <p class="m_lvl m0">Lvl</p>
+                <p class="m_degat">Dgt</p>
+                <p class="m_pv">PV</p>
+                <p class="m_ar">Ar</p>
+            </ol>
+                <li class="m0">
+                    <span class="m_img"></span>
+                    <input class="m_nb" name="system.monstres.monstre0.m_nb" type="text" value="{{item.system.monstres.monstre0.m_nb}}" placeholder="1" style="width:40px" >
+                    <select class="m_name" name="system.monstres.monstre0.m_name" style="width:200px">
+                        {{#select item.system.monstres.monstre0.m_name}}
+                            <option value="none" data-name="name" data-img="img" data-hp="0" data-dg="0" data-ar="0">Monstre</option>
+                            {{#each item.system.listem}}
+                                <option value="{{this.name}}" data-name="{{this.name}}" data-img="{{this.img}}" data-hp="{{this.hp}}" data-ar="{{this.ar}}" data-dg="{{this.dg}}" data-id="{{this.id}}">{{this.name}}</option>
+                            {{/each}}
+                        {{/select}}
+                    </select>
+                    <input class="m_lvl m0" name="system.monstres.monstre0.m_level" type="text" value="{{item.system.monstres.monstre0.m_level}}" placeholder="1" style="width:40px">
+                    <input class="m_degat" readonly type="text" placeholder="1d6" style="width:40px">
+                    <input class="m_pv" readonly type="text" placeholder="8" style="width:40px">
+                    <input class="m_ar" readonly type="text" placeholder="8" style="width:40px">
+                    <input class="m_id" name="system.monstres.monstre0.m_id" readonly type="text" placeholder="8" style="display:none">
+                    <a class="m_add" style="width:40px;display: inline-block;text-align: center;" title="Ajouter au acteur" data-nb="0">+</a>
+                </li>
+                <li class="m1">
+                    <input class="m_nb" name="system.monstres.monstre1.m_nb" type="text" value="{{item.system.monstres.monstre1.m_nb}}" placeholder="1" style="width:40px">
+                    <select class="m_name" name="system.monstres.monstre1.m_name" style="width:200px">
+                        {{#select item.system.monstres.monstre1.m_name}}
+                            <option value="none" data-name="name" data-img="img" data-hp="0" data-dg="0" data-ar="0">Monstre</option>
+                            {{#each item.system.listem}}
+                                <option value="{{this.name}}" data-name="{{this.name}}" data-img="{{this.img}}" data-hp="{{this.hp}}" data-ar="{{this.ar}}" data-dg="{{this.dg}}">{{this.name}}</option>
+                            {{/each}}
+                        {{/select}}
+                    </select>
+                    <input class="m_lvl m0" name="system.monstres.monstre1.m_level" type="text" value="{{item.system.monstres.monstre1.m_level}}" placeholder="1" style="width:40px">
+                    <input class="m_degat" readonly type="text" placeholder="1d6" style="width:40px">
+                    <input class="m_pv" readonly type="text" placeholder="8" style="width:40px">
+                    <input class="m_ar" readonly type="text" placeholder="8" style="width:40px">
+                    <input class="m_id" name="system.monstres.monstre1.m_id" readonly type="text" placeholder="8" style="display:none">
+                    <a class="m_add" style="width:40px;display: inline-block;text-align: center;" title="Ajouter au acteur" data-nb="1">+</a>
+                </li>
+                <li class="m2">
+                    <input class="m_nb" name="system.monstres.monstre2.m_nb" type="text" value="{{item.system.monstres.monstre2.m_nb}}" placeholder="1" style="width:40px">
+                    <select class="m_name" name="system.monstres.monstre2.m_name" style="width:200px">
+                        {{#select item.system.monstres.monstre2.m_name}}
+                            <option value="none" data-name="name" data-img="img" data-hp="0" data-dg="0" data-ar="0">Monstre</option>
+                            {{#each item.system.listem}}
+                                <option value="{{this.name}}" data-name="{{this.name}}" data-img="{{this.img}}" data-hp="{{this.hp}}" data-ar="{{this.ar}}" data-dg="{{this.dg}}">{{this.name}}</option>
+                            {{/each}}
+                        {{/select}}
+                    </select>
+                    <input class="m_lvl m0" name="system.monstres.monstre2.m_level" type="text" value="{{item.system.monstres.monstre2.m_level}}" placeholder="1" style="width:40px">
+                    <input class="m_degat" readonly type="text" placeholder="1d6" style="width:40px">
+                    <input class="m_pv" readonly type="text" placeholder="8" style="width:40px">
+                    <input class="m_ar" readonly type="text" placeholder="8" style="width:40px">
+                    <input class="m_id" name="system.monstres.monstre2.m_id" readonly type="text" placeholder="8" style="display:none">
+                    <a class="m_add" style="width:40px;display: inline-block;text-align: center;" title="Ajouter au acteur" data-nb="2">+</a>
+                </li>
+                <li class="m3">
+                    <input class="m_nb" name="system.monstres.monstre3.m_nb" type="text" value="{{item.system.monstres.monstre3.m_nb}}" placeholder="1" style="width:40px">
+                    <select class="m_name" name="system.monstres.monstre3.m_name" style="width:200px">
+                        {{#select item.system.monstres.monstre3.m_name}}
+                            <option value="none" data-name="name" data-img="img" data-hp="0" data-dg="0" data-ar="0">Monstre</option>
+                            {{#each item.system.listem}}
+                                <option value="{{this.name}}" data-name="{{this.name}}" data-img="{{this.img}}" data-hp="{{this.hp}}" data-ar="{{this.ar}}" data-dg="{{this.dg}}">{{this.name}}</option>
+                            {{/each}}
+                        {{/select}}
+                    </select>
+                    <input class="m_lvl m0" name="system.monstres.monstre3.m_level" type="text" value="{{item.system.monstres.monstre3.m_level}}" placeholder="1" style="width:40px">
+                    <input class="m_degat" readonly type="text" placeholder="1d6" style="width:40px">
+                    <input class="m_pv" readonly type="text" placeholder="8" style="width:40px">
+                    <input class="m_ar" readonly type="text" placeholder="8" style="width:40px">
+                    <input class="m_id" name="system.monstres.monstre3.m_id" readonly type="text" placeholder="8" style="display:none">
+                    <a class="m_add" style="width:40px;display: inline-block;text-align: center;" title="Ajouter au acteur" data-nb="3">+</a>
+                </li>
+                <li class="m4">
+                    <input class="m_nb" name="system.monstres.monstre4.m_nb" type="text" value="{{item.system.monstres.monstre4.m_nb}}" placeholder="1" style="width:40px">
+                    <select class="m_name" name="system.monstres.monstre4.m_name" style="width:200px">
+                        {{#select item.system.monstres.monstre4.m_name}}
+                            <option value="none" data-name="name" data-img="img" data-hp="0" data-dg="0" data-ar="0">Monstre</option>
+                            {{#each item.system.listem}}
+                                <option value="{{this.name}}" data-name="{{this.name}}" data-img="{{this.img}}" data-hp="{{this.hp}}" data-ar="{{this.ar}}" data-dg="{{this.dg}}">{{this.name}}</option>
+                            {{/each}}
+                        {{/select}}
+                    </select>
+                    <input class="m_lvl m0" name="system.monstres.monstre4.m_level" type="text" value="{{item.system.monstres.monstre4.m_level}}" placeholder="1" style="width:40px">
+                    <input class="m_degat" readonly type="text" placeholder="1d6" style="width:40px">
+                    <input class="m_pv" readonly type="text" placeholder="8" style="width:40px">
+                    <input class="m_ar" readonly type="text" placeholder="8" style="width:40px">
+                    <input class="m_id" name="system.monstres.monstre4.m_id" readonly type="text" placeholder="8" style="display:none">
+                    <a class="m_add" style="width:40px;display: inline-block;text-align: center;" title="Ajouter au acteur" data-nb="4">+</a>
+                </li>
+                <li class="m5">
+                    <input class="m_nb" name="system.monstres.monstre5.m_nb" type="text" value="{{item.system.monstres.monstre5.m_nb}}" placeholder="1" style="width:40px">
+                    <select class="m_name" name="system.monstres.monstre5.m_name" style="width:200px">
+                        {{#select item.system.monstres.monstre5.m_name}}
+                            <option value="none" data-name="name" data-img="img" data-hp="0" data-dg="0" data-ar="0">Monstre</option>
+                            {{#each item.system.listem}}
+                                <option value="{{this.name}}" data-name="{{this.name}}" data-img="{{this.img}}" data-hp="{{this.hp}}" data-ar="{{this.ar}}" data-dg="{{this.dg}}">{{this.name}}</option>
+                            {{/each}}
+                        {{/select}}
+                    </select>
+                    <input class="m_lvl m0" name="system.monstres.monstre5.m_level" type="text" value="{{item.system.monstres.monstre5.m_level}}" placeholder="1" style="width:40px">
+                    <input class="m_degat" readonly type="text" placeholder="1d6" style="width:40px">
+                    <input class="m_pv" readonly type="text" placeholder="8" style="width:40px">
+                    <input class="m_ar" readonly type="text" placeholder="8" style="width:40px">
+                    <input class="m_id" name="system.monstres.monstre5.m_id" readonly type="text" placeholder="8" style="display:none">
+                    <a class="m_add" style="width:40px;display: inline-block;text-align: center;" title="Ajouter au acteur" data-nb="5">+</a>
+                </li>
+                <li class="m6">
+                    <input class="m_nb" name="system.monstres.monstre6.m_nb" type="text" value="{{item.system.monstres.monstre6.m_nb}}" placeholder="1" style="width:40px">
+                    <select class="m_name" name="system.monstres.monstre6.m_name" style="width:200px">
+                        {{#select item.system.monstres.monstre6.m_name}}
+                            <option value="none" data-name="name" data-img="img" data-hp="0" data-dg="0" data-ar="0">Monstre</option>
+                            {{#each item.system.listem}}
+                                <option value="{{this.name}}" data-name="{{this.name}}" data-img="{{this.img}}" data-hp="{{this.hp}}" data-ar="{{this.ar}}" data-dg="{{this.dg}}">{{this.name}}</option>
+                            {{/each}}
+                        {{/select}}
+                    </select>
+                    <input class="m_lvl m0" name="system.monstres.monstre6.m_level" type="text" value="{{item.system.monstres.monstre6.m_level}}" placeholder="1" style="width:40px">
+                    <input class="m_degat" readonly type="text" placeholder="1d6" style="width:40px">
+                    <input class="m_pv" readonly type="text" placeholder="8" style="width:40px">
+                    <input class="m_ar" readonly type="text" placeholder="8" style="width:40px">
+                    <input class="m_id" name="system.monstres.monstre6.m_id" readonly type="text" placeholder="8" style="display:none">
+                    <a class="m_add" style="width:40px;display: inline-block;text-align: center;" title="Ajouter au acteur" data-nb="6">+</a>
+                </li>
+                <li class="m7">
+                    <input class="m_nb" name="system.monstres.monstre7.m_nb" type="text" value="{{item.system.monstres.monstre7.m_nb}}" placeholder="1" style="width:40px">
+                    <select class="m_name" name="system.monstres.monstre7.m_name" style="width:200px">
+                        {{#select item.system.monstres.monstre7.m_name}}
+                            <option value="none" data-name="name" data-img="img" data-hp="0" data-dg="0" data-ar="0">Monstre</option>
+                            {{#each item.system.listem}}
+                                <option value="{{this.name}}" data-name="{{this.name}}" data-img="{{this.img}}" data-hp="{{this.hp}}" data-ar="{{this.ar}}" data-dg="{{this.dg}}">{{this.name}}</option>
+                            {{/each}}
+                        {{/select}}
+                    </select>
+                    <input class="m_lvl m0" name="system.monstres.monstre7.m_level" type="text" value="{{item.system.monstres.monstre7.m_level}}" placeholder="1" style="width:40px">
+                    <input class="m_degat" readonly type="text" placeholder="1d6" style="width:40px">
+                    <input class="m_pv" readonly type="text" placeholder="8" style="width:40px">
+                    <input class="m_ar" readonly type="text" placeholder="8" style="width:40px">
+                    <input class="m_id" name="system.monstres.monstre7.m_id" readonly type="text" placeholder="8" style="display:none">
+                    <a class="m_add" style="width:40px;display: inline-block;text-align: center;" title="Ajouter au acteur" data-nb="7">+</a>
+                </li>
+                <li class="m8">
+                    <input class="m_nb" name="system.monstres.monstre8.m_nb" type="text" value="{{item.system.monstres.monstre8.m_nb}}" placeholder="1" style="width:40px">
+                    <select class="m_name" name="system.monstres.monstre8.m_name" style="width:200px">
+                        {{#select item.system.monstres.monstre8.m_name}}
+                            <option value="none" data-name="name" data-img="img" data-hp="0" data-dg="0" data-ar="0">Monstre</option>
+                            {{#each item.system.listem}}
+                                <option value="{{this.name}}" data-name="{{this.name}}" data-img="{{this.img}}" data-hp="{{this.hp}}" data-ar="{{this.ar}}" data-dg="{{this.dg}}">{{this.name}}</option>
+                            {{/each}}
+                        {{/select}}
+                    </select>
+                    <input class="m_lvl m0" name="system.monstres.monstre8.m_level" type="text" value="{{item.system.monstres.monstre8.m_level}}" placeholder="1" style="width:40px">
+                    <input class="m_degat" readonly type="text" placeholder="1d6" style="width:40px">
+                    <input class="m_pv" readonly type="text" placeholder="8" style="width:40px">
+                    <input class="m_ar" readonly type="text" placeholder="8" style="width:40px">
+                    <input class="m_id" name="system.monstres.monstre8.m_id" readonly type="text" placeholder="8" style="display:none">
+                    <a class="m_add" style="width:40px;display: inline-block;text-align: center;" title="Ajouter au acteur" data-nb="8">+</a>
+                </li>
+                <li class="m9">
+                    <input class="m_nb" name="system.monstres.monstre9.m_nb" type="text" value="{{item.system.monstres.monstre9.m_nb}}" placeholder="1" style="width:40px">
+                    <select class="m_name" name="system.monstres.monstre9.m_name" style="width:200px">
+                        {{#select item.system.monstres.monstre9.m_name}}
+                            <option value="none" data-name="name" data-img="img" data-hp="0" data-dg="0" data-ar="0">Monstre</option>
+                            {{#each item.system.listem}}
+                                <option value="{{this.name}}" data-name="{{this.name}}" data-img="{{this.img}}" data-hp="{{this.hp}}" data-ar="{{this.ar}}" data-dg="{{this.dg}}">{{this.name}}</option>
+                            {{/each}}
+                        {{/select}}
+                    </select>
+                    <input class="m_lvl m0" name="system.monstres.monstre9.m_level" type="text" value="{{item.system.monstres.monstre9.m_level}}" placeholder="1" style="width:40px">
+                    <input class="m_degat" readonly type="text" placeholder="1d6" style="width:40px">
+                    <input class="m_pv" readonly type="text" placeholder="8" style="width:40px">
+                    <input class="m_ar" readonly type="text" placeholder="8" style="width:40px">
+                    <input class="m_id" name="system.monstres.monstre9.m_id" readonly type="text" placeholder="8" style="display:none">
+                    <a class="m_add" style="width:40px;display: inline-block;text-align: center;" title="Ajouter au acteur" data-nb="9">+</a>
+                </li>
+        </ul>
+
+
+        <h1>Joueurs</h1>
+        
+        <div class="grid-2col">
+            <label>Pv total des joueurs
+                <input class="j_pv" name="system.pv" type="text" value="{{item.system.pv}}" placeholder="1"/>
+            </label>
+        </div>
+        <div class="grid-2col">
+            <label>Nb de joueurs
+                <input class="j_nb" name="system.nb" type="text" value="{{item.system.nb}}" placeholder="1"/>
+            </label>
+        </div>
+        <label>Niveau de difficulté
+            <input class="difficulty" type="text" value="" readonly>
+        </label>
+
+    </div>         
+</form>
