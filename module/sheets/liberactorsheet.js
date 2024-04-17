@@ -1,7 +1,7 @@
 import { liber } from "./class/config.js";
 import { Character } from "./class/class_Character.js";
 import { CaracteristiqueModifier } from "./class/class_Caracteristique.js";
-import { SortsPossibles } from "./class/class_SortsPossibles.js";
+import { SortsPossibles } from "./class/class_Sortspossibles.js";
 import {names, items0, items1, items2, items3, items4, metiers, races, clans, demeure, proximite, lieu, famille,titre,rang, organisation, intret, pertes, expece, valeur, prof, loisir, caracterelist, personnalitelist, visionlist, objectiflist, ouinon, tarelist} from "./class/const.js";
 
 /**
@@ -1169,14 +1169,7 @@ export class LiberActorSheet extends ActorSheet {
             }
         }
         let royal=newperso.characterClan(clan);
-        console.log(resultat)
-        console.log(royal)
-        console.log(royal[2])
-        console.log(breed)
-        console.log(breed[3])
-console.log(resultat+'+'+royal[2]+'+'+breed[3])
         resultat=resultat+royal[2]+breed[3];
-        console.log(resultat)
         let caractModif = new CaracteristiqueModifier(
             valeursCpts, // Tableau des caractéristiques initiales
             breed, // Informations sur la race
@@ -1193,7 +1186,7 @@ console.log(resultat+'+'+royal[2]+'+'+breed[3])
 
         //specialité céleste corbeau et croiser
         if(race==game.i18n.localize('liber.avantrace77a')){
-            faible=game.i18n.localize('liber.title07');//actor.system.faiblesse
+            faiblesse=game.i18n.localize('liber.title07');//actor.system.faiblesse
         }else if(clan==game.i18n.localize('liber.avantrace56')){ 
             profession=game.i18n.localize('liber.avantrace93');//actor.system.metier
         }else if(religion==game.i18n.localize('liber.avantrace58')){ 
