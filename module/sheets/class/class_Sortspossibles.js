@@ -1,4 +1,3 @@
-import {names, items0, items1, items2, items3, items4, metiers, races, clans, demeure, proximite, lieu, famille,titre,rang, organisation, intret, pertes, expece, valeur, prof, loisir, caracterelist, personnalitelist, visionlist, objectiflist, ouinon, tarelist} from "./const.js";
 export class SortsPossibles {
     constructor(mag0, mag1, mag2, mag3, mag4, mag5, metier, reli, clan, cout) {
         this.mag0 = mag0 || 'aucun';
