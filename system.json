@@ -26,7 +26,7 @@
           "name": "monstre",
           "label": "Monstres",
           "system": "liber",
-          "path": "./pack/monstre.db",
+          "path": "./pack/monstre",
           "type": "Actor",
           "visibility": "trusted"
         },
@@ -34,14 +34,14 @@
           "name": "armure",
           "label": "Armure",
           "system": "liber",
-          "path": "./pack/armures.db",
+          "path": "./pack/armures",
           "type": "Item"
         },
         {
           "name": "aide",
           "label": "Aide au MJ",
           "system": "liber",
-          "path": "./pack/aide-mj.db",
+          "path": "./pack/aide-mj",
           "type": "Item",
           "visibility": "trusted"
         },
@@ -49,35 +49,35 @@
           "name": "arme",
           "label": "Arme",
           "system": "liber",
-          "path": "./pack/armes.db",
+          "path": "./pack/armes",
           "type": "Item"
         },
         {
           "name": "objet",
           "label": "Objet",
           "system": "liber",
-          "path": "./pack/objet.db",
+          "path": "./pack/objet",
           "type": "Item"
         },
         {
           "name": "magie",
           "label": "Magie",
           "system": "liber",
-          "path": "./pack/magie.db",
+          "path": "./pack/magie",
           "type": "Item"
         },
         {
           "name": "regles",
           "label": "Régles",
           "type": "JournalEntry",
-          "path": "./pack/regles.db",
+          "path": "./pack/regles",
           "system": "liber"
         },
         {
           "name": "villes",
           "label": "Villes",
           "type": "Scene",
-          "path": "./pack/villes.db",
+          "path": "./pack/villes",
           "system": "liber",
           "visibility": "trusted"
         }
