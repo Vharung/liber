@@ -75,6 +75,7 @@ import {names, items0, items1, items2, items3, items4, metiers, races, clans, de
         psy = PSYmin;
     }
 
+
     const pointxp = (parseInt(this.level) - 1) * 3;
     const xp = parseInt(pointxp) + parseInt(PVmin) + parseInt(PSYmin);
     const calcultotxp = parseInt(hpmax) + parseInt(psy);
@@ -86,7 +87,6 @@ import {names, items0, items1, items2, items3, items4, metiers, races, clans, de
     }
     if (parseInt(hp) > parseInt(hpmax)) {
         hp = hpmax;
-        console.log('egal');
     }
     if (parseInt(psyvalue) > parseInt(psy)) {
         psyvalue = psy;
@@ -94,9 +94,11 @@ import {names, items0, items1, items2, items3, items4, metiers, races, clans, de
 
     // Insoignable
     const insoin = this.insoin;
-    if (hpmax === hp && insoin > 0) {
+    const hpinsoin=parseInt(hpmax) + parseInt(insoin)
+    if (hpmax < hpinsoin) {
         hp = parseInt(hpmax) - parseInt(insoin);
     }
+
 
     return { 
       hpmax: hpmax,

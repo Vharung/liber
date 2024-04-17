@@ -75,12 +75,12 @@ export class Character {
   characterClan(clanLabel) {
     if (!clanLabel) {
         console.error("L'objet clans n'est pas défini.");
-        return null;
+        return [null,null,0];
     }
     let clan = Object.keys(clans).find(key => game.i18n.localize(key) === clanLabel);
     if (!clan) {
         console.error("Clan introuvable pour le label donné.");
-        return null;
+        return [null,null,0];
     }
 
     const clanStats = clans[clan];

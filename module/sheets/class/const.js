@@ -97,27 +97,27 @@ export const metiers = {
 //race
 export const races = {
     "liber.avantrace60":[2, {cpt27:-10},"liber.avantrace1",-20],
-    "liber.avantrace92":[null,{cpt1:5,cpt27:5},"liber.avantrace0",25],
-    "liber.avantrace61":[null,{cpt28:5,cpt50:5},"liber.avantrace2",30],
-    "liber.avantrace62":[null,{cpt39:10},"liber.avantrace3",10],
+    "liber.avantrace92":[0,{cpt1:5,cpt27:5},"liber.avantrace0",25],
+    "liber.avantrace61":[0,{cpt28:5,cpt50:5},"liber.avantrace2",30],
+    "liber.avantrace62":[0,{cpt39:10},"liber.avantrace3",10],
     "liber.avantrace63":[2,null,"liber.avantrace4",0],
-    "liber.avantrace64":[null,{cpt27:-20},"liber.avantrace5",-40],
-    "liber.avantrace65":[null,{cpt28:5},"liber.avantrace6",15],
-    "liber.avantrace10a":[null,{cpt1:5,cpt3:5},"liber.avantrace7",30],
-    "liber.avantrace66":[null,{cpt1:5,cpt18:5},"liber.avantrace8",20],
-    "liber.avantrace67":[null,{cpt10:10},"liber.avantrace9",20],
-    "liber.avantrace68":[null,{cpt1:5},"liber.avantrace10",-15],
-    "liber.avantrace69":[null,{cpt37:5,cpt40:5},"liber.avantrace11",20],
-    "liber.avantrace70":[null,{cpt1:5,cpt27:5},"liber.avantrace12",25],
-    "liber.avantrace71":[null,{cpt46:5,cpt28:5},"liber.avantrace13",20],
-    "liber.avantrace72":[null,null,"liber.avantrace14",0],
-    "liber.avantrace73":[null,{cpt18:5},"liber.avantrace15",5],
-    "liber.avantrace74":[null,null,"liber.avantrace16",0],
-    "liber.avantrace75":[null,null,"liber.avantrace17",5],
-    "liber.avantrace76":[null,{cpt15:5},"liber.avantrace18",5],
-    "liber.avantrace77":[null,{cpt38:-10},"liber.avantrace19",-30],
-    "liber.avantrace77a":[null,{cpt38:-10},"liber.avantrace19a",0],
-    "liber.avantrace78":[null,null,null,0]
+    "liber.avantrace64":[0,{cpt27:-20},"liber.avantrace5",-40],
+    "liber.avantrace65":[0,{cpt28:5},"liber.avantrace6",15],
+    "liber.avantrace10a":[0,{cpt1:5,cpt3:5},"liber.avantrace7",30],
+    "liber.avantrace66":[0,{cpt1:5,cpt18:5},"liber.avantrace8",20],
+    "liber.avantrace67":[0,{cpt10:10},"liber.avantrace9",20],
+    "liber.avantrace68":[0,{cpt1:5},"liber.avantrace10",-15],
+    "liber.avantrace69":[0,{cpt37:5,cpt40:5},"liber.avantrace11",20],
+    "liber.avantrace70":[0,{cpt1:5,cpt27:5},"liber.avantrace12",25],
+    "liber.avantrace71":[0,{cpt46:5,cpt28:5},"liber.avantrace13",20],
+    "liber.avantrace72":[0,null,"liber.avantrace14",0],
+    "liber.avantrace73":[0,{cpt18:5},"liber.avantrace15",5],
+    "liber.avantrace74":[0,null,"liber.avantrace16",0],
+    "liber.avantrace75":[0,null,"liber.avantrace17",5],
+    "liber.avantrace76":[0,{cpt15:5},"liber.avantrace18",5],
+    "liber.avantrace77":[0,{cpt38:-10},"liber.avantrace19",-30],
+    "liber.avantrace77a":[0,{cpt38:-10},"liber.avantrace19a",0],
+    "liber.avantrace78":[0,null,null,0]
 };
 //race
 export const clans = {
@@ -164,3 +164,12 @@ export const objectiflist=["liber.caract270","liber.caract271","liber.caract275"
 export const ouinon =["liber.oui","liber.non","liber.bof"]
 export const tarelist=["liber.caract279","liber.caract280","liber.caract281","liber.caract282","liber.caract283","liber.caract284","liber.caract285","liber.caract286","liber.caract287","liber.caract288","liber.caract289","liber.caract290","liber.caract291","liber.caract292","liber.caract293","liber.caract294","liber.caract295","liber.caract296","liber.caract297","liber.caract298","liber.caract299","liber.caract300","liber.caract301","liber.caract302","liber.caract303","liber.caract304","liber.caract305","liber.caract306","liber.caract307","liber.caract308","liber.caract309","liber.caract310","liber.caract311","liber.caract312","liber.caract313","liber.caract314","liber.caract315","liber.caract316","liber.caract317","liber.caract318","liber.caract319","liber.caract320","liber.caract321","liber.caract322","liber.caract323","liber.caract324","liber.caract325","liber.caract326","liber.caract327","liber.caract328","liber.caract329","liber.caract330","liber.caract331","liber.caract332","liber.caract333","liber.caract334","liber.caract335","liber.caract336","liber.caract337","liber.caract338","liber.caract339","liber.caract340","liber.caract341","liber.caract342","liber.caract343","liber.caract344","liber.caract345","liber.caract346","liber.caract347","liber.caract348","liber.caract349","liber.caract350","liber.caract351","liber.caract352","liber.caract353","liber.caract354","liber.caract355","liber.caract356","liber.caract357","liber.caract358","liber.caract359","liber.caract360","liber.caract361","liber.caract362","liber.caract363","liber.caract364","liber.caract36","liber.caract366","liber.caract367","liber.caract368","liber.caract369","liber.caract370","liber.caract371","liber.caract372","liber.caract373","liber.caract374","liber.caract375","liber.caract376","liber.caract377","liber.caract378","liber.caract379","liber.caract380","liber.caract381","liber.caract382","liber.caract383","liber.caract384","liber.caract385","liber.caract386","liber.caract387","liber.caract388","liber.caract389","liber.caract390","liber.caract391","liber.caract392","liber.caract393","liber.caract394","liber.caract395","liber.caract396","liber.caract397","liber.caract398","liber.caract399","liber.caract400","liber.caract401","liber.caract402","liber.caract403","liber.caract404","liber.caract405","liber.caract406","liber.caract407","liber.caract408","liber.caract409","liber.caract410","liber.caract411","liber.caract412","liber.caract413","liber.caract414","liber.caract415","liber.caract416","liber.caract417","liber.caract418","liber.caract419","liber.caract420","liber.caract421","liber.caract422","liber.caract423","liber.caract424","liber.caract425","liber.caract426","liber.caract427","liber.caract428","liber.caract429","liber.caract430","liber.caract431"]
      
+export const armes={
+    "mains":['Bâton','Espadon','Hallebarde','Fléaux d\'arme','Epée à deux mains','Hache de bataille','Faux de Guerre','Lance Lourde','Masse lourde'],
+    "hast":['Faux de Guerre','Hallebarde','Javelot','Lance Lourde'],
+    "cc":['Bouclier','Bouclier Rond','Dague','Gantelet de protection','Grand Bouclier'],
+    "jet":['Couteau de lancer','Fronde','Javelot'],
+    "melee":['Bâton','Epée','Epée à deux mains','Epée courte','Espadon','Fléaux d\'arme','Gourdin','Hache de bataille','Masse d\'arme','Masse lourde','Rapière','Sabre'],
+    "tir":['Arc','Arc long'],
+    'vise':['Arbalète','Arbalète de point','Bâton de feu','Mousquet','Pistolet']
+}

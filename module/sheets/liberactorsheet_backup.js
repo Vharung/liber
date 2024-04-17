@@ -373,6 +373,17 @@ export class LiberActorSheet extends ActorSheet {
             }else if(clan==game.i18n.localize('liber.avantrace58')){ 
                 html.find('.metier').val(game.i18n.localize('liber.avantrace94'));
             }  
+
+
+
+
+// Retirer toutes les options du select
+selectElement.empty();
+
+// Ajouter les options triées au select
+options.each(function() {
+    selectElement.append($(this));
+});
     }
 
     getItemFromEvent = (ev) => {

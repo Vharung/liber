@@ -447,12 +447,13 @@
 							<h2>Religion</h2>
 							<SELECT class="religionliste" name="system.religion">
 							{{#select actor.system.religion}}
-								{{#each config.religionHumainTypes as |religion|}}
-								<option class="humain" value="{{localize religion}}">{{localize religion}}</option>
-								{{/each}}
 								{{#each config.religionDragonTypes as |religion|}}
 								<option class="dragon" value="{{localize religion}}">{{localize religion}}</option>
 								{{/each}}
+								{{#each config.religionHumainTypes as |religion|}}
+								<option class="humain" value="{{localize religion}}">{{localize religion}}</option>
+								{{/each}}
+								
 								{{#each config.religionDemonTypes as |religion|}}
 								<option class="demon" value="{{localize religion}}">{{localize religion}}</option>
 								{{/each}}

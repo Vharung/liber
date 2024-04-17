@@ -20,7 +20,6 @@
               "avantage": "0",
               "desavantage": "0",
               "fatigue":"0",
-              "heure":0,
               "encombrement": {
                 "value": "0",
                 "max": 0
@@ -38,6 +37,7 @@
               },
               "bonus": "0",
               "malus": "0",
+              "heure":0,
               "histoire": "",
               "race": "",
               "bonusrace": "",
