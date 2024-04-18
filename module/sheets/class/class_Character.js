@@ -1,5 +1,5 @@
 import {names, items0, items1, items2, items3, items4, metiers, races, clans, demeure, proximite, lieu, famille,titre,rang, organisation, intret, pertes, expece, valeur, prof, loisir, caracterelist, personnalitelist, visionlist, objectiflist, ouinon, tarelist} from "./const.js";
-   
+
 // Classe pour gérer le personnage
 export class Character {
   constructor(sexe, race, talent, faiblesse, clan, religion, profession) {
@@ -9,7 +9,8 @@ export class Character {
     this.faiblesse = faiblesse;
     this.clan = clan;
     this.religion = religion;
-    this.profession = profession;   
+    this.profession = profession;  
+    this.baseUrl = 'systems/liber/assets/avatar/';  // Chemin de base pour les avatars 
   }
 
   // Méthode pour générer les caractéristiques du personnage
@@ -29,7 +30,7 @@ export class Character {
     } 
     if (nameList.hasOwnProperty('Famille')){
       // Sélectionner un nom au hasard pour le sexe approprié
-      name =name+" "+nameList[Math.floor(Math.random() * nameList.length)];
+      name =name+" "+nameList['Famille'][Math.floor(Math.random() * nameList['Famille'].length)];
     } else {
       // Sélectionner un nom au hasard dans la liste neutre
       if(race=="liber.avantrace60"){
@@ -111,4 +112,90 @@ export class Character {
     return {resident,sang,politique,groupe,dc,moral,amour,ami,haine,metier1,metier2,metier3,caractere,personnalite,vision,objectif,racune,tare,obsession,distingue};
   }
 
+  // Méthode pour récupérer l'URL d'un avatar aléatoire en fonction de la race
+  /*async getAvatarUrl() {
+    const dossierAvatars = this.getAvatarPath(this.race);
+    try {
+      const files = await this.fetchAvatars(dossierAvatars);
+      if (files.length === 0) {
+        throw new Error('Aucun fichier trouvé');
+      }
+      const avatarIndex = Math.floor(Math.random() * files.length);
+      return `${dossierAvatars}${files[avatarIndex]}`;
+    } catch (error) {
+      console.error('Erreur lors du chargement des avatars:', error);
+      return ''; // Retourner une URL vide ou par défaut en cas d'erreur
+    }
+  }*/
+
+  // Méthode pour déterminer le chemin du dossier en fonction de la race
+   async AvatarPath(raceLabel, sexe) {
+        console.log(raceLabel);
+        console.log(sexe);
+        let race = Object.keys(races).find(key => game.i18n.localize(key) === raceLabel);
+        console.log(race);
+        const raceMap = {
+            'liber.avantrace60': 'dragon/',
+            'liber.avantrace92': 'elfe/',
+            'liber.avantrace61': 'nain/',
+            'liber.avantrace62': 'demon/',
+            'liber.avantrace63': 'drauch/',
+            'liber.avantrace64': 'rocailleux/',
+            'liber.avantrace65': 'semihumain/',
+            'liber.avantrace10a': 'elfe/',
+            'liber.avantrace66': 'eflesylvain/',
+            'liber.avantrace67': 'elfenoir/',
+            'liber.avantrace68': 'elfedesang/',
+            'liber.avantrace69': 'nain/',
+            'liber.avantrace70': 'hommechat/',
+            'liber.avantrace71': 'hommechien/',
+            'liber.avantrace72': 'hommeoiseau/',
+            'liber.avantrace73': 'hommearbre/',
+            'liber.avantrace74': 'hommerat/',
+            'liber.avantrace75': 'etredepsy/',
+            'liber.avantrace76': 'vampire/',
+            'liber.avantrace77': 'orc/',
+            'liber.avantrace92': 'kobold/',
+            'liber.avantrace77a': 'celeste/',
+            'liber.avantrace78': 'defaut/',
+        };
+
+        let raceKey = raceMap[race];
+        sexe = sexe.toLowerCase();
+        if (sexe === 'female') {
+            raceKey += 'femmes/';
+        } else {  // 'male' ou tout autre chose
+            raceKey += 'hommes/';
+        }
+        try {
+            const files = await this.fetchAvatars(raceKey);
+            if (files.length === 0) {
+                throw new Error('Aucun fichier trouvé');
+            }
+            const avatarIndex = Math.floor(Math.random() * files.length);
+            const randomImagePath = files[avatarIndex];
+            const basePath = this.baseUrl + raceKey;
+            const avatarUrl = basePath + randomImagePath;
+            console.log('Chemin de l\'image sélectionnée :', avatarUrl);
+            return avatarUrl;
+        } catch (error) {
+            console.error('Erreur :', error);
+            return null;
+        }
+    }
+
+    // Méthode simulée pour obtenir les fichiers d'un dossier (devrait être remplacée par une implémentation réelle)
+    async fetchAvatars(directory) {
+        // Simuler une requête asynchrone pour obtenir la liste des avatars
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(['avatar1.jpg', 'avatar2.jpg', 'avatar3.jpg', 'avatar4.jpg', 'avatar5.jpg', 'avatar6.jpg', 'avatar7.jpg', 'avatar8.jpg', 'avatar9.jpg', 'avatar10.jpg']);  // Simuler les noms de fichiers
+            }, 1000);
+        });
+    }
+/**************************************************************************************************Exemple d'utilisation
+const character = new Character('Masculin', 'Elfe', 'Agilité', 'Curiosité', 'Clan du Loup', 'Aucune', 'Guerrier');
+character.getAvatarUrl().then(avatarUrl => {
+  console.log('URL de l\'avatar:', avatarUrl);  // Utiliser l'URL de l'avatar ici
+});*/
 }
