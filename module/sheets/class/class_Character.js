@@ -152,7 +152,7 @@ export class Character {
         } else {  // 'male' ou tout autre chose
             raceKey += 'hommes/';
         }
-        if(raceMap[race]=='defaut/'){
+        if(raceMap[race]=='default/'){
           let avatarUrl = this.baseUrl + raceKey+'avatar1.jpg';
           console.log('Chemin de l\'image défault sélectionnée :', avatarUrl);
           return avatarUrl
