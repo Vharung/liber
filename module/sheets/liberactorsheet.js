@@ -30,7 +30,7 @@ export class LiberActorSheet extends ActorSheet {
         }
     }
 
-    getData(){
+    async getData(){
         const data = super.getData();
         var poidsactor='';
         data.dtypes = ["String", "Number", "Boolean"];
@@ -40,7 +40,8 @@ export class LiberActorSheet extends ActorSheet {
             this._prepareCharacterItems(data);
         }
         if (this.actor.type == 'personnage' || this.actor.type == 'pnj' ) {
-            this._onEncom();this._onStat();
+            await this._onEncom();
+            await this._onStat();
         }
         return data;
     }
@@ -1073,7 +1074,7 @@ export class LiberActorSheet extends ActorSheet {
         if(!abilities.charisme) abilities.charisme=5;
         if(!abilities.sagacite) abilities.sagacite=5;
         if(!abilities.mental) abilities.mental=10;
-        if(!abilities.astuce) abilities.astuce=5;
+        if(!abilities.ast) abilities.astuce=5;
         if(!abilities.memoire) abilities.memoire=5;
         let mag0 = 'aucun';let mag1 = 'aucun';let mag2 = 'aucun';;let mag3 = 'aucun';let mag4 = 'aucun';let mag5 = 'aucun';let all = 0;
 

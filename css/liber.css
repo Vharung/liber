@@ -231,13 +231,41 @@ footer.nue {color: #c9c7b8;}
 
 .Liber .item-cout,.Liber .item-qty{z-index: 2;position: relative;}
 
-.item-piles-even-color:nth-child(even){background: rgb(32 24 13}
-::-webkit-scrollbar {
-	width: 0px !important;
-	height: 0px;
-}
-
+.item-piles-even-color:nth-child(even){background: rgb(32 24 13)}
+::-webkit-scrollbar {width: 0px !important;height: 0px;}
 a.content-link, a.inline-roll {background: none}
 .prosemirror menu .pm-dropdown{background: #20180d; }
 
 
+/**animation perte ajout pv/psy**/
+.change-indicator {
+    position: absolute;
+    color: red;
+    font-weight: bold;
+    animation: floatUpFade 1s ease-out forwards;
+}
+
+@keyframes floatUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+}
+.hp-change, .psy-change {
+    position: absolute;
+    left: 38px;
+    margin-top: -34px;
+    font-weight: bold;
+    pointer-events: none;
+    height: 20px;
+    width: 40px;
+    display: block; 
+    background: none;
+}

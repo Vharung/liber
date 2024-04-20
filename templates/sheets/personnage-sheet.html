@@ -43,13 +43,19 @@
 		<div class="inter">
 			<h2>{{localize 'liber.stat'}}</h2>
 			<div class="grid-2col">
-				<span class="deno">❤ {{localize 'liber.life'}}</span><input class="hp" name="system.hp.value" type="text" value="{{actor.system.hp.value}}" placeholder="10" style="{{actor.system.alert.hp}}"/><input class="hpmax" name="system.hp.max" type="text" value="{{actor.system.hp.max}}" placeholder="10" style="{{actor.system.alert.hpmax}}"/>
+			    <span class="deno">❤ {{localize 'liber.life'}}</span>
+			    <input class="hp" name="system.hp.value" type="text" value="{{actor.system.hp.value}}" placeholder="10" style="{{actor.system.alert.hp}}"/>
+			    <span class="hp-change"></span>
+			    <input class="hpmax" name="system.hp.max" type="text" value="{{actor.system.hp.max}}" placeholder="10" style="{{actor.system.alert.hpmax}}"/>
 			</div>
 			<div class="grid-2col">
 				<span class="deno">∇ {{localize 'liber.armor'}}</span><input class="armureperso" name="system.protection" type="text" value="{{actor.system.protection}}" placeholder="0"/>
 			</div>
 			<div class="grid-2col">
-				<span class="deno">♗ {{localize 'liber.psy'}} </span><input class="psy" name="system.psy.value" type="text" value="{{actor.system.psy.value}}" placeholder="10" style="{{actor.system.alert.psy}}"/><input class="psymax" name="system.psy.max" type="text" value="{{actor.system.psy.max}}" placeholder="10" style="{{actor.system.alert.psymax}}"/>
+			    <span class="deno">♗ {{localize 'liber.psy'}} </span>
+			    <input class="psy" name="system.psy.value" type="text" value="{{actor.system.psy.value}}" placeholder="10" style="{{actor.system.alert.psy}}"/>
+			    <span class="psy-change"></span>
+			    <input class="psymax" name="system.psy.max" type="text" value="{{actor.system.psy.max}}" placeholder="10" style="{{actor.system.alert.psymax}}"/>
 			</div>
 			<div class="grid-2col">
 				<span class="deno">☩ {{localize 'liber.protection'}}</span> <input class="protection" name="system.protectionmagique" type="text" value="{{actor.system.protectionmagique}}" placeholder="0"/>
