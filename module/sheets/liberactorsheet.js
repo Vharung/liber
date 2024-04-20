@@ -707,22 +707,20 @@ export class LiberActorSheet extends ActorSheet {
     _onSleep(event){
         let { talent, heure, jour, repos, level, psy: { value: psy, max: psymax }, hp: { value: hp, max: hpmax }, insoin, fatigue } = this.actor.system;
         let d = 0, hpadd = 0, psyadd = 0, j = 0, fatadd = 0;
-
         if (jour === game.i18n.localize("liber.jour")) {
           heure = parseInt(heure) * 24;
           j = Math.floor(parseInt(heure) / 3);
         }
-
         switch (repos) {
           case game.i18n.localize("liber.rapide"):
             d = Math.round(Math.random() * 4);
-            hpadd = ((d + parseInt(level)) * parseInt(heure)) * j / 8;
+            hpadd = ((d + parseInt(level)) * parseInt(heure)) / 8;
             psyadd = Math.floor((parseInt(level) * parseInt(heure)) / 2);
             break;
 
           case game.i18n.localize("liber.calme"):
             d = Math.round(Math.random() * 6);
-            hpadd = ((d + parseInt(level)) * parseInt(heure)) * j / 8;
+            hpadd = ((d + parseInt(level)) * parseInt(heure)) / 8;
             psyadd = Math.floor(parseInt(level) * parseInt(heure));
             fatadd = Math.floor(1 * parseInt(heure));
             if (talent === "Bon dormeur") {
@@ -742,6 +740,7 @@ export class LiberActorSheet extends ActorSheet {
               hpadd = parseInt(hpadd) + 6;
               psyadd = parseInt(psyadd) + 3;
               fatadd = parseInt(fatadd) + 1;
+
             }
             break;
 
@@ -761,7 +760,7 @@ export class LiberActorSheet extends ActorSheet {
           default:
             break;
         }
-
+        console.log(hpadd)
         hpadd = Math.min(hpadd, parseInt(hpmax) - parseInt(hp));
         hp = parseInt(hpadd) + parseInt(hp);
         fatigue=parseInt(fatigue)-fatadd
