@@ -26,6 +26,7 @@ export class Character {
     // Vérifier si la race a des noms spécifiques pour les sexes ou si les noms sont neutres
     if (nameList.hasOwnProperty('Female') && nameList.hasOwnProperty('Male')) {
       // Sélectionner un nom au hasard pour le sexe approprié
+      if(sexe==game.i18n.localize('liber.sex0')){sexe='Male';}
       name = nameList[sexe][Math.floor(Math.random() * nameList[sexe].length)];
     } 
     if (nameList.hasOwnProperty('Famille')){
@@ -151,10 +152,9 @@ export class Character {
         } else {  // 'male' ou tout autre chose
             raceKey += 'hommes/';
         }
-        if(raceMap[race]='defaut/'){
+        if(raceMap[race]=='defaut/'){
           let avatarUrl = this.baseUrl + raceKey+'avatar1.jpg';
-              console.log('Chemin de l\'image sélectionnée :', avatarUrl);
-
+          console.log('Chemin de l\'image défault sélectionnée :', avatarUrl);
           return avatarUrl
         }else {
           try {
