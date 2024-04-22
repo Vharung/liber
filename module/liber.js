@@ -54,7 +54,7 @@ Handlebars.registerHelper('times', function(n, block) {
 /****************Animation des PV/PSY******************/
 /******************************************************/
 //token
-Hooks.on('updateToken', (tokenDocument, updateData, options, userId) => {
+/*Hooks.on('updateToken', (tokenDocument, updateData, options, userId) => {
     if (updateData.actorData?.system?.pv) {
         const currentHP = getProperty(tokenDocument, "actorData.system.pv.total");
         const newHP = getProperty(updateData, "actorData.system.pv.total");
@@ -67,7 +67,7 @@ Hooks.on('updateToken', (tokenDocument, updateData, options, userId) => {
         }
     }
     console.log('updateToken')
-});
+});*/
 //fiche de personnage
 Hooks.on("renderActorSheet", function(sheet, html) {
     html.find(".hp, .psy").change(function() {

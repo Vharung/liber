@@ -40,8 +40,7 @@ export class LiberActorSheet extends ActorSheet {
             this._prepareCharacterItems(data);
         }
         if (this.actor.type == 'personnage' || this.actor.type == 'pnj' ) {
-            await this._onEncom();
-            await this._onStat();
+            await this._onEncom();await this._onStat();
         }
         return data;
     }

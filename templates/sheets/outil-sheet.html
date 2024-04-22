@@ -28,7 +28,7 @@
                     <span class="m_img"></span>
                     <input class="m_nb" name="system.monstres.monstre0.m_nb" type="text" value="{{item.system.monstres.monstre0.m_nb}}" placeholder="1" style="width:40px" >
                     <select class="m_name" name="system.monstres.monstre0.m_name" style="width:200px">
-                        {{#select item.system.monstres.monstre0.m_name}}
+                        {{#select item.system.monstres.monstre0.m_name}}<!-- {{selectOptions item.system.monstres.monstre0.m_name}}-->
                             <option value="none" data-name="name" data-img="img" data-hp="0" data-dg="0" data-ar="0">Monstre</option>
                             {{#each item.system.listem}}
                                 <option value="{{this.name}}" data-name="{{this.name}}" data-img="{{this.img}}" data-hp="{{this.hp}}" data-ar="{{this.ar}}" data-dg="{{this.dg}}" data-id="{{this.id}}">{{this.name}}</option>

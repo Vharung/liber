@@ -55,6 +55,9 @@ function showInputDialogWithSelect(options, callback) {
             
         \`,
         buttons: {
+            cancel: {
+                label: "Annuler",
+            },
             ok: {
                 label: "OK",
                 callback: (html) => {
@@ -63,9 +66,6 @@ function showInputDialogWithSelect(options, callback) {
                     const userposture = html.find('[name="userposture"]').val();
                     callback(userInput, selectedOption, userposture);
                 },
-            },
-            cancel: {
-                label: "Annuler",
             },
         },
         default: "ok",
@@ -115,7 +115,7 @@ showInputDialogWithSelect(options, (userInput, selectedOption,userposture) => {
           succes="<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>Echec</h4>";
           degats=0;
       }
-      texte = \`<span style="flex:auto"><p class="infosort"><span class="resultatp"><img src="${item.img}"  width="24" height="24"/>&nbsp; Jet de ${macroName} : \`  + retour +\`/\`+selectedOption+\`</span><span class="desctchat">${item.system.description}</span></p>\`+succes;
+      texte = \`<span style="flex:auto"><p class="infosort"><span class="resultatp"><img src="${item.img}"  width="24" height="24"/>&nbsp; Jet de ${macroName} : \`  + retour +\`/\`+inforesult+\`</span><span class="desctchat">${item.system.description}</span></p>\`+succes;
       `;
 
       if(item.system.degats){

@@ -16,10 +16,9 @@ export class SortsPossibles {
         const pack = game.packs.get('liber.magie');
         const tables = await pack.getDocuments();
         let listem;
-
         if (this.mag1 === 'autre' || this.mag2 === 'autre') {
             listem = tables.filter(value =>
-                parseInt(value.system.cout) <= this.cout || this.cout === "X"
+                value.system.cout === "X" || parseInt(value.system.cout) <= this.cout
             ).map(value => ({
                 'name': value.name,
                 'img': value.img,
@@ -40,7 +39,7 @@ export class SortsPossibles {
                 value.system.classe === this.mag5 ||
                 this.mag1 === game.i18n.localize("liber.avantrace78")
             ).filter(value =>
-                parseInt(value.system.cout) <= this.cout || this.cout === "X"
+                value.system.cout === "X" || parseInt(value.system.cout) <= this.cout
             ).map(value => ({
                 'name': value.name,
                 'img': value.img,
