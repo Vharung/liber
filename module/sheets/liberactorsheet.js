@@ -1366,7 +1366,7 @@ export class LiberActorSheet extends ActorSheet {
         let dragData;
 
         if ( li.dataset.type == "jetdedes") {
-          dragData = { "type": "ability", "name": li.dataset.name, "item": li.dataset.itemId, "dice": li.dataset.dice, "attDice": li.dataset.attdice }
+          dragData = { "type": "ability", "name": li.dataset.name, "item": li.dataset.itemId, "dice": li.dataset.dice, "attDice": li.dataset.attdice,"idactor":this.actor._id  }
         }
 
     // Owned Items
