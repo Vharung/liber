@@ -1,4 +1,8 @@
-// Définir une fonction pour gérer la fenêtre modale avec champ de saisie et liste déroulante
+import {armes} from "./class/const.js";
+
+export class Macros {
+    static createLiberMacro = async function(dropData, slot) {
+      // Définir une fonction pour gérer la fenêtre modale avec champ de saisie et liste déroulante
         let actorId = "A8In0jI7o1JtoCFw";
         let actor = game.actors.get(actorId);
         let retour='';
@@ -134,3 +138,5 @@
             ChatMessage.create(chatData, {});
           }
         });
+    }
+  }
