@@ -1041,7 +1041,7 @@ export class LiberActorSheet extends ActorSheet {
         let puis=this.actor.system.caracteristique.puissance;
         let enc=0;
         let ajout=0;
-        if(type==game.i18n.loaclize("liber.avantrace77b")){
+        if(type==game.i18n.localize("liber.avantrace77b")){
             ajout=20;
             return
         }else if(type=="Minuscule"){
