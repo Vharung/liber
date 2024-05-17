@@ -32,6 +32,7 @@ r16:"liber.avantrace75",
 r17:"liber.avantrace76",
 r18:"liber.avantrace77",
 r18:"liber.avantrace77a",
+r18:"liber.avantrace77b",
 r19:"liber.avantrace92",
 r20:"liber.avantrace78"
 }

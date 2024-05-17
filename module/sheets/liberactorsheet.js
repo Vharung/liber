@@ -15,8 +15,8 @@ export class LiberActorSheet extends ActorSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
           classes: ["Liber", "sheet", "actor"],
-          width: 1225,
-          height: 820,
+          width: 640,
+          height: 880,
           dragDrop: [{dragSelector: ".draggable", dropSelector: null},{dragSelector: ".ability", dropSelector: null}],
           tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
         });
@@ -37,10 +37,10 @@ export class LiberActorSheet extends ActorSheet {
         data.config=liber
         console.log(data);
         if (this.actor.type == 'personnage' || this.actor.type == 'pnj' || this.actor.type == 'monstre') {
-            this._prepareCharacterItems(data);
+            this._prepareCharacterItems(data);await this._onEncom();
         }
         if (this.actor.type == 'personnage' || this.actor.type == 'pnj' ) {
-            await this._onEncom();await this._onStat();
+            await this._onStat();
         }
         return data;
     }
@@ -93,9 +93,11 @@ export class LiberActorSheet extends ActorSheet {
         //this.addDragAndDropListeners();
 
         html.find('.maindroite, .maingauche, .armor, .desequi').click(this._onArmor.bind(this));
-        html.find('.attribut').click(this._onAttr.bind(this));
+        //html.find('.attribut').click(this._onAttr.bind(this));
+        html.on('click', '.attribut', this._onAttr.bind(this));
         html.find('.resetbonus, .resetmalus').click(this._onRestAttr.bind(this));
        
+
         //Jet de des
         html.find('.jetdedes, .jetdedegat, .attaque, .attaques').click(this._onRoll.bind(this));
        
@@ -162,17 +164,23 @@ export class LiberActorSheet extends ActorSheet {
         html.find('.talent').attr('title',ttitle);
         html.find('.faiblesse').attr('title',ftitle);
 
-       
-        html.find( ".compt input" ).each(function() {
-              var valor= $( this ).val();
-              if(valor==0){
-                $( this ).css({"background":"transparent","color": "#fff"});
-              }else if(valor>0){
-                $( this ).css({"background":"#56853b","color": "white"});
-              }else if(valor<0){
-                $( this ).css({"background":"#a51b1b","color": "white"});
-              }
-            });
+        let compe='';
+        html.find(".compt").each(function() {
+            var input = $(this).find("input");
+            var span = $(this).find('a').html();
+            var valor = parseInt(input.val());
+            
+            if (valor === 0) {
+                input.css({"background":"transparent","color": "#fff"});
+            } else if (valor > 0) {
+                input.css({"background":"#56853b","color": "white"});
+                compe += '<div class="resume"><a class="attribut" data-val="'+valor+'" title="span"><span>'+valor+'</span> '+span+'</a></div>';
+            } else if (valor < 0) {
+                input.css({"background":"#a51b1b","color": "white"});
+                compe += '<div class="resume"><a class="attribut" data-val="'+valor+'" title="span"><span>'+valor+'</span> '+span+'</a></div>';
+            }
+        });
+        html.find(".competences").html(compe);
 
         //test des capacités acrives
         $( ".tableaucreation input" ).each(function( index ) {
@@ -185,20 +193,16 @@ export class LiberActorSheet extends ActorSheet {
         });
 
         html.find('.item-filter').click(ev => {
-            const tab=$(ev.currentTarget).data('tab');
-            html.find('.items a').removeClass('acti');
+
+            const tab=$(ev.currentTarget).data('tab');console.log(tab)
             html.find('.items li').removeClass('active');
              if(tab=='' || tab=='tous'){
                 html.find('.items li').addClass('active');
-                html.find('.items a.tous').addClass('acti');
             }else if(tab=='armes'){
-                $('.items a.armes').addClass("acti");
                 $('.items li.armes').addClass("active");
             }else if(tab=='armures'){
-                $('.items a.armures').addClass("acti");
                 $('.items li.armures').addClass("active");
             }else if(tab=='objets'){
-                $('.items a.objets').addClass("acti");
                 $('.items li.objets').addClass("active");
             }
         });
@@ -283,7 +287,7 @@ export class LiberActorSheet extends ActorSheet {
         if(pourcentage>100){
             pourcentage=100;
         }
-           this.actor.update({'system.encombrement.value': total});
+        this.actor.update({'system.encombrement.value': total});
         html.find('.barenc').css({"width":pourcentage+"%"});
         var autre=html.find('.clanliste option:selected').val()
         var autres=html.find('.religionliste option:selected').val()
@@ -291,9 +295,21 @@ export class LiberActorSheet extends ActorSheet {
             html.find('.bucketmagie').css({"display":"none"});
         }
         var hp= html.find('.hp').val();
-        if(hp<=0){
-            html.find('.autres').css({"background":"url(systems/liber/css/parchemin-sang.jpg)",'background-size': 'cover'});
+
+
+        // Vérifier si les points de vie sont égaux à 0
+        if (hp <= 0) {
+            // Appliquer le style CSS pour le fond lorsque les points de vie sont égaux à 0
+
+                $('#LiberActorSheet-Actor-'+this.actor._id).css('background', 'linear-gradient(230deg, rgba(190,25,25,1) 0%, rgba(25,25,25,1) 100%)');
+
+        } else {
+            // Réinitialiser les styles CSS lorsque les points de vie sont supérieurs à 0
+
+                $('#LiberActorSheet-Actor-'+this.actor._id).css('background', 'linear-gradient(218deg, #2a2b2c 0%, #120304 100%)');
+
         }
+
 
 
         //test stat
@@ -311,24 +327,23 @@ export class LiberActorSheet extends ActorSheet {
         /*if(race==game.i18n.localize("liber.avantrace61")){
             max=175;
         }*/
-       
-        if((parseInt(phys)+parseInt(soci)+parseInt(ment))>max){
-            html.find('.physique').css({"background":"red"});    
-            html.find('.social').css({"background":"red"})
-            html.find('.mental').css({"background":"red"})
-        }
-        if(this.actor.type!="monstre"){
+        if(this.actor.type!=="monstre"){
+            if((parseInt(phys)+parseInt(soci)+parseInt(ment))>max){
+                html.find('.physique').css({"border":"red solid 1px"});    
+                html.find('.social').css({"border":"red solid 1px"})
+                html.find('.mental').css({"border":"red solid 1px"})
+            }
             if(phys<(parseInt(forc)+parseInt(agil))){
-                html.find('.force').css({"background":"red"});    
-                html.find('.agilite').css({"background":"red"});    
+                html.find('.force').css({"border":"red solid 1px"});    
+                html.find('.agilite').css({"border":"red solid 1px"});    
             }
             if(soci<(parseInt(char)+parseInt(saga))){
-                html.find('.charisme').css({"background":"red"});    
-                html.find('.sagacite').css({"background":"red"})
+                html.find('.charisme').css({"border":"red solid 1px"});    
+                html.find('.sagacite').css({"border":"red solid 1px"})
             }
             if(ment<(parseInt(astu)+parseInt(memo))){
-                html.find('.ast').css({"background":"red"});    
-                html.find('.memoire').css({"background":"red"})
+                html.find('.ast').css({"border":"red solid 1px"});    
+                html.find('.memoire').css({"border":"red solid 1px"})
             }
         }
        
@@ -1019,13 +1034,33 @@ export class LiberActorSheet extends ActorSheet {
     }
 
     _onEncom(){
+        const type=this.actor.system.race;
         const compt = this.actor.system.talent
         const faible = this.actor.system.faiblesse
         let forc=this.actor.system.ability.force;
-        let puis=this.actor.system.caracteristique.puissance
+        let puis=this.actor.system.caracteristique.puissance;
+        let enc=0;
+        let ajout=0;
+        if(type==game.i18n.loaclize("liber.avantrace77b")){
+            ajout=20;
+            return
+        }else if(type=="Minuscule"){
+            this.actor.update({"system.encombrement.max":enc});
+            return
+        }else if(type=="Petit"){
+            ajout=10;
+        }else if(type=="Moyen"){
+            ajout=30;
+        }else if(type=="Grand"){
+            ajout=100;
+        }else if(type=="Gigantesque"){
+            ajout=1000;
+        }else{
+            ajout=35;
+        }
         if(forc==''){forc=0}
         if(puis==''){puis=0}
-        var enc=(parseInt(forc)+ parseInt(puis)) /2 + 35;
+        enc=(parseInt(forc)+ parseInt(puis)) /2 + ajout;
         if(compt=="Mulet"){
             enc=parseInt(enc)+10
         }

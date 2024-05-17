@@ -61,6 +61,11 @@ export const names ={
         "Famille": ["Seraphim","Chérubin","Thrones","Dominations","Vertues","Powers","Principautés","Archanges","Anges","Nephilim","Malakim","Guardians","Dominions","Purifiers","Messengers","Hosts","Apostles","Elohim","Grigori","Erelim","Ophanim","Seraphiel","Raphael","Michael","Gabriel","Uriel","Metatron","Zadkiel","Jophiel","Haniel","Raziel","Sariel","Barachiel","Cassiel","Sachiel","Raguel","Remiel","Jeremiel","Phanuel","Ariel","Azrael","Chamuel","Zaphkiel","Baradiel","Barbiel","Camael","Castiel","Gadreel","Hadraniel","Hashmal","Hesediel","Imamiah","Ithuriel","Jegudiel","Jophiel","Kushiel","Maltiel","Mendrion","Nanael","Nuriel","Omael","Ophaniel","Puriel","Qaphsiel","Quabriel","Rachmiel","Radueriel","Ramiel","Raziel","Rikbiel","Rosier","Sandalphon","Sarakiel","Semeliel","Shamsiel","Shemhazai","Simiel","Sophiel","Tabris","Tzaphqiel","Tzadkiel","Uriel","Zachariel","Zadkiel","Zagzagel","Zaphkiel","Zerachiel"]
     },
     "liber.avantrace78":["Snik","Grik","Znok","Drek","Snag","Zog","Grok","Snark","Grik","Thokk"],
+    "liber.avantrace77b":{
+        "Female":["Aria","Briseis","Callista","Daphne","Elysia","Fauna","Galatea","Helene","Ianthe","Jocasta","Kaia","Lyra","Melaina","Nyssa","Ophelia","Phaedra","Rhea","Selene","Thalia","Xanthe"],
+        "Male":["Asterion","Brontes","Calchas","Diodorus","Eurytion","Faunus","Galad","Heracles","Icarus","Jareth","Kyros","Lycus","Myron","Orion","Phaedrus","Rastus","Silvanus","Thalassius","Urion","Xanthus"],
+        "Famille": ["Briseroc","Boisvert","CœurdeFeu","Feuillargent","Galoporage","Gardeclair","Pierrefoudre","Chantétoile","CoureurdesBois","Gardelune","Flèchedor","Ombresylve","Lanceciel","Brillecime","Gardeforêt","Sabreaube","Étoileféroce","Chasselumière","Ventargent","Coursombre"]
+    }
 }
 
 
@@ -117,10 +122,12 @@ export const races = {
     "liber.avantrace76":[0,{cpt15:5},"liber.avantrace18",5],
     "liber.avantrace77":[0,{cpt38:-10},"liber.avantrace19",-30],
     "liber.avantrace77a":[0,{cpt38:-10},"liber.avantrace19a",0],
+    "liber.avantrace77b":[0,null,"liber.avantrace19b",0],
     "liber.avantrace78":[0,null,'',0]
 };
 //race
 export const clans = {
+    'liber.avantrace39':[null,null,0],
     'liber.avantrace40':[null,"liber.avantrace20",0],
     'liber.avantrace41':[null,"liber.avantrace21",0],
     'liber.avantrace42':[null,"liber.avantrace22",0],

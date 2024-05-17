@@ -81,7 +81,7 @@ export class Character {
     }
     let clan = Object.keys(clans).find(key => game.i18n.localize(key) === clanLabel);
     if (!clan) {
-        console.error("Clan introuvable pour le label donné.");
+        console.error("Clan"+clan+" introuvable pour le label donné.");
         return [null,null,0];
     }
 
@@ -142,6 +142,7 @@ export class Character {
             'liber.avantrace77': 'orc/',
             'liber.avantrace92': 'kobold/',
             'liber.avantrace77a': 'celeste/',
+            'liber.avantrace77b': 'centaure/',
             'liber.avantrace78': 'default/',
         };
 

@@ -184,6 +184,7 @@
     "avantrace18": "Ne peut être soigner que par le sang (1d6), Chercher:5",
     "avantrace19": "Degat +4 et -10% au jet d’intelligence",
     "avantrace19a": "Etre divin",
+    "avantrace19b": "Déplacement doublé, combat monté +10, encombrement +20kg",
     "avantrace20": " - Furtivité",
     "avantrace21": " - Milieu naturel",
     "avantrace22": " - Déplacement spectral",
@@ -247,6 +248,7 @@
     "avantrace76": "Vampire",
     "avantrace77": "Orc",
     "avantrace77a": "Céleste",
+    "avantrace77b": "Centaure",
     "avantrace78": "Autre",
     "avantrace79": "Aucun",
     "avantrace80": "Culte de Vharung",
@@ -333,7 +335,7 @@
     
     "lang63": "Lexrung, tu es un esprit libre et indépendant.",
     "lang64": "Lexegar, tu es altruiste  et tu te sens obliger d'aider son prochain.",
-    "lang65": "Lexerha, tu es pacifique et préfères trouver des solutions non béliqueses aux conflits.",
+    "lang65": "Lexerha, tu es pacifique et préfères trouver des solutions non belliqueuses aux conflits.",
     "lang66": "Lexas, tu es de nature réfléchit et calme, leur conseil est toujours dis avec sagesse.",
     "lang67": "Lexweqi, tu es un brillant chasseur, tu arrives facilement à  pister leur proie.",
     "lang68": "Lexaly, tu es vif d'esprit et tu réagis rapidement en toutes circonstances.",
@@ -989,7 +991,7 @@
     "caract429": "Ophiophobie – Peur des serpents.",
     "caract430": "Ornithophobie – Peur des oiseaux.",
     "caract431": "Squalophobie – Peur des requins.",
-    "addsort": "Ajouter un sort",
+    "addsort": "Ajouter",
     "cresort": "Créer un sort",
     "addobjet": "Ajouter un objet",
     "creobjet": "Créer un objet",
@@ -1062,6 +1064,9 @@
     "new15": "Pyromane",
     "new15a": "Attiré par le feu et incapable de résister à l'envie de l'allumer, ce qui peut entraîner des incendies accidentels et des conflits avec les autorités.",
     "new16": "Solitaire",
-    "new16a": "Mal à l'aise en compagnie d'autres personnes, ce qui peut entraîner des difficultés dans les situations sociales et des problèmes pour former des liens avec les autres.  -20 en Social."
+    "new16a": "Mal à l'aise en compagnie d'autres personnes, ce qui peut entraîner des difficultés dans les situations sociales et des problèmes pour former des liens avec les autres.  -20 en Social.",
+    
+    "taille":"Taille",
+    "type":"Type"
   }
 }
