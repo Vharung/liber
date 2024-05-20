@@ -18,7 +18,8 @@ body{background:url(fond.jpg) no-repeat top center; }
 
 /*outil*/
 .chat-message{color: #fff;border: none;margin-bottom: 15px;background: var(--couleur-noir);color:#fff;}
-.chat-message .message-header{color:var(--couleur-clair);}
+#keybindings .binding .key{border:none}
+.chat-message .message-header,#module-management .package-list .package-title .title-group .title{color:var(--couleur-clair);}
 .chat-message.whisper,.chat-message.blind {background: #967b43;border:none;}
 /*.dialog .dialog-as a.default,form a,form button,.Liber button,.dialog .dialog-buttons button.default,.dialog .dialog-buttons button{background: rgb(143 26 40);border: none;color: #fff;}
 .directory .directory-header .header-search input ,.dialog-content input,select{background: #30220c;border: none;color: #fff;}
@@ -29,6 +30,7 @@ body{background:url(fond.jpg) no-repeat top center; }
 .window-app .window-content, .app.sidebar-popout .window-content{background: linear-gradient(218deg, #2a2b2c 0%, #120304 100%);color:var(--couleur-clair);}
 .filepicker .display-modes a{border:none;background: var(--couleur-noir);color: var(--couleur-or);}
 .filepicker .display-modes a.active{border:none;background: var(--couleur-or);color: var(--couleur-noir);}
+#keybindings .binding .key.uneditable {background: var(--couleur-noir)}
 
 input[type="text"], input[type="number"], input[type="password"], input[type="date"], input[type="time"], input[type="search"], select{background:var(--couleur-clair);color:var(--couleur-noir);border:none}
 .directory .directory-header .header-search input{background: var(--couleur-clair);}

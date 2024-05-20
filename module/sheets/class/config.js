@@ -32,9 +32,9 @@ r16:"liber.avantrace75",
 r17:"liber.avantrace76",
 r18:"liber.avantrace77",
 r18:"liber.avantrace77a",
-r18:"liber.avantrace77b",
-r19:"liber.avantrace92",
-r20:"liber.avantrace78"
+r19:"liber.avantrace77b",
+r20:"liber.avantrace92",
+r21:"liber.avantrace78"
 }
 
 liber.talentTypes={

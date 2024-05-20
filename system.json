@@ -31,6 +31,14 @@
           "visibility": "trusted"
         },
         {
+          "name": "pnj",
+          "label": "PNJ",
+          "system": "liber",
+          "path": "./pack/pnj",
+          "type": "Actor",
+          "visibility": "trusted"
+        },
+        {
           "name": "armure",
           "label": "Armure",
           "system": "liber",
