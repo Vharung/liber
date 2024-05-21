@@ -330,7 +330,7 @@
 								{{/each}}
                             {{/select}}
 	                    </SELECT>
-			    		<h2>{{localize 'liber.clan'}}</h2>
+			    		<h2 class="clanh2">{{localize 'liber.clan'}}</h2>
 						<SELECT class="clanliste"  name="system.clan">
 						{{#select actor.system.clan}}
 							
@@ -351,7 +351,7 @@
 							{{/each}}                         
 		                {{/select}}
 		                </SELECT>
-						<h2>Religion</h2>
+						<h2 class="religionh2">Religion</h2>
 							<SELECT class="religionliste" name="system.religion">
 						{{#select actor.system.religion}}
 							{{#each config.religionDragonTypes as |religion|}}

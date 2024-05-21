@@ -238,7 +238,8 @@ a.content-link, a.inline-roll {background: none}
 .Liber .attaque,.Liber .desequi{background: var(--couleur-noir);color:var(--couleur-clair);width: 18px;position: absolute;}
 .Liber .desequi{bottom:0;right: 0}
 .Liber .degatg span,.Liber .degatd span,.Liber .armurequi span{width: 68px;height: 68px;text-align: center;padding-top: 16px;opacity:0;}
-.Liber .religion,.Liber .met{width:100px;display: inline-block;}
+.Liber .met{width:100px;display: inline-block;}
+.Liber .religion{width:150px;display: inline-block;}
 .Liber .histoire{resize: none;background: var(--couleur-noir);color:var(--couleur-clair);height: 298px;overflow: auto;scrollbar-width:none }
 .Liber .heure{width: 20px; text-align: center;}
 .Liber .reposer{width: 100%;display: block;}

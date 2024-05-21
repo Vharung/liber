@@ -40,7 +40,7 @@ export class LiberActorSheet extends ActorSheet {
             this._prepareCharacterItems(data);await this._onEncom();
         }
         if (this.actor.type == 'personnage' || this.actor.type == 'pnj' ) {
-            await this._onStat();
+            this._onStat();//await suppr
         }
         return data;
     }
@@ -347,7 +347,15 @@ export class LiberActorSheet extends ActorSheet {
             }
         }
        
-
+    let j=0;
+    html.find( ".religionliste option" ).each(function( index ) {
+        if ( $( this ).val() == game.i18n.localize('liber.avantrace85')) {
+            if(j>0){
+               $( this ).css({"display":'none'});
+            }
+            j++;
+        }
+    });
     //cacher clan
         const racess = {
             [game.i18n.localize('liber.avantrace60')]: [".humain", ".demon", ".drauch"],
@@ -371,6 +379,9 @@ export class LiberActorSheet extends ActorSheet {
         html.find('.classique').css("display", "none");
         html.find('.guerrier').css("display", "none");
         html.find('.croiser').css("display", "none");
+        html.find('.religion').css("display", "inline-block");
+        html.find('.clanh2').css("display", "block");
+        html.find('.religionh2').css("display", "block");
        
         if (clan === game.i18n.localize("liber.avantrace56")) {
           html.find('.guerrier').css("display", "block");
@@ -384,14 +395,22 @@ export class LiberActorSheet extends ActorSheet {
         if(race==game.i18n.localize('liber.avantrace64')){
             html.find('.magi').css("display", "none");
             html.find('.religionliste').css("display", "none");
+            html.find('.religion').css("display", "none");
+            html.find('.religionh2').css("display", "none");
+
         }  else if(race==game.i18n.localize('liber.avantrace77a')){
             html.find('.faiblesseliste').val(game.i18n.localize('liber.title07'));
             html.find('.religionliste').css("display", "none");
+            html.find('.religion').css("display", "none");
+            html.find('.religionh2').css("display", "none");
             html.find('.clanliste').css("display", "none");
+            html.find('.clanh2').css("display", "none");
             this.actor.update({'system.faiblesse': game.i18n.localize('liber.title07')});
         }
         if(clan==game.i18n.localize('liber.avantrace59')){
             html.find('.religionliste').css("display", "none");
+            html.find('.religionh2').css("display", "none");
+            html.find('.religion').css("display", "none");
         } else if(clan==game.i18n.localize('liber.avantrace56')){ 
             html.find('.metier').val(game.i18n.localize('liber.avantrace93'));
             this.actor.update({'system.metier': game.i18n.localize('liber.avantrace93')});
