@@ -2,11 +2,11 @@
     "id": "liber",
     "title": "Liber Chronicles",
     "description": "The Liber Chronicles system for FoundryVTT!",
-    "version": "2.5",
+    "version": "3",
     "compatibility": {
-      "minimum": "10",
-      "verified": "11.299",
-      "maximum": "12"
+      "minimum": "12",
+      "verified": "12.324",
+      "maximum": "12.324"
     },
     "templateVersion": 2,
     "url": "https://github.com/Vharung/liber",

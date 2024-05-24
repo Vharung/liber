@@ -12,8 +12,11 @@ import {names, armes, items0, items1, items2, items3, items4, metiers, races, cl
 
 
 export class LiberActorSheet extends ActorSheet {
+    /** 
+     
+@override*/
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
           classes: ["Liber", "sheet", "actor"],
           width: 640,
           height: 880,
@@ -356,6 +359,7 @@ export class LiberActorSheet extends ActorSheet {
             j++;
         }
     });
+
     //cacher clan
         const racess = {
             [game.i18n.localize('liber.avantrace60')]: [".humain", ".demon", ".drauch"],
