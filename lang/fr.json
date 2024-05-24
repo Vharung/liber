@@ -1,4 +1,20 @@
 {
+  "TYPES": {
+    "Actor": {
+      "personnage": "personnage",
+      "pnj": "pnj",
+      "monstre":"monstre"
+    },
+    "Item":{
+      "arme":"arme",
+      "armure":"armure",
+      "objet":"objet",
+      "magie":"magie",
+      "argent":"argent",
+      "outil":"outil"
+    }
+  },
+  
   
   "physique": "Phy",
   "force": "For",

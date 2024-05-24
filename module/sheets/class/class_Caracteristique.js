@@ -25,16 +25,16 @@ import {names, items0, items1, items2, items3, items4, metiers, races, clans, de
     let b_psy = Math.round((parseInt(this.ment) + parseInt(this.soci)/2 - parseInt(this.phys) + 5) / 4 + 2);
     let b_nb = Math.round(parseInt(b_psy) / 4) + 1 + parseInt(this.level);
     let b_cout = Math.round((parseInt(b_psy) - parseInt(b_nb)) / 2) + 3;
-    if (this.compt === "Aura") {
+    if (this.compt === "Aura") {//bug potentielle
         b_psy += 5;
     }
 
     // Stat actuel
     let PVmin = Math.round(parseInt(this.phys) / 3);
-    if (this.compt === "Vigoureux") {
+    if (this.compt === "Vigoureux") {//bug potentielle
         PVmin += 5;
     }
-    if (this.faible === "Prisonnier") {
+    if (this.faible === "Prisonnier") {//bug potentielle
         PVmin -= 5;
     }
     const PSYmin = b_psy;
@@ -68,10 +68,10 @@ import {names, items0, items1, items2, items3, items4, metiers, races, clans, de
     let hp = this.hp;
     let psy = this.psy;
 
-    if (hpmax < PVmin && this.type === "personnage" && hpmax !== 0) {
+    if (hpmax < PVmin && this.type === game.i18n.localize("TYPES.Actor.personnage") && hpmax !== 0) {
         hpmax = PVmin;
     }
-    if (psy < PSYmin && this.type === "personnage" && psy !== 0 && this.clan !== game.i18n.localize("liber.avantrace56")) {
+    if (psy < PSYmin && this.type === game.i18n.localize("TYPES.Actor.personnage") && psy !== 0 && this.clan !== game.i18n.localize("liber.avantrace56")) {
         psy = PSYmin;
     }
 
@@ -79,7 +79,7 @@ import {names, items0, items1, items2, items3, items4, metiers, races, clans, de
     const pointxp = (parseInt(this.level) - 1) * 3;
     const xp = parseInt(pointxp) + parseInt(PVmin) + parseInt(PSYmin);
     const calcultotxp = parseInt(hpmax) + parseInt(psy);
-    if (calcultotxp > xp && this.type === "personnage") {
+    if (calcultotxp > xp && this.type === game.i18n.localize("TYPES.Actor.personnage")) {
         apsy = 'background:red';
         apsymax = 'background:red';
         ahp = 'background:red';

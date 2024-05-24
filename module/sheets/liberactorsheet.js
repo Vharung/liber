@@ -3,12 +3,16 @@ import { Character } from "./class/class_Character.js";
 import { CaracteristiqueModifier } from "./class/class_Caracteristique.js";
 import { SortsPossibles } from "./class/class_Sortspossibles.js";
 import {names, armes, items0, items1, items2, items3, items4, metiers, races, clans, demeure, proximite, lieu, famille,titre,rang, organisation, intret, pertes, expece, valeur, prof, loisir, caracterelist, personnalitelist, visionlist, objectiflist, ouinon, tarelist} from "./class/const.js";
+import {RANGE} from "./class/list.js";
 
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
  */
 
+function filterNullValues(obj) {
+    return Object.fromEntries(Object.entries(obj).filter(([key, value]) => value !== null));
+}
 
 
 export class LiberActorSheet extends ActorSheet {
@@ -16,6 +20,7 @@ export class LiberActorSheet extends ActorSheet {
      
 @override*/
     static get defaultOptions() {
+        console.log('defaults')
         return foundry.utils.mergeObject(super.defaultOptions, {
           classes: ["Liber", "sheet", "actor"],
           width: 640,
@@ -26,27 +31,45 @@ export class LiberActorSheet extends ActorSheet {
     }
 
     get template() {
-        if(this.actor.type=='pnj' || this.actor.type=='personnage'){
+        console.log('templates')
+        if(this.actor.type==game.i18n.localize("TYPES.Actor.pnj") || this.actor.type==game.i18n.localize("TYPES.Actor.personnage")){
             return `systems/liber/templates/sheets/personnage-sheet.html`;
         }else {
             return `systems/liber/templates/sheets/${this.actor.type}-sheet.html`;
         }
     }
+    async getData(options) {
+        // Récupération des données de la méthode parente
+        const context = await super.getData(options);
+        var poidsactor='';
+        // Initialisation des propriétés supplémentaires
+        context.dtypes = ["String", "Number", "Boolean"];
+        context.config = liber;
+        context.listValues = system.RANGE;
 
-    async getData(){
+        if (this.actor.type == game.i18n.localize("TYPES.Actor.personnage") || this.actor.type == game.i18n.localize("TYPES.Actor.pnj") || this.actor.type == game.i18n.localize("TYPES.Actor.monstre")) {
+            this._prepareCharacterItems(context);await this._onEncom();
+        }
+        if (this.actor.type == game.i18n.localize("TYPES.Actor.personnage") || this.actor.type == game.i18n.localize("TYPES.Actor.pnj") ) {
+           this._onStat();//await suppr
+        }
+        console.log(context);
+        return context;
+    }
+    /*async getData(){
         const data = super.getData();
         var poidsactor='';
         data.dtypes = ["String", "Number", "Boolean"];
-        data.config=liber
+        console.log(this.actor.type);
         console.log(data);
-        if (this.actor.type == 'personnage' || this.actor.type == 'pnj' || this.actor.type == 'monstre') {
+        if (this.actor.type == game.i18n.localize("TYPES.Actor.personnage") || this.actor.type == game.i18n.localize("TYPES.Actor.pnj") || this.actor.type == game.i18n.localize("TYPES.Actor.monstre")) {
             this._prepareCharacterItems(data);await this._onEncom();
         }
-        if (this.actor.type == 'personnage' || this.actor.type == 'pnj' ) {
-            this._onStat();//await suppr
+        if (this.actor.type == game.i18n.localize("TYPES.Actor.personnage") || this.actor.type == game.i18n.localize("TYPES.Actor.pnj") ) {
+           this._onStat();//await suppr
         }
         return data;
-    }
+    }*/
 
    
     _prepareCharacterItems(sheetData) {
@@ -61,19 +84,19 @@ export class LiberActorSheet extends ActorSheet {
         for (let i of sheetData.items) {
           let item = i.items;
           i.img = i.img || DEFAULT_TOKEN;
-          if (i.type === 'arme') {
+          if (i.type === game.i18n.localize("TYPES.Item.arme") ){
             arme.push(i);
           }
-          else if (i.type === 'armure') {
+          else if (i.type === game.i18n.localize("TYPES.Item.armure")) {
             armure.push(i);
           }
-          else if (i.type === 'objet') {
+          else if (i.type === game.i18n.localize("TYPES.Item.objet")) {
             inventaire.push(i);
           }
-          else if (i.type === 'magie') {
+          else if (i.type === game.i18n.localize("TYPES.Item.magie")) {
             sort.push(i);
           }
-          else if (i.type === 'argent') {
+          else if (i.type === game.i18n.localize("TYPES.Item.argent")) {
             argent.push(i);
           }
         }
@@ -108,7 +131,7 @@ export class LiberActorSheet extends ActorSheet {
         html.find('.ficheperso').click(this._onGenerator.bind(this));
 
         //monstre level up
-        if(this.actor.type=="monstre"){
+        if(this.actor.type==game.i18n.localize("TYPES.Actor.monstre")){
             html.find('.levelup').click(this._onLevelUp.bind(this));
         }
 
@@ -330,7 +353,7 @@ export class LiberActorSheet extends ActorSheet {
         /*if(race==game.i18n.localize("liber.avantrace61")){
             max=175;
         }*/
-        if(this.actor.type!=="monstre"){
+        if(this.actor.type!==game.i18n.localize("TYPES.Actor.monstre")){
             if((parseInt(phys)+parseInt(soci)+parseInt(ment))>max){
                 html.find('.physique').css({"border":"red solid 1px"});    
                 html.find('.social').css({"border":"red solid 1px"})
@@ -387,7 +410,7 @@ export class LiberActorSheet extends ActorSheet {
         html.find('.clanh2').css("display", "block");
         html.find('.religionh2').css("display", "block");
        
-        if (clan === game.i18n.localize("liber.avantrace56")) {
+        if (clan === game.i18n.localize("liber.avantrace56")) {//bug potentielle
           html.find('.guerrier').css("display", "block");
           html.find('.religionliste option').css("display", "none");
           html.find('.religionliste option.aucun').css("display", "block");
@@ -478,7 +501,7 @@ export class LiberActorSheet extends ActorSheet {
             if(bonus==""){bonus=0;}
             if(malus==""){malus=0;}
             if(name=='physique' || name=='force' || name=='agilite'){
-                if(this.actor.type=="monstre"){
+                if(this.actor.type==game.i18n.localize("TYPES.Actor.monstre")){
                     addfat=0
                 }else {
                     if(encours>encmax){
@@ -661,9 +684,9 @@ export class LiberActorSheet extends ActorSheet {
         if(bonus==undefined){
             bonus=0;
         }
-        if(classe=="Corbeau"){
+        if(classe=="Corbeau"){//bug potentielle
             var inforesult=parseInt(physique)+parseInt(bonus)+bonuspost+parseInt(malus);
-        }else if(classe=="Troubadour"){
+        }else if(classe=="Troubadour"){//bug potentielle
             var inforesult=parseInt(social)+parseInt(bonus)+bonuspost+parseInt(malus);
         }else {
             var inforesult=parseInt(mental)+parseInt(bonus)+bonuspost+parseInt(malus);
@@ -760,7 +783,7 @@ export class LiberActorSheet extends ActorSheet {
             hpadd = ((d + parseInt(level)) * parseInt(heure)) / 8;
             psyadd = Math.floor(parseInt(level) * parseInt(heure));
             fatadd = Math.floor(1 * parseInt(heure));
-            if (talent === "Bon dormeur") {
+            if (talent === "Bon dormeur") {//bug potentielle
               hpadd = parseInt(hpadd) + 6;
               psyadd = parseInt(psyadd) + 3;
               fatadd = parseInt(fatadd) + 1;
@@ -901,6 +924,7 @@ export class LiberActorSheet extends ActorSheet {
                 valeursCpts[cptKey] = (valeursCpts[cptKey] || 0) + stat[cptKey];
             }
         }
+        console.log(clan);
         let royal=newperso.characterClan(clan);
         if(race==game.i18n.localize("liber.avantrace77a")){
             avantagerace=game.i18n.localize(breed[2]);
@@ -1067,7 +1091,7 @@ export class LiberActorSheet extends ActorSheet {
         if(type==game.i18n.localize("liber.avantrace77b")){
             ajout=20;
             return
-        }else if(type=="Minuscule"){
+        }else if(type=="Minuscule"){//bug potentielle mettre en liste
             this.actor.update({"system.encombrement.max":enc});
             return
         }else if(type=="Petit"){
@@ -1084,7 +1108,7 @@ export class LiberActorSheet extends ActorSheet {
         if(forc==''){forc=0}
         if(puis==''){puis=0}
         enc=(parseInt(forc)+ parseInt(puis)) /2 + ajout;
-        if(compt=="Mulet"){
+        if(compt=="Mulet"){//bug potentielle
             enc=parseInt(enc)+10
         }
         if(faible=="Faible"){
@@ -1134,7 +1158,7 @@ export class LiberActorSheet extends ActorSheet {
         if(!abilities.memoire) abilities.memoire=5;
         let mag0 = 'aucun';let mag1 = 'aucun';let mag2 = 'aucun';;let mag3 = 'aucun';let mag4 = 'aucun';let mag5 = 'aucun';let all = 0;
 
-        const raceMagMap = {
+        const raceMagMap = {//bug potentielle
           [game.i18n.localize('liber.avantrace56')]: 'corbeau',
           [game.i18n.localize('liber.metier12')]: 'troubadour',
           [game.i18n.localize('liber.avantrace57')]: 'humain',
@@ -1219,7 +1243,7 @@ export class LiberActorSheet extends ActorSheet {
             resultat -= ajout * muti;
         }
 
-        
+        console.log(clan);
         let breed=newperso.characterRace(race);
         if (breed[1] !== null) {
             for (let key in breed[1]) {

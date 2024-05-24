@@ -87,19 +87,21 @@
 						<h2>{{localize 'liber.repos'}}</h2>
 						<input class="heure" name="system.heure" type="text" value="{{actor.system.heure}}" placeholder="0"/>
 						<SELECT class="jourliste"  name="system.jour">
-			            	{{#selectOptions actor.system.jour}}
+							{{selectOptions listValues selected=system.list.temps labelAttr="label" localize=true blank="liber.none"}}
+			            	<!--{{#select system.jour}}
 			                    <OPTION value="{{localize 'liber.heure'}}" title="{{localize 'liber.heure'}}">{{localize 'liber.heure'}}</OPTION>
 			                    <OPTION value="{{localize 'liber.jour'}}" title="{{localize 'liber.jour'}}">{{localize 'liber.jour'}}</OPTION>
-			                {{/selectOptions}}
-			            </selectOptions>
+			                {{/select}}-->
+			            </select>
 			            <SELECT class="typerepos"  name="system.repos">
-			            	{{#selectOptions actor.system.repos}}
+			            	{{selectOptions listValues selected=system.list.dure labelAttr="label" localize=true blank="liber.none"}}
+			            	<!--{{#select system.repos}}
 			                    <OPTION value="{{localize 'liber.rapide'}}" title="{{localize 'liber.rapide'}}">{{localize 'liber.rapide'}}</OPTION>
 			                    <OPTION value="{{localize 'liber.calme'}}" title="{{localize 'liber.calme'}}">{{localize 'liber.calme'}}</OPTION>
 			                    <OPTION value="{{localize 'liber.calme2'}}" title="{{localize 'liber.calme2'}}">{{localize 'liber.calme2'}}</OPTION>
 			                    <OPTION value="{{localize 'liber.intensif'}}" title="{{localize 'liber.intensif'}}">{{localize 'liber.intensif'}}</OPTION>
-			                {{/selectOptions}}
-			            </selectOptions>
+			                {{/select}}-->
+			            </select>
 			            <a class="bouton reposer" style=" margin-top: 0;height: 25px;padding: 5px;text-align: center;">{{localize 'liber.reposer'}}</a>
 					</div>
 				</div>

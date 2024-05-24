@@ -180,3 +180,6 @@ export const armes={
     "tir":['Arc','Arc long'],
     'vise':['Arbalète','Arbalète de point','Bâton de feu','Mousquet','Pistolet']
 }
+
+
+

@@ -67,7 +67,7 @@ export class EquipementManager {
     }
 
     _calculateArmor(armed, armeg, arm) {
-        let armor = this._getArmorFromRace();
+        let armor = this._getArmorFromRace();//big potentiel
         if (armed === "Bouclier" || armed === "Grand Bouclier") {
             armor += 1;
         }
