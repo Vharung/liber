@@ -8,7 +8,6 @@
       "verified": "12.324",
       "maximum": "12.324"
     },
-    "templateVersion": 2,
     "url": "https://github.com/Vharung/liber",
     "manifest": "https://raw.githubusercontent.com/Vharung/liber/main/system.json",
     "download": "https://github.com/Vharung/liber/archive/refs/heads/main.zip",
@@ -103,11 +102,12 @@
       }
     ],
     "background": "systems/liber/assets/accueil.jpg",
-    "gridDistance": 1,
-    "gridUnits": "m",
+    "grid":{
+      "dDistance": 1,
+      "units": "m"
+    },
     "primaryTokenAttribute": "hp",
     "secondaryTokenAttribute": "psy",
     
-    "license": "LICENSE.txt",
-    "relationships.requires":""
-}
+    "license": "LICENSE.txt"
+  }

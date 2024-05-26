@@ -109,6 +109,7 @@
   "echec":"Echec",
 
   "liber" : {
+    "none":"",
     "person": "Personnage",
     "etat": "Etat",
     "race": "Race",

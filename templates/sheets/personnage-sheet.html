@@ -97,20 +97,10 @@
 						<h2>{{localize 'liber.repos'}}</h2>
 						<input class="heure" name="system.heure" type="text" value="{{actor.system.heure}}" placeholder="0"/>
 						<SELECT class="jourliste"  name="system.jour">
-							<!--{{selectOptions listValues selected=system.list.temps labelAttr="label" localize=true blank="liber.none"}}
-			            	{{#select system.jour}}
-			                    <OPTION value="{{localize 'liber.heure'}}" title="{{localize 'liber.heure'}}">{{localize 'liber.heure'}}</OPTION>
-			                    <OPTION value="{{localize 'liber.jour'}}" title="{{localize 'liber.jour'}}">{{localize 'liber.jour'}}</OPTION>
-			                {{/select}}-->
+							{{selectOptions listValues.temps selected=actor.system.jour labelAttr="label" localize=true blank="liber.none"}}
 			            </select>
 			            <SELECT class="typerepos"  name="system.repos">
-			            	<!--{{selectOptions listValues selected=system.list.dure labelAttr="label" localize=true blank="liber.none"}}
-			            	{{#select system.repos}}
-			                    <OPTION value="{{localize 'liber.rapide'}}" title="{{localize 'liber.rapide'}}">{{localize 'liber.rapide'}}</OPTION>
-			                    <OPTION value="{{localize 'liber.calme'}}" title="{{localize 'liber.calme'}}">{{localize 'liber.calme'}}</OPTION>
-			                    <OPTION value="{{localize 'liber.calme2'}}" title="{{localize 'liber.calme2'}}">{{localize 'liber.calme2'}}</OPTION>
-			                    <OPTION value="{{localize 'liber.intensif'}}" title="{{localize 'liber.intensif'}}">{{localize 'liber.intensif'}}</OPTION>
-			                {{/select}}-->
+			            	{{selectOptions listValues.dure selected=actor.system.repos labelAttr="label" localize=true blank="liber.none"}}
 			            </select>
 			            <a class="bouton reposer" style=" margin-top: 0;height: 25px;padding: 5px;text-align: center;">{{localize 'liber.reposer'}}</a>
 					</div>
@@ -302,100 +292,32 @@
 					<div class="zoneinfo">
 				    	<h2>{{localize 'liber.sex'}}</h2>
 						<SELECT class="sexliste" name="system.sexe">
-							<!--{{selectOptions listValues selected=system.list.sex labelAttr="label" localize=true blank="liber.none"}}
-								{{#select system.sexe}}
-				                  	<option value="{{localize 'liber.sex1'}}">{{localize 'liber.sex1'}}</option>
-				                    <option value="{{localize 'liber.sex2'}}">{{localize 'liber.sex2'}}</option>
-				                    <option value="{{localize 'liber.sex0'}}">{{localize 'liber.sex0'}}</option>
-				                {{/select}}-->
+							{{selectOptions listValues.sex selected=actor.system.sexe labelAttr="label" localize=true blank="liber.none"}}
 			                </select>
 				    	<h2>{{localize 'liber.race'}}</h2>
 						<SELECT class="raceliste" name="system.race">
-							<!--{{selectOptions listValues selected=system.list.race labelAttr="label" localize=true blank="liber.none"}}
-							{{#select system.race}}
-								{{#each config.raceTypes as |race|}}
-									<option value="{{localize race}}">{{localize race}}</option>
-								{{/each}}	                    
-			                {{/select}}-->
+							{{selectOptions listValues.race selected=actor.system.race labelAttr="label" localize=true blank="liber.none"}}
 		                </select>
 				   
 						<h2>{{localize 'liber.talent'}}</h2>
 						<SELECT class="talentliste"  name="system.talent">
-							<!--{{selectOptions listValues selected=system.list.talent labelAttr="label" localize=true blank="liber.none"}}
-							{{#select system.talent}}
-								{{#each config.talentTypes as |talent|}}
-									<option value="{{localize talent.name}}" title="{{localize talent.title}}">{{localize talent.name}}</option>
-								{{/each}}
-                            {{/select}}-->
+							{{selectOptions listValues.talent selected=actor.system.talent labelAttr="label" localize=true blank="liber.none"}}
                         </select>   
                         <h2>{{localize 'liber.faiblesse'}}</h2>
                         <SELECT class="faiblesseliste"  name="system.faiblesse">
-                        	<!--{{selectOptions listValues selected=system.list.faiblesse labelAttr="label" localize=true blank="liber.none"}}
-                        	{{#select system.faiblesse}}
-                                {{#each config.faiblesseTypes as |faiblesse|}}
-									<option value="{{localize faiblesse.name}}" title="{{localize faiblesse.title}}">{{localize faiblesse.name}}</option>
-								{{/each}}
-                            {{/select}}-->
+							{{selectOptions listValues.faiblesse selected=actor.system.faiblesse labelAttr="label" localize=true blank="liber.none"}}
 	                    </select>
 			    		<h2 class="clanh2">{{localize 'liber.clan'}}</h2>
 						<SELECT class="clanliste"  name="system.clan">
-						<!--	{{selectOptions listValues selected=system.list.clan labelAttr="label" localize=true blank="liber.none"}}
-
-						{{#select system.clan}}
-							
-							{{#each config.clanDragonTypes as |clan|}}
-							<option class="dragon" value="{{localize clan}}">{{localize clan}}</option>
-							{{/each}}
-							{{#each config.clanHumainTypes as |clan|}}
-							<option class="humain" value="{{localize clan}}">{{localize clan}}</option>
-							{{/each}}
-							{{#each config.clanDemonTypes as |clan|}}
-							<option class="demon" value="{{localize clan}}">{{localize clan}}</option>
-							{{/each}}
-							{{#each config.clanDrauchTypes as |clan|}}
-							<option class="drauch" value="{{localize clan}}">{{localize clan}}</option>
-							{{/each}}  
-							{{#each config.clanAllTypes as |clan|}}
-							<option class="all" value="{{localize clan}}">{{localize clan}}</option>
-							{{/each}}                         
-		                {{/select}}-->
+							{{selectOptions listValues.clan selected=actor.system.clan labelAttr="label" localize=true blank="liber.none"}}
 		                </select>
 						<h2 class="religionh2">Religion</h2>
 							<SELECT class="religionliste" name="system.religion">
-						<!--{{selectOptions listValues selected=system.list.religion labelAttr="label" localize=true blank="liber.none"}}
-						{{#select system.religion}}
-							{{#each config.religionDragonTypes as |religion|}}
-							<option class="dragon" value="{{localize religion}}">{{localize religion}}</option>
-							{{/each}}
-							{{#each config.religionHumainTypes as |religion|}}
-							<option class="humain" value="{{localize religion}}">{{localize religion}}</option>
-							{{/each}}
-							
-							{{#each config.religionDemonTypes as |religion|}}
-							<option class="demon" value="{{localize religion}}">{{localize religion}}</option>
-							{{/each}}
-							{{#each config.religionDrauchTypes as |religion|}}
-							<option class="drauch" value="{{localize religion}}">{{localize religion}}</option>
-							{{/each}}
-							{{#each config.religionAllTypes as |religion|}}
-							<option class="all" value="{{localize religion}}">{{localize religion}}</option>
-							{{/each}}
-							<option class="aucun" value="{{localize 'liber.avantrace90'}}">{{localize 'liber.avantrace90'}}</option>
-							<option class="aucun" value="{{localize 'liber.avantrace78'}}">{{localize 'liber.avantrace78'}}</option>
-							<option class="aucun" value="{{localize 'liber.avantrace79'}}">{{localize 'liber.avantrace79'}}</option>
-			            {{/select}}-->
+							{{selectOptions listValues.religion selected=actor.system.religion labelAttr="label" class="class" localize=true blank="liber.none"}}
 		                </select>
 						<h2>{{localize 'liber.metier'}}</h2>
 						<SELECT name="system.metier" class="metier">
-						<!--	{{selectOptions listValues selected=system.list.metier labelAttr="label" localize=true blank="liber.none"}}
-						
-							{{#select system.metier}}
-                                {{#each config.metierTypes as |metier|}}
-									<option class="classique" value="{{localize metier}}">{{localize metier}}</option>
-								{{/each}}
-			                  	<option class="guerrier" value="{{localize 'liber.avantrace93'}}">{{localize 'liber.avantrace93'}}</option>
-			                  	<option class="croiser" value="{{localize 'liber.avantrace94'}}">{{localize 'liber.avantrace94'}}</option>
-			                {{/select}}-->
+							{{selectOptions listValues.metier selected=actor.system.metier labelAttr="label" localize=true blank="liber.none"}}
 		                </select>
 		                <input type="button" value="{{localize 'liber.generer'}}" class="bouton ficheperso">		            
 					</div>

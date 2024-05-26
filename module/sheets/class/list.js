@@ -1,4 +1,4 @@
-export const RANGE = Object.freeze({     
+export const range = Object.freeze({     
     temps:{
         heure: {
             id: "heure",
@@ -44,9 +44,81 @@ export const RANGE = Object.freeze({
             label:'liber.sex0',
         },
     } ,
-     talent:{
+    race:{
+        r0:{
+           label:"liber.avantrace60",
+        },
+        r1:{
+           label:"liber.avantrace61",
+        },
+        r2:{
+           label:"liber.avantrace62",
+        },
+        r3:{
+           label:"liber.avantrace63",
+        },
+        r4:{
+           label:"liber.avantrace64",
+        },
+        r5:{
+           label:"liber.avantrace65",
+        },
+        r6:{
+           label:"liber.avantrace10a",
+        },
+        r7:{
+           label:"liber.avantrace66",
+        },
+        r8:{
+           label:"liber.avantrace67",
+        },
+        r9:{
+           label:"liber.avantrace68",
+        },
+        r10:{
+           label:"liber.avantrace69",
+        },
+        r11:{
+           label:"liber.avantrace70",
+        },
+        r12:{
+           label:"liber.avantrace71",
+        },
+        r13:{
+           label:"liber.avantrace72",
+        },
+        r14:{
+           label:"liber.avantrace73",
+        },
+        r15:{
+           label:"liber.avantrace74",
+        },
+        r16:{
+           label:"liber.avantrace75",
+        },
+        r17:{
+           label:"liber.avantrace76",
+        },
+        r18:{
+           label:"liber.avantrace77",
+        },
+        r19:{
+           label:"liber.avantrace77a",
+        },
+        r20:{
+           label:"liber.avantrace77b",
+        },
+        r21:{
+           label:"liber.avantrace92",
+        },
+        r22:{
+           label:"liber.avantrace78",
+        },
+    },
+    talent:{
         t0:{
-           label:"liber.title58",title:"liber.title58a"},
+           label:"liber.title58",title:"liber.title58a"
+        },
         t38:{
             label:"liber.new1",title:"liber.new1a"},
         t1:{
@@ -196,203 +268,228 @@ export const RANGE = Object.freeze({
     },
     metier:{
         m1:{
+            classe:"classique",
             label:"liber.metier1",
         },
         m2:{
+            classe:"classique",
             label:"liber.metier2",
         },    
         m3:{
+            classe:"classique",
             label:"liber.metier3",
         },
         m4:{
+            classe:"classique",
             label:"liber.metier4",
         },
         m5:{
+            classe:"classique",
             label:"liber.metier5",
         },
         m6:{
+            classe:"classique",
             label:"liber.metier6",
         },
         m7:{
+            classe:"classique",
             label:"liber.metier7",
         },
         m8:{
+            classe:"classique",
             label:"liber.metier8",
         },
         m9:{
+            classe:"classique",
             label:"liber.metier9",
         },
         m10:{
+            classe:"classique",
             label:"liber.metier10",
         },
         m11:{
+            classe:"classique",
             label:"liber.metier11",
         },
         m12:{
+            classe:"classique",
             label:"liber.metier12",
         },
         m13:{
+            classe:"classique",
             label:"liber.metier13",
         },
         m14:{
+            classe:"classique",
             label:"liber.metier14",
         },
         m15:{
+            classe:"classique",
             label:"liber.metier15",
         },
         m16:{
+            classe:"classique",
             label:"liber.metier16",
         },
         m17:{
-            label:"liber.metier17"
+            classe:"classique",
+            label:"liber.metier17",
+        },
+        m18:{
+            classe:"guerrier",
+            label:"liber.avantrace93",
+        },
+        m19:{
+            classe:"croiser",
+            label:"liber.avantrace94",
         },
     },
     clan:{
         c1:{
-            class:"dragon",
+            classe:"dragon",
             label:"liber.avantrace40",
         },
         c2:{
-            class:"dragon",
+            classe:"dragon",
             label:"liber.avantrace41",
         },
         c3:{
-            class:"dragon",
+            classe:"dragon",
             label:"liber.avantrace42",
         },
         c4:{
-            class:"dragon",
+            classe:"dragon",
             label:"liber.avantrace43",
         },
         c5:{
-            class:"dragon",
+            classe:"dragon",
             label:"liber.avantrace44",
         },
         c6:{
-            class:"dragon",
+            classe:"dragon",
             label:"liber.avantrace45",
         },
         c7:{
-            class:"dragon",
+            classe:"dragon",
             label:"liber.avantrace46",
         },
         c8:{
-            class:"dragon",
+            classe:"dragon",
             label:"liber.avantrace47",
         },
         c9:{
-            class:"dragon",
+            classe:"dragon",
             label:"liber.avantrace48",
         },
         c10:{
-            class:"dragon",
+            classe:"dragon",
             label:"liber.avantrace49",
         },
         c11:{
-            class:"dragon",
+            classe:"dragon",
             label:"liber.avantrace50",
         },
         c12:{
-            class:"dragon",
+            classe:"dragon",
             label:"liber.avantrace51",
         },
         c13:{
-            class:"dragon",
+            classe:"dragon",
             label:"liber.avantrace52",
         },
         c14:{
-            class:"dragon",
+            classe:"dragon",
             label:"liber.avantrace53",
         },
         c15:{
-            class:"dragon",
+            classe:"dragon",
             label:"liber.avantrace54",
         },
         c16:{
-            class:"dragon",
+            classe:"dragon",
             label:"liber.avantrace55",
         },
         c17:{
-            class:"all",
+            classe:"all",
             label:"liber.avantrace59",
         },
         c18:{
-            class:"all",
+            classe:"all",
             label:"liber.avantrace56",
         },
         c19:{
-            class:"all",
+            classe:"all",
             label:"liber.avantrace78",
         },
         c20:{
-            class:"all",
+            classe:"all",
             label:"liber.avantrace79",
         },
         c21:{
-            class:"humain",
+            classe:"humain",
             label:"liber.avantrace57",
         },
         c22:{
-            class:"demon",
+            classe:"demon",
             label:"liber.avantrace39",
         },
         c23:{
-            class:"drauch",
+            classe:"drauch",
             label:"liber.avantrace91",
         },
     },
     religion:{
         r1:{
             label:"liber.avantrace81",
-            class:"humain",
+            classe:"humain",
         },
         r2:{
             label:"liber.avantrace82",
-            class:"humain",
+            classe:"humain",
         },
         r3:{
             label:"liber.avantrace83",
-            class:"humain",
+            classe:"humain",
         },
         r4:{
             label:"liber.avantrace87",
-            class:"humain",
+            classe:"humain",
         },
         r5:{
             label:"liber.avantrace85",
-            class:"humain",
+            classe:"humain",
         },
         r6:{
             label:"liber.avantrace95",
-            class:"all",
+            classe:"all",
         },
         r7:{
             label:"liber.avantrace80",
-             class:"all",
+             classe:"all",
         },
         r8:{
             label:"liber.avantrace88",
-             class:"all",
+             classe:"all",
         },
         r9:{
             label:"liber.avantrace89",
-             class:"all",
+             classe:"all",
         },
         r10:{
             label:"liber.avantrace84",
-             class:"dragon",
+             classe:"dragon",
         },
         r11:{
             label:"liber.avantrace85",
-            class:"drauch",
+            classe:"drauch",
         },
         r12:{
             label:"liber.avantrace85",
-             class:"demon",
+             classe:"demon",
         },
         r13:{
             label:"liber.avantrace86",
-             class:"demon",
+             classe:"demon",
         },
     },
 });

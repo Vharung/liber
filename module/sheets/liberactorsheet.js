@@ -3,16 +3,12 @@ import { Character } from "./class/class_Character.js";
 import { CaracteristiqueModifier } from "./class/class_Caracteristique.js";
 import { SortsPossibles } from "./class/class_Sortspossibles.js";
 import {names, armes, items0, items1, items2, items3, items4, metiers, races, clans, demeure, proximite, lieu, famille,titre,rang, organisation, intret, pertes, expece, valeur, prof, loisir, caracterelist, personnalitelist, visionlist, objectiflist, ouinon, tarelist} from "./class/const.js";
-import {RANGE} from "./class/list.js";
+import {range} from "./class/list.js";
 
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
  */
-
-function filterNullValues(obj) {
-    return Object.fromEntries(Object.entries(obj).filter(([key, value]) => value !== null));
-}
 
 
 export class LiberActorSheet extends ActorSheet {
@@ -35,18 +31,93 @@ export class LiberActorSheet extends ActorSheet {
         if(this.actor.type==game.i18n.localize("TYPES.Actor.pnj") || this.actor.type==game.i18n.localize("TYPES.Actor.personnage")){
             return `systems/liber/templates/sheets/personnage-sheet.html`;
         }else {
-            return `systems/liber/templates/sheets/${this.actor.type}-sheet.html`;
+            return `systems/liber/templates/sheets/monstre-sheet.html`;
         }
     }
     async getData(options) {
         // Récupération des données de la méthode parente
         const context = await super.getData(options);
+        
         var poidsactor='';
         // Initialisation des propriétés supplémentaires
         context.dtypes = ["String", "Number", "Boolean"];
         context.config = liber;
-        context.listValues = system.RANGE;
-
+        context.listValues = {
+                clan:{},
+                dure:range.dure,
+                faiblesse: {},
+                magie:range.magie,
+                temps: range.temps,
+                metier: {},
+                race: range.race,
+                religion: {},
+                sex: range.sex,
+                talent: range.talent,
+                temps:range.temps                
+            };
+        /*ajout clan et magie dispo*/
+        const race=context.actor.system.race;
+        const clan=context.actor.system.clan; 
+        const relig=context.actor.system.religion; 
+        const racess = {
+            ['r0']: ["dragon","all"],
+            ['r21']: ["dragon","all"],
+            ['r1']: ["humain","all"],
+            ['r2']: ["demon","all"],
+            ['r3']: ["drauch","all"],
+            ['r4']: ["aucun"],
+            ['r19']:["aucun"]
+        };
+        console.log()
+        const raceElements = racess[race];
+        if (raceElements) {
+            raceElements.forEach(element => {
+                for (let key in range.religion ) {
+                    if (range.religion[key].classe === element && clan!=='c17') {
+                        context.listValues.religion[key] = range.religion[key];
+                    }
+                }
+                for (let key in range.clan) {
+                    if (range.clan[key].classe === element) {
+                        context.listValues.clan[key] = range.clan[key];
+                    }
+                }
+            });
+        }else{
+            context.listValues.religion = {...range.religion};
+            context.listValues.clan = {...range.clan};
+        }
+        /*ajout metier*/
+        
+        if(clan=='c18'){
+            for (let key in range.metier) {
+                if (range.metier[key].classe === 'guerrier') {
+                    context.listValues.metier[key] = range.metier[key];
+                }
+            }
+        }else if(relig=='r2'){
+            for (let key in range.metier) {
+                if (range.metier[key].classe === 'croiser') {
+                    context.listValues.metier[key] = range.metier[key];
+                }
+            }
+        } else {
+            for (let key in range.metier) {
+                if (range.metier[key].classe !== 'croiser' && range.metier[key].classe !== 'guerrier') {
+                    context.listValues.metier[key] = range.metier[key];
+                }
+            }
+        }
+        //faiblesse des celestes
+        for (let key in range.faiblesse) {
+            if(race=='r19'){
+                if(key=='f11'){
+                    context.listValues.faiblesse[key] = range.faiblesse[key].label ;
+                }
+            }else {
+                context.listValues.faiblesse[key] = range.faiblesse[key].label ;
+            }
+        }
         if (this.actor.type == game.i18n.localize("TYPES.Actor.personnage") || this.actor.type == game.i18n.localize("TYPES.Actor.pnj") || this.actor.type == game.i18n.localize("TYPES.Actor.monstre")) {
             this._prepareCharacterItems(context);await this._onEncom();
         }
@@ -56,20 +127,6 @@ export class LiberActorSheet extends ActorSheet {
         console.log(context);
         return context;
     }
-    /*async getData(){
-        const data = super.getData();
-        var poidsactor='';
-        data.dtypes = ["String", "Number", "Boolean"];
-        console.log(this.actor.type);
-        console.log(data);
-        if (this.actor.type == game.i18n.localize("TYPES.Actor.personnage") || this.actor.type == game.i18n.localize("TYPES.Actor.pnj") || this.actor.type == game.i18n.localize("TYPES.Actor.monstre")) {
-            this._prepareCharacterItems(data);await this._onEncom();
-        }
-        if (this.actor.type == game.i18n.localize("TYPES.Actor.personnage") || this.actor.type == game.i18n.localize("TYPES.Actor.pnj") ) {
-           this._onStat();//await suppr
-        }
-        return data;
-    }*/
 
    
     _prepareCharacterItems(sheetData) {
@@ -171,7 +228,7 @@ export class LiberActorSheet extends ActorSheet {
             this.actor.createEmbeddedDocuments('Item', [{ name: name, type: dataType }], { renderSheet: true })
         });
 
-        html.find('.addsort').click(ev => {
+        html.find('.addsort').click(ev => {//bug
             event.preventDefault();
             const name=html.find('.magieslistes option:selected').val()
             const img=html.find('.magieslistes option:selected').data('img')
@@ -383,67 +440,14 @@ export class LiberActorSheet extends ActorSheet {
         }
     });
 
-    //cacher clan
-        const racess = {
-            [game.i18n.localize('liber.avantrace60')]: [".humain", ".demon", ".drauch"],
-            [game.i18n.localize('liber.avantrace92')]: [".humain", ".demon", ".drauch"],
-            [game.i18n.localize('liber.avantrace61')]: [".dragon", ".demon", ".drauch"],
-            [game.i18n.localize('liber.avantrace62')]: [".dragon", ".humain", ".drauch"],
-            [game.i18n.localize('liber.avantrace63')]: [".dragon", ".humain", ".demon"],
-            [game.i18n.localize('liber.avantrace64')]: [".dragon", ".demon", ".drauch", ".humain", ".religionliste .all"]
-        };
-
-        const raceElements = racess[race];
-        if (raceElements) {
-            raceElements.forEach(element => {
-                html.find(element).css({"display": "none"});
-            });
-        }
-    
-    //cacher metier
-        const clan = html.find('.clanliste option:selected').val();
-        const reli = html.find('.religionliste option:selected').val();
-        html.find('.classique').css("display", "none");
-        html.find('.guerrier').css("display", "none");
-        html.find('.croiser').css("display", "none");
-        html.find('.religion').css("display", "inline-block");
-        html.find('.clanh2').css("display", "block");
-        html.find('.religionh2').css("display", "block");
-       
-        if (clan === game.i18n.localize("liber.avantrace56")) {//bug potentielle
-          html.find('.guerrier').css("display", "block");
-          html.find('.religionliste option').css("display", "none");
-          html.find('.religionliste option.aucun').css("display", "block");
-        }else if (reli === game.i18n.localize("liber.avantrace82")) {
-          html.find('.croiser').css("display", "block");
-        }else {
-          html.find('.classique').css("display", "block");  
-        }  
-        if(race==game.i18n.localize('liber.avantrace64')){
+    //const clan = html.find('.clanliste option:selected').val();
+    //const race=this.actor.system.race; 
+    const clan=this.actor.system.clan; 
+    const reli=this.actor.system.religion; 
+    console.log(race)
+        if(race=='r4'){
             html.find('.magi').css("display", "none");
-            html.find('.religionliste').css("display", "none");
-            html.find('.religion').css("display", "none");
-            html.find('.religionh2').css("display", "none");
-
-        }  else if(race==game.i18n.localize('liber.avantrace77a')){
-            html.find('.faiblesseliste').val(game.i18n.localize('liber.title07'));
-            html.find('.religionliste').css("display", "none");
-            html.find('.religion').css("display", "none");
-            html.find('.religionh2').css("display", "none");
-            html.find('.clanliste').css("display", "none");
-            html.find('.clanh2').css("display", "none");
-            this.actor.update({'system.faiblesse': game.i18n.localize('liber.title07')});
-        }
-        if(clan==game.i18n.localize('liber.avantrace59')){
-            html.find('.religionliste').css("display", "none");
-            html.find('.religionh2').css("display", "none");
-            html.find('.religion').css("display", "none");
-        } else if(clan==game.i18n.localize('liber.avantrace56')){ 
-            html.find('.metier').val(game.i18n.localize('liber.avantrace93'));
-            this.actor.update({'system.metier': game.i18n.localize('liber.avantrace93')});
-        }else if(clan==game.i18n.localize('liber.avantrace58')){ 
-            html.find('.metier').val(game.i18n.localize('liber.avantrace94'));
-            this.actor.update({'system.metier': game.i18n.localize('liber.avantrace94')});
+            html.find('.magieslistes').css("display", "none");
         }
     }
 
@@ -632,7 +636,7 @@ export class LiberActorSheet extends ActorSheet {
 
             }
             if(degats>0 || type=="jetdedegat"){
-                texte = '<span style="flex:auto"><p class="resultatp"><img src="'+img+'"  width="24" height="24"/>&nbsp;Utilise ' + name + '<p>'+info;
+                texte = '<span style="flex:auto"><p class="resultatp"><img src="'+img+'"  width="24" height="24"/>&nbsp;Utilise ' + name + '<p>'+info;//Fr
        
     //info Tchat    
                 roll.toMessage({
@@ -646,7 +650,7 @@ export class LiberActorSheet extends ActorSheet {
    
     // Mort de la cible
         if(hp==0 && type=="auto") {
-            var tuer=['Vient de tuer ','A massacrer ','A occis ',"N'a pas eu de pitier pour ","A oté la vie de ","A trucidé "];
+            var tuer=['Vient de tuer ','A massacrer ','A occis ',"N'a pas eu de pitier pour ","A oté la vie de ","A trucidé "];//Fr
             var d=Math. round(Math.random() * tuer.length);
             texte = "<span style='flex:auto'><p class='resultatp'>"+tuer[d]+"&nbsp; <span style='text-transform:uppercase;font-weight: bold;'> "+nom+"</span></span></span>";
             let chatData = {
