@@ -20,12 +20,11 @@
     const data = itemData.system;
     const flags = itemData.flags;
   	//preparation dépendant du type de personnage (
-  	if (itemData.type === 'arme') this._prepareItemData(itemData);
-    if (itemData.type === 'armure') this._prepareItemData(itemData);
-    if (itemData.type === 'objet') this._prepareItemData(itemData);
-    if (itemData.type === 'magie') this._prepareItemData(itemData);
+  	if (itemData.type === game.i18n.localize("TYPES.Item.arme")) this._prepareItemData(itemData);
+    if (itemData.type === game.i18n.localize("TYPES.Item.armure")) this._prepareItemData(itemData);
+    if (itemData.type === game.i18n.localize("TYPES.Item.objet")) this._prepareItemData(itemData);
+    if (itemData.type === game.i18n.localize("TYPES.Item.magie")) this._prepareItemData(itemData);
   }
-
   _prepareItemData(itemData) {
     const data = itemData.system;
   }

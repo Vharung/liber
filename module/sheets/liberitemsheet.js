@@ -5,10 +5,12 @@
  export class LiberItemSheet extends ItemSheet{
     get template(){
         console.log(`Liber | Récupération du fichier html ${this.item.type}-sheet.`);
-        if(this.item.type=='outil'){
+        if(this.item.type==game.i18n.localize("TYPES.Item.outil")){
             this._onAidemonstre();
         }
-        return `systems/liber/templates/sheets/${this.item.type}-sheet.html`;
+        //let typ=TYPES.Item[this.item.type] //corrige
+        return `systems/liber/templates/sheets/${this.item.type}-sheet.html`;// voir en anglais
+        //return `systems/liber/templates/sheets/${typ}-sheet.html`;
     }
 
     getData(){
@@ -24,7 +26,7 @@
         html.find('.tresorg').click(this._onGenerator.bind(this));
         html.find('.m_add').click(this._onAddactor.bind(this));
 
-        if(this.item.type=="outil"){
+        if(this.item.type==game.i18n.localize("TYPES.Item.outil")){
             let pv=html.find('.j_pv').val();
             let nb=html.find('.j_nb').val();
             for(let j=0;j<10;j++){
@@ -148,29 +150,28 @@
             let niveau='';
             let css='';
             if(difficulty > 25){
-                niveau='Très difficile';css='#000000';
+                niveau=game.i18n.localize("liber.easy0");css='#000000';
             }else if(difficulty > 15){
-                niveau='Difficile';css='#8B0000';
+                niveau=game.i18n.localize("liber.easy1");css='#8B0000';
             }else if(difficulty > 5){
-                niveau='Dur';css='#FF0000';
+                niveau=game.i18n.localize("liber.easy2");css='#FF0000';
             }else if(difficulty > -5){
-                niveau='Moyen';css='#FFA500';
+                niveau=game.i18n.localize("liber.easy3");css='#FFA500';
             }else if(difficulty > -15){
-                niveau='Facile';css='#FFFF00';
+                niveau=game.i18n.localize("liber.easy4");css='#FFFF00';
             }else {
-                niveau='Très facile';css='#00FF00';
+                niveau=game.i18n.localize("liber.easy5");css='#00FF00';
             }
             html.find('.difficulty').val(niveau);
             html.find('.difficulty').css({"background":css,'color':'white'})
 
-        }
-        
+        }       
     }
 
-    _onGenerator2(event){
+    _onGenerator2(event){//Fr
         let type=this.document.type;
-        let arme = ["Dague","poignard","Masse d'arme","Hachette","Javelot","Lance courte","Épée courte","Épée","Sabre","Gourdin","Rapière","Espadon","Hache de bataille","Hallebarde","Baton","Masse lourde","Fléaux d'armes","Lance lourde","Épée à deux main","Faux de guerre","Fronde","Javelot","Arbalète de poing","Arbalète","Arc","Arc long","Épée courte"]
-        let armure =["Bouclier","Bouclier rond (vicking)","Grand bouclier","Tenue","Gantelet de protection","Pantalon","Cuirasse","Epaulette","Plastron","Armet","Casque","Chapeau","Armure","Epaulière","Brassard"]
+        let arme = ['liber.arme9','liber.arme10','liber.arme11','liber.arme12','liber.arme13','liber.arme14','liber.arme15','liber.arme16','liber.arme17','liber.arme18','liber.arme19','liber.arme20','liber.arme0','liber.arme21','liber.arme4','liber.arme22','liber.arme1','liber.arme3','liber.arme23','liber.arme5','liber.arme24','liber.arme8','liber.arme25','liber.arme26','liber.arme27','liber.arme28','liber.arme29','liber.arme30','liber.arme31','liber.arme32','liber.arme33']
+        let armure =["Tenue","Pantalon","Cuirasse","Epaulette","Plastron","Armet","Casque","Chapeau","Armure","Epaulière","Brassard"]
         let objet=["Talisman","Orbe","Amulette","Pendentif","Bague","Bracelet","couronne","Ceinture"]
         let nom=["d'espérance","flamboyant(e)","de fer","de cuivre","de bronze","de cuir","du mage","poupre","rose","de soie","de l'ordre du dragon","de l'ordre du temple","de Vharung","ancien(ne)","rouillé(e)","usé(e)","du soleil","de la secte de weithra","lumineux(se)","d'acier"]
         let effetarmure=["+5 en charisme","+5 en sagacité","Permet de rejouer un tour supplémentaire (unique)","Si un effet touche l'armure, sur un jet de chance, l'ennemi est propulsé en arrière et subit 1d4 de dégats","Donne +2 d'armure face à la magie","Soigne 1d4 par coup subit","Annule les 20 premiers point de dégat (unique)","inflige des dégats de foudre (1d4)","inflige des dégats de poison (1d4)","inflige des dégats de feu (1d4)","diminue les coups subit en physique de moitié","diminue les coups magiques de moitié","augmente la chance de 10%","augmente le social de 5%","augmente le physique de 5%","augmente le mental de 5%","diminue le coup magique de 1 psy","restaure 1 psy par tour","augmente la réussite critique de 5% (une seul utilisation)"]

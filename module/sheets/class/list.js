@@ -491,5 +491,9 @@ export const range = Object.freeze({
             label:"liber.avantrace86",
              classe:"demon",
         },
+        r14:{
+            label:"liber.avantrace79",
+            classe:"all",
+        },
     },
 });

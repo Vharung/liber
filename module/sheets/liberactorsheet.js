@@ -162,7 +162,7 @@ export class LiberActorSheet extends ActorSheet {
         arme.sort(function (a, b) {if (a.name < b.name) {return -1;} else {return 1;}});
         armure.sort(function (a, b) {if (a.name < b.name) {return -1;} else {return 1;}});
        
-    // Assign and return
+        // Assign and return
         actorData.inventaire = inventaire;
         actorData.sort = sort;
         actorData.argent = argent;
@@ -242,10 +242,18 @@ export class LiberActorSheet extends ActorSheet {
         });
 
         //title talent et faiblesse
-        var ttitle=html.find('.talentliste option:selected').attr('title');
+        let ttitle=this.actor.system.talent;
+        ttitle=range.talent[ttitle].title;
+        html.find('.talent').attr('title',ttitle);
+
+        let ftitle=this.actor.system.faiblesse;
+        ftitle=range.faiblesse[ftitle].title;
+        html.find('.faiblesse').attr('title',ftitle);
+
+        /*var ttitle=html.find('.talentliste option:selected').attr('title');
         var ftitle=html.find('.faiblesseliste option:selected').attr('title');
         html.find('.talent').attr('title',ttitle);
-        html.find('.faiblesse').attr('title',ftitle);
+        html.find('.faiblesse').attr('title',ftitle);*/
 
         let compe='';
         html.find(".compt").each(function() {
@@ -374,7 +382,7 @@ export class LiberActorSheet extends ActorSheet {
         html.find('.barenc').css({"width":pourcentage+"%"});
         var autre=html.find('.clanliste option:selected').val()
         var autres=html.find('.religionliste option:selected').val()
-        if(autre==game.i18n.localize("liber.avantrace79") && autres==game.i18n.localize("liber.avantrace79")){
+        if(autre=="c20" && autres=="r14"){
             html.find('.bucketmagie').css({"display":"none"});
         }
         var hp= html.find('.hp').val();
@@ -430,30 +438,29 @@ export class LiberActorSheet extends ActorSheet {
             }
         }
        
-    let j=0;
-    html.find( ".religionliste option" ).each(function( index ) {
-        if ( $( this ).val() == game.i18n.localize('liber.avantrace85')) {
-            if(j>0){
-               $( this ).css({"display":'none'});
+        let j=0;
+        html.find( ".religionliste option" ).each(function( index ) {
+            if ( $( this ).val() == game.i18n.localize('liber.avantrace85')) {
+                if(j>0){
+                   $( this ).css({"display":'none'});
+                }
+                j++;
             }
-            j++;
-        }
-    });
+        });
 
-    //const clan = html.find('.clanliste option:selected').val();
-    //const race=this.actor.system.race; 
-    const clan=this.actor.system.clan; 
-    const reli=this.actor.system.religion; 
-    console.log(race)
+        //const clan = html.find('.clanliste option:selected').val();
+        //const race=this.actor.system.race; 
+        const clan=this.actor.system.clan; 
+        const reli=this.actor.system.religion; 
+        console.log(race)
         if(race=='r4'){
             html.find('.magi').css("display", "none");
             html.find('.magieslistes').css("display", "none");
         }
     }
-
     getItemFromEvent = (ev) => {
         const parent = $(ev.currentTarget).parents(".item");
-    //return this.actor.getOwnedItem(parent.data("itemId"));
+        //return this.actor.getOwnedItem(parent.data("itemId"));
         return this.actor.items.get(parent.data("itemId"));
     }
 
@@ -463,15 +470,15 @@ export class LiberActorSheet extends ActorSheet {
     }
  
     _onRoll(event){ 
-    //lancer de dés
-    //déclaration des variables
+        //lancer de dés
+        //déclaration des variables
         var monJetDeDes = event.target.dataset["dice"];
         var name = event.target.dataset["name"];
         let type=event.target.dataset["type"];
         var texte='';
         var roll=null;
     
-    //var compétence
+        //var compétence
         let bonus =this.actor.system.bonus;
         let malus =this.actor.system.malus;
         let posture =this.actor.system.posture;
@@ -487,17 +494,17 @@ export class LiberActorSheet extends ActorSheet {
         let encdif=0;
         const listedemain =armes.mains;
 
-    //var degat
+        //var degat
         var img=event.target.dataset["img"];
         var desc=event.target.dataset["desc"];
         let qarme=event.target.dataset["name"];
 
-    //var automatisation
+        //var automatisation
         let statphy = this.actor.system.ability.physique;
         var hp=null;
         var nom='';let button='';
    
-    //Jet de dès  compétences
+        //Jet de dès  compétences
         if(type=="jetdedes" || type=="auto"){
             if(type=="auto"){name='Physique';maxstat=this.actor.system.ability.physique;}
             if(posture=="focus"){bonuspost=5;}
@@ -558,26 +565,26 @@ export class LiberActorSheet extends ActorSheet {
                 let {armed,degatd,desd,imgd,armeg,degatg,desg,imgg} = this.actor.system.armeuse;
                 for (let i = listedemain.length - 1; i >= 0; i--) {
                     if(armed.includes(listedemain[i]) || armeg.includes(listedemain[i])){
-                        button+='<button class="addfats" style="cursor:pointer;margin-bottom: 5px;" data-actorid="'+ this.actor._id+'">Ajouter un point de fatigue</button>';
+                        button+='<button class="addfats" style="cursor:pointer;margin-bottom: 5px;" data-actorid="'+ this.actor._id+'">'+game.i18n.localize("addptfatigue")+'</button>';///FR
                     }
                 }
-               
+            
                 if(armed){
                     button+='<button class="roll-damage" style="cursor:pointer;margin-bottom: 5px;" data-name="'+armed+'" data-actorid="'+
                 this.actor._id+'" data-dice="'+degatd+'" data-img="'+imgd
-                +'" data-desc="'+desd+'" data-type="jetdedegat">Utiliser '+armed+'</button>';
+                +'" data-desc="'+desd+'" data-type="jetdedegat">'+game.i18n.localize("use")+' '+armed+'</button>';
                 }
                 if(armeg){
                     button+='<button class="roll-damage" style="cursor:pointer" data-name="'+armeg+'" data-actorid="'+
                 this.actor._id+'" data-dice="'+degatg+'" data-img="'+imgg
-                +'" data-desc="'+desg+'" data-type="jetdedegat">Utiliser '+armeg+'</button>';
+                +'" data-desc="'+desg+'" data-type="jetdedegat">'+game.i18n.localize("use")+' '+armeg+'</button>';
                 }
                
                
 
             }
             texte+=button+'</span>';
-        //info Tchat    
+            //info Tchat    
             roll.toMessage({
                 speaker: ChatMessage.getSpeaker({ actor: this }),
                 flavor: texte
@@ -585,7 +592,7 @@ export class LiberActorSheet extends ActorSheet {
 
         }
        
-    //Jet de dégât
+        //Jet de dégât
         if(type=="jetdedegat" || type=="auto"){
             if(desc==""){var info='';}
             else {var info='</span><span class="desctchat" style="display:block;">'+desc+'</span>';}
@@ -606,7 +613,7 @@ export class LiberActorSheet extends ActorSheet {
                     hp = i.document._actor.system.hp.value;
                     var armor=i.document.actor.system.protection
                     var armormag=i.document.actor.system.protectionmagique;
-                    var perce=["Dague","Masse d'arme","Masse Lourd","Arbalète"]
+                    var perce=["Dague","Masse d'arme","Masse Lourd","Arbalète"]//Fr
                     var passe=0;
                     for (var j = perce.length - 1; j >= 0; j--) {
                         if(nam==perce[j]){
@@ -636,9 +643,9 @@ export class LiberActorSheet extends ActorSheet {
 
             }
             if(degats>0 || type=="jetdedegat"){
-                texte = '<span style="flex:auto"><p class="resultatp"><img src="'+img+'"  width="24" height="24"/>&nbsp;Utilise ' + name + '<p>'+info;//Fr
+                texte = '<span style="flex:auto"><p class="resultatp"><img src="'+img+'"  width="24" height="24"/>&nbsp;'+game.i18n.localize("use")+' ' + name + '<p>'+info;//Fr
        
-    //info Tchat    
+                //info Tchat    
                 roll.toMessage({
                     speaker: ChatMessage.getSpeaker({ actor: this }),
                     flavor: texte
@@ -648,9 +655,9 @@ export class LiberActorSheet extends ActorSheet {
         }
        
    
-    // Mort de la cible
+        // Mort de la cible
         if(hp==0 && type=="auto") {
-            var tuer=['Vient de tuer ','A massacrer ','A occis ',"N'a pas eu de pitier pour ","A oté la vie de ","A trucidé "];//Fr
+            var tuer=[game.i18n.localize("mort0"),game.i18n.localize("mort1")game.i18n.localize("mort2")game.i18n.localize("mort3"),game.i18n.localize("mort4"),game.i18n.localize("mort5")];//Fr
             var d=Math. round(Math.random() * tuer.length);
             texte = "<span style='flex:auto'><p class='resultatp'>"+tuer[d]+"&nbsp; <span style='text-transform:uppercase;font-weight: bold;'> "+nom+"</span></span></span>";
             let chatData = {
@@ -755,9 +762,9 @@ export class LiberActorSheet extends ActorSheet {
         var cout=event.target.dataset["cout"];
         var type=event.target.dataset["type"];
         if(type=="magie"){
-            var cost='Cout : '+cout+' Psy';
+            var cost=game.i18n.localize("liber.cout")' : '+cout+' Psy';
         }else{
-            var cost='Cout : '+cout+' écu'
+            var cost=game.i18n.localize("liber.cout")' : '+cout+' écu'
         }
         var portrait='<img src="icons/svg/mystery-man.svg" width="36" height="36" class="chat-portrait-message-portrait-generic" style="border: 2px solid rgb(255, 255, 255);">';
         const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +'</span><span class="desctchat" style="display:block;">'+desc+'<span style="text-align:right; float:right; margin-top:25px">'+cost+'</span></span></p></span>';
@@ -787,7 +794,7 @@ export class LiberActorSheet extends ActorSheet {
             hpadd = ((d + parseInt(level)) * parseInt(heure)) / 8;
             psyadd = Math.floor(parseInt(level) * parseInt(heure));
             fatadd = Math.floor(1 * parseInt(heure));
-            if (talent === "Bon dormeur") {//bug potentielle
+            if (talent === "t8") {
               hpadd = parseInt(hpadd) + 6;
               psyadd = parseInt(psyadd) + 3;
               fatadd = parseInt(fatadd) + 1;
@@ -800,7 +807,7 @@ export class LiberActorSheet extends ActorSheet {
             hpadd = (d + parseInt(level)) * parseInt(heure);
             psyadd = Math.floor(parseInt(level) * parseInt(heure));
             fatadd = Math.floor(2 * parseInt(heure));
-            if (talent === "Bon dormeur") {
+            if (talent === "t8") {
               hpadd = parseInt(hpadd) + 6;
               psyadd = parseInt(psyadd) + 3;
               fatadd = parseInt(fatadd) + 1;
@@ -814,7 +821,7 @@ export class LiberActorSheet extends ActorSheet {
             hpadd = ((2 * d) + parseInt(level)) * parseInt(heure);
             psyadd = Math.floor(parseInt(level) * parseInt(heure));
             fatadd = Math.floor(3 * parseInt(heure));
-            if (talent === "Bon dormeur") {
+            if (talent === "t8") {
               hpadd = parseInt(hpadd) + 6;
               psyadd = parseInt(psyadd) + 3;
               fatadd = parseInt(fatadd) + 1;
@@ -943,7 +950,7 @@ export class LiberActorSheet extends ActorSheet {
    
     _onArmor(event){
         const equipe=event.target.dataset["equip"];
-        const listedemain =['Bâton','Espadon','Hallebarde','Fléaux d\'arme','Epée à deux main','Masse d\'arme','Hache de bataille','Faux de Guerre','Lance Lourde']
+        const listedemain =armes.mains;
         let { protection,race} = this.actor.system;
         let { armure,desa,imga,armed,degatd,desd,imgd,armeg,degatg,desg,imgg} = this.actor.system.armeuse;
         const { img, des, name, degat } = event.target.dataset;
@@ -1000,19 +1007,19 @@ export class LiberActorSheet extends ActorSheet {
                 arm=''; ard=''; ari='';
             }
         }
-        if(race==game.i18n.localize("liber.avantrace60")){
+        if(race=="r0"){
             armor = 2;
         }
-        if(armed=="Bouclier"){armor=armor+1;}
-        else if(armed=="Grand Bouclier"){armor=armor+2;}
-        if(armeg=="Bouclier"){armor=armor+1;}
-        else if(armeg=="Grand Bouclier"){armor=armor+2;}
-        if(arm=="Bouclier"){armor=armor+1;}
-        else if(arm=="Cuir souple"){armor=armor+1;}
-        else if(arm=="Grand Bouclier"){armor=armor+2;}
-        else if(arm=="Cuir rigide"){armor=armor+2;}
-        else if(arm=="Cote de maille"){armor=armor+3;}
-        else if(arm=="Armure de plaques"){armor=armor+4;}    
+        if(armed==game.i18n.localize('liber.arme13')){armor=armor+1;}
+        else if(armed==game.i18n.localize('liber.arme34')){armor=armor+2;}
+        if(armeg==game.i18n.localize('liber.arme13')){armor=armor+1;}
+        else if(armeg==game.i18n.localize('liber.arme34')){armor=armor+2;}
+        if(arm==game.i18n.localize('liber.arme13')){armor=armor+1;}
+        else if(arm==game.i18n.localize('liber.arme35')){armor=armor+1;}
+        else if(arm==game.i18n.localize('liber.arme34')){armor=armor+2;}
+        else if(arm==game.i18n.localize('liber.arme36')){armor=armor+2;}
+        else if(arm==game.i18n.localize('liber.arme37')){armor=armor+3;}
+        else if(arm==game.i18n.localize('liber.arme38')){armor=armor+4;}  
         this.actor.update({'system.protection': armor,'system.armeuse.armure': arm,'system.armeuse.desa': ard,'system.armeuse.imga': ari,'system.armeuse.armed': armed,'system.armeuse.degatd': degatd,'system.armeuse.imgd': imgd,'system.armeuse.desd': desd,'system.armeuse.armeg': armeg,'system.armeuse.degatg': degatg,'system.armeuse.imgg': imgg,'system.armeuse.desg': desg});
     }
 
@@ -1033,7 +1040,7 @@ export class LiberActorSheet extends ActorSheet {
             ar=8;
         }
         lvl++;
-        let itemData= this.actor.items.filter(i=>i.name == "Attaque");  
+        let itemData= this.actor.items.filter(i=>i.name == game.i18n.localize("liber.attack"));  
         var iditem= itemData[0].id;
         var dgt = itemData[0].data.system.degats;
         itemData[0].DegatLvl();
@@ -1044,7 +1051,7 @@ export class LiberActorSheet extends ActorSheet {
     async _onCouv(event){//bug
         let idn=event.target.dataset["lettre"];
         let effet=this.actor.effects;
-        let lists=['Endormi','Etourdi','Aveugle','Sourd','Réduit au silence','Apeuré','Brûlant','Gelé','Invisible','Béni','Empoisonné','Saignement','Inconscient','Mort']
+        let lists=[game.i18n.localize("liber.etat0"),game.i18n.localize("liber.etat1"),game.i18n.localize("liber.etat2"),game.i18n.localize("liber.etat3"),game.i18n.localize("liber.etat4"),game.i18n.localize("liber.etat5"),game.i18n.localize("liber.etat6"),game.i18n.localize("liber.etat7"),game.i18n.localize("liber.etat8"),game.i18n.localize("liber.etat9"),game.i18n.localize("liber.etat10"),game.i18n.localize("liber.etat11"),game.i18n.localize("liber.etat12"),game.i18n.localize("liber.etat3")]
         var nomRecherche=lists[idn];
         var estPresent = effet.some(function(element) {
             return element.name === nomRecherche;
@@ -1095,16 +1102,16 @@ export class LiberActorSheet extends ActorSheet {
         if(type==game.i18n.localize("liber.avantrace77b")){
             ajout=20;
             return
-        }else if(type=="Minuscule"){//bug potentielle mettre en liste
+        }else if(type==game.i18n.localize("liber.taille0")){//bug potentielle mettre en liste
             this.actor.update({"system.encombrement.max":enc});
             return
-        }else if(type=="Petit"){
+        }else if(type==game.i18n.localize("liber.taille1")){
             ajout=10;
-        }else if(type=="Moyen"){
+        }else if(type==game.i18n.localize("liber.taille2")){
             ajout=30;
-        }else if(type=="Grand"){
+        }else if(type==game.i18n.localize("liber.taille3")){
             ajout=100;
-        }else if(type=="Gigantesque"){
+        }else if(type==game.i18n.localize("liber.taille4")){
             ajout=1000;
         }else{
             ajout=35;
@@ -1112,10 +1119,10 @@ export class LiberActorSheet extends ActorSheet {
         if(forc==''){forc=0}
         if(puis==''){puis=0}
         enc=(parseInt(forc)+ parseInt(puis)) /2 + ajout;
-        if(compt=="Mulet"){//bug potentielle
+        if(compt=="t24"){//bug potentielle
             enc=parseInt(enc)+10
         }
-        if(faible=="Faible"){
+        if(faible=="f4"){
             enc=parseInt(enc)-10
         }
         this.actor.update({"system.encombrement.max":enc});
@@ -1289,16 +1296,16 @@ export class LiberActorSheet extends ActorSheet {
         if(abilities.force==''){abilities.force=0}
         if(cpt37==''){cpt37=0}
         var enc=(parseInt(abilities.force)+ parseInt(cpt37)) /2 + 35;
-        if(talent=="Mulet"){
+        if(talent=="t24"){
             enc=parseInt(enc)+10
         }
-        if(faiblesse=="Faible"){
+        if(faiblesse=="f4"){
             enc=parseInt(enc)-10
         }
 
         //activer les effets
         const effets = this.actor.effects.filter(item => item.name !== '').map(item => item.name);
-        const lists = ['Endormi','Etourdi','Aveugle','Sourd','Réduit au silence','Apeuré','Brûlant','Gelé','Invisible','Béni','Empoisonné','Saignement','Inconscient','Mort'];
+        const lists=[game.i18n.localize("liber.etat0"),game.i18n.localize("liber.etat1"),game.i18n.localize("liber.etat2"),game.i18n.localize("liber.etat3"),game.i18n.localize("liber.etat4"),game.i18n.localize("liber.etat5"),game.i18n.localize("liber.etat6"),game.i18n.localize("liber.etat7"),game.i18n.localize("liber.etat8"),game.i18n.localize("liber.etat9"),game.i18n.localize("liber.etat10"),game.i18n.localize("liber.etat11"),game.i18n.localize("liber.etat12"),game.i18n.localize("liber.etat3")];
         const active = lists.map(list => effets.includes(list) ? 1 : 0.5);
         /*console.log("system.encombrement.max"+enc+
         "system.faiblesse"+faiblesse+
@@ -1448,20 +1455,20 @@ export class LiberActorSheet extends ActorSheet {
         const li = event.currentTarget;
         if ( event.target.classList.contains("content-link") ) return;
 
-    // Create drag data
+        // Create drag data
         let dragData;
 
         if ( li.dataset.type == "jetdedes") {
           dragData = { "type": "ability", "name": li.dataset.name, "item": li.dataset.itemId, "dice": li.dataset.dice, "attDice": li.dataset.attdice,"idactor":this.actor._id  }
         }
 
-    // Owned Items
+        // Owned Items
         else if ( li.dataset.itemId ) {
           const item = this.actor.items.get(li.dataset.itemId);
           dragData = item.toDragData();
         }
 
-    // Active Effect
+        // Active Effect
         if ( li.dataset.effectId ) {
           const effect = this.actor.effects.get(li.dataset.effectId);
           dragData = effect.toDragData();
@@ -1469,7 +1476,7 @@ export class LiberActorSheet extends ActorSheet {
 
         if ( !dragData ) return;
 
-    // Set data transfer
+        // Set data transfer
         event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
       }
 }

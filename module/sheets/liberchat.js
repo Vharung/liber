@@ -12,7 +12,7 @@ Hooks.on('renderChatMessage', (message, html) => {
     //const damageRoll = new Roll(dice).roll();
     let r = new Roll(dice);
     var roll=r.evaluate({"async": false});
-    const command='<span style="flex:auto"><p class="resultatp"><img src="'+img+'"  width="24" height="24"/>&nbsp;Utilise '+name+'<p>'+desc+'<div class="dice-roll"><div class="dice-result"><div class="dice-formula">'+r.result+'</div><h4 class="dice-total">'+r.total+'</h4></div></div>';
+    const command='<span style="flex:auto"><p class="resultatp"><img src="'+img+'"  width="24" height="24"/>&nbsp;'+game.i18n.localize("liber.use")+' '+name+'<p>'+desc+'<div class="dice-roll"><div class="dice-result"><div class="dice-formula">'+r.result+'</div><h4 class="dice-total">'+r.total+'</h4></div></div>';
 
     const chatData = {
       user: game.user._id,

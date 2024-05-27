@@ -11,7 +11,7 @@ ___     ___ ____  ______ ____
 |_____| |_| |___/ |____| |_| \\_\\
 ________________________________`;
 
-liber.raceTypes={
+/*liber.raceTypes={
 r0:"liber.avantrace60",
 r1:"liber.avantrace61",
 r2:"liber.avantrace62",
@@ -194,4 +194,4 @@ liber.religionDrauchTypes={
 liber.religionDemonTypes={
     r12:"liber.avantrace85",
     r13:"liber.avantrace86"
-}
+}*/
