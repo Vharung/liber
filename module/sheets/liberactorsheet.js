@@ -657,9 +657,9 @@ export class LiberActorSheet extends ActorSheet {
    
         // Mort de la cible
         if(hp==0 && type=="auto") {
-            var tuer=[game.i18n.localize("mort0"),game.i18n.localize("mort1")game.i18n.localize("mort2")game.i18n.localize("mort3"),game.i18n.localize("mort4"),game.i18n.localize("mort5")];//Fr
+            var tuer=["mort0","mort1","mort2","mort3","mort4","mort5"];
             var d=Math. round(Math.random() * tuer.length);
-            texte = "<span style='flex:auto'><p class='resultatp'>"+tuer[d]+"&nbsp; <span style='text-transform:uppercase;font-weight: bold;'> "+nom+"</span></span></span>";
+            texte = "<span style='flex:auto'><p class='resultatp'>"+game.i18n.localize(tuer[d])+"&nbsp; <span style='text-transform:uppercase;font-weight: bold;'> "+nom+"</span></span></span>";
             let chatData = {
                 speaker: ChatMessage.getSpeaker({ actor: this }),
                 content: texte
@@ -762,9 +762,9 @@ export class LiberActorSheet extends ActorSheet {
         var cout=event.target.dataset["cout"];
         var type=event.target.dataset["type"];
         if(type=="magie"){
-            var cost=game.i18n.localize("liber.cout")' : '+cout+' Psy';
+            var cost=game.i18n.localize("liber.cout")+' : '+cout+' Psy';
         }else{
-            var cost=game.i18n.localize("liber.cout")' : '+cout+' écu'
+            var cost=game.i18n.localize("liber.cout")+' : '+cout+' écu'
         }
         var portrait='<img src="icons/svg/mystery-man.svg" width="36" height="36" class="chat-portrait-message-portrait-generic" style="border: 2px solid rgb(255, 255, 255);">';
         const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +'</span><span class="desctchat" style="display:block;">'+desc+'<span style="text-align:right; float:right; margin-top:25px">'+cost+'</span></span></p></span>';
