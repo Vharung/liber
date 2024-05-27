@@ -9,7 +9,10 @@
 
 	<header>
 		<input class="nomperso" name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'liber.name'}}">
-		<input class="race" type="text" title="{{actor.system.race}}" name="system.race" value="{{actor.system.race}}"  placeholder="{{localize 'liber.taille'}}">
+		<SELECT class="race"  name="system.race">
+			{{selectOptions listValues.taille selected=actor.system.race labelAttr="label" localize=true blank="liber.none"}}
+		</SELECT>
+		<!--input class="race" type="text" title="{{actor.system.race}}" name="system.race" value="{{actor.system.race}}"  placeholder="{{localize 'liber.taille'}}"-->
 		<input class="clan" type="text" title="{{actor.system.clan}}" name="system.clan"  value="{{actor.system.clan}}" placeholder="{{localize 'liber.type'}}"/>
 	</header>
 	<div class="zone">
@@ -87,20 +90,10 @@
 						<h2>{{localize 'liber.repos'}}</h2>
 						<input class="heure" name="system.heure" type="text" value="{{actor.system.heure}}" placeholder="0"/>
 						<SELECT class="jourliste"  name="system.jour">
-							{{selectOptions listValues selected=system.list.temps labelAttr="label" localize=true blank="liber.none"}}
-			            	<!--{{#select system.jour}}
-			                    <OPTION value="{{localize 'liber.heure'}}" title="{{localize 'liber.heure'}}">{{localize 'liber.heure'}}</OPTION>
-			                    <OPTION value="{{localize 'liber.jour'}}" title="{{localize 'liber.jour'}}">{{localize 'liber.jour'}}</OPTION>
-			                {{/select}}-->
+							{{selectOptions listValues.temps selected=actor.system.jour labelAttr="label" localize=true blank="liber.none"}}
 			            </select>
 			            <SELECT class="typerepos"  name="system.repos">
-			            	{{selectOptions listValues selected=system.list.dure labelAttr="label" localize=true blank="liber.none"}}
-			            	<!--{{#select system.repos}}
-			                    <OPTION value="{{localize 'liber.rapide'}}" title="{{localize 'liber.rapide'}}">{{localize 'liber.rapide'}}</OPTION>
-			                    <OPTION value="{{localize 'liber.calme'}}" title="{{localize 'liber.calme'}}">{{localize 'liber.calme'}}</OPTION>
-			                    <OPTION value="{{localize 'liber.calme2'}}" title="{{localize 'liber.calme2'}}">{{localize 'liber.calme2'}}</OPTION>
-			                    <OPTION value="{{localize 'liber.intensif'}}" title="{{localize 'liber.intensif'}}">{{localize 'liber.intensif'}}</OPTION>
-			                {{/select}}-->
+			            	{{selectOptions listValues.dure selected=actor.system.repos labelAttr="label" localize=true blank="liber.none"}}
 			            </select>
 			            <a class="bouton reposer" style=" margin-top: 0;height: 25px;padding: 5px;text-align: center;">{{localize 'liber.reposer'}}</a>
 					</div>

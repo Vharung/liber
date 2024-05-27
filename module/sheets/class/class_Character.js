@@ -26,7 +26,7 @@ export class Character {
     // Vérifier si la race a des noms spécifiques pour les sexes ou si les noms sont neutres
     if (nameList.hasOwnProperty('Female') && nameList.hasOwnProperty('Male')) {
       // Sélectionner un nom au hasard pour le sexe approprié
-      if(sexe==game.i18n.localize('liber.sex0')){sexe='Male';}
+      if(sexe=="sex0"){sexe='Male';}
       name = nameList[sexe][Math.floor(Math.random() * nameList[sexe].length)];
     } 
     if (nameList.hasOwnProperty('Famille')){
@@ -34,7 +34,7 @@ export class Character {
       name =name+" "+nameList['Famille'][Math.floor(Math.random() * nameList['Famille'].length)];
     } else {
       // Sélectionner un nom au hasard dans la liste neutre
-      if(race=="liber.avantrace60"){
+      if(race=="r0"){
       	name = nameList[Math.floor(Math.random() * nameList.length)]+nameList[Math.floor(Math.random() * nameList.length)];
       	name = name.charAt(0).toUpperCase() + name.slice(1);
       }else {
@@ -62,7 +62,7 @@ export class Character {
 	  if (profession) {
 	    return metierStats;
 	  } else {
-	    console.error("Métier non trouvé:", profession);
+	    console.error("Métier non trouvé : ", profession);
 	    return null;
 	  }
   }
@@ -81,7 +81,7 @@ export class Character {
     }
     let clan = Object.keys(clans).find(key => game.i18n.localize(key) === clanLabel);
     if (!clan) {
-        console.error("Clan"+clan+" introuvable pour le label donné.");
+        console.error("Clan : "+clan+", introuvable pour le label donné.");
         return [null,null,0];
     }
 
@@ -120,35 +120,36 @@ export class Character {
         let race = Object.keys(races).find(key => game.i18n.localize(key) === raceLabel);
         console.log(race);
         const raceMap = {
-            'liber.avantrace60': 'dragon/',
-            'liber.avantrace92': 'elfe/',
-            'liber.avantrace61': 'humain/',
-            'liber.avantrace62': 'demon/',
-            'liber.avantrace63': 'drauch/',
-            'liber.avantrace64': 'rocailleux/',
-            'liber.avantrace65': 'semihumain/',
-            'liber.avantrace10a': 'elfe/',
-            'liber.avantrace66': 'eflesylvain/',
-            'liber.avantrace67': 'elfenoir/',
-            'liber.avantrace68': 'elfedesang/',
-            'liber.avantrace69': 'nain/',
-            'liber.avantrace70': 'hommechat/',
-            'liber.avantrace71': 'hommechien/',
-            'liber.avantrace72': 'hommeoiseau/',
-            'liber.avantrace73': 'hommearbre/',
-            'liber.avantrace74': 'hommerat/',
-            'liber.avantrace75': 'etredepsy/',
-            'liber.avantrace76': 'vampire/',
-            'liber.avantrace77': 'orc/',
-            'liber.avantrace92': 'kobold/',
-            'liber.avantrace77a': 'celeste/',
-            'liber.avantrace77b': 'centaure/',
-            'liber.avantrace78': 'default/',
+            'r0': 'dragon/',
+            'r21': 'elfe/',
+            'r1': 'humain/',
+            'r2': 'demon/',
+            'r3': 'drauch/',
+            'r4': 'rocailleux/',
+            'r5': 'semihumain/',
+            'r6': 'elfe/',
+            'r7': 'eflesylvain/',
+            'r8': 'elfenoir/',
+            'r9': 'elfedesang/',
+            'r10': 'nain/',
+            'r11': 'hommechat/',
+            'r12': 'hommechien/',
+            'r13': 'hommeoiseau/',
+            'r14': 'hommearbre/',
+            'r15': 'hommerat/',
+            'r16': 'etredepsy/',
+            'r17': 'vampire/',
+            'r18': 'orc/',
+            'r21': 'kobold/',
+            'r19': 'celeste/',
+            'r20': 'centaure/',
+            'r22': 'default/',
         };
+
 
         let raceKey = raceMap[race];
         sexe = sexe.toLowerCase();
-        if (sexe === 'female') {
+        if (sexe === 'sex2') {
             raceKey += 'femmes/';
         } else {  // 'male' ou tout autre chose
             raceKey += 'hommes/';
@@ -167,14 +168,13 @@ export class Character {
               let randomImagePath = files[avatarIndex];
               let basePath = this.baseUrl + raceKey;
               let avatarUrl = basePath + randomImagePath;
-              console.log('Chemin de l\'image sélectionnée :', avatarUrl);
+              console.log('Chemin de l\'image sélectionnée : ', avatarUrl);
               return avatarUrl;
           } catch (error) {
               console.error('Erreur :', error);
               return null;
           }
         }
-          
     }
 
     // Méthode simulée pour obtenir les fichiers d'un dossier (devrait être remplacée par une implémentation réelle)

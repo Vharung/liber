@@ -25,21 +25,21 @@ import {names, items0, items1, items2, items3, items4, metiers, races, clans, de
     let b_psy = Math.round((parseInt(this.ment) + parseInt(this.soci)/2 - parseInt(this.phys) + 5) / 4 + 2);
     let b_nb = Math.round(parseInt(b_psy) / 4) + 1 + parseInt(this.level);
     let b_cout = Math.round((parseInt(b_psy) - parseInt(b_nb)) / 2) + 3;
-    if (this.compt === "Aura") {//bug potentielle
+    if (this.compt === "t6") {//bug potentielle
         b_psy += 5;
     }
 
     // Stat actuel
     let PVmin = Math.round(parseInt(this.phys) / 3);
-    if (this.compt === "Vigoureux") {//bug potentielle
+    if (this.compt === "t37") {//bug potentielle
         PVmin += 5;
     }
-    if (this.faible === "Prisonnier") {//bug potentielle
+    if (this.faible === "f14") {//bug potentielle
         PVmin -= 5;
     }
     const PSYmin = b_psy;
     let cout = 0;
-    if (this.clan === game.i18n.localize("liber.avantrace56")) {
+    if (this.clan === "c18") {
         cout = parseInt(this.level); // corbeau
         b_nb = parseInt(this.level) + 2;
     } else {
@@ -49,7 +49,7 @@ import {names, items0, items1, items2, items3, items4, metiers, races, clans, de
     const listsort = this.listsort; 
     const nbsorts = listsort.length;
     let calsort = parseInt(b_nb) - parseInt(nbsorts);
-    if (this.compt == game.i18n.localize("liber.title81")) {
+    if (this.compt == "t23") {
         calsort = parseInt(calsort) + 1;
     }
     let color1 = 'color:white;';

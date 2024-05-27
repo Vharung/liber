@@ -256,7 +256,7 @@ a.content-link, a.inline-roll {background: none}
 .Liber .right{float:right;margin-bottom: 5px}
 .Liber .levelup{background: var(--couleur-noir);color:var(--couleur-or);width: 20px;height: 20px;display: block;text-align: center;position: absolute;top: 168px;left: 106px;border-radius: 50%;padding:3px}
 .Liber .monstres{padding-top: 20px;}
-
+.Liber .race{background: none}
 
 /**animation perte ajout pv/psy**/
 .change-indicator {position: absolute;color: red;font-weight: bold;animation: floatUpFade 1s ease-out forwards;}

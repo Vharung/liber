@@ -15,11 +15,12 @@ export class SortsPossibles {
     async getListeSorts() {
         const pack = game.packs.get('liber.magie');
         const tables = await pack.getDocuments();
-        let listem;
-        if (this.mag1 === 'autre' || this.mag2 === 'autre') {
+        let listem;let idCounter = 1;
+        /*if (this.mag1 === 'autre' || this.mag2 === 'autre') {
             listem = tables.filter(value =>
                 value.system.cout === "X" || parseInt(value.system.cout) <= this.cout
             ).map(value => ({
+                'id':idCounter++,
                 'name': value.name,
                 'img': value.img,
                 'cible': value.system.cible,
@@ -37,10 +38,11 @@ export class SortsPossibles {
                 value.system.classe === this.mag3 ||
                 value.system.classe === this.mag4 ||
                 value.system.classe === this.mag5 ||
-                this.mag1 === game.i18n.localize("liber.avantrace78")
+                this.mag1 === game.i18n.localize("liber.avantrace78")//r22
             ).filter(value =>
                 value.system.cout === "X" || parseInt(value.system.cout) <= this.cout
             ).map(value => ({
+                'id'+idCounter++,
                 'name': value.name,
                 'img': value.img,
                 'cible': value.system.cible,
@@ -50,7 +52,53 @@ export class SortsPossibles {
                 'description': value.system.description,
                 'duree': value.system.duree
             })).sort((a, b) => a.cout - b.cout);
+        }*/
+        if (this.mag1 === 'autre' || this.mag2 === 'autre') {
+            listem = tables.filter(value =>
+                value.system.cout === "X" || parseInt(value.system.cout) <= this.cout
+            ).reduce((acc, value) => {
+                acc[`id${idCounter++}`] = {
+                    'name': value.name,
+                    'img': value.img,
+                    'cible': value.system.cible,
+                    'classe': value.system.classe,
+                    'cout': value.system.cout,
+                    'degat': value.system.degats,
+                    'description': value.system.description,
+                    'duree': value.system.duree
+                };
+                return acc;
+            }, {});
+        } else {
+            listem = tables.filter(value =>
+                value.system.classe === this.mag0 ||
+                value.system.classe === this.mag1 ||
+                value.system.classe === this.mag2 ||
+                value.system.classe === this.mag3 ||
+                value.system.classe === this.mag4 ||
+                value.system.classe === this.mag5 ||
+                this.mag1 === game.i18n.localize("liber.avantrace78") // r22
+            ).filter(value =>
+                value.system.cout === "X" || parseInt(value.system.cout) <= this.cout
+            ).reduce((acc, value) => {
+                acc[`id${idCounter++}`] = {
+                    'name': value.name,
+                    'img': value.img,
+                    'cible': value.system.cible,
+                    'classe': value.system.classe,
+                    'cout': value.system.cout,
+                    'degat': value.system.degats,
+                    'description': value.system.description,
+                    'duree': value.system.duree
+                };
+                return acc;
+            }, {});
         }
+
+        // Optionnel : Trier les objets dans `listem` par coût si nécessaire
+        listem = Object.fromEntries(
+            Object.entries(listem).sort(([, a], [, b]) => a.cout - b.cout)
+        );
         return listem;
     }
 }

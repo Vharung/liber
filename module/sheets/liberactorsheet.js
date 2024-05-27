@@ -16,7 +16,6 @@ export class LiberActorSheet extends ActorSheet {
      
 @override*/
     static get defaultOptions() {
-        console.log('defaults')
         return foundry.utils.mergeObject(super.defaultOptions, {
           classes: ["Liber", "sheet", "actor"],
           width: 640,
@@ -27,7 +26,6 @@ export class LiberActorSheet extends ActorSheet {
     }
 
     get template() {
-        console.log('templates')
         if(this.actor.type==game.i18n.localize("TYPES.Actor.pnj") || this.actor.type==game.i18n.localize("TYPES.Actor.personnage")){
             return `systems/liber/templates/sheets/personnage-sheet.html`;
         }else {
@@ -46,14 +44,16 @@ export class LiberActorSheet extends ActorSheet {
                 clan:{},
                 dure:range.dure,
                 faiblesse: {},
-                magie:range.magie,
+                magie:context.actor.system.listemag,
                 temps: range.temps,
                 metier: {},
                 race: range.race,
                 religion: {},
                 sex: range.sex,
                 talent: range.talent,
-                temps:range.temps                
+                temps:range.temps,
+                taille:range.taille,
+                traduct:{}                
             };
         /*ajout clan et magie dispo*/
         const race=context.actor.system.race;
@@ -72,11 +72,16 @@ export class LiberActorSheet extends ActorSheet {
         const raceElements = racess[race];
         if (raceElements) {
             raceElements.forEach(element => {
-                for (let key in range.religion ) {
-                    if (range.religion[key].classe === element && clan!=='c17') {
-                        context.listValues.religion[key] = range.religion[key];
+                if(clan=='c18'){
+                    context.listValues.religion = [range.religion['r14'], range.religion['r15'], range.religion['r16']];  
+                }else {
+                    for (let key in range.religion ) {
+                         if (range.religion[key].classe === element && clan!=='c17') {
+                            context.listValues.religion[key] = range.religion[key];
+                        }
                     }
                 }
+                
                 for (let key in range.clan) {
                     if (range.clan[key].classe === element) {
                         context.listValues.clan[key] = range.clan[key];
@@ -118,11 +123,25 @@ export class LiberActorSheet extends ActorSheet {
                 context.listValues.faiblesse[key] = range.faiblesse[key].label ;
             }
         }
+        //transforme id en texte 
+        context.listValues.traduct = {
+            race: context.listValues.race[race] ? game.i18n.localize(context.listValues.race[race].label) : '',
+            clan: context.listValues.clan[clan] ? game.i18n.localize(context.listValues.clan[clan].label) : '',
+            talent: this.actor.system.talent && context.listValues.talent[this.actor.system.talent]
+                ? game.i18n.localize(context.listValues.talent[this.actor.system.talent].label) : '',
+            faiblesse: this.actor.system.faiblesse && context.listValues.faiblesse[this.actor.system.faiblesse]
+                ? game.i18n.localize(context.listValues.faiblesse[this.actor.system.faiblesse].label) : '',
+            metier: this.actor.system.metier && context.listValues.metier[this.actor.system.metier]
+                ? game.i18n.localize(context.listValues.metier[this.actor.system.metier].label) : '',
+            religion: this.actor.system.religion && context.listValues.religion[this.actor.system.religion]
+                ? game.i18n.localize(context.listValues.religion[this.actor.system.religion].label) : ''
+        };
+
         if (this.actor.type == game.i18n.localize("TYPES.Actor.personnage") || this.actor.type == game.i18n.localize("TYPES.Actor.pnj") || this.actor.type == game.i18n.localize("TYPES.Actor.monstre")) {
             this._prepareCharacterItems(context);await this._onEncom();
         }
         if (this.actor.type == game.i18n.localize("TYPES.Actor.personnage") || this.actor.type == game.i18n.localize("TYPES.Actor.pnj") ) {
-           this._onStat();//await suppr
+           await this._onStat();//await suppr
         }
         console.log(context);
         return context;
@@ -228,27 +247,33 @@ export class LiberActorSheet extends ActorSheet {
             this.actor.createEmbeddedDocuments('Item', [{ name: name, type: dataType }], { renderSheet: true })
         });
 
-        html.find('.addsort').click(ev => {//bug
+        html.find('.addsort').click(ev => {
             event.preventDefault();
-            const name=html.find('.magieslistes option:selected').val()
-            const img=html.find('.magieslistes option:selected').data('img')
-            const description=html.find('.magieslistes option:selected').data('description');
-            const cout=html.find('.magieslistes option:selected').data('cout');
-            const classe=html.find('.magieslistes option:selected').data('classe');
-            const cible=html.find('.magieslistes option:selected').data('cible');
-            const degat=html.find('.magieslistes option:selected').data('degat');
-            const duree=html.find('.magieslistes option:selected').data('duree');
+            const id=html.find('.magieslistes option:selected').val();
+            console.log(this.actor.system.listemag.liste);
+            const name=this.actor.system.listemag.liste[id].name;
+            const img=this.actor.system.listemag.liste[id].img;
+            const description=this.actor.system.listemag.liste[id].description;
+            const cout=this.actor.system.listemag.liste[id].cout;
+            const classe=this.actor.system.listemag.liste[id].classe;
+            const cible=this.actor.system.listemag.liste[id].cible;
+            const degat=this.actor.system.listemag.liste[id].degat;
+            const duree=this.actor.system.listemag.liste[id].duree;
             this.actor.createEmbeddedDocuments('Item', [{ name: name,img: img, type: 'magie', 'system.description' : description, 'system.classe' : classe, 'system.cible' : cible, 'system.cout' : cout, 'system.duree' : duree }], { renderSheet: false })
         });
 
         //title talent et faiblesse
         let ttitle=this.actor.system.talent;
-        ttitle=range.talent[ttitle].title;
-        html.find('.talent').attr('title',ttitle);
+        if(ttitle!==""){
+            ttitle=range.talent[ttitle].title;
+            html.find('.talent').attr('title',ttitle);
+        }
 
         let ftitle=this.actor.system.faiblesse;
-        ftitle=range.faiblesse[ftitle].title;
-        html.find('.faiblesse').attr('title',ftitle);
+        if(ftitle!==""){
+            ftitle=range.faiblesse[ftitle].title;
+            html.find('.faiblesse').attr('title',ftitle);
+        }
 
         /*var ttitle=html.find('.talentliste option:selected').attr('title');
         var ftitle=html.find('.faiblesseliste option:selected').attr('title');
@@ -452,7 +477,6 @@ export class LiberActorSheet extends ActorSheet {
         //const race=this.actor.system.race; 
         const clan=this.actor.system.clan; 
         const reli=this.actor.system.religion; 
-        console.log(race)
         if(race=='r4'){
             html.find('.magi').css("display", "none");
             html.find('.magieslistes').css("display", "none");
@@ -469,289 +493,301 @@ export class LiberActorSheet extends ActorSheet {
         item.sheet.render(true);
     }
  
-    _onRoll(event){ 
-        //lancer de dés
-        //déclaration des variables
+    async _onRoll(event) {
+        // Déclaration des variables
         var monJetDeDes = event.target.dataset["dice"];
         var name = event.target.dataset["name"];
-        let type=event.target.dataset["type"];
-        var texte='';
-        var roll=null;
-    
-        //var compétence
-        let bonus =this.actor.system.bonus;
-        let malus =this.actor.system.malus;
-        let posture =this.actor.system.posture;
+        let type = event.target.dataset["type"];
+        var texte = '';
+        var roll = null;
+
+        // Variables de compétence
+        let bonus = this.actor.system.bonus;
+        let malus = this.actor.system.malus;
+        let posture = this.actor.system.posture;
         let maxstat = event.target.dataset["attdice"];
         let fatigue = this.actor.system.fatigue;
-        var bonuspost=0;
-        var critique=5;
-        var succes="";
-        var degats=0;
-        let addfat=0;
-        let encours=this.actor.system.encombrement.value;
-        let encmax=this.actor.system.encombrement.max;
-        let encdif=0;
-        const listedemain =armes.mains;
+        var bonuspost = 0;
+        var critique = 5;
+        var succes = "";
+        var degats = 0;
+        let addfat = 0;
+        let encours = this.actor.system.encombrement.value;
+        let encmax = this.actor.system.encombrement.max;
+        let encdif = 0;
+        const listedemain = armes.mains;
 
-        //var degat
-        var img=event.target.dataset["img"];
-        var desc=event.target.dataset["desc"];
-        let qarme=event.target.dataset["name"];
+        // Variables de dégâts
+        var img = event.target.dataset["img"];
+        var desc = event.target.dataset["desc"];
+        let qarme = event.target.dataset["name"];
 
-        //var automatisation
+        // Variables d'automatisation
         let statphy = this.actor.system.ability.physique;
-        var hp=null;
-        var nom='';let button='';
-   
-        //Jet de dès  compétences
-        if(type=="jetdedes" || type=="auto"){
-            if(type=="auto"){name='Physique';maxstat=this.actor.system.ability.physique;}
-            if(posture=="focus"){bonuspost=5;}
-            else if(posture=="offensif"){critique=10;}
-            if(bonus==""){bonus=0;}
-            if(malus==""){malus=0;}
-            if(name=='physique' || name=='force' || name=='agilite'){
-                if(this.actor.type==game.i18n.localize("TYPES.Actor.monstre")){
-                    addfat=0
-                }else {
-                    if(encours>encmax){
-                        encdif=Math.floor(parseInt(encours)-parseInt(encmax));
+        var hp = null;
+        var nom = '';
+        let button = '';
+
+        // Jet de dés pour les compétences
+        if (type == "jetdedes" || type == "auto") {
+            if (type == "auto") {
+                name = 'Physique';
+                maxstat = this.actor.system.ability.physique;
+            }
+            if (posture == "focus") {
+                bonuspost = 5;
+            } else if (posture == "offensif") {
+                critique = 10;
+            }
+            if (bonus == "") {
+                bonus = 0;
+            }
+            if (malus == "") {
+                malus = 0;
+            }
+            if (name == 'physique' || name == 'force' || name == 'agilite') {
+                if (this.actor.type == game.i18n.localize("TYPES.Actor.monstre")) {
+                    addfat = 0;
+                } else {
+                    if (encours > encmax) {
+                        encdif = Math.floor(parseInt(encours) - parseInt(encmax));
                     }
-                    addfat=5*parseInt(fatigue)+encdif
+                    addfat = 5 * parseInt(fatigue) + encdif;
                 }
             }
-            let inforesult=parseInt(maxstat)+parseInt(bonus)+bonuspost+parseInt(malus)-parseInt(addfat);
-            if(inforesult>95){inforesult=95;}
-            else if(inforesult<5){inforesult=5;}
-            let r = new Roll("1d100");
-            roll=r.evaluate({"async": false});
-            let retour=r.result;
+            let inforesult = parseInt(maxstat) + parseInt(bonus) + bonuspost + parseInt(malus) - parseInt(addfat);
+            if (inforesult > 95) { inforesult = 95; }
+            else if (inforesult < 5) { inforesult = 5; }
 
-            if(retour>95){
-                succes="<h4 class='result' style='background:#ff3333;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("echecri")+"</h4>";
-                degats=0;
-            }else if(retour<=critique){
-                succes="<h4 class='result' style='background:#7dff33;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("reusicri")+"</h4>";
-                degats=2;
-            }else if(retour<=inforesult){
-                succes="<h4 class='result' style='background:#78be50;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("reussite")+"</h4>";
-                degats=1;
-            }else{
-                succes="<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("Echec")+"</h4>";
-                degats=0;
+            let r = new Roll("1d100");
+            await r.evaluate();
+
+            let retour = r.total;
+            console.log(retour);
+            if (retour > 95) {
+                console.log(retour);
+                succes = "<h4 class='result' style='background:#ff3333;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>" + game.i18n.localize("echecri") + "</h4>";
+                degats = 0;
+            } else if (retour <= critique) {
+                console.log(retour);
+                succes = "<h4 class='result' style='background:#7dff33;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>" + game.i18n.localize("reusicri") + "</h4>";
+                degats = 2;
+            } else if (retour <= inforesult) {
+                console.log(retour);
+                succes = "<h4 class='result' style='background:#78be50;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>" + game.i18n.localize("reussite") + "</h4>";
+                degats = 1;
+            } else {
+                console.log(retour);
+                succes = "<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>" + game.i18n.localize("Echec") + "</h4>";
+                degats = 0;
             }
 
-            if(degats>0 && type=="auto"){
-
-                if(qarme=="attaques"){
-                    if(degats==2){
-                        monJetDeDes='('+this.actor.system.armeuse.degatd+')*'+degats;
-                    }else{
-                        monJetDeDes=this.actor.system.armeuse.degatd;
+            if (degats > 0 && type == "auto") {
+                if (qarme == "attaques") {
+                    if (degats == 2) {
+                        monJetDeDes = '(' + this.actor.system.armeuse.degatd + ')*' + degats;
+                    } else {
+                        monJetDeDes = this.actor.system.armeuse.degatd;
                     }
                     var nam = this.actor.system.armeuse.armed;
-                }else{
-                    if(degats==2){
-                        monJetDeDes='('+this.actor.system.armeuse.degatg+')*'+degats;
-                    }else{
-                        monJetDeDes=this.actor.system.armeuse.degatg;
+                } else {
+                    if (degats == 2) {
+                        monJetDeDes = '(' + this.actor.system.armeuse.degatg + ')*' + degats;
+                    } else {
+                        monJetDeDes = this.actor.system.armeuse.degatg;
                     }
                     var nam = this.actor.system.armeuse.armeg;
                 }
             }
-            texte = '<span style="flex:auto"><p class="resultatp">Jet de ' + name + " : " + inforesult +'/100</p>'+succes
-            if(name=="physique"){
-                let {armed,degatd,desd,imgd,armeg,degatg,desg,imgg} = this.actor.system.armeuse;
+            texte = '<span style="flex:auto"><p class="resultatp">Jet de ' + name + " : " + inforesult + '/100</p>' + succes;
+            if (name == "physique") {
+                let { armed, degatd, desd, imgd, armeg, degatg, desg, imgg } = this.actor.system.armeuse;
                 for (let i = listedemain.length - 1; i >= 0; i--) {
-                    if(armed.includes(listedemain[i]) || armeg.includes(listedemain[i])){
-                        button+='<button class="addfats" style="cursor:pointer;margin-bottom: 5px;" data-actorid="'+ this.actor._id+'">'+game.i18n.localize("addptfatigue")+'</button>';///FR
+                    if (armed.includes(listedemain[i]) || armeg.includes(listedemain[i])) {
+                        button += '<button class="addfats" style="cursor:pointer;margin-bottom: 5px;" data-actorid="' + this.actor._id + '">' + game.i18n.localize("addptfatigue") + '</button>';
                     }
                 }
-            
-                if(armed){
-                    button+='<button class="roll-damage" style="cursor:pointer;margin-bottom: 5px;" data-name="'+armed+'" data-actorid="'+
-                this.actor._id+'" data-dice="'+degatd+'" data-img="'+imgd
-                +'" data-desc="'+desd+'" data-type="jetdedegat">'+game.i18n.localize("use")+' '+armed+'</button>';
-                }
-                if(armeg){
-                    button+='<button class="roll-damage" style="cursor:pointer" data-name="'+armeg+'" data-actorid="'+
-                this.actor._id+'" data-dice="'+degatg+'" data-img="'+imgg
-                +'" data-desc="'+desg+'" data-type="jetdedegat">'+game.i18n.localize("use")+' '+armeg+'</button>';
-                }
-               
-               
 
+                if (armed) {
+                    button += '<button class="roll-damage" style="cursor:pointer;margin-bottom: 5px;" data-name="' + armed + '" data-actorid="' +
+                        this.actor._id + '" data-dice="' + degatd + '" data-img="' + imgd
+                        + '" data-desc="' + desd + '" data-type="jetdedegat">' + game.i18n.localize("use") + ' ' + armed + '</button>';
+                }
+                if (armeg) {
+                    button += '<button class="roll-damage" style="cursor:pointer" data-name="' + armeg + '" data-actorid="' +
+                        this.actor._id + '" data-dice="' + degatg + '" data-img="' + imgg
+                        + '" data-desc="' + desg + '" data-type="jetdedegat">' + game.i18n.localize("use") + ' ' + armeg + '</button>';
+                }
             }
-            texte+=button+'</span>';
-            //info Tchat    
-            roll.toMessage({
-                speaker: ChatMessage.getSpeaker({ actor: this }),
-                flavor: texte
-            });
+            texte += button + '</span>';
 
+            // Info Tchat
+            if (r && texte) {
+                await r.toMessage({
+                    speaker: ChatMessage.getSpeaker({ actor: this }),
+                    flavor: texte
+                });
+            }
         }
+
        
-        //Jet de dégât
-        if(type=="jetdedegat" || type=="auto"){
-            if(desc==""){var info='';}
-            else {var info='</span><span class="desctchat" style="display:block;">'+desc+'</span>';}
-            if(degats>0 || type=="jetdedegat"){
-                let r = new Roll(monJetDeDes);
-                roll=r.evaluate({"async": false});  
+        // Jet de dégât
+        if (type == "jetdedegat" || type == "auto") {
+            let roll='';
+            if (desc == "") {
+                var info = '';
+            } else {
+                var info = '</span><span class="desctchat" style="display:block;">' + desc + '</span>';
             }
-            if(type=="auto"){
-                let {armed,degatd,desd,imgd,armeg,degatg,desg,imgg} = this.actor.system.armeuse;
+            if (degats > 0 || type == "jetdedegat") {
+                roll = await new Roll(monJetDeDes).evaluate();
+            }
+            if (type == "auto") {
+                let { armed, degatd, desd, imgd, armeg, degatg, desg, imgg } = this.actor.system.armeuse;
                 for (let i = listedemain.length - 1; i >= 0; i--) {
-                    if(armed.includes(listedemain[i]) || armeg.includes(listedemain[i])){
+                    if (armed.includes(listedemain[i]) || armeg.includes(listedemain[i])) {
                         fatigue++;
-                        this.actor.update({'system.fatigue': fatigue});
+                        this.actor.update({ 'system.fatigue': fatigue });
                     }
                 }
                 game.user.targets.forEach(i => {
-                    nom=i.document.name;
+                    nom = i.document.name;
                     hp = i.document._actor.system.hp.value;
-                    var armor=i.document.actor.system.protection
-                    var armormag=i.document.actor.system.protectionmagique;
-                    var perce=["Dague","Masse d'arme","Masse Lourd","Arbalète"]//Fr
-                    var passe=0;
+                    var armor = i.document.actor.system.protection;
+                    var armormag = i.document.actor.system.protectionmagique;
+                    var perce = ["Dague", "Masse d'arme", "Masse Lourd", "Arbalète"]; //Fr
+                    var passe = 0;
                     for (var j = perce.length - 1; j >= 0; j--) {
-                        if(nam==perce[j]){
-                            passe=1
+                        if (nam == perce[j]) {
+                            passe = 1;
                         }
                     }
-                    if(passe==0){
-                        var degat=parseInt(roll.total)-parseInt(armor)-parseInt(armormag)
-                    }else{
-                        var degat=parseInt(roll.total)-parseInt(armormag)
-                    }  
+                    if (passe == 0) {
+                        var degat = parseInt(roll.total) - parseInt(armor) - parseInt(armormag);
+                    } else {
+                        var degat = parseInt(roll.total) - parseInt(armormag);
+                    }
 
-                    if(degat>0){
-                        hp=parseInt(hp)-degat;
-                        if(hp<=0){
-                            console.log(i)
-                            hp=0;//mort automatique
+                    if (degat > 0) {
+                        hp = parseInt(hp) - degat;
+                        if (hp <= 0) {
+                            console.log(i);
+                            hp = 0; // Mort automatique
                             i.actor.createEmbeddedDocuments("ActiveEffect", [
-                              {label: 'Mort', icon: 'icons/svg/skull.svg', flags: { core: { statusId: 'dead' } } }
+                                { label: 'Mort', icon: 'icons/svg/skull.svg', flags: { core: { statusId: 'dead' } } }
                             ]);
-                            console.log(i)
-
+                            console.log(i);
                         }
-                        i.actor.update({'system.hp.value': hp});
+                        i.actor.update({ 'system.hp.value': hp });
                     }
-                })  
-
+                })
             }
-            if(degats>0 || type=="jetdedegat"){
-                texte = '<span style="flex:auto"><p class="resultatp"><img src="'+img+'"  width="24" height="24"/>&nbsp;'+game.i18n.localize("use")+' ' + name + '<p>'+info;//Fr
-       
-                //info Tchat    
-                roll.toMessage({
+            if (degats > 0 || type == "jetdedegat") {
+                texte = '<span style="flex:auto"><p class="resultatp"><img src="' + img + '"  width="24" height="24"/>&nbsp;' + game.i18n.localize("use") + ' ' + name + '<p>' + info; //Fr
+                // Info Tchat    
+                if (roll && texte) {
+                    await roll.toMessage({
+                        speaker: ChatMessage.getSpeaker({ actor: this }),
+                        flavor: texte
+                    });
+                }
+            }
+            // Mort de la cible
+            if(hp==0 && type=="auto") {
+                var tuer=["mort0","mort1","mort2","mort3","mort4","mort5"];
+                var d=Math. round(Math.random() * tuer.length);
+                texte = "<span style='flex:auto'><p class='resultatp'>"+game.i18n.localize(tuer[d])+"&nbsp; <span style='text-transform:uppercase;font-weight: bold;'> "+nom+"</span></span></span>";
+                let chatData = {
                     speaker: ChatMessage.getSpeaker({ actor: this }),
-                    flavor: texte
-                });  
+                    content: texte
+                };
+                ChatMessage.create(chatData, {});
             }
-           
-        }
-       
-   
-        // Mort de la cible
-        if(hp==0 && type=="auto") {
-            var tuer=["mort0","mort1","mort2","mort3","mort4","mort5"];
-            var d=Math. round(Math.random() * tuer.length);
-            texte = "<span style='flex:auto'><p class='resultatp'>"+game.i18n.localize(tuer[d])+"&nbsp; <span style='text-transform:uppercase;font-weight: bold;'> "+nom+"</span></span></span>";
-            let chatData = {
-                speaker: ChatMessage.getSpeaker({ actor: this }),
-                content: texte
-            };
-            ChatMessage.create(chatData, {});
         }
     }
    
-    _onSpell(event){
-        let mental =this.actor.system.ability.mental;
-        let physique =this.actor.system.ability.physique;
-        let social =this.actor.system.ability.social;
-        let bonus =this.actor.system.bonus;
-        let malus =this.actor.system.malus;
-        let posture =this.actor.system.posture;
-        let classe=event.target.dataset["class"];
-        var cout=event.target.dataset["cout"];
-        var name=event.target.dataset["name"];
-        var desc=event.target.dataset["desc"];
-        var img=event.target.dataset["img"];
-        var dice=event.target.dataset["dice"];
-        var psy=this.actor.system.psy.value;
-        var hp=this.actor.system.hp.value;
-        var insoin=this.actor.system.insoin;
-        var bonuspost=0;
-        var critique=5
-        if(posture=="focus"){
-            bonuspost=5;
-        }else if(posture=="offensif"){
-            critique=10;
+    async _onSpell(event) {
+        let mental = this.actor.system.ability.mental;
+        let physique = this.actor.system.ability.physique;
+        let social = this.actor.system.ability.social;
+        let bonus = this.actor.system.bonus || 0;
+        let malus = this.actor.system.malus || 0;
+        let posture = this.actor.system.posture;
+        let classe = event.target.dataset["class"];
+        let cout = parseInt(event.target.dataset["cout"]);
+        let name = event.target.dataset["name"];
+        let desc = event.target.dataset["desc"];
+        let img = event.target.dataset["img"];
+        let dice = event.target.dataset["dice"];
+        let psy = parseInt(this.actor.system.psy.value);
+        let hp = parseInt(this.actor.system.hp.value);
+        let insoin = parseInt(this.actor.system.insoin);
+        let bonuspost = 0;
+        let critique = 5;
+
+        if (posture === "focus") {
+            bonuspost = 5;
+        } else if (posture === "offensif") {
+            critique = 10;
         }
 
-        if(bonus==undefined){
-            bonus=0;
-        }
-        if(classe=="Corbeau"){//bug potentielle
-            var inforesult=parseInt(physique)+parseInt(bonus)+bonuspost+parseInt(malus);
-        }else if(classe=="Troubadour"){//bug potentielle
-            var inforesult=parseInt(social)+parseInt(bonus)+bonuspost+parseInt(malus);
-        }else {
-            var inforesult=parseInt(mental)+parseInt(bonus)+bonuspost+parseInt(malus);
+        let inforesult;
+        if (classe === "Corbeau" || classe === "Troubadour") {
+            inforesult = parseInt(physique || social) + bonus + bonuspost - malus;
+        } else {
+            inforesult = parseInt(mental) + bonus + bonuspost - malus;
         }
 
-        if(inforesult>95){
-        inforesult=95;
-        }else if(inforesult<5){
-        inforesult=5;
+        inforesult = Math.min(Math.max(inforesult, 5), 95); // Clamp between 5 and 95
+
+        let r = await new Roll('1d100').evaluate();
+        let retour = r.result;
+        let succes = "";
+        let degat = 0;
+
+        if (retour > 95) {
+            succes = "<h4 class='result' style='background:#ff3333;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>" + game.i18n.localize("liber.lang82") + "</h4>";
+            degat = 0;
+        } else if (retour <= critique) {
+            succes = "<h4 class='result' style='background:#7dff33;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>" + game.i18n.localize("liber.lang83") + "</h4>";
+            degat = 2;
+        } else if (retour <= inforesult) {
+            succes = "<h4 class='result' style='background:#78be50;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>" + game.i18n.localize("liber.lang84") + "</h4>";
+            degat = 1;
+        } else {
+            succes = "<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>" + game.i18n.localize("liber.lang85") + "</h4>";
+            degat = 0;
         }
-        let r = new Roll("1d100");
-        var roll=r.evaluate({"async": false});
-        let retour=r.result;
-        var succes="";
-        var degat=0;
-        if(retour>95){
-            succes="<h4 class='result' style='background:#ff3333;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang82")+"</h4>";degat=0;
-        }else if(retour<=critique){
-            succes="<h4 class='result' style='background:#7dff33;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang83")+"</h4>";degat=2;
-        }else if(retour<=inforesult){
-            succes="<h4 class='result' style='background:#78be50;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang84")+"</h4>";degat=1;
-        }else{
-            succes="<h4 class='result' style='background:#ff5733;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>"+game.i18n.localize("liber.lang85")+"</h4>";degat=0;
+
+        if (posture === "focus") {
+            cout--;
+            cout = Math.max(cout, 0);
         }
-        if(posture=="focus"){
-           cout=parseInt(cout)-1;
+
+        let button = '';
+        if (dice) {
+            button = '<button class="roll-damage" style="cursor:pointer" data-name="' + name + '" data-actorid="' + this.actor._id + '" data-dice="' + dice + '" data-img="' + img + '" data-desc="' + desc + '" data-type="jetdedegat">Lancer les dés</button>';
         }
-        if(cout<0){
-            cout=0;
+
+        if (cout < psy) {
+            psy -= cout;
+        } else {
+            let diff = cout - psy;
+            hp -= diff;
+            psy = 0;
+            insoin += diff;
         }
-        cout=parseInt(cout);psy=parseInt(psy);
-        if(cout<psy){
-            console.log('sort lancer :'+psy+'-'+cout)//bug
-            psy = parseInt(psy)-parseInt(cout)
-        }else{
-            console.log('sort lancer insoin :'+psy+'<'+cout)//bug
-            var diff= parseInt(cout)-parseInt(psy)
-            hp=parseInt(hp)-parseInt(diff);
-            psy=0;
-            insoin= parseInt(insoin)+parseInt(diff);            
+
+        this.actor.update({ "system.insoin": insoin, "system.hp.value": hp, "system.psy.value": psy });
+
+        const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="' + img + '"  width="24" height="24"/>&nbsp;' + name + ' : ' + inforesult + '/100</span><span class="desctchat">' + desc + '</span></p>' + succes + button + '</span>';
+        if (r && texte) {
+            await r.toMessage({
+                user: game.user._id,
+            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+            content: texte
+            });
         }
-       
-       
-        let button ='';
-        if(dice){
-            button='<button class="roll-damage" style="cursor:pointer" data-name="'+name+'" data-actorid="'+this.actor._id+'" data-dice="'+dice+'" data-img="'+img+'" data-desc="'+desc+'" data-type="jetdedegat">Lancer les dès</button>'
-        }
-        this.actor.update({"system.insoin": insoin,"system.hp.value": hp,"system.psy.value": psy});
-        const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="'+img+'"  width="24" height="24"/>&nbsp;' + name  +' : '+ inforesult +'/100</span><span class="desctchat">'+desc+'</span></p>'+succes+
-        button+'</span>';
-        roll.toMessage({
-            speaker: ChatMessage.getSpeaker({ actor: this }),
-            flavor: texte
-        });
     }
 
     _onInfo(event){
@@ -894,13 +930,13 @@ export class LiberActorSheet extends ActorSheet {
         let avantagerace='';
         
 
-        if (!sexe) sexe=game.i18n.localize("liber.sex1");
-        if (!race) race=game.i18n.localize("liber.avantrace60");
-        if (!talent) talent=game.i18n.localize("liber.title58");
-        if (!faiblesse) faiblesse=game.i18n.localize("liber.title58");
-        if (!clan) clan = game.i18n.localize("liber.avantrace40");
-        if (!religion) religion = game.i18n.localize("liber.avantrace84");
-        if (!profession) profession = game.i18n.localize("liber.metier1");
+        if (!sexe) sexe="sex1";
+        if (!race) race="r0";
+        if (!talent) talent="t0";
+        if (!faiblesse) faiblesse="f0";
+        if (!clan) clan = "c1";
+        if (!religion) religion ="r7";
+        if (!profession) profession = "m1";
 
         const newperso = new Character(sexe, talent, faiblesse, race, clan, religion, profession);
         let name = newperso.characterName(sexe, race); 
@@ -937,7 +973,7 @@ export class LiberActorSheet extends ActorSheet {
         }
         console.log(clan);
         let royal=newperso.characterClan(clan);
-        if(race==game.i18n.localize("liber.avantrace77a")){
+        if(race=="r19"){
             avantagerace=game.i18n.localize(breed[2]);
         }else {
             avantagerace=game.i18n.localize(breed[2]) + game.i18n.localize(royal[1]) ;
@@ -1150,13 +1186,15 @@ export class LiberActorSheet extends ActorSheet {
         let reste=170-(parseInt(abilities.physique)+parseInt(abilities.social)+parseInt(abilities.mental));
         let resultat=35+(parseInt(level)*15);
         // Initialiser les valeurs par défaut
-        if (!sexe) sexe=game.i18n.localize("liber.sex1");
-        if (!race) race=game.i18n.localize("liber.avantrace60");
-        if (!talent) talent=game.i18n.localize("liber.title58");
-        if (!faiblesse) faiblesse=game.i18n.localize("liber.title58");
-        if (!clan) clan = game.i18n.localize("liber.avantrace40");
-        if (!religion) religion = game.i18n.localize("liber.avantrace81");
-        if (!profession) profession = game.i18n.localize("liber.metier1");
+       
+        if (!sexe) sexe="sex1";
+        if (!race) race="r0";
+        if (!talent) talent="t0";
+        if (!faiblesse) faiblesse="f0";
+        if (!clan) clan = "c1";
+        if (!religion) religion ="r7";
+        if (!profession) profession = "m1";
+        
         if (!level) level = 1;if (!psy) psy = 0;
         if(!abilities.physique) abilities.physique=10;
         if(!abilities.force) abilities.force=5;
@@ -1169,50 +1207,53 @@ export class LiberActorSheet extends ActorSheet {
         if(!abilities.memoire) abilities.memoire=5;
         let mag0 = 'aucun';let mag1 = 'aucun';let mag2 = 'aucun';;let mag3 = 'aucun';let mag4 = 'aucun';let mag5 = 'aucun';let all = 0;
 
-        const raceMagMap = {//bug potentielle
-          [game.i18n.localize('liber.avantrace56')]: 'corbeau',
-          [game.i18n.localize('liber.metier12')]: 'troubadour',
-          [game.i18n.localize('liber.avantrace57')]: 'humain',
-          [game.i18n.localize('liber.avantrace39')]: 'demon',
-          [game.i18n.localize('liber.avantrace40')]: 'air',
-          [game.i18n.localize('liber.avantrace41')]: 'eau',
-          [game.i18n.localize('liber.avantrace42')]: 'esprit',
-          [game.i18n.localize('liber.avantrace43')]: 'feu',
-          [game.i18n.localize('liber.avantrace44')]: 'foudre',
-          [game.i18n.localize('liber.avantrace45')]: 'glace',
-          [game.i18n.localize('liber.avantrace46')]: 'illusion',
-          [game.i18n.localize('liber.avantrace47')]: 'invocation',
-          [game.i18n.localize('liber.avantrace48')]: 'mort',
-          [game.i18n.localize('liber.avantrace49')]: 'nature',
-          [game.i18n.localize('liber.avantrace50')]: 'poison',
-          [game.i18n.localize('liber.avantrace51')]: 'telekinesie',
-          [game.i18n.localize('liber.avantrace52')]: 'terre',
-          [game.i18n.localize('liber.avantrace53')]: 'ultime',
-          [game.i18n.localize('liber.avantrace54')]: 'vie',
-          [game.i18n.localize('liber.avantrace55')]: 'ombre',
-          [game.i18n.localize('liber.avantrace59')]: 'constellation',
-          [game.i18n.localize('liber.avantrace78')]: 'autre'
+        const raceMagMap = {
+          ["c18"]: 'corbeau',
+          ["m12"]: 'troubadour',
+          ["c21"]: 'humain',
+          ["c22"]: 'demon',
+          ["c1"]: 'air',
+          ["c2"]: 'eau',
+          ["c3"]: 'esprit',
+          ["c4"]: 'feu',
+          ["c5"]: 'foudre',
+          ["c6"]: 'glace',
+          ["c7"]: 'illusion',
+          ["c8"]: 'invocation',
+          ["c9"]: 'mort',
+          ["c10"]: 'nature',
+          ["c11"]: 'poison',
+          ["c12"]: 'telekinesie',
+          ["c13"]: 'terre',
+          ["c14"]: 'ultime',
+          ["c15"]: 'vie',
+          ["c16"]: 'ombre',
+          ["c17"]: 'constellation',
+          ["c19"]: 'autre'
         };
+    
         const reliMagMap = {
-          [game.i18n.localize('liber.avantrace80')]: 'vharung',
-          [game.i18n.localize('liber.avantrace81')]: 'nouvelordre',
-          [game.i18n.localize('liber.avantrace82')]: 'croise',
-          [game.i18n.localize('liber.avantrace83')]: 'lumiere',
-          [game.i18n.localize('liber.avantrace84')]: 'ombre',
-          [game.i18n.localize('liber.avantrace85')]: 'waetra',
-          [game.i18n.localize('liber.caract63b')]: 'cercle',
-          [game.i18n.localize('liber.avantrace90')]: 'rune',
-          [game.i18n.localize('liber.avantrace86')]: 'ancien',
-          [game.i18n.localize('liber.avantrace87')]: 'baphomet',
-          [game.i18n.localize('liber.avantrace89')]: 'vaudou',
-          [game.i18n.localize('liber.avantrace95')]: 'monnaie',
-          [game.i18n.localize('liber.avantrace78')]: 'autre'
+          ["r7"]: 'vharung',
+          ["r1"]: 'nouvelordre',
+          ["r2"]: 'croise',
+          ["r3"]: 'lumiere',
+          ["r10"]: 'ombre',
+          ["r5"]: 'waetra',
+          ["r11"]: 'waetra',
+          ["r12"]: 'waetra',
+          ["r8"]: 'cercle',
+          ["r14"]: 'rune',
+          ["r13"]: 'ancien',
+          ["r4"]: 'baphomet',
+          ["r9"]: 'vaudou',
+          ["r6"]: 'monnaie',
+          ["r15"]: 'autre',
         };
 
-        if(clan==game.i18n.localize('liber.avantrace91')){
+        if(clan=="c23"){
             mag1 = "illusion";
             mag2 = "feu";
-        }else if(race==game.i18n.localize('liber.avantrace77a')){
+        }else if(race=="r19"){
             mag0 = "lumiere";
             mag1 = "croise";
             mag2 = "humain";
@@ -1224,13 +1265,13 @@ export class LiberActorSheet extends ActorSheet {
         }
        
 
-        if(profession==game.i18n.localize('liber.metier12')){
+        if(profession=="m12"){
            mag1= 'troubadour'
         }
         if (reliMagMap[religion]) {
           mag2 = reliMagMap[religion];
         }
-        if(clan==game.i18n.localize('liber.avantrace59')){
+        if(clan=="c17"){
            mag2= '';
            
         }
@@ -1254,7 +1295,6 @@ export class LiberActorSheet extends ActorSheet {
             resultat -= ajout * muti;
         }
 
-        console.log(clan);
         let breed=newperso.characterRace(race);
         if (breed[1] !== null) {
             for (let key in breed[1]) {
@@ -1283,15 +1323,17 @@ export class LiberActorSheet extends ActorSheet {
         let sortsPossibles = new SortsPossibles(mag0, mag1, mag2, mag3, mag4, mag5, profession, religion, clan, resultatModif.cout);
         // Appel de la méthode getListeSorts() pour obtenir la liste des sorts possibles
         let listeSort =await sortsPossibles.getListeSorts()
+        console.log(listeSort)
 
         //specialité céleste corbeau et croiser
-        if(race==game.i18n.localize('liber.avantrace77a')){
+        /*if(race==game.i18n.localize('liber.avantrace77a')){
             faiblesse=game.i18n.localize('liber.title07');//actor.system.faiblesse
         }else if(clan==game.i18n.localize('liber.avantrace56')){ 
             profession=game.i18n.localize('liber.avantrace93');//actor.system.metier
         }else if(religion==game.i18n.localize('liber.avantrace58')){ 
             profession=game.i18n.localize('liber.avantrace94');
-        } 
+        } */
+
         //encombrement
         if(abilities.force==''){abilities.force=0}
         if(cpt37==''){cpt37=0}

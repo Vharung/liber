@@ -35,7 +35,7 @@ export class EquipementManager {
     }
 
     _getArmorFromRace() {
-        return this.actor.system.race === game.i18n.localize("liber.avantrace60") ? 2 : 0;
+        return this.actor.system.race === "r0" ? 2 : 0;
     }
 
     _updateProtection(armor) {
@@ -68,21 +68,16 @@ export class EquipementManager {
 
     _calculateArmor(armed, armeg, arm) {
         let armor = this._getArmorFromRace();//big potentiel
-        if (armed === "Bouclier" || armed === "Grand Bouclier") {
-            armor += 1;
-        }
-        if (armeg === "Bouclier" || armeg === "Grand Bouclier") {
-            armor += 1;
-        }
-        if (arm === "Bouclier" || arm === "Cuir souple") {
-            armor += 1;
-        } else if (arm === "Grand Bouclier" || arm === "Cuir rigide") {
-            armor += 2;
-        } else if (arm === "Cote de maille") {
-            armor += 3;
-        } else if (arm === "Armure de plaques") {
-            armor += 4;
-        }
+        if(armed==game.i18n.localize('liber.arme13')){armor=armor+1;}
+        else if(armed==game.i18n.localize('liber.arme34')){armor=armor+2;}
+        if(armeg==game.i18n.localize('liber.arme13')){armor=armor+1;}
+        else if(armeg==game.i18n.localize('liber.arme34')){armor=armor+2;}
+        if(arm==game.i18n.localize('liber.arme13')){armor=armor+1;}
+        else if(arm==game.i18n.localize('liber.arme35')){armor=armor+1;}
+        else if(arm==game.i18n.localize('liber.arme34')){armor=armor+2;}
+        else if(arm==game.i18n.localize('liber.arme36')){armor=armor+2;}
+        else if(arm==game.i18n.localize('liber.arme37')){armor=armor+3;}
+        else if(arm==game.i18n.localize('liber.arme38')){armor=armor+4;} 
         return armor;
     }
 

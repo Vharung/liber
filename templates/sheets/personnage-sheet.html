@@ -12,14 +12,14 @@
 
 	<header>
 		<input class="nomperso" name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'liber.name'}}">
-		<input class="race" type="text" title="{{actor.system.race}}" value="{{actor.system.race}}"  placeholder="{{localize 'liber.race'}}" readonly="">
-		<input class="clan" type="text" title="{{actor.system.clan}}" value="{{actor.system.clan}}" placeholder="{{localize 'liber.clan'}}" readonly=""/>
+		<input class="race" type="text" title="{{listValues.traduct.race}}" value="{{listValues.traduct.race}}"  placeholder="{{localize 'liber.race'}}" readonly="">
+		<input class="clan" type="text" title="{{listValues.traduct.clan}}" value="{{listValues.traduct.clan}}" placeholder="{{localize 'liber.clan'}}" readonly=""/>
 	</header>
 
 	<div class="zone">
 		<h2>{{localize 'liber.bonu'}}</h2>
 		<div class="head">	
-			<input class="avantagerace" name="system.bonusrace" type="text" title="{{actor.system.bonusrace}}" value="{{actor.system.bonusrace}}" placeholder="{{localize 'liber.bonus'}}"/> - <input class="talent" type="text" value="{{actor.system.talent}}" placeholder="{{localize 'liber.talent'}}" readonly="" /> - <input class="faiblesse" type="text" value="{{actor.system.faiblesse}}" placeholder="{{localize 'liber.faiblesse'}}" readonly="" />
+			<input class="avantagerace" name="system.bonusrace" type="text" title="{{actor.system.bonusrace}}" value="{{actor.system.bonusrace}}" placeholder="{{localize 'liber.bonus'}}"/> - <input class="talent" type="text" value="{{listValues.traduct.talent}}" placeholder="{{localize 'liber.talent'}}" readonly="" /> - <input class="faiblesse" type="text" value="{{listValues.traduct.faiblesse}}" placeholder="{{localize 'liber.faiblesse'}}" readonly="" />
 			<input class="insoin" name="system.insoin" type="text" value="{{actor.system.insoin}}" placeholder="0" title="PV insoignable"/>
 			<input class="avant" name="system.avantage" type="text" value="{{actor.system.avantage}}" placeholder="0" title="Avantage"/>
 			<input class="desan" name="system.desavantage" type="text" value="{{actor.system.desavantage}}" placeholder="0" title="Désavantage"/>
@@ -92,7 +92,7 @@
 				<div id="background" class="tab background" data-group="primary" data-tab="background">
 					<div class="zoneinfo">			
 						<h2>{{localize 'liber.histoire'}}</h2>
-						<input class="met" type="text" title="{{actor.system.metier}}" value="{{actor.system.metier}}"  placeholder="{{localize 'liber.metier'}}" readonly=""> - <input class="religion" type="text" title="{{actor.system.religion}}" value="{{actor.system.religion}}" placeholder="{{localize 'liber.religion'}} " readonly="" /> 
+						<input class="met" type="text" title="{{listValues.traduct.metier}}" value="{{listValues.traduct.metier}}"  placeholder="{{localize 'liber.metier'}}" readonly=""> - <input class="religion" type="text" title="{{listValues.traduct.religion}}" value="{{listValues.traduct.religion}}" placeholder="{{localize 'liber.religion'}} " readonly="" /> 
 						<textarea class="histoire" name="system.histoire">{{actor.system.histoire}}</textarea>
 						<h2>{{localize 'liber.repos'}}</h2>
 						<input class="heure" name="system.heure" type="text" value="{{actor.system.heure}}" placeholder="0"/>
@@ -246,13 +246,8 @@
 				<div id="spells" class="tab spells" data-group="primary" data-tab="spells">
 					<div class="zoneinfo">
 						<select class="magieslistes" name="system.magie">
-							{{selectOptions actor.system.listemag.liste selected=system.list.magie labelAttr="name" localize=true blank="liber.none"}}
-		                    <!--{{#select system.magie}}
-			                    {{#each actor.system.listemag.liste}}
-			                    <option value="{{this.name}}" title="{{this.description}} - {{this.cout}}" data-cout="{{this.cout}}" data-classe="{{this.classe}}" data-cible="{{this.cible}}" data-img="{{this.img}}" data-degat="{{this.degat}}" data-description="{{this.description}}" data-duree="{{this.duree}}">{{this.name}}</option>
-			                    {{/each}}
-		                    {{/select}}-->
-				        </select>
+							{{selectOptions listValues.magie.liste selected=actor.system.magie labelAttr="name" localize=true blank="liber.none"}}
+			            </select>
 				        <a class="bouton addsort">{{localize 'liber.addsort'}}</a>
 						<ul class="items-list">
 							{{#each actor.sort as |item id|}}
@@ -293,7 +288,7 @@
 				    	<h2>{{localize 'liber.sex'}}</h2>
 						<SELECT class="sexliste" name="system.sexe">
 							{{selectOptions listValues.sex selected=actor.system.sexe labelAttr="label" localize=true blank="liber.none"}}
-			                </select>
+			            </select>
 				    	<h2>{{localize 'liber.race'}}</h2>
 						<SELECT class="raceliste" name="system.race">
 							{{selectOptions listValues.race selected=actor.system.race labelAttr="label" localize=true blank="liber.none"}}

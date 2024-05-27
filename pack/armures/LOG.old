@@ -1,11 +1,26 @@
-2024/05/24-18:23:13.835 42b0 Recovering log #650
-2024/05/24-18:23:13.836 42b0 Recovering log #674
-2024/05/24-18:23:13.844 42b0 Delete type=2 #538
-2024/05/24-18:23:13.845 42b0 Delete type=0 #630
-2024/05/24-18:23:13.845 42b0 Delete type=0 #646
-2024/05/24-18:23:13.845 42b0 Delete type=0 #650
-2024/05/24-18:23:13.846 42b0 Delete type=2 #664
-2024/05/24-18:23:13.846 42b0 Delete type=0 #674
-2024/05/24-18:23:13.847 42b0 Delete type=3 #629
-2024/05/24-18:23:13.847 42b0 Delete type=3 #645
-2024/05/24-18:23:13.847 42b0 Delete type=3 #649
+2024/05/27-16:35:23.921 2ad4 Recovering log #678
+2024/05/27-16:35:23.921 2ad4 Recovering log #680
+2024/05/27-16:35:23.928 2ad4 Delete type=2 #538
+2024/05/27-16:35:23.929 2ad4 Delete type=0 #630
+2024/05/27-16:35:23.929 2ad4 Delete type=0 #646
+2024/05/27-16:35:23.929 2ad4 Delete type=0 #650
+2024/05/27-16:35:23.929 2ad4 Delete type=0 #675
+2024/05/27-16:35:23.931 2ad4 Delete type=0 #678
+2024/05/27-16:35:23.931 2ad4 Delete type=0 #680
+2024/05/27-16:35:23.931 2ad4 Delete type=3 #629
+2024/05/27-16:35:23.932 2ad4 Delete type=3 #645
+2024/05/27-16:35:23.932 2ad4 Delete type=3 #649
+2024/05/27-16:35:23.932 2ad4 Delete type=3 #651
+2024/05/27-16:35:23.933 2ad4 Delete type=3 #673
+2024/05/27-16:35:23.933 2ad4 Delete type=3 #676
+2024/05/27-20:25:14.809 8b8 Level-0 table #683: started
+2024/05/27-20:25:14.809 8b8 Level-0 table #683: 0 bytes OK
+2024/05/27-20:25:14.811 8b8 Delete type=0 #681
+2024/05/27-20:25:14.817 8b8 Manual compaction at level-0 from '!items!2eETIH8OLTfoTJWU' @ 72057594037927935 : 1 .. '!items!zi7M5lJ76c5Pnca1' @ 0 : 0; will stop at '!items!zi7M5lJ76c5Pnca1' @ 38 : 1
+2024/05/27-20:25:14.817 8b8 Compacting 1@0 + 1@1 files
+2024/05/27-20:25:14.821 8b8 Generated table #684@0: 10 keys, 2622 bytes
+2024/05/27-20:25:14.821 8b8 Compacted 1@0 + 1@1 files => 2622 bytes
+2024/05/27-20:25:14.823 8b8 compacted to: files[ 0 1 0 0 0 0 0 ]
+2024/05/27-20:25:14.823 8b8 Delete type=2 #636
+2024/05/27-20:25:14.824 8b8 Delete type=2 #677
+2024/05/27-20:25:14.860 8b8 Manual compaction at level-0 from '!items!zi7M5lJ76c5Pnca1' @ 38 : 1 .. '!items!zi7M5lJ76c5Pnca1' @ 0 : 0; will stop at (end)

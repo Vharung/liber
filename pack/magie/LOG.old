@@ -1,12 +1,26 @@
-2024/05/24-18:23:13.924 42b0 Recovering log #673
-2024/05/24-18:23:13.924 42b0 Recovering log #697
-2024/05/24-18:23:13.938 42b0 Delete type=2 #609
-2024/05/24-18:23:13.938 42b0 Delete type=2 #641
-2024/05/24-18:23:13.939 42b0 Delete type=0 #654
-2024/05/24-18:23:13.939 42b0 Delete type=0 #669
-2024/05/24-18:23:13.939 42b0 Delete type=0 #673
-2024/05/24-18:23:13.941 42b0 Delete type=2 #687
-2024/05/24-18:23:13.942 42b0 Delete type=0 #697
-2024/05/24-18:23:13.942 42b0 Delete type=3 #653
-2024/05/24-18:23:13.942 42b0 Delete type=3 #668
-2024/05/24-18:23:13.943 42b0 Delete type=3 #672
+2024/05/27-16:35:23.998 2ad4 Recovering log #701
+2024/05/27-16:35:23.999 2ad4 Recovering log #703
+2024/05/27-16:35:24.008 2ad4 Delete type=2 #609
+2024/05/27-16:35:24.008 2ad4 Delete type=2 #641
+2024/05/27-16:35:24.008 2ad4 Delete type=0 #654
+2024/05/27-16:35:24.009 2ad4 Delete type=0 #669
+2024/05/27-16:35:24.009 2ad4 Delete type=0 #673
+2024/05/27-16:35:24.010 2ad4 Delete type=0 #698
+2024/05/27-16:35:24.010 2ad4 Delete type=0 #701
+2024/05/27-16:35:24.010 2ad4 Delete type=0 #703
+2024/05/27-16:35:24.011 2ad4 Delete type=3 #653
+2024/05/27-16:35:24.011 2ad4 Delete type=3 #668
+2024/05/27-16:35:24.011 2ad4 Delete type=3 #672
+2024/05/27-16:35:24.012 2ad4 Delete type=3 #674
+2024/05/27-16:35:24.012 2ad4 Delete type=3 #696
+2024/05/27-16:35:24.012 2ad4 Delete type=3 #699
+2024/05/27-16:58:02.844 8b8 Compacting 1@0 + 1@1 files
+2024/05/27-16:58:02.877 8b8 Generated table #705@0: 623 keys, 171874 bytes
+2024/05/27-16:58:02.878 8b8 Compacted 1@0 + 1@1 files => 171874 bytes
+2024/05/27-16:58:02.880 8b8 compacted to: files[ 0 1 0 0 0 0 0 ]
+2024/05/27-16:58:02.880 8b8 Delete type=2 #659
+2024/05/27-16:58:02.881 8b8 Delete type=2 #700
+2024/05/27-20:25:14.874 8b8 Level-0 table #707: started
+2024/05/27-20:25:14.874 8b8 Level-0 table #707: 0 bytes OK
+2024/05/27-20:25:14.877 8b8 Delete type=0 #704
+2024/05/27-20:25:14.929 8b8 Manual compaction at level-0 from '!folders!Bg34Ld9sSNKCoKER' @ 72057594037927935 : 1 .. '!items!zfSF6erlZhaWdMZ2' @ 0 : 0; will stop at (end)
