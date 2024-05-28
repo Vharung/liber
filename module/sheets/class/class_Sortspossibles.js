@@ -16,43 +16,7 @@ export class SortsPossibles {
         const pack = game.packs.get('liber.magie');
         const tables = await pack.getDocuments();
         let listem;let idCounter = 1;
-        /*if (this.mag1 === 'autre' || this.mag2 === 'autre') {
-            listem = tables.filter(value =>
-                value.system.cout === "X" || parseInt(value.system.cout) <= this.cout
-            ).map(value => ({
-                'id':idCounter++,
-                'name': value.name,
-                'img': value.img,
-                'cible': value.system.cible,
-                'classe': value.system.classe,
-                'cout': value.system.cout,
-                'degat': value.system.degats,
-                'description': value.system.description,
-                'duree': value.system.duree
-            })).sort((a, b) => a.cout - b.cout);
-        } else {
-            listem = tables.filter(value =>
-                value.system.classe === this.mag0 ||
-                value.system.classe === this.mag1 ||
-                value.system.classe === this.mag2 ||
-                value.system.classe === this.mag3 ||
-                value.system.classe === this.mag4 ||
-                value.system.classe === this.mag5 ||
-                this.mag1 === game.i18n.localize("liber.avantrace78")//r22
-            ).filter(value =>
-                value.system.cout === "X" || parseInt(value.system.cout) <= this.cout
-            ).map(value => ({
-                'id'+idCounter++,
-                'name': value.name,
-                'img': value.img,
-                'cible': value.system.cible,
-                'classe': value.system.classe,
-                'cout': value.system.cout,
-                'degat': value.system.degats,
-                'description': value.system.description,
-                'duree': value.system.duree
-            })).sort((a, b) => a.cout - b.cout);
-        }*/
+        
         if (this.mag1 === 'autre' || this.mag2 === 'autre') {
             listem = tables.filter(value =>
                 value.system.cout === "X" || parseInt(value.system.cout) <= this.cout

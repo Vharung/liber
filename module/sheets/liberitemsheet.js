@@ -5,19 +5,25 @@
  export class LiberItemSheet extends ItemSheet{
     get template(){
         console.log(`Liber | Récupération du fichier html ${this.item.type}-sheet.`);
-        if(this.item.type==game.i18n.localize("TYPES.Item.outil")){
-            this._onAidemonstre();
-        }
+        
         //let typ=TYPES.Item[this.item.type] //corrige
         return `systems/liber/templates/sheets/${this.item.type}-sheet.html`;// voir en anglais
         //return `systems/liber/templates/sheets/${typ}-sheet.html`;
     }
 
-    getData(){
-        const data = super.getData();
-        data.dtypes = ["String", "Number", "Boolean"];
-        console.log(data);
-        return data;
+    async getData() {
+        const context = super.getData();
+        context.dtypes = ["String", "Number", "Boolean"];
+        context.listValues = {
+                monstres:{}        
+        };
+        if (this.item.type === game.i18n.localize("TYPES.Item.outil")) {
+
+            context.listValues.monstres = await this._onAidemonstre();
+        }
+
+        console.log(context);
+        return context;
     }
 
     activateListeners(html){
@@ -25,29 +31,40 @@
         html.find('.generer2').click(this._onGenerator2.bind(this));
         html.find('.tresorg').click(this._onGenerator.bind(this));
         html.find('.m_add').click(this._onAddactor.bind(this));
-
         if(this.item.type==game.i18n.localize("TYPES.Item.outil")){
             let pv=html.find('.j_pv').val();
             let nb=html.find('.j_nb').val();
+            
+            let monsterInfo = this.object.system.listem;
+            console.log(monsterInfo)
             for(let j=0;j<10;j++){
-                let name=html.find('.m'+j+' .m_name option:selected').val();
+                let ids=html.find('.m'+j+' .m_name option:selected').val();
+                 // Utilisation de l'identifiant pour obtenir les informations du monstre .monstres[ids];
+                //let name = monsterInfo.name;
                 let img=html.find('.m'+j+' .m_name option:selected').data('img');
                 let hp=html.find('.m'+j+' .m_name option:selected').data('hp');
                 let dg=html.find('.m'+j+' .m_name option:selected').data('dg');
                 let ar=html.find('.m'+j+' .m_name option:selected').data('ar');
                 let id=html.find('.m'+j+' .m_name option:selected').data('id');
                 let lvl=html.find('.m'+j+' input.m_lvl').val();
-                
+console.log("ids:", ids);
+console.log("name:", name);
+console.log("img:", img);
+console.log("hp:", hp);
+console.log("dg:", dg);
+console.log("ar:", ar);
+console.log("id:", id);
+console.log("lvl:", lvl);
                 let dgt=0;
-                /*degat en fonction du level*/
+                //degat en fonction du level
                 hp=parseInt(hp)+(3*(lvl-1));
 
-                /* armure*/
+                //armure
                 if(ar==undefined||ar==""){ar=0;}
                 ar=ar+(lvl-1);
                 if(ar>8){ar=8;} 
 
-                /*Degat en fonction du niveau*/
+                //Degat en fonction du niveau
                 for (let i=1; i < lvl; i++) {
                     let dgt=dg;
                     let fixe = dgt.split('+');
@@ -83,11 +100,10 @@
                         }
                         
                     }
-                    dg=nb+'d'+type+'+'+number;
                 }
                 
-                /*calcul dg moyen*/
-                if(dg!=0){
+                //calcul dg moyen
+                /*if(dg!=0){
                     let dgm=dg.split('+');
                     if(dgm[1]==undefined){dgm[1]=0}
                     let dgm2=dgm[0].split('d');
@@ -96,10 +112,10 @@
                 html.find('.m'+j+' .m_pv').val(hp);
                 html.find('.m'+j+' .m_degat').val(dgt);
                 html.find('.m'+j+' .m_ar').val(ar);   
-                html.find('.m'+j+' .m_id').val(id);            
+                html.find('.m'+j+' .m_id').val(id); */          
             }
 
-            //Récupération des données
+            /*//Récupération des données
             let list_nb=[];
             let list_dg=[];
             let list_pv=[];
@@ -123,7 +139,7 @@
 
             });
 
-            /*calcul de defaite*/
+            //calcul de defaite
             let dpt=0;
             for (var i = list_dg.length - 1; i >= 0; i--) {
                 if(list_dg[i]>0){
@@ -136,7 +152,7 @@
             }
             let defaite=Math.round(pv/(dpt/nb)); //tour pour la defaite
 
-            /*cacul de réussite*/
+            //cacul de réussite
             let tpvm=0;
             for (var i = list_dg.length - 1; i >= 0; i--) {
                 tpvm=tpvm+((list_pv[i]+list_ar[i])*list_nb[i]);
@@ -144,7 +160,7 @@
             let dgj=nb*5;
             let reussite=Math.ceil(tpvm/dgj) //tour de reussite
 
-            /*calcul difficulte*/
+            //calcul difficulte
             let difficulty=reussite-defaite;
 
             let niveau='';
@@ -164,8 +180,8 @@
             }
             html.find('.difficulty').val(niveau);
             html.find('.difficulty').css({"background":css,'color':'white'})
-
-        }       
+ */
+        }      
     }
 
     _onGenerator2(event){//Fr
@@ -242,19 +258,46 @@
     }
 
     async _onAidemonstre(event){
-        const pack = game.packs.get('liber.monstre');
-        const tabl = await pack.getDocuments();
-        const listm = tabl.map(value => ({
-            'id':value.id,
-            'name': value.name,
-            'img': value.img,
-            'hp': value.system.hp.max,
-            'dg': value.system.armeuse.degatg,
-            'ar': value.system.protection
-        }));
-        listm.sort(function (a, b) {if (a.name < b.name) {return -1;} else {return 1;}});
-        this.item.update({'system.listem':listm})
-        
+       const pack = game.packs.get('liber.monstre');
+        const tables = await pack.getDocuments();
+        let listem;
+        let idCounter = 1;
+
+        listem = tables.reduce((acc, value) => {
+            acc[`id${idCounter++}`] = {
+                'name': value.name,
+                'id': value.id,
+                'img': value.img,
+                'hp': value.system.hp.max,
+                'dg': value.system.armeuse.degatg,
+                'ar': value.system.protection
+            };
+            return acc;
+        }, {});
+
+        // Convertir les entrées de l'objet listem en tableau
+        const sortedListem = Object.entries(listem);
+
+        // Trier le tableau en fonction de la propriété name
+        sortedListem.sort((a, b) => {
+            const nameA = a[1].name.toUpperCase();
+            const nameB = b[1].name.toUpperCase();
+            if (nameA < nameB) {
+                return -1;
+            }
+            if (nameA > nameB) {
+                return 1;
+            }
+            return 0;
+        });
+
+        // Convertir le tableau trié en objet
+        const sortedListemObject = sortedListem.reduce((acc, [key, value], index) => {
+            acc[`id${index + 1}`] = value;
+            return acc;
+        }, {});
+        this.item.update({ 'system.listem': sortedListemObject });
+        return sortedListemObject;       
     }
 
     async _onAddactor(event){
@@ -272,4 +315,6 @@
            let actor = await Actor.create(listem2);
         }        
     }
+        
+    
 }
