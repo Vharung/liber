@@ -115,10 +115,7 @@ export class Character {
 
   // Méthode pour déterminer le chemin du dossier en fonction de la race
    async AvatarPath(raceLabel, sexe) {
-        console.log(raceLabel);
-        console.log(sexe);
         let race = Object.keys(races).find(key => game.i18n.localize(key) === raceLabel);
-        console.log(race);
         const raceMap = {
             'r0': 'dragon/',
             'r21': 'elfe/',
