@@ -536,7 +536,8 @@ export class LiberActorSheet extends ActorSheet {
         var hp = null;
         var nom = '';
         let button = '';
-
+        
+        let { armed, degatd, desd, imgd, armeg, degatg, desg, imgg } = this.actor.system.armeuse;
         // Jet de dés pour les compétences
         if (type == "jetdedes" || type == "auto") {
             if (type == "auto") {
@@ -603,12 +604,15 @@ export class LiberActorSheet extends ActorSheet {
                     var nam = this.actor.system.armeuse.armeg;
                 }
             }
-            texte = '<span style="flex:auto"><p class="resultatp">Jet de ' + name + " : " + inforesult + '/100</p>' + succes;
+            texte = '<span style="flex:auto"><p class="resultatp">Jet de ' + name + " : " + inforesult + '/100</p>' + succes;//Fr
             if (name == "physique") {
                 let { armed, degatd, desd, imgd, armeg, degatg, desg, imgg } = this.actor.system.armeuse;
+                console.log(listedemain)
+                console.log(armed)
+                console.log(armeg)
                 for (let i = listedemain.length - 1; i >= 0; i--) {
-                    if (armed.includes(listedemain[i]) || armeg.includes(listedemain[i])) {
-                        button += '<button class="addfats" style="cursor:pointer;margin-bottom: 5px;" data-actorid="' + this.actor._id + '">' + game.i18n.localize("addptfatigue") + '</button>';
+                    if (armed.includes(game.i18n.localize(listedemain[i])) || armeg.includes(game.i18n.localize(listedemain[i]))) {
+                        button += '<button class="addfats" style="cursor:pointer;margin-bottom: 5px;" data-actorid="' + this.actor._id + '">' + game.i18n.localize("liber.addptfatigue") + '</button>';
                     }
                 }
 
@@ -647,9 +651,9 @@ export class LiberActorSheet extends ActorSheet {
                 roll = await new Roll(monJetDeDes).evaluate();
             }
             if (type == "auto") {
-                let { armed, degatd, desd, imgd, armeg, degatg, desg, imgg } = this.actor.system.armeuse;
+                //let { armed, degatd, desd, imgd, armeg, degatg, desg, imgg } = this.actor.system.armeuse;
                 for (let i = listedemain.length - 1; i >= 0; i--) {
-                    if (armed.includes(listedemain[i]) || armeg.includes(listedemain[i])) {
+                    if (armed.includes(game.i18n.localize(listedemain[i])) || armeg.includes(game.i18n.localize(listedemain[i]))) {
                         fatigue++;
                         this.actor.update({ 'system.fatigue': fatigue });
                     }
@@ -685,7 +689,14 @@ export class LiberActorSheet extends ActorSheet {
                 })
             }
             if (degats > 0 || type == "jetdedegat") {
-                texte = '<span style="flex:auto"><p class="resultatp"><img src="' + img + '"  width="24" height="24"/>&nbsp;' + game.i18n.localize("use") + ' ' + name + '<p>' + info; //Fr
+                texte="";
+                for (let i = listedemain.length - 1; i >= 0; i--) {
+                    if (armed.includes(game.i18n.localize(listedemain[i])) || armeg.includes(game.i18n.localize(listedemain[i]))) {
+                        texte += '<button class="addfats" style="cursor:pointer;margin-bottom: 5px;" data-actorid="' + this.actor._id + '">' + game.i18n.localize("liber.addptfatigue") + '</button>';
+                    }
+                }
+                texte += '<span style="flex:auto"><p class="resultatp"><img src="' + img + '"  width="24" height="24"/>&nbsp;' + game.i18n.localize("use") + ' ' + name + '<p>' + info; //Fr
+                
                 // Info Tchat    
                 if (roll && texte) {
                     await roll.toMessage({

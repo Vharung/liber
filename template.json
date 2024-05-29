@@ -237,16 +237,16 @@
           "description": "",
           "listem":"",
           "monstres":{
-            "monstre0":{"m_nb":1,"m_name":"montre","m_level":1,"m_id":""},
-            "monstre1":{"m_nb":1,"m_name":"montre","m_level":1,"m_id":""},
-            "monstre2":{"m_nb":1,"m_name":"montre","m_level":1,"m_id":""},
-            "monstre3":{"m_nb":1,"m_name":"montre","m_level":1,"m_id":""},
-            "monstre4":{"m_nb":1,"m_name":"montre","m_level":1,"m_id":""},
-            "monstre5":{"m_nb":1,"m_name":"montre","m_level":1,"m_id":""},
-            "monstre6":{"m_nb":1,"m_name":"montre","m_level":1,"m_id":""},
-            "monstre7":{"m_nb":1,"m_name":"montre","m_level":1,"m_id":""},
-            "monstre8":{"m_nb":1,"m_name":"montre","m_level":1,"m_id":""},
-            "monstre9":{"m_nb":1,"m_name":"montre","m_level":1,"m_id":""}
+            "monstre0":{"m_nb":0,"m_name":"montre","m_level":1,"m_id":"","m_hp":0,"m_dgt":"1d4","m_dg":0},
+            "monstre1":{"m_nb":0,"m_name":"montre","m_level":1,"m_id":"","m_hp":0,"m_dgt":"1d4","m_dg":0},
+            "monstre2":{"m_nb":0,"m_name":"montre","m_level":1,"m_id":"","m_hp":0,"m_dgt":"1d4","m_dg":0},
+            "monstre3":{"m_nb":0,"m_name":"montre","m_level":1,"m_id":"","m_hp":0,"m_dgt":"1d4","m_dg":0},
+            "monstre4":{"m_nb":0,"m_name":"montre","m_level":1,"m_id":"","m_hp":0,"m_dgt":"1d4","m_dg":0},
+            "monstre5":{"m_nb":0,"m_name":"montre","m_level":1,"m_id":"","m_hp":0,"m_dgt":"1d4","m_dg":0},
+            "monstre6":{"m_nb":0,"m_name":"montre","m_level":1,"m_id":"","m_hp":0,"m_dgt":"1d4","m_dg":0},
+            "monstre7":{"m_nb":0,"m_name":"montre","m_level":1,"m_id":"","m_hp":0,"m_dgt":"1d4","m_dg":0},
+            "monstre8":{"m_nb":0,"m_name":"montre","m_level":1,"m_id":"","m_hp":0,"m_dgt":"1d4","m_dg":0},
+            "monstre9":{"m_nb":0,"m_name":"montre","m_level":1,"m_id":"","m_hp":0,"m_dgt":"1d4","m_dg":0}
           }, 
           "pv":0,
           "nb":4

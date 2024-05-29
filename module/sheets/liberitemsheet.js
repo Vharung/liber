@@ -32,36 +32,39 @@
         html.find('.tresorg').click(this._onGenerator.bind(this));
         html.find('.m_add').click(this._onAddactor.bind(this));
         if(this.item.type==game.i18n.localize("TYPES.Item.outil")){
+            //Mettre a jour en fonction du select
+            html.find('select').change(this._chargeMonster.bind(this));
+            
+            //récupération des info sur les joueurs
             let pv=html.find('.j_pv').val();
             let nb=html.find('.j_nb').val();
             
-            let monsterInfo = this.object.system.listem;
-            console.log(monsterInfo)
+            //recupération des info sur les monstres
             for(let j=0;j<10;j++){
+                /*let nb=html.find('.m'+j+' .m_nb').val();
                 let ids=html.find('.m'+j+' .m_name option:selected').val();
-                 // Utilisation de l'identifiant pour obtenir les informations du monstre .monstres[ids];
-                //let name = monsterInfo.name;
-                let img=html.find('.m'+j+' .m_name option:selected').data('img');
-                let hp=html.find('.m'+j+' .m_name option:selected').data('hp');
-                let dg=html.find('.m'+j+' .m_name option:selected').data('dg');
-                let ar=html.find('.m'+j+' .m_name option:selected').data('ar');
-                let id=html.find('.m'+j+' .m_name option:selected').data('id');
-                let lvl=html.find('.m'+j+' input.m_lvl').val();
-console.log("ids:", ids);
-console.log("name:", name);
-console.log("img:", img);
-console.log("hp:", hp);
-console.log("dg:", dg);
-console.log("ar:", ar);
-console.log("id:", id);
-console.log("lvl:", lvl);
+                let lvl=html.find('.m'+j+' .m_lvl').val();
+                let dg=html.find('.m'+j+' .m_degat').val();
+                let hp=html.find('.m'+j+' .m_pv').val();
+                let ar=html.find('.m'+j+' .m_ar').val();*/
+                let ids = this.item.system.monstres[`monstre${j}`].m_id;
+                let hp = this.item.system.monstres[`monstre${j}`].m_hp;
+                let dg = this.item.system.monstres[`monstre${j}`].m_dg;
+                let ar = this.item.system.monstres[`monstre${j}`].m_ar;
+                let lvl = this.item.system.monstres[`monstre${j}`].m_level;
+                console.log(ids)
+                console.log(hp)
+                console.log(dg)
+                console.log(ar)
+                console.log(lvl)
+
                 let dgt=0;
                 //degat en fonction du level
                 hp=parseInt(hp)+(3*(lvl-1));
 
                 //armure
                 if(ar==undefined||ar==""){ar=0;}
-                ar=ar+(lvl-1);
+                ar=parseInt(ar)+(lvl-1);
                 if(ar>8){ar=8;} 
 
                 //Degat en fonction du niveau
@@ -103,7 +106,7 @@ console.log("lvl:", lvl);
                 }
                 
                 //calcul dg moyen
-                /*if(dg!=0){
+                if(dg!=0){
                     let dgm=dg.split('+');
                     if(dgm[1]==undefined){dgm[1]=0}
                     let dgm2=dgm[0].split('d');
@@ -112,10 +115,10 @@ console.log("lvl:", lvl);
                 html.find('.m'+j+' .m_pv').val(hp);
                 html.find('.m'+j+' .m_degat').val(dgt);
                 html.find('.m'+j+' .m_ar').val(ar);   
-                html.find('.m'+j+' .m_id').val(id); */          
+                html.find('.m'+j+' .m_id').val(ids);           
             }
 
-            /*//Récupération des données
+            //Récupération des données
             let list_nb=[];
             let list_dg=[];
             let list_pv=[];
@@ -162,7 +165,7 @@ console.log("lvl:", lvl);
 
             //calcul difficulte
             let difficulty=reussite-defaite;
-
+            console.log(difficulty)
             let niveau='';
             let css='';
             if(difficulty > 25){
@@ -180,44 +183,50 @@ console.log("lvl:", lvl);
             }
             html.find('.difficulty').val(niveau);
             html.find('.difficulty').css({"background":css,'color':'white'})
- */
+ 
         }      
     }
 
-    _onGenerator2(event){//Fr
+    _onGenerator2(event){//a tester
         let type=this.document.type;
         let arme = ['liber.arme9','liber.arme10','liber.arme11','liber.arme12','liber.arme13','liber.arme14','liber.arme15','liber.arme16','liber.arme17','liber.arme18','liber.arme19','liber.arme20','liber.arme0','liber.arme21','liber.arme4','liber.arme22','liber.arme1','liber.arme3','liber.arme23','liber.arme5','liber.arme24','liber.arme8','liber.arme25','liber.arme26','liber.arme27','liber.arme28','liber.arme29','liber.arme30','liber.arme31','liber.arme32','liber.arme33']
-        let armure =["Tenue","Pantalon","Cuirasse","Epaulette","Plastron","Armet","Casque","Chapeau","Armure","Epaulière","Brassard"]
-        let objet=["Talisman","Orbe","Amulette","Pendentif","Bague","Bracelet","couronne","Ceinture"]
-        let nom=["d'espérance","flamboyant(e)","de fer","de cuivre","de bronze","de cuir","du mage","poupre","rose","de soie","de l'ordre du dragon","de l'ordre du temple","de Vharung","ancien(ne)","rouillé(e)","usé(e)","du soleil","de la secte de weithra","lumineux(se)","d'acier"]
-        let effetarmure=["+5 en charisme","+5 en sagacité","Permet de rejouer un tour supplémentaire (unique)","Si un effet touche l'armure, sur un jet de chance, l'ennemi est propulsé en arrière et subit 1d4 de dégats","Donne +2 d'armure face à la magie","Soigne 1d4 par coup subit","Annule les 20 premiers point de dégat (unique)","inflige des dégats de foudre (1d4)","inflige des dégats de poison (1d4)","inflige des dégats de feu (1d4)","diminue les coups subit en physique de moitié","diminue les coups magiques de moitié","augmente la chance de 10%","augmente le social de 5%","augmente le physique de 5%","augmente le mental de 5%","diminue le coup magique de 1 psy","restaure 1 psy par tour","augmente la réussite critique de 5% (une seul utilisation)"]
-        let effetarme=["+5 en force","+5 en agilité","Créature liés - 6 PV","berserk : Uniquement en mode offensif, double les dégâts au combat, non cumulable avec d'autres sorts de boost - perd 3 PV par tour","Accumule la moitié des dégats infligé, cette accumulation peut être libéré sur un ennemi à tous moments.","A chaque personne tué avec cette arme, vous pouvez invoquer un squelette","Récupère 1d4 de PV par attaque réussite","inflige des dégats de foudre (1d4)","inflige des dégats de poison (1d4)","inflige des dégats de feu (1d4)","augmente les chances de réussite d'attaque de 5%","augmente les chances de réussite de défense de 5%","Sur un test de physique raté, l'ennemi est assommé pour 1d4 tour","restaure 1 psy par tour","augmente la réussite critique de 5% (une seul utilisation)"]
-        let effetobjet=["Bloque le temps (unique)","+5 en mémoire","+5 en astuce","Permet de rejouer un tour supplémentaire (unique)","Donne +2 d'armure face à la magie","Soigne 1d4 par coup subit","Annule les 20 premiers point de dégat (unique)","augmente la chance de 10%","augmente le social de 5%","augmente le physique de 5%","augmente le mental de 5%","diminue le coup magique de 1 psy","restaure 1 psy par tour","augmente la réussite critique de 5% (un seul utilisation)"]
+        let armure = ['liber.armure1', 'liber.armure2', 'liber.armure3', 'liber.armure4', 'liber.armure5', 'liber.armure6', 'liber.armure7', 'liber.armure8', 'liber.armure9', 'liber.armure10', 'liber.armure11'];
+        let objet = ['liber.objet1', 'liber.objet2', 'liber.objet3', 'liber.objet4', 'liber.objet5', 'liber.objet6', 'liber.objet7', 'liber.objet8'];
+        let nom = ['liber.nom1', 'liber.nom2', 'liber.nom3', 'liber.nom4', 'liber.nom5', 'liber.nom6', 'liber.nom7', 'liber.nom8', 'liber.nom9', 'liber.nom10', 'liber.nom11', 'liber.nom12', 'liber.nom13', 'liber.nom14', 'liber.nom15', 'liber.nom16', 'liber.nom17', 'liber.nom18', 'liber.nom19', 'liber.nom20'];
+        let effetarmure = ['liber.effetarmure1', 'liber.effetarmure2', 'liber.effetarmure3', 'liber.effetarmure4', 'liber.effetarmure5', 'liber.effetarmure6', 'liber.effetarmure7', 'liber.effetarmure8', 'liber.effetarmure9', 'liber.effetarmure10', 'liber.effetarmure11', 'liber.effetarmure12', 'liber.effetarmure13', 'liber.effetarmure14', 'liber.effetarmure15', 'liber.effetarmure16', 'liber.effetarmure17', 'liber.effetarmure18', 'liber.effetarmure19'];
+        let effetarme = ['liber.effetarme1', 'liber.effetarme2', 'liber.effetarme3', 'liber.effetarme4', 'liber.effetarme5', 'liber.effetarme6', 'liber.effetarme7', 'liber.effetarme8', 'liber.effetarme9', 'liber.effetarme10', 'liber.effetarme11', 'liber.effetarme12', 'liber.effetarme13', 'liber.effetarme14', 'liber.effetarme15'];
+        let effetobjet = ['liber.effetobjet1', 'liber.effetobjet2', 'liber.effetobjet3', 'liber.effetobjet4', 'liber.effetobjet5', 'liber.effetobjet6', 'liber.effetobjet7', 'liber.effetobjet8', 'liber.effetobjet9', 'liber.effetobjet10', 'liber.effetobjet11', 'liber.effetobjet12', 'liber.effetobjet13', 'liber.effetobjet14'];
         let item_type=''
-        if(type=='objet'){
+        if(type==game.i18n.localize("TYPES.Item.objet")){
             item_type= objet[Math.floor(Math.random()*objet.length)];
-        }else if(type=='arme'){
+        }else if(type==game.i18n.localize("TYPES.Item.arme")){
             item_type= arme[Math.floor(Math.random()*arme.length)];
-        }else if(type=='armure'){
+        }else if(type==game.i18n.localize("TYPES.Item.armure")){
             item_type= armure[Math.floor(Math.random()*armure.length)];
         }
         let point=0;
         let item_nom= nom[Math.floor(Math.random()*nom.length)];
-        if(item_nom=="acier"){point=point+1;}
-        if(item_nom=="ancienne" || item_nom=="rouillé" || item_nom=="usée"){point=point-2;}
-        if(item_nom=="de cuivre" || item_nom=="de bronze" || item_nom=="de cuir"){point=point-1;}
-        if(item_nom=="de soie"){point=0;} 
-        let restriction=""; let item_effet='';
-        if(point >2){
-            restriction=". Pas pour les dragons, troubadour, voleur ou mage."
-        }else if(point<0){point=0;} 
-        if(type=="arme"){
-            item_effet= effetarme[Math.floor(Math.random()*effetarme.length)];
-        }else if(type=="armure"){
-            item_effet= effetarmure[Math.floor(Math.random()*effetarmure.length)];
-            item_effet+=" - protection : "+point+" d'armure "+restriction;
-        }else {
-            item_effet= effetobjet[Math.floor(Math.random()*effetobjet.length)];
+        if(item_nom == game.i18n.localize("liber.nom20")) {point = point + 1;}
+        if(item_nom == game.i18n.localize("liber.nom14") || item_nom == game.i18n.localize("liber.nom15") || item_nom == game.i18n.localize("liber.nom16")) {point = point - 2;}
+        if(item_nom == game.i18n.localize("liber.nom4") || item_nom == game.i18n.localize("liber.nom5") || item_nom == game.i18n.localize("liber.nom6")) {point = point - 1;}
+        if(item_nom == game.i18n.localize("liber.nom10")) {point = 0;} 
+
+        let restriction = ""; 
+        let item_effet = '';
+
+        if(point > 2) {
+            restriction = game.i18n.localize("liber.typerestriction");
+        } else if(point < 0) {
+            point = 0;
+        }
+
+        if(type==game.i18n.localize("TYPES.Item.arme")) {
+            item_effet = effetarme[Math.floor(Math.random() * effetarme.length)];
+        } else if(type==game.i18n.localize("TYPES.Item.armure")) {
+            item_effet = effetarmure[Math.floor(Math.random() * effetarmure.length)];
+            item_effet += " - " + game.i18n.localize("liber.typeprotection") + point + " " + game.i18n.localize("liber.typedarmure") + " " + restriction;
+        } else {
+            item_effet = effetobjet[Math.floor(Math.random() * effetobjet.length)];
         }
         let cout=Math.floor(Math.random()*10)*100;
         let poids=Math.floor(Math.random()*10);
@@ -298,6 +307,41 @@ console.log("lvl:", lvl);
         }, {});
         this.item.update({ 'system.listem': sortedListemObject });
         return sortedListemObject;       
+    }
+
+    _chargeMonster(event) {
+        let listem = this.item.system.listem;
+        let id = $(event.currentTarget).attr('id').slice(1);
+        let ids = $(event.currentTarget).val();
+        let idf= "";
+        let hp = 0;
+        let dg = 0;
+        let ar = 0;
+        let lvl = 1;
+        console.log(ids)//retour empty string
+        console.log(hp)
+        console.log(dg)
+        console.log(ar)
+        console.log(lvl)
+        if(ids) {
+            idf= listem[ids].id;
+            hp = listem[ids].hp;
+            dg = listem[ids].dg;
+            ar = listem[ids].ar;
+            lvl = 1;
+        }
+        console.log(ids)
+        console.log(hp)
+        console.log(dg)
+        console.log(ar)
+        console.log(lvl)
+        let updateData = {};
+        updateData[`system.monstres.monstre${id}.m_id`] = idf;
+        updateData[`system.monstres.monstre${id}.m_hp`] = hp;
+        updateData[`system.monstres.monstre${id}.m_dg`] = dg;
+        updateData[`system.monstres.monstre${id}.m_ar`] = ar;
+        updateData[`system.monstres.monstre${id}.m_level`] = lvl;
+        this.item.update(updateData);
     }
 
     async _onAddactor(event){
