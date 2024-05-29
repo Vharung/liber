@@ -135,10 +135,131 @@ export class LiberActorSheet extends ActorSheet {
         };
 
         if (this.actor.type == game.i18n.localize("TYPES.Actor.personnage") || this.actor.type == game.i18n.localize("TYPES.Actor.pnj") || this.actor.type == game.i18n.localize("TYPES.Actor.monstre")) {
-            await this._prepareCharacterItems(context);await this._onEncom();
+            await this._prepareCharacterItems(context);
+            await this._onEncom();
         }
         if (this.actor.type == game.i18n.localize("TYPES.Actor.personnage") || this.actor.type == game.i18n.localize("TYPES.Actor.pnj") ) {
-           await this._onStat();//await suppr
+           let stat= await this._onStat();
+           // Ajout/remplacement des valeurs dans context.actor.system
+            context.actor.system = {
+                ...context.actor.system,
+                alert: {
+                    ...context.actor.system.alert,
+                    coutmax: stat['system.alert.coutmax'],
+                    hp: stat['system.alert.hp'],
+                    hpmax: stat['system.alert.hpmax'],
+                    maxsort: stat['system.alert.maxsort'],
+                    psy: stat['system.alert.psy'],
+                    psymax: stat['system.alert.psymax'],
+                },
+                caracteristique: {
+                    ...context.actor.system.caracteristique,
+                    acrobatie: stat['system.caracteristique.acrobatie'],
+                    agilites: stat['system.caracteristique.agilites'],
+                    alchimie: stat['system.caracteristique.alchimie'],
+                    apprentissage: stat['system.caracteristique.apprentissage'],
+                    art: stat['system.caracteristique.art'],
+                    assassinat: stat['system.caracteristique.assassinat'],
+                    astuce: stat['system.caracteristique.astuce'],
+                    baton: stat['system.caracteristique.baton'],
+                    bouclier: stat['system.caracteristique.bouclier'],
+                    bricolage: stat['system.caracteristique.bricolage'],
+                    cc: stat['system.caracteristique.cc'],
+                    chercher: stat['system.caracteristique.chercher'],
+                    combat: stat['system.caracteristique.combat'],
+                    commander: stat['system.caracteristique.commander'],
+                    commerce: stat['system.caracteristique.commerce'],
+                    concentration: stat['system.caracteristique.concentration'],
+                    crochetage: stat['system.caracteristique.crochetage'],
+                    detection: stat['system.caracteristique.detection'],
+                    dexterite: stat['system.caracteristique.dexterite'],
+                    discretion: stat['system.caracteristique.discretion'],
+                    dissimulation: stat['system.caracteristique.dissimulation'],
+                    dressage: stat['system.caracteristique.dressage'],
+                    ennemi: stat['system.caracteristique.ennemi'],
+                    equilibre: stat['system.caracteristique.equilibre'],
+                    equitation: stat['system.caracteristique.equitation'],
+                    escroquerie: stat['system.caracteristique.escroquerie'],
+                    esquiver: stat['system.caracteristique.esquiver'],
+                    geographique: stat['system.caracteristique.geographique'],
+                    hast: stat['system.caracteristique.hast'],
+                    heretiques: stat['system.caracteristique.heretiques'],
+                    joueur: stat['system.caracteristique.joueur'],
+                    lancer: stat['system.caracteristique.lancer'],
+                    maitrise: stat['system.caracteristique.maitrise'],
+                    medecine: stat['system.caracteristique.medecine'],
+                    melee: stat['system.caracteristique.melee'],
+                    natation: stat['system.caracteristique.natation'],
+                    nature: stat['system.caracteristique.nature'],
+                    navigation: stat['system.caracteristique.navigation'],
+                    objet: stat['system.caracteristique.objet'],
+                    orientation: stat['system.caracteristique.orientation'],
+                    persuasion: stat['system.caracteristique.persuasion'],
+                    peuples: stat['system.caracteristique.peuples'],
+                    peur: stat['system.caracteristique.peur'],
+                    pister: stat['system.caracteristique.pister'],
+                    presence: stat['system.caracteristique.presence'],
+                    prophetie: stat['system.caracteristique.prophetie'],
+                    psychologue: stat['system.caracteristique.psychologue'],
+                    puissance: stat['system.caracteristique.puissance'],
+                    religions: stat['system.caracteristique.religions'],
+                    resistance: stat['system.caracteristique.resistance'],
+                    rue: stat['system.caracteristique.rue'],
+                    secours: stat['system.caracteristique.secours'],
+                    survie: stat['system.caracteristique.survie'],
+                    tir: stat['system.caracteristique.tir'],
+                    tueur: stat['system.caracteristique.tueur'],
+                    veterinaire: stat['system.caracteristique.veterinaire'],
+                    vigilance: stat['system.caracteristique.vigilance'],
+                    vise: stat['system.caracteristique.vise']
+                },
+                encombrement: {
+                    ...context.actor.system.encombrement,
+                    max: stat['system.encombrement.max']
+                },
+                etat: {
+                    ...context.actor.system.etat,
+                    a: stat['system.etat.a'],
+                    b: stat['system.etat.b'],
+                    c: stat['system.etat.c'],
+                    d: stat['system.etat.d'],
+                    e: stat['system.etat.e'],
+                    f: stat['system.etat.f'],
+                    g: stat['system.etat.g'],
+                    h: stat['system.etat.h'],
+                    i: stat['system.etat.i'],
+                    j: stat['system.etat.j'],
+                    k: stat['system.etat.k'],
+                    l: stat['system.etat.l'],
+                    m: stat['system.etat.m'],
+                    n: stat['system.etat.n']
+                },
+                faiblesse: stat['system.faiblesse'],
+                hp: {
+                    ...context.actor.system.hp,
+                    max: stat['system.hp.max'],
+                    value: stat['system.hp.value']
+                },
+                level: stat['system.level'],
+                listemag: {
+                    ...context.actor.system.listemag,
+                    liste: stat['system.listemag.liste'],
+                    img1: stat['system.listemag.img1'],
+                    img2: stat['system.listemag.img2']
+                },
+                maxsort: stat['system.maxsort'],
+                metier: stat['system.metier'],
+                psy: {
+                    ...context.actor.system.psy,
+                    max: stat['system.psy.max'],
+                    value: stat['system.psy.value']
+                },
+                restant: stat['system.restant'],
+                reste: stat['system.reste'],
+                coutmax: stat['system.coutmax']
+            };
+
+
         }
         context.listValues.magie=context.actor.system.listemag;
         console.log(context);
@@ -194,7 +315,7 @@ export class LiberActorSheet extends ActorSheet {
        
         // Assign and return
         actorData.inventaire = inventaire;
-        actorData.sort = sort;
+        actorData.magic = sort;
         actorData.argent = argent;
         actorData.armure = armure;
         actorData.arme = arme;
@@ -1330,12 +1451,13 @@ export class LiberActorSheet extends ActorSheet {
             valeursCpts, // Tableau des caractéristiques initiales
             breed, // Informations sur la race
             newperso, // Nouveau personnage
-            abilities.mental, abilities.social, abilities.physique, level, talent, faiblesse, clan, this.actor.sort, hpmax, psyvalue, hp, psy, this.actor.type, this.actor.system.insoin// Variables nécessaires pour le calcul
+            abilities.mental, abilities.social, abilities.physique, level, talent, faiblesse, clan, this.actor.magic, hpmax, psyvalue, hp, psy, this.actor.type, this.actor.system.insoin// Variables nécessaires pour le calcul
         );
 
         // Appel de la méthode modifier() pour effectuer les calculs
         let resultatModif = caractModif.modifier();
-
+        console.log(resultatModif)
+        console.log(resultatModif.calsort)
         let sortsPossibles = new SortsPossibles(mag0, mag1, mag2, mag3, mag4, mag5, profession, religion, clan, resultatModif.cout);
         // Appel de la méthode getListeSorts() pour obtenir la liste des sorts possibles
         let listeSort =await sortsPossibles.getListeSorts()
@@ -1364,44 +1486,102 @@ export class LiberActorSheet extends ActorSheet {
         const effets = this.actor.effects.filter(item => item.name !== '').map(item => item.name);
         const lists=[game.i18n.localize("liber.etat0"),game.i18n.localize("liber.etat1"),game.i18n.localize("liber.etat2"),game.i18n.localize("liber.etat3"),game.i18n.localize("liber.etat4"),game.i18n.localize("liber.etat5"),game.i18n.localize("liber.etat6"),game.i18n.localize("liber.etat7"),game.i18n.localize("liber.etat8"),game.i18n.localize("liber.etat9"),game.i18n.localize("liber.etat10"),game.i18n.localize("liber.etat11"),game.i18n.localize("liber.etat12"),game.i18n.localize("liber.etat3")];
         const active = lists.map(list => effets.includes(list) ? 1 : 0.5);
-        /*console.log("system.encombrement.max"+enc+
-        "system.faiblesse"+faiblesse+
-        "system.metier"+profession+
-        "system.level"+level+
-        "system.etat.a"+active[0]+
-        "system.etat.b"+active[1]+
-        "system.etat.c"+active[2]+
-        "system.etat.d"+active[3]+
-        "system.etat.e"+active[4]+
-        "system.etat.f"+active[5]+
-        "system.etat.g"+active[6]+
-        "system.etat.h"+active[7]+
-        "system.etat.i"+active[8]+
-        "system.etat.j"+active[9]+
-        "system.etat.k"+active[10]+
-        "system.etat.l"+active[11]+
-        "system.etat.m"+active[12]+
-        "system.etat.n"+active[13]+
-        "system.reste"+reste+
-        'system.listemag.liste'+sortsPossibles+
-        'system.listemag.img1'+mag1+
-        'system.listemag.img2'+mag2+
-        'system.alert.psy'+resultatModif.apsy+
-        'system.alert.psymax'+resultatModif.apsymax+
-        'system.alert.hp'+resultatModif.ahp+
-        'system.alert.hpmax'+resultatModif.ahp+
-        'system.hp.max'+hpmax+
-        'system.hp.value'+hp+
-        'system.psy.max'+psy+
-        'system.psy.value'+psyvalue+
-        "system.restant"+resultat+
-        'system.maxsort'+resultatModif.calsort+
-        'system.coutmax'+resultatModif.cout+
-        'system.alert.maxsort'+resultatModif.color1+
-        'system.alert.coutmax'+resultatModif.color2+
-        'system.caracteristique.acrobatie'+valeursCpts['cpt0']+'system.caracteristique.agilites'+valeursCpts['cpt1']+'system.caracteristique.alchimie'+valeursCpts['cpt2']+'system.caracteristique.apprentissage'+valeursCpts['cpt3']+'system.caracteristique.hast'+valeursCpts['cpt4']+'system.caracteristique.cc'+valeursCpts['cpt5']+'system.caracteristique.lancer'+valeursCpts['cpt6']+'system.caracteristique.melee'+valeursCpts['cpt7']+'system.caracteristique.tir'+valeursCpts['cpt8']+'system.caracteristique.art'+valeursCpts['cpt9']+'system.caracteristique.assassinat'+valeursCpts['cpt10']+'system.caracteristique.baton'+valeursCpts['cpt11']+'system.caracteristique.bouclier'+valeursCpts['cpt12']+'system.caracteristique.bricolage'+valeursCpts['cpt13']+'system.caracteristique.presence'+valeursCpts['cpt14']+'system.caracteristique.chercher'+valeursCpts['cpt15']+'system.caracteristique.commander'+valeursCpts['cpt16']+'system.caracteristique.concentration'+valeursCpts['cpt17']+'system.caracteristique.nature'+valeursCpts['cpt18']+'system.caracteristique.peuples'+valeursCpts['cpt19']+'system.caracteristique.religions'+valeursCpts['cpt20']+'system.caracteristique.geographique'+valeursCpts['cpt21']+'system.caracteristique.rue'+valeursCpts['cpt22']+'system.caracteristique.heretiques'+valeursCpts['cpt23']+'system.caracteristique.combat'+valeursCpts['cpt24']+'system.caracteristique.commerce'+valeursCpts['cpt25']+'system.caracteristique.crochetage'+valeursCpts['cpt26']+'system.caracteristique.discretion'+valeursCpts['cpt27']+'system.caracteristique.dexterite'+valeursCpts['cpt28']+'system.caracteristique.detection'+valeursCpts['cpt29']+'system.caracteristique.dissimulation'+valeursCpts['cpt30']+'system.caracteristique.dressage'+valeursCpts['cpt31']+'system.caracteristique.ennemi'+valeursCpts['cpt32']+'system.caracteristique.equilibre'+valeursCpts['cpt33']+'system.caracteristique.equitation'+valeursCpts['cpt34']+'system.caracteristique.escroquerie'+valeursCpts['cpt35']+'system.caracteristique.esquiver'+valeursCpts['cpt36']+'system.caracteristique.puissance'+valeursCpts['cpt37']+'system.caracteristique.astuce'+valeursCpts['cpt38']+'system.caracteristique.peur'+valeursCpts['cpt39']+'system.caracteristique.joueur'+valeursCpts['cpt40']+'system.caracteristique.maitrise'+valeursCpts['cpt41']+'system.caracteristique.natation'+valeursCpts['cpt42']+'system.caracteristique.navigation'+valeursCpts['cpt43']+'system.caracteristique.orientation'+valeursCpts['cpt44']+'system.caracteristique.persuasion'+valeursCpts['cpt45']+'system.caracteristique.pister'+valeursCpts['cpt46']+'system.caracteristique.prophetie'+valeursCpts['cpt47']+'system.caracteristique.secours'+valeursCpts['cpt48']+'system.caracteristique.resistance'+valeursCpts['cpt49']+'system.caracteristique.psychologue'+valeursCpts['cpt50']+'system.caracteristique.medecine'+valeursCpts['cpt51']+'system.caracteristique.survie'+valeursCpts['cpt52']+'system.caracteristique.tueur'+valeursCpts['cpt53']+'system.caracteristique.objet'+valeursCpts['cpt54']+'system.caracteristique.veterinaire'+valeursCpts['cpt55']+'system.caracteristique.vigilance'+valeursCpts['cpt56']+'system.caracteristique.vise'+valeursCpts['cpt57']);*/
-        this.actor.update({"system.encombrement.max":enc,"system.faiblesse":faiblesse,"system.metier":profession,"system.level":level,"system.etat.a":active[0],"system.etat.b":active[1],"system.etat.c":active[2],"system.etat.d":active[3],"system.etat.e":active[4],"system.etat.f":active[5],"system.etat.g":active[6],"system.etat.h":active[7],"system.etat.i":active[8],"system.etat.j":active[9],"system.etat.k":active[10],"system.etat.l":active[11],"system.etat.m":active[12],"system.etat.n":active[13],"system.reste":reste,"system.listemag.liste":listeSort,"system.listemag.img1":mag1,"system.listemag.img2":mag2,"system.alert.psy":resultatModif.apsy,"system.alert.psymax":resultatModif.apsymax,"system.alert.hp":resultatModif.ahp,"system.alert.hpmax":resultatModif.ahp,"system.hp.max":hpmax,"system.hp.value":resultatModif.hp,"system.psy.max":psy,"system.psy.value":psyvalue,"system.restant":resultat,"system.maxsort":resultatModif.calsort,"system.coutmax":resultatModif.cout,"system.alert.maxsort":resultatModif.color1,"system.alert.coutmax":resultatModif.color2,"system.caracteristique.acrobatie":valeursCpts["cpt0"],"system.caracteristique.agilites":valeursCpts["cpt1"],"system.caracteristique.alchimie":valeursCpts["cpt2"],"system.caracteristique.apprentissage":valeursCpts["cpt3"],"system.caracteristique.hast":valeursCpts["cpt4"],"system.caracteristique.cc":valeursCpts["cpt5"],"system.caracteristique.lancer":valeursCpts["cpt6"],"system.caracteristique.melee":valeursCpts["cpt7"],"system.caracteristique.tir":valeursCpts["cpt8"],"system.caracteristique.art":valeursCpts["cpt9"],"system.caracteristique.assassinat":valeursCpts["cpt10"],"system.caracteristique.baton":valeursCpts["cpt11"],"system.caracteristique.bouclier":valeursCpts["cpt12"],"system.caracteristique.bricolage":valeursCpts["cpt13"],"system.caracteristique.presence":valeursCpts["cpt14"],"system.caracteristique.chercher":valeursCpts["cpt15"],"system.caracteristique.commander":valeursCpts["cpt16"],"system.caracteristique.concentration":valeursCpts["cpt17"],"system.caracteristique.nature":valeursCpts["cpt18"],"system.caracteristique.peuples":valeursCpts["cpt19"],"system.caracteristique.religions":valeursCpts["cpt20"],"system.caracteristique.geographique":valeursCpts["cpt21"],"system.caracteristique.rue":valeursCpts["cpt22"],"system.caracteristique.heretiques":valeursCpts["cpt23"],"system.caracteristique.combat":valeursCpts["cpt24"],"system.caracteristique.commerce":valeursCpts["cpt25"],"system.caracteristique.crochetage":valeursCpts["cpt26"],"system.caracteristique.discretion":valeursCpts["cpt27"],"system.caracteristique.dexterite":valeursCpts["cpt28"],"system.caracteristique.detection":valeursCpts["cpt29"],"system.caracteristique.dissimulation":valeursCpts["cpt30"],"system.caracteristique.dressage":valeursCpts["cpt31"],"system.caracteristique.ennemi":valeursCpts["cpt32"],"system.caracteristique.equilibre":valeursCpts["cpt33"],"system.caracteristique.equitation":valeursCpts["cpt34"],"system.caracteristique.escroquerie":valeursCpts["cpt35"],"system.caracteristique.esquiver":valeursCpts["cpt36"],"system.caracteristique.puissance":valeursCpts["cpt37"],"system.caracteristique.astuce":valeursCpts["cpt38"],"system.caracteristique.peur":valeursCpts["cpt39"],"system.caracteristique.joueur":valeursCpts["cpt40"],"system.caracteristique.maitrise":valeursCpts["cpt41"],"system.caracteristique.natation":valeursCpts["cpt42"],"system.caracteristique.navigation":valeursCpts["cpt43"],"system.caracteristique.orientation":valeursCpts["cpt44"],"system.caracteristique.persuasion":valeursCpts["cpt45"],"system.caracteristique.pister":valeursCpts["cpt46"],"system.caracteristique.prophetie":valeursCpts["cpt47"],"system.caracteristique.secours":valeursCpts["cpt48"],"system.caracteristique.resistance":valeursCpts["cpt49"],"system.caracteristique.psychologue":valeursCpts["cpt50"],"system.caracteristique.medecine":valeursCpts["cpt51"],"system.caracteristique.survie":valeursCpts["cpt52"],"system.caracteristique.tueur":valeursCpts["cpt53"],"system.caracteristique.objet":valeursCpts["cpt54"],"system.caracteristique.veterinaire":valeursCpts["cpt55"],"system.caracteristique.vigilance":valeursCpts["cpt56"],"system.caracteristique.vise":valeursCpts["cpt57"]});
-       
+        const context = {
+            "system.encombrement.max": enc,
+            "system.faiblesse": faiblesse,
+            "system.metier": profession,
+            "system.level": level,
+            "system.etat.a": active[0],
+            "system.etat.b": active[1],
+            "system.etat.c": active[2],
+            "system.etat.d": active[3],
+            "system.etat.e": active[4],
+            "system.etat.f": active[5],
+            "system.etat.g": active[6],
+            "system.etat.h": active[7],
+            "system.etat.i": active[8],
+            "system.etat.j": active[9],
+            "system.etat.k": active[10],
+            "system.etat.l": active[11],
+            "system.etat.m": active[12],
+            "system.etat.n": active[13],
+            "system.reste": reste,
+            "system.listemag.liste": listeSort,
+            "system.listemag.img1": mag1,
+            "system.listemag.img2": mag2,
+            "system.alert.psy": resultatModif.apsy,
+            "system.alert.psymax": resultatModif.apsymax,
+            "system.alert.hp": resultatModif.ahp,
+            "system.alert.hpmax": resultatModif.ahpmax,
+            "system.hp.max": hpmax,
+            "system.hp.value": resultatModif.hp,
+            "system.psy.max": psy,
+            "system.psy.value": psyvalue,
+            "system.restant": resultat,
+            "system.maxsort": resultatModif.calsort,
+            "system.coutmax": resultatModif.cout,
+            "system.alert.maxsort": resultatModif.color1,
+            "system.alert.coutmax": resultatModif.color2,
+            "system.caracteristique.acrobatie": valeursCpts["cpt0"],
+            "system.caracteristique.agilites": valeursCpts["cpt1"],
+            "system.caracteristique.alchimie": valeursCpts["cpt2"],
+            "system.caracteristique.apprentissage": valeursCpts["cpt3"],
+            "system.caracteristique.hast": valeursCpts["cpt4"],
+            "system.caracteristique.cc": valeursCpts["cpt5"],
+            "system.caracteristique.lancer": valeursCpts["cpt6"],
+            "system.caracteristique.melee": valeursCpts["cpt7"],
+            "system.caracteristique.tir": valeursCpts["cpt8"],
+            "system.caracteristique.art": valeursCpts["cpt9"],
+            "system.caracteristique.assassinat": valeursCpts["cpt10"],
+            "system.caracteristique.baton": valeursCpts["cpt11"],
+            "system.caracteristique.bouclier": valeursCpts["cpt12"],
+            "system.caracteristique.bricolage": valeursCpts["cpt13"],
+            "system.caracteristique.presence": valeursCpts["cpt14"],
+            "system.caracteristique.chercher": valeursCpts["cpt15"],
+            "system.caracteristique.commander": valeursCpts["cpt16"],
+            "system.caracteristique.concentration": valeursCpts["cpt17"],
+            "system.caracteristique.nature": valeursCpts["cpt18"],
+            "system.caracteristique.peuples": valeursCpts["cpt19"],
+            "system.caracteristique.religions": valeursCpts["cpt20"],
+            "system.caracteristique.geographique": valeursCpts["cpt21"],
+            "system.caracteristique.rue": valeursCpts["cpt22"],
+            "system.caracteristique.heretiques": valeursCpts["cpt23"],
+            "system.caracteristique.combat": valeursCpts["cpt24"],
+            "system.caracteristique.commerce": valeursCpts["cpt25"],
+            "system.caracteristique.crochetage": valeursCpts["cpt26"],
+            "system.caracteristique.discretion": valeursCpts["cpt27"],
+            "system.caracteristique.dexterite": valeursCpts["cpt28"],
+            "system.caracteristique.detection": valeursCpts["cpt29"],
+            "system.caracteristique.dissimulation": valeursCpts["cpt30"],
+            "system.caracteristique.dressage": valeursCpts["cpt31"],
+            "system.caracteristique.ennemi": valeursCpts["cpt32"],
+            "system.caracteristique.equilibre": valeursCpts["cpt33"],
+            "system.caracteristique.equitation": valeursCpts["cpt34"],
+            "system.caracteristique.escroquerie": valeursCpts["cpt35"],
+            "system.caracteristique.esquiver": valeursCpts["cpt36"],
+            "system.caracteristique.puissance": valeursCpts["cpt37"],
+            "system.caracteristique.astuce": valeursCpts["cpt38"],
+            "system.caracteristique.peur": valeursCpts["cpt39"],
+            "system.caracteristique.joueur": valeursCpts["cpt40"],
+            "system.caracteristique.maitrise": valeursCpts["cpt41"],
+            "system.caracteristique.natation": valeursCpts["cpt42"],
+            "system.caracteristique.navigation": valeursCpts["cpt43"],
+            "system.caracteristique.orientation": valeursCpts["cpt44"],
+            "system.caracteristique.persuasion": valeursCpts["cpt45"],
+            "system.caracteristique.pister": valeursCpts["cpt46"],
+            "system.caracteristique.prophetie": valeursCpts["cpt47"],
+            "system.caracteristique.secours": valeursCpts["cpt48"],
+            "system.caracteristique.resistance": valeursCpts["cpt49"],
+            "system.caracteristique.psychologue": valeursCpts["cpt50"],
+            "system.caracteristique.medecine": valeursCpts["cpt51"],
+            "system.caracteristique.survie": valeursCpts["cpt52"],
+            "system.caracteristique.tueur": valeursCpts["cpt53"],
+            "system.caracteristique.objet": valeursCpts["cpt54"],
+            "system.caracteristique.veterinaire": valeursCpts["cpt55"],
+            "system.caracteristique.vigilance": valeursCpts["cpt56"],
+            "system.caracteristique.vise": valeursCpts["cpt57"]
+        };
+        return context;
     }
 
 

@@ -25,6 +25,7 @@ import {names, items0, items1, items2, items3, items4, metiers, races, clans, de
     let b_psy = Math.round((parseInt(this.ment) + parseInt(this.soci)/2 - parseInt(this.phys) + 5) / 4 + 2);
     let b_nb = Math.round(parseInt(b_psy) / 4) + 1 + parseInt(this.level);
     let b_cout = Math.round((parseInt(b_psy) - parseInt(b_nb)) / 2) + 3;
+    if(b_cout<0){b_cout=0}
     if (this.compt === "t6") {//bug potentielle
         b_psy += 5;
     }
