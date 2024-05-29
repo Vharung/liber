@@ -659,6 +659,8 @@ export class LiberActorSheet extends ActorSheet {
         let button = '';
         
         let { armed, degatd, desd, imgd, armeg, degatg, desg, imgg } = this.actor.system.armeuse;
+        console.log(degatd)
+        console.log(degatg)
         // Jet de dés pour les compétences
         if (type == "jetdedes" || type == "auto") {
             if (type == "auto") {
@@ -729,8 +731,8 @@ export class LiberActorSheet extends ActorSheet {
             if (name == "physique") {
                 let { armed, degatd, desd, imgd, armeg, degatg, desg, imgg } = this.actor.system.armeuse;
                 console.log(listedemain)
-                console.log(armed)
-                console.log(armeg)
+                console.log(degatd)
+                console.log(degatd)
                 for (let i = listedemain.length - 1; i >= 0; i--) {
                     if (armed.includes(game.i18n.localize(listedemain[i])) || armeg.includes(game.i18n.localize(listedemain[i]))) {
                         button += '<button class="addfats" style="cursor:pointer;margin-bottom: 5px;" data-actorid="' + this.actor._id + '">' + game.i18n.localize("liber.addptfatigue") + '</button>';
@@ -740,12 +742,12 @@ export class LiberActorSheet extends ActorSheet {
                 if (armed) {
                     button += '<button class="roll-damage" style="cursor:pointer;margin-bottom: 5px;" data-name="' + armed + '" data-actorid="' +
                         this.actor._id + '" data-dice="' + degatd + '" data-img="' + imgd
-                        + '" data-desc="' + desd + '" data-type="jetdedegat">' + game.i18n.localize("use") + ' ' + armed + '</button>';
+                        + '" data-desc="' + desd + '" data-type="jetdedegat">' + game.i18n.localize("liber.use") + ' ' + armed + '</button>';
                 }
                 if (armeg) {
                     button += '<button class="roll-damage" style="cursor:pointer" data-name="' + armeg + '" data-actorid="' +
                         this.actor._id + '" data-dice="' + degatg + '" data-img="' + imgg
-                        + '" data-desc="' + desg + '" data-type="jetdedegat">' + game.i18n.localize("use") + ' ' + armeg + '</button>';
+                        + '" data-desc="' + desg + '" data-type="jetdedegat">' + game.i18n.localize("liber.use") + ' ' + armeg + '</button>';
                 }
             }
             texte += button + '</span>';
@@ -769,7 +771,11 @@ export class LiberActorSheet extends ActorSheet {
                 var info = '</span><span class="desctchat" style="display:block;">' + desc + '</span>';
             }
             if (degats > 0 || type == "jetdedegat") {
-                roll = await new Roll(monJetDeDes).evaluate();
+                let r = new Roll(monJetDeDes);
+                await r.evaluate();
+
+                let retour = r.total;
+
             }
             if (type == "auto") {
                 //let { armed, degatd, desd, imgd, armeg, degatg, desg, imgg } = this.actor.system.armeuse;
@@ -816,7 +822,7 @@ export class LiberActorSheet extends ActorSheet {
                         texte += '<button class="addfats" style="cursor:pointer;margin-bottom: 5px;" data-actorid="' + this.actor._id + '">' + game.i18n.localize("liber.addptfatigue") + '</button>';
                     }
                 }
-                texte += '<span style="flex:auto"><p class="resultatp"><img src="' + img + '"  width="24" height="24"/>&nbsp;' + game.i18n.localize("use") + ' ' + name + '<p>' + info; //Fr
+                texte += '<span style="flex:auto"><p class="resultatp"><img src="' + img + '"  width="24" height="24"/>&nbsp;' + game.i18n.localize("liber.use") + ' ' + name + '<p>' + info; //Fr
                 
                 // Info Tchat    
                 if (roll && texte) {
@@ -831,11 +837,12 @@ export class LiberActorSheet extends ActorSheet {
                 var tuer=["mort0","mort1","mort2","mort3","mort4","mort5"];
                 var d=Math. round(Math.random() * tuer.length);
                 texte = "<span style='flex:auto'><p class='resultatp'>"+game.i18n.localize(tuer[d])+"&nbsp; <span style='text-transform:uppercase;font-weight: bold;'> "+nom+"</span></span></span>";
-                let chatData = {
-                    speaker: ChatMessage.getSpeaker({ actor: this }),
-                    content: texte
-                };
-                ChatMessage.create(chatData, {});
+                if (r && texte) {
+                    await r.toMessage({
+                        speaker: ChatMessage.getSpeaker({ actor: this }),
+                        flavor: texte
+                    });
+                }
             }
         }
     }
@@ -867,12 +874,13 @@ export class LiberActorSheet extends ActorSheet {
 
         let inforesult;
         if (classe === "Corbeau" || classe === "Troubadour") {
-            inforesult = parseInt(physique || social) + bonus + bonuspost - malus;
+            inforesult = parseInt(physique || parseInt(social)) + parseInt(bonus) + parseInt(bonuspost) - parseInt(malus);
         } else {
-            inforesult = parseInt(mental) + bonus + bonuspost - malus;
+            inforesult = parseInt(mental) + parseInt(bonus) + parseInt(bonuspost) - parseInt(malus);
         }
-
+console.log(inforesult)
         inforesult = Math.min(Math.max(inforesult, 5), 95); // Clamp between 5 and 95
+console.log(inforesult)
 
         let r = await new Roll('1d100').evaluate();
         let retour = r.result;
@@ -914,7 +922,7 @@ export class LiberActorSheet extends ActorSheet {
 
         this.actor.update({ "system.insoin": insoin, "system.hp.value": hp, "system.psy.value": psy });
 
-        const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="' + img + '"  width="24" height="24"/>&nbsp;' + name + ' : ' + inforesult + '/100</span><span class="desctchat">' + desc + '</span></p>' + succes + button + '</span>';
+        const texte = '<span style="flex:auto"><p class="infosort"><span class="resultatp" style="cursor:pointer"><img src="' + img + '"  width="24" height="24"/>&nbsp;' + name + ' : ' + retour + '/'+inforesult+'</span><span class="desctchat">' + desc + '</span></p>' + succes + button + '</span>';
         if (r && texte) {
             await r.toMessage({
                 user: game.user._id,
@@ -1120,7 +1128,8 @@ export class LiberActorSheet extends ActorSheet {
         const listedemain =armes.mains;console.log(listedemain)
         let { protection,race} = this.actor.system;
         let { armure,desa,imga,armed,degatd,desd,imgd,armeg,degatg,desg,imgg} = this.actor.system.armeuse;
-        const { img, des, name, degat } = event.target.dataset;
+        const { img, des, name, degat } = event.target.dataset;//bug
+        console.log(event.target.dataset)
         let armor = 0;
         let arm=armure; let ard=desa; let ari=imga;
         const DROITE = "droite";const GAUCHE = "gauche";
