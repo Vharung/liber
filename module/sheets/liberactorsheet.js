@@ -27,9 +27,9 @@ export class LiberActorSheet extends ActorSheet {
 
     get template() {
         if(this.actor.type==game.i18n.localize("TYPES.Actor.pnj") || this.actor.type==game.i18n.localize("TYPES.Actor.personnage")){
-            return `systems/liber/templates/sheets/personnage-sheet.html`;
+            return `systems/liber/templates/sheets/personnage-sheet.hbs`;
         }else {
-            return `systems/liber/templates/sheets/monstre-sheet.html`;
+            return `systems/liber/templates/sheets/monstre-sheet.hbs`;
         }
     }
     async getData(options) {
@@ -629,7 +629,6 @@ export class LiberActorSheet extends ActorSheet {
         var name = event.target.dataset["name"];
         let type = event.target.dataset["type"];
         var texte = '';
-        var roll = null;
 
         // Variables de compétence
         let bonus = this.actor.system.bonus;
@@ -657,7 +656,6 @@ export class LiberActorSheet extends ActorSheet {
         var hp = null;
         var nom = '';
         let button = '';
-        
         let { armed, degatd, desd, imgd, armeg, degatg, desg, imgg } = this.actor.system.armeuse;
         console.log(degatd)
         console.log(degatg)
@@ -679,7 +677,7 @@ export class LiberActorSheet extends ActorSheet {
                 malus = 0;
             }
             if (name == 'physique' || name == 'force' || name == 'agilite') {
-                if (this.actor.type == game.i18n.localize("TYPES.Actor.monstre")) {
+                if (this.actor.type == "monstre") {
                     addfat = 0;
                 } else {
                     if (encours > encmax) {
@@ -694,7 +692,6 @@ export class LiberActorSheet extends ActorSheet {
 
             let r = new Roll("1d100");
             await r.evaluate();
-
             let retour = r.total;
             if (retour > 95) {
                 succes = "<h4 class='result' style='background:#ff3333;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>" + game.i18n.localize("echecri") + "</h4>";
@@ -730,9 +727,6 @@ export class LiberActorSheet extends ActorSheet {
             texte = '<span style="flex:auto"><p class="resultatp">Jet de ' + name + " : " + inforesult + '/100</p>' + succes;//Fr
             if (name == "physique") {
                 let { armed, degatd, desd, imgd, armeg, degatg, desg, imgg } = this.actor.system.armeuse;
-                console.log(listedemain)
-                console.log(degatd)
-                console.log(degatd)
                 for (let i = listedemain.length - 1; i >= 0; i--) {
                     if (armed.includes(game.i18n.localize(listedemain[i])) || armeg.includes(game.i18n.localize(listedemain[i]))) {
                         button += '<button class="addfats" style="cursor:pointer;margin-bottom: 5px;" data-actorid="' + this.actor._id + '">' + game.i18n.localize("liber.addptfatigue") + '</button>';
@@ -763,15 +757,17 @@ export class LiberActorSheet extends ActorSheet {
 
        
         // Jet de dégât
-        if (type == "jetdedegat" || type == "auto") {
-            let roll='';
+       if (type == "jetdedegat" || type == "auto") {
+            console.log("part2")
+            let r=null;
             if (desc == "") {
                 var info = '';
             } else {
                 var info = '</span><span class="desctchat" style="display:block;">' + desc + '</span>';
             }
             if (degats > 0 || type == "jetdedegat") {
-                let r = new Roll(monJetDeDes);
+                console.log(monJetDeDes)
+                r = new Roll(monJetDeDes);
                 await r.evaluate();
 
                 let retour = r.total;
@@ -798,9 +794,9 @@ export class LiberActorSheet extends ActorSheet {
                         }
                     }
                     if (passe == 0) {
-                        var degat = parseInt(roll.total) - parseInt(armor) - parseInt(armormag);
+                        var degat = parseInt(r.total) - parseInt(armor) - parseInt(armormag);
                     } else {
-                        var degat = parseInt(roll.total) - parseInt(armormag);
+                        var degat = parseInt(r.total) - parseInt(armormag);
                     }
 
                     if (degat > 0) {
@@ -825,8 +821,8 @@ export class LiberActorSheet extends ActorSheet {
                 texte += '<span style="flex:auto"><p class="resultatp"><img src="' + img + '"  width="24" height="24"/>&nbsp;' + game.i18n.localize("liber.use") + ' ' + name + '<p>' + info; //Fr
                 
                 // Info Tchat    
-                if (roll && texte) {
-                    await roll.toMessage({
+                if (r && texte) {
+                    await r.toMessage({
                         speaker: ChatMessage.getSpeaker({ actor: this }),
                         flavor: texte
                     });

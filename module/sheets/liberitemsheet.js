@@ -7,7 +7,7 @@
         console.log(`Liber | Récupération du fichier html ${this.item.type}-sheet.`);
         
         //let typ=TYPES.Item[this.item.type] //corrige
-        return `systems/liber/templates/sheets/${this.item.type}-sheet.html`;// voir en anglais
+        return `systems/liber/templates/sheets/${this.item.type}-sheet.hbs`;// voir en anglais
         //return `systems/liber/templates/sheets/${typ}-sheet.html`;
     }
 
