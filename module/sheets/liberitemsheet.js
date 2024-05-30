@@ -17,7 +17,7 @@
         context.listValues = {
                 monstres:{}        
         };
-        if (this.item.type === game.i18n.localize("TYPES.Item.outil")) {
+        if (this.item.type === "outil") {
 
             context.listValues.monstres = await this._onAidemonstre();
         }
