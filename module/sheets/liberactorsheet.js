@@ -929,11 +929,13 @@ console.log(inforesult)
     }
 
     _onInfo(event){
-        var name=event.target.dataset["name"];
-        var desc=event.target.dataset["desc"];
-        var img=event.target.dataset["img"];
-        var cout=event.target.dataset["cout"];
-        var type=event.target.dataset["type"];
+        const parentElement = event.target.parentElement;
+        console.log("Parent Element:", parentElement);
+        var name=parentElement.dataset["name"];
+        var desc=parentElement.dataset["desc"];
+        var img=parentElement.dataset["img"];
+        var cout=parentElement.dataset["cout"];
+        var type=parentElement.dataset["type"];
         if(type=="magie"){
             var cost=game.i18n.localize("liber.cout")+' : '+cout+' Psy';
         }else{
