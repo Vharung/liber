@@ -583,24 +583,24 @@ export class LiberActorSheet extends ActorSheet {
         }
 
         /*Ajout des titles*/
-        let ttitle=this.actor.system.talent;
-        const validTalent = ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10", "t11", "t12", "t13", "t14", "t15", "t16", "t17", "t18", "t19", "t20", "t21", "t22","t24","t25","t26","t27","t28","t29","t30","t31","t32","t33","t34","t35","t36","t37","t30"];
+        let ttitle=this.actor.system.talent;console.log(ttitle)
+        const validTalent = ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10", "t11", "t12", "t13", "t14", "t15", "t16", "t17", "t18", "t19", "t20", "t21", "t22","t23","t24","t25","t26","t27","t28","t29","t30","t31","t32","t33","t34","t35","t36","t37","t30"];
         if (!validTalent.includes(ttitle)) {ttitle = "";}
         let ftitle=this.actor.system.faiblesse;
         const validFaiblesse = ["f0", "f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "f10", "f11", "f12", "f13", "f14", "f15", "f16"];
-        if (!validTalent.includes(ftitle)) {ftitle = "";}
-        $( ".talentliste option" ).each(function( index ) {
+        if (!validFaiblesse.includes(ftitle)) {ftitle = "";}
+         $( ".talentliste option" ).each(function( index ) {
             let id=this.value;
             if (range.talent[id]) { // Vérifie si l'ID existe dans range.faiblesse
                 $(this).attr('title', game.i18n.localize(range.talent[id].title));
-                html.find('.talent').attr('title',game.i18n.localize(range.talent[id].title));
+                if(id==ttitle){html.find('.talent').attr('title',game.i18n.localize(range.talent[id].title));}
             }
         });
         $( ".faiblesseliste option" ).each(function( index ) {
             let id=this.value;
             if (range.faiblesse[id]) { // Vérifie si l'ID existe dans range.faiblesse
                 $(this).attr('title', game.i18n.localize(range.faiblesse[id].title));
-                html.find('.faiblesse').attr('title',game.i18n.localize(range.faiblesse[id].title));
+                if(id==ftitle){html.find('.faiblesse').attr('title',game.i18n.localize(range.faiblesse[id].title));}
             }
         });
         let listmag=this.actor.system.listemag;
@@ -657,8 +657,6 @@ export class LiberActorSheet extends ActorSheet {
         var nom = '';
         let button = '';
         let { armed, degatd, desd, imgd, armeg, degatg, desg, imgg } = this.actor.system.armeuse;
-        console.log(degatd)
-        console.log(degatg)
         // Jet de dés pour les compétences
         if (type == "jetdedes" || type == "auto") {
             if (type == "auto") {
@@ -758,7 +756,6 @@ export class LiberActorSheet extends ActorSheet {
        
         // Jet de dégât
        if (type == "jetdedegat" || type == "auto") {
-            console.log("part2")
             let r=null;
             if (desc == "") {
                 var info = '';
@@ -766,7 +763,6 @@ export class LiberActorSheet extends ActorSheet {
                 var info = '</span><span class="desctchat" style="display:block;">' + desc + '</span>';
             }
             if (degats > 0 || type == "jetdedegat") {
-                console.log(monJetDeDes)
                 r = new Roll(monJetDeDes);
                 await r.evaluate();
 
@@ -874,9 +870,7 @@ export class LiberActorSheet extends ActorSheet {
         } else {
             inforesult = parseInt(mental) + parseInt(bonus) + parseInt(bonuspost) - parseInt(malus);
         }
-console.log(inforesult)
         inforesult = Math.min(Math.max(inforesult, 5), 95); // Clamp between 5 and 95
-console.log(inforesult)
 
         let r = await new Roll('1d100').evaluate();
         let retour = r.result;
@@ -930,7 +924,6 @@ console.log(inforesult)
 
     _onInfo(event){
         const parentElement = event.target.parentElement;
-        console.log("Parent Element:", parentElement);
         var name=parentElement.dataset["name"];
         var desc=parentElement.dataset["desc"];
         var img=parentElement.dataset["img"];
@@ -1032,7 +1025,6 @@ console.log(inforesult)
     }
 
     _onPosture(event){
-        console.log("posture")
         const POSTURE_MESSAGES = {
           focus: game.i18n.localize("liber.lang88"),
           offensif: game.i18n.localize("liber.lang86"),
@@ -1123,11 +1115,10 @@ console.log(inforesult)
    
     _onArmor(event){
         const equipe=event.target.dataset["equip"];
-        const listedemain =armes.mains;console.log(listedemain)
+        const listedemain =armes.mains;
         let { protection,race} = this.actor.system;
         let { armure,desa,imga,armed,degatd,desd,imgd,armeg,degatg,desg,imgg} = this.actor.system.armeuse;
         const { img, des, name, degat } = event.target.dataset;//bug
-        console.log(event.target.dataset)
         let armor = 0;
         let arm=armure; let ard=desa; let ari=imga;
         const DROITE = "droite";const GAUCHE = "gauche";
@@ -1463,8 +1454,6 @@ console.log(inforesult)
 
         // Appel de la méthode modifier() pour effectuer les calculs
         let resultatModif = caractModif.modifier();
-        console.log(resultatModif)
-        console.log(resultatModif.calsort)
         let sortsPossibles = new SortsPossibles(mag0, mag1, mag2, mag3, mag4, mag5, profession, religion, clan, resultatModif.cout);
         // Appel de la méthode getListeSorts() pour obtenir la liste des sorts possibles
         let listeSort =await sortsPossibles.getListeSorts()
