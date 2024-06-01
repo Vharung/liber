@@ -722,7 +722,7 @@ export class LiberActorSheet extends ActorSheet {
                     var nam = this.actor.system.armeuse.armeg;
                 }
             }
-            texte = '<span style="flex:auto"><p class="resultatp">Jet de ' + name + " : " + inforesult + '/100</p>' + succes;//Fr
+            texte = '<span style="flex:auto"><p class="resultatp">Jet de ' + name + " : " + retour + '/'+inforesult+'</p>' + succes;//Fr
             if (name == "physique") {
                 let { armed, degatd, desd, imgd, armeg, degatg, desg, imgg } = this.actor.system.armeuse;
                 for (let i = listedemain.length - 1; i >= 0; i--) {

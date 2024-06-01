@@ -132,7 +132,7 @@ a.content-link, a.inline-roll {background: none}
 .Liber .colcomp .competences{background: var(--couleur-clair);position: relative;top:0px;color:var(--couleur-noir);width: 200px; display: block; margin-top: 5px; padding: 5px;height: 284px;overflow: auto;scrollbar-width: none;}
 .Liber .colcomp .competences a{border-bottom: solid 1px var(--couleur-noir); width: 200px; display: block; height: 20px; margin-bottom: 5px}
 .Liber .colcomp .competences a span{width: 20px; display: inline-block; text-align: center;}
-.Liber .grid-3col input{background: var(--couleur-clair);color: var(--couleur-noir);height: 40px;width: 40px;margin-left: 29px;font-size: 2em;text-align: center;}
+.Liber .grid-3col input{background: var(--couleur-clair);color: var(--couleur-noir);height: 40px;width: 60px;margin-left: 9px;font-size: 2em;text-align: center;}
 .Liber .colstat label{width:35px;height: 35px;display:block;color:var(--couleur-clair);padding-left: 40px;margin-bottom: 3px;}
 .Liber .colstat input{width:35px;height: 20px;display:block;text-align: center; color:var(--couleur-or);margin-top: -20px;margin-left: 30px;}
 .Liber .grid-3col a {color:var(--couleur-clair);position: absolute;top: 50px;margin-left: 10px;}
@@ -190,7 +190,7 @@ a.content-link, a.inline-roll {background: none}
 .Liber a.armures{background: url(chest-armor2.png) no-repeat center center;background-size: 40%;opacity: 0.5;transition: 0.5s}
 .Liber a.objets{background: url(chicken-oven.png) no-repeat center center;background-size: 40%;opacity: 0.5;transition: 0.5s}
 .Liber a.item:hover,.Liber a.item.active,.Liber a.item-filter:hover,.Liber a.item-filter.acti{opacity: 1}
-.Liber .item-description{height: 50px;background: var(--couleur-noir);color:var(--couleur-clair);display: block;padding: 5px;font-size: 0.9em;overflow: auto;scrollbar-width: none}
+.Liber .item-description{height: 90px;background: var(--couleur-noir);color:var(--couleur-clair);display: block;padding: 5px;font-size: 0.9em;overflow: auto;scrollbar-width: none}
 .Liber .item-controls{height: 20px;display: block;text-align: right;padding: 3px 0;}
 .Liber .item .zonecontrole{display: block;height: 0px;overflow: hidden;transition: 1s;}
 .Liber .item:hover .zonecontrole{height: 80px;}

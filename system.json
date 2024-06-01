@@ -6,7 +6,7 @@
     "compatibility": {
       "minimum": "12",
       "verified": "12.324",
-      "maximum": "12.324"
+      "maximum": "12.999"
     },
     "url": "https://github.com/Vharung/liber",
     "manifest": "https://raw.githubusercontent.com/Vharung/liber/main/system.json",
