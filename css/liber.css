@@ -146,8 +146,8 @@ a.content-link, a.inline-roll {background: none}
 .Liber .ast{background: url('ast.png') left no-repeat;background-size:contain;}
 .Liber .memoire{background: url('memoire.png') left no-repeat;background-size:contain;}
 .Liber .compt{width:124px; display: inline-block;}
-.Liber .compt a,.Liber .compt input{font-size: 1em;height:  14px;display: inline-block;}
-.Liber .compt input{width: 18px;display: inline-block;float: left;height: 18px;text-align: center;padding: 3px;margin-right: 5px;}
+.Liber .compt a,.Liber .compt input{font-size: 1em;height:  14px;display: inline-block;width: 90px; overflow: hidden;}
+.Liber .compt input{width: 25px;display: inline-block;float: left;height: 18px;text-align: center;padding: 3px;margin-right: 5px;}
 .Liber nav.navlib{height: 200px;width: 40px;position: absolute;right: -40px;top: 40px;display: block;border: none;}
 .Liber nav.navlib a{display: block;height: 40px;width: 40px;background: var(--couleur-clair);border-top-right-radius:10px;border-bottom-right-radius: 10px; margin-bottom: 5px;transition: 1s}
 .Liber nav.navlib a.active{background: #700c26}
@@ -193,7 +193,7 @@ a.content-link, a.inline-roll {background: none}
 .Liber .item-description{height: 90px;background: var(--couleur-noir);color:var(--couleur-clair);display: block;padding: 5px;font-size: 0.9em;overflow: auto;scrollbar-width: none}
 .Liber .item-controls{height: 20px;display: block;text-align: right;padding: 3px 0;}
 .Liber .item .zonecontrole{display: block;height: 0px;overflow: hidden;transition: 1s;}
-.Liber .item:hover .zonecontrole{height: 80px;}
+.Liber .item:hover .zonecontrole{height: 110px;}
 .Liber .items-list .item-hand{width: 62px;float: left;filter: invert(1);}
 .Liber #items .items-list,.Liber #spells .items-list{display: block;scrollbar-width: none;overflow:auto}
 .Liber #items .items-list{height: 391px;}
