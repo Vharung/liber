@@ -491,18 +491,24 @@ export const range = Object.freeze({
             label:"liber.avantrace86",
              classe:"demon",
         },
+        r17:{
+            label:"liber.avantrace96",
+            classe:"all",
+        },
         r14:{
             label:"liber.avantrace90",
+            classe:"all",
+        },
+
+        r16:{
+            label:"liber.avantrace79",
             classe:"all",
         },
         r15:{
             label:"liber.avantrace78",
             classe:"all",
-        },
-        r16:{
-            label:"liber.avantrace79",
-            classe:"all",
-        },
+        }, 
+        
     },
     taille:{
         t1:{

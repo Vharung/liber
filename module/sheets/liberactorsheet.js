@@ -1375,6 +1375,7 @@ export class LiberActorSheet extends ActorSheet {
           ["r4"]: 'baphomet',
           ["r9"]: 'vaudou',
           ["r6"]: 'monnaie',
+          ["r17"]: 'sombre',
           ["r15"]: 'autre',
         };
 
@@ -1391,7 +1392,6 @@ export class LiberActorSheet extends ActorSheet {
         } else if (clan && clan !== 'undefined' && raceMagMap[clan]) {
           mag1 = raceMagMap[clan];
         }
-       
 
         if(profession=="m12"){
            mag1= 'troubadour'
