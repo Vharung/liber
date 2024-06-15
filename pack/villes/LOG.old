@@ -1,15 +1,9 @@
-2024/06/01-06:12:16.579522 7f5eb27be700 Recovering log #712
-2024/06/01-06:12:16.583888 7f5eb27be700 Delete type=0 #712
-2024/06/01-06:12:16.583920 7f5eb27be700 Delete type=3 #710
-2024/06/04-11:27:19.122873 7f5eb0ecc700 Level-0 table #717: started
-2024/06/04-11:27:19.128764 7f5eb0ecc700 Level-0 table #717: 15838 bytes OK
-2024/06/04-11:27:19.130935 7f5eb0ecc700 Delete type=0 #715
-2024/06/04-11:27:19.161155 7f5eb0ecc700 Manual compaction at level-0 from '!folders!2RADFra3PoUxWot8' @ 72057594037927935 : 1 .. '!scenes.lights!6eUjqaWrkAjrgTi6.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at (end)
-2024/06/04-11:27:19.164476 7f5eb0ecc700 Manual compaction at level-1 from '!folders!2RADFra3PoUxWot8' @ 72057594037927935 : 1 .. '!scenes.lights!6eUjqaWrkAjrgTi6.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at '!scenes.lights!6eUjqaWrkAjrgTi6.tFQyLATN1z3hdNbp' @ 177 : 1
-2024/06/04-11:27:19.164485 7f5eb0ecc700 Compacting 1@1 + 1@2 files
-2024/06/04-11:27:19.166427 7f5eb0ecc700 Generated table #718@1: 33 keys, 15420 bytes
-2024/06/04-11:27:19.166443 7f5eb0ecc700 Compacted 1@1 + 1@2 files => 15420 bytes
-2024/06/04-11:27:19.167525 7f5eb0ecc700 compacted to: files[ 0 0 1 0 0 0 0 ]
-2024/06/04-11:27:19.169015 7f5eb0ecc700 Delete type=2 #717
-2024/06/04-11:27:19.169098 7f5eb0ecc700 Delete type=2 #701
-2024/06/04-11:27:19.207385 7f5eb0ecc700 Manual compaction at level-1 from '!scenes.lights!6eUjqaWrkAjrgTi6.tFQyLATN1z3hdNbp' @ 177 : 1 .. '!scenes.lights!6eUjqaWrkAjrgTi6.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at (end)
+2024/06/13-05:53:37.272925 7fd6277fe700 Recovering log #727
+2024/06/13-05:53:37.277343 7fd6277fe700 Delete type=3 #721
+2024/06/13-05:53:37.277386 7fd6277fe700 Delete type=3 #723
+2024/06/13-05:53:37.277414 7fd6277fe700 Delete type=0 #727
+2024/06/13-11:34:03.225340 7fd1267ef700 Level-0 table #732: started
+2024/06/13-11:34:03.225951 7fd1267ef700 Level-0 table #732: 0 bytes OK
+2024/06/13-11:34:03.227984 7fd1267ef700 Delete type=0 #730
+2024/06/13-11:34:03.232264 7fd1267ef700 Manual compaction at level-0 from '!folders!2RADFra3PoUxWot8' @ 72057594037927935 : 1 .. '!scenes.lights!6eUjqaWrkAjrgTi6.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at (end)
+2024/06/13-11:34:03.232309 7fd1267ef700 Manual compaction at level-1 from '!folders!2RADFra3PoUxWot8' @ 72057594037927935 : 1 .. '!scenes.lights!6eUjqaWrkAjrgTi6.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at (end)

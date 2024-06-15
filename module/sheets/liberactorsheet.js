@@ -67,28 +67,47 @@ export class LiberActorSheet extends ActorSheet {
             ['r19']:["aucun"]
         };
         const raceElements = racess[race];
+
         if (raceElements) {
             raceElements.forEach(element => {
-                if(clan=='c18'){
-                    context.listValues.religion = [range.religion['r14'], range.religion['r15'], range.religion['r16']];  
-                }else {
-                    for (let key in range.religion ) {
-                         if (range.religion[key].classe === element && clan!=='c17') {
+                if (clan === 'c18') {
+                    // Si le clan est 'c18', définir les valeurs de religion spécifiques
+                    context.listValues.religion = [range.religion['r14'], range.religion['r15'], range.religion['r16']];
+                } else {
+                    // Sinon, ajouter les religions correspondant à l'élément de race et dont le clan n'est pas 'c17'
+                    for (let key in range.religion) {
+                        if (range.religion[key].classe === element && clan !== 'c17') {
                             context.listValues.religion[key] = range.religion[key];
                         }
                     }
                 }
                 
+                // Ajouter les clans correspondant à l'élément de race
                 for (let key in range.clan) {
                     if (range.clan[key].classe === element) {
                         context.listValues.clan[key] = range.clan[key];
                     }
                 }
             });
-        }else{
-            context.listValues.religion = {...range.religion};
-            context.listValues.clan = {...range.clan};
+        } else {
+            // Si raceElements est null ou undefined, initialiser une variable reset
+            let reset = 0;
+
+            // Parcourir les religions et ajouter les clans correspondants
+            for (let key in range.religion) {
+                console.log(range.religion[key][0] )
+                if (range.religion[key]['label'] !== "liber.avantrace85") {
+                    context.listValues.religion[key] = range.religion[key];
+                } else if (reset == 0  && range.religion[key]['label'] === "liber.avantrace85") {
+                    context.listValues.religion[key] = range.religion[key];
+                    reset = 1;
+                }
+            }
+
+            // Ajouter tous les clans à context.listValues
+            context.listValues.clan = { ...range.clan };
         }
+
         /*ajout metier*/
         
         if(clan=='c18'){
