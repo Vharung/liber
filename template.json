@@ -46,6 +46,8 @@
               "religion": "",
               "talent": "",
               "faiblesse": "",
+              "moral":"",
+              "emphase":"",
               "posture": "Aucune",
               "level": "1",
               "etat":{

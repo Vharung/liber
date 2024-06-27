@@ -51,6 +51,8 @@ export class LiberActorSheet extends ActorSheet {
                 talent: range.talent,
                 temps:range.temps,
                 taille:range.taille,
+                moral:range.moral,
+                emphase:range.emphase,
                 traduct:{}                
             };
         /*ajout clan et magie dispo*/
@@ -647,8 +649,8 @@ export class LiberActorSheet extends ActorSheet {
         var monJetDeDes = event.target.dataset["dice"];
         var name = event.target.dataset["name"];
         let type = event.target.dataset["type"];
+        let emphase = this.actor.system.emphase;
         var texte = '';
-
         // Variables de compétence
         let bonus = this.actor.system.bonus;
         let malus = this.actor.system.malus;
@@ -657,6 +659,7 @@ export class LiberActorSheet extends ActorSheet {
         let fatigue = this.actor.system.fatigue;
         var bonuspost = 0;
         var critique = 5;
+        var echec=95;
         var succes = "";
         var degats = 0;
         let addfat = 0;
@@ -664,7 +667,6 @@ export class LiberActorSheet extends ActorSheet {
         let encmax = this.actor.system.encombrement.max;
         let encdif = 0;
         const listedemain = armes.mains;
-
         // Variables de dégâts
         var img = event.target.dataset["img"];
         var desc = event.target.dataset["desc"];
@@ -687,6 +689,15 @@ export class LiberActorSheet extends ActorSheet {
             } else if (posture == "offensif") {
                 critique = 10;
             }
+            if(emphase=='p5'){
+                critique=critique+10;
+            }else if(emphase=='p4'){
+                critique=critique+5;
+            }else if(emphase=='p2'){
+                echec=echec-5;
+            }else if(emphase=='p1'){
+                echec=echec-10;
+            }
             if (bonus == "") {
                 bonus = 0;
             }
@@ -702,15 +713,15 @@ export class LiberActorSheet extends ActorSheet {
                     }
                     addfat = 5 * parseInt(fatigue) + encdif;
                 }
-            }
+            }console.log(echec)
             let inforesult = parseInt(maxstat) + parseInt(bonus) + bonuspost + parseInt(malus) - parseInt(addfat);
-            if (inforesult > 95) { inforesult = 95; }
+            if (inforesult > echec) { inforesult = echec; }
             else if (inforesult < 5) { inforesult = 5; }
 
             let r = new Roll("1d100");
             await r.evaluate();
             let retour = r.total;
-            if (retour > 95) {
+            if (retour > echec) {
                 succes = "<h4 class='result' style='background:#ff3333;text-align: center;color: #fff;padding: 5px;border: 1px solid #999;'>" + game.i18n.localize("echecri") + "</h4>";
                 degats = 0;
             } else if (retour <= critique) {
@@ -761,7 +772,9 @@ export class LiberActorSheet extends ActorSheet {
                         + '" data-desc="' + desg + '" data-type="jetdedegat">' + game.i18n.localize("liber.use") + ' ' + armeg + '</button>';
                 }
             }
+            //texte += button + '<p>Le joueur est '+game.i18n.localize("liber."+moral)+' <select class="emphase"><option>Neutre</option><option>Emphase</option><option>Très emphase</option></select></p> </span>';
             texte += button + '</span>';
+
 
             // Info Tchat
             if (r && texte) {

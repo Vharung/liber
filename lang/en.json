@@ -1246,6 +1246,17 @@
 
     "typerestriction": ". Not for dragons, troubadour, thief or mage.",
     "typeprotection": "protection: ",
-    "typedarmure": "armor"
+    "typedarmure": "armor",
+    "moral":"Morale/Reputation",
+    "moral1":"Very evil",
+    "moral2":"Evil",
+    "moral3":"Neutre",
+    "moral4":"Good",
+    "moral5":"Very good",
+    "emphase1":"Trés déphase",
+    "emphase2":"Déphase",
+    "emphase3":"Neutre",
+    "emphase4":"Emphase",
+    "emphase5":"Très emphase"
   }
 }

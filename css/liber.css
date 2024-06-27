@@ -128,7 +128,7 @@ a.content-link, a.inline-roll {background: none}
 .Liber input.hpmax, .Liber input.psymax{text-align: left;}
 .Liber .colstat, .Liber .colcomp{display: inline-block;height: 352px;}
 .Liber .colstat{width:50px;font-size: 0.9em;}
-.Liber .colcomp{width:210px;position: relative;top:0px;left: 20px;padding: 5px}
+.Liber .colcomp{width:210px;position: relative;top:5px;left: 20px;padding: 5px}
 .Liber .colcomp .competences{background: var(--couleur-clair);position: relative;top:0px;color:var(--couleur-noir);width: 200px; display: block; margin-top: 5px; padding: 5px;height: 284px;overflow: auto;scrollbar-width: none;}
 .Liber .colcomp .competences a{border-bottom: solid 1px var(--couleur-noir); width: 200px; display: block; height: 20px; margin-bottom: 5px}
 .Liber .colcomp .competences a span{width: 20px; display: inline-block; text-align: center;}
@@ -258,6 +258,9 @@ a.content-link, a.inline-roll {background: none}
 .Liber .monstres{padding-top: 20px;}
 .Liber .race{background: none}
 .Liber .item-info{cursor:help }
+
+.Liber .enphaseliste option{color:var(--couleur-clair)}
+.Liber .enphaseliste {position: absolute;right: 0;}
 /**animation perte ajout pv/psy**/
 .change-indicator {position: absolute;color: red;font-weight: bold;animation: floatUpFade 1s ease-out forwards;}
 

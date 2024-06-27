@@ -1252,6 +1252,17 @@
 
     "typerestriction": ". Pas pour les dragons, troubadour, voleur ou mage.",
     "typeprotection": "protection : ",
-    "typedarmure": "d'armure"
+    "typedarmure": "d'armure",
+    "moral":"Moral",
+    "moral1":"Chaotique",
+    "moral2":"Mauvais",
+    "moral3":"Neutre",
+    "moral4":"Bon",
+    "moral5":"Vertueux",
+    "emphase1":"Trés déphase",
+    "emphase2":"Déphase",
+    "emphase3":"Neutre",
+    "emphase4":"Emphase",
+    "emphase5":"Très emphase"
   }
 }

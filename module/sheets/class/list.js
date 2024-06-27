@@ -527,4 +527,38 @@ export const range = Object.freeze({
             label:"liber.taille5",
         },
     },
+    moral:{
+        moral1:{
+            label:"liber.moral1",
+        },
+        moral2:{
+            label:"liber.moral2",
+        },
+        moral3:{
+            label:"liber.moral3",
+        },
+        moral4:{
+            label:"liber.moral4",
+        },
+        moral5:{
+            label:"liber.moral5",
+        },
+    },
+    emphase:{
+        p1:{
+            label:"liber.emphase1",
+        },
+        p2:{
+            label:"liber.emphase2",
+        },
+        p3:{
+            label:"liber.emphase3",
+        },
+        p4:{
+            label:"liber.emphase4",
+        },
+        p5:{
+            label:"liber.emphase5",
+        },
+    },
 });
