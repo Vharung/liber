@@ -98,10 +98,10 @@
 						<h2>{{localize 'liber.histoire'}}</h2>
 						<input class="met" type="text" title="{{listValues.traduct.metier}}" value="{{listValues.traduct.metier}}"  placeholder="{{localize 'liber.metier'}}" readonly=""> - <input class="religion" type="text" title="{{listValues.traduct.religion}}" value="{{listValues.traduct.religion}}" placeholder="{{localize 'liber.religion'}} " readonly="" /> 
 						<textarea class="histoire" name="system.histoire">{{actor.system.histoire}}</textarea>
-						<h2>{{localize 'liber.moral'}}</h2>
+						<h2>{{localize 'liber.moral'}} 
                         <SELECT class="moralliste"  name="system.moral">
 							{{selectOptions listValues.moral selected=actor.system.moral labelAttr="label" localize=true blank="liber.none"}}
-	                    </select>
+	                    </select></h2>
 						<h2>{{localize 'liber.repos'}}</h2>
 						<input class="heure" name="system.heure" type="text" value="{{actor.system.heure}}" placeholder="0"/>
 						<SELECT class="jourliste"  name="system.jour">
