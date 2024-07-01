@@ -241,7 +241,7 @@ a.content-link, a.inline-roll {background: none}
 .Liber .met{width:100px;display: inline-block;}
 .Liber .religion{width:150px;display: inline-block;}
 .Liber .histoire{resize: none;background: var(--couleur-noir);color:var(--couleur-clair);height: 298px;overflow: auto;scrollbar-width:none }
-.Liber .heure{width: 20px; text-align: center;}
+.Liber .heure{width: 40px;text-align: center;background: var(--couleur-noir);color: var(--couleur-clair);height: 20px;top: -1px;position: relative;left: 5px;margin-right: 5px;}
 .Liber .reposer{width: 100%;display: block;}
 .Liber #background h2{margin-top: 20px;}
 .Liber .zonepoint,.Liber .zonemagie{color:var(--couleur-or);margin-top:5px;padding: 5px}
