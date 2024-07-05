@@ -560,6 +560,7 @@ export class LiberActorSheet extends ActorSheet {
         let astu=html.find('.astValue').val();
         let memo=html.find('.memoireValue').val();
         let race=html.find('.race').val();
+
         let max=170;
         /*if(race==game.i18n.localize("liber.avantrace61")){
             max=175;
@@ -583,7 +584,7 @@ export class LiberActorSheet extends ActorSheet {
                 html.find('.memoire').css({"border":"red solid 1px"})
             }
         }
-       
+
         let j=0;
         html.find( ".religionliste option" ).each(function( index ) {
             if ( $( this ).val() == game.i18n.localize('liber.avantrace85')) {
@@ -1435,7 +1436,7 @@ export class LiberActorSheet extends ActorSheet {
            mag2= '';
            
         }
-        
+        console.log(race)
         const newperso = new Character(sexe, talent, faiblesse, race, clan, religion, profession);
         const valeursCpts = {};
         let cpts=[cpt0,cpt1,cpt2,cpt3,cpt4,cpt5,cpt6,cpt7,cpt8,cpt9,cpt10,cpt11,cpt12,cpt13,cpt14,cpt15,cpt16,cpt17,cpt18,cpt19,cpt20,cpt21,cpt22,cpt23,cpt24,cpt25,cpt26,cpt27,cpt28,cpt29,cpt30,cpt31,cpt32,cpt33,cpt34,cpt35,cpt36,cpt37,cpt38,cpt39,cpt40,cpt41,cpt42,cpt43,cpt44,cpt45,cpt46,cpt47,cpt48,cpt49,cpt50,cpt51,cpt52,cpt53,cpt54,cpt55,cpt56,cpt57]
@@ -1475,6 +1476,7 @@ export class LiberActorSheet extends ActorSheet {
         if (!validClans.includes(clan)) {
             clan = "r0";
         }
+        console.log(race)
         let royal=newperso.characterClan(clan);
         resultat=resultat+royal[2]+breed[3];
         let caractModif = new CaracteristiqueModifier(
@@ -1486,7 +1488,8 @@ export class LiberActorSheet extends ActorSheet {
 
         // Appel de la méthode modifier() pour effectuer les calculs
         let resultatModif = caractModif.modifier();
-        let sortsPossibles = new SortsPossibles(mag0, mag1, mag2, mag3, mag4, mag5, profession, religion, clan, resultatModif.cout);
+        console.log(race)
+        let sortsPossibles = new SortsPossibles(mag0, mag1, mag2, mag3, mag4, mag5, profession, religion, clan, resultatModif.cout, race);
         // Appel de la méthode getListeSorts() pour obtenir la liste des sorts possibles
         let listeSort =await sortsPossibles.getListeSorts()
 

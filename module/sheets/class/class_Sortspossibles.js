@@ -1,5 +1,5 @@
 export class SortsPossibles {
-    constructor(mag0, mag1, mag2, mag3, mag4, mag5, metier, reli, clan, cout) {
+    constructor(mag0, mag1, mag2, mag3, mag4, mag5, metier, reli, clan, cout, race) {
         this.mag0 = mag0 || 'aucun';
         this.mag1 = mag1 || 'aucun';
         this.mag2 = mag2 || 'aucun';
@@ -10,9 +10,14 @@ export class SortsPossibles {
         this.reli = reli;
         this.clan = clan;
         this.cout = cout;
+        this.race =race;
     }
 
     async getListeSorts() {
+        console.log(this.race);
+        if(this.race=="r4"){
+            return '';
+        }
         const pack = game.packs.get('liber.magie');
         const tables = await pack.getDocuments();
         let listem;let idCounter = 1;

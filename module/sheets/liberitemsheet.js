@@ -198,14 +198,14 @@
         let effetobjet = ['liber.effetobjet1', 'liber.effetobjet2', 'liber.effetobjet3', 'liber.effetobjet4', 'liber.effetobjet5', 'liber.effetobjet6', 'liber.effetobjet7', 'liber.effetobjet8', 'liber.effetobjet9', 'liber.effetobjet10', 'liber.effetobjet11', 'liber.effetobjet12', 'liber.effetobjet13', 'liber.effetobjet14'];
         let item_type=''
         if(type==game.i18n.localize("TYPES.Item.objet")){
-            item_type= objet[Math.floor(Math.random()*objet.length)];
+            item_type= game.i18n.localize(objet[Math.floor(Math.random()*objet.length)]);
         }else if(type==game.i18n.localize("TYPES.Item.arme")){
-            item_type= arme[Math.floor(Math.random()*arme.length)];
+            item_type= game.i18n.localize(arme[Math.floor(Math.random()*arme.length)]);
         }else if(type==game.i18n.localize("TYPES.Item.armure")){
-            item_type= armure[Math.floor(Math.random()*armure.length)];
+            item_type= game.i18n.localize(armure[Math.floor(Math.random()*armure.length)]);
         }
         let point=0;
-        let item_nom= nom[Math.floor(Math.random()*nom.length)];
+        let item_nom= game.i18n.localize(nom[Math.floor(Math.random()*nom.length)]);
         if(item_nom == game.i18n.localize("liber.nom20")) {point = point + 1;}
         if(item_nom == game.i18n.localize("liber.nom14") || item_nom == game.i18n.localize("liber.nom15") || item_nom == game.i18n.localize("liber.nom16")) {point = point - 2;}
         if(item_nom == game.i18n.localize("liber.nom4") || item_nom == game.i18n.localize("liber.nom5") || item_nom == game.i18n.localize("liber.nom6")) {point = point - 1;}
@@ -221,12 +221,12 @@
         }
 
         if(type==game.i18n.localize("TYPES.Item.arme")) {
-            item_effet = effetarme[Math.floor(Math.random() * effetarme.length)];
+            item_effet = game.i18n.localize(effetarme[Math.floor(Math.random() * effetarme.length)]);
         } else if(type==game.i18n.localize("TYPES.Item.armure")) {
-            item_effet = effetarmure[Math.floor(Math.random() * effetarmure.length)];
+            item_effet = game.i18n.localize(effetarmure[Math.floor(Math.random() * effetarmure.length)]);
             item_effet += " - " + game.i18n.localize("liber.typeprotection") + point + " " + game.i18n.localize("liber.typedarmure") + " " + restriction;
         } else {
-            item_effet = effetobjet[Math.floor(Math.random() * effetobjet.length)];
+            item_effet = game.i18n.localize(effetobjet[Math.floor(Math.random() * effetobjet.length)]);
         }
         let cout=Math.floor(Math.random()*10)*100;
         let poids=Math.floor(Math.random()*10);

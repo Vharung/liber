@@ -216,8 +216,10 @@
 							{{#each actor.argent as |item id|}}
 				                <li class="item fexrow" data-item-id="{{item._id}}">
 				                    <div class="item-poids" style="display:none">{{item.system.poids}}</div>
-				                    <div class="item-qty item-edit" title="{{item.system.quantite}} écu">{{item.system.quantite}}</div>
+				                    
 				                    <div class="item-controls" >
+				                    	<div class="item-qty item-edit" title="{{item.system.quantite}} écu">{{item.system.quantite}}</div>
+				                    	<a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
 				                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
 				                    </div>
 				                </li>

@@ -228,6 +228,7 @@ a.content-link, a.inline-roll {background: none}
 .Liber .ecu li{list-style: none;;padding: 0;display: block;}
 .Liber .ecu{background: url(ecu.png) no-repeat center center;background-size: contain;padding:0;right:0}}
 .Liber .ecu .item-controls{background: var(--couleur-noir);border: none;color: var(--couleur-clair);}
+.Liber .ecu .item-qty{color:var(--couleur-noir);width: 100%; margin-top: 20px}
 .Liber .unemain,.Liber .deuxmains,.Liber .arm,.Liber .ecu{width: 68px;height: 68px; display: inline-block;border:1px solid var(--couleur-noir);position: absolute;margin-bottom: 0px}
 .Liber .unemain{background: url(hand2.png) no-repeat center center;background-size: contain;}
 .Liber .deuxmains{background: url(hand.png) no-repeat center center;background-size: contain;left: 136px;}
