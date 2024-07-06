@@ -211,7 +211,7 @@
 				<div id="spells" class="tab spells" data-group="primary" data-tab="spells">
 					<div class="zoneinfo">
 						<ul class="items-list">
-							{{#each actor.sort as |item id|}}
+							{{#each actor.magic as |item id|}}
 									<li class="item fexrow armes active draggable" data-item-id="{{item._id}}">
 					                    <div class="item-image"><div class="item-cout">{{item.system.cout}}</div><img src="{{item.img}}" title="{{item.system.description}}"/></div> <div class="item-name" title="{{item.name}}">{{item.name}}</div>
 					                    <div class="zonecontrole">

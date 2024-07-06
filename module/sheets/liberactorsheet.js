@@ -282,7 +282,7 @@ export class LiberActorSheet extends ActorSheet {
 
 
         }
-        context.listValues.magie=context.actor.system.listemag;
+        context.listValues.magie=context.actor.system.listemag;        
         console.log(context);
         return context;
     }
@@ -532,17 +532,16 @@ export class LiberActorSheet extends ActorSheet {
             html.find('.bucketmagie').css({"display":"none"});
         }
         var hp= html.find('.hp').val();
+        var psy= html.find('.psy').val();
 
-
+        let etre=this.actor.system.race; 
         // Vérifier si les points de vie sont égaux à 0
-        if (hp <= 0) {
+        if (hp <= 0 && etre !=='r16' || psy <= 0 && etre=="r16") {
             // Appliquer le style CSS pour le fond lorsque les points de vie sont égaux à 0
-
                 $('#LiberActorSheet-Actor-'+this.actor._id).css('background', 'linear-gradient(230deg, rgba(190,25,25,1) 0%, rgba(25,25,25,1) 100%)');
 
         } else {
             // Réinitialiser les styles CSS lorsque les points de vie sont supérieurs à 0
-
                 $('#LiberActorSheet-Actor-'+this.actor._id).css('background', 'linear-gradient(218deg, #2a2b2c 0%, #120304 100%)');
 
         }
@@ -605,7 +604,7 @@ export class LiberActorSheet extends ActorSheet {
         }
 
         /*Ajout des titles*/
-        let ttitle=this.actor.system.talent;console.log(ttitle)
+        let ttitle=this.actor.system.talent;
         const validTalent = ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10", "t11", "t12", "t13", "t14", "t15", "t16", "t17", "t18", "t19", "t20", "t21", "t22","t23","t24","t25","t26","t27","t28","t29","t30","t31","t32","t33","t34","t35","t36","t37","t30"];
         if (!validTalent.includes(ttitle)) {ttitle = "";}
         let ftitle=this.actor.system.faiblesse;
@@ -714,7 +713,7 @@ export class LiberActorSheet extends ActorSheet {
                     }
                     addfat = 5 * parseInt(fatigue) + encdif;
                 }
-            }console.log(echec)
+            }
             let inforesult = parseInt(maxstat) + parseInt(bonus) + bonuspost + parseInt(malus) - parseInt(addfat);
             if (inforesult > echec) { inforesult = echec; }
             else if (inforesult < 5) { inforesult = 5; }
@@ -1436,7 +1435,6 @@ export class LiberActorSheet extends ActorSheet {
            mag2= '';
            
         }
-        console.log(race)
         const newperso = new Character(sexe, talent, faiblesse, race, clan, religion, profession);
         const valeursCpts = {};
         let cpts=[cpt0,cpt1,cpt2,cpt3,cpt4,cpt5,cpt6,cpt7,cpt8,cpt9,cpt10,cpt11,cpt12,cpt13,cpt14,cpt15,cpt16,cpt17,cpt18,cpt19,cpt20,cpt21,cpt22,cpt23,cpt24,cpt25,cpt26,cpt27,cpt28,cpt29,cpt30,cpt31,cpt32,cpt33,cpt34,cpt35,cpt36,cpt37,cpt38,cpt39,cpt40,cpt41,cpt42,cpt43,cpt44,cpt45,cpt46,cpt47,cpt48,cpt49,cpt50,cpt51,cpt52,cpt53,cpt54,cpt55,cpt56,cpt57]
@@ -1476,19 +1474,17 @@ export class LiberActorSheet extends ActorSheet {
         if (!validClans.includes(clan)) {
             clan = "r0";
         }
-        console.log(race)
         let royal=newperso.characterClan(clan);
         resultat=resultat+royal[2]+breed[3];
         let caractModif = new CaracteristiqueModifier(
             valeursCpts, // Tableau des caractéristiques initiales
             breed, // Informations sur la race
             newperso, // Nouveau personnage
-            abilities.mental, abilities.social, abilities.physique, level, talent, faiblesse, clan, this.actor.magic, hpmax, psyvalue, hp, psy, this.actor.type, this.actor.system.insoin// Variables nécessaires pour le calcul
+            abilities.mental, abilities.social, abilities.physique, level, talent, faiblesse, clan, this.actor.magic, hpmax, psyvalue, hp, psy, this.actor.type, this.actor.system.insoin,this.actor.system.race// Variables nécessaires pour le calcul
         );
 
         // Appel de la méthode modifier() pour effectuer les calculs
         let resultatModif = caractModif.modifier();
-        console.log(race)
         let sortsPossibles = new SortsPossibles(mag0, mag1, mag2, mag3, mag4, mag5, profession, religion, clan, resultatModif.cout, race);
         // Appel de la méthode getListeSorts() pour obtenir la liste des sorts possibles
         let listeSort =await sortsPossibles.getListeSorts()
@@ -1512,6 +1508,13 @@ export class LiberActorSheet extends ActorSheet {
         if(faiblesse=="f4"){
             enc=parseInt(enc)-10
         }
+        if(race='r16'){
+            psy= parseInt(psy)+parseInt(hpmax);
+            hpmax=0;
+            psyvalue=parseInt(psyvalue)+parseInt(resultatModif.hp);
+            resultatModif.hp=0; 
+        }
+
 
         //activer les effets
         const effets = this.actor.effects.filter(item => item.name !== '').map(item => item.name);

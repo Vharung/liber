@@ -1,6 +1,6 @@
 import {names, items0, items1, items2, items3, items4, metiers, races, clans, demeure, proximite, lieu, famille,titre,rang, organisation, intret, pertes, expece, valeur, prof, loisir, caracterelist, personnalitelist, visionlist, objectiflist, ouinon, tarelist} from "./const.js";
  export class CaracteristiqueModifier {
-  constructor(valeursCpts, breed, newperso, ment, soci, phys, level, compt, faible, clan, listsort, hpmax, psyvalue, hp, psy, type, insoin) {
+  constructor(valeursCpts, breed, newperso, ment, soci, phys, level, compt, faible, clan, listsort, hpmax, psyvalue, hp, psy, type, insoin,race) {
     this.valeursCpts = valeursCpts; // Tableau des caractéristiques initiales
     this.breed = breed; // Informations sur la race, qui doit avoir la méthode `hasOwnProperty`
     this.newperso = newperso; // Nouveau personnage qui peut générer des informations de clan
@@ -18,6 +18,7 @@ import {names, items0, items1, items2, items3, items4, metiers, races, clans, de
     this.psy = psy;
     this.type = type;
     this.insoin = insoin;
+    this.race = race;
   }
 
   modifier() {
@@ -38,7 +39,7 @@ import {names, items0, items1, items2, items3, items4, metiers, races, clans, de
     if (this.faible === "f14") {//bug potentielle
         PVmin -= 5;
     }
-    const PSYmin = b_psy;
+    let PSYmin = b_psy;
     let cout = 0;
     if (this.clan === "c18") {
         cout = parseInt(this.level); // corbeau
@@ -74,6 +75,12 @@ import {names, items0, items1, items2, items3, items4, metiers, races, clans, de
     }
     if (psy < PSYmin && this.type === game.i18n.localize("TYPES.Actor.personnage") && psy !== 0 && this.clan !== game.i18n.localize("liber.avantrace56")) {
         psy = PSYmin;
+    }
+    if(this.race='r16'){
+        PSYmin=parseInt(PVmin) + parseInt(PSYmin)
+        PVmin==0;
+        psy=parseInt(hpmax) + parseInt(psy);
+        hpmax=0;
     }
 
 
