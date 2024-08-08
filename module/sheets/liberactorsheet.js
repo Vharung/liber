@@ -1476,6 +1476,7 @@ export class LiberActorSheet extends ActorSheet {
         }
         let royal=newperso.characterClan(clan);
         resultat=resultat+royal[2]+breed[3];
+        console.log(hpmax)
         let caractModif = new CaracteristiqueModifier(
             valeursCpts, // Tableau des caractéristiques initiales
             breed, // Informations sur la race
@@ -1508,7 +1509,7 @@ export class LiberActorSheet extends ActorSheet {
         if(faiblesse=="f4"){
             enc=parseInt(enc)-10
         }
-        if(race='r16'){
+        if(race=='r16'){
             psy= parseInt(psy)+parseInt(hpmax);
             hpmax=0;
             psyvalue=parseInt(psyvalue)+parseInt(resultatModif.hp);

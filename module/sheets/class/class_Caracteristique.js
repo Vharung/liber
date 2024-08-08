@@ -76,14 +76,16 @@ import {names, items0, items1, items2, items3, items4, metiers, races, clans, de
     if (psy < PSYmin && this.type === game.i18n.localize("TYPES.Actor.personnage") && psy !== 0 && this.clan !== game.i18n.localize("liber.avantrace56")) {
         psy = PSYmin;
     }
-    if(this.race='r16'){
+    console.log(hpmax)
+    console.log(this.race)
+
+    if(this.race=='r16'){
         PSYmin=parseInt(PVmin) + parseInt(PSYmin)
         PVmin==0;
         psy=parseInt(hpmax) + parseInt(psy);
         hpmax=0;
     }
-
-
+    console.log(hpmax)
     const pointxp = (parseInt(this.level) - 1) * 3;
     const xp = parseInt(pointxp) + parseInt(PVmin) + parseInt(PSYmin);
     const calcultotxp = parseInt(hpmax) + parseInt(psy);
