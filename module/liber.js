@@ -9,7 +9,7 @@ import { Macros } from "./sheets/libermacro.js";
 
 //const myInstance = new MyClass();
 Hooks.once("init", async function() {
-     
+    console.log(liber.ASCII)
     CONFIG.liber = liber;
     CONFIG.Actor.documentClass = LiberActor;
     CONFIG.Item.documentClass = LiberItem;
