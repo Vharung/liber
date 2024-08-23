@@ -73,7 +73,7 @@ import {names, items0, items1, items2, items3, items4, metiers, races, clans, de
     if (hpmax < PVmin && this.type === game.i18n.localize("TYPES.Actor.personnage") && hpmax !== 0) {
         hpmax = PVmin;
     }
-    if (psy < PSYmin && this.type === game.i18n.localize("TYPES.Actor.personnage") && psy !== 0 && this.clan !== game.i18n.localize("liber.avantrace56")) {
+    if (psy < PSYmin && this.type === game.i18n.localize("TYPES.Actor.personnage") && psy !== 0 && this.clan !== "c18") {
         psy = PSYmin;
     }
     console.log(hpmax)
@@ -88,7 +88,8 @@ import {names, items0, items1, items2, items3, items4, metiers, races, clans, de
     console.log(hpmax)
     const pointxp = (parseInt(this.level) - 1) * 3;
     const xp = parseInt(pointxp) + parseInt(PVmin) + parseInt(PSYmin);
-    const calcultotxp = parseInt(hpmax) + parseInt(psy);
+    const calcultotxp = parseInt(hpmax) + parseInt(psy);console.log(psy)
+    console.log(calcultotxp+">"+xp)
     if (calcultotxp > xp && this.type === game.i18n.localize("TYPES.Actor.personnage")) {
         apsy = 'background:red';
         apsymax = 'background:red';

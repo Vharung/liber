@@ -14,7 +14,10 @@ body{background:url(fond.jpg) no-repeat top center; }
 .Liber .clear{clear: both;}
 #logo {display: none;}
 #ui-left{background: url(../assets/icon/logo.png)no-repeat 20px 20px;padding-top: 81px;background-size: 103px;}
-
+.ambient-light-config {background: var(--couleur-noir)}
+.standard-form .form-group > label,.ambient-light-config,.standard-form .form-group:hover .hint {color:var(--couleur-clair2)}
+.standard-form .form-group:hover > label,form .form-group span.units,.standard-form .hint,form .form-group.slim .form-fields > label {color:var(--couleur-clair)}
+.journal-entry .journal-header .title,.application button{background:var(--couleur-or);color:var(--couleur-noir)}
 
 /*outil*/
 .chat-message{color: #fff;border: none;margin-bottom: 15px;background: var(--couleur-noir);color:#fff;}
@@ -32,7 +35,7 @@ body{background:url(fond.jpg) no-repeat top center; }
 .filepicker .display-modes a.active{border:none;background: var(--couleur-or);color: var(--couleur-noir);}
 #keybindings .binding .key.uneditable {background: var(--couleur-noir)}
 
-input[type="text"], input[type="number"], input[type="password"], input[type="date"], input[type="time"], input[type="search"], select{background:var(--couleur-clair);color:var(--couleur-noir);border:none}
+.application select,.application input[type="number"],.journal-sheet .journal-header input[type="text"],input[type="text"], input[type="number"], input[type="password"], input[type="date"], input[type="time"], input[type="search"], select{background:var(--couleur-clair);color:var(--couleur-noir);border:none}
 .directory .directory-header .header-search input{background: var(--couleur-clair);}
 .dialog .dialog-buttons button.default {background: var(--couleur-or);color:var(--couleur-noir);border: none}
 .dialog .dialog-buttons button,.filepicker .favorites .paths{background: var(--couleur-clair);color:var(--couleur-noir);border: none}
@@ -68,7 +71,7 @@ footer.nue {color: #c9c7b8;}
 .item-piles-even-color:nth-child(even){background: rgb(32 24 13)}
 ::-webkit-scrollbar {width: 0px !important;height: 0px;}
 a.content-link, a.inline-roll {background: none}
-.prosemirror menu .pm-dropdown{background: #20180d; }
+.prosemirror menu button{background:var(--couleur-clair); }
 
 .token{border-radius: 50%}
 
