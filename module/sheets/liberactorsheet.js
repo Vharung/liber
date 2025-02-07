@@ -1042,7 +1042,7 @@ export class LiberActorSheet extends ActorSheet {
         if (psy > psymax) {psy = psymax;}
         if (fatigue < 0) {fatigue = 0;}
 
-        if (hpmax === hp && insoin > 0) {
+        if (hp >= hpmax && insoin > 0) {
           hp = parseInt(hpmax) - parseInt(insoin);
           hpadd = parseInt(hpadd) - parseInt(insoin);
         }
