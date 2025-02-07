@@ -105,9 +105,13 @@ import {names, items0, items1, items2, items3, items4, metiers, races, clans, de
 
     // Insoignable
     const insoin = this.insoin;
-    const hpinsoin=parseInt(hpmax) + parseInt(insoin)
+    /*const hpinsoin=parseInt(hpmax) + parseInt(insoin)
     if (hpmax < hpinsoin) {
         hp = parseInt(hpmax) - parseInt(insoin);
+    }*/
+    if (hp >= hpmax && insoin > 0) {
+      hp = parseInt(hpmax) - parseInt(insoin);
+      hpadd = parseInt(hpadd) - parseInt(insoin);
     }
 
 

@@ -1044,6 +1044,7 @@ export class LiberActorSheet extends ActorSheet {
 
         if (hp >= hpmax && insoin > 0) {
           hp = parseInt(hpmax) - parseInt(insoin);
+          console.log(hp+'='+hpmax+'-'+insoin)
           hpadd = parseInt(hpadd) - parseInt(insoin);
         }
         this.actor.update({ "system.insoin": insoin, "system.hp.value": hp, "system.psy.value": psy, "system.fatigue": fatigue });
