@@ -5,8 +5,7 @@
     "version": "3.1",
     "compatibility": {
       "minimum": "12",
-      "verified": "12.327",
-      "maximum": "12.999"
+      "verified": "12.327"
     },
     "url": "https://github.com/Vharung/liber",
     "manifest": "https://raw.githubusercontent.com/Vharung/liber/main/system.json",
@@ -88,6 +87,47 @@
           "system": "liber",
           "visibility": "trusted"
         }
+    ],
+    "packFolders": [
+      {
+        "name": "Liber",
+        "sorting": "m",
+        "color": "#c99e4c",
+        "packs": [
+        ],
+        "folders": [
+            {
+                "name": "Acteur",
+                "sorting": "m",
+                "color": "#c7a25b",
+                "packs": [
+                    "pnj",
+                    "monstre"
+                ]
+            },
+            {
+                "name": "Objets & Sorts",
+                "sorting": "m",
+                "color": "#c7a76b ",
+                "packs": [
+                    "objet",
+                    "arme",
+                    "armure",
+                    "magie"
+                ]
+            },
+            {
+                "name": "Ressource",
+                "sorting": "m",
+                "color": "#c7ad7c",
+                "packs": [
+                    "villes",
+                    "regles",
+                    "aide"
+                ]
+            }
+        ]
+      }
     ],
     "languages": [
       {
