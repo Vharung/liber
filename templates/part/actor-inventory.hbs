@@ -1,0 +1,111 @@
+{{!-- Items Tab --}}
+<div id="items" class="tab items" data-group="primary" data-tab="items">
+	<div class="zoneinfo">
+		<nav class="sheet-tabs tabs">
+	        <a class="item-filter tous acti" data-tab="tous"></a>
+	        <a class="item-filter armes" data-tab="armes"></a>
+	        <a class="item-filter armures" data-tab="armures"></a>
+	        <a class="item-filter objets" data-tab="objets"></a>
+	    </nav> 
+	    <input class="secondary" type="text" name="system.secondary" value="{{actor.system.secondary}}" style="display: none;">
+		<a class="item-random" data-type="arme">Arme au hazard</a>
+		<a class="item-random" data-type="armure">Armure au hazard</a>
+		<a class="item-random" data-type="objet">Objet au hazard</a>
+
+			
+	    	<ul class="items-list">
+	    		{{#each actor.arme as |item id|}}		    		
+		    		<li class="item fexrow armes active draggable" data-item-id="{{item._id}}">
+	                    <div class="item-image"><div class="item-qty">{{item.system.quantite}}</div><img src="{{item.img}}" title="{{item.system.description}}"/></div> <div class="item-name" title="{{item.name}}">{{item.name}}</div>
+	                    <div class="zonecontrole">
+	                    	<div class="item-description item-info" data-item-id="{{item._id}}" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.valeur}}" data-type="{{item.type}}" data-img="{{item.img}}" title="{{item.system.description}}"><span>{{item.system.description}}</span></div>
+		                    <div class="item-controls">
+		                    	<span class="maingauche" title="main gauche" data-equip="gauche" data-name="{{item.name}}" data-degat="{{item.system.degats}}" data-img="{{item.img}}" data-des="{{item.system.description}}" data-type="{{item.type}}" name="{{item.name}}" ></span><span class="maindroite" title="main droite" data-equip="droite" data-name="{{item.name}}" data-degat="{{item.system.degats}}" data-img="{{item.img}}" data-des="{{item.system.description}}" data-type="{{item.type}}"  name="{{item.name}}" ></span>	
+		                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+		                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+		                    </div>
+		                </div>
+	                    <div class="item-type" title="{{item.type}}" style="display: none;">{{item.type}}</div>
+	                    <div class="item-portee" style="display: none;"></div>
+	                    <div class="item-dommage" style="display: none;"></div>
+	                    <div class="item-poids"  style="display: none;">{{item.system.poids}}</div>
+	                    <div class="item-valeur"  style="display: none;">{{item.system.valeur}}</div>				                     
+	                </li>
+	            {{/each}}
+	            {{#each actor.armure as |item id|}}
+            		<li class="item fexrow armures active draggable" data-item-id="{{item._id}}">
+	                    <div class="item-image"><div class="item-qty">{{item.system.quantite}}</div><img src="{{item.img}}" title="{{item.system.description}}"/></div> <div class="item-name" title="{{item.name}}">{{item.name}}</div>
+	                    <div class="zonecontrole">
+	                    	<div class="item-description item-info" data-item-id="{{item._id}}" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.valeur}}" data-type="{{item.type}}" data-img="{{item.img}}" title="{{item.system.description}}"><span>{{item.system.description}}</span></div>
+		                    <div class="item-controls">
+		                    	<span class="armor" title="Armure" name="{{item.name}}" data-equip="armure"  data-name="{{item.name}}"  data-img="{{item.img}}"  data-des="{{item.system.description}}"></span>
+		                    	
+		                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+		                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+		                    </div>
+		                </div>
+	                    <div class="item-type" title="{{item.type}}" style="display: none;">{{item.type}}</div>
+	                    <div class="item-portee" style="display: none;"></div>
+	                    <div class="item-dommage" style="display: none;"></div>
+	                    <div class="item-poids"  style="display: none;">{{item.system.poids}}</div>
+	                    <div class="item-valeur"  style="display: none;">{{item.system.valeur}}</div>				                     
+	                </li>
+	            {{/each}}
+	            {{#each actor.inventaire as |item id|}}
+            		<li class="item fexrow objets active draggable" data-item-id="{{item._id}}">
+	                    <div class="item-image"><div class="item-qty">{{item.system.quantite}}</div><img src="{{item.img}}" title="{{item.system.description}}"/></div> <div class="item-name" title="{{item.name}}">{{item.name}}</div>
+	                    <div class="zonecontrole">
+	                    	<div class="item-description item-info" data-item-id="{{item._id}}" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-cout="{{item.system.valeur}}" data-type="{{item.type}}" data-img="{{item.img}}" title="{{item.system.description}}"><span>{{item.system.description}}</span></div>
+		                    <div class="item-controls">				                    	
+		                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+		                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+		                    </div>
+		                </div>
+	                    <div class="item-type" title="{{item.type}}" style="display: none;">{{item.type}}</div>
+	                    <div class="item-portee" style="display: none;"></div>
+	                    <div class="item-dommage" style="display: none;"></div>
+	                    <div class="item-poids"  style="display: none;">{{item.system.poids}}</div>
+	                    <div class="item-valeur"  style="display: none;">{{item.system.valeur}}</div>				                     
+	                </li>
+            	{{/each}}
+    		</ul>
+    		<ul class="ecu">
+			{{#each actor.argent as |item id|}}
+                <li class="item fexrow" data-item-id="{{item._id}}">
+                    <div class="item-poids" style="display:none">{{item.system.poids}}</div>
+                    
+                    <div class="item-controls" >
+                    	<div class="item-qty item-edit" title="{{item.system.quantite}} écu">{{item.system.quantite}}</div>
+                    	<a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
+            
+            {{/each}}
+            </ul>
+			<div class="unemain">
+				<a class="attaque" data-name="attaque" data-img="{{actor.system.armeuse.imgg}}" data-desc="{{actor.system.armeuse.desg}}" data-type="auto" title="Attaquer avec {{actor.system.armeuse.armeg}}">⚔</a>
+				<div class="degatg jetdedegat" name="system.armeuse.degatg" data-name="{{actor.system.armeuse.armeg}}" data-dice="{{actor.system.armeuse.degatg}}" data-img="{{actor.system.armeuse.imgg}}" data-desc="{{actor.system.armeuse.desg}}" data-type="jetdedegat" title="{{actor.system.armeuse.desg}}" style="background: url({{actor.system.armeuse.imgg}});background-size: contain;">	<span>{{actor.system.armeuse.armeg}} <br> {{actor.system.armeuse.degatg}}</span>   
+				</div>	
+				<a class="desequi maingdes" data-equip="dgauche">🗑</a>				                     
+			</div>
+			<div class="arm">
+				<div class="armurequi" title="{{actor.system.armeuse.desa}}" style="background: url({{actor.system.armeuse.imga}});background-size: contain;">	<span>{{actor.system.armeuse.armure}}</span>   
+				</div>	
+				<a class="desequi armordes" data-equip="darmure">🗑</a>				                     
+			</div>
+			<div class="deuxmains">
+				<a class="attaque" data-name="attaques" data-img="{{actor.system.armeuse.imgd}}" data-desc="{{actor.system.armeuse.desd}}" data-type="auto" title="Attaquer avec {{actor.system.armeuse.armed}}">⚔</a>
+				<div class="degatd jetdedegat" name="system.armeuse.degatd"data-name="{{actor.system.armeuse.armed}}" data-dice="{{actor.system.armeuse.degatd}}" data-img="{{actor.system.armeuse.imgd}}" data-desc="{{actor.system.armeuse.desd}}" title="{{actor.system.armeuse.desd}}" data-type="jetdedegat" style="background: url({{actor.system.armeuse.imgd}});background-size: contain;">	<span>{{actor.system.armeuse.armed}} <br> {{actor.system.armeuse.degatd}}</span>   
+				</div>	
+				<a class="desequi mainddes" data-equip="ddroite">🗑</a>				                     
+			</div>
+	</div>
+	<div class="peser">
+		<input class="encours" name="system.encombrement.value" type="text" value="{{actor.system.encombrement.value}}" placeholder="0" readonly=""> / 
+		<input class="enc" name="system.encombrement.max" type="text" value="{{actor.system.encombrement.max}}" placeholder="0" readonly=""> {{localize 'liber.kg'}}
+		<div class="encom">
+			<div class="barenc"></div>
+		</div>
+	</div>
+</div>

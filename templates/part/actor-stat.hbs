@@ -1,0 +1,26 @@
+<h2>{{localize 'liber.stat'}}
+<SELECT class="enphaseliste"  name="system.emphase">
+	{{selectOptions listValues.emphase selected=actor.system.emphase labelAttr="label" localize=true blank="liber.none"}}
+</select></h2>
+
+<div class="colstat">
+	{{#each actor.system.ability as |value ability|}}
+		<label class="{{ability}} jetdedes ability" data-type="jetdedes" data-name="{{ability}}"  data-item-id="{{@index}}" data-dice="1d" data-attDice="{{value}}">{{localize ability}}</label>
+		<input class="{{ability}}Value" name="system.ability.{{ability}}" type="text" value="{{value}}" placeholder="{{value}}"/>
+	{{/each}}
+</div>	
+
+<div class="colcomp">
+	<div class="grid-3col">
+		<h2 class="center">{{localize 'liber.mj'}}</h2>
+		<input class="malussactor" name="system.malus" type="text" value="{{actor.system.malus}}" placeholder="0"/>
+		<a class="resetmalus"  data-name="malus">🗑</a>
+	</div>
+	<div class="grid-3col">
+		<h2 class="center">{{localize 'liber.compt'}}</h2>
+		<input class="bonusactor" name="system.bonus" type="text" value="{{actor.system.bonus}}" placeholder="0" readonly="" />
+		<a class="resetbonus" data-name="bonus">🗑</a>
+	</div>
+	<div class="clear"></div>
+	<span class="competences" style="background:url({{actor.system.geo}});background-size: contain;"></span>
+</div>

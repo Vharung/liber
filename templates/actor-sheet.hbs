@@ -1,0 +1,158 @@
+<form class="{{cssClass}} Liber flexcol" autocomplete="off">
+	{{> "systems/liber/templates/part/actor-header.hbs" }}
+
+
+
+	<div class="zone">
+		<h2>{{localize 'liber.bonu'}}</h2>
+		<div class="head">	
+			<input class="avantagerace" name="system.bonusrace" type="text" title="{{actor.system.bonusrace}}" value="{{actor.system.bonusrace}}" placeholder="{{localize 'liber.bonus'}}"/> - <input class="talent" type="text" value="{{listValues.traduct.talent}}" placeholder="{{localize 'liber.talent'}}" readonly="" /> - <input class="faiblesse" type="text" value="{{listValues.traduct.faiblesse}}" placeholder="{{localize 'liber.faiblesse'}}" readonly="" />
+ 		</div>
+		<div class="col-gauche">
+			<div class="zoneavatar">
+				{{> "systems/liber/templates/part/actor-main.hbs" }}
+				{{> "systems/liber/templates/part/actor-armor.hbs" }}				
+			</div>
+			{{> "systems/liber/templates/part/actor-stat.hbs" }}	
+		</div>
+		<div class="col-droite">
+			{{!-- Sheet Body --}}
+			<section class="sheet-body">
+				{{!-- Background Tab --}}
+				<div id="background" class="tab background" data-group="primary" data-tab="background">
+					<div class="zoneinfo">			
+						<h2>{{localize 'liber.histoire'}}</h2>
+						<input class="met" type="text" title="{{listValues.traduct.metier}}" value="{{listValues.traduct.metier}}"  placeholder="{{localize 'liber.metier'}}" readonly=""> - <input class="religion" type="text" title="{{listValues.traduct.religion}}" value="{{listValues.traduct.religion}}" placeholder="{{localize 'liber.religion'}} " readonly="" /> 
+						<textarea class="histoire" name="system.histoire">{{actor.system.histoire}}</textarea>
+						<h2>{{localize 'liber.moral'}} 
+                        <SELECT class="moralliste"  name="system.moral">
+							{{selectOptions listValues.moral selected=actor.system.moral labelAttr="label" localize=true blank="liber.none"}}
+	                    </select></h2>
+						<h2>{{localize 'liber.repos'}}</h2>
+						<input class="heure" name="system.heure" type="text" value="{{actor.system.heure}}" placeholder="0"/>
+						<SELECT class="jourliste"  name="system.jour">
+							{{selectOptions listValues.temps selected=actor.system.jour labelAttr="label" localize=true blank="liber.none"}}
+			            </select>
+			            <SELECT class="typerepos"  name="system.repos">
+			            	{{selectOptions listValues.dure selected=actor.system.repos labelAttr="label" localize=true blank="liber.none"}}
+			            </select>
+			            <a class="bouton reposer" style=" margin-top: 0;height: 25px;padding: 5px;text-align: center;">{{localize 'liber.reposer'}}</a>
+					</div>
+				</div>
+
+				{{!-- Carac Tab --}}
+				<div id="carac" class="tab carac" data-group="primary" data-tab="carac">
+					<div class="zoneinfo">
+						{{#each actor.system.caractere as |value caract|}}
+							<div class="perso">
+								<span title="{{localize caract}}">{{localize caract}}</span><input class="{{caract}}" name="system.caractere.{{caract}}" type="text" value="{{value}}" title="system.caractere.{{caract}}"/>
+							</div>
+						{{/each}}
+					</div>
+					
+				</div>
+				{{!-- Features Tab --}}
+				<div id="features" class="tab features"  data-group="primary" data-tab="features">
+					<div class="zoneinfo">
+						{{#each actor.system.caracteristique as |value caract|}}
+							<div class="compt">
+							  <a class="attribut" data-val="{{value}}" title="{{caract}}">{{localize caract}}</a>
+							  <input class="cpt{{@index}}" type="text" name="system.caracteristique.{{caract}}" value="{{value}}">
+							</div>
+						{{/each}}
+					</div>
+					<div class="zonepoint">
+						{{localize 'liber.restant'}}*
+						<input class="restant" type="text" value="{{actor.system.restant}}" readonly>
+						<span>*{{localize 'liber.hors'}}</span>
+					</div>
+				</div>
+				{{> "systems/liber/templates/part/actor-inventory.hbs" }}
+
+
+				{{!-- Pouvoirs Tab --}}
+				<div id="spells" class="tab spells" data-group="primary" data-tab="spells">
+					<div class="zoneinfo">
+						<select class="magieslistes" name="system.magie">
+							{{selectOptions listValues.magie.liste selected=actor.system.magie labelAttr="name" localize=true blank="liber.none"}}
+			            </select>
+				        <a class="bouton addsort">{{localize 'liber.addsort'}}</a>
+						{{> "systems/liber/templates/part/actor-magic.hbs" }}
+				        <div class="bottommagie">
+					        <img src="systems/liber/assets/magie/{{actor.system.listemag.img1}}-0.jpg" title="{{actor.system.listemag.img1}}"/>
+		    				<img src="systems/liber/assets/magie/{{actor.system.listemag.img2}}-0.jpg" title="{{actor.system.listemag.img2}}"/>
+		    				<p>*{{localize 'liber.plus'}}</p>
+		    			</div>
+				    </div>
+				    <div class="zonemagie">
+						<input class="coutmax" style="{{actor.system.alert.coutmax}}" type="text" value="{{actor.system.coutmax}}" title="{{localize 'liber.maxcost'}}" readonly>
+						<input class="maxsort" style="{{actor.system.alert.maxsort}}" type="text" value="{{actor.system.maxsort}}" title="{{localize 'liber.nb'}}*" readonly>
+	    				
+						
+					</div>
+				</div>
+				{{!-- Lab Tab --}}
+				<div id="lab" class="tab stats" data-group="primary" data-tab="lab">
+					<div class="zoneinfo">
+				    	<h2>{{localize 'liber.sex'}}</h2>
+						<SELECT class="sexliste" name="system.sexe">
+							{{selectOptions listValues.sex selected=actor.system.sexe labelAttr="label" localize=true blank="liber.none"}}
+			            </select>
+				    	<h2>{{localize 'liber.race'}}</h2>
+						<SELECT class="raceliste" name="system.race">
+							{{selectOptions listValues.race selected=actor.system.race labelAttr="label" localize=true blank="liber.none"}}
+		                </select>
+				   
+						<h2>{{localize 'liber.talent'}}</h2>
+						<SELECT class="talentliste"  name="system.talent">
+							{{selectOptions listValues.talent selected=actor.system.talent labelAttr="label" localize=true blank="liber.none"}}
+                        </select>   
+                        <h2>{{localize 'liber.faiblesse'}}</h2>
+                        <SELECT class="faiblesseliste"  name="system.faiblesse">
+							{{selectOptions listValues.faiblesse selected=actor.system.faiblesse labelAttr="label" localize=true blank="liber.none"}}
+	                    </select>
+			    		<h2 class="clanh2">{{localize 'liber.clan'}}</h2>
+						<SELECT class="clanliste"  name="system.clan">
+							{{selectOptions listValues.clan selected=actor.system.clan labelAttr="label" localize=true blank="liber.none"}}
+		                </select>
+						<h2 class="religionh2">Religion</h2>
+							<SELECT class="religionliste" name="system.religion">
+							{{selectOptions listValues.religion selected=actor.system.religion labelAttr="label" class="class" localize=true blank="liber.none"}}
+		                </select>
+						<h2>{{localize 'liber.metier'}}</h2>
+						<SELECT name="system.metier" class="metier">
+							{{selectOptions listValues.metier selected=actor.system.metier labelAttr="label" localize=true blank="liber.none"}}
+		                </select>
+		                <input type="button" value="{{localize 'liber.generer'}}" class="bouton ficheperso">		            
+					</div>
+					<div class="zonepoint">
+						{{localize 'liber.restant'}}
+						<input class="pointrestant" type="text" value="{{actor.system.reste}}" readonly/>
+					</div>
+				</div>
+
+
+		
+			</section>
+			<div class="grid-2col" style="text-align: center;color:#fff">
+				<h2>Action</h2>
+				<img src="systems/liber/assets/icon/arme_a_deux_mains.jpg" title="Utiliser une armes à deux mains" class="action"/>
+				<img src="systems/liber/assets/icon/discours.jpg" title="Faire un discours" class="action"/>
+				<img src="systems/liber/assets/icon/sort.jpg" title="Lancer un sort" class="action"/>
+				<img src="systems/liber/assets/icon/tir.jpg" title="Tirer à l'arc ou l'arbalète" class="action"/>
+				<img src="systems/liber/assets/icon/courrir.jpg" title="Courrir" class="action"/>
+			</div>
+			<div class="grid-2col der" style="text-align: center;color:#fff">
+				<h2>Demi-Action</h2>
+				<img src="systems/liber/assets/icon/aide.jpg" title="aider quelqu'un à se lever" class="action"/>
+				<img src="systems/liber/assets/icon/arme_une_main.jpg" title="utiliser une arme à une main" class="action"/>
+				<img src="systems/liber/assets/icon/boire_une_potion.jpg" title="boire une potion" class="action"/>
+				<img src="systems/liber/assets/icon/parler.jpg" title="parler" class="action"/>
+				<img src="systems/liber/assets/icon/prendre.jpg" title="Prendre une objet" class="action"/>
+				<img src="systems/liber/assets/icon/se_deplacer.jpg" title="Se deplacer" class="action"/>
+				<img src="systems/liber/assets/icon/se_lever.jpg"  title="Se lever" class="action"/>
+			</div>
+		</div>
+	</div>
+</form>
+	

@@ -9,12 +9,9 @@ import {range} from "./class/list.js";
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
  */
-
-
 export class LiberActorSheet extends ActorSheet {
-    /** 
-     
-@override*/
+
+    /** @override*/
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
           classes: ["Liber", "sheet", "actor"],
@@ -27,9 +24,9 @@ export class LiberActorSheet extends ActorSheet {
 
     get template() {
         if(this.actor.type==game.i18n.localize("TYPES.Actor.pnj") || this.actor.type==game.i18n.localize("TYPES.Actor.personnage")){
-            return `systems/liber/templates/sheets/personnage-sheet.hbs`;
+            return `systems/liber/templates/actor-sheet.hbs`;
         }else {
-            return `systems/liber/templates/sheets/monstre-sheet.hbs`;
+            return `systems/liber/templates/monstre-sheet.hbs`;
         }
     }
     async getData(options) {
@@ -633,6 +630,7 @@ export class LiberActorSheet extends ActorSheet {
             }
         });
     }
+
     getItemFromEvent = (ev) => {
         const parent = $(ev.currentTarget).parents(".item");
         //return this.actor.getOwnedItem(parent.data("itemId"));
@@ -1753,3 +1751,5 @@ export class LiberActorSheet extends ActorSheet {
         event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
       }
 }
+
+export default LiberActorSheet;

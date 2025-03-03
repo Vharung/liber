@@ -1,0 +1,49 @@
+<form class="{{cssClass}} Liber flexcol monster" autocomplete="off" style="overflow: auto;">
+	{{> "systems/liber/templates/part/monster-header.hbs" }}
+	
+	<div class="zone">
+		<h2>{{localize 'liber.bonu'}}</h2>
+		<div class="head monstres">	
+			{{> "systems/liber/templates/part/actor-info.hbs" }}
+		</div>
+		<div class="col-gauche">
+			<div class="zoneavatar">
+				{{> "systems/liber/templates/part/actor-main.hbs" }}
+				<a class="levelup" title="Level up">⇪</a>
+				{{> "systems/liber/templates/part/actor-armor.hbs" }}
+			</div>
+			{{> "systems/liber/templates/part/actor-stat.hbs" }}
+		</div>
+		<div class="col-droite">
+			{{!-- Sheet Body --}}
+			<section class="sheet-body">
+				{{!-- Background Tab --}}
+				<div id="background" class="tab background" data-group="primary" data-tab="background">
+					<div class="zoneinfo">			
+						<h2>{{localize 'liber.histoire'}}</h2>
+						<textarea class="histoire" name="system.histoire">{{actor.system.histoire}}</textarea>
+						<input name="system.geo" type="text" value="{{actor.system.geo}}" placeholder="systems/liber/assets/monstre/map0.png"/>
+						<h2>{{localize 'liber.repos'}}</h2>
+						<input class="heure" name="system.heure" type="text" value="{{actor.system.heure}}" placeholder="0"/>
+						<SELECT class="jourliste"  name="system.jour">
+							{{selectOptions listValues.temps selected=actor.system.jour labelAttr="label" localize=true blank="liber.none"}}
+			            </select>
+			            <SELECT class="typerepos"  name="system.repos">
+			            	{{selectOptions listValues.dure selected=actor.system.repos labelAttr="label" localize=true blank="liber.none"}}
+			            </select>
+			            <a class="bouton reposer" style=" margin-top: 0;height: 25px;padding: 5px;text-align: center;">{{localize 'liber.reposer'}}</a>
+					</div>
+				</div>
+				{{> "systems/liber/templates/part/actor-inventory.hbs" }}
+				{{!-- Pouvoirs Tab --}}
+				<div id="spells" class="tab spells" data-group="primary" data-tab="spells">
+					<div class="zoneinfo">
+						{{> "systems/liber/templates/part/actor-magic.hbs" }}
+				    </div>
+				</div>
+				
+
+			</section>
+		</div>
+	</div>
+</form>

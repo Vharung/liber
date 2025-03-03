@@ -1,0 +1,20 @@
+<ul class="items-list">
+	{{#each actor.magic as |item id|}}
+		<li class="item fexrow armes active draggable" data-item-id="{{item._id}}">
+            <div class="item-image"><div class="item-cout">{{item.system.cout}}</div><img src="{{item.img}}" title="{{item.system.description}}"/></div> <div class="item-name" title="{{item.name}}">{{item.name}}</div>
+            <div class="zonecontrole">
+            	<div class="item-description item-info" data-item-id="{{item._id}}" data-name="{{item.name}}" data-desc="{{item.system.description}} - {{item.system.cible}} {{item.system.duree}}" data-cout="{{item.system.cout}}" data-type="{{item.type}}" data-img="{{item.img}}" title="{{item.system.description}} - {{item.system.cible}} - {{item.system.duree}} - {{item.system.cout}}"><span >{{item.system.description}}</span></div>
+                <div class="item-controls">
+                	<a class="item-control item-lancer" title="Lancer Sort"><i class="fa-solid fa-dice-d20" data-name="{{item.name}}" data-desc="{{item.system.description}}" data-class="{{item.system.classe}}" data-cout="{{item.system.cout}}" data-img="{{item.img}}" data-dice="{{item.system.degats}}" data-item-id="{{_id}}"></i></a>
+                    <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                    <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                </div>
+            </div>
+            <div class="item-type" title="{{item.type}}" style="display: none;">{{item.classe}}</div>
+            <div class="item-portee" style="display: none;"></div>
+            <div class="item-dommage" style="display: none;"></div>
+            <div class="item-cible"  style="display: none;">{{item.system.cible}}</div>
+            <div class="item-valeur"  style="display: none;">{{item.system.duree}}</div>				                     
+        </li>
+	{{/each}}
+</ul>

@@ -21,11 +21,25 @@ Hooks.once("init", async function() {
     };
 
 
+    await loadTemplates([
+        "systems/liber/templates/part/actor-header.hbs",
+        "systems/liber/templates/part/monster-header.hbs",
+        "systems/liber/templates/part/actor-info.hbs",
+        "systems/liber/templates/part/actor-main.hbs",
+        "systems/liber/templates/part/actor-armor.hbs",
+        "systems/liber/templates/part/actor-stat.hbs",
+        "systems/liber/templates/part/actor-inventory.hbs",
+        "systems/liber/templates/part/actor-magic.hbs",
+        "systems/liber/templates/actor-sheet.hbs"
+    ]);
+
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("liber", LiberItemSheet, { makeDefault: true });
 
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("liber", LiberActorSheet, { makeDefault: true });
+
+
 
 });
 
