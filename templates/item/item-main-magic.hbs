@@ -1,0 +1,26 @@
+<div>
+    <div class="magie_item">
+        <div class="col">
+        	<label>{{localize 'Liber.Items.Porter'}}
+                {{formInput systemFields.porter name="system.porter" value=system.porter localize=true rootId=partId}}
+            </label>
+            <label>{{localize 'Liber.Items.Degat'}}
+                {{formInput systemFields.degat name="system.degat" value=system.degat localize=true rootId=partId}}
+            </label>
+            <label>{{localize 'Liber.Items.Class'}}
+                {{formField systemFields.school name="system.school" value=system.school localize=true rootId=partId type="select"}}
+            </label>
+        </div>
+        <div  class="col">
+            <label>{{localize 'Liber.Items.Rayon'}}
+                {{formInput systemFields.rayon name="system.rayon" value=system.rayon localize=true rootId=partId}}
+            </label>
+        	<label>{{localize 'Liber.Items.Cible'}}
+                {{formInput systemFields.cible name="system.cible" value=system.cible localize=true rootId=partId}}
+            </label>
+            <label>{{localize 'Liber.Items.Duree'}}
+                {{formInput systemFields.duree name="system.duree" value=system.duree localize=true rootId=partId}}
+            </label>
+        </div>
+    </div>
+</div>

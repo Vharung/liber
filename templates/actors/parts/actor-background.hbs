@@ -1,0 +1,23 @@
+<div class="zoneinfo">      
+    <h2>{{localize 'Liber.Character.Story'}}</h2>
+    <input class="met" type="text" title="{{listValues.traduct.metier}}" value="{{listValues.traduct.metier}}"  placeholder="{{localize 'Liber.Character.Job'}}" readonly=""> - <input class="religion" type="text" title="{{listValues.traduct.religion}}" value="{{listValues.traduct.religion}}" placeholder="{{localize 'Liber.Character.Religion'}} " readonly="" />
+    {{formInput
+      systemFields.biography
+      enriched=enrichedBiography
+      value=system.biography
+      documentUUID=actor.uuid
+      name="system.biography"
+      collaborate="true"
+      toggled="true"
+    }} 
+    <h2 class="borders"><span>{{localize 'Liber.Character.Moral.Titre'}}</span>{{formField systemFields.moral value=system.moral localize=true rootId=partId type="select"}}</h2>
+    <h2 class="borders">{{localize 'Liber.Character.Repos.Titre'}}</h2>
+    {{formInput systemFields.time value=system.time localize=true rootId=partId}}
+    <div class="jourliste">
+    {{formField systemFields.duree value=system.duree localize=true rootId=partId type="select"}}
+    </div>
+    <div class="typerepos">
+    {{formField systemFields.repos value=system.repos localize=true rootId=partId type="select"}}
+    </div>
+    <a class="bouton reposer" style=" margin-top: 0;height: 25px;padding: 5px;text-align: center;">{{localize 'Liber.Character.Repos.Reposer'}}</a>
+</div>

@@ -1,0 +1,32 @@
+<header class="sheet-header">
+	<div class="nomperso" title="{{localize 'Liber.Character.Name'}}">{{formInput fields.name value=source.name localize=true}}</div>
+	{{#if (eq actor.type "monstre")}}
+		<div class="taille">
+	    	{{formField systemFields.taille name="system.taille" value=system.taille localize=true rootId=partId type="select"}}
+	    </div>
+	    <div class="taille">
+	    	{{formField systemFields.forme name="system.forme" value=system.forme localize=true rootId=partId}}
+	    </div>
+	{{else}}
+	    <span class="race" title="localize 'Liber.Character.Race'}}">{{localize (concat "Liber.Race." (capitalizeFirstLetter actor.system.race))}}</span>
+	    <span class="clan" title="{{localize 'Liber.Character.Clan'}}">{{localize (concat "Liber.Magic." actor.system.clan)}}</span>
+	{{/if}}
+
+	
+	<div class="zonehead">
+		<div class="head">	
+			{{#if (eq actor.type "monstre")}}
+			<div class="head_monster"></div>
+			{{else}}
+				<span class="avantagerace" title="{{localize (concat "Liber.Race.Avantage." (capitalizeFirstLetter actor.system.race))}} {{localize (concat "Liber.Magic.Avantage." (capitalizeFirstLetter actor.system.clan))}}">{{localize (concat "Liber.Race.Avantage." (capitalizeFirstLetter actor.system.race))}} {{localize (concat "Liber.Magic.Avantage." (capitalizeFirstLetter actor.system.clan))}} </span> - 
+				<span class="talent" title="{{localize (concat "Liber.Talent.Description." actor.system.talent)}}">{{localize (concat "Liber.Talent." actor.system.talent)}}</span>
+				<span class="faiblesse" title="{{localize (concat "Liber.Faiblesse.Description." actor.system.faiblesse)}}">{{localize (concat "Liber.Faiblesse." actor.system.faiblesse)}}</span>
+			{{/if}}
+			{{formInput systemFields.insoin name="system.insoin" value=system.insoin localize=true rootId=partId}}
+			{{formInput systemFields.avant name="system.avant" value=system.avant localize=true rootId=partId}}
+			{{formInput systemFields.desan name="system.desan" value=system.desan localize=true rootId=partId}}
+			{{formInput systemFields.fatig name="system.fatig" value=system.fatig localize=true rootId=partId}}
+		</div>
+	</div>
+</header>
+

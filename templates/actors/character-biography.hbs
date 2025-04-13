@@ -1,0 +1,83 @@
+<div class="character-biography">
+    <div class="zoneavatar">
+        <div class="avatar"> 
+            <img class="character-img" src="{{actor.img}}" data-edit="img" data-action='editImage' data-tooltip="{{actor.name}}" />
+        </div>
+        <div class="posture">
+            <a class="post aucune" data-action="posture" data-posture="aucune" title="{{localize 'Liber.Character.Posture.Aucune'}}""></a>
+            <a class="post focus" data-action="posture" data-posture="focus" title="{{localize 'Liber.Character.Posture.Focus'}}"></a>
+            <a class="post defensif" data-action="posture" data-posture="defensif" title="{{localize 'Liber.Character.Posture.Defensif'}}"></a>
+            <a class="post offensif" data-action="posture" data-posture="offensif" title="{{localize 'Liber.Character.Posture.Offensif'}}"></a>
+            <a class="post presage" data-action="posture" data-posture="presage" title="{{localize 'Liber.Character.Posture.Anticipatif'}}"></a>
+        </div>
+        <div class="ligne">
+            {{#each actor.system.etat as |value etat|}}
+                <a class="etat{{@index}} chnget" data-etat="{{etat}}" data-action="oncouv" style="opacity: {{value}};"></a>
+            {{/each}}
+
+        </div>
+        <div class="col-hp">
+            <span class="deno" title="{{localize 'Liber.Character.Stat.Life'}}" style="background-color:{{actor.system.alert.hp}}">❤</span>
+            {{formInput systemFields.hp name="system.hp" value=system.hp localize=true rootId=partId}}/{{formInput systemFields.hpmax name="system.hpmax" value=system.hpmax localize=true rootId=partId}}
+        </div>
+        <div class="col-psy">
+            <span class="deno" title="{{localize 'Liber.Character.Stat.Psy'}}" style="background-color:{{actor.system.alert.psy}}">♗</span>
+            {{formInput systemFields.psy name="system.psy" value=system.psy localize=true rootId=partId}}/{{formInput systemFields.psymax name="system.psymax" value=system.psymax localize=true rootId=partId}}
+        </div>
+        {{formInput systemFields.niveau name="system.niveau" data-action="levelup" value=system.niveau localize=true rootId=partId}}
+        {{#if (eq actor.type "monstre")}}
+            <a class="levelup" title="Level up" data-action="levelup">⇪</a> 
+        {{/if}}
+        <div class="zonearmure">
+            <div class="col-arm">
+                <span class="deno" title="{{localize 'Liber.Character.Defence.Armor'}}"></span>
+                {{formInput systemFields.armure name="system.armure" value=system.armure localize=true rootId=partId}}
+            </div>
+
+            <div class="col-protection">
+                <span class="deno" title="{{localize 'Liber.Character.Defence.Prote'}}"></span>
+                {{formInput systemFields.protec name="system.protec" value=system.protec localize=true rootId=partId}}
+
+            </div>
+        </div>
+    </div>
+    <h2 class="stat">{{localize 'Liber.Character.Stat.Titre'}}</h2>
+    <div class="emphase">
+        {{formField systemFields.emphase name="system.emphase" value=system.emphase localize=true rootId=partId type="select"}}
+    </div>
+    <div class="colstat">
+        {{#each systemFields.ability.fields as |field ability|}}           
+            <label class="ability-label {{ability}}" for="{{rootId}}-{{ability}}" title="{{ability}}" data-action="roll" data-ability="{{ability}}" data-value="{{lookup ../system.ability ability}}">
+                {{localize field.label}}
+            </label>
+            <div class="droite" title="{{ability}}">
+                {{formInput field 
+                    value=(lookup ../system.ability ability)
+                    name=(concat "system.ability." ability)
+                    localize=true 
+                    rootId=../partId
+                }}
+            </div>
+        {{/each}} 
+    </div>
+    <div class="colcomp">
+        <div class="grid-3col">
+            <h2 class="center">{{localize 'Liber.Character.Bonus.MJ'}}</h2>
+            {{formInput systemFields.malus name="system.malus" value=system.malus localize=true rootId=partId}}
+            <a class="resetmalus" data-action="restbonus" data-name="malus">🗑</a>
+        </div>
+        <div class="grid-3col">
+            <h2 class="center">{{localize 'Liber.Character.Bonus.Compt'}}</h2>
+            {{formInput systemFields.bonus name="system.bonus" value=system.bonus localize=true rootId=partId}}
+            <a class="resetbonus" data-action="restbonus" data-name="bonus">🗑</a>
+        </div>
+        <div class="clear"></div>
+        {{#if (eq actor.type "monstre")}}
+            <span class="carte" style="background:url({{actor.system.geo}});background-size: contain;"></span>
+        {{else}}
+            <span class="competences"></span>
+            <h2 class="reste">{{localize 'Liber.Character.Reste'}}</h2>
+            {{formInput systemFields.reste name="system.reste" value=system.reste localize=true rootId=partId}}
+        {{/if}}
+    </div>
+</div>

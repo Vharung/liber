@@ -1,0 +1,381 @@
+e@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+@font-face {font-family: "dova";src: url('Dovahkiin.otf'); }
+body{background:url(../assets/system/fond.webp) no-repeat top center #000; }
+.dova { font-family: 'dova';}
+/*initialisation*/
+
+.liber {font-family: MedialSharp}
+:root {
+    --couleur-noir: #2b2c2c; 
+    --couleur-or: #c99e4c; 
+    --couleur-clair: #d3bd90; 
+    --couleur-clair2: #e9dec7; 
+    --couleur-rouge:#700c26;
+    --couleur-vert:#56853b;
+}
+.liber .clear{clear: both;}
+#logo {display: none;}
+#ui-left{background: url(../assets/system/titre.webp)no-repeat 20px 20px;padding-top: 81px;background-size: 103px;}
+.ambient-light-config {background: var(--couleur-noir)}
+.standard-form .form-group > label,.ambient-light-config,.standard-form .form-group:hover .hint {color:var(--couleur-clair2)}
+.standard-form .form-group:hover > label,form .form-group span.units,.standard-form .hint,form .form-group.slim .form-fields > label {color:var(--couleur-clair)}
+.journal-entry .journal-header .title,.application button{background:var(--couleur-or);color:var(--couleur-noir)}
+
+/*outil*/
+.chat-message{border: none;margin-bottom: 15px;background: var(--couleur-noir);color:#fff;}
+#keybindings .binding .key{border:none}
+.chat-message .message-header,#module-management .package-list .package-title .title-group .title{color:var(--couleur-clair);}
+.chat-message.whisper,.chat-message.blind {background: #967b43;border:none;}
+/*.dialog .dialog-as a.default,form a,form button,.liber button,.dialog .dialog-buttons button.default,.dialog .dialog-buttons button{background: rgb(143 26 40);border: none;color: #fff;}
+.directory .directory-header .header-search input ,.dialog-content input,select{background: #30220c;border: none;color: #fff;}
+#sidebar-tabs {color: #20180d;}*/
+.resultatp{text-align: center;font-size: medium;background: var(--couleur-clair);padding: 5px;color: var(--couleur-noir);display: flex;}
+.desctchat{padding: 5px;background: var(--couleur-or);color: var(--couleur-noir);display:none}
+.infosort:active .desctchat{display: flex;}
+.window-app .window-content, .app.sidebar-popout .window-content{background: linear-gradient(218deg, #2a2b2c 0%, #120304 100%);color:var(--couleur-clair);}
+.filepicker .display-modes a{border:none;background: var(--couleur-noir);color: var(--couleur-or);}
+.filepicker .display-modes a.active{border:none;background: var(--couleur-or);color: var(--couleur-noir);}
+#keybindings .binding .key.uneditable {background: var(--couleur-noir)}
+
+.application select,.application input[type="number"],.journal-sheet .journal-header input[type="text"],input[type="text"], input[type="number"], input[type="password"], input[type="date"], input[type="time"], input[type="search"], select{background:var(--couleur-clair);color:var(--couleur-noir);border:none}
+.directory .directory-header .header-search input{background: var(--couleur-clair);}
+.dialog .dialog-buttons button.default {background: var(--couleur-or);color:var(--couleur-noir);border: none}
+.dialog .dialog-buttons button,.filepicker .favorites .paths{background: var(--couleur-clair);color:var(--couleur-noir);border: none}
+form .notes, form .hint{color:var(--couleur-clair2);}
+.directory .action-buttons button,.filepicker .current-dir button,.filepicker .current-dir button,form button,button{background: var(--couleur-or);color:var(--couleur-noir);border:none}
+.directory .directory-header{color:var(--couleur-or)}
+ul.m_list {list-style: none;}
+.m_nb, .m_name, .m_lvl,.m_degat,.m_pv,.m_ar{display: inline-block;}
+.m_nb, .m_lvl,.m_degat,.m_pv,.m_ar{width:40px}
+input.m_degat,input.m_pv,input.m_ar{color:grey}
+.m_name{width:200px}
+
+#pause img.fa-spin{content: url(../assets/system/logo.webp)}
+
+#ui-right{opacity: 0.7;transition:0.5s}
+#ui-right:hover{opacity: 1;}
+#ui-right #sidebar{background: none}
+#ui-right menu.flexcol{margin-left: 10px}
+#ui-right #sidebar nav.faded-ui{border-bottom-left-radius: 5px;opacity:1;}
+#ui-right #sidebar nav.faded-ui,#ui-right #sidebar #sidebar-content{background: var(--couleur-noir)}
+#sidebar .flexcol button[data-tab="chat"]{background: url(../assets/system/roi.webp) no-repeat center center var(--couleur-or);background-size: 50%;text-indent: -9999em;}
+#sidebar .flexcol button[data-tab="combat"]{background:url(" ../assets/system/bouclier.webp") no-repeat center center var(--couleur-or);background-size: 50%;text-indent: -9999em;}
+#sidebar .flexcol button[data-tab="scenes"]{background:url(" ../assets/system/plans.webp") no-repeat center center var(--couleur-or);background-size: 50%;text-indent: -9999em;}
+#sidebar .flexcol button[data-tab="actors"]{background:url(" ../assets/system/chevaliers.webp") no-repeat center center var(--couleur-or);background-size: 50%;text-indent: -9999em;}
+#sidebar .flexcol button[data-tab="items"]{background:url(" ../assets/system/potion.webp") no-repeat center center var(--couleur-or);background-size: 50%;text-indent: -9999em;}
+#sidebar .flexcol button[data-tab="journal"]{background:url(" ../assets/system/faire-defiler.webp") no-repeat center center var(--couleur-or);background-size: 50%;text-indent: -9999em;}
+#sidebar .flexcol button[data-tab="tables"]{background:url(" ../assets/system/hache.webp") no-repeat center center var(--couleur-or);background-size: 50%;text-indent: -9999em;}
+#sidebar .flexcol button[data-tab="cards"]{background:url(" ../assets/system/coin.webp") no-repeat center center var(--couleur-or);background-size: 50%;text-indent: -9999em;}
+#sidebar .flexcol button[data-tab="playlists"]{background:url(" ../assets/system/fou-du-roi.webp") no-repeat center center var(--couleur-or);background-size: 50%;text-indent: -9999em;}
+#sidebar .flexcol button[data-tab="compendium"]{background:url(" ../assets/system/epee.webp") no-repeat center center var(--couleur-or);background-size: 50%;text-indent: -9999em;}
+#sidebar .flexcol button[data-tab="settings"]{background:url(" ../assets/system/forgeron.webp") no-repeat center center var(--couleur-or);background-size: 50%;text-indent: -9999em;}
+#sidebar .flexcol button[data-tab="macro"]{background:var(--couleur-or);background-size: 50%;text-indent: -9999em;}
+#sidebar .flexcol button[data-tab="Expand"]{background:var(--couleur-or);background-size: 50%;text-indent: -9999em;}
+#sidebar .flexcol button.active,#sidebar .flexcol button:hover,#ui-left button[aria-pressed="true"]{border: 1px solid var(--couleur-clair);border-bottom: none;box-shadow: 0 0 10px #0178a2;background-color:var(--couleur-clair2);}
+
+.directory li{color:var(--couleur-clair)}
+
+footer.nue {color: #c9c7b8;}
+
+.item-piles-even-color:nth-child(even){background: rgb(32 24 13)}
+::-webkit-scrollbar {width: 0px !important;height: 0px;}
+a.content-link, a.inline-roll {background: none}
+.prosemirror menu button{background:var(--couleur-clair); }
+
+.token{border-radius: 50%}
+
+/**********************/
+/*Feuille de pesonnage*/
+/**********************/
+.liber option{background: var(--couleur-noir);color: var(--couleur-clair);}
+.liber.application .window-header {padding-right: 20px;background: none;}
+.sheet.actor,.sheet.item{width: 568px;height: 834px;; position: absolute;border-bottom-right-radius: 30px;border-top-right-radius: 30px;}
+.liber.application .window-content,.sheet.actor {display: block;flex: none;overflow: hidden;}
+.liber .perso span, .liber .zoneinfo a{color: var(--couleur-noir)}
+.sheet.actor section{background: none}
+.sheet.actor,#sidebar,.sheet.journal-entry .journal-entry-content,.dialog,.sheet.journal-entry, .sheet.item{background: linear-gradient(218deg, #2a2b2c 0%, #120304 100%); }
+body.theme-dark .application .window-content{backdrop-filter:none}
+.liber #carac .zoneinfo,.liber #features .zoneinfo,.liber #spells .zoneinfo ,.liber #lab .zoneinfo {padding: 5px}
+
+/*Navigation*/
+.liber nav.navlib{height: 800px;width: 40px;position: absolute;left: 639px;top: 45px;display: block;border: none;border-left: 1px solid var(--couleur-clair)}
+.liber nav.navlib a{box-shadow: inset 5px 0px 6px -4px rgba(0, 0, 0, 1);display: block;height: 40px;width: 40px;background: var(--couleur-clair);border-top-right-radius:10px;border-bottom-right-radius: 10px; margin-bottom: 5px;transition: 1s}
+.liber nav.navlib a.active{background: var(--couleur-rouge)}
+.liber.sheet nav.sheet-tabs .item{padding: 0}
+.liber nav.navlib span{width: 40px;display: block;height: 40px}
+.liber a.background span{background: url(../assets/actor/bg.webp) no-repeat center center;background-size: 70%;transition: 0.5s}
+.liber a.items  span{background: url(../assets/actor/swap-bag.webp) no-repeat center center;background-size: 70%;transition: 0.5s}
+.liber a.spells span{background: url(../assets/actor/magic-swirl.webp) no-repeat center center;background-size: 70%;transition: 0.5s}
+.liber a.carac span{background: url(../assets/actor/battle-gear.webp) no-repeat center center;background-size: 70%;transition: 0.5s}
+.liber a.features span{background: url(../assets/actor/bookshelf.webp) no-repeat center center;background-size: 70%;transition: 0.5s}
+.liber a.lab span{background: url(../assets/actor/gears.webp) no-repeat center center;background-size: 70%;transition: 0.5s}
+
+/*header*/
+.liber.actor .sheet-header{position: relative;top:-25px;height: 180px;width: 606px}
+.liber input{border: none; background: none;}
+.liber .nomperso input{width:calc(100% - 20px);color:var(--couleur-clair);text-align: center;font-size: 2em;font-weight: bold;height: 40px;}
+.liber .zonehead{width:100%;height: 76px;}
+.liber h2{font-size: 1em;text-transform: uppercase;color:var(--couleur-or);margin: 0;    border-bottom: none;}
+.liber .head{background: var(--couleur-clair); width:100%; height: 50px;position: relative;}
+.liber .clan,.liber .race{width: calc(50% - 10px); display: inline-block;color:var(--couleur-or);}
+.liber .race{text-align: right;}
+.liber input[name="system.insoin"],.liber input[name="system.avant"],.liber input[name="system.desan"],.liber input[name="system.fatig"]{color:var(--couleur-noir);text-align: left;padding-left: 37px;opacity: 0.5;width: 58px;height: 21px;border: none;top: -7px;position: relative;}
+.liber input[name="system.insoin"]{background:url("../assets/actor/pvi.webp") 5px center no-repeat;background-size: contain;}
+.liber input[name="system.avant"]{background:url("../assets/actor/avantage.webp") 5px center no-repeat;background-size: contain;border-left: solid 1px #c2b69e;border-radius: 0;}
+.liber input[name="system.desan"]{background:url("../assets/actor/avantage-2.webp") 5px center no-repeat;background-size: contain;border-left: solid 1px #c2b69e;border-radius: 0;}
+.liber input[name="system.fatig"]{background:url("../assets/actor/fatigue.webp") 5px center no-repeat;background-size: contain;border-left: solid 1px #c2b69e;border-radius: 0;}
+.liber .avantagerace,.liber .talent, .liber .faiblesse{font-size: 0.9em;padding:5px;overflow: hidden;height: 20px;display: inline-block;margin-bottom:6px;color:var(--couleur-noir);}
+.liber .talent, .liber .faiblesse{width: 150px}
+.liber .avantagerace{width: 262px;}
+
+/*Zone Avatar*/
+.liber .zoneavatar input{color:var(--couleur-or)}
+.liber .character-biography,.liber .col-droite{display: inline-block;height: 694px;position: absolute;margin-top: 14px}
+.liber .character-biography{width:298px;;border-left: solid #262728 1px;position: relative;/*top: -56px;*/;top:-94px}
+.liber .zoneavatar{border-bottom: solid var(--couleur-or) 2px;width: 90%;margin: auto;height: 275px;margin-bottom: 10px;position: relative;padding-top: 10px;}
+.liber .avatar{width: 190px; height: 190px;border-radius: 50%; border:solid var(--couleur-or) 2px;overflow: hidden;}
+.liber .ligne{width: 15px; margin-bottom: 5px;position: absolute;top: 0;right: 0;}
+.liber .posture {width: 25px;height: 125px;position: absolute;bottom: 5px;right: 30px;}
+.liber .posture a{width: 25px;height: 25px;opacity: 0.5;display: inline-block;position: initial;}
+.liber a.aucune,.liber a.focus,.liber a.defensif,.liber a.offensif,.liber a.presage{width: 25px;height: 25px;display: block;border: none;}
+.liber a.aucune{background:url("../assets/actor/aucune.webp") ;background-size: cover;opacity: 0.5;}
+.liber a.focus{background:url("../assets/actor/focus.webp");background-size: cover;opacity: 0.5;}
+.liber a.defensif{background:url("../assets/actor/defensif.webp");background-size: cover;opacity: 0.5;}
+.liber a.offensif{background:url("../assets/actor/offensif.webp");background-size: cover;opacity: 0.5;}
+.liber a.presage{background:url("../assets/actor/feather.webp");background-size: cover;opacity: 0.5;}
+
+.liber .ligne a{width: 15px;height: 15px;opacity: 0.5;display: inline-block;cursor: default;}
+.liber .etat0 {background: url("../assets/actor/sleep.webp");background-size: cover;;}
+.liber .etat1 {background: url("../assets/actor/daze.webp");background-size: cover;}
+.liber .etat2 {background: url("../assets/actor/blind.webp");background-size: cover;}
+.liber .etat3 {background: url("../assets/actor/deaf.webp");background-size: cover;}
+.liber .etat4 {background: url("../assets/actor/silenced.webp");background-size: cover;}
+.liber .etat5 {background: url("../assets/actor/terror.webp");background-size: cover;}
+.liber .etat6 {background: url("../assets/actor/fire.webp");background-size: cover;}
+.liber .etat7 {background: url("../assets/actor/frozen.webp");background-size: cover;}
+.liber .etat8 {background: url("../assets/actor/invisible.webp");background-size: cover;}
+.liber .etat9 {background: url("../assets/actor/angel.webp");background-size: cover;}
+.liber .etat10 {background: url("../assets/actor/poison.webp");background-size: cover;}
+.liber .etat11 {background: url("../assets/actor/blood.webp");background-size: cover;}
+.liber .etat12 {background: url("../assets/actor/unconscious.webp");background-size: cover;}
+.liber .etat13 {background: url("../assets/actor/skull.webp");background-size: cover;}
+
+.liber .col-hp, .liber .col-psy{color:var(--couleur-or);text-align: center;width: 95px;display: inline-block;}
+.liber .col-hp .deno, .liber .col-psy .deno,.liber .col-arm .deno, .liber .col-protection .deno{width: 100%;font-size: 2em;display:block;}
+.liber .col-hp input, .liber .col-psy input{display: inline-block;width: 40px;background: none}
+.liber input[name="system.hp"],.liber input[name="system.psy"]{text-align: right}
+.liber input[name="system.hpmax"],.liber input[name="system.psymax"]{text-align: left}
+.liber input[name="system.niveau"]{width: 40px;height: 40px;background: var(--couleur-or);text-align: center;position: absolute;top: 172px;left: 76px;border-radius: 50%;color:var(--couleur-noir)}
+
+.liber .col-arm input, .liber .col-protection input{display: inline-block;width: 26px;background: none}
+.liber .col-arm span, .liber .col-protection span{display: block; height: 30px; width: 30px}
+.liber .col-arm span {background: url(../assets/actor/armure.webp) center center no-repeat;background-size: contain;}
+.liber .col-protection span{background: url(../assets/actor/protection.webp) center center no-repeat;background-size: contain;}
+.liber .zonearmure{width: 25px;position: absolute;text-align: center;top: 0;right: 30px;color:var(--couleur-or);}
+.liber .zonearmure input{text-align: center}
+
+/*Zone Stat*/
+.liber .stat{width: 115px; display: inline-block; padding-left: 10px}
+.liber select[name="system.emphase"] option{color:var(--couleur-clair)}
+.liber .emphase {width: 165px; display: inline-block;}
+
+.liber .colstat, .liber .colcomp{display: inline-block;height: 352px;}
+.liber .colstat{width:75px;font-size: 0.9em;margin-left: 5px;}
+.liber .colstat .droite{height: 35px;width: 35px;float: right;display: inline-block;position: relative;}
+.liber .colstat label{width: 35px;height: 35px;display: inline-block;color: var(--couleur-clair);padding-left: 40px;margin-bottom: 3px;}
+.liber .colstat input{width: 35px;height: 35px;text-align: center;color: var(--couleur-clair);background: none;font-size: 1.1em;position: relative;}
+.liber .colstat input[name="system.ability.physique"],.liber .colstat input[name="system.ability.social"],.liber .colstat input[name="system.ability.mental"]{color: var(--couleur-or);font-weight: bold}
+.liber .physique{background: url('../assets/actor/physique.webp') left no-repeat;background-size:contain;}
+.liber .force{background: url('../assets/actor/force.webp') left no-repeat;background-size:contain;}
+.liber .agilite{background: url('../assets/actor/agilite.webp') left no-repeat;background-size:contain;}
+.liber .social{background: url('../assets/actor/social.webp') left no-repeat;background-size:contain;}
+.liber .charisme{background: url('../assets/actor/charisme.webp') left no-repeat;background-size:contain;}
+.liber .sagacite{background: url('../assets/actor/sagacite.webp') left no-repeat;background-size:contain;}
+.liber .mental{background: url('../assets/actor/mental.webp') left no-repeat;background-size:contain;}
+.liber .astuce{background: url('../assets/actor/astuce.webp') left no-repeat;background-size:contain;}
+.liber .memoire{background: url('../assets/actor/memoire.webp') left no-repeat;background-size:contain;}
+
+.liber .colcomp{width:210px;position: relative;top:-25px;padding: 5px}
+.liber .colcomp .competences{background: var(--couleur-clair);position: relative;top:-6px;color:var(--couleur-noir);width: 200px; display: block; margin-top: 5px; padding: 5px;height: 240px;overflow: auto;scrollbar-width: none;}
+.liber .colcomp .competences a{border-bottom: solid 1px var(--couleur-noir); width: 200px; display: block; height: 20px; margin-bottom: 5px}
+.liber .colcomp .competences a span{width: 20px; display: inline-block; text-align: center;}
+.liber .grid-3col{width: 50%;float: left;display: block;margin-bottom: 10px;}
+.liber .grid-3col input{background: var(--couleur-clair);color: var(--couleur-noir);height: 40px;width: 60px;font-size: 2em;text-align: center;float: left;}
+.liber .grid-3col a {color:var(--couleur-clair);margin-left: 10px;}
+.liber .resetmalus,.liber .resetbonus{font-size: 1em;float: left;width: 20px;padding-top: 20px;}
+.liber h2.reste{width: 146px;display: inline-block;}
+.liber input[name="system.reste"]{width: 50px;font-size: 1.5em;text-align: center;display: inline-block;}
+
+.liber .colcomp  .carte{width: 200px;display: block;height: 294px;}
+
+/*Colonne Droite*/
+.liber .inventory-list{width: 302px;border-left: solid var(--couleur-or) 2px;left: 320px;position: absolute;top: 157px;height: 684px;padding-left: 10px}
+.liber .inventory-list h2{margin-left: 5px}
+.liber .sheet-body{height: 680px;width: 295px;}
+.liber .zoneinfo h2{color:var(--couleur-noir);width: 100%}
+.liber .zoneinfo select{background: var(--couleur-noir);color:var(--couleur-clair);margin-bottom: 10px;border:none;height: 40px}
+
+/*Histoire*/
+.liber .zoneinfo{background: var(--couleur-clair);height:640px;width: calc(100% - 10px); margin: auto;overflow: hidden;position: relative;border-bottom-right-radius: 22px;}
+.liber .met{width:100px;display: inline-block;color: var(--couleur-noir);padding: 3px;font-style: italic;}
+.liber .religion{width:150px;display: inline-block;color: var(--couleur-noir);padding: 3px;font-style: italic}
+.liber.actor prose-mirror[name="system.biography"]{resize: none;background: var(--couleur-noir);color:var(--couleur-clair);height: 439px;overflow: auto;scrollbar-width:none }
+.liber h2 span{height: 40px;display: inline-block;padding-top: 13px;}
+.liber h2 .form-group{height: 40px;width: 150px;float: right;margin-right: 10px;}
+.liber h2.borders {border-top: solid 1px var(--couleur-or);padding-top: 3px;}
+.liber .jourliste,.liber .typerepos{width: 100px;display: inline-block;}
+.liber input[name="system.time"]{width: 40px;text-align: center;background: var(--couleur-noir);color: var(--couleur-clair);height: 40px;margin-left: 5px;}
+.liber .reposer{width: 100%;display: block;background: var(--couleur-or)}
+.liber #background h2{margin-top: 6px;}
+.liber button.story{position: absolute;right: 0;}
+.liber.item button.story{top:36px;}
+.liber #background .editor-content{height: 401px; display: block}
+.liber .prosemirror menu{background: var(--couleur-clair) !important; border-radius:0px !important}
+
+/*Caractéristique*/
+.liber .carac{font-size: 0.9em}
+.liber .perso{width: 127px;float: left;margin-right: 10px;}
+.liber .perso input{width: 35px; background:var(--couleur-noir) ;height: 20px;float:right;color:var(--couleur-clair); text-align: center;}
+.liber #carac span{width: 91px;display: inline-block;overflow: hidden;height: 17px;}
+
+/*Inventaire*/
+.liber ul{margin: 0;padding: 5px;list-style: none;}
+.liber .item-image,.liber .item-image img, .liber .item-qty, .liber .item-name{display: inline-block;height: 25px;vertical-align: middle;overflow: hidden;}
+.liber .item-name{vertical-align: text-top;height: auto;}
+.liber .item-image img, .liber .item-qty{width: 25px; text-align: center;cursor:help;}
+.liber .item-qty{padding-top: 3px}
+.liber .item_name{width: 170px; display: inline-block;}
+.liber.actor .item-valeur,.liber.actor .item-porter,.liber.actor .item-degat,.liber.actor .item-protec{float: left;width: 60px;text-align: left;}
+.liber .weight{display: inline-block;width:20px;}
+.liber .items-list .item{border-bottom: 1px solid var(--couleur-noir); padding-bottom: 3px;color:var(--couleur-noir);margin-bottom: 3px;}
+.liber .items-list .item.active{display: block}
+.liber .item-filter{width: 50px;height: 30px;; display: inline-block;}
+.liber a.tous{background: url(../assets/actor/swap-bag2.webp) no-repeat center center;background-size: 40%;opacity: 0.5;transition: 0.5s}
+.liber a.armes{background: url(../assets/actor/sword-wound.webp) no-repeat center center;background-size: 40%;opacity: 0.5;transition: 0.5s}
+.liber a.armures{background: url(../assets/actor/chest-armor2.webp) no-repeat center center;background-size: 40%;opacity: 0.5;transition: 0.5s}
+.liber a.objets{background: url(../assets/actor/chicken-oven.webp) no-repeat center center;background-size: 40%;opacity: 0.5;transition: 0.5s}
+.liber .item-description{height: 90px;background: var(--couleur-noir);color:var(--couleur-clair);display: block;padding: 5px;font-size: 0.9em;overflow: auto;scrollbar-width: none}
+.liber .item-controls{height: 20px;display: block;text-align: right;padding: 3px 0;}
+.liber .item .zonecontrole{display: block;height: 0px;overflow: hidden;transition: 1s;padding-top: 1px;}
+.liber .item:hover .zonecontrole{height: 110px;}
+.liber .items-list .item-hand{width: 62px;float: left;filter: invert(1);}
+.liber #items .items-list,.liber #spells .items-list{display: block;scrollbar-width: none;overflow:auto}
+.liber #items .items-list{height: 425px;}
+.liber .maindroite,.liber .maingauche,.liber .armor{width: 12px; height: 12px; display: inline-block;cursor: pointer;}
+.liber .maindroite {background: url(" ../assets/actor/minihand2.webp");background-size: cover;}
+.liber .maingauche {background: url(" ../assets/actor/minihand.webp");background-size: cover;}
+.liber .armor {background: url(" ../assets/actor/armor.webp");background-size: cover;}
+.liber .zoneinfo a.item-random{height:40px;padding: 3px;background: var(--couleur-noir);color: var(--couleur-clair);float: left;width: 33%;text-align: center;margin-bottom: 5px;}
+.liber .items li{display: none}
+.liber .items li.active{display: block}
+.liber .item-cout{width: 20px; text-align: center;display: inline-block;height: 20px;vertical-align: middle;}
+.liber .item-info{cursor:help }
+
+.liber .peser{font-size: 0.8em;padding: 5px;width: 280px;color: #fff;text-align: right;margin-bottom: 20px;color:var(--couleur-noir);}
+.liber .peser input{width: 70px;color:var(--couleur-noir);font-size: 1.5em;text-align: left;}
+.liber .peser input[name="system.enc"]{text-align: right;}
+.liber .encom{background: var(--couleur-noir);width: 100%;display: block;height: 10px;padding: 2px}
+.liber .barenc{height: 6px; display: block;}
+
+.liber input[name="system.ecu"]{background: url(../assets/actor/ecu.webp) no-repeat center center;background-size: contain;padding:0;right:0;font-size: 1.2em;text-align: center;}
+.liber .unemain,.liber .deuxmains,.liber .arm,.liber input[name="system.ecu"]{width: 68px;height: 68px; display: inline-block;border:1px solid var(--couleur-noir);position: absolute;margin-bottom: 0px}
+.liber .unemain span ,.liber .deuxmains span ,.liber .arm span {opacity:0;pointer-events:none ;background: var(--couleur-noir);color:var(--couleur-clair);text-align: center;display: block;}
+.liber .unemain:hover span ,.liber .deuxmains:hover span ,.liber .arm:hover span,.liber .unemain:hover a ,.liber .deuxmains:hover a ,.liber .arm:hover a{transition:0.5s;opacity: 0.8}
+.liber .unemain a ,.liber .deuxmains a ,.liber .arm a{opacity: 0;z-index: 1;color:var(--couleur-clair)}
+.liber .unemain{background: url(../assets/actor/hand2.webp) no-repeat center center;background-size: contain;}
+.liber .deuxmains{background: url(../assets/actor/hand.webp) no-repeat center center;background-size: contain;left: 136px;}
+.liber .arm{background: url(../assets/actor/chest-armor.webp) no-repeat top center;background-size: contain;left: 68px;}
+.liber .attaque,.liber .desequi{background: var(--couleur-noir);color:var(--couleur-clair);width: 18px;position: absolute;}
+.liber .desequi{bottom:0;right: 0}
+.liber .degatg span,.liber .degatd span,.liber .armurequi span{width: 68px;height: 68px;text-align: center;padding-top: 16px;opacity:0;}
+.liber .attaque,.liber .desequi{font-size: 1em;display: block;height: 20px; text-align: center;}
+.liber .zonecontrole span,.liber .zonecontrole a{cursor: pointer;}
+.liber .zonecontrole .item-info,.liber .zonecontrole .item-info span{cursor: help;}
+
+
+/*Magie*/
+.liber #spells .items-list{height: 528px;width: 276px;}
+.liber .magie{width: 180px;display: inline-block;}
+.liber .addsort{width: 90px;display: inline-block;height: 40px;float: right;border-radius: 5px;padding-top: 12px;background: var(--couleur-or);text-align: center;}
+.liber .item_name_magie{width: 200px; display: inline-block;cursor:help;}
+.liber.actor .item-cible,.liber.actor .item-duree{float: left;text-align: left;height: 20px;}
+.liber.actor .item-cible{width:120px;}
+.liber.actor .item-duree{width:98px;}
+.liber .coutmax, .liber .maxsort{background: var(--couleur-clair);color: var(--couleur-noir);width: 60px;height: 60px;font-size: 2em;text-align: center;}
+.liber .coutmax{float: left;margin-right: 5px}
+.liber input[name="system.cout"],.liber input[name="system.max"]{background: var(--couleur-noir);color:var(--couleur-or);height: 50px;width: 50px;display: inline-block;text-align: center;font-size:2em;}
+.liber .zonemagie .max{position: relative;top: -17px;left: 5px;color: var(--couleur-noir);}
+.liber .zonemagie .cout{position: relative;top: 13px;right: 5px;color: var(--couleur-noir);}
+
+/*Caractere*/
+.liber #features label{color:var(--couleur-noir);}
+.liber #features input{background: var(--couleur-noir);color: var(--couleur-clair);}
+
+/*Action*/
+.liber.actor .grid-2col{font-size: 0.8em;float: left;position: absolute;text-align: center;bottom: 0;}
+.liber.actor .der{left: 151px}
+.liber .action{height: 19px;display: inline-block;}
+.liber .col2{width: 50%;float: left;display: block; color:var(--couleur-clair);font-size: 0.85em}
+.liber .col2 input{width: 20px;display:inline-block;color:var(--couleur-clair);text-align: center;}
+.liber .col2 img{height: 20px; width: 20px; float: right;border:1px solid var(--couleur-clair)}
+
+/*Lab*/
+.liber #lab .valider{background: var(--couleur-or);width: 100%;padding: 10px;text-align: center;border-radius: 5px; margin-bottom:5px;}
+.liber input[name="system.restant"]{background: var(--couleur-noir);color:var(--couleur-or);height: 50px;width: 275px;display: inline-block;text-align: center;font-size:2em;}
+.liber .erreur{color:var(--couleur-rouge);font-style: italic;font-size: 0.9em;text-align: center}
+.liber .reponse label{color: var(--couleur-noir);padding-left: 5px;display: inline-block;width: 181px;}
+.liber .reponse .form-fields{width: 65px;display: inline-block;height: 20px;margin-bottom: 5px}
+.liber .reponse .form-fields select{height: 20px}
+
+/*Monstre*/
+.liber nav.monstre .features,.liber nav.monstre .lab,.liber nav.monstre .carac  {display: none}
+.liber .taille{width: calc(50% - 10px);display: inline-block;}
+.liber .taille select{color: var(--couleur-or);text-align: right;background: none}
+.liber .taille input{color: var(--couleur-or);text-align: left;background: none}
+.liber .head_monster{height: 20px; width: 100%; display: block;}
+
+/**********************/
+/*  Feuille  d'objet  */
+/**********************/
+.liber .item-img{margin-bottom: 10px;width: 128px; height: 128px;border-radius: 50%; border:solid var(--couleur-or) 2px;overflow: hidden;position: relative;top: 0;display: block;}
+.liber.item .window-content h1{display: inline-block;width: 226px;height: 125px;position: absolute;right: 15px;top: 25px;}
+.liber.item .window-content h1 input[name="name"]{height: 60px;font-size:0.5em;background: none;color:var(--couleur-or);text-align: right;}
+.liber.item .window-content h1 input[name="system.quantity"]{height: 60px;font-size:0.5em;width: 90px; float:right;text-align: center}
+.liber.item prose-mirror[name="system.biography"]{resize: none;background: var(--couleur-noir);color:var(--couleur-clair);height: 177px;overflow: auto;scrollbar-width:none }
+.liber.item .col{width: 181px;display: inline-block;float: left;height: 184px;margin-top:5px;}
+.liber.item .col label{color:var(--couleur-or);}
+.liber.item .col input{background:var(--couleur-clair);color:var(--couleur-noir);width: 175px;}
+.liber.item .generer{border-radius: 5px;height: 40px;width: 175px;display: inline-block;margin-top: 11px;padding: 10px;background: var(--couleur-or);color:var(--couleur-noir);text-align: center;}
+.liber.item .form-group{width:175px;}
+.liber.item select,.liber.item select{padding:0;width: 175px;}
+
+
+/**********************/
+/*        Chat        */
+/**********************/
+.message-content{background:#191409;color:var(--couleur-clair);padding:5px; border-radius: 5px}
+#chat-form textarea,#chat-controls .roll-type-select,textarea{background: var(--couleur-clair);color:var(--couleur-noir)}
+.intro-img{width: 50px;height: 50px;display: inline-block;}
+.intro-chat{float: right;width: 216px;background: var(--couleur-or);padding: 5px;border-radius:0 5px 5px 0;color: var(--couleur-noir);}
+.intro-chat span{font-size: 0.9em;font-weight: bold;}
+.intro-right{font-style: italic;}
+.chat.roll{min-height: 77px}
+.chat p.info{text-align: center;background: var(--couleur-noir);padding: 10px;color: var(--couleur-clair);}
+.chat .result{text-align: center;color: #fff;padding: 5px;border: 1px solid #999;width: 100%;display: block;font-size: 1.5em;}
+.chat .result{text-align: center;color: #fff;padding: 5px;border: 1px solid #999;width: 100%;display: block;font-size: 1.5em;background: var(--couleur-vert)}
+button[aria-pressed="true"]{background: var(--couleur-clair)}
+.chat .resultat button,.chat .result button{width: 100%;margin-top: 5px;}
+.chat .infos span.title{text-align: center;color: #fff;padding: 5px;border: 1px solid #999;width: 100%;display: block;font-size: 1.5em;background: var(--couleur-noir);}
+.chat .infos .description{background: var(--couleur-noir);color: var(--couleur-clair2);padding: 5px;overflow: auto;height:162px;}
+.chat .infos{overflow: hidden;height: 37px;transition: 0.5s}
+.chat .infos:hover{height: 200px;}
+.chat .resultat button{background: var(--couleur-noir);color: var(--couleur-clair);border-radius: 0px;}
+.chat .resultat button:hover;{color: var(--couleur-noir);}
+.chat-message.whisper {background: #7e6330;border:none;}
+.chat-message.blind {background: #4b3b1c;border:none;}
+
+.grid-2col h1 input[type="text"]{background: none; color:var(--couleur-or)}
+
+.liber .levelup{background: var(--couleur-noir);color:var(--couleur-or);width: 20px;height: 20px;display: block;text-align: center;position: absolute;top: 168px;left: 106px;border-radius: 50%;padding:3px}
+.liber .monstres{padding-top: 20px;}
+.liber .race{background: none}

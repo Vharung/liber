@@ -1,0 +1,12 @@
+/*
+BUG :
+    Fiche personnage / monstre
+    - état(mort malade etc...)
+
+	competences
+    - deux fois l'actor.update, il faudrait mettre update des compétences uniquement au modification des compétences et update du lab
+*/
+
+X étant les psy dépensés pour ce sort.
+
+Éphémère
