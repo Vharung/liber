@@ -472,7 +472,6 @@
           "distingue6": "Est persuadé que la fin justifie les moyens"
         }
       }
-    
     },
     "Items":{
       "Descri":"Description",
@@ -649,8 +648,7 @@
       "vigoureux": "Vigoureux",
       "abordage": "Abordage",
       "pillage": "Pillage",
-      "evasion": "Évasion",
-          
+      "evasion": "Évasion",    
       "Description": {
         "agilitesansarmure": "+20 en agilité tant que l’on ne porte pas d’armure",
         "alchimiste": "Permet de créer 1d4 potions (hors poison) par jour",
@@ -695,7 +693,6 @@
         "evasion": "Les pirates sont des experts de l’évasion, capables de se sortir des situations les plus désespérées grâce à leur ingéniosité et leur audace. +10 en astuce." 
       }
     },
-
     "Faiblesse": {
       "amnesie": "Amnésie",
       "balourd": "Balourd",

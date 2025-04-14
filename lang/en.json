@@ -327,7 +327,6 @@
           "rancunier5": "Keeps a list of those who wronged them",
           "rancunier6": "Believes fate will deal with their enemies"
         },
-
         "tare": {
           "tare1": "Ablutophobia – Fear of bathing. This phobia is more a fear of drowning than a fear of water.",
           "tare2": "Acarophobia – Fear of skin parasites, mites.",
@@ -434,7 +433,35 @@
           "tare105": "Selenophobia – Fear of the moon.",
           "tare106": "Spectrophobia – Fear of mirrors (reflections).",
           "tare107": "Spitophobia – Fear of saliva.",
-          "tare108": "Stasophobia – Fear of having to stand up."
+          "tare108": "Stasophobia – Fear of having to stand up.",
+          "tare109": "Taphophobia – Fear of graves or of being buried alive.",
+          "tare110": "Teratophobia – Fear of monsters.",
+          "tare111": "Thalassophobia – Fear of the sea.",
+          "tare112": "Thanatophobia – Fear of death.",
+          "tare113": "Theophobia – Fear of God.",
+          "tare114": "Tokophobia – Fear of childbirth.",
+          "tare115": "Trichophobia – Fear of hair and body hair.",
+          "tare116": "Trypophobia – Fear of holes.",
+          "tare117": "Xenoglossophobia – Fear of foreign languages.",
+          "tare118": "Ailurophobia – Fear of cats.",
+          "tare119": "Alektorophobia – Fear of chickens.",
+          "tare120": "Anthelmophobia – Fear of worms.",
+          "tare121": "Apiphobia – Fear of bees; by extension, fear of stinging or venomous insects.",
+          "tare122": "Arachnophobia – Fear of spiders.",
+          "tare123": "Chiroptophobia – Fear of bats.",
+          "tare124": "Cuniculophobia – Fear of rabbits.",
+          "tare125": "Cynophobia – Fear of dogs.",
+          "tare126": "Entomophobia – Fear of insects.",
+          "tare127": "Heliciphobia – Fear of snails and slugs.",
+          "tare128": "Herpetophobia – Fear of reptiles or amphibians.",
+          "tare129": "Hippophobia – Fear of horses or equines.",
+          "tare130": "Ichthyophobia – Fear of fish.",
+          "tare131": "Musophobia – Fear of mice or rats.",
+          "tare132": "Myrmecophobia – Fear of ants.",
+          "tare133": "Octophobia – Fear of octopuses.",
+          "tare134": "Ophidiophobia – Fear of snakes.",
+          "tare135": "Ornithophobia – Fear of birds.",
+          "tare136": "Squalophobia – Fear of sharks."
         },
         "distingue": {
           "distingue1": "Thinks everything is relative and that good does not exist.",
@@ -445,9 +472,7 @@
           "distingue6": "Is convinced that the end justifies the means."
         }
        }
-    
     },
-
     "Items": {
       "Descri": "Description",
       "Degat": "Damage",
@@ -623,9 +648,7 @@
       "vigoureux": "Vigorous",
       "abordage": "Boarding",
       "pillage": "Pillaging",
-      "evasion": "Evasion",
-
-          
+      "evasion": "Evasion",  
       "Description": {
         "agilitesansarmure": "+20 to agility as long as no armor is worn.",
         "alchimiste": "Allows the creation of 1d4 potions (excluding poison) per day.",
@@ -670,7 +693,6 @@
         "evasion": "Pirates are escape experts, able to get out of the most desperate situations through ingenuity and boldness. +10 to cunning."
       }
     },
-
     "Faiblesse": {
       "amnesie": "Amnesia",
       "balourd": "Clumsy",
@@ -743,59 +765,81 @@
         "solitaire": "Uncomfortable in the company of others, which can lead to difficulties in social situations and trouble forming bonds. -20 in Social."
       }
     },
-
+    "Metier": {
+      "personnalise": "Customized",
+      "aventurier": "Adventurer",
+      "mercenaire": "Mercenary",
+      "soldat": "Soldier",
+      "chevalier": "Knight",
+      "inquisiteur": "Inquisitor",
+      "chasseurdeprime": "Bounty Hunter",
+      "chasseur": "Hunter",
+      "pecheur": "Fisherman",
+      "assassinvoleur": "Assassin-Thief",
+      "archer": "Archer",
+      "troubadour": "Troubadour",
+      "erudit": "Scholar",
+      "magicien": "Mage",
+      "clerc": "Cleric",
+      "oracle": "Oracle",
+      "pirate": "Pirate",
+      "guerrier": "Warrior",
+      "none": "",
+      "croise": "Crusader"
+    },
     "Chat": {
-    "Posture": {
-      "Change": "Stance change:",
-      "aucune": "None",
-      "offensif": "Offensive",
-      "defensif": "Defensive",
-      "focus": "Focus",
-      "presage": "Anticipative",
-      "aucune-text": "I don't have anything planned.",
-      "defensif-text": "I take a guarded stance, ready to parry any assault. Every move is measured, every attack anticipated. Safety first.",
-      "offensif-text": "Adrenaline surges, my eyes lock onto the enemy. I step forward, ready to strike with all my might. Attack is the best defense.",
-      "focus-text": "I center myself in the present moment, each breath calm and deep. Everything around me disappears, I am a sharpened blade, ready to strike at the perfect moment.",
-      "presage-text": "I scan my opponent’s movements, my eyes calculating every upcoming action. I don’t react, I anticipate, each gesture one step closer to victory."
+      "Posture": {
+        "Change": "Stance change:",
+        "aucune": "None",
+        "offensif": "Offensive",
+        "defensif": "Defensive",
+        "focus": "Focus",
+        "presage": "Anticipative",
+        "aucune-text": "I don't have anything planned.",
+        "defensif-text": "I take a guarded stance, ready to parry any assault. Every move is measured, every attack anticipated. Safety first.",
+        "offensif-text": "Adrenaline surges, my eyes lock onto the enemy. I step forward, ready to strike with all my might. Attack is the best defense.",
+        "focus-text": "I center myself in the present moment, each breath calm and deep. Everything around me disappears, I am a sharpened blade, ready to strike at the perfect moment.",
+        "presage-text": "I scan my opponent’s movements, my eyes calculating every upcoming action. I don’t react, I anticipate, each gesture one step closer to victory."
+      },
+      "Roll": {
+        "physique": "Physical",
+        "mental": "Mental",
+        "social": "Social",
+        "force": "Strength",
+        "agilite": "Agility",
+        "charisme": "Charisma",
+        "sagacite": "Sagacity",
+        "memoire": "Memory",
+        "astuce": "Wit",
+        "faire": " makes a roll for: ",
+        "utilise": " uses: ",
+        "utiliser": "Use: ",
+        "consommer": "Consume: ",
+        "addptfatigue": "Add one fatigue point",
+        "Echec": "Failure",
+        "EchecCrit": "Critical Failure",
+        "Reussite": "Success",
+        "Or": " or ",
+        "LancerDegats": "Roll for damage",
+        "Degat": " roll the dice!",
+        "Percucant": " (Piercing)",
+        "Ressource": "You don't have enough resources to cast the spell.",
+        "ReussiteCrit": "Critical Success"
+      },
+      "Sleep": {
+        "sleep": "The player has rested.",
+        "ronfleur": "One of us snored all night. Impossible to get any sleep.",
+        "recuperation": "I had a good rest."
+      }
     },
-    "Roll": {
-      "physique": "Physical",
-      "mental": "Mental",
-      "social": "Social",
-      "force": "Strength",
-      "agilite": "Agility",
-      "charisme": "Charisma",
-      "sagacite": "Sagacity",
-      "memoire": "Memory",
-      "astuce": "Wit",
-      "faire": " makes a roll for: ",
-      "utilise": " uses: ",
-      "utiliser": "Use: ",
-      "consommer": "Consume: ",
-      "addptfatigue": "Add one fatigue point",
-      "Echec": "Failure",
-      "EchecCrit": "Critical Failure",
-      "Reussite": "Success",
-      "Or": " or ",
-      "LancerDegats": "Roll for damage",
-      "Degat": " roll the dice!",
-      "Percucant": " (Piercing)",
-      "Ressource": "You don't have enough resources to cast the spell.",
-      "ReussiteCrit": "Critical Success"
-    },
-    "Sleep": {
-      "sleep": "The player has rested.",
-      "ronfleur": "One of us snored all night. Impossible to get any sleep.",
-      "recuperation": "I had a good rest."
+    "Labels": {
+      "biography": "Bio",
+      "Erreur1": "Agility and Strength do not match Physical!",
+      "Erreur2": "Charisma and Sagacity do not match Social!",
+      "Erreur3": "Wit and Memory do not match Mental!",
+      "Erreur4": "The total sum of stats is not equal to 170!",
+      "No": "No",
+      "Yes": "Yes"
     }
-  },
-  "Labels": {
-    "biography": "Bio",
-    "Erreur1": "Agility and Strength do not match Physical!",
-    "Erreur2": "Charisma and Sagacity do not match Social!",
-    "Erreur3": "Wit and Memory do not match Mental!",
-    "Erreur4": "The total sum of stats is not equal to 170!",
-    "No": "No",
-    "Yes": "Yes"
   }
 }
