@@ -2,9 +2,13 @@
 BUG :
     Fiche personnage / monstre
     - état(mort malade etc...)
+    - random item voir modifier le nombre 
 
 	competences
     - deux fois l'actor.update, il faudrait mettre update des compétences uniquement au modification des compétences et update du lab
+
+    chat 
+    - template info sort a revoir
 */
 
 X étant les psy dépensés pour ce sort.

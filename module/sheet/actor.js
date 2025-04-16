@@ -445,7 +445,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     let sortRestant = 0;
     let stat = { message: "", reste: 0 };
 
-    const type = this.actor.system.type;
+    const type = this.actor.type;
     const point_apprentissage = this.actor.system.competences.apprentissage;
     const level = this.actor.system.niveau;
 
