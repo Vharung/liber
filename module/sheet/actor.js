@@ -1475,6 +1475,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
           actingCharName: actor.name,
           actingCharImg: actor.img,
           actingAbilName: visuel,
+          info:"Info",
           introText: label,
           succes:description
         };

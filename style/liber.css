@@ -356,10 +356,10 @@ body.theme-dark .application .window-content{backdrop-filter:none}
 .message-content{background:#191409;color:var(--couleur-clair);padding:5px; border-radius: 5px}
 #chat-form textarea,#chat-controls .roll-type-select,textarea{background: var(--couleur-clair);color:var(--couleur-noir)}
 .intro-img{width: 50px;height: 50px;display: inline-block;}
-.intro-chat{float: right;width: 216px;background: var(--couleur-or);padding: 5px;border-radius:0 5px 5px 0;color: var(--couleur-noir);}
+.intro-chat{float: right;width: 216px;background: var(--couleur-or);padding: 5px;border-radius:0 5px 5px 0;color: var(--couleur-noir);min-height: 100px;}
 .intro-chat span{font-size: 0.9em;font-weight: bold;}
 .intro-right{font-style: italic;}
-.chat.roll{min-height: 77px}
+.chat.roll{min-height: 100px;}
 .chat p.info{text-align: center;background: var(--couleur-noir);padding: 10px;color: var(--couleur-clair);}
 .chat .result{text-align: center;color: #fff;padding: 5px;border: 1px solid #999;width: 100%;display: block;font-size: 1.5em;}
 .chat .result{text-align: center;color: #fff;padding: 5px;border: 1px solid #999;width: 100%;display: block;font-size: 1.5em;background: var(--couleur-vert)}

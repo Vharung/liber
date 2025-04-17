@@ -9,6 +9,8 @@ BUG :
 
     chat 
     - template info sort a revoir
+    - tir de couverture
+    - retirer les munitions
 */
 
 X étant les psy dépensés pour ce sort.
