@@ -1328,52 +1328,54 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       this.actor.update({'system.inventory':types})
     }
 
-    static async #onRandom(event,target){
-      let type = event.target.dataset["type"];
-      if (!type) {
-          return;
-      }
+     static async #onRandom(event, target) {
+    let type = event.target.dataset["type"];
+    if (!type) return;
 
-      const pack = game.packs.get('liber.inventaire');
-      if (!pack) {
-          console.error("Le pack 'liber.inventaire' est introuvable.");
-          return;
-      }
-
-      const tables = await pack.getDocuments();
-      const filteredItems = tables.filter(t => t.type === type);
-
-      if (filteredItems.length === 0) {
-          console.warn(`Aucun objet trouvé pour le type : ${type}`);
-          return;
-      }
-
-      let itemsToAdd = new Set(); // Utilisation d'un Set pour éviter les doublons
-
-      if (type === "armor" || type === "weapon") {
-          // Sélection d'un seul objet pour armor/weapon
-          itemsToAdd.add(filteredItems[Math.floor(Math.random() * filteredItems.length)]);
-      } else {
-          // Sélection de 1 à 10 objets pour les autres types
-          let itemCount = Math.floor(Math.random() * 10) + 1;
-          while (itemsToAdd.size < itemCount) {
-              itemsToAdd.add(filteredItems[Math.floor(Math.random() * filteredItems.length)]);
-          }
-      }
-
-      const itemsArray = Array.from(itemsToAdd);
-
-      if (!this.actor) {
-          console.error("Aucun acteur sélectionné pour ajouter les objets.");
-          return;
-      }
-
-      try {
-          await this.actor.createEmbeddedDocuments('Item', itemsArray, { renderSheet: false });
-      } catch (error) {
-          console.error("Erreur lors de l'ajout des objets :", error);
-      }
+    const pack = game.packs.get('liber.inventaire');
+    if (!pack) {
+        console.error("Le pack 'liber.inventaire' est introuvable.");
+        return;
     }
+
+    const tables = await pack.getDocuments();
+    const filteredItems = tables.filter(t => t.type === type);
+
+    if (filteredItems.length === 0) {
+        console.warn(`Aucun objet trouvé pour le type : ${type}`);
+        return;
+    }
+
+    let itemsToAdd = [];
+
+    if (type === "armor" || type === "weapon") {
+        const randomItem = filteredItems[Math.floor(Math.random() * filteredItems.length)].toObject();
+        randomItem.system.quantity = 1;
+        delete randomItem._id;
+        itemsToAdd.push(randomItem);
+    } else {
+        const itemCount = Math.floor(Math.random() * 10) + 1;
+        for (let i = 0; i < itemCount; i++) {
+            const randomItem = filteredItems[Math.floor(Math.random() * filteredItems.length)].toObject();
+            randomItem.system.quantity = Math.floor(Math.random() * 10) + 1;
+            delete randomItem._id;
+            itemsToAdd.push(randomItem);
+            console.log(randomItem);
+        }
+    }
+
+    if (!this.actor) {
+        console.error("Aucun acteur sélectionné pour ajouter les objets.");
+        return;
+    }
+
+    try {
+        await this.actor.createEmbeddedDocuments('Item', itemsToAdd, { renderSheet: false });
+        ui.notifications.info(`${itemsToAdd.length} objet(s) ajouté(s) à ${this.actor.name} !`);
+    } catch (error) {
+        console.error("Erreur lors de l'ajout des objets :", error);
+    }
+  }
 
 
 
