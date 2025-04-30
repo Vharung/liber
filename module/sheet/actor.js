@@ -244,9 +244,9 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       }  
     });
     const type=this.actor.type;
-    if(type=='character' || type=="pnj"){
-      this._onVerif();
-    }
+    //if(type=='character' || type=="pnj"){
+    this._onVerif();
+    //}
 
     // Mettre à jour le contenu de `.competences` raccourci des information
     let competencesElement = document.querySelector(".competences");
@@ -324,6 +324,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     const race = this.actor.system.race;
     const hp = this.actor.system.hp;
     const psy = this.actor.system.psy;
+    console.log(psy)
 
     // Vérifier si les points de vie sont égaux à 0
     if ((hp <= 0 && race !== 'etredepsy') || (psy <= 0 && race === 'etredepsy')) {
@@ -1122,10 +1123,10 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       let pvMin = Math.round(actor.ability.physique / 3);
       let psyMin = Math.round((actor.ability.mental + (actor.ability.social/2) - actor.ability.physique + 5) / 4 + 2);
       let nbSort = Math.round(psyMin / 4) + niveau;
-      if(clan=="corbeau" ){pvMin=pvMin + 4; psyMin = psyMin - 4;}
+      if(clan=="corbeau" ){pvMin=pvMin + 4; psyMin = 0;}
 
       //verification des minimuns
-      if(psyMax<psyMin){psyMax=psyMin}
+      if(psyMax<psyMin && clan!="corbeau"){psyMax=psyMin}
       if(pvMax<pvMin){pvMax=pvMin}
 
       //calcul des points de niveaux
