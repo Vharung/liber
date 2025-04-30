@@ -72,7 +72,7 @@ input.m_degat,input.m_pv,input.m_ar{color:grey}
 #sidebar .flexcol button[data-tab="macro"]{background:var(--couleur-or);background-size: 50%;text-indent: -9999em;}
 #sidebar .flexcol button[data-tab="Expand"]{background:var(--couleur-or);background-size: 50%;text-indent: -9999em;}
 #sidebar .flexcol button.active,#sidebar .flexcol button:hover,#ui-left button[aria-pressed="true"]{border: 1px solid var(--couleur-clair);border-bottom: none;box-shadow: 0 0 10px #0178a2;background-color:var(--couleur-clair2);}
-
+#sidebar .sound{border: solid 1px;padding: 5px;}
 .directory li{color:var(--couleur-clair)}
 
 footer.nue {color: #c9c7b8;}
@@ -231,6 +231,7 @@ body.theme-dark .application .window-content{backdrop-filter:none}
 .liber.item button.story{top:36px;}
 .liber #background .editor-content{height: 401px; display: block}
 .liber .prosemirror menu{background: var(--couleur-clair) !important; border-radius:0px !important}
+.liber .editor-content {padding: 5px;}
 
 /*Caractéristique*/
 .liber .carac{font-size: 0.9em}

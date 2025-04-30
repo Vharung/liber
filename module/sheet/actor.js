@@ -50,7 +50,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
   async _prepareContext() {
     const filter=this.document.system.inventory;
     const items=this.document.items.toObject();
-    console.log(game)
     
     // Séparer les objets magiques
     let magic = items
@@ -199,6 +198,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
   _onRender(context, options) {
     super._onRender(context, options);  // Appelez la méthode parente si nécessaire
     console.log(context);
+    this._onVerif();
 
     // Ajoutez un listener pour vérifier si le drag-and-drop fonctionne
     this.element.querySelectorAll('[data-drag]').forEach(item => {
@@ -245,7 +245,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     });
     const type=this.actor.type;
     //if(type=='character' || type=="pnj"){
-    this._onVerif();
+    
     //}
 
     // Mettre à jour le contenu de `.competences` raccourci des information
@@ -324,7 +324,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     const race = this.actor.system.race;
     const hp = this.actor.system.hp;
     const psy = this.actor.system.psy;
-    console.log(psy)
 
     // Vérifier si les points de vie sont égaux à 0
     if ((hp <= 0 && race !== 'etredepsy') || (psy <= 0 && race === 'etredepsy')) {
@@ -443,6 +442,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
  _onVerif() {
     let resultat = 0;
     let sortPris = [];
+    let corrections = [];
     let sortRestant = 0;
     let stat = { message: "", reste: 0 };
 
@@ -450,13 +450,15 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     const point_apprentissage = this.actor.system.competences.apprentissage;
     const level = this.actor.system.niveau;
 
-    if (type === 'character') {
+   if (type === 'character') {
         // Vérification des compétences
-        resultat = this.onCalculerPenaliteCompetences();
+        const compCheck  = this.onCalculerPenaliteCompetences();
+        resultat=compCheck.resultat;
+        corrections =compCheck.corrections;
         // Vérification des points stat
         stat = this.onStat();
     }
-
+ 
     // Calcul de l'encombrement
     let encStats = this.onEnc() || { enc: 0, max: 0 };
 
@@ -470,11 +472,14 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       calcul.hpalert="";
       calcul.psyalert="";
     }
-    let updateData=this.onStatut()
+    let updateData = {
+        ...this.onStatut(),     // Autres données de statut
+        ...corrections          // Compétences raciales corrigées 
+    };
 
     // Mise à jour de l'acteur
     this.actor.update({
-        "system.reste": resultat,
+      "system.reste": resultat  ,
         "system.probleme": stat.message,
         "system.restant": stat.reste,
         "system.enc": encStats.enc,
@@ -488,7 +493,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
         "system.alert.hp": calcul.hpalert,
         "system.alert.psy": calcul.psyalert,
         [`system.apprentissage.level${level}`]: point_apprentissage,
-        updateData
+        ...updateData
     });
 }
 
@@ -505,6 +510,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     const base = this.actor.system.base;
     const faiblesse =this.actor.system.faiblesse;
     const apprentissage=this.actor.system.apprentissage;
+    const race = this.actor.system.race;
     let bonus_compt=15;
     if(faiblesse=="distrait"){
       bonus_compt=bonus_compt - 5;
@@ -516,6 +522,20 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     }
     let resultat = base + ((level - 1) * bonus_compt)+ apprentissage_bonus;
 
+    // ✅ Corrections raciales
+    const corrections = {};
+    if (Model.race[race]) {
+        const raceComp = Model.race[race];
+        for (const comp in raceComp) {
+            if (comp !== "ajoutpoint") {
+                if (!cpts[comp] || cpts[comp] < raceComp[comp]) {
+                    corrections[`system.competences.${comp}`] = raceComp[comp];
+                    cpts[comp] = raceComp[comp]; // Met à jour la copie pour le calcul
+                }
+            }
+        }
+    }
+
     // Calcul de la pénalité
       for (const competence in cpts) {
         if (Model.multiplicateurs[competence]) {
@@ -525,8 +545,8 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
         }
       }
       
-
-      return resultat;
+      
+      return { resultat, corrections };
       // Mise à jour UNE SEULE FOIS après le calcul
       
   }
@@ -684,7 +704,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     static async #onItemDelete(event, target) {
         const itemId = target.getAttribute('data-item-id');
         const item = this.actor.items.get(itemId);
-        const type = item.type;console.log(type)
+        const type = item.type;
         if (item.system.quantity > 1 && type !='magic') {
             await item.update({ "system.quantity": item.system.quantity - 1 });
         } else {
@@ -971,11 +991,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
           if(description!==""){
             info=`<div class="infos"><span class="title">Info</span><div class="description">${description}</div></div>`;
           }
-          let succes =`${info}<span class='result' style='background:var(--couleur-vert);'>${resultat}</span>`
-          
-
-
-          
+          let succes =`${info}<span class='result' style='background:var(--couleur-vert);'>${resultat}</span>`;
 
           let chatData = {
               actingCharName: actor.name,
@@ -1112,6 +1128,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       const culte=actor.culte;
       const niveau=actor.niveau;
       const insoin = actor.insoin;
+      const race = actor.race;
       let message;
       let pvEncours=actor.hp;
       let psyEncours=actor.psy;
@@ -1122,17 +1139,20 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       //calcul niveau 1 des éléments
       let pvMin = Math.round(actor.ability.physique / 3);
       let psyMin = Math.round((actor.ability.mental + (actor.ability.social/2) - actor.ability.physique + 5) / 4 + 2);
-      let nbSort = Math.round(psyMin / 4) + niveau + 1; console.log(niveau)
+      let nbSort = Math.round(psyMin / 4) + niveau + 1; 
       if(clan=="corbeau" ){pvMin=pvMin + 4; psyMin = 0;}
 
       //verification des minimuns
       if(psyMax<psyMin && clan!="corbeau"){psyMax=psyMin}
       if(pvMax<pvMin){pvMax=pvMin}
+      if(race=="etredepsy"){pvMax=0;}
+
 
       //calcul des points de niveaux
       let pointxp = (niveau - 1) * 3;
       const xp = pointxp + pvMin + psyMin;
       const calcultotxp = pvMax + psyMax;
+
       if(calcultotxp>xp){
         message=game.i18n.localize("Liber.Alert.Ability");
         hpalert="var(--couleur-rouge)";
@@ -1141,7 +1161,10 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
         hpalert="var(--couleur-vert)";
         psyalert="var(--couleur-vert)";
       }
+      
 
+
+      
 
       //calcul cout max tous niveaux
       let maxSort = Math.round((psyMax - nbSort) / 2) + 3;
@@ -1152,12 +1175,12 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       if(pvEncours>pvMax){pvEncours=pvMax;}
       if(psyEncours>psyMax){psyEncours=psyMax;}
 
-      
       // Insoignable      
       const hpinsoin=pvEncours + insoin
       if (hpinsoin > pvMax) {
           pvEncours = pvMax - insoin;
       }
+      
 
       //vérification des talents et faiblesse
       if(talent=="memoirearcanique"){nbSort=nbSort+1;} else if(talent=="vigoureux"){pvMax=pvMax+5;}
@@ -1292,7 +1315,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       } 
       if (nameList.hasOwnProperty('famille')){
         // Sélectionner un nom au hasard pour le sexe approprié
-        name =name+" "+nameList['famille'][Math.floor(Math.random() * nameList['famille'].length)];
+        name =nameList['famille'][Math.floor(Math.random() * nameList['famille'].length)]+" "+name;
       } else {
         // Sélectionner un nom au hasard dans la liste neutre
         if(race=="dragon"){
@@ -1361,7 +1384,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
             randomItem.system.quantity = Math.floor(Math.random() * 10) + 1;
             delete randomItem._id;
             itemsToAdd.push(randomItem);
-            console.log(randomItem);
         }
     }
 
