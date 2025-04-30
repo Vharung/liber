@@ -42,7 +42,7 @@ body{background:url(../assets/system/fond.webp) no-repeat top center #000; }
 .dialog .dialog-buttons button.default {background: var(--couleur-or);color:var(--couleur-noir);border: none}
 .dialog .dialog-buttons button,.filepicker .favorites .paths{background: var(--couleur-clair);color:var(--couleur-noir);border: none}
 form .notes, form .hint{color:var(--couleur-clair2);}
-.directory .action-buttons button,.filepicker .current-dir button,.filepicker .current-dir button,form button,button{background: var(--couleur-or);color:var(--couleur-noir);border:none}
+.directory .action-buttons button,.filepicker .current-dir button,.filepicker .current-dir button,form button,button{background: var(--couleur-or);color:var(--couleur-noir);border: 1px solid var(--couleur-noir);}
 .directory .directory-header{color:var(--couleur-or)}
 ul.m_list {list-style: none;}
 .m_nb, .m_name, .m_lvl,.m_degat,.m_pv,.m_ar{display: inline-block;}

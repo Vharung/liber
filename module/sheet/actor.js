@@ -1122,7 +1122,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       //calcul niveau 1 des éléments
       let pvMin = Math.round(actor.ability.physique / 3);
       let psyMin = Math.round((actor.ability.mental + (actor.ability.social/2) - actor.ability.physique + 5) / 4 + 2);
-      let nbSort = Math.round(psyMin / 4) + niveau;
+      let nbSort = Math.round(psyMin / 4) + niveau + 1; console.log(niveau)
       if(clan=="corbeau" ){pvMin=pvMin + 4; psyMin = 0;}
 
       //verification des minimuns
