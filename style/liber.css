@@ -15,7 +15,7 @@ body{background:url(../assets/system/fond.webp) no-repeat top center #000; }
 }
 .liber .clear{clear: both;}
 #logo {display: none;}
-#ui-left{background: url(../assets/system/titre.webp)no-repeat 20px 20px;padding-top: 81px;background-size: 103px;}
+/*#ui-left{background: url(../assets/system/titre.webp)no-repeat 20px 20px;padding-top: 81px;background-size: 103px;}*/
 .ambient-light-config {background: var(--couleur-noir)}
 .standard-form .form-group > label,.ambient-light-config,.standard-form .form-group:hover .hint {color:var(--couleur-clair2)}
 .standard-form .form-group:hover > label,form .form-group span.units,.standard-form .hint,form .form-group.slim .form-fields > label {color:var(--couleur-clair)}
@@ -43,6 +43,7 @@ body{background:url(../assets/system/fond.webp) no-repeat top center #000; }
 .dialog .dialog-buttons button,.filepicker .favorites .paths{background: var(--couleur-clair);color:var(--couleur-noir);border: none}
 form .notes, form .hint{color:var(--couleur-clair2);}
 .directory .action-buttons button,.filepicker .current-dir button,.filepicker .current-dir button,form button,button{background: var(--couleur-or);color:var(--couleur-noir);border: 1px solid var(--couleur-noir);}
+button.inactive{opacity:0.5}
 .directory .directory-header{color:var(--couleur-or)}
 ul.m_list {list-style: none;}
 .m_nb, .m_name, .m_lvl,.m_degat,.m_pv,.m_ar{display: inline-block;}
