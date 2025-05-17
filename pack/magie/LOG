@@ -1,14 +1,14 @@
-2025/05/02-15:59:23.218510 712ba56006c0 Recovering log #189
-2025/05/02-15:59:23.220018 712ba56006c0 Delete type=0 #189
-2025/05/02-15:59:23.220043 712ba56006c0 Delete type=3 #187
-2025/05/02-22:04:15.620862 712b93e006c0 Level-0 table #194: started
-2025/05/02-22:04:15.621744 712b93e006c0 Level-0 table #194: 1403 bytes OK
-2025/05/02-22:04:15.622610 712b93e006c0 Delete type=0 #192
-2025/05/02-22:04:15.625250 712b93e006c0 Manual compaction at level-0 from '!folders!15ukE6rSCVGIHvHk' @ 72057594037927935 : 1 .. '!items!zx6WVvpmo1cODEVe' @ 0 : 0; will stop at '!items!v8jfUwWy7vL9rm1R' @ 3269 : 1
-2025/05/02-22:04:15.625258 712b93e006c0 Compacting 1@0 + 1@1 files
-2025/05/02-22:04:15.628533 712b93e006c0 Generated table #195@0: 605 keys, 211550 bytes
-2025/05/02-22:04:15.628544 712b93e006c0 Compacted 1@0 + 1@1 files => 211550 bytes
-2025/05/02-22:04:15.629082 712b93e006c0 compacted to: files[ 0 1 0 0 0 0 0 ]
-2025/05/02-22:04:15.629130 712b93e006c0 Delete type=2 #194
-2025/05/02-22:04:15.629202 712b93e006c0 Delete type=2 #174
-2025/05/02-22:04:15.630964 712b93e006c0 Manual compaction at level-0 from '!items!v8jfUwWy7vL9rm1R' @ 3269 : 1 .. '!items!zx6WVvpmo1cODEVe' @ 0 : 0; will stop at (end)
+2025/05/12-13:20:38.634675 74553be006c0 Recovering log #210
+2025/05/12-13:20:38.636349 74553be006c0 Delete type=0 #210
+2025/05/12-13:20:38.636375 74553be006c0 Delete type=3 #208
+2025/05/17-06:31:37.703537 74553a6006c0 Level-0 table #215: started
+2025/05/17-06:31:37.707518 74553a6006c0 Level-0 table #215: 951 bytes OK
+2025/05/17-06:31:37.708855 74553a6006c0 Delete type=0 #213
+2025/05/17-06:31:37.713445 74553a6006c0 Manual compaction at level-0 from '!folders!15ukE6rSCVGIHvHk' @ 72057594037927935 : 1 .. '!items!zx6WVvpmo1cODEVe' @ 0 : 0; will stop at '!items!CVUwUAMyKwYHjyzV' @ 3273 : 1
+2025/05/17-06:31:37.713455 74553a6006c0 Compacting 1@0 + 1@1 files
+2025/05/17-06:31:37.718891 74553a6006c0 Generated table #216@0: 606 keys, 211757 bytes
+2025/05/17-06:31:37.718904 74553a6006c0 Compacted 1@0 + 1@1 files => 211757 bytes
+2025/05/17-06:31:37.719464 74553a6006c0 compacted to: files[ 0 1 0 0 0 0 0 ]
+2025/05/17-06:31:37.719549 74553a6006c0 Delete type=2 #195
+2025/05/17-06:31:37.719851 74553a6006c0 Delete type=2 #215
+2025/05/17-06:31:37.722754 74553a6006c0 Manual compaction at level-0 from '!items!CVUwUAMyKwYHjyzV' @ 3273 : 1 .. '!items!zx6WVvpmo1cODEVe' @ 0 : 0; will stop at (end)
