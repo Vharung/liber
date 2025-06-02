@@ -91,7 +91,7 @@ a.content-link, a.inline-roll {background: none}
 .liber option{background: var(--couleur-noir);color: var(--couleur-clair);}
 .liber.application .window-header {padding-right: 20px;background: none;}
 .sheet.actor,.sheet.item{width: 568px;height: 834px;; position: absolute;border-bottom-right-radius: 30px;border-top-right-radius: 30px;height: 836px;}
-.liber.application .window-content,.sheet.actor {display: block;flex: none;scrollbar-width: none;overflow: auto;}
+.liber.application .window-content,.sheet.actor {display: block;flex: none;scrollbar-width: none;overflow: auto;height: 820px;}
 .liber .perso span, .liber .zoneinfo a{color: var(--couleur-noir)}
 .sheet.actor section{background: none}
 .sheet.actor,#sidebar,.sheet.journal-entry .journal-entry-content,.dialog,.sheet.journal-entry, .sheet.item{background: linear-gradient(218deg, #2a2b2c 0%, #120304 100%); }
