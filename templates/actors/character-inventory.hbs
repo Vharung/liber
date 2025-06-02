@@ -150,7 +150,7 @@
         <div class="magie">
           <select name="system.magie">
             {{#each listMagie as | magie|}}
-              <option value="{{magie.id}}" title="{{magie.name}}">
+              <option value="{{magie.id}}" title="{{magie.name}} : {{stripTags magie.description}}">
                 {{magie.name}}
               </option>
             {{/each}}

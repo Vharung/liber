@@ -149,19 +149,19 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     }else {
       magieSchool.push(clan);
     }
-
+console.log(clan)
     // Vérifier et ajouter la magie correspondante au système du personnage
     let newMagie = [];
     tables.forEach(table => {
       // Si le clan ou le culte est "other", inclure toutes les magies sous la condition de coût
       if (clan === "other" || culte === "other" && race!="celeste") {
           if (table.system.quantity <= cout) {
-              newMagie.push({ name: table.name, id: table._id, quantity : table.system.quantity });
+              newMagie.push({ name: table.name, id: table._id, quantity : table.system.quantity, description : table.system.biography });
           }
       } 
       // Sinon, appliquer la logique classique
       else if (magieSchool.includes(table.system.school) && table.system.quantity <= cout) {
-          newMagie.push({ name: table.name, id: table._id, quantity : table.system.quantity });
+          newMagie.push({ name: table.name, id: table._id, quantity : table.system.quantity, description : table.system.biography });
       }
     });
     newMagie.sort((a, b) => a.quantity - b.quantity);

@@ -218,7 +218,7 @@ export default class LiberCharacterData extends foundry.abstract.DataModel {
                     [CLAN.VIVAQUA]: game.i18n.localize("Liber.Magic.vivaqua"),
                     [CLAN.WEITHA]: game.i18n.localize("Liber.Magic.weitha"),
                     [CLAN.YIE]: game.i18n.localize("Liber.Magic.yie"),
-                    [CLAN.Other]: game.i18n.localize("Liber.Magic.autre")
+                    [CLAN.OTHER]: game.i18n.localize("Liber.Magic.autre")
                 }
         }),
             culte: new fields.StringField({

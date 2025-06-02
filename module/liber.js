@@ -67,6 +67,10 @@ Handlebars.registerHelper('capitalizeFirstLetter', function(str) {
   return str;
 });
 
+Handlebars.registerHelper("stripTags", function (text) {
+  return text.replace(/<\/?[^>]+(>|$)/g, "");
+});
+
 /*Jet de des du chat*/
 Hooks.once("ready", () => {
     document.addEventListener("click", async (event) => {
