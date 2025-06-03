@@ -20,6 +20,7 @@ body{background:url(../assets/system/fond.webp) no-repeat top center #000; }
 .standard-form .form-group > label,.ambient-light-config,.standard-form .form-group:hover .hint {color:var(--couleur-clair2)}
 .standard-form .form-group:hover > label,form .form-group span.units,.standard-form .hint,form .form-group.slim .form-fields > label {color:var(--couleur-clair)}
 .journal-entry .journal-header .title,.application button{background:var(--couleur-or);color:var(--couleur-noir)}
+.application .window-content{overflow: auto}
 
 /*outil*/
 .chat-message{border: none;margin-bottom: 15px;background: var(--couleur-noir);color:#fff;}
