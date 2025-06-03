@@ -258,8 +258,10 @@ body.theme-dark .application .window-content{backdrop-filter:none}
 .liber a.objets{background: url(../assets/actor/chicken-oven.webp) no-repeat center center;background-size: 40%;opacity: 0.5;transition: 0.5s}
 .liber .item-description{height: 90px;background: var(--couleur-noir);color:var(--couleur-clair);display: block;padding: 5px;font-size: 0.9em;overflow: auto;scrollbar-width: none}
 .liber .item-controls{height: 20px;display: block;text-align: right;padding: 3px 0;}
-.liber .item .zonecontrole{display: block;height: 0px;overflow: hidden;transition: 1s;padding-top: 1px;}
+.liber .item .zonecontrole{display: block;height: 0px;overflow: hidden;transition: 0.5s;padding-top: 1px;}
 .liber .item:hover .zonecontrole{height: 110px;}
+.liber .item {background: var(--couleur-clair);transition: 0.5s;}
+.liber .item:hover {background: var(--couleur-clair2);}
 .liber .items-list .item-hand{width: 62px;float: left;filter: invert(1);}
 .liber #items .items-list,.liber #spells .items-list{display: block;scrollbar-width: none;overflow:auto}
 .liber #items .items-list{height: 425px;}

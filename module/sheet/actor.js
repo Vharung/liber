@@ -331,7 +331,10 @@ console.log(clan)
         const actorElement = document.getElementById(`LiberCharacterSheet-Actor-${this.actor._id}`);
         if (actorElement) {
             actorElement.style.background = 'linear-gradient(230deg, rgba(190,25,25,1) 0%, rgba(25,25,25,1) 100%)';
+        }else{
+            actorElement.style.background = 'linear-gradient(218deg, #2a2b2c 0%, #120304 100%)';
         }
+
     }
 
   }
