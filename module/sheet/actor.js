@@ -149,7 +149,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     }else {
       magieSchool.push(clan);
     }
-console.log(clan)
     // Vérifier et ajouter la magie correspondante au système du personnage
     let newMagie = [];
     tables.forEach(table => {
@@ -637,7 +636,6 @@ console.log(clan)
     }
 
     const { hp, psy, ability, competences } = metierData;
-
     // Génération dynamique des chemins pour les statistiques
     const abilityUpdates = Object.fromEntries(
         Object.entries(ability).map(([key, value]) => [`system.ability.${key}`, value])
