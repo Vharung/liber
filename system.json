@@ -137,7 +137,7 @@
   ],
   "url": "https://github.com/Vharung/liber",
   "manifest": "https://raw.githubusercontent.com/Vharung/liber/main/system.json",
-  "download": "https://github.com/Vharung/liber/archive/refs/heads/main.zip",
+  "download": "https://github.com/Vharung/liber/releases/download/v4.0.1/liber-v4.zip",
   "background": "systems/liber/assets/system/accueil.webp",
   "grid":{
     "distance": 1,
