@@ -2,17 +2,17 @@
   "id": "liber",
   "title": "Liber Game System",
   "version": "4.0.1",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
   "description": "The Liber Chronicles system for FoundryVTT !",
   "authors": [
     {
       "name": "Vharung",
       "discord": "Vharung"
     }],
-  "version": "4",
-  "compatibility": {
-    "minimum": "13",
-    "verified": "13"
-  },
+ 
   "license": "MIT",
   "scripts": [],
   "styles": ["style/liber.css"],
@@ -148,4 +148,3 @@
     
   "license": "LICENSE.txt"
 }
-

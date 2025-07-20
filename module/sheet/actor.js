@@ -1366,6 +1366,8 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     const tables = await pack.getDocuments();
     const filteredItems = tables.filter(t => t.type === type);
 
+
+
     if (filteredItems.length === 0) {
         console.warn(`Aucun objet trouvé pour le type : ${type}`);
         return;
@@ -1525,7 +1527,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       const dataId = selectedOption.value; // Récupère la valeur de l'option (correspond à l'ID du sort)
 
       if (!dataId) return console.error("Aucun sort sélectionné.");
-
 
       // Recherche dans le compendium "liber.magie"
       const pack = game.packs.get("liber.magie");
