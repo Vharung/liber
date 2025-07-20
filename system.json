@@ -140,7 +140,7 @@
   "download": "https://github.com/Vharung/liber/archive/refs/heads/main.zip",
   "background": "systems/liber/assets/system/accueil.webp",
   "grid":{
-    "dDistance": 1,
+    "distance": 1,
     "units": "m"
   },
   "primaryTokenAttribute": "hp",
