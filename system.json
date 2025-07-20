@@ -144,7 +144,5 @@
     "units": "m"
   },
   "primaryTokenAttribute": "hp",
-  "secondaryTokenAttribute": "psy",
-    
-  "license": "LICENSE.txt"
+  "secondaryTokenAttribute": "psy"
 }
