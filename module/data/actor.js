@@ -55,11 +55,11 @@ export default class LiberCharacterData extends foundry.abstract.DataModel {
                 force: new fields.NumberField({ required: true, min: 5, max: 90, initial: 5,nullable:false}),
                 agilite: new fields.NumberField({ required: true, min: 5, max: 90, initial: 5,nullable:false}),
                 social: new fields.NumberField({ required: true, min: 10, max: 95, initial: 10,nullable:false}),
-                charisme: new fields.NumberField({ required: true, min: 5, max: 90, initial: 5,nullable:false}),
                 sagacite: new fields.NumberField({ required: true, min: 5, max: 90, initial: 5,nullable:false}),
+                charisme: new fields.NumberField({ required: true, min: 5, max: 90, initial: 5,nullable:false}),
                 mental: new fields.NumberField({ required: true, min: 10, max: 95, initial: 10,nullable:false}),
-                memoire: new fields.NumberField({ required: true, min: 5, max: 90, initial: 5,nullable:false}),
-                astuce: new fields.NumberField({ required: true, min: 5, max: 90, initial: 5,nullable:false})
+                astuce: new fields.NumberField({ required: true, min: 5, max: 90, initial: 5,nullable:false}),
+                memoire: new fields.NumberField({ required: true, min: 5, max: 90, initial: 5,nullable:false})
             }),
             malus:new fields.NumberField({ required: true, initial: 0 }),
             bonus:new fields.NumberField({ required: true, initial: 0 }),
