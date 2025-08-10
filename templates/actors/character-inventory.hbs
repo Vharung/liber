@@ -36,7 +36,10 @@
   <div id="carac" class="tab" data-group="sheet" data-tab="carac">
     <div class="zoneinfo">
       {{#each systemFields.competences.fields as |field caract|}}
-        <div class="perso" data-ability="{{caract}}">
+      {{#if (or (eq caract "mentales") (eq caract "physiques") (eq caract "sociales") (eq caract "techniques") (eq caract "combats"))}}
+              <p class="titrecompe">{{localize field.label}}</p>
+      {{else}}
+        <div class="perso {{caract}}" data-ability="{{caract}}" style="width: 46%;float: left;margin-right: 10px;">
           <span title="{{localize field.label}}" calc="{{caract}}">
             {{localize field.label}}
           </span>
@@ -46,7 +49,11 @@
               rootId=../partId
             }}
         </div>
+        {{/if}}
       {{/each}}
+      <h2 class="reste">{{localize 'Liber.Character.Reste'}}</h2>
+            {{formInput systemFields.reste name="system.reste" value=system.reste localize=true rootId=partId}}
+
     </div>
   </div>
 
@@ -225,21 +232,54 @@
           {{/each}}
         {{/if}}
       </select>
-      <h2 class="clanh2">{{localize 'Liber.Character.Clan'}}</h2>
-       <select name="system.clan">
-        {{#each listClan as | key|}}
-          <option value="{{key}}" title="{{localize choice.tooltip}}" {{#if (eq key ../system.clan)}}selected{{/if}}>
-            {{localize (concat 'Liber.Magic.' key)}}
-          </option>
-        {{/each}}
+      {{#if (eq actor.system.metier "inquisiteur")}}
+        <h2 class="religionh2">{{localize 'Liber.Character.Religion'}}</h2>
+      {{else}}      
+        <h2 class="clanh2">{{localize 'Liber.Character.Clan'}}</h2>
+      {{/if}} 
+      <select name="system.clan">
+        {{#if (eq actor.system.metier "inquisiteur")}}
+          {{#each listCulte as |key|}}
+            <option value="{{key}}" {{#if (eq key ../system.clan)}}selected{{/if}}>
+              {{localize (concat 'Liber.Magic.' key)}}
+            </option>
+          {{/each}}
+        {{else}}
+          {{#each listClan as |key|}}
+            <option value="{{key}}" {{#if (eq key ../system.clan)}}selected{{/if}}>
+              {{localize (concat 'Liber.Magic.' key)}}
+            </option>
+          {{/each}}
+        {{/if}}
       </select>
-      <h2 class="religionh2">{{localize 'Liber.Character.Religion'}}</h2>
+
+      {{!-- Titre religion sauf pour mercenaire ou inquisiteur --}}
+      {{#if (or (eq actor.system.metier "mercenaire") (eq actor.system.metier "inquisiteur"))}}
+        {{!-- rien --}}
+      {{else}}
+        <h2 class="religionh2">{{localize 'Liber.Character.Religion'}}</h2>
+      {{/if}}
+
       <select name="system.culte">
-        {{#each listCulte as | key|}}
-          <option value="{{key}}" title="{{localize choice.tooltip}}" {{#if (eq key ../system.culte)}}selected{{/if}}>
-            {{localize (concat 'Liber.Magic.' key)}}
-          </option>
-        {{/each}}
+        {{#if (eq actor.system.metier "mercenaire")}}
+          {{#each listClan as |key|}}
+            {{!-- Exclure corbeau, troubadour et croises si nécessaire --}}
+            {{#unless (or (eq key "corbeau") (eq key "troubadour") (eq key "croises"))}}
+              <option value="{{key}}" {{#if (eq key ../system.culte)}}selected{{/if}}>
+                {{localize (concat 'Liber.Magic.' key)}}
+              </option>
+            {{/unless}}
+          {{/each}}
+        {{else}}
+          {{#each listCulte as |key|}}
+            <option value="{{key}}" {{#if (eq key ../system.culte)}}selected{{/if}}>
+              {{localize (concat 'Liber.Magic.' key)}}
+            </option>
+          {{/each}}
+        {{/if}}
+      </select>
+
+
       </select>
       <h2>{{localize 'Liber.Character.Job'}}</h2>
       <select name="system.metier">
@@ -254,9 +294,7 @@
         <div class="reponse">
           {{formField systemFields.ronfleur name="system.ronfleur" value=system.ronfleur localize=true rootId=partId type="select"}}
         </div>
-        <div class="reponse">
-          {{formField systemFields.traite name="system.traite" value=system.traite localize=true rootId=partId type="select"}}
-        </div>  
+         
       
       <h2>{{localize 'Liber.Character.Restant'}}</h2>
       {{formInput systemFields.restant name="system.restant" value=system.restant localize=true rootId=partId}}

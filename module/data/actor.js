@@ -144,10 +144,11 @@ export default class LiberCharacterData extends foundry.abstract.DataModel {
                 choices: {
                     [RACES.DRAGON]: game.i18n.localize("Liber.Race.Dragon"),
                     [RACES.HUMAIN]: game.i18n.localize("Liber.Race.Humain"),
+                    [RACES.SEMI_HUMAIN]: game.i18n.localize("Liber.Race.Semihumain"),
                     [RACES.DEMON]: game.i18n.localize("Liber.Race.Demon"),
                     [RACES.DRAUCH]: game.i18n.localize("Liber.Race.Drauch"),
+                    [RACES.KOBOLT]: game.i18n.localize("Liber.Race.Kobolt"),
                     [RACES.ROCAILLEUX]: game.i18n.localize("Liber.Race.Rocailleux"),
-                    [RACES.SEMI_HUMAIN]: game.i18n.localize("Liber.Race.Semihumain"),
                     [RACES.ELFE]: game.i18n.localize("Liber.Race.Elfe"),
                     [RACES.ELFE_SYLVAIN]: game.i18n.localize("Liber.Race.Elfesylvain"),
                     [RACES.ELFE_NOIR]: game.i18n.localize("Liber.Race.Elfenoir"),
@@ -160,10 +161,10 @@ export default class LiberCharacterData extends foundry.abstract.DataModel {
                     [RACES.HOMME_RAT]: game.i18n.localize("Liber.Race.Hommerat"),
                     [RACES.ETRE_DE_PSY]: game.i18n.localize("Liber.Race.Etredepsy"),
                     [RACES.VAMPIRE]: game.i18n.localize("Liber.Race.Vampire"),
+                    [RACES.GOBELIN]: game.i18n.localize("Liber.Race.Gobelin"),
                     [RACES.ORC]: game.i18n.localize("Liber.Race.Orc"),
                     [RACES.CELESTE]: game.i18n.localize("Liber.Race.Celeste"),
-                    [RACES.CENTAURE]: game.i18n.localize("Liber.Race.Centaure"),
-                    [RACES.KOBOLT]: game.i18n.localize("Liber.Race.Kobolt"),
+                    [RACES.CENTAURE]: game.i18n.localize("Liber.Race.Centaure"),     
                     [RACES.AUTRE]: game.i18n.localize("Liber.Race.Autre"),
                 }
             }),
@@ -218,7 +219,22 @@ export default class LiberCharacterData extends foundry.abstract.DataModel {
                     [CLAN.VIVAQUA]: game.i18n.localize("Liber.Magic.vivaqua"),
                     [CLAN.WEITHA]: game.i18n.localize("Liber.Magic.weitha"),
                     [CLAN.YIE]: game.i18n.localize("Liber.Magic.yie"),
-                    [CLAN.OTHER]: game.i18n.localize("Liber.Magic.autre")
+                    [CLAN.OTHER]: game.i18n.localize("Liber.Magic.autre"),
+
+                    [CULTE.NONE]:game.i18n.localize("Liber.Magic.aucune"),
+                    [CULTE.DEMONS_ANCIENS]: game.i18n.localize("Liber.Magic.demonsanciens"),
+                    [CULTE.MARRUNAS]: game.i18n.localize("Liber.Magic.marrunas"),
+                    [CULTE.BAPHOMET]: game.i18n.localize("Liber.Magic.baphomet"),
+                    [CULTE.LUMIERE_CELESTE]: game.i18n.localize("Liber.Magic.lumiereceleste"),
+                    [CULTE.VHARUNG]: game.i18n.localize("Liber.Magic.vharung"),
+                    [CULTE.WAETRA]: game.i18n.localize("Liber.Magic.waetra"),
+                    [CULTE.CROISES]: game.i18n.localize("Liber.Magic.croises"),
+                    [CULTE.DIEUXSOMBRES]: game.i18n.localize("Liber.Magic.dieuxsombres"),
+                    [CULTE.NOUVEL_ORDRE]: game.i18n.localize("Liber.Magic.nouvelordre"),
+                    [CULTE.VAUDOU]: game.i18n.localize("Liber.Magic.vaudou"),
+                    [CULTE.NUMISMATOMANCIE]: game.i18n.localize("Liber.Magic.numismatomancie"),
+                    [CULTE.RUNES]: game.i18n.localize("Liber.Magic.runes"),
+                    [CULTE.OTHER]: game.i18n.localize("Liber.Magic.autre")
                 }
         }),
             culte: new fields.StringField({
@@ -238,7 +254,32 @@ export default class LiberCharacterData extends foundry.abstract.DataModel {
                     [CULTE.VAUDOU]: game.i18n.localize("Liber.Magic.vaudou"),
                     [CULTE.NUMISMATOMANCIE]: game.i18n.localize("Liber.Magic.numismatomancie"),
                     [CULTE.RUNES]: game.i18n.localize("Liber.Magic.runes"),
-                    [CULTE.OTHER]: game.i18n.localize("Liber.Magic.autre")
+                    [CULTE.OTHER]: game.i18n.localize("Liber.Magic.autre"),
+
+                    [CLAN.NONE]:game.i18n.localize("Liber.Magic.aucune"),
+                    [CLAN.NOMADE]: game.i18n.localize("Liber.Magic.nomade"),
+                    [CLAN.AELATH]: game.i18n.localize("Liber.Magic.aelath"),
+                    [CLAN.ATAKANAX]: game.i18n.localize("Liber.Magic.atakanax"),
+                    [CLAN.ATLANTIDE]: game.i18n.localize("Liber.Magic.atlantide"),
+                    [CLAN.CEM]: game.i18n.localize("Liber.Magic.cem"),
+                    [CLAN.COALITH]: game.i18n.localize("Liber.Magic.coalith"),
+                    [CLAN.CORBEAU]: game.i18n.localize("Liber.Magic.corbeau"),
+                    [CLAN.CRILANYDD]: game.i18n.localize("Liber.Magic.crilanydd"),
+                    [CLAN.DEMON_CLAN]: game.i18n.localize("Liber.Magic.demonclan"),
+                    [CLAN.DRAUCH]: game.i18n.localize("Liber.Magic.drauch"),
+                    [CLAN.DWALIWYR]: game.i18n.localize("Liber.Magic.dwaliwyr"),
+                    [CLAN.ERALIWIN]: game.i18n.localize("Liber.Magic.eraliwin"),
+                    [CLAN.GALERRAKATH]: game.i18n.localize("Liber.Magic.galerrakath"),
+                    [CLAN.LIMENIDO]: game.i18n.localize("Liber.Magic.limenido"),
+                    [CLAN.NATURA]: game.i18n.localize("Liber.Magic.natura"),
+                    [CLAN.NYDIAG]: game.i18n.localize("Liber.Magic.nydiag"),
+                    [CLAN.OKLATA]: game.i18n.localize("Liber.Magic.oklata"),
+                    [CLAN.RALICH]: game.i18n.localize("Liber.Magic.ralich"),
+                    [CLAN.TROUBADOUR]: game.i18n.localize("Liber.Magic.troubadour"),
+                    [CLAN.VIVAQUA]: game.i18n.localize("Liber.Magic.vivaqua"),
+                    [CLAN.WEITHA]: game.i18n.localize("Liber.Magic.weitha"),
+                    [CLAN.YIE]: game.i18n.localize("Liber.Magic.yie"),
+                    [CLAN.OTHER]: game.i18n.localize("Liber.Magic.autre")
                 }
             }),
             metier: new fields.StringField({
@@ -246,29 +287,26 @@ export default class LiberCharacterData extends foundry.abstract.DataModel {
                 initial: METIERS.PERSONNALISE, // Valeur par défaut
                 choices: {
                     [METIERS.PERSONNALISE]: game.i18n.localize("Liber.Metier.personnalise"),
-                    [METIERS.AVENTURIER]: game.i18n.localize("Liber.Metier.aventurier"),
-                    [METIERS.MERCENAIRE]: game.i18n.localize("Liber.Metier.mercenaire"),
-                    [METIERS.SOLDAT]: game.i18n.localize("Liber.Metier.soldat"),
+                    [METIERS.GUERRIER]: game.i18n.localize("Liber.Metier.guerrier"),
                     [METIERS.CHEVALIER]: game.i18n.localize("Liber.Metier.chevalier"),
-                    [METIERS.INQUISITEUR]: game.i18n.localize("Liber.Metier.inquisiteur"),
+                    [METIERS.CROISE]: game.i18n.localize("Liber.Metier.croise"),
+                    [METIERS.SOLDAT]: game.i18n.localize("Liber.Metier.soldat"),
+                    [METIERS.MERCENAIRE]: game.i18n.localize("Liber.Metier.mercenaire"),
+                    [METIERS.PIRATE]: game.i18n.localize("Liber.Metier.pirate"),
                     [METIERS.CHASSEUR_DE_PRIME]: game.i18n.localize("Liber.Metier.chasseurdeprime"),
-                    [METIERS.CHASSEUR]: game.i18n.localize("Liber.Metier.chasseur"),
-                    [METIERS.PECHEUR]: game.i18n.localize("Liber.Metier.pecheur"),
                     [METIERS.ASSASSIN_VOLEUR]: game.i18n.localize("Liber.Metier.assassinvoleur"),
-                    [METIERS.ARCHER]: game.i18n.localize("Liber.Metier.archer"),
+                    [METIERS.INQUISITEUR]: game.i18n.localize("Liber.Metier.inquisiteur"),
+                    [METIERS.DRUIDE]: game.i18n.localize("Liber.Metier.druide"),
+                    [METIERS.CLERC]: game.i18n.localize("Liber.Metier.clerc"),
                     [METIERS.TROUBADOUR]: game.i18n.localize("Liber.Metier.troubadour"),
                     [METIERS.ERUDIT]: game.i18n.localize("Liber.Metier.erudit"),
                     [METIERS.MAGICIEN]: game.i18n.localize("Liber.Metier.magicien"),
-                    [METIERS.CLERC]: game.i18n.localize("Liber.Metier.clerc"),
-                    [METIERS.ORACLE]: game.i18n.localize("Liber.Metier.oracle"),
-                    [METIERS.PIRATE]: game.i18n.localize("Liber.Metier.pirate"),
-                    [METIERS.GUERRIER]: game.i18n.localize("Liber.Metier.guerrier"),
-                    [METIERS.CROISE]: game.i18n.localize("Liber.Metier.croise")
+                    [METIERS.ORACLE]: game.i18n.localize("Liber.Metier.oracle")
                 }
             }),
             restant:new fields.NumberField({ required: true, initial: 0 ,readonly:true}),
             reste:new fields.NumberField({ required: true, initial: 0 ,readonly:true}),
-            base:new fields.NumberField({ required: true, initial: 50 ,readonly:true}),
+            base:new fields.NumberField({ required: true, initial: 25 ,readonly:true}),
             taille: new fields.StringField({
                 required: true,
                 initial: TAILLE.MIDDLE, // Valeur par défaut

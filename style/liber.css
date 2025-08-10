@@ -128,12 +128,12 @@ body.theme-dark .application .window-content{backdrop-filter:none}
 .liber input[name="system.fatig"]{background:url("../assets/actor/fatigue.webp") 5px center no-repeat;background-size: contain;border-left: solid 1px #c2b69e;border-radius: 0;}
 .liber .avantagerace,.liber .talent, .liber .faiblesse{font-size: 0.9em;padding:5px;overflow: hidden;height: 20px;display: inline-block;margin-bottom:6px;color:var(--couleur-noir);}
 .liber .talent, .liber .faiblesse{width: 150px}
-.liber .avantagerace{width: 262px;}
+.liber .avantagerace{width: 262px;height: 47px;float: left;font-size: 0.9em;line-height: 1em;}
 
 /*Zone Avatar*/
 .liber .zoneavatar input{color:var(--couleur-or)}
 .liber .character-biography,.liber .col-droite{display: inline-block;height: 694px;position: absolute;margin-top: 14px}
-.liber .character-biography{width:298px;;border-left: solid #262728 1px;position: relative;/*top: -56px;*/;top:-94px;}
+.liber .character-biography{width:298px;;border-left: solid #262728 1px;position:absolute;;top:135px;}
 .liber .zoneavatar{border-bottom: solid var(--couleur-or) 2px;width: 90%;margin: auto;height: 275px;margin-bottom: 10px;position: relative;padding-top: 10px;}
 .liber .avatar{width: 190px; height: 190px;border-radius: 50%; border:solid var(--couleur-or) 2px;overflow: hidden;}
 .liber .ligne{width: 15px; margin-bottom: 5px;position: absolute;top: 0;right: 0;}
@@ -214,7 +214,7 @@ body.theme-dark .application .window-content{backdrop-filter:none}
 .liber .inventory-list{width: 302px;border-left: solid var(--couleur-or) 2px;left: 320px;position: absolute;top: 157px;height: 684px;padding-left: 10px}
 .liber .inventory-list h2{margin-left: 5px}
 .liber .sheet-body{height: 680px;width: 295px;}
-.liber .zoneinfo h2{color:var(--couleur-noir);width: 100%}
+.liber .zoneinfo h2{color:var(--couleur-noir);width: calc(100% - 60px);}
 .liber .zoneinfo select{background: var(--couleur-noir);color:var(--couleur-clair);margin-bottom: 10px;border:none;height: 40px}
 
 /*Histoire*/
@@ -237,9 +237,12 @@ body.theme-dark .application .window-content{backdrop-filter:none}
 
 /*Caractéristique*/
 .liber .carac{font-size: 0.9em}
-.liber .perso{width: 127px;float: left;margin-right: 10px;}
-.liber .perso input{width: 35px; background:var(--couleur-noir) ;height: 20px;float:right;color:var(--couleur-clair); text-align: center;}
-.liber #carac span{width: 91px;display: inline-block;overflow: hidden;height: 17px;}
+.liber .perso{width: 46%;float: left;margin-right: 10px;}
+.liber .perso input{width: 35px; background:var(--couleur-noir) ;height: 23px;float:right;color:var(--couleur-clair); text-align: center;}
+.liber #carac span{width: calc(100% - 40px);display: inline-block;overflow: hidden;height: 20px; font-size: 16px;}
+.liber .mentales {font-size: 1.1em;text-decoration: underline;font-weight: bold;}
+.liber .titrecompe{font-size: 1.1em;text-decoration: underline;font-weight: bold;clear: both;color: var(--couleur-noir);text-transform: uppercase;padding-top: 4px;}
+
 
 /*Inventaire*/
 .liber ul{margin: 0;padding: 5px;list-style: none;}

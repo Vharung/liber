@@ -1,168 +1,126 @@
 export const Model = {};
 
 Model.Metiers = {
-    "personnalise" :{ 
-        "ability":{"agilite":5,"astuce":5,"charisme":5,"force":5,"memoire":5,"mental":10,"physique":10,"sagacite":5,"social":10},
-        "hp":5,"hpmax":5,"psy":0,"psymax":0,"competences":{}
-    },
-    "aventurier":{
-        "ability":{"agilite":20,"astuce":30,"charisme":10,"force":50,"memoire":10,"mental":40,"physique":70,"sagacite":50,"social":60},
-        "hp":23,"hpmax":23,"psy":3,"psymax":3,
-        "competences":{"melee":5,"lancer":5,"bricolage":5,"nature":10,"joueur":5}
-    },
-    "mercenaire":{
-        "ability":{"agilite":30,"astuce":30,"charisme":30,"force":40,"memoire":30,"mental":60,"physique":70,"sagacite":10,"social":40},
-        "hp":23,"hpmax":23,"psy":5,"psymax":5,
-        "competences":{"combat":5,"rue":10,"detection":5,"persuasion":5}
-    },
-    "soldat":{
-        "ability":{"agilite":20,"astuce":40,"charisme":15,"force":50,"memoire":25,"mental":65,"physique":70,"sagacite":20,"social":35},
-        "hp":23,"hpmax":23,"psy":6,"psymax":6,
-        "competences":{"melee":5,"bouclier":10,"force":5}
-    },
-    "chevalier":{
-        "ability":{"agilite":15,"astuce":25,"charisme":30,"force":55,"memoire":25,"mental":50,"physique":70,"sagacite":20,"social":50},
-        "hp":23,"hpmax":23,"psy":5,"psymax":5,
-        "competences":{"equitation":10,"melee":5,"presence":5,"bouclier":5}
-    },
-    "inquisiteur":{
-        "ability":{"agilite":30,"astuce":10,"charisme":30,"force":40,"memoire":50,"mental":60,"physique":70,"sagacite":10,"social":40},
-        "hp":23,"hpmax":23,"psy":6,"psymax":6,
-        "competences":{"peur":5,"heretiques":10,"bouclier":5,"melee":5,"religions":10}
-    },
-    "chasseurDePrime":{
-        "ability":{"agilite":35,"astuce":40,"charisme":5,"force":30,"memoire":20,"mental":60,"physique":65,"sagacite":40,"social":45},
-        "hp":22,"hpmax":22,"psy":8,"psymax":8,
-        "competences":{"melee":5,"lancer":5,"bricolage":5,"nature":10,"joueur":5}
-    },
-    "chasseur":{
-        "ability":{"agilite":35,"astuce":30,"charisme":25,"force":30,"memoire":25,"mental":55,"physique":65,"sagacite":25,"social":50},
-        "hp":22,"hpmax":22,"psy":7,"psymax":7,
-        "competences":{"acrobatie":5,"nature":5,"tir":5,"survie":5,"pister":5,"dressage":10}
-    },
-    "pecheur":{
-        "ability":{"agilite":35,"astuce":25,"charisme":25,"force":30,"memoire":25,"mental":50,"physique":65,"sagacite":30,"social":55},
-        "hp":22,"hpmax":22,"psy":6,"psymax":6,
-        "competences":{"lancer":10,"navigation":5,"peuples":5,"natation":5,"joueur":5}
-    },
-    "assassinvoleur":{
-        "ability":{"agilite":50,"astuce":40,"charisme":5,"force":15,"memoire":20,"mental":60,"physique":65,"sagacite":40,"social":45},
-        "hp":22,"hpmax":22,"psy":8,"psymax":8,
-        "competences":{"tir":5,"assassinat":5,"rue":10,"dissimulation":5}
-    },
-    "archer":{
-        "ability":{"agilite":35,"astuce":25,"charisme":25,"force":30,"memoire":25,"mental":50,"physique":65,"sagacite":30,"social":55},
-        "hp":22,"hpmax":22,"psy":6,"psymax":6,
-        "competences":{"tir":10,"nature":5,"vise":5,"dressage":5}
-    },
-    "troubadour":{
-        "ability":{"agilite":45, "astuce":15, "charisme":30, "force":15, "memoire":25, "mental":40, "physique":60, "sagacite":40, "social":70},
-        "hp":20,"hpmax":20,"psy":7,"psymax":7,
-        "competences":{ "acrobatie":15, "art":10, "rue":5, "nature":5, "dissimulation":5 }
-    },
-    "erudit":{
-        "ability":{"agilite":20, "astuce":20, "charisme":45, "force":20, "memoire":45, "mental":65, "physique":40, "sagacite":20, "social":65},
-        "hp":13,"hpmax":13,"psy":18,"psymax":18,
-        "competences":{ "apprentissage":5, "baton":10, "psychologue":5 }
-    },
-    "magicien":{
-        "ability":{"agilite":30, "astuce":30, "charisme":30, "force":5, "memoire":40, "mental":70, "physique":35, "sagacite":35, "social":65},
-        "hp":12,"hpmax":12,"psy":20,"psymax":20,
-        "competences":{ "alchimie":5, "psychologue":5, "objet":10, "concentration":5 }
-    },
-    "clerc":{
-        "ability":{"agilite":25, "astuce":30, "charisme":30, "force":5, "memoire":40, "mental":70, "physique":30, "sagacite":40, "social":70},
-        "hp":10,"hpmax":10,"psy":22,"psymax":22,
-        "competences":{ "baton":5, "religions":10, "medecine":10 }
-    },
-    "oracle":{
-        "ability":{"agilite":20, "astuce":60, "charisme":10, "force":5, "memoire":15, "mental":75, "physique":25, "sagacite":60, "social":70},
-        "hp":8,"hpmax":8,"psy":25,"psymax":25,
-        "competences":{ "chercher":5, "prophetie":10, "psychologue":5 }
-    },
-    "pirate":{
-        "ability":{"agilite":30, "astuce":35, "charisme":30, "force":40, "memoire":15, "mental":50, "physique":70, "sagacite":20, "social":50},
-        "hp":23,"hpmax":23,"psy":5,"psymax":5,"competences":{ "navigation":10, "melee":5, "vise":5, "peur":5, "discretion":5 }
-    },
-    "guerrier":{
-        "ability":{"agilite":10, "astuce":10, "charisme":30, "force":65, "memoire":50, "mental":60, "physique":75, "sagacite":5, "social":35},
-        "hp":29,"hpmax":29,"psy":0,"psymax":0,"competences":{ "combat":5, "melee":5, "peur":10, "pister":5, "resistance":5 }
-    },
-    "croise":{
-        "ability":{"agilite":20, "astuce":25, "charisme":20, "force":45, "memoire":40, "mental":65, "physique":65, "sagacite":20, "social":40},
-        "hp":22,"hpmax":22,"psy":8,"psymax":8,"competences":{ "melee":5, "bouclier":5, "heretiques":10, "equitation":5, "religions":10 }
-    }
-};
+  "personnalise": {"ability": {  "physique": 10,  "force": 5,  "agilite": 5,  "social": 10,  "charisme": 5,  "sagacite": 5,  "mental": 10,  "astuce": 5,  "memoire": 5},"hpmax": 0,"psymax": 0,"nb": 0,"cout": 0,
+  "competences": {}},
+  "guerrier": {"ability": {  "physique": 75,  "force": 65,  "agilite": 10,  "social": 40,  "charisme": 30,  "sagacite": 10,  "mental": 55,  "astuce": 10,  "memoire": 45},"hpmax": 40,"psymax": 0,"nb": 4,"cout": 1,
+  "competences": {  "observation": 5,  "combat": 5}},
+  "chevalier": {"ability": {  "physique": 70,  "force": 55,  "agilite": 15,  "social": 50,  "charisme": 40,  "sagacite": 10,  "mental": 50,  "astuce": 20,  "memoire": 30},"hpmax": 28,"psymax": 8,"nb": 6,"cout": 3,
+  "competences": {  "connaissances": 5,  "melee": 5}},
+  "croise": {"ability": {  "physique": 70,  "force": 50,  "agilite": 20,  "social": 40,  "charisme": 20,  "sagacite": 20,  "mental": 60,  "astuce": 30,  "memoire": 30},"hpmax": 25,"psymax": 10,"nb": 5,"cout": 3,
+  "competences": {  "endurance": 5,  "hast": 5}},
+  "soldat": {"ability": {  "physique": 70,  "force": 60,  "agilite": 10,  "social": 45,  "charisme": 20,  "sagacite": 25,  "mental": 55,  "astuce": 35,  "memoire": 20},"hpmax": 29,"psymax": 8,"nb": 5,"cout": 3,
+  "competences": {  "survie": 5,  "tir": 5}},
+  "mercenaire": {"ability": {  "physique": 65,  "force": 45,  "agilite": 20,  "social": 55,  "charisme": 15,  "sagacite": 40,  "mental": 50,  "astuce": 30,  "memoire": 20},"hpmax": 27,"psymax": 8,"nb": 6,"cout": 3,
+  "competences": {  "discretion": 5,  "cc": 5}},
+  "pirate": {"ability": {  "physique": 65,  "force": 40,  "agilite": 25,  "social": 50,  "charisme": 20,  "sagacite": 30,  "mental": 55,  "astuce": 40,  "memoire": 15},"hpmax": 27,"psymax": 8,"nb": 7,"cout": 3,
+  "competences": {  "tromperie": 10,  "visee": 5}},
+  "chasseurdeprime": {"ability": {  "physique": 65,  "force": 40,  "agilite": 25,  "social": 45,  "charisme": 20,  "sagacite": 25,  "mental": 60,  "astuce": 30,  "memoire": 30},"hpmax": 28,"psymax": 9,"nb": 5,"cout": 3,
+  "competences": {  "negociation": 10,  "melee": 5}},
+  "assassinvoleur": {"ability": {  "physique": 60,  "force": 20,  "agilite": 40,  "social": 45,  "charisme": 15,  "sagacite": 30,  "mental": 65,  "astuce": 35,  "memoire": 30},"hpmax": 25,"psymax": 11,"nb": 5,"cout": 4,
+  "competences": {  "assassinat": 5,  "alchimie": 5, "tromperie":10}},
+  "inquisiteur": {"ability": {  "physique": 50,  "force": 25,  "agilite": 25,  "social": 50,  "charisme": 30,  "sagacite": 20,  "mental": 70,  "astuce": 30,  "memoire": 40},"hpmax": 20,"psymax": 14,"nb": 5,"cout": 5,
+  "competences": {  "connaissances": 5,  "charisme": 5}},
+  "druide": {"ability": {  "physique": 50,  "force": 20,  "agilite": 30,  "social": 50,  "charisme": 10,  "sagacite": 40,  "mental": 70,  "astuce": 25,  "memoire": 45},"hpmax": 20,"psymax": 14,"nb": 5,"cout": 5,
+  "competences": {  "equitation": 10,  "survie": 5,"medecine":5}},
+  "clerc": {"ability": {  "physique": 50,  "force": 15,  "agilite": 35,  "social": 50,  "charisme": 20,  "sagacite": 30,  "mental": 70,  "astuce": 20,  "memoire": 50},"hpmax": 21,"psymax": 14,"nb": 5,"cout": 4,
+  "competences": {  "medecine": 10,"erudition":5}},
+  "troubadour": {"ability": {  "physique": 45,  "force": 15,  "agilite": 30,  "social": 70,  "charisme": 40,  "sagacite": 30,  "mental": 55,  "astuce": 25,  "memoire": 30},"hpmax": 18,"psymax": 14,"nb": 7,"cout": 5,
+  "competences": {  "mobilite": 10,  "negociation": 5}},
+  "erudit": {"ability": {  "physique": 40,  "force": 10,  "agilite": 30,  "social": 60,  "charisme": 30,  "sagacite": 30,  "mental": 70,  "astuce": 20,  "memoire": 50},"hpmax": 13,"psymax": 18,"nb": 8,"cout": 5,
+  "competences": {  "connaissances": 5,  "erudition": 5}},
+  "magicien": {"ability": {  "physique": 40,  "force": 15,  "agilite": 25,  "social": 60,  "charisme": 40,  "sagacite": 20,  "mental": 70,  "astuce": 30,  "memoire": 40},"hpmax": 13,"psymax": 20,"nb": 6,"cout": 6,
+  "competences": {  "erudition": 5,  "alchimie": 5,  "objet": 5}},
+  "oracle": {"ability": {  "physique": 25,  "force": 10,  "agilite": 15,  "social": 75,  "charisme": 30,  "sagacite": 45,  "mental": 70,  "astuce": 25,  "memoire": 45},"hpmax": 8,"psymax": 28,"nb": 8,"cout": 8,
+  "competences": {  "prophetie": 10,"negociation":5,"medecine": 5,  "objet": 5}}
+}
 
-Model.race={
+/*mentales:"",connaissances:"",erudition:"",observation:"",alchimie:"",prophetie:"",
+        physiques:"",mobilite:"",discretion:"",dexterite:"",survie:"",endurance:"",force:"",equitation:"",
+        sociales:"",charisme:"",negociation:"",tromperie:"",
+        techniques:"",medecine:"",objet:"",assassinat:"",bouclier:"",tueur:"",
+        combats:"",combat:"",hast:"",cc:"",lancer:"",melee:"",tir:"",visee:""*/
+
+Model.race={//v3
     "dragon":{
-        "armor":2,"discretion":-10,"ajoutpoint":-20
+            "discretion":-5,"negociation":5,"ajoutpoint":-5
     },
     "humain":{
-        "psychologue":5,"dexterite":5,"ajoutpoint":30
-    },
-    "demon":{
-        "peur":10,"ajoutpoint":10
-    },
-    "drauch":{
-        "armor":2,"ajoutpoint":0
-    },
-    "rocailleux":{
-        "discretion":-20,"ajoutpoint":-40
+        "charisme":5,"dexterite":5,"ajoutpoint":25
     },
     "semihumain":{
-        "dexterite":5,"ajoutpoint":15
+        "charisme":5,"ajoutpoint":15
     },
-    "elfe":{
-        "agilites":5,"apprentissage":5,"ajoutpoint":30
+    "demon":{
+        "tromperie":5,"survie":10,"ajoutpoint":25
     },
-    "elfesylvain":{
-        "agilites":5,"nature":5,"ajoutpoint":20
-    },
-    "elfenoir":{
-        "assassinat":10,"ajoutpoint":20
-    },
-    "elfedesang": {
-        "agilites":5,"ajoutpoint":15
-    },
-    "nain":{
-        "puissance":5,"joueur":5,"ajoutpoint":20
-    },
-    "hommechat":{
-        "agilites":5,"discretion":5,"ajoutpoint":25
-    },
-    "hommechien":{
-        "pister":5,"puissance":5,"ajoutpoint":20
-    },
-    "hommearbre":{
-        "nature":5,"ajoutpoint":5
-    },
-    "vampire":{
-        "chercher":5,"ajoutpoint":5
-    },
-    "orc":{
-        "astuce":-10,"ajoutpoint":-30
-    },
-    "centaure":{
-        "equitation":10,"ajoutpoint":10
+    "drauch":{
+        "armor":2,"tromperie":5,"ajoutpoint":5
     },
     "kobolt":{
-        "agilites":5,"discretion":5,"ajoutpoint":25
+        "agilites":5,"discretion":5,"ajoutpoint":10
+    },
+    "rocailleux":{
+        "ajoutpoint":0
+    },
+    "elfe":{
+        "mobilite":5,"charisme":5,"ajoutpoint":25
+    },
+    "elfesylvain":{
+        "mobilite":5,"tir":5,"ajoutpoint":25
+    },
+    "elfenoir":{
+        "mobilite":5,"cc":5,"ajoutpoint":25
+    },
+    "elfedesang": {
+        "mobilite":5,"force":5,"ajoutpoint":25
+    },
+    "nain":{
+        "force":5,"dexterite":5,"ajoutpoint":25
+    },
+    "hommechat":{
+        "observation":5,"discretion":5,"tromperie":5,"ajoutpoint":25
+    },
+    "hommechien":{
+        "observation":10,"negociation":5,"ajoutpoint":25
+    },
+    "hommearbre":{
+        "connaissances":10,"ajoutpoint":20
+    },
+    "hommerat":{
+        "negociation":-5,"ajoutpoint":-5
+    },
+    "hommeoiseau":{
+        "negociation":5,"ajoutpoint":5
+    },
+    "etredepsy":{
+        "ajoutpoint":0
+    },
+    "vampire":{
+        "discretion":10,"tromperie":5,"assassinat":10,"ajoutpoint":45
+    },
+    "gobelin":{
+        "mobilite":10,"tromperie":5,"ajoutpoint":25
+    },
+    "orc":{
+        "force":10,"discretion":-5,"connaissances":-5,"ajoutpoint":10
+    },
+    "celeste":{
+        "ajoutpoint":0
+    },
+    "centaure":{
+        "ajoutpoint":0
+    },
+    "autre":{
+        "ajoutpoint":0
     }
 }
 
 Model.multiplicateurs = {
-  "acrobatie": 1, "agilites": 3, "art": 1, "assassinat": 2, "baton": 2,
-  "bouclier": 2, "bricolage": 1, "presence": 3, "chercher": 1, "commander": 2,
-  "concentration": 3, "nature": 1, "peuples": 1, "religions": 1, "geographique": 1,
-  "rue": 1, "heretiques": 1, "combat": 3, "commerce": 2, "crochetage": 1,
-  "discretion": 2, "dexterite": 3, "detection": 2, "dissimulation": 3, "dressage": 1,
-  "ennemi": 1, "equilibre": 1, "equitation": 1, "escroquerie": 1, "esquiver": 1,
-  "puissance": 3, "astuce": 3, "peur": 1, "joueur": 1, "maitrise": 3,
-  "natation": 1, "navigation": 1, "orientation": 1, "persuasion": 3, "pister": 1,
-  "prophetie": 3, "secours": 1, "resistance": 1, "psychologue": 3, "medecine": 3,
-  "survie": 2, "tueur": 1, "objet": 1, "veterinaire": 1, "vigilance": 3,
-  "vise": 2, "alchimie": 2, "apprentissage": 3, "lancer": 3, "melee": 3, "tir": 3, "hast": 3,"cc":3
+  "connaissances":2,"erudition":3,"observation":2,"alchimie":1,"prophetie":1,"mobilite":2,"discretion":2,
+  "dexterite":2,"survie":2,"endurance":2,"force":3,"equitation":1,"charisme":3,"negociation":1,"tromperie":1,
+  "medecine":1,"objet":1,"combat":3,"hast":3,"cc":3,"lancer":3,"melee":3,"tir":3,"visee":3,
+  "assassinat":2,"bouclier":2,"tueur":1
 };
 
 Model.hero= [

@@ -81,6 +81,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     const race = this.document.system.race;
     const clan = this.document.system.clan;
     const culte = this.document.system.culte;
+    const metier = this.document.system.metier;
 
     let listCulte = [];
     let listClan = [];
@@ -113,16 +114,22 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
         listCulte = (clan === "nomade") ? ["aucune"] : ["aucune", "nouvelordre", "croises", "lumiereceleste", "vharung", "waetra", "demonsanciens", "baphomet", "marrunas", "vaudou", "runes", "numismatomancie", "dieuxsombres", "other"];
     }
 
+    // Adapter la liste des cultes ou clans en fonction du métier sélectionné
+    if (metier === "mercenaire") {
+      listCulte = listClan.filter(clan => !["corbeau", "troubadour"].includes(clan));
+    } else if (metier === "inquisiteur") {
+      listClan = listClan.filter(clan => !["croises"].includes(clan));
+    }
     // Attribution de métiers en fonction du clan et du culte
 
     if (clan === "corbeau") {
         listMetier = ["none","guerrier"];listCulte=["aucune","runes","other"];
     } else if (clan === "troubadour") {
-        listMetier = ["troubadour"];
+        listMetier = ["none","troubadour"];
     } else if (culte === "croises") {
         listMetier = ["none","croise"];
     } else {
-        listMetier = ["personnalise", "aventurier", "mercenaire", "soldat", "chevalier", "inquisiteur", "chasseurdeprime", "chasseur", "pecheur", "assassinvoleur", "archer", "erudit", "magicien", "clerc", "oracle", "pirate"];
+        listMetier = ["personnalise","chevalier","soldat","mercenaire","pirate","chasseurdeprime","assassinvoleur","inquisiteur","druide","clerc","erudit","magicien","oracle"];
     }
 
     const cout = this.actor.system.cout || 0; // Vérifier si `cout` est défini
@@ -253,12 +260,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       competencesElement.innerHTML = compe;
     }
 
-    let reste = document.querySelector("input[name='system.reste']");
-    if(reste.value>0){
-      reste.style.background = "var(--couleur-vert)";
-    }else if(reste.value<0){
-      reste.style.background = "var(--couleur-rouge)";
-    }
+    
 
     // Récupérer la valeur de la posture
     const posture = this.actor.system.posture;
@@ -298,7 +300,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     const barEncElement = document.querySelector('.barenc');
     barEncElement.style.width = pourcentage+'%';
     // Modifier la couleur de la barre d'encombrement en fonction du pourcentage
-    if (pourcentage < 50) {
+    if (pourcentage < 25) {
         barEncElement.style.background = 'green';
         
     } else if (pourcentage < 75) {
@@ -334,6 +336,12 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
             actorElement.style.background = 'linear-gradient(218deg, #2a2b2c 0%, #120304 100%)';
         }
 
+    }
+    let reste = document.querySelector("input[name='system.reste']");
+    if(reste.value>0){
+      reste.style.background = "var(--couleur-vert)";
+    }else if(reste.value<0){
+      reste.style.background = "var(--couleur-rouge)";
     }
 
   }
@@ -445,11 +453,12 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     let resultat = 0;
     let sortPris = [];
     let corrections = [];
+    let competences = [];
     let sortRestant = 0;
     let stat = { message: "", reste: 0 };
 
     const type = this.actor.type;
-    const point_apprentissage = this.actor.system.competences.apprentissage;
+    //const point_apprentissage = this.actor.system.competences.apprentissage;
     const level = this.actor.system.niveau;
 
    if (type === 'character') {
@@ -457,6 +466,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
         const compCheck  = this.onCalculerPenaliteCompetences();
         resultat=compCheck.resultat;
         corrections =compCheck.corrections;
+        competences =compCheck.competences;
         // Vérification des points stat
         stat = this.onStat();
     }
@@ -466,7 +476,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
 
     // Calcul des points de vie et de magie
     let calcul = this.onCalcul();
-
     if (type === 'character') {
         sortPris = this.actor.items.filter(item => item.type === "magic");
         sortRestant = calcul.nbSort - sortPris.length;
@@ -479,23 +488,28 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
         ...corrections          // Compétences raciales corrigées 
     };
 
+
+
+    
+
     // Mise à jour de l'acteur
     this.actor.update({
-      "system.reste": resultat  ,
-        "system.probleme": stat.message,
-        "system.restant": stat.reste,
-        "system.enc": encStats.enc,
-        "system.encmax": encStats.max,
-        "system.hp": calcul.hp,
-        "system.hpmax": calcul.hpmax,
-        "system.psy": calcul.psy,
-        "system.psymax": calcul.psymax,
-        "system.cout": calcul.cout,
-        "system.max": sortRestant,
-        "system.alert.hp": calcul.hpalert,
-        "system.alert.psy": calcul.psyalert,
-        [`system.apprentissage.level${level}`]: point_apprentissage,
-        ...updateData
+      "system.reste": resultat,
+      "system.probleme": stat.message,
+      "system.restant": stat.reste,
+      "system.enc": encStats.enc,
+      "system.encmax": encStats.max,
+      "system.hp": calcul.hp,
+      "system.hpmax": calcul.hpmax,
+      "system.psy": calcul.psy,
+      "system.psymax": calcul.psymax,
+      "system.cout": calcul.cout,
+      "system.max": sortRestant,
+      "system.alert.hp": calcul.hpalert,
+      "system.alert.psy": calcul.psyalert,
+      // [`system.apprentissage.level${level}`]: point_apprentissage,
+      ...updateData,
+      ...competences
     });
 }
 
@@ -510,20 +524,22 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     const cpts = this.actor.system.competences;
     const level = this.actor.system.niveau;
     const base = this.actor.system.base;
+    const clan = this.actor.system.clan;
     const faiblesse =this.actor.system.faiblesse;
-    const apprentissage=this.actor.system.apprentissage;
+    //const apprentissage=this.actor.system.apprentissage;
     const race = this.actor.system.race;
-    let bonus_compt=15;
+    let bonus_compt=10;
     if(faiblesse=="distrait"){
-      bonus_compt=bonus_compt - 5;
+      bonus_compt=bonus_compt - 2;
     }
-    let apprentissage_bonus = 0;
+    /*let apprentissage_bonus = 0;
     for (let i = 1; i < level; i++) {
 
         apprentissage_bonus = apprentissage_bonus + apprentissage["level"+i] || 0; 
     }
-    let resultat = base + ((level - 1) * bonus_compt)+ apprentissage_bonus;
+    let resultat = base + ((level - 1) * bonus_compt)+ apprentissage_bonus;*/
 
+    let resultat = base + ((level - 1) * bonus_compt)
     // ✅ Corrections raciales
     const corrections = {};
     if (Model.race[race]) {
@@ -546,9 +562,33 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
           resultat -= penalite; // Soustraction de la pénalité du résultat
         }
       }
+
+    //bonus clan à continuer
+    let competences = {};
+    if (clan === "ralich") {
+      if (this.actor.system.competences.discretion < 10) {
+        competences["system.competences.discretion"] = 10;
+      }
+
+      if (race === "dragon") {
+        competences["system.reste"] = resultat+30;
+      } else {
+        competences["system.reste"] = resultat+20;
+      }
+    }else if (clan === "limenido") {
+      if (this.actor.system.competences.discretion < 10) {
+        competences["system.competences.observation"] = 10;
+      }
+      competences["system.reste"] = resultat+20;
+    }else if (clan === "atlantide") {
+      if (this.actor.system.competences.connaissances < 10) {
+        competences["system.competences.connaissances"] = 10;
+      }
+      competences["system.reste"] = resultat+20;
+    }
       
       
-      return { resultat, corrections };
+      return { resultat, corrections, competences };
       // Mise à jour UNE SEULE FOIS après le calcul
       
   }
@@ -593,7 +633,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
 
   onEnc(){
     const force =this.actor.system.ability.force;
-    const puissance =this.actor.system.competences.puissance
+    const puissance =this.actor.system.competences.endurance
     const race=this.actor.system.race;
     const talent=this.actor.system.talent;
     const faiblesse=this.actor.system.faiblesse;
@@ -634,8 +674,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
         console.warn(`Métier ${metier} non trouvé dans Model.Metiers`);
         return;
     }
-
-    const { hp, psy, ability, competences } = metierData;
+    const { hpmax, psymax, ability, competences } = metierData;
     // Génération dynamique des chemins pour les statistiques
     const abilityUpdates = Object.fromEntries(
         Object.entries(ability).map(([key, value]) => [`system.ability.${key}`, value])
@@ -655,19 +694,20 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     // 4️⃣ Gestion du bonus d'armure
     let armorBonus = raceBonus.armor || 0;
     let updatedArmor = (this.actor.system.armor || 0) + armorBonus;
-    let base=50 + raceBonus.ajoutpoint || 50;
+    let base=25 + raceBonus.ajoutpoint || 25;
     const name=await this.onName();
     const img=await this.onAvatar();
     // Mise à jour des données de l'acteur
+    console.log(hpmax)
     this.actor.update(
         Object.assign(
             { 
               'name':name,
               'img':img,
-              'system.hp': hp,
-              'system.hpmax': hp,
-              'system.psy': psy,
-              'system.psymax': psy,
+              'system.hp': hpmax,
+              'system.hpmax': hpmax,
+              'system.psy': psymax,
+              'system.psymax': psymax,
               'system.base': base,
               'system.armure': updatedArmor // Met à jour l'armure
             },
@@ -731,19 +771,19 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       if (!this.actor) return console.error("this.actor est indéfini");
 
       const name = target.value; // Correction de target.Value → target.value
-      const apprentissage = this.actor.system.apprentissage;
-      let apprenti = this.actor.system.apprenti || []; // S'assurer que c'est bien un tableau
+      //const apprentissage = this.actor.system.apprentissage;
+      //let apprenti = this.actor.system.apprenti || []; // S'assurer que c'est bien un tableau
 
       // Vérifier que le niveau est bien un nombre et que apprentissage a une entrée correspondante
       let level = parseInt(name, 10);
       if (isNaN(level) || level <= 0) {
         return console.error("Niveau invalide ou hors limites :", level);
       }
-      level--;
+      //level--;
       // Ajouter l'entrée correcte à apprenti (sous forme d'objet clé-valeur)
-      apprenti.push({ niveau:level, valeur: apprentissage });
+     // apprenti.push({ niveau:level, valeur: apprentissage });
       // Mise à jour de l'acteur
-      await this.actor.update({ "system.apprenti": apprenti });
+      //await this.actor.update({ "system.apprenti": apprenti });
     }
 
     /**
@@ -967,6 +1007,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       const formula = item.system.degat;
       let equipLocation = item.system.equip;
       let description=item.system.biography;
+      let niveau=actor.system.niveau;
       let label = actor.name + game.i18n.localize("Liber.Chat.Roll.utilise") + name;
 
       if (formula) {
@@ -986,7 +1027,10 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
             }
           }
           if (race === "orc" && type === "weapon") {
-              result += 4;
+            result += 2;
+          }
+          if (clan ==="coalith" && type === "weapon"){
+            result += niveau;
           }
           let info="";
           if(description!==""){
@@ -1121,7 +1165,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       });
     }
 
-    onCalcul(event,target){
+    onCalcul(event,target){//v3 tenir compte du métier dans le calcul
       const actor=this.actor.system;
       const talent=actor.talent;
       const faiblesse=actor.faiblesse;
@@ -1130,30 +1174,59 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       const niveau=actor.niveau;
       const insoin = actor.insoin;
       const race = actor.race;
+      const metier = actor.metier;
       let message;
       let pvEncours=actor.hp;
       let psyEncours=actor.psy;
       let pvMax=actor.hpmax;
       let psyMax=actor.psymax;
       let hpalert; let psyalert;
+      let pvMin=0;let psyMin =0; let nbSort = 0; let maxSort=0;
 
-      //calcul niveau 1 des éléments
-      let pvMin = Math.round(actor.ability.physique / 3);
-      let psyMin = Math.round((actor.ability.mental + (actor.ability.social/2) - actor.ability.physique + 5) / 4 + 2);
-      let nbSort = Math.round(psyMin / 4) + niveau + 1; 
-      if(clan=="corbeau" ){pvMin=pvMin + 4; psyMin = 0;}
+      if(metier=="personnalise"){  
+        //calcul niveau 1 des éléments
+        pvMin = Math.round(actor.ability.physique / 3);
+        psyMin = Math.round(actor.ability.mental/ (actor.ability.physique/10));
+        nbSort = Math.round(actor.ability.social/10);
+
+        //calcul cout max tous niveaux
+        maxSort = Math.round(psyMin/ 4) + niveau -1;
+        if(maxSort<0){maxSort=0}
+        if(clan=="corbeau"){maxSort=niveau}
+      }else {
+        let nameMetier = Model.Metiers[metier];
+        pvMin = nameMetier.hpmax;
+        psyMin = nameMetier.psymax;
+        nbSort = nameMetier.nb + niveau -1;
+        maxSort = nameMetier.cout + niveau -1;
+      }
+
 
       //verification des minimuns
-      if(psyMax<psyMin && clan!="corbeau"){psyMax=psyMin}
+      if(talent=="memoirearcanique"){nbSort=nbSort+1;}
+      if(talent=="aura"){psyMin=psyMin+2*(niveau);}
+      if(talent=="vigoureux"){pvMin=pvMin+2*(niveau)}
       if(pvMax<pvMin){pvMax=pvMin}
+      if(psyMax<psyMin){psyMax=psyMin}
+      if(metier=="guerrier" && niveau==1){psyMax=psyMin}
       if(race=="etredepsy"){pvMax=0;}
-
 
       //calcul des points de niveaux
       let pointxp = (niveau - 1) * 3;
       const xp = pointxp + pvMin + psyMin;
       const calcultotxp = pvMax + psyMax;
 
+      //vérifiaction si pv ou psy supérieur au max
+      if(pvEncours>pvMax){pvEncours=pvMax;}
+      if(psyEncours>psyMax){psyEncours=psyMax;}
+
+
+      // Insoignable      
+      const hpinsoin=pvEncours + insoin
+      if (hpinsoin > pvMax) {
+          pvEncours = pvMax - insoin;
+      }
+      
       if(calcultotxp>xp){
         message=game.i18n.localize("Liber.Alert.Ability");
         hpalert="var(--couleur-rouge)";
@@ -1162,30 +1235,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
         hpalert="var(--couleur-vert)";
         psyalert="var(--couleur-vert)";
       }
-      
-
-
-      
-
-      //calcul cout max tous niveaux
-      let maxSort = Math.round((psyMax - nbSort) / 2) + 3;
-      if(maxSort<0){maxSort=0}
-      if(clan=="corbeau"){maxSort=niveau}
-
-      //vérifiaction si pv ou psy supérieur au max
-      if(pvEncours>pvMax){pvEncours=pvMax;}
-      if(psyEncours>psyMax){psyEncours=psyMax;}
-
-      // Insoignable      
-      const hpinsoin=pvEncours + insoin
-      if (hpinsoin > pvMax) {
-          pvEncours = pvMax - insoin;
-      }
-      
-
       //vérification des talents et faiblesse
-      if(talent=="memoirearcanique"){nbSort=nbSort+1;} else if(talent=="vigoureux"){pvMax=pvMax+5;}
-      if(faiblesse=="prisonnier"){pvMax=pvMax - 5;}
       
       return{
         hp: pvEncours,
@@ -1202,7 +1252,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     }
 
     static async #onSleep(event, target){
-        let { talent, time, duree, repos, niveau, psy, psymax, hp, hpmax, insoin, fatig, ronfleur } = this.actor.system;
+        let { talent, faiblesse, time, duree, repos, niveau, psy, psymax, hp, hpmax, insoin, fatig, ronfleur } = this.actor.system;
         let d = 0, hpadd = 0, psyadd = 0, j = 0, fatadd = 0; 
         if (duree == "day") {
           time = time * 24;
@@ -1220,11 +1270,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
             hpadd = ((d + niveau) * time) / 8;
             psyadd = Math.floor(niveau * time);
             fatadd = Math.floor(1 * time);
-            if (talent === "bondormeur") {
-              hpadd = parseInt(hpadd) + 6;
-              psyadd = parseInt(psyadd) + 3;
-              fatadd = parseInt(fatadd) + 1;
-            }
             break;
 
           case "good":
@@ -1233,12 +1278,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
             hpadd = (d + niveau) * time;
             psyadd = Math.floor(niveau * time);
             fatadd = Math.floor(2 * time);
-            if (talent === "bondormeur") {
-              hpadd = parseInt(hpadd) + 6;
-              psyadd = parseInt(psyadd) + 3;
-              fatadd = parseInt(fatadd) + 1;
-
-            }
             break;
 
           case "intens":
@@ -1247,16 +1286,20 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
             hpadd = ((2 * d) + niveau) * time;
             psyadd = Math.floor(niveau * time);
             fatadd = Math.floor(3 * time);
-            if (talent === "bondormeur") {
-              hpadd = parseInt(hpadd) + 6;
-              psyadd = parseInt(psyadd) + 3;
-              fatadd = parseInt(fatadd) + 1;
-            }
             break;
 
           default:
             break;
         }
+        if (talent === "bondormeur") {//a tester
+          hpadd = parseInt(hpadd) * 2;
+          psyadd = parseInt(psyadd) * 2;
+        }
+        if (faiblesse === "insomniaque") {
+          hpadd = parseInt(hpadd) / 2;
+          psyadd = parseInt(psyadd) / 2;
+        }
+
         hpadd = Math.min(hpadd, parseInt(hpmax) - parseInt(hp));
         hp = parseInt(hpadd) + parseInt(hp);
         fatig=parseInt(fatig)-fatadd
@@ -1332,7 +1375,9 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
 
     async onAvatar() {
       const { race, sex } = this.actor.system;
-    
+      if(race=="autre"){
+        return "icons/svg/mystery-man.svg";
+      }
       const basePath = `systems/liber/assets/avatar/` + (race +'/' || 'default/');
       const genderPath = (sex === 'female') ? 'femmes/' : 'hommes/';
       const fullPath = basePath + genderPath;

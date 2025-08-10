@@ -39,7 +39,8 @@ export const MAGIE = {
 };
 // Définition des compétences
 export const COMPETENCES = Object.fromEntries(
-    Object.keys({
+    //v2
+    /*Object.keys({
         acrobatie: "", agilites: "", alchimie: "", apprentissage: "", hast: "", cc: "", lancer: "", melee: "", tir: "",
         art: "", assassinat: "", baton: "", bouclier: "", bricolage: "", presence: "", chercher: "", commander: "",
         concentration: "", nature: "", peuples: "", religions: "", geographique: "", rue: "", heretiques: "",
@@ -48,6 +49,13 @@ export const COMPETENCES = Object.fromEntries(
         astuce: "", peur: "", joueur: "", maitrise: "", natation: "", navigation: "", orientation: "", persuasion: "",
         pister: "", prophetie: "", secours: "", resistance: "", psychologue: "", medecine: "", survie: "", tueur: "",
         objet: "", veterinaire: "", vigilance: "", vise: ""
+    }).map(attr => [attr, `Liber.Character.Competences.${attr}`])*/
+    Object.keys({
+        mentales:"",connaissances:"",erudition:"",observation:"",alchimie:"",prophetie:"",
+        physiques:"",mobilite:"",discretion:"",dexterite:"",survie:"",endurance:"",force:"",equitation:"",
+        sociales:"",charisme:"",negociation:"",tromperie:"",
+        techniques:"",medecine:"",objet:"",assassinat:"",bouclier:"",tueur:"",
+        combats:"",combat:"",hast:"",cc:"",lancer:"",melee:"",tir:"",visee:""
     }).map(attr => [attr, `Liber.Character.Competences.${attr}`])
 );
 export const CLAN = {
@@ -110,10 +118,11 @@ export const RACES = {
     NONE:"aucune",
     DRAGON: "dragon",
     HUMAIN: "humain",
+    SEMI_HUMAIN: "semihumain",
     DEMON: "demon",
     DRAUCH: "drauch",
-    ROCAILLEUX: "rocailleux",
-    SEMI_HUMAIN: "semihumain",
+    KOBOLT:"kobolt",
+    ROCAILLEUX: "rocailleux",   
     ELFE: "elfe",
     ELFE_SYLVAIN: "elfesylvain",
     ELFE_NOIR: "elfenoir",
@@ -126,13 +135,13 @@ export const RACES = {
     HOMME_RAT: "hommerat",
     ETRE_DE_PSY: "etredepsy",
     VAMPIRE: "vampire",
+    GOBELIN: "gobelin",
     ORC: "orc",
     CELESTE: "celeste",
     CENTAURE: "centaure",
-    KOBOLT:"kobolt",
     AUTRE: "autre"
 };
-export const TALENTS = {
+export const TALENTS = {//v3
     AGILITESANSARMURE: "agilitesansarmure",
     ALCHIMISTE: "alchimiste",
     AMBIDEXTRIE: "ambidextrie",
@@ -176,7 +185,7 @@ export const TALENTS = {
     EVASION: "evasion"
 };
 
-export const FAIBLESSES = {
+export const FAIBLESSES = {//v3
     AMNESIE: "amnesie",
     BALOURD: "balourd",
     DISTRAIT: "distrait",
@@ -212,26 +221,23 @@ export const FAIBLESSES = {
     PYROMANE: "pyromane",
     SOLITAIRE: "solitaire"
 };
-export const METIERS = {
+export const METIERS = { //v3
     PERSONNALISE: "personnalise",
-    AVENTURIER: "aventurier",
-    MERCENAIRE: "mercenaire",
-    SOLDAT: "soldat",
+    GUERRIER: "guerrier",
     CHEVALIER: "chevalier",
-    INQUISITEUR: "inquisiteur",
+    CROISE: "croise",
+    SOLDAT: "soldat",
+    MERCENAIRE: "mercenaire",
+    PIRATE: "pirate",
     CHASSEUR_DE_PRIME: "chasseurdeprime",
-    CHASSEUR: "chasseur",
-    PECHEUR: "pecheur",
     ASSASSIN_VOLEUR: "assassinvoleur",
-    ARCHER: "archer",
+    INQUISITEUR: "inquisiteur",
+    DRUIDE:"druide",
+    CLERC: "clerc",
     TROUBADOUR: "troubadour",
     ERUDIT: "erudit",
     MAGICIEN: "magicien",
-    CLERC: "clerc",
-    ORACLE: "oracle",
-    PIRATE: "pirate",
-    GUERRIER: "guerrier",
-    CROISE: "croise"
+    ORACLE: "oracle"
 };
 export const TYPE={
     CC:"cc",

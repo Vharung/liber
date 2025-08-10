@@ -18,7 +18,14 @@
 			{{#if (eq actor.type "monstre")}}
 			<div class="head_monster"></div>
 			{{else}}
-				<span class="avantagerace" title="{{localize (concat "Liber.Race.Avantage." (capitalizeFirstLetter actor.system.race))}} {{localize (concat "Liber.Magic.Avantage." (capitalizeFirstLetter actor.system.clan))}}">{{localize (concat "Liber.Race.Avantage." (capitalizeFirstLetter actor.system.race))}} {{localize (concat "Liber.Magic.Avantage." (capitalizeFirstLetter actor.system.clan))}} </span> - 
+				<span class="avantagerace" title="{{localize (concat "Liber.Race.Avantage." (capitalizeFirstLetter actor.system.race))}}
+				{{localize (concat "Liber.Magic.Avantage." (capitalizeFirstLetter actor.system.clan))}}
+				{{localize (concat "Liber.Metier.Avantage." (capitalizeFirstLetter actor.system.metier))}}">
+				{{localize (concat "Liber.Race.Avantage." (capitalizeFirstLetter actor.system.race))}}
+				{{#if (or (eq actor.system.race "dragon") (eq actor.system.race "semihumain"))}}
+					{{localize (concat "Liber.Magic.Avantage." (capitalizeFirstLetter actor.system.clan))}}
+				{{/if}}
+				{{localize (concat "Liber.Metier.Avantage." (capitalizeFirstLetter actor.system.metier))}} </span>
 				<span class="talent" title="{{localize (concat "Liber.Talent.Description." actor.system.talent)}}">{{localize (concat "Liber.Talent." actor.system.talent)}}</span>
 				<span class="faiblesse" title="{{localize (concat "Liber.Faiblesse.Description." actor.system.faiblesse)}}">{{localize (concat "Liber.Faiblesse." actor.system.faiblesse)}}</span>
 			{{/if}}
