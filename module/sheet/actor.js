@@ -990,6 +990,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       const itemId = target.getAttribute('data-item-id');
       const actor=this.actor || target.getAttribute('data-actorid');
       const race = actor.system.race;
+      const clan = actor.system.clan;
       const item = actor.items.get(itemId);
       if (!item) return; // Sécurité si l'item est introuvable
       const school=item.system.school;
