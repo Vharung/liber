@@ -323,8 +323,8 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
 
     // Background red si PV à zéro
     const race = this.actor.system.race;
-    const hp = this.actor.system.hp;
-    const psy = this.actor.system.psy;
+    const hp = this.actor.system.hp.value;
+    const psy = this.actor.system.psy.value;
 
     // Vérifier si les points de vie sont égaux à 0
     if ((hp <= 0 && race !== 'etredepsy') || (psy <= 0 && race === 'etredepsy')) {
@@ -476,6 +476,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
 
     // Calcul des points de vie et de magie
     let calcul = this.onCalcul();
+    console.log(calcul)
     if (type === 'character') {
         sortPris = this.actor.items.filter(item => item.type === "magic");
         sortRestant = calcul.nbSort - sortPris.length;
@@ -489,9 +490,8 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     };
 
 
-
     
-
+console.log(calcul)
     // Mise à jour de l'acteur
     this.actor.update({
       "system.reste": resultat,
@@ -499,10 +499,10 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       "system.restant": stat.reste,
       "system.enc": encStats.enc,
       "system.encmax": encStats.max,
-      "system.hp": calcul.hp,
-      "system.hpmax": calcul.hpmax,
-      "system.psy": calcul.psy,
-      "system.psymax": calcul.psymax,
+      "system.hp.value": calcul.hp.value,
+      "system.hp.max": calcul.hp.max,
+      "system.psy.value": calcul.psy.valuemax,
+      "system.psy.max": calcul.psy.max,
       "system.cout": calcul.cout,
       "system.max": sortRestant,
       "system.alert.hp": calcul.hpalert,
@@ -704,10 +704,10 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
             { 
               'name':name,
               'img':img,
-              'system.hp': hpmax,
-              'system.hpmax': hpmax,
-              'system.psy': psymax,
-              'system.psymax': psymax,
+              'system.hp.value': hpmax,
+              'system.hp.max': hpmax,
+              'system.psy.value': psymax,
+              'system.psy.max': psymax,
               'system.base': base,
               'system.armure': updatedArmor // Met à jour l'armure
             },
@@ -820,8 +820,8 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       if (type) {
         item = this.actor.items.get(itemId);
         if (item) {
-            psy = parseInt(this.actor.system.psy) || 0;
-            pv = parseInt(this.actor.system.hp) || 0;
+            psy = parseInt(this.actor.system.psy.value) || 0;
+            pv = parseInt(this.actor.system.hp.value) || 0;
             insoin = parseInt(this.actor.system.insoin) || 0;
             mental = parseInt(this.actor.system.ability.mental) || 0;
             social = parseInt(this.actor.system.ability.social) || 0;
@@ -934,7 +934,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
                   info=game.i18n.localize("Liber.Chat.Roll.Ressource")+`<div class="infos"><span class="title">Info</span><div class="description">${description}</div></div>`;
               }
           }
-          await this.actor.update({ 'system.hp': pv, 'system.insoin': insoin, 'system.psy': psy });
+          await this.actor.update({ 'system.hp.value': pv, 'system.insoin': insoin, 'system.psy.value': psy });
       }
       if (type && item.system.degat!=0) {
         succes+= `<button class="roll-damage" data-action="rollDamage" data-itemid="${itemId}" data-actorid="${this.actor._id}">${game.i18n.localize("Liber.Chat.Roll.LancerDegats")}</button>`;
@@ -1002,8 +1002,8 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       const consomable = item.system.consommable;
       let quantity = item.system.quantity; // Récupération correcte de la quantité
       const type = item.type;
-      let psy = actor.system.psy;
-      let pv = actor.system.hp;
+      let psy = actor.system.psy.value;
+      let pv = actor.system.hp.value;
       let insoin = actor.system.insoin;
       const formula = item.system.degat;
       let equipLocation = item.system.equip;
@@ -1177,10 +1177,10 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       const race = actor.race;
       const metier = actor.metier;
       let message;
-      let pvEncours=actor.hp;
-      let psyEncours=actor.psy;
-      let pvMax=actor.hpmax;
-      let psyMax=actor.psymax;
+      let pvEncours=actor.hp.value;
+      let psyEncours=actor.psy.value;
+      let pvMax=actor.hp.max;
+      let psyMax=actor.psy.max;
       let hpalert; let psyalert;
       let pvMin=0;let psyMin =0; let nbSort = 0; let maxSort=0;
 
@@ -1237,23 +1237,31 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
         psyalert="var(--couleur-vert)";
       }
       //vérification des talents et faiblesse
-      
-      return{
-        hp: pvEncours,
-        hpmax: pvMax,
-        psy: psyEncours,
-        psymax: psyMax,
-        message:message,
+      return {
+        hp: {
+          value: pvEncours,
+          max: pvMax
+        },
+        psy: {
+          value: psyEncours,
+          max: psyMax
+        },
+        message: message,
         nbSort: nbSort,
-        cout:maxSort,
-        hpalert:hpalert,
-        psyalert:psyalert
-      }
+        cout: maxSort,
+        hpalert: hpalert,
+        psyalert: psyalert
+      };
 
     }
 
     static async #onSleep(event, target){
-        let { talent, faiblesse, time, duree, repos, niveau, psy, psymax, hp, hpmax, insoin, fatig, ronfleur } = this.actor.system;
+        let { talent, faiblesse, time, duree, repos, niveau, insoin, fatig, ronfleur } = this.actor.system;
+        let psy = this.actor.system.psy.value;
+        let psymax = this.actor.system.psy.max;
+        let hp = this.actor.system.hp.value;
+        let hpmax = this.actor.system.hp.max;
+        console.log(hp, hpmax,psy,psymax)
         let d = 0, hpadd = 0, psyadd = 0, j = 0, fatadd = 0; 
         if (duree == "day") {
           time = time * 24;
@@ -1335,7 +1343,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
         .create();
         await chat.display();
         if(ronfleur=="no"){
-          this.actor.update({ "system.insoin": insoin, "system.hp": hp, "system.psy": psy, "system.fatig": fatig });
+          this.actor.update({ "system.insoin": insoin, "system.hp.value": hp, "system.psy.value": psy, "system.fatig": fatig });
         }
     }
 
