@@ -640,7 +640,7 @@ console.log(calcul)
     const ecu=this.actor.system.ecu;
     let min=35;
     if(race=="centaure"){min=min + 20;}
-    if(talent=="mulet"){min=min + 10;}
+    if(talent=="mulet"){min=min * 2;}
     if(faiblesse=="faible"){min=min - 10;}
     let max=(force + puissance) /2 + min;
     const items=this.actor.items;
@@ -1300,7 +1300,7 @@ console.log(calcul)
           default:
             break;
         }
-        if (talent === "bondormeur") {//a tester
+        if (talent === "bondormeur") {
           hpadd = parseInt(hpadd) * 2;
           psyadd = parseInt(psyadd) * 2;
         }
