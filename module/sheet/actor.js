@@ -476,7 +476,8 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
 
     // Calcul des points de vie et de magie
     let calcul = this.onCalcul();
-    console.log(calcul)
+
+
     if (type === 'character') {
         sortPris = this.actor.items.filter(item => item.type === "magic");
         sortRestant = calcul.nbSort - sortPris.length;
@@ -501,7 +502,7 @@ console.log(calcul)
       "system.encmax": encStats.max,
       "system.hp.value": calcul.hp.value,
       "system.hp.max": calcul.hp.max,
-      "system.psy.value": calcul.psy.valuemax,
+      "system.psy.value": calcul.psy.value,
       "system.psy.max": calcul.psy.max,
       "system.cout": calcul.cout,
       "system.max": sortRestant,
@@ -1177,10 +1178,10 @@ console.log(calcul)
       const race = actor.race;
       const metier = actor.metier;
       let message;
-      let pvEncours=actor.hp.value;
-      let psyEncours=actor.psy.value;
-      let pvMax=actor.hp.max;
-      let psyMax=actor.psy.max;
+      let pvEncours=actor.hp.value ?? 0;
+      let psyEncours=actor.psy.value ?? 0;
+      let pvMax=actor.hp.max ?? 0;
+      let psyMax=actor.psy.max ?? 0;
       let hpalert; let psyalert;
       let pvMin=0;let psyMin =0; let nbSort = 0; let maxSort=0;
 
@@ -1201,7 +1202,7 @@ console.log(calcul)
         nbSort = nameMetier.nb + niveau -1;
         maxSort = nameMetier.cout + niveau -1;
       }
-
+      
 
       //verification des minimuns
       if(talent=="memoirearcanique"){nbSort=nbSort+1;}
@@ -1210,13 +1211,15 @@ console.log(calcul)
       if(pvMax<pvMin){pvMax=pvMin}
       if(psyMax<psyMin){psyMax=psyMin}
       if(metier=="guerrier" && niveau==1){psyMax=psyMin}
-      if(race=="etredepsy"){pvMax=0;}
+      if(race=="etredepsy"){pvMax=0;psyMin=0;}
+      if(race=="rocailleux"){pvMin=psyMin+pvMin;psyMin=0;psyMax=0;psyEncours=0;}
+      
 
       //calcul des points de niveaux
       let pointxp = (niveau - 1) * 3;
       const xp = pointxp + pvMin + psyMin;
       const calcultotxp = pvMax + psyMax;
-
+console.log(psyMin,pvMin,calcultotxp)
       //vérifiaction si pv ou psy supérieur au max
       if(pvEncours>pvMax){pvEncours=pvMax;}
       if(psyEncours>psyMax){psyEncours=psyMax;}
@@ -1236,6 +1239,8 @@ console.log(calcul)
         hpalert="var(--couleur-vert)";
         psyalert="var(--couleur-vert)";
       }
+
+      
       //vérification des talents et faiblesse
       return {
         hp: {

@@ -1,7 +1,7 @@
-2025/09/01-17:09:12.825187 720ccb4006c0 Recovering log #325
-2025/09/01-17:09:12.828366 720ccb4006c0 Delete type=0 #325
-2025/09/01-17:09:12.828403 720ccb4006c0 Delete type=3 #323
-2025/09/01-17:14:05.765937 720cca4006c0 Level-0 table #330: started
-2025/09/01-17:14:05.765953 720cca4006c0 Level-0 table #330: 0 bytes OK
-2025/09/01-17:14:05.766537 720cca4006c0 Delete type=0 #328
-2025/09/01-17:14:05.767146 720cca4006c0 Manual compaction at level-0 from '!actors!06hUjmgQLsShW303' @ 72057594037927935 : 1 .. '!folders!mt3wLosTVWcUTYEW' @ 0 : 0; will stop at (end)
+2025/09/20-15:01:14.094654 720cd0a006c0 Recovering log #333
+2025/09/20-15:01:14.097748 720cd0a006c0 Delete type=0 #333
+2025/09/20-15:01:14.097773 720cd0a006c0 Delete type=3 #331
+2025/09/20-15:01:20.603812 720cca4006c0 Level-0 table #338: started
+2025/09/20-15:01:20.603835 720cca4006c0 Level-0 table #338: 0 bytes OK
+2025/09/20-15:01:20.604502 720cca4006c0 Delete type=0 #336
+2025/09/20-15:01:20.605891 720cca4006c0 Manual compaction at level-0 from '!actors!06hUjmgQLsShW303' @ 72057594037927935 : 1 .. '!folders!mt3wLosTVWcUTYEW' @ 0 : 0; will stop at (end)
