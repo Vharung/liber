@@ -35,12 +35,12 @@ export default class LiberCharacterData extends foundry.abstract.DataModel {
             /*hp: new fields.NumberField({ required: true, initial: 3 }),
             hpmax: new fields.NumberField({ required: true, initial: 3 }),*/
              hp: new fields.SchemaField({
-              value: new fields.NumberField({ required: true, initial: 3 }),
-              max: new fields.NumberField({ required: true, initial: 3 })
+              value: new fields.NumberField({ required: true, initial: 10 }),
+              max: new fields.NumberField({ required: true, initial: 10 })
             }),
             psy: new fields.SchemaField({
-              value: new fields.NumberField({ required: true, initial: 3 }),
-              max: new fields.NumberField({ required: true, initial: 3 })
+              value: new fields.NumberField({ required: true, initial: 10 }),
+              max: new fields.NumberField({ required: true, initial: 10 })
             }),
             /*psy: new fields.NumberField({ required: true, initial: 3 }),
             psymax: new fields.NumberField({ required: true, initial: 3 }),*/

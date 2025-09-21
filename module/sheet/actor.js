@@ -491,8 +491,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     };
 
 
-    
-console.log(calcul)
     // Mise à jour de l'acteur
     this.actor.update({
       "system.reste": resultat,
@@ -699,7 +697,7 @@ console.log(calcul)
     const name=await this.onName();
     const img=await this.onAvatar();
     // Mise à jour des données de l'acteur
-    console.log(hpmax)
+
     this.actor.update(
         Object.assign(
             { 
@@ -1184,12 +1182,12 @@ console.log(calcul)
       let psyMax=actor.psy.max ?? 0;
       let hpalert; let psyalert;
       let pvMin=0;let psyMin =0; let nbSort = 0; let maxSort=0;
-
       if(metier=="personnalise"){  
         //calcul niveau 1 des éléments
         pvMin = Math.round(actor.ability.physique / 3);
         psyMin = Math.round(actor.ability.mental/ (actor.ability.physique/10));
         nbSort = Math.round(actor.ability.social/10);
+
 
         //calcul cout max tous niveaux
         maxSort = Math.round(psyMin/ 4) + niveau -1;
@@ -1210,6 +1208,10 @@ console.log(calcul)
       if(talent=="vigoureux"){pvMin=pvMin+2*(niveau)}
       if(pvMax<pvMin){pvMax=pvMin}
       if(psyMax<psyMin){psyMax=psyMin}
+      if(niveau==1){
+        if(pvMax>pvMin){pvMax=pvMin}
+        if(psyMax>psyMin){psyMax=psyMin}
+      }
       if(metier=="guerrier" && niveau==1){psyMax=psyMin}
       if(race=="etredepsy"){pvMax=0;psyMin=0;}
       if(race=="rocailleux"){pvMin=psyMin+pvMin;psyMin=0;psyMax=0;psyEncours=0;}
@@ -1219,7 +1221,7 @@ console.log(calcul)
       let pointxp = (niveau - 1) * 3;
       const xp = pointxp + pvMin + psyMin;
       const calcultotxp = pvMax + psyMax;
-console.log(psyMin,pvMin,calcultotxp)
+
       //vérifiaction si pv ou psy supérieur au max
       if(pvEncours>pvMax){pvEncours=pvMax;}
       if(psyEncours>psyMax){psyEncours=psyMax;}
@@ -1266,7 +1268,6 @@ console.log(psyMin,pvMin,calcultotxp)
         let psymax = this.actor.system.psy.max;
         let hp = this.actor.system.hp.value;
         let hpmax = this.actor.system.hp.max;
-        console.log(hp, hpmax,psy,psymax)
         let d = 0, hpadd = 0, psyadd = 0, j = 0, fatadd = 0; 
         if (duree == "day") {
           time = time * 24;
