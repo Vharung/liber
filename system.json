@@ -1,18 +1,17 @@
 {
   "id": "liber",
   "title": "Liber V3 Game System",
-  "version": "4.0.2",
-  "compatibility": {
-    "minimum": "13",
-    "verified": "13"
-  },
   "description": "The Liber Chronicles system for FoundryVTT !",
   "authors": [
     {
       "name": "Vharung",
       "discord": "Vharung"
     }],
- 
+  "version": "4.0.2",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
   "license": "MIT",
   "scripts": [],
   "styles": ["style/liber.css"],
@@ -135,9 +134,9 @@
       ]
     }
   ],
-  "url": "",
-  "manifest": "",
-  "download": "",
+  "url": "https://github.com/Vharung/liber",
+  "manifest": "https://raw.githubusercontent.com/Vharung/liber/main/system.json",
+  "download": "https://github.com/Vharung/liber/archive/refs/heads/main.zip",
   "background": "systems/liber/assets/system/accueil.webp",
   "grid":{
     "distance": 1,
