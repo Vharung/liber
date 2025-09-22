@@ -16,6 +16,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     actions: {
       editImage: LiberCharacterSheet.#onEditImage,
       edit: LiberCharacterSheet.#onItemEdit,
+      use: LiberCharacterSheet.#onItemUse,
       delete: LiberCharacterSheet.#onItemDelete,
       posture:LiberCharacterSheet.#onPosture,
       bonuscompt:LiberCharacterSheet.#onBonusCompt,
@@ -744,8 +745,14 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     static async #onItemDelete(event, target) {
         const itemId = target.getAttribute('data-item-id');
         const item = this.actor.items.get(itemId);
+        item.delete();
+    }
+
+    static async #onItemUse(event, target) {
+        const itemId = target.getAttribute('data-item-id');
+        const item = this.actor.items.get(itemId);
         const type = item.type;
-        if (item.system.quantity > 1 && type !='magic') {
+         if (item.system.quantity > 1) {
             await item.update({ "system.quantity": item.system.quantity - 1 });
         } else {
             item.delete();
