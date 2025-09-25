@@ -1,0 +1,45 @@
+{
+  "name": "Maîtrise du Vent",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/air-9.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>L’incantateur invoque de violentes bourrasques capables de lacérer ses ennemis. Il inflige <strong data-start=\"114\" data-end=\"130\">1d6+3 dégâts</strong>, avec la possibilité d’augmenter les dommages de <strong data-start=\"180\" data-end=\"218\">+2 par point de Psy supplémentaire</strong>. <strong data-start=\"220\" data-end=\"262\" data-is-last-node=\"\">Maintien: 2 Psy.</strong></p>",
+    "quantity": 3,
+    "degat": "1d6+3",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Maintien",
+    "style": "cc",
+    "school": "ralich",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "bmvCrZdFaDizu6CY",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.4hHUGHkB1Pl81iGz",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "pl7tOeVWE3ZYypga",
+  "sort": 0,
+  "_key": "!items!pl7tOeVWE3ZYypga"
+}

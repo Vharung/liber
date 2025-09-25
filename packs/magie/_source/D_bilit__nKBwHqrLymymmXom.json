@@ -1,0 +1,45 @@
+{
+  "name": "Débilité",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/esprit-5.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>La personne qui en est la cible doit faire un jet de dé sous sa compétence astuce pour pouvoir agir</p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "dwaliwyr",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "jXdgZBLgtgJ2fJQ4",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.xBGXbJJsRMPXC7ao",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "nKBwHqrLymymmXom",
+  "sort": 0,
+  "_key": "!items!nKBwHqrLymymmXom"
+}

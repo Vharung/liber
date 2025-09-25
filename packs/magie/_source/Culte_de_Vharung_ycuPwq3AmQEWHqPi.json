@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": "2FLmKHD6xMETMhEd",
+  "name": "Culte de Vharung",
+  "color": "#51586f",
+  "sorting": "a",
+  "_id": "ycuPwq3AmQEWHqPi",
+  "description": "",
+  "sort": 500000,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597575,
+    "modifiedTime": 1758800597575,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_key": "!folders!ycuPwq3AmQEWHqPi"
+}

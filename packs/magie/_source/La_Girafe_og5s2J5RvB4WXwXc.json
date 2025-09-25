@@ -1,0 +1,45 @@
+{
+  "name": "La Girafe",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/constellation-12.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Invoque une flèche qui va blesser automatiquement sa cible, ne peut faire de jet de défense, 1d6+4 de dommage</p>",
+    "quantity": 4,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "nomade",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "UFAMVi5rrSGukKno",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.dSCihJq4YuLM47Js",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "og5s2J5RvB4WXwXc",
+  "sort": 0,
+  "_key": "!items!og5s2J5RvB4WXwXc"
+}

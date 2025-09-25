@@ -1,0 +1,45 @@
+{
+  "name": "Main de gloire",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/baphomet-11.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Sur 1d6:</p><p>1 : La cible inflige le double de dégâts.<br>2-5 : La cible inflige +2 en dégâts.<br>6 : La cible subit le double de dégâts.</p>",
+    "quantity": 5,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "baphomet",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "ej2fVFB3bEw91d30",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.cQc5Ky9W3wmu0Scu",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "VKfu4djAnpWpI5AX",
+  "sort": 0,
+  "_key": "!items!VKfu4djAnpWpI5AX"
+}

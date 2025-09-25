@@ -1,0 +1,45 @@
+{
+  "name": "Protection céleste",
+  "type": "armor",
+  "img": "systems/liber-chronicles/assets/item/armor/armureceleste.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Rare, en surface, provenant de Port-Sanglant. Double les avantages reçus.</p>",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "poids": 3,
+    "valeur": 1200,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "ks9NmFn3dSw0ky7W",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.S5rrrgNOkERpEZnD",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800595990,
+    "modifiedTime": 1758800595990,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "xFkFiEEGKuaEocID",
+  "sort": 0,
+  "_key": "!items!xFkFiEEGKuaEocID"
+}

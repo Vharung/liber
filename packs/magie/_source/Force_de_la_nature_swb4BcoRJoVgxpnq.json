@@ -1,0 +1,45 @@
+{
+  "name": "Force de la nature",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/nature-9.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Augmente les dégâts +6 fait par une cible, pendant 3 tour, mais après ces tours, le porteur du sort tombe dans une inconscience pour 2 tour</p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 60,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "3 Tour",
+    "style": "cc",
+    "school": "natura",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "hKAiortJ1gCcHTZi",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.2SNhxpYbEbJCjBEL",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "swb4BcoRJoVgxpnq",
+  "sort": 0,
+  "_key": "!items!swb4BcoRJoVgxpnq"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Privation sensorielle",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/illusion-14.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Prive la cible de tous ses sens, la cible devient folle si rate un test de mental avec un malus de 10 a chaque tour, cumulable, sur 1d6.</p><p>-½ Phy, 1=For, 2=Agi,<br>-¾ Soc, 3=Sag, 4 Cha, <br>-5/6 Men, 5=Ast et 6=Mem</p>",
+    "quantity": 7,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "crilanydd",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "j5EvjWy95NhJhOIq",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.K9C6RfOdSiKMgvIc",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "8omteHXt2AkWARb4",
+  "sort": 0,
+  "_key": "!items!8omteHXt2AkWARb4"
+}

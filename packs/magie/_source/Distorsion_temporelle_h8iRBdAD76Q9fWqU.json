@@ -1,0 +1,45 @@
+{
+  "name": "Distorsion temporelle",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/vharung-12.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Recommence le tour (positions joueur et des ennemis, PV et PSY initiale, sauf pour le lanceur etc…les ennemis et les joueurs n’ont pas souvenir de cette distorsion (sauf le lanceur) </p>",
+    "quantity": 8,
+    "degat": "0",
+    "porter": "30",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "vharung",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "ycuPwq3AmQEWHqPi",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.JKnsRAqO4eWY6nps",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "h8iRBdAD76Q9fWqU",
+  "sort": 0,
+  "_key": "!items!h8iRBdAD76Q9fWqU"
+}

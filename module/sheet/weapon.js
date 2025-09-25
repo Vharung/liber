@@ -16,8 +16,8 @@ export default class LiberWeaponSheet extends HandlebarsApplicationMixin(ItemShe
 
   /** @override */
   static PARTS = {
-    header: { template: "systems/liber/templates/item/item-header.hbs" },
-    main:{template: "systems/liber/templates/item/item-main-weapon.hbs"}
+    header: { template: "systems/liber-chronicles/templates/item/item-header.hbs" },
+    main:{template: "systems/liber-chronicles/templates/item/item-main-weapon.hbs"}
   };
 
   _onRender(context, options) {

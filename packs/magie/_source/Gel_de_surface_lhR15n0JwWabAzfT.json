@@ -1,0 +1,45 @@
+{
+  "name": "Gel de surface",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/glace-6.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Gel une étendue au contact, rendant le sol glissant, toute personne voulant passer sur cette zone doit faire un test d’agilité</p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 30,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "weitha",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "2GYoP36hviVvZ1M7",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.52BFrMG2Ic8U0tlj",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "lhR15n0JwWabAzfT",
+  "sort": 0,
+  "_key": "!items!lhR15n0JwWabAzfT"
+}

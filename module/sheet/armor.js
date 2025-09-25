@@ -16,8 +16,8 @@ export default class LiberArmorSheet extends HandlebarsApplicationMixin(ItemShee
 
   /** @override */
   static PARTS = {
-    header: { template: "systems/liber/templates/item/item-header.hbs" },
-    main:{template: "systems/liber/templates/item/item-main-armor.hbs"}
+    header: { template: "systems/liber-chronicles/templates/item/item-header.hbs" },
+    main:{template: "systems/liber-chronicles/templates/item/item-main-armor.hbs"}
   };
 
   _onRender(context, options) {

@@ -1,0 +1,23 @@
+{
+  "name": "Carte",
+  "sorting": "a",
+  "folder": "jALlI6lF0CY5RbTN",
+  "type": "Scene",
+  "_id": "JXYVBInylivR87yS",
+  "sort": 0,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800609221,
+    "modifiedTime": 1758800609221,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "description": "",
+  "_key": "!folders!JXYVBInylivR87yS"
+}

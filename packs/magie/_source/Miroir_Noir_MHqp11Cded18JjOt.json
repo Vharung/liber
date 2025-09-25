@@ -1,0 +1,45 @@
+{
+  "name": "Miroir Noir",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/sombre-6.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Dépense le coût en psy d'un sort ennemi pour le rediriger à son lanceur, éphémère, X psy X étant le coût du sort renvoyé<br><br>X étant les psy dépensés pour ce sort.</p>",
+    "quantity": 0,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Éphémère",
+    "style": "cc",
+    "school": "dieuxsombres",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "9QOAfr10cJjVNa0A",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.qU10CiBqECueHSv7",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "MHqp11Cded18JjOt",
+  "sort": 0,
+  "_key": "!items!MHqp11Cded18JjOt"
+}

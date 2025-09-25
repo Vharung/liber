@@ -1,0 +1,45 @@
+{
+  "name": "Aura de résistance",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/nouvelordre-3.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>La cible à un bonus de 10% à tous ses jets de physique</p>",
+    "quantity": 2,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Soi",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "nouvelordre",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "t3P8fwJTXrhD6VHV",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.rYNJf87LUG80Z4Bl",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "FbtIP87plUpfmAJZ",
+  "sort": 0,
+  "_key": "!items!FbtIP87plUpfmAJZ"
+}

@@ -33,10 +33,10 @@ export default class LiberMonsterSheet extends HandlebarsApplicationMixin(ActorS
 
   /** @override */
   static PARTS = {
-    tabs: { template: "systems/liber/templates/actors/character-navigation.hbs" },
-    header: { template: "systems/liber/templates/actors/character-header.hbs" },
-    biography: { template: "systems/liber/templates/actors/character-biography.hbs" },
-    inventory: { template: "systems/liber/templates/actors/character-inventory.hbs" }
+    tabs: { template: "systems/liber-chronicles/templates/actors/character-navigation.hbs" },
+    header: { template: "systems/liber-chronicles/templates/actors/character-header.hbs" },
+    biography: { template: "systems/liber-chronicles/templates/actors/character-biography.hbs" },
+    inventory: { template: "systems/liber-chronicles/templates/actors/character-inventory.hbs" }
   };
 
 
@@ -351,7 +351,7 @@ export default class LiberMonsterSheet extends HandlebarsApplicationMixin(ActorS
       let item, itemname, quantity, psy, pv, insoin,physique, mental, social, description, talent;
 
       const image = target.getAttribute('data-img');
-      let visuel = `systems/liber/assets/actor/${ability}.webp`;
+      let visuel = `systems/liber-chronicles/assets/actor/${ability}.webp`;
       let label = this.actor.name + game.i18n.localize("Liber.Chat.Roll.faire") + game.i18n.localize("Liber.Chat.Roll." + ability);
 
       /* Gestion de la magie */
@@ -508,7 +508,7 @@ export default class LiberMonsterSheet extends HandlebarsApplicationMixin(ActorS
 
       // Création du chat avec le template spécifié
       let chat = await new LiberChat(this.actor)
-          .withTemplate("systems/liber/templates/chat/roll-resultat.hbs")
+          .withTemplate("systems/liber-chronicles/templates/chat/roll-resultat.hbs")
           .withContent(ability)
           .withData(chatData)
           .create();
@@ -585,7 +585,7 @@ export default class LiberMonsterSheet extends HandlebarsApplicationMixin(ActorS
           };
 
           let chat = await new LiberChat(this.actor)
-              .withTemplate("systems/liber/templates/chat/roll-resultat.hbs")
+              .withTemplate("systems/liber-chronicles/templates/chat/roll-resultat.hbs")
               .withContent("rollDamage")
               .withData(chatData)
               .create();
@@ -629,7 +629,7 @@ export default class LiberMonsterSheet extends HandlebarsApplicationMixin(ActorS
       }
       //tchat
       let chat = await new LiberChat(this.actor)
-      .withTemplate("systems/liber/templates/chat/posture.hbs")
+      .withTemplate("systems/liber-chronicles/templates/chat/posture.hbs")
       .withContent(posture)
       .withData(chatData)
       .create();
@@ -775,7 +775,7 @@ export default class LiberMonsterSheet extends HandlebarsApplicationMixin(ActorS
         }
         //tchat
         let chat = await new LiberChat(this.actor)
-        .withTemplate("systems/liber/templates/chat/posture.hbs")
+        .withTemplate("systems/liber-chronicles/templates/chat/posture.hbs")
         .withContent("sleep")
         .withData(chatData)
         .create();
@@ -806,7 +806,7 @@ export default class LiberMonsterSheet extends HandlebarsApplicationMixin(ActorS
         };
 
         let chat = await new LiberChat(this.actor)
-          .withTemplate("systems/liber/templates/chat/roll-resultat.hbs")
+          .withTemplate("systems/liber-chronicles/templates/chat/roll-resultat.hbs")
           .withContent("itemDescription")
           .withData(chatData)
           .create();
@@ -870,7 +870,7 @@ export default class LiberMonsterSheet extends HandlebarsApplicationMixin(ActorS
           return;
       }
 
-      const pack = game.packs.get('liber.inventaire');
+      const pack = game.packs.get('liber-chronicles.inventaire');
       if (!pack) {
           console.error("Le pack 'liber.inventaire' est introuvable.");
           return;

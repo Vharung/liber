@@ -16,8 +16,8 @@ export default class LiberItemSheet extends HandlebarsApplicationMixin(ItemSheet
 
   /** @override */
   static PARTS = {
-    header: { template: "systems/liber/templates/item/item-header.hbs" },
-    main:{template: "systems/liber/templates/item/item-main-item.hbs"}
+    header: { template: "systems/liber-chronicles/templates/item/item-header.hbs" },
+    main:{template: "systems/liber-chronicles/templates/item/item-main-item.hbs"}
   };
 
   _onRender(context, options) {

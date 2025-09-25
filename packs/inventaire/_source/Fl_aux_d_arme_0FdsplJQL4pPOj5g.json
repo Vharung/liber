@@ -1,0 +1,45 @@
+{
+  "name": "Fléaux d’arme",
+  "type": "weapon",
+  "img": "systems/liber-chronicles/assets/item/waepon/fleau.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Le porteur a un malus en défense de 20%.</p><p>Enroule le fléau autour de l’arme d’un ennemi, la cible doit réussir un jet de force pour garder son arme.</p>",
+    "quantity": 1,
+    "degat": "3d4+1",
+    "porter": "0",
+    "poids": 5,
+    "valeur": 500,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "melee",
+    "doublemain": "yes",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "no",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "eyESHvxjOQoNQSPq",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.MVaxK0M6d697XEap",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800595990,
+    "modifiedTime": 1758800595990,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "0FdsplJQL4pPOj5g",
+  "sort": 0,
+  "_key": "!items!0FdsplJQL4pPOj5g"
+}

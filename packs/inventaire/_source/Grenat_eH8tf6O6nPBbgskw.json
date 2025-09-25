@@ -1,0 +1,45 @@
+{
+  "name": "Grenat",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/item/pierre4.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Donne 2 points d' armure pour une journée</p>",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 130,
+    "protec": 0,
+    "equip": "",
+    "consommable": "yes",
+    "doublemain": "no",
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "3yQ6TDxMqgIVprRV",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.5PStfRqKEm9QZ8Q4",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800595990,
+    "modifiedTime": 1758800595990,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "eH8tf6O6nPBbgskw",
+  "sort": 0,
+  "_key": "!items!eH8tf6O6nPBbgskw"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Lame de sang",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/demon-11.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Des armes tournois autour de lui, le lanceur peut les mouvoir (couvre une zone de 5 m) elles font 1d6+3 de dégât, objet semi-libre</p><p><strong>Maintien : 3 psy</strong></p>",
+    "quantity": 5,
+    "degat": "0",
+    "porter": "30",
+    "rayon": 5,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Unique / Maintien / 5 Tours",
+    "style": "cc",
+    "school": "demonclan",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "Ueb29zzW90lIleBO",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.oJu8ZVJ4CY6mG86H",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "ArUzlJCC7QmjmpaU",
+  "sort": 0,
+  "_key": "!items!ArUzlJCC7QmjmpaU"
+}

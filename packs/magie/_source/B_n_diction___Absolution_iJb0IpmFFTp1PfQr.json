@@ -1,0 +1,45 @@
+{
+  "name": "Bénédiction / Absolution",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/croise-2.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>La cible <span style=\"font-family: Arial, sans-serif\">récupère </span>6 PV</p>",
+    "quantity": 2,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "croises",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "EipurxdtSdiKin2n",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.mmBtG25KXsyJfeCp",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "iJb0IpmFFTp1PfQr",
+  "sort": 0,
+  "_key": "!items!iJb0IpmFFTp1PfQr"
+}

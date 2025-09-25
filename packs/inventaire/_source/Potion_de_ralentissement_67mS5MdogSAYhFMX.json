@@ -1,0 +1,45 @@
+{
+  "name": "Potion de ralentissement",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/item/potion26.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>La victime de cette potion prend deux tours pour faire une action, au lieu d'un</p><p>Composition : Eau, 2 Tige de chardon, 1 Rayon de miel, 3 Mousse barbue</p>",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "poids": 0.5,
+    "valeur": 300,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "yes",
+    "doublemain": "no",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "lChTbAwmbliGZjic",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.EcNEWhumLMQpLzOy",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800595990,
+    "modifiedTime": 1758800595990,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "67mS5MdogSAYhFMX",
+  "sort": 0,
+  "_key": "!items!67mS5MdogSAYhFMX"
+}

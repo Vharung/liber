@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": "UKrRBKykH3pgVwS2",
+  "name": "Troubadour",
+  "color": "#8f8f8e",
+  "sorting": "a",
+  "_id": "vNMPjn4HxUgN3AzW",
+  "description": "",
+  "sort": 1300000,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597575,
+    "modifiedTime": 1758800597575,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_key": "!folders!vNMPjn4HxUgN3AzW"
+}

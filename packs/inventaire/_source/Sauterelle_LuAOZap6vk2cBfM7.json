@@ -1,0 +1,45 @@
+{
+  "name": "Sauterelle",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/item/sauterelle.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "poids": 0.1,
+    "valeur": 1,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "yes",
+    "doublemain": "no",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "DB4MTR7opc0TJwjm",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.38y3qgZTCj9IKulE",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800595990,
+    "modifiedTime": 1758800595990,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "LuAOZap6vk2cBfM7",
+  "sort": 0,
+  "_key": "!items!LuAOZap6vk2cBfM7"
+}

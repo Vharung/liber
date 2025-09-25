@@ -1,0 +1,45 @@
+{
+  "name": "Fourberie de Draauch",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/illusion-16.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Inflige 4d10 perce-armure sur les ennemis, les ennemis qui échouent à un test de mental sont plongés dans un cauchemar permanent (incapacité jusqu’à ce qu’ils prennent des dégâts autre que l’illusion) sur place</p><p></p>",
+    "quantity": 13,
+    "degat": "4d10",
+    "porter": "0",
+    "rayon": 60,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Unique",
+    "style": "cc",
+    "school": "crilanydd",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "j5EvjWy95NhJhOIq",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.phDlGOpHELz6xmQF",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "999dHrqx6B7Jrqjk",
+  "sort": 0,
+  "_key": "!items!999dHrqx6B7Jrqjk"
+}

@@ -1,0 +1,23 @@
+{
+  "type": "Actor",
+  "folder": "7t5KK5CfpbWCl7X6",
+  "name": "4-Légendaire",
+  "color": "#41546a",
+  "sorting": "a",
+  "_id": "Syvi1cMQuKMWpkDc",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800576019,
+    "modifiedTime": 1758800576019,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_key": "!folders!Syvi1cMQuKMWpkDc"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Teleportail",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/cercle-9.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Ouvre un portail vers un lieu déjà visité. Le portail reste ouvert un tour, mais peut être maintenu pour 4 PSY par tour.</p><p>Une brèche stable reliant deux endroits connus, permettant un déplacement instantané sur de longues distances.</p>",
+    "quantity": 8,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Unique",
+    "style": "cc",
+    "school": "marrunas",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "qq3iHQtbKACwcVoF",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.si0gwkeAQXB0m2Uh",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "BcehXiKjW7qgU6cI",
+  "sort": 0,
+  "_key": "!items!BcehXiKjW7qgU6cI"
+}

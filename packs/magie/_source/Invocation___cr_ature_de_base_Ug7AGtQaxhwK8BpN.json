@@ -1,0 +1,45 @@
+{
+  "name": "Invocation : créature de base",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/invocation-2.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Belette* (ou petite créature au choix validé par le MJ) créature de base, liées, Offert 2 HP</p><p>Loup Blanc* créature de base, semi-libre 3 PSY</p><p>Gros Ours* créature de base, libre 4 PSY +4 PV</p>",
+    "quantity": 0,
+    "degat": "0",
+    "porter": "30",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Unique / Persistant",
+    "style": "cc",
+    "school": "cem",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "YhmVpebRebDewyDZ",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.XW6Iw75whKi9C2d7",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "Ug7AGtQaxhwK8BpN",
+  "sort": 0,
+  "_key": "!items!Ug7AGtQaxhwK8BpN"
+}

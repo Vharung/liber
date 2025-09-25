@@ -1,0 +1,45 @@
+{
+  "name": "Base",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/rune-6.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>1d4</p><p>1 Cible</p><p>1 tour</p><p><strong>Sort Offert</strong></p>",
+    "quantity": 0,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Objet",
+    "duree": "Runes",
+    "style": "cc",
+    "school": "runes",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "zwrY9hHFZPxzFssW",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.mSE6jtW8tBqIpXd1",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "LZcmajGGnKrTUd0E",
+  "sort": 0,
+  "_key": "!items!LZcmajGGnKrTUd0E"
+}

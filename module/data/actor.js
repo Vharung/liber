@@ -327,7 +327,7 @@ export default class LiberCharacterData extends foundry.abstract.DataModel {
                 }
             }),
             forme:new fields.StringField({ required: true, initial: "Créature" }),
-            geo:new fields.StringField({ required: true, initial: "systems/liber/assets/monstre/carte/map1.webp" }),
+            geo:new fields.StringField({ required: true, initial: "systems/liber-chronicles/assets/monstre/carte/map1.webp" }),
             posture:new fields.StringField({ required: true, initial: "aucune" }),
             probleme:new fields.StringField({ required: true, initial: "" }),
             inventory: new fields.StringField({required: true, initial: "all"}),

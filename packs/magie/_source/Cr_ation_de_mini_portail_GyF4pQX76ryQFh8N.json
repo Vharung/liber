@@ -1,0 +1,45 @@
+{
+  "name": "Création de mini portail",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/cercle-7.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Ouvre un mini-portail pouvant transporter quelqu’un dans un rayon de 30m. Le portail a une durée de vie aléatoire et peut être emprunté par quiconque.</p><p>Une brèche instable dans l’espace, permettant un déplacement rapide mais temporaire.</p>",
+    "quantity": 4,
+    "degat": "0",
+    "porter": "30",
+    "rayon": 30,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "marrunas",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "qq3iHQtbKACwcVoF",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.Vz4mT2W1yWcrLOVx",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "GyF4pQX76ryQFh8N",
+  "sort": 0,
+  "_key": "!items!GyF4pQX76ryQFh8N"
+}

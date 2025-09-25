@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": "UKrRBKykH3pgVwS2",
+  "name": "Atakanax - Clan de l'ombre",
+  "color": "#665c39",
+  "sorting": "a",
+  "_id": "eziYGrUnseZcHtaD",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597575,
+    "modifiedTime": 1758800597575,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_key": "!folders!eziYGrUnseZcHtaD"
+}

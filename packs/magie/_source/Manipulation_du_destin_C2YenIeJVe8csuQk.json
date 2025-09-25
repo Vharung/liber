@@ -1,0 +1,45 @@
+{
+  "name": "Manipulation du destin",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/vaudou-14.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet de modifier les caractéristiques d’une cible, en respectant les nombres de points qu’elle possède.</p><p></p>",
+    "quantity": 4,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "vaudou",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "PRQhHCtze3j6eFQ0",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.IJeJGgkzHJe0W9cj",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "C2YenIeJVe8csuQk",
+  "sort": 0,
+  "_key": "!items!C2YenIeJVe8csuQk"
+}

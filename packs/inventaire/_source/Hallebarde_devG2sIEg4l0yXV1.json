@@ -1,0 +1,45 @@
+{
+  "name": "Hallebarde",
+  "type": "weapon",
+  "img": "systems/liber-chronicles/assets/item/waepon/hallebarde.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Le porteur à un malus en défense de 20%.</p><p>Si l’attaque est réussie l’ennemi a un malus de 10% en physique pour sa prochaine attaque</p>",
+    "quantity": 1,
+    "degat": "2d6+1",
+    "porter": "0",
+    "poids": 3,
+    "valeur": 350,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "hast",
+    "doublemain": "yes",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "no",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "5cOk9iqHUC7de14D",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.Rf4UhrQqUClr7gzy",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800595990,
+    "modifiedTime": 1758800595990,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "devG2sIEg4l0yXV1",
+  "sort": 0,
+  "_key": "!items!devG2sIEg4l0yXV1"
+}

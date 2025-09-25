@@ -1,0 +1,45 @@
+{
+  "name": "Huile  - créature magique",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/item/potion29.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet de toucher des créatures faites de psy avec une arme physique, persistant</p><p>Composition 1 Huile de noix, 4 poudre d'os, 2 ailes de papillon</p>",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "poids": 0.5,
+    "valeur": 250,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "yes",
+    "doublemain": "no",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "lChTbAwmbliGZjic",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.D8P2zkUCZ5rZWmIQ",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800595990,
+    "modifiedTime": 1758800595990,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "r0Pg1rJfDd2Ws7FL",
+  "sort": 0,
+  "_key": "!items!r0Pg1rJfDd2Ws7FL"
+}

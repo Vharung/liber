@@ -119,7 +119,7 @@ Hooks.once("ready", () => {
             };
 
             let chat = await new LiberChat(actor)
-                .withTemplate("systems/liber/templates/chat/roll-resultat.hbs")
+                .withTemplate("systems/liber-chronicles/templates/chat/roll-resultat.hbs")
                 .withContent(chatContent)
                 .withData(chatData)
                 .create();
@@ -279,7 +279,7 @@ Hooks.on("hotbarDrop", async (bar, data, slot) => {
 
                 const intro = \`<div class="intro-img">
                     <img src="\${actor.img}">
-                    <img src="systems/liber/assets/actor/\${ability}.webp">
+                    <img src="systems/liber-chronicles/assets/actor/\${ability}.webp">
                 </div>
                 <div class="intro-chat">\`;
 
@@ -346,7 +346,7 @@ Hooks.on("hotbarDrop", async (bar, data, slot) => {
                     user: game.user.id,
                     speaker: ChatMessage.getSpeaker({ actor }),
                     content,
-                    template: "systems/liber/templates/chat/roll-resultat.hbs"
+                    template: "systems/liber-chronicles/templates/chat/roll-resultat.hbs"
                 });
 
                 

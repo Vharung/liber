@@ -1,0 +1,45 @@
+{
+  "name": "Prêt d'Esprit",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/monnaie-4.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>L'utilisateur dépense des écus pour emprunter temporairement les compétences ou les connaissances d'une autre personne. Le coût dépend de la qualité et de la rareté des compétences empruntées. 500 écu / 10% de différence de la personne ciblé (argent perdu)</p>",
+    "quantity": 4,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "numismatomancie",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "T5zgUEDOXPcjhdnW",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.BbhkzMtTGxGT8H80",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "R2pwkzuz3B92WFiO",
+  "sort": 0,
+  "_key": "!items!R2pwkzuz3B92WFiO"
+}

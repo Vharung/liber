@@ -1,0 +1,45 @@
+{
+  "name": "Distorsion temporelle",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/cercle-11.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Recommence entièrement le tour (positions, PV et PSY initiaux de tous sauf le lanceur). Personne d’autre que le lanceur ne garde mémoire du changement.</p><p>Une boucle temporelle momentanée qui permet au mage de modifier le cours des événements récents à son avantage.</p>",
+    "quantity": 8,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 30,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "marrunas",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "qq3iHQtbKACwcVoF",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.Ujp4br8JhmmDnBLD",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "kV5c54szmBVAtfHX",
+  "sort": 0,
+  "_key": "!items!kV5c54szmBVAtfHX"
+}

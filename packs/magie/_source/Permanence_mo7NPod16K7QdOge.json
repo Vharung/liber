@@ -1,0 +1,45 @@
+{
+  "name": "Permanence",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/cercle-13.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Augmente la durée d’un sort, soit en diminuant son coût de maintien, soit en le rendant permanent pour une durée déterminée.</p><p>En infusant une énergie durable dans un sort existant, le mage étend son effet dans le temps.<br><br>X étant les psy dépensés pour ce sort.</p>",
+    "quantity": 0,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Permanent",
+    "style": "cc",
+    "school": "marrunas",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "qq3iHQtbKACwcVoF",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.HXvW8mAthfR1ZiFw",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "mo7NPod16K7QdOge",
+  "sort": 0,
+  "_key": "!items!mo7NPod16K7QdOge"
+}

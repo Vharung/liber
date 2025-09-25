@@ -1,0 +1,45 @@
+{
+  "name": "Résurrection du phœnix",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/vie-13.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Le joueur perd la moitié de ses PV et redonne vie à une cible et/ou lui restaure sa totalité des PV. </p>",
+    "quantity": 0,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "CIble",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "galerrakath",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "YVklPc0rShD0hKUH",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.ZZsrRnoAMmHUizx4",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "gpE0RLtnBQ323O9d",
+  "sort": 0,
+  "_key": "!items!gpE0RLtnBQ323O9d"
+}

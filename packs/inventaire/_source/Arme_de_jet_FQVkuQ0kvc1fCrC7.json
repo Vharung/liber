@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": "KUrXcZVa88L38sld",
+  "name": "Arme de jet",
+  "color": "#344b66",
+  "sorting": "a",
+  "_id": "FQVkuQ0kvc1fCrC7",
+  "description": "",
+  "sort": 100000,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800595895,
+    "modifiedTime": 1758800595895,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_key": "!folders!FQVkuQ0kvc1fCrC7"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Ophiuchus",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/constellation-40.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Annule les prochains 20 points de dégâts</p>",
+    "quantity": 10,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "nomade",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "UFAMVi5rrSGukKno",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.iGX8713cRowCEmbS",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "jbwrtA6Wq3nwxt88",
+  "sort": 0,
+  "_key": "!items!jbwrtA6Wq3nwxt88"
+}

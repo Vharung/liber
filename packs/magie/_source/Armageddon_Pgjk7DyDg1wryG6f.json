@@ -1,0 +1,45 @@
+{
+  "name": "Armageddon",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/telekinesie-16.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Fait écraser un astéroïde dans une zone 4d10+13 de dommage dans la zone du crash, puis 3d10 entre 10 et 20 m autour du crash, à moins de 30 m 13 de dégât, 1d6+2 entre 10 et 30m, au-delà pas de dégât, prend un tour de caste, le lanceur ne peut changer la zone d’impact et ne peut l’annuler non plus, perce armure</p>",
+    "quantity": 12,
+    "degat": "4d10+13",
+    "porter": "0",
+    "rayon": 60,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Unique",
+    "style": "cc",
+    "school": "limenido",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "15ukE6rSCVGIHvHk",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.cfHtGAmYECP5q13Y",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "Pgjk7DyDg1wryG6f",
+  "sort": 0,
+  "_key": "!items!Pgjk7DyDg1wryG6f"
+}

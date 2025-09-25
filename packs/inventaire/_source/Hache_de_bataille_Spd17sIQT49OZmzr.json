@@ -1,0 +1,45 @@
+{
+  "name": "Hache de bataille",
+  "type": "weapon",
+  "img": "systems/liber-chronicles/assets/item/waepon/hache.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Le porteur a un malus en défense de 20%.</p>",
+    "quantity": 1,
+    "degat": "2d6+2",
+    "porter": "0",
+    "poids": 5,
+    "valeur": 450,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "melee",
+    "doublemain": "yes",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "no",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "eyESHvxjOQoNQSPq",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.XGrVUQrgs6U9j0xO",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800595990,
+    "modifiedTime": 1758800595990,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "Spd17sIQT49OZmzr",
+  "sort": 0,
+  "_key": "!items!Spd17sIQT49OZmzr"
+}

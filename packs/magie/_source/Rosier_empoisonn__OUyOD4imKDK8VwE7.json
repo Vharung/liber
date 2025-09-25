@@ -1,0 +1,45 @@
+{
+  "name": "Rosier empoisonné",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/poison-9.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Créer un mur de rosier empoisonnée, PV 8, faisant 1d4+2 perce armure 3m de large, formet et longeur défini par le joueur, dans un rayon de 30m</p>",
+    "quantity": 4,
+    "degat": "1d4+2",
+    "porter": "0",
+    "rayon": 30,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "vivaqua",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "bw4fYVAYFNOCPBKo",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.3S6YoSv8mUvSXUX5",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "OUyOD4imKDK8VwE7",
+  "sort": 0,
+  "_key": "!items!OUyOD4imKDK8VwE7"
+}

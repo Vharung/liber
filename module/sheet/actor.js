@@ -39,10 +39,10 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
 
   /** @override */
   static PARTS = {
-    tabs: { template: "systems/liber/templates/actors/character-navigation.hbs" },
-    header: { template: "systems/liber/templates/actors/character-header.hbs" },
-    biography: { template: "systems/liber/templates/actors/character-biography.hbs" },
-    inventory: { template: "systems/liber/templates/actors/character-inventory.hbs" }
+    tabs: { template: "systems/liber-chronicles/templates/actors/character-navigation.hbs" },
+    header: { template: "systems/liber-chronicles/templates/actors/character-header.hbs" },
+    biography: { template: "systems/liber-chronicles/templates/actors/character-biography.hbs" },
+    inventory: { template: "systems/liber-chronicles/templates/actors/character-inventory.hbs" }
   };
 
 
@@ -136,7 +136,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     const cout = this.actor.system.cout || 0; // Vérifier si `cout` est défini
 
     // Vérifier si le compendium existe
-    const pack = game.packs.get('liber.magie');
+    const pack = game.packs.get('liber-chronicles.magie');
     if (!pack) {
         console.error("Compendium 'liber.magie' introuvable !");
         return;
@@ -819,7 +819,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       let item, itemname, quantity, psy, pv, insoin,physique, mental, social, description, talent;
 
       const image = target.getAttribute('data-img');
-      let visuel = `systems/liber/assets/actor/${ability}.webp`;
+      let visuel = `systems/liber-chronicles/assets/actor/${ability}.webp`;
       let label = this.actor.name + game.i18n.localize("Liber.Chat.Roll.faire") + game.i18n.localize("Liber.Chat.Roll." + ability);
 
       /* Gestion de la magie */
@@ -976,7 +976,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
 
       // Création du chat avec le template spécifié
       let chat = await new LiberChat(this.actor)
-          .withTemplate("systems/liber/templates/chat/roll-resultat.hbs")
+          .withTemplate("systems/liber-chronicles/templates/chat/roll-resultat.hbs")
           .withContent(ability)
           .withData(chatData)
           .create();
@@ -1054,7 +1054,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
           };
 
           let chat = await new LiberChat(this.actor)
-              .withTemplate("systems/liber/templates/chat/roll-damage.hbs")
+              .withTemplate("systems/liber-chronicles/templates/chat/roll-damage.hbs")
               .withContent("rollDamage")
               .withData(chatData)
               .create();
@@ -1098,7 +1098,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       }
       //tchat
       let chat = await new LiberChat(this.actor)
-      .withTemplate("systems/liber/templates/chat/posture.hbs")
+      .withTemplate("systems/liber-chronicles/templates/chat/posture.hbs")
       .withContent(posture)
       .withData(chatData)
       .create();
@@ -1350,7 +1350,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
         }
         //tchat
         let chat = await new LiberChat(this.actor)
-        .withTemplate("systems/liber/templates/chat/posture.hbs")
+        .withTemplate("systems/liber-chronicles/templates/chat/posture.hbs")
         .withContent("sleep")
         .withData(chatData)
         .create();
@@ -1400,7 +1400,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       if(race=="autre"){
         return "icons/svg/mystery-man.svg";
       }
-      const basePath = `systems/liber/assets/avatar/` + (race +'/' || 'default/');
+      const basePath = `systems/liber-chronicles/assets/avatar/` + (race +'/' || 'default/');
       const genderPath = (sex === 'female') ? 'femmes/' : 'hommes/';
       const fullPath = basePath + genderPath;
       try {
@@ -1424,7 +1424,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     let type = event.target.dataset["type"];
     if (!type) return;
 
-    const pack = game.packs.get('liber.inventaire');
+    const pack = game.packs.get('liber-chronicles.inventaire');
     if (!pack) {
         console.error("Le pack 'liber.inventaire' est introuvable.");
         return;
@@ -1576,7 +1576,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
         };
 
         let chat = await new LiberChat(this.actor)
-          .withTemplate("systems/liber/templates/chat/roll-resultat.hbs")
+          .withTemplate("systems/liber-chronicles/templates/chat/roll-resultat.hbs")
           .withContent("itemDescription")
           .withData(chatData)
           .create();
@@ -1596,7 +1596,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       if (!dataId) return console.error("Aucun sort sélectionné.");
 
       // Recherche dans le compendium "liber.magie"
-      const pack = game.packs.get("liber.magie");
+      const pack = game.packs.get("liber-chronicles.magie");
       if (!pack) return console.error("Le compendium 'liber.magie' est introuvable.");
 
       const index = await pack.getIndex(); // Charge l'index des objets du compendium

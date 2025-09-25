@@ -1,0 +1,45 @@
+{
+  "name": "Potion d'intelligence",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/item/potion1.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Bonus de 20% au prochain jet d'intelligence Composition :</p><p>- 5 Rayons de miel</p><p>- Eau</p><p>- 4 Fleur sauvage</p>",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "poids": 0.5,
+    "valeur": 500,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "yes",
+    "doublemain": "no",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "lChTbAwmbliGZjic",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.ubPnkHHHNq82LVDU",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800595990,
+    "modifiedTime": 1758800595990,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "w5rU6CxV9heH9Kr9",
+  "sort": 0,
+  "_key": "!items!w5rU6CxV9heH9Kr9"
+}

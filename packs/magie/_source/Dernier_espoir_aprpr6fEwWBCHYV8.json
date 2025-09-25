@@ -1,0 +1,45 @@
+{
+  "name": "Dernier espoir",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/vharung-16.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Inflige X*2 de dégâts, (fait un jet de résistance (force) si échec tombe dans l’inconscience pour 1d6 tour </p><p><strong>X étant les psy dépensés pour ce sort.</strong></p>",
+    "quantity": 0,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Unique",
+    "style": "cc",
+    "school": "vharung",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "ycuPwq3AmQEWHqPi",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.l6OfiGZb0BZYqzfb",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "aprpr6fEwWBCHYV8",
+  "sort": 0,
+  "_key": "!items!aprpr6fEwWBCHYV8"
+}

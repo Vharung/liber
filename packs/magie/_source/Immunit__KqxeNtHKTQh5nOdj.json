@@ -1,0 +1,45 @@
+{
+  "name": "Immunité",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/ultime-14.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet d’annuler tous les effets des sorts sur une cible, mais aussi de la protégée des sorts à venir (annule également les sorts de soins)</p><p>Maintien 2 PSY</p>",
+    "quantity": 6,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Maintien",
+    "style": "cc",
+    "school": "atlantide",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "srxoOu3rhxDIgVQx",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.n6ru084LkDUMrgmL",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "KqxeNtHKTQh5nOdj",
+  "sort": 0,
+  "_key": "!items!KqxeNtHKTQh5nOdj"
+}

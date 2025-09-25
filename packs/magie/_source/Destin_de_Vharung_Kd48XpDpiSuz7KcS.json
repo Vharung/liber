@@ -1,0 +1,45 @@
+{
+  "name": "Destin de Vharung",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/vharung-13.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Les 2 prochaines actions  la cible, seront  automatiquement réussite, dans la limite du raisonnable </p>",
+    "quantity": 9,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "2 Actions",
+    "style": "cc",
+    "school": "vharung",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "ycuPwq3AmQEWHqPi",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.lg2L7oQhxfEe3OiB",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "Kd48XpDpiSuz7KcS",
+  "sort": 0,
+  "_key": "!items!Kd48XpDpiSuz7KcS"
+}

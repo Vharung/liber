@@ -1,0 +1,23 @@
+{
+  "type": "Actor",
+  "folder": "7t5KK5CfpbWCl7X6",
+  "name": "2-Peu commun",
+  "color": "#284361",
+  "sorting": "a",
+  "_id": "Fh8tR0jZeZmTe4NF",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800576019,
+    "modifiedTime": 1758800576019,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_key": "!folders!Fh8tR0jZeZmTe4NF"
+}

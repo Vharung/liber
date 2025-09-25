@@ -1,5 +1,5 @@
 {
-  "id": "liber",
+  "id": "liber-chronicles",
   "title": "Liber V3 Game System",
   "description": "The Liber Chronicles system for FoundryVTT !",
   "authors": [
@@ -134,10 +134,10 @@
       ]
     }
   ],
-  "url": "https://github.com/Vharung/liber",
+  "url": "https://github.com/Vharung/liberv3",
   "manifest": "https://raw.githubusercontent.com/Vharung/liber/main/system.json",
   "download": "https://github.com/Vharung/liber/archive/refs/heads/main.zip",
-  "background": "systems/liber/assets/system/accueil.webp",
+  "background": "systems/liber-chronicles/assets/system/accueil.webp",
   "grid":{
     "distance": 1,
     "units": "m"

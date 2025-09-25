@@ -1,0 +1,45 @@
+{
+  "name": "Hypnose",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/illusion-9.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet de suggérer une action à une personne, la cible tentera un jet de mental pour y résister. Influe sur les 5 sens</p>",
+    "quantity": 4,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "crilanydd",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "j5EvjWy95NhJhOIq",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.HB5rQS03Vyv1tmWf",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "0cusEo0SFTe6NPR5",
+  "sort": 0,
+  "_key": "!items!0cusEo0SFTe6NPR5"
+}

@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": "2FLmKHD6xMETMhEd",
+  "name": "Culte des Dieux sombres",
+  "color": "#74767b",
+  "sorting": "a",
+  "_id": "9QOAfr10cJjVNa0A",
+  "description": "",
+  "sort": 800000,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597575,
+    "modifiedTime": 1758800597575,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_key": "!folders!9QOAfr10cJjVNa0A"
+}

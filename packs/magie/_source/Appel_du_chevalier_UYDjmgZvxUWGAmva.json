@@ -1,0 +1,45 @@
+{
+  "name": "Appel du chevalier",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/croise-1.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Oblige la cible à s’avancer vers le joueur et à le combattre.</p>",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "croises",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "EipurxdtSdiKin2n",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.tu1FZVz85iGv271E",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "UYDjmgZvxUWGAmva",
+  "sort": 0,
+  "_key": "!items!UYDjmgZvxUWGAmva"
+}

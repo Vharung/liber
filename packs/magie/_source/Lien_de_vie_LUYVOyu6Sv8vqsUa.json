@@ -1,0 +1,45 @@
+{
+  "name": "Lien de vie",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/croise-4.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Chaque fois que vous infligez des dommages Physiques la cible, qui ne peut être soi-même, récupère autant de PV </p>",
+    "quantity": 2,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "croises",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "EipurxdtSdiKin2n",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.ef2exDWl3YSmfjgN",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "LUYVOyu6Sv8vqsUa",
+  "sort": 0,
+  "_key": "!items!LUYVOyu6Sv8vqsUa"
+}

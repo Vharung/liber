@@ -1,0 +1,45 @@
+{
+  "name": "Capture de créature",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/invocation-23.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet de capturer une créature au cours d’une aventure (Valider par le MJ).</p><p>Le cout du sort dépends de la créature, la créature peut avoir un jet de sagacité pour se défendre.</p>",
+    "quantity": 0,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 20,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Créature",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "cem",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "YhmVpebRebDewyDZ",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.rDivFfollVzCvBhy",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "ole1EI2sWZm6Osgk",
+  "sort": 0,
+  "_key": "!items!ole1EI2sWZm6Osgk"
+}

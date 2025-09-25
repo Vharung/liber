@@ -1,0 +1,45 @@
+{
+  "name": "Potion d’invisibilité",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/item/potion11.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Rends invisible, effet disparait à toute action physique   Composition :  </p><p>- 3 Poudre de perle </p><p>- Eau </p><p>- 6 poudre d'étheré</p>",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "poids": 0.5,
+    "valeur": 500,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "yes",
+    "doublemain": "no",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "lChTbAwmbliGZjic",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.CNUExyB5pZnQgQiQ",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800595990,
+    "modifiedTime": 1758800595990,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "UpTre5l8gsxpbfoQ",
+  "sort": 0,
+  "_key": "!items!UpTre5l8gsxpbfoQ"
+}

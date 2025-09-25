@@ -1,0 +1,45 @@
+{
+  "name": "Pouvoir Total",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/baphomet-14.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Sur 1d6:</p><p>1 : Les sorts de tous vos compagnons sont gratuits.<br>2-5 : Vos sorts sont gratuits.<br>6 : La magie de vous et de vos compagnons devient inutilisable.</p>",
+    "quantity": 13,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Soi",
+    "duree": "Unique",
+    "style": "cc",
+    "school": "baphomet",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "ej2fVFB3bEw91d30",
+  "ownership": {
+    "default": 0,
+    "eeeETIWwPcCQLmyP": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.EYZzVYxIWgrap5ML",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.339",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758800597777,
+    "modifiedTime": 1758800597777,
+    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+  },
+  "_id": "UQNHz91mesKt9IGG",
+  "sort": 0,
+  "_key": "!items!UQNHz91mesKt9IGG"
+}
