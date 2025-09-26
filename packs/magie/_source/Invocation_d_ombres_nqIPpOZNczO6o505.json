@@ -1,0 +1,45 @@
+{
+  "name": "Invocation d'ombres",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/ombre-4.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Invoque une ombre, qui ne peut ni attaquer, ni subir des blessures physiques, permettant de faire des reconnaissances. Créature semi-libre</p>",
+    "quantity": 2,
+    "degat": "0",
+    "porter": "30",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "atakanax",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "eziYGrUnseZcHtaD",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.MfX1zRbYCLipyaiE",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "nqIPpOZNczO6o505",
+  "sort": 0,
+  "_key": "!items!nqIPpOZNczO6o505"
+}

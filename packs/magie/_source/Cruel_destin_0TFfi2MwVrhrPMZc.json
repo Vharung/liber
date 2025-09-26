@@ -1,0 +1,45 @@
+{
+  "name": "Cruel destin",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/vharung-4.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Cruel destin Sur 1d6 : </p><p>1-l’ennemi perd 25 de ses PV</p><p>2-l’ennemi perds définitivement son armure </p><p>3-l’ennemi est désarmé pour le combat</p><p>4-Le lanceur récupère 1d4 PV ou PSY </p><p>5-restaure les PV de l’ennemi </p><p>6-l’ennemi devient invincible sur 2 tours </p><p></p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "vharung",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "ycuPwq3AmQEWHqPi",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.H6QsnQwYfUx772Dq",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "0TFfi2MwVrhrPMZc",
+  "sort": 0,
+  "_key": "!items!0TFfi2MwVrhrPMZc"
+}

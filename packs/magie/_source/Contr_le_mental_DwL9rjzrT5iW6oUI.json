@@ -1,0 +1,45 @@
+{
+  "name": "Contrôle mental",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/esprit-13.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet de contrôler la victime, et lui faire faire ce que bon te semble (victime peut y tenter d’y résister, test de mental à -50 puis à -40, -30  etc jusqu’à 0)</p>",
+    "quantity": 6,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Groupe",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "dwaliwyr",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "jXdgZBLgtgJ2fJQ4",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.pKUFopPeF4LqwSvJ",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "DwL9rjzrT5iW6oUI",
+  "sort": 0,
+  "_key": "!items!DwL9rjzrT5iW6oUI"
+}

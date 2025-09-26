@@ -1,0 +1,45 @@
+{
+  "name": "Bénédiction de la nature",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/nature-12.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Bénédiction de la nature 2 prochains jets de dès autre qu’un dès 100, sont automatiquement au maximum (exemple jet de dégât, jet de soin, jets de craft, etc) Sur cible ou sur soi 6 PSY</p><p></p>",
+    "quantity": 6,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "2 Jets de dés",
+    "style": "cc",
+    "school": "natura",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "hKAiortJ1gCcHTZi",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.SiFC1GGTKXKMCf0T",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "YlZQdSEJVYOM7q1d",
+  "sort": 0,
+  "_key": "!items!YlZQdSEJVYOM7q1d"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Appel à Fai’N : Démons de la Paresse",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/ancien-15.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Un poids écrasant s’abat sur la cible, lui ajoutant 2X points de fatigue.</p><p>X étant les Psy dépenser pour ce sort.</p>",
+    "quantity": 0,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Éphémère",
+    "style": "cc",
+    "school": "demonsanciens",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "PSCNx4s2M0WuGPkn",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.FlOSA1EXlUOP8j65",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "Iwis222bN06VqkqR",
+  "sort": 0,
+  "_key": "!items!Iwis222bN06VqkqR"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Arrêt cardiaque",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/telekinesie-15.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Arrête le cœur de sa victime dans X tour, X étant la dizaine de force de la victime.</p><p><strong>Maintien : 1 PSY</strong> (pas de réduction dû au focus pour le maintien)</p>",
+    "quantity": 4,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 60,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Maintien",
+    "style": "cc",
+    "school": "limenido",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "15ukE6rSCVGIHvHk",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.Y18nxwZIlu4xyXpN",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "jpi4u5HKdmCIig95",
+  "sort": 0,
+  "_key": "!items!jpi4u5HKdmCIig95"
+}

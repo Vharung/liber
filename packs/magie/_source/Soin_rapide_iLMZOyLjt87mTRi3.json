@@ -1,0 +1,45 @@
+{
+  "name": "Soin rapide",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/croise-15.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Soin sur lui ou un autre joueurs 1d8+2</p>",
+    "quantity": 3,
+    "degat": "1d8+2",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Éphémère",
+    "style": "cc",
+    "school": "croises",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "EipurxdtSdiKin2n",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.UK7sTbGzdDeLtpIl",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "iLMZOyLjt87mTRi3",
+  "sort": 0,
+  "_key": "!items!iLMZOyLjt87mTRi3"
+}

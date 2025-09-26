@@ -1,0 +1,45 @@
+{
+  "folder": "3yQ6TDxMqgIVprRV",
+  "name": "Pyrite",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/item/pierre19.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Créer une illusion à tous ceux qui croisent le regard du rocailleux, 1h</p>",
+    "quantity": 1,
+    "degat": "",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no",
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.EiKcJLdplUKjUTm7",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885884964,
+    "modifiedTime": 1758885884964,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "QVCGLiHeiZ6fcjJo",
+  "sort": 0,
+  "_key": "!items!QVCGLiHeiZ6fcjJo"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Bâton",
+  "type": "weapon",
+  "img": "systems/liber-chronicles/assets/item/waepon/baton.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Sur un test physique (avec compétence bâton): Tient à distance les ennemis ajoute un malus au changement de distance de 20. Si un magicien utilise son bâton pour se concentrer, il a un bonus de 5%.</p>",
+    "quantity": 1,
+    "degat": "1d6",
+    "porter": "0",
+    "poids": 2,
+    "valeur": 75,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "hast",
+    "doublemain": "yes",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "no",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "5cOk9iqHUC7de14D",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.XLZanbDSyNzBtGGV",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885880253,
+    "modifiedTime": 1758885880253,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "RmLStvY5J3s5k2zf",
+  "sort": 0,
+  "_key": "!items!RmLStvY5J3s5k2zf"
+}

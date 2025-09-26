@@ -1,0 +1,45 @@
+{
+  "name": "L'age de fer",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/terre-12.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Recouvre le corps de la cible d’une armure d’une armure de 4 point, sans les malus dû à l’armure </p><p></p>",
+    "quantity": 5,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cuble",
+    "duree": "3 Tours",
+    "style": "cc",
+    "school": "eraliwin",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "T3yP5jZIIYx7NOKk",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.SajnKc26FdBnLvBi",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "29xFXnyaUZaQmPpG",
+  "sort": 0,
+  "_key": "!items!29xFXnyaUZaQmPpG"
+}

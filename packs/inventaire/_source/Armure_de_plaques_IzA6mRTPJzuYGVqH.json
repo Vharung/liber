@@ -1,0 +1,45 @@
+{
+  "name": "Armure de plaques",
+  "type": "armor",
+  "img": "systems/liber-chronicles/assets/item/armor/armureplaque.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "poids": 20,
+    "valeur": 4000,
+    "protec": 4,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "ks9NmFn3dSw0ky7W",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.xNZ7sbPiSQsAZPeq",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885881654,
+    "modifiedTime": 1758885881654,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "IzA6mRTPJzuYGVqH",
+  "sort": 0,
+  "_key": "!items!IzA6mRTPJzuYGVqH"
+}

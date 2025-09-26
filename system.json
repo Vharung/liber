@@ -134,7 +134,7 @@
       ]
     }
   ],
-  "url": "https://github.com/Vharung/liberv3",
+  "url": "https://github.com/Vharung/liber",
   "manifest": "https://raw.githubusercontent.com/Vharung/liber/main/system.json",
   "download": "https://github.com/Vharung/liber/archive/refs/heads/main.zip",
   "background": "systems/liber-chronicles/assets/system/accueil.webp",

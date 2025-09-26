@@ -1,0 +1,45 @@
+{
+  "name": "Invocation de Maghweqi",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/invocation-14.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Inflige 4d10 perce armure sur les ennemis, les ennemis qui échouent à un test de mental sont transformés en lapin</p>",
+    "quantity": 13,
+    "degat": "4d10",
+    "porter": "0",
+    "rayon": 60,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Unique",
+    "style": "cc",
+    "school": "cem",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "YhmVpebRebDewyDZ",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.cxkVqyQVf1INkBZ8",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "eDOkGhfDri5rij1n",
+  "sort": 0,
+  "_key": "!items!eDOkGhfDri5rij1n"
+}

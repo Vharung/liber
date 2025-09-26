@@ -1,0 +1,45 @@
+{
+  "name": "Le toucher de Midas",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/monnaie-14.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Le lanceur acquiert le toucher de Midas, le temps d’un combat. Dépense 3000 ecu par victime, si elle rate son jet d’esquive (agilité), la transformation prend 3 tour, doit être en corps.</p>",
+    "quantity": 10,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Soi",
+    "duree": "Unique / Persistant",
+    "style": "cc",
+    "school": "numismatomancie",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "T5zgUEDOXPcjhdnW",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.OcOkkulFsQ73804T",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "xRYmLxzw58WmsvHi",
+  "sort": 0,
+  "_key": "!items!xRYmLxzw58WmsvHi"
+}

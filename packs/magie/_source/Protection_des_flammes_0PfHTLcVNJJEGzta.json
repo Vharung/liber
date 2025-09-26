@@ -1,0 +1,45 @@
+{
+  "name": "Protection des flammes",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/feu-9.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Créer une armure de feu qui donne un malus de 10 pour toutes attaques physiques  et inflige 1d6 de dommage pour attaque au corps à corps.</p>",
+    "quantity": 4,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "yie",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "R4N1aWxzXZ6BDEFl",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.l9BGawgSOxkp0vVY",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "0PfHTLcVNJJEGzta",
+  "sort": 0,
+  "_key": "!items!0PfHTLcVNJJEGzta"
+}

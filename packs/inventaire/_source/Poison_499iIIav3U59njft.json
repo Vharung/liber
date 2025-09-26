@@ -1,0 +1,45 @@
+{
+  "name": "Poison",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/item/poison.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Inflige 1d6 de dommage passe armure</p>",
+    "quantity": 1,
+    "degat": "1d6",
+    "porter": "0",
+    "poids": 1,
+    "valeur": 300,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "yes",
+    "doublemain": "no",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "lChTbAwmbliGZjic",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.wKbKEqhrteOtEFSo",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885883398,
+    "modifiedTime": 1758885883398,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "499iIIav3U59njft",
+  "sort": 0,
+  "_key": "!items!499iIIav3U59njft"
+}

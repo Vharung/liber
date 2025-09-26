@@ -1,0 +1,45 @@
+{
+  "name": "Calcédoine",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/item/pierre15.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Protège des possessions pour une journée.</p>",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 600,
+    "protec": 0,
+    "equip": "",
+    "consommable": "yes",
+    "doublemain": "no",
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "3yQ6TDxMqgIVprRV",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.5GKWH2dgrJsjG2fD",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885884964,
+    "modifiedTime": 1758885884964,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "LdzzDrbU7CphFpZ5",
+  "sort": 0,
+  "_key": "!items!LdzzDrbU7CphFpZ5"
+}

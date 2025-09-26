@@ -1,0 +1,45 @@
+{
+  "name": "Lame de cocacilla",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/nature-14.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>L’invocation de cette lame de la nature et puissant : annule la capacité de tout ennemi en contact de lancer des sorts, en cas de blessures, la lame détruira un objet magique, elle fait oublier un sort, elle inflige 2d6 de dégâts Sur cible, agit en même temps que le lanceur, utilise son mental pour frapper</p><p></p>",
+    "quantity": 7,
+    "degat": "2d6",
+    "porter": "0",
+    "rayon": 30,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "natura",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "hKAiortJ1gCcHTZi",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.y7TQNWYuTZynHYGc",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "jHef5i7MbAAMWALe",
+  "sort": 0,
+  "_key": "!items!jHef5i7MbAAMWALe"
+}

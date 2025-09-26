@@ -1,15 +1,5 @@
-2025/09/25-14:26:52.869 2b28 Recovering log #3
-2025/09/25-14:26:52.869 2b28 Level-0 table #5: started
-2025/09/25-14:26:52.879 2b28 Level-0 table #5: 26924 bytes OK
-2025/09/25-14:26:52.899 2b28 Delete type=0 #3
-2025/09/25-14:26:52.899 2b28 Delete type=3 #2
-2025/09/25-14:27:51.764 4034 Level-0 table #8: started
-2025/09/25-14:27:51.764 4034 Level-0 table #8: 0 bytes OK
-2025/09/25-14:27:51.775 4034 Delete type=0 #6
-2025/09/25-14:27:51.809 4034 Manual compaction at level-0 from '!folders!JXYVBInylivR87yS' @ 72057594037927935 : 1 .. '!scenes.lights!mB99IWuKbC3RVtkl.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at '!scenes.lights!mB99IWuKbC3RVtkl.tFQyLATN1z3hdNbp' @ 44 : 1
-2025/09/25-14:27:51.809 4034 Compacting 1@0 + 0@1 files
-2025/09/25-14:27:51.818 4034 Generated table #9@0: 51 keys, 26717 bytes
-2025/09/25-14:27:51.818 4034 Compacted 1@0 + 0@1 files => 26717 bytes
-2025/09/25-14:27:51.826 4034 compacted to: files[ 0 1 0 0 0 0 0 ]
-2025/09/25-14:27:51.826 4034 Delete type=2 #5
-2025/09/25-14:27:51.947 4034 Manual compaction at level-0 from '!scenes.lights!mB99IWuKbC3RVtkl.tFQyLATN1z3hdNbp' @ 44 : 1 .. '!scenes.lights!mB99IWuKbC3RVtkl.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at (end)
+2025/09/26-14:33:18.103908 73da67e006c0 Log #7: 0 ops saved to Table #10 OK
+2025/09/26-14:33:18.103984 73da67e006c0 Archiving /home/vharung/.local/share/FoundryVTT/Data/systems/liber-chronicles/pack/villes/000007.log: OK
+2025/09/26-14:33:18.104394 73da67e006c0 Table #9: 51 entries OK
+2025/09/26-14:33:18.104502 73da67e006c0 Archiving /home/vharung/.local/share/FoundryVTT/Data/systems/liber-chronicles/pack/villes/MANIFEST-000004: OK
+2025/09/26-14:33:18.106223 73da67e006c0 **** Repaired leveldb /home/vharung/.local/share/FoundryVTT/Data/systems/liber-chronicles/pack/villes; recovered 1 files; 26567 bytes. Some data may have been lost. ****

@@ -1,0 +1,45 @@
+{
+  "name": "Bâton de feu",
+  "type": "weapon",
+  "img": "systems/liber-chronicles/assets/item/waepon/batondefeu.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Sur un double 6, il explose.</p>",
+    "quantity": 1,
+    "degat": "2d6",
+    "porter": "5-25",
+    "poids": 5,
+    "valeur": 300,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "visee",
+    "doublemain": "no",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "no",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "brBUiX9tBwwOvefP",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.p2wf2LKwwElWmvA8",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885880253,
+    "modifiedTime": 1758885880253,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "VPPKpEvK2gUpZngX",
+  "sort": 0,
+  "_key": "!items!VPPKpEvK2gUpZngX"
+}

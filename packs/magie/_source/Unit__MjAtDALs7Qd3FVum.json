@@ -1,0 +1,45 @@
+{
+  "name": "Unité",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/humain-2.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Inflige 1d4 perce armure</p>",
+    "quantity": 2,
+    "degat": "1d4",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "1 Tours",
+    "style": "cc",
+    "school": "oklata",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "BHzopoplg0Bu71U9",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.sROqvvKpG05QHVl5",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "MjAtDALs7Qd3FVum",
+  "sort": 0,
+  "_key": "!items!MjAtDALs7Qd3FVum"
+}

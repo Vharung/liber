@@ -1,0 +1,45 @@
+{
+  "name": "Métamorphe",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/invocation-1.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Prends l’apparence de n’importe quelles créatures (et uniquement l’apparence)</p><p><strong>Sort Offert</strong></p>",
+    "quantity": 13,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Soi",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "cem",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "YhmVpebRebDewyDZ",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.LOqEKpTkapeJP4Fa",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "iLMWHIjvVxZyhc0r",
+  "sort": 0,
+  "_key": "!items!iLMWHIjvVxZyhc0r"
+}

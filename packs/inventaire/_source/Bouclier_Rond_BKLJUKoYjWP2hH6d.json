@@ -1,0 +1,45 @@
+{
+  "name": "Bouclier Rond",
+  "type": "weapon",
+  "img": "systems/liber-chronicles/assets/item/waepon/bouclierrond.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Le porteur a un bonus de 10 au jet d'esquive.</p>",
+    "quantity": 1,
+    "degat": "1d6",
+    "porter": "0",
+    "poids": 1,
+    "valeur": 300,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "melee",
+    "doublemain": "no",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "no",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "f0OborZB6WyRCijp",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.ncnbi5ucyye5G8vQ",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885880253,
+    "modifiedTime": 1758885880253,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "BKLJUKoYjWP2hH6d",
+  "sort": 0,
+  "_key": "!items!BKLJUKoYjWP2hH6d"
+}

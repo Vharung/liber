@@ -1,0 +1,45 @@
+{
+  "name": "Gourdin",
+  "type": "weapon",
+  "img": "systems/liber-chronicles/assets/item/waepon/gourdin.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Le porteur a un Jet à -20% qui permet d'assommer un ennemi pendant 1 tour.</p>",
+    "quantity": 1,
+    "degat": "1d8",
+    "porter": "0",
+    "poids": 5,
+    "valeur": 60,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "melee",
+    "doublemain": "no",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "no",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "eyESHvxjOQoNQSPq",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.8l6WIbrtDXTyQleB",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885880253,
+    "modifiedTime": 1758885880253,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "hSxVxUoSj0FhYpfd",
+  "sort": 0,
+  "_key": "!items!hSxVxUoSj0FhYpfd"
+}

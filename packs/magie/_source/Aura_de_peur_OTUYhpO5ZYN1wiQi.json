@@ -1,0 +1,45 @@
+{
+  "name": "Aura de peur",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/demon-6.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Inspire la terreur(les ennemis doivent tester leur mental pour éviter de fuir avec un malus de 10%)</p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "30",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "demonclan",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "Ueb29zzW90lIleBO",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.JWa0QWJyRk2VV5yl",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "OTUYhpO5ZYN1wiQi",
+  "sort": 0,
+  "_key": "!items!OTUYhpO5ZYN1wiQi"
+}

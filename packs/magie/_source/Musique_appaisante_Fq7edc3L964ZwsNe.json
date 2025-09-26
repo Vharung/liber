@@ -1,0 +1,45 @@
+{
+  "name": "Musique appaisante",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/troubadour-1.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet d’augmenter la récupération de 1 psy ou de 1 pv (soigne les pv insoignables).</p><p><strong>Sort offert</strong></p>",
+    "quantity": 0,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Unique",
+    "style": "cc",
+    "school": "troubadour",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "vNMPjn4HxUgN3AzW",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.aQ8cKnFmGaqUWoQ0",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "Fq7edc3L964ZwsNe",
+  "sort": 0,
+  "_key": "!items!Fq7edc3L964ZwsNe"
+}

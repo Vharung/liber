@@ -1,0 +1,45 @@
+{
+  "name": "Obole",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/monnaie-17.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Cible deux ennemis, si l'un d'entre eux vient à périr, l'autre est emporté avec lui pour 8 de psy en persistant et 300 écu,pour payer le passeur, si au moment de payer le lanceur n'a pas d'argent il sera emporter à la place de la seconde cible</p>",
+    "quantity": 8,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "2 Cibles",
+    "duree": "Permanent",
+    "style": "cc",
+    "school": "numismatomancie",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "T5zgUEDOXPcjhdnW",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.NAG7b55SjOpndNFJ",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "0wFtXOXgZEBjoY8O",
+  "sort": 0,
+  "_key": "!items!0wFtXOXgZEBjoY8O"
+}

@@ -1,0 +1,45 @@
+{
+  "folder": "3yQ6TDxMqgIVprRV",
+  "name": "Vanadinite",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/item/pierre12.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Si on touche le rocailleux, on est empoisonné par un agent virulent, 1 heure</p>",
+    "quantity": 1,
+    "degat": "",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no",
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.ahswEeAIxrBYzq4V",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885884964,
+    "modifiedTime": 1758885884964,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "0tyrjDISF1LfuOsW",
+  "sort": 0,
+  "_key": "!items!0tyrjDISF1LfuOsW"
+}

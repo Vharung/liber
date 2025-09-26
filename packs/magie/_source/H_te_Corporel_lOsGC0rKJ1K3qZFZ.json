@@ -1,0 +1,45 @@
+{
+  "name": "Hôte Corporel",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/invocation-9.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Au choix +2 en dommage et 10 en physique, ou + 2 en armure +10 en mental</p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Créature",
+    "duree": "3 Tour",
+    "style": "cc",
+    "school": "cem",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "YhmVpebRebDewyDZ",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.8BZQ5HYBJfC5W5dP",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "lOsGC0rKJ1K3qZFZ",
+  "sort": 0,
+  "_key": "!items!lOsGC0rKJ1K3qZFZ"
+}

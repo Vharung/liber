@@ -1,0 +1,45 @@
+{
+  "name": "Cote de maille",
+  "type": "armor",
+  "img": "systems/liber-chronicles/assets/item/armor/cotedemaille.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "poids": 10,
+    "valeur": 1000,
+    "protec": 3,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "ks9NmFn3dSw0ky7W",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.ekOIGVsIGr94IKfe",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885881654,
+    "modifiedTime": 1758885881654,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "7UrI9Nj6abjvSpif",
+  "sort": 0,
+  "_key": "!items!7UrI9Nj6abjvSpif"
+}

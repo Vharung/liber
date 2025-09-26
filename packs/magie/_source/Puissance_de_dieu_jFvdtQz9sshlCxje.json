@@ -1,0 +1,45 @@
+{
+  "name": "Puissance de dieu",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/croise-14.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Inflige 4d10 de dommage dans une zone</p>",
+    "quantity": 12,
+    "degat": "4d10",
+    "porter": "0",
+    "rayon": 60,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Unique",
+    "style": "cc",
+    "school": "croises",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "EipurxdtSdiKin2n",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.qhp6jZ16Df0YLWpI",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "jFvdtQz9sshlCxje",
+  "sort": 0,
+  "_key": "!items!jFvdtQz9sshlCxje"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Ecartèlement",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/telekinesie-14.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>La victime doit faire un jet de force pour y résister,-10% à chaque tour supplémentaire. Dés qu’elle échoue, la cible subit 2d6/ tour de dommage et ne peut bouger tant que le sort est maintenu</p><p><strong>Maintien : 3 PSY</strong></p>",
+    "quantity": 4,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Maintien",
+    "style": "cc",
+    "school": "limenido",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "15ukE6rSCVGIHvHk",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.inpwbgpElmSVCQ0r",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "6tjiWGouxaA858DM",
+  "sort": 0,
+  "_key": "!items!6tjiWGouxaA858DM"
+}

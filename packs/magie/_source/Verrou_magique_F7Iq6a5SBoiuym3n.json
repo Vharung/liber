@@ -1,0 +1,45 @@
+{
+  "name": "Verrou magique",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/baphomet-12.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Sur 1d6:</p><p>1 : La cible ne peut plus lancer de sorts.<br>2-5 : La cible subit -20% à ses jets de sorts.<br>6 : Vous ne pouvez plus lancer de sorts.</p>",
+    "quantity": 5,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Soi",
+    "duree": "4 Tours",
+    "style": "cc",
+    "school": "baphomet",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "ej2fVFB3bEw91d30",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.rvNq09bQmtfLBd4k",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "F7Iq6a5SBoiuym3n",
+  "sort": 0,
+  "_key": "!items!F7Iq6a5SBoiuym3n"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Création de poupée",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/vaudou-1.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Créer une poupée d’envoutement</p>",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Permanent",
+    "style": "cc",
+    "school": "vaudou",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "PRQhHCtze3j6eFQ0",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.KlEg0GmdDtT2oSvD",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "iPMGAUO0hAyhTFZG",
+  "sort": 0,
+  "_key": "!items!iPMGAUO0hAyhTFZG"
+}

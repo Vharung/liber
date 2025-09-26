@@ -1,0 +1,45 @@
+{
+  "name": "La Chevelure de Bérénice",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/constellation-9.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>La cible devient une sublime créature, qui séduit l’ennemi. Il en devient excitant et doit faire un jet de décision à 50% ou mois pour attaquer. Le sort influe sur les 5 sens</p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "nomade",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "UFAMVi5rrSGukKno",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.8ocDkNxCqx95zswt",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885886670,
+    "modifiedTime": 1758885886670,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "eKqFi4IDTKHOtA8s",
+  "sort": 0,
+  "_key": "!items!eKqFi4IDTKHOtA8s"
+}

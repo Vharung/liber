@@ -1,0 +1,45 @@
+{
+  "name": "Rapière",
+  "type": "weapon",
+  "img": "systems/liber-chronicles/assets/item/waepon/rapierre.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Le porteur a un malus en parade de 10 et peut esquiver en focus.</p>",
+    "quantity": 1,
+    "degat": "1d8+3",
+    "porter": "0",
+    "poids": 1,
+    "valeur": 500,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "melee",
+    "doublemain": "no",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "no",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "eyESHvxjOQoNQSPq",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.Cg0hI3HH1JvkXUZl",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885880253,
+    "modifiedTime": 1758885880253,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "Dgl4e2VLTfRy0abC",
+  "sort": 0,
+  "_key": "!items!Dgl4e2VLTfRy0abC"
+}

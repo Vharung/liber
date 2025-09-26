@@ -1,0 +1,45 @@
+{
+  "name": "Lame de Draauch",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/illusion-13.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>La lame de ce dieu perfide vient prêter renfort à son adepte, inflige 1d6+5 de dommage par tour de la cible. Si la cible réussit un jet de mental ou qu’elle prend des dégâts entre le tour du lanceur et le sien, son attaque est sans effet, les 5 sens</p>",
+    "quantity": 5,
+    "degat": "1d6+5",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "crilanydd",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "j5EvjWy95NhJhOIq",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.W7IdD94SUGPDPfek",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "svv6WdxAux5hLP49",
+  "sort": 0,
+  "_key": "!items!svv6WdxAux5hLP49"
+}

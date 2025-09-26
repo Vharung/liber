@@ -1,0 +1,45 @@
+{
+  "name": "Chaos",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/demon-4.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>La cible aura un malus de 15 qui s’activera au bon vouloir du lanceur</p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "demonclan",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "Ueb29zzW90lIleBO",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.O7CGdtcK0YGCR7Je",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "EtwMohhhSvm8f2w2",
+  "sort": 0,
+  "_key": "!items!EtwMohhhSvm8f2w2"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Pégase",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/constellation-42.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Le joueur peut se téléporter dans un rayon de 30 m</p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "30",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Soi",
+    "duree": "Instantané",
+    "style": "cc",
+    "school": "nomade",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "UFAMVi5rrSGukKno",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.pj6Gbg02wG0s3ttc",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885886670,
+    "modifiedTime": 1758885886670,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "YLiFporVYNChSHu3",
+  "sort": 0,
+  "_key": "!items!YLiFporVYNChSHu3"
+}

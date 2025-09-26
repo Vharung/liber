@@ -1,0 +1,45 @@
+{
+  "name": "Agathe Raisin",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/item/pierre10.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet de communiquer par télépathie avec des être vivant ou mort pendant une heure.</p>",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 290,
+    "protec": 0,
+    "equip": "",
+    "consommable": "yes",
+    "doublemain": "no",
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "3yQ6TDxMqgIVprRV",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.B5w2hh2BjyIYQNqv",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885884964,
+    "modifiedTime": 1758885884964,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "LhKUQvtjPZmfGEHT",
+  "sort": 0,
+  "_key": "!items!LhKUQvtjPZmfGEHT"
+}

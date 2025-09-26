@@ -1,0 +1,45 @@
+{
+  "name": "Appel à  Arkas : Démon des Voyages.",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/ancien-2.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Bénéfice d’une récupération accélérée des <strong data-start=\"398\" data-end=\"411\">PV et PSY</strong> lors des voyages.</p>",
+    "quantity": 2,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Soi",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "demonsanciens",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "PSCNx4s2M0WuGPkn",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.IfBfqeQ0Tcum5jiO",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "Iwpj8e2lP2KW6ZZG",
+  "sort": 0,
+  "_key": "!items!Iwpj8e2lP2KW6ZZG"
+}

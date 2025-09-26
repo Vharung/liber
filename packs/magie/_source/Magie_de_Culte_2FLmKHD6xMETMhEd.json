@@ -1,6 +1,6 @@
 {
   "type": "Item",
-  "folder": "88F8g0EGcRAa2Cpc",
+  "folder": null,
   "name": "Magie de Culte",
   "color": "#22305e",
   "sorting": "a",
@@ -12,12 +12,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.339",
+    "coreVersion": "13.348",
     "systemId": "liber-chronicles",
     "systemVersion": "4.0.2",
-    "createdTime": 1758800597575,
-    "modifiedTime": 1758800597575,
-    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+    "createdTime": 1758885889071,
+    "modifiedTime": 1758885889364,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
   },
   "_key": "!folders!2FLmKHD6xMETMhEd"
 }

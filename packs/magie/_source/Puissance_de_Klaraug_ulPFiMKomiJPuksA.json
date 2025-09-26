@@ -1,0 +1,45 @@
+{
+  "name": "Puissance de Klaraug",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/glace-13.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Inflige 4d10 sur les ennemis, les ennemis qui échouent à un test de physique sont gelés (incapacités jusqu’à ce qu’un jet de physique soit réussi ou subissent des dégâts, dégâts de la magie de l'esprit et de l’illusion exclus)</p>",
+    "quantity": 13,
+    "degat": "4d10",
+    "porter": "0",
+    "rayon": 60,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Unique",
+    "style": "cc",
+    "school": "weitha",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "2GYoP36hviVvZ1M7",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.3e5i4vq2W1nQT1Hf",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "ulPFiMKomiJPuksA",
+  "sort": 0,
+  "_key": "!items!ulPFiMKomiJPuksA"
+}

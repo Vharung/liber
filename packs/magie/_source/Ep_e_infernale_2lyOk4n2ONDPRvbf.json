@@ -1,0 +1,45 @@
+{
+  "name": "Epée infernale",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/demon-12.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Génère une épée de feu qui inflige en plus des dégâts habituelle d'une épée +1d4 perce armure par tour dû aux flammes</p>",
+    "quantity": 4,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Soi",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "demonclan",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "Ueb29zzW90lIleBO",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.6HFIYpVWnBJoX8lF",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "2lyOk4n2ONDPRvbf",
+  "sort": 0,
+  "_key": "!items!2lyOk4n2ONDPRvbf"
+}

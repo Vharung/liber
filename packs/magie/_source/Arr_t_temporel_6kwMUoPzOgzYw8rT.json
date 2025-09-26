@@ -1,0 +1,45 @@
+{
+  "name": "Arrêt temporel",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/cercle-10.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Fige le temps pendant 1d4 tours dans un rayon de 10m. Les alliés peuvent toujours agir, mais les ennemis sont paralysés.</p><p>Le mage déchire momentanément le flux du temps, créant un instant suspendu où lui et ses compagnons peuvent agir sans entrave.</p>",
+    "quantity": 8,
+    "degat": "1d4",
+    "porter": "0",
+    "rayon": 10,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Unique",
+    "style": "cc",
+    "school": "marrunas",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "qq3iHQtbKACwcVoF",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.SKSRXZvRN2RNIOpa",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "6kwMUoPzOgzYw8rT",
+  "sort": 0,
+  "_key": "!items!6kwMUoPzOgzYw8rT"
+}

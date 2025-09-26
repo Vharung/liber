@@ -1,0 +1,45 @@
+{
+  "name": "Emprisonnement",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/vaudou-16.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Dans un rayon de 10 m, toutes les cibles sont figées dans le temps</p><p>Maintient 6 PSY</p><p></p>",
+    "quantity": 12,
+    "degat": "0",
+    "porter": "60",
+    "rayon": 10,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Maintien",
+    "style": "cc",
+    "school": "vaudou",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "PRQhHCtze3j6eFQ0",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.Av7FCCMxmrEx5mtD",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "dByqrTi2TW0rE9IG",
+  "sort": 0,
+  "_key": "!items!dByqrTi2TW0rE9IG"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Vêtement Classe",
+  "type": "armor",
+  "img": "systems/liber-chronicles/assets/item/armor/vetementbien.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Vêtement de bonne facture, plus commerçant</p>",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "poids": 0.5,
+    "valeur": 60,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "ks9NmFn3dSw0ky7W",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.B47aiiWy7EQh0gpd",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885881654,
+    "modifiedTime": 1758885881654,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "1Jd8d4tUBq3teg8t",
+  "sort": 0,
+  "_key": "!items!1Jd8d4tUBq3teg8t"
+}

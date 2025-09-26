@@ -1,0 +1,45 @@
+{
+  "name": "Fronde",
+  "type": "weapon",
+  "img": "systems/liber-chronicles/assets/item/waepon/fronde.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Le porteur a un bonus de 10% pour viser une zone précise.</p>",
+    "quantity": 1,
+    "degat": "1d8",
+    "porter": "50-100",
+    "poids": 0.5,
+    "valeur": 100,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "lance",
+    "doublemain": "no",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "no",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "FQVkuQ0kvc1fCrC7",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.mDoUEEBwV3WRmpFI",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885880253,
+    "modifiedTime": 1758885880253,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "QCVACkYMkGcXR2Yu",
+  "sort": 0,
+  "_key": "!items!QCVACkYMkGcXR2Yu"
+}

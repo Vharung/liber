@@ -1,0 +1,45 @@
+{
+  "name": "Rectification de tir",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/telekinesie-2.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Suite à échec de tir ou une parade réussite, permet de rediriger le projectile</p>",
+    "quantity": 2,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Éphémère",
+    "style": "cc",
+    "school": "limenido",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "15ukE6rSCVGIHvHk",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.zKdfSTYPZu7K1XxX",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "RDiEThSrfcqKshPf",
+  "sort": 0,
+  "_key": "!items!RDiEThSrfcqKshPf"
+}

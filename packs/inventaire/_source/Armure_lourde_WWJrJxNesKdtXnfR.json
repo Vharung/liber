@@ -1,0 +1,45 @@
+{
+  "name": "Armure lourde",
+  "type": "armor",
+  "img": "systems/liber-chronicles/assets/item/armor/armurelourde.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "",
+    "quantity": 1,
+    "degat": "",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 25,
+    "valeur": 5000,
+    "protec": 5,
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no",
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "ks9NmFn3dSw0ky7W",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.IrmeUmzqEBBgp7pa",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885881654,
+    "modifiedTime": 1758885881654,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "WWJrJxNesKdtXnfR",
+  "sort": 0,
+  "_key": "!items!WWJrJxNesKdtXnfR"
+}

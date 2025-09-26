@@ -1,0 +1,45 @@
+{
+  "name": "Appel à  Talos : Demon de la Folie.",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/ancien-6.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Plonge l’esprit dans la confusion en créant une petite illusion visible par tous. </p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 30,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "demonsanciens",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "PSCNx4s2M0WuGPkn",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.Vv7ZLI0LYz3sQRBr",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "jku73SNuCM86k0EI",
+  "sort": 0,
+  "_key": "!items!jku73SNuCM86k0EI"
+}

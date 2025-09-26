@@ -1,0 +1,45 @@
+{
+  "name": "Corruption de Waetra",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/waetra-14.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>La cible devient sous contrôle mental du lanceur, annulé quand perte de conscience, mais il ne peut être considéré comme un allié, créature liée</p>",
+    "quantity": 5,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "waetra",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "1k22bEuH41duOEEf",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.tKM7UE5fobOKuFOo",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "Hnk9wyWW1bWAANVk",
+  "sort": 0,
+  "_key": "!items!Hnk9wyWW1bWAANVk"
+}

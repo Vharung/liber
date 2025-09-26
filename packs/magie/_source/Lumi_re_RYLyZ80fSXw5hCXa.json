@@ -1,0 +1,45 @@
+{
+  "name": "Lumière",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/foudre-1.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet de créer un petit orage dans sa main pour illuminer les alentours</p><p><strong>Sort Offert</strong></p>",
+    "quantity": 0,
+    "degat": "0",
+    "porter": "30",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Soi",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "nydiag",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "ysjlflodFUR7tohn",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.6LRME3gmoXQfl5Ff",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "RYLyZ80fSXw5hCXa",
+  "sort": 0,
+  "_key": "!items!RYLyZ80fSXw5hCXa"
+}

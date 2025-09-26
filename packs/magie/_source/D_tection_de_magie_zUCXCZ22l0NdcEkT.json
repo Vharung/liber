@@ -1,0 +1,45 @@
+{
+  "name": "Détection de magie",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/vie-3.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet de détecter les êtres vivants dans le secteur</p>",
+    "quantity": 2,
+    "degat": "0",
+    "porter": "30",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "galerrakath",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "YVklPc0rShD0hKUH",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.ccljWhz0ekwmMxXC",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "zUCXCZ22l0NdcEkT",
+  "sort": 0,
+  "_key": "!items!zUCXCZ22l0NdcEkT"
+}

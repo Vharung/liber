@@ -1,0 +1,45 @@
+{
+  "name": "Volonté divine",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/nouvelordre-10.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet d’améliorer (1d4)d10 la réussite des sorts pour 1d6 tours, pour 1d4 PSY</p><p></p>",
+    "quantity": 0,
+    "degat": "(1d4)d10",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "1d6 Tour",
+    "style": "cc",
+    "school": "nouvelordre",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "t3P8fwJTXrhD6VHV",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.gmex3m2ufVoGUsOc",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "hsGO46ed46J3H6ig",
+  "sort": 0,
+  "_key": "!items!hsGO46ed46J3H6ig"
+}

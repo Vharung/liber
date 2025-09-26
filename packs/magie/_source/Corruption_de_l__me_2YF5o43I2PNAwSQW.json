@@ -1,0 +1,45 @@
+{
+  "name": "Corruption de l’âme",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/sombre-5.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>La cible devient sous contrôle mental du lanceur, annule quand perte de conscience, mais il ne peut être considéré comme un allié, un jet mental pour résister et un autre chaque fois que la cible prend des dégâts. créature libre, 4 PSY</p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "dieuxsombres",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "9QOAfr10cJjVNa0A",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.vPtzWECA90Ob3uGK",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "2YF5o43I2PNAwSQW",
+  "sort": 0,
+  "_key": "!items!2YF5o43I2PNAwSQW"
+}

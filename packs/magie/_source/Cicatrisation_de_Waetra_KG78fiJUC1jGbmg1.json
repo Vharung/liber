@@ -1,0 +1,45 @@
+{
+  "name": "Cicatrisation de Waetra",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/waetra-16.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Soigne 1d8+2PV</p>",
+    "quantity": 2,
+    "degat": "1d8+2",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Soi",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "waetra",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "1k22bEuH41duOEEf",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.Qwebzzl1a3F5ncbt",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "KG78fiJUC1jGbmg1",
+  "sort": 0,
+  "_key": "!items!KG78fiJUC1jGbmg1"
+}

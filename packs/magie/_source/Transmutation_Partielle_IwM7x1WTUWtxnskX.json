@@ -1,0 +1,45 @@
+{
+  "name": "Transmutation Partielle",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/monnaie-10.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>L'utilisateur peut transmuter une petite partie de son corps (comme un bras ou une main) en or pur, augmentant considérablement les dégâts de mêlée ou la défense mais réduisant la mobilité. Coûte 1200 écus pour +3 aux dégâts de mêlée, au prix d'une réduction de 1 point de fatigue. 4 PSY, persistant.</p>",
+    "quantity": 4,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Soi",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "numismatomancie",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "T5zgUEDOXPcjhdnW",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.o9QvV3eKtadpa1I6",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "IwM7x1WTUWtxnskX",
+  "sort": 0,
+  "_key": "!items!IwM7x1WTUWtxnskX"
+}

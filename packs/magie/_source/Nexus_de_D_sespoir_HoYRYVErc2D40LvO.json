@@ -1,0 +1,45 @@
+{
+  "name": "Nexus de Désespoir",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/sombre-16.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Crée un vortex de désespoir dans une zone de 5 mètres de rayon, attirant tous les ennemis vers son centre et infligeant 3d6 dégâts. Les ennemis piégés dans le nexus doivent réussir un jet de Mental pour s'échapper.</p>",
+    "quantity": 8,
+    "degat": "3d6",
+    "porter": "0",
+    "rayon": 5,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Unique / 3 tours",
+    "style": "cc",
+    "school": "dieuxsombres",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "9QOAfr10cJjVNa0A",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.IFQe6zcNaGlKwwzo",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "HoYRYVErc2D40LvO",
+  "sort": 0,
+  "_key": "!items!HoYRYVErc2D40LvO"
+}

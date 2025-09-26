@@ -1,0 +1,45 @@
+{
+  "name": "Silence",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/ultime-8.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Empêche la cible de lancer un sort pendant 1d4 tours</p>",
+    "quantity": 3,
+    "degat": "1d4",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "1d4 Tours",
+    "style": "cc",
+    "school": "atlantide",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "srxoOu3rhxDIgVQx",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.HgmptwGj178XmbtR",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "af72E8djrCkM7l5I",
+  "sort": 0,
+  "_key": "!items!af72E8djrCkM7l5I"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Dévastation",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/poison-7.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Puise dans la terre, des ressources vitales, cela tue tous les végétaux dans un rayon de 10 m, gagne 2d6 PV par tour, tant qu'il reste dans cette zone.</p><p></p>",
+    "quantity": 3,
+    "degat": "2d6",
+    "porter": "10",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Soi",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "vivaqua",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "bw4fYVAYFNOCPBKo",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.4USKXxW7K5ow54lT",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "jU9XpfWq7fU72Myq",
+  "sort": 0,
+  "_key": "!items!jU9XpfWq7fU72Myq"
+}

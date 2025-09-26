@@ -1,0 +1,45 @@
+{
+  "name": "Empoisonnement de l'esprit",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/poison-15.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>La cible est confuse qui est un allié ou ennemi et attaque ses alliés, influe sur les 5 sens</p><p></p>",
+    "quantity": 6,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cibe",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "vivaqua",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "bw4fYVAYFNOCPBKo",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.A3ZM1FJOwGN2hdyb",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "a9TgYl2JDhGoKG2S",
+  "sort": 0,
+  "_key": "!items!a9TgYl2JDhGoKG2S"
+}

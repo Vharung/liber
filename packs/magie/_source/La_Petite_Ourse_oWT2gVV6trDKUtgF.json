@@ -1,0 +1,45 @@
+{
+  "name": "La Petite Ourse",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/constellation-16.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Double les effets de la guérison pour le prochain soin</p>",
+    "quantity": 2,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "nomade",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "UFAMVi5rrSGukKno",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.zDZYV9TIL8uqCXgo",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885886670,
+    "modifiedTime": 1758885886670,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "oWT2gVV6trDKUtgF",
+  "sort": 0,
+  "_key": "!items!oWT2gVV6trDKUtgF"
+}

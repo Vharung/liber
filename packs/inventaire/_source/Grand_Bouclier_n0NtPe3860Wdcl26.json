@@ -1,0 +1,45 @@
+{
+  "name": "Grand Bouclier",
+  "type": "weapon",
+  "img": "systems/liber-chronicles/assets/item/waepon/grandbouclier.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Le porteur a un malus de 10 pour ces attaques.</p>",
+    "quantity": 1,
+    "degat": "1d6",
+    "porter": "0",
+    "poids": 2,
+    "valeur": 600,
+    "protec": 2,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "melee",
+    "doublemain": "no",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "no",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "f0OborZB6WyRCijp",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.vs5cxmlaAaZzEt74",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885880253,
+    "modifiedTime": 1758885880253,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "n0NtPe3860Wdcl26",
+  "sort": 0,
+  "_key": "!items!n0NtPe3860Wdcl26"
+}

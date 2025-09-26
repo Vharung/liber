@@ -1,0 +1,45 @@
+{
+  "name": "Effet placebo",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/esprit-4.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p> Améliore le soin de +2 point par soin</p>",
+    "quantity": 2,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "dwaliwyr",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "jXdgZBLgtgJ2fJQ4",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.sdWSXSt5wWTktQOv",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "UrWyRKGfI3vVVf70",
+  "sort": 0,
+  "_key": "!items!UrWyRKGfI3vVVf70"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Ultime recours",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/cercle-12.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Inflige 5d10 de dégâts aux ennemis et soigne d’autant les alliés.</p><p>Une explosion magique colossale qui purifie le champ de bataille, punissant les ennemis et revitalisant les compagnons.</p>",
+    "quantity": 20,
+    "degat": "5d20",
+    "porter": "0",
+    "rayon": 60,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Unique",
+    "style": "cc",
+    "school": "marrunas",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "qq3iHQtbKACwcVoF",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.smkZpHDSnR85zvXL",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "NltRnVQjtqjLRTZ4",
+  "sort": 0,
+  "_key": "!items!NltRnVQjtqjLRTZ4"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Apothéose",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/baphomet-13.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Sur 1d6:</p><p>1 : Restaure tous les PV d'une cible<br>2-5 : Restaure la moitié des PV d'une cible<br>6 : Vous perdez la moitié de vos PV</p>",
+    "quantity": 10,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "baphomet",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "ej2fVFB3bEw91d30",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.4ZthqtIOenDN5jqd",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "cVYmmeeXtgeNfaGx",
+  "sort": 0,
+  "_key": "!items!cVYmmeeXtgeNfaGx"
+}

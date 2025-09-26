@@ -1,0 +1,45 @@
+{
+  "name": "Persée",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/constellation-43.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Génère une brume épaisse dans une zone de 20 m</p><p><span style=\"font-family: Arial, sans-serif\"><strong>Boost : + 1psy/10m</strong></span></p>",
+    "quantity": 2,
+    "degat": "0",
+    "porter": "30",
+    "rayon": 20,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Soi",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "nomade",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "UFAMVi5rrSGukKno",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.HIJ9aii5oHz2WymJ",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885886670,
+    "modifiedTime": 1758885886670,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "juitu6esoLBd8aZW",
+  "sort": 0,
+  "_key": "!items!juitu6esoLBd8aZW"
+}

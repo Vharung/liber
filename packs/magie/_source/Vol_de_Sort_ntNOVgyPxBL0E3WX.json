@@ -1,0 +1,45 @@
+{
+  "name": "Vol de Sort",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/telekinesie-8.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet de lancer un sort prit dans la liste de sort d’un ennemi </p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "limenido",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "15ukE6rSCVGIHvHk",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.HLe2YZoH10yBYxuL",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "ntNOVgyPxBL0E3WX",
+  "sort": 0,
+  "_key": "!items!ntNOVgyPxBL0E3WX"
+}

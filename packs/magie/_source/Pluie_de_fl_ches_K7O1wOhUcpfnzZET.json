@@ -1,0 +1,45 @@
+{
+  "name": "Pluie de flèches",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/invocation-11.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Fait abattre une pluie de flèche dans une zone 2d6+4 de dommage</p>",
+    "quantity": 13,
+    "degat": "2d6+4",
+    "porter": "0",
+    "rayon": 30,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "cem",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "YhmVpebRebDewyDZ",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.eBRJ1hYCY1NsbwUa",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "K7O1wOhUcpfnzZET",
+  "sort": 0,
+  "_key": "!items!K7O1wOhUcpfnzZET"
+}

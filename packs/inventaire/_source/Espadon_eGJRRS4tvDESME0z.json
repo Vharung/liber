@@ -1,0 +1,45 @@
+{
+  "name": "Espadon",
+  "type": "weapon",
+  "img": "systems/liber-chronicles/assets/item/waepon/espadon.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Le porteur a un malus en défense de 10%.</p><p>L’arme est impressionnante, au face à face l’ennemi fait un test de mental, si échec il a un malus de 10% en mental.</p>",
+    "quantity": 1,
+    "degat": "2d6",
+    "porter": "0",
+    "poids": 5,
+    "valeur": 450,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "melee",
+    "doublemain": "yes",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "no",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "eyESHvxjOQoNQSPq",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.iVAyPyMwdYYgaKdc",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885880253,
+    "modifiedTime": 1758885880253,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "eGJRRS4tvDESME0z",
+  "sort": 0,
+  "_key": "!items!eGJRRS4tvDESME0z"
+}

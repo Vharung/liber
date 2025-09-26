@@ -1,0 +1,45 @@
+{
+  "name": "Sanctuaire",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/croise-12.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Créer un champ de force d’un rayon de 10m, ou rien ne peut entrer ou sortir (magie ou physique)</p>",
+    "quantity": 6,
+    "degat": "0",
+    "porter": "30",
+    "rayon": 10,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "5 Tours",
+    "style": "cc",
+    "school": "croises",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "EipurxdtSdiKin2n",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.6eN4tznerCK6A6qZ",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "U4e9JOVFUXcK6rCO",
+  "sort": 0,
+  "_key": "!items!U4e9JOVFUXcK6rCO"
+}

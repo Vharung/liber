@@ -1,0 +1,45 @@
+{
+  "name": "Appel à  Efirénias : Demon des Océans.",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/ancien-5.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Le pouvoir des océans permet de <strong data-start=\"843\" data-end=\"893\">marcher sur l’eau et/ou de respirer sous l’eau</strong>.</p>",
+    "quantity": 2,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 30,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Soi",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "demonsanciens",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "PSCNx4s2M0WuGPkn",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.99aRArkDXvi43OLk",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "ckmwY11oVadtqkpu",
+  "sort": 0,
+  "_key": "!items!ckmwY11oVadtqkpu"
+}

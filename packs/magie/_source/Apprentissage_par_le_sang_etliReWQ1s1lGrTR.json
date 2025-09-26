@@ -1,0 +1,45 @@
+{
+  "name": "Apprentissage par le sang",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/demon-5.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Lorsque le Demon marque un ennemi et le tue il peux apprendre un de ses sorts</p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "demonclan",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "Ueb29zzW90lIleBO",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.LeeYHjWBhvfkLTiQ",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "etliReWQ1s1lGrTR",
+  "sort": 0,
+  "_key": "!items!etliReWQ1s1lGrTR"
+}

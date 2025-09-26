@@ -1,0 +1,45 @@
+{
+  "name": "Jugement Dernier",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/nouvelordre-12.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>La cible gagne 1d6+2 soit en dégâts, soit en PV, soit en PSY ou 2d10 en physique ou social ou mental</p>",
+    "quantity": 5,
+    "degat": "1d6+2",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Unique",
+    "style": "cc",
+    "school": "nouvelordre",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "t3P8fwJTXrhD6VHV",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.xbDXsQlxtuVFttE5",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "nlcErCZOSzeKTdxW",
+  "sort": 0,
+  "_key": "!items!nlcErCZOSzeKTdxW"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Dissipation Lumineuse",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/lumiere-7.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Annule toutes magies dans la zone.</p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 30,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "lumiereceleste",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "5whuvVj9VPDvNY2r",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.Q16Q5TOX4N7Fy4mI",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "lccExar07L4YbHN8",
+  "sort": 0,
+  "_key": "!items!lccExar07L4YbHN8"
+}

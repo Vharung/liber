@@ -1,0 +1,45 @@
+{
+  "name": "Overdose d'adrénaline",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/poison-5.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Augmente les dégâts +4 sur une cible et +10 au jet de physique, mais subit 4 point de dégâts perce-armure au début de son tour, le sort est annulé si la cible est inconsciente ou si le lanceur le décide</p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "vivaqua",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "bw4fYVAYFNOCPBKo",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.X5hzBPkuJ9ndKQqf",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "eeB16OKWEtiCcRB8",
+  "sort": 0,
+  "_key": "!items!eeB16OKWEtiCcRB8"
+}

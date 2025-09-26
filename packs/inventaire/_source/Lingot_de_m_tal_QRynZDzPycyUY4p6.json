@@ -1,0 +1,45 @@
+{
+  "name": "Lingot de métal",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/item/lingot.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>5 Minerai de fer</p>",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "poids": 3,
+    "valeur": 300,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "ykm4yF8BD1BABiIg",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.QjYWho43KeOzW4ms",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885883398,
+    "modifiedTime": 1758885883398,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "QRynZDzPycyUY4p6",
+  "sort": 0,
+  "_key": "!items!QRynZDzPycyUY4p6"
+}

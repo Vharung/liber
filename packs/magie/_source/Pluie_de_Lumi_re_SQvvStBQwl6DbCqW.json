@@ -1,0 +1,45 @@
+{
+  "name": "Pluie de Lumière",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/lumiere-13.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Inflige 1d6+3 perce armure.</p>",
+    "quantity": 4,
+    "degat": "1d6+3",
+    "porter": "30",
+    "rayon": 10,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "lumiereceleste",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "5whuvVj9VPDvNY2r",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.IZeZ3iwPl8uGMEIB",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "SQvvStBQwl6DbCqW",
+  "sort": 0,
+  "_key": "!items!SQvvStBQwl6DbCqW"
+}

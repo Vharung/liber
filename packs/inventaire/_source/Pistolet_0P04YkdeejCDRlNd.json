@@ -1,0 +1,45 @@
+{
+  "name": "Pistolet",
+  "type": "weapon",
+  "img": "systems/liber-chronicles/assets/item/waepon/pistol.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>L'arme prend une action complète pour être recharger et est perce armure.</p>",
+    "quantity": 1,
+    "degat": "1d8+3",
+    "porter": "30",
+    "poids": 5,
+    "valeur": 350,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "visee",
+    "doublemain": "no",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "no",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "brBUiX9tBwwOvefP",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.mRZyVhEUHD95yzve",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885880253,
+    "modifiedTime": 1758885880253,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "0P04YkdeejCDRlNd",
+  "sort": 0,
+  "_key": "!items!0P04YkdeejCDRlNd"
+}

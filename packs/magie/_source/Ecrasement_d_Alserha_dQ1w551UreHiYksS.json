@@ -1,0 +1,45 @@
+{
+  "name": "Ecrasement d’Alserha",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/ultime-10.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Invoque un dieu qui inflige 1d6+5 de dommage sur une cible</p>",
+    "quantity": 4,
+    "degat": "1d6+5",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "atlantide",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "srxoOu3rhxDIgVQx",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.dbzkQfe6YC7XU2r4",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "dQ1w551UreHiYksS",
+  "sort": 0,
+  "_key": "!items!dQ1w551UreHiYksS"
+}

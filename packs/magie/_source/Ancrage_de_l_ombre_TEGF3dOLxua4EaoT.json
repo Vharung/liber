@@ -1,0 +1,45 @@
+{
+  "name": "Ancrage de l'ombre",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/ombre-3.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Imprègne un projectile à planter dans l’ombre de la victime empêchant son ombre de s’en détacher, demandant un jet d’astuce à la cible pour comprendre, +10% à chaque tour(si le projectile est enlever, l’effet se dissipe)</p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Objet",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "atakanax",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "eziYGrUnseZcHtaD",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.Kz77SatdNp2FepjY",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "TEGF3dOLxua4EaoT",
+  "sort": 0,
+  "_key": "!items!TEGF3dOLxua4EaoT"
+}

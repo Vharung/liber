@@ -1,0 +1,45 @@
+{
+  "name": "Foi de Graly",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/telekinesie-11.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Augmente la gravité dans une zone de 10 m, rendant difficile tous mouvements, aucun projectile ne peut traverser cette zone, malus de 20% pour toute action physique, aucune créature ne peut voler</p><p>Cout ; 3 PSY +2PSY/5m</p><p><strong>Maintien : 2PSY</strong></p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "30",
+    "rayon": 10,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Maintien",
+    "style": "cc",
+    "school": "limenido",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "15ukE6rSCVGIHvHk",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.KUDAQwgF6yo2bfsF",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "ED87XRysHzaULWvx",
+  "sort": 0,
+  "_key": "!items!ED87XRysHzaULWvx"
+}

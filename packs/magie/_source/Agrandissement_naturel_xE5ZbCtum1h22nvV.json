@@ -1,0 +1,45 @@
+{
+  "name": "Agrandissement naturel",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/nature-10.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>La cible double de taille, il impressionne les adverses (test de mental à l’adversaire malus de 15% pendant un tour en cas d’échec), et +6 de dégâts</p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "3 Tour",
+    "style": "cc",
+    "school": "natura",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "hKAiortJ1gCcHTZi",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.QeZvBG8NlCu1MKlu",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "xE5ZbCtum1h22nvV",
+  "sort": 0,
+  "_key": "!items!xE5ZbCtum1h22nvV"
+}

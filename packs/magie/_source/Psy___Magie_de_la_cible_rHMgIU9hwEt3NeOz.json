@@ -1,0 +1,45 @@
+{
+  "name": "Psy / Magie de la cible",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/rune-22.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Objet",
+    "duree": "Runes",
+    "style": "cc",
+    "school": "runes",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "zwrY9hHFZPxzFssW",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.q47owdYiaQJXhngZ",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "rHMgIU9hwEt3NeOz",
+  "sort": 0,
+  "_key": "!items!rHMgIU9hwEt3NeOz"
+}

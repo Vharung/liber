@@ -1,0 +1,45 @@
+{
+  "name": "Parchemin de magie",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/item/parchemin.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Utilisation hors Combat.</p>",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "poids": 0.1,
+    "valeur": 250,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "yes",
+    "doublemain": "no",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "wcVIezOt7OHZgcJp",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.TvMtWWTppeQ0wen4",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885883398,
+    "modifiedTime": 1758885883398,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "G4LRZw0TY7nFJZsp",
+  "sort": 0,
+  "_key": "!items!G4LRZw0TY7nFJZsp"
+}

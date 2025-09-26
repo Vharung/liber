@@ -1,0 +1,45 @@
+{
+  "name": "Humanitaire",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/cercle-16.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet de dédoubler un objet.</p><p>Une reproduction parfaite d’un objet, mais la duplication ne peut être réitérée qu’une seule fois par cible.</p>",
+    "quantity": 5,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Permanent / Unique",
+    "style": "cc",
+    "school": "marrunas",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "qq3iHQtbKACwcVoF",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.EYVESvb8TIQVMuuR",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "wxowtff0ukbe1bfc",
+  "sort": 0,
+  "_key": "!items!wxowtff0ukbe1bfc"
+}

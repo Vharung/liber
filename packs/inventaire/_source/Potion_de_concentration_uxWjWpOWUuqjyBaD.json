@@ -1,0 +1,45 @@
+{
+  "name": "Potion de concentration",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/item/potion17.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Donne +10% à toute action, le temps d'un combat  Composition :  </p><p>- 2 Rayons de miel </p><p>- Eau </p><p>-7 Poudre de perle</p>",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "poids": 0.5,
+    "valeur": 550,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "yes",
+    "doublemain": "no",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "lChTbAwmbliGZjic",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.G1hwEKgfZKqELsZd",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885883398,
+    "modifiedTime": 1758885883398,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "uxWjWpOWUuqjyBaD",
+  "sort": 0,
+  "_key": "!items!uxWjWpOWUuqjyBaD"
+}

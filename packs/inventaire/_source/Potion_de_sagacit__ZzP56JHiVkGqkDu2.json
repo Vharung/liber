@@ -1,0 +1,45 @@
+{
+  "name": "Potion de sagacité",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/item/potion8.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet d'avoir un bonus de 20% au prochain jet de sagacité/psycologie</p><p>Composition : 2 Rayon de miel, Eau, 2 Fleurs sauvage</p>",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "poids": 0.5,
+    "valeur": 500,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "yes",
+    "doublemain": "no",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "lChTbAwmbliGZjic",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.MCNJL26kPCuIs34z",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885883398,
+    "modifiedTime": 1758885883398,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "ZzP56JHiVkGqkDu2",
+  "sort": 0,
+  "_key": "!items!ZzP56JHiVkGqkDu2"
+}

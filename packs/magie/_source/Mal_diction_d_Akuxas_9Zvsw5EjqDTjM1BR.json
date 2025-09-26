@@ -1,0 +1,45 @@
+{
+  "name": "Malédiction d'Akuxas",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/mort-16.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Inflige 4d10 perce armure sur les ennemis</p>",
+    "quantity": 13,
+    "degat": "4d10",
+    "porter": "0",
+    "rayon": 60,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Unique",
+    "style": "cc",
+    "school": "coalith",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "6qxO06DAdDcOwFTF",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.i7pGIz0wWwwy4UAH",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "9Zvsw5EjqDTjM1BR",
+  "sort": 0,
+  "_key": "!items!9Zvsw5EjqDTjM1BR"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Illusion funeste",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/illusion-15.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>La cible au suicide, sauf s’il réussit un test d’astuce, qui se blessent avec leurs armes, s’infligeant les dégâts maximums perce-armure à chaque tour. Maintien : 3 PSY ; Cible ; </p><p><strong>Maintien : 3 PSY</strong></p>",
+    "quantity": 9,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Maintien",
+    "style": "cc",
+    "school": "crilanydd",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "j5EvjWy95NhJhOIq",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.KdAK4efb8GcE3cKD",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "jfWm0V6E4YiZhQam",
+  "sort": 0,
+  "_key": "!items!jfWm0V6E4YiZhQam"
+}

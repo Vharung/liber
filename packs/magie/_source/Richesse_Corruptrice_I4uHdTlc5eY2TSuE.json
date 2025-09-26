@@ -1,0 +1,45 @@
+{
+  "name": "Richesse Corruptrice",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/monnaie-8.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>L'utilisateur corrompt ses ennemis en leur offrant une somme d'écus. Les cibles affectées par ce sort peuvent être amenées à trahir leurs alliés ou à abandonner le combat en échange de richesses. La somme dépensée détermine la probabilité de succès et l'ampleur de la corruption. Par exemple, 1000 écus pourraient avoir une chance de 50% de corrompre une cible, tandis que 2000 écus pourraient augmenter cette chance à 75%. (hors dragon ou animal / monstre non intelligent) L’argent n’est pas perdu si la cible résiste. 4 PSY</p><p></p>",
+    "quantity": 4,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "numismatomancie",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "T5zgUEDOXPcjhdnW",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.hymWuQF0QJl4QeBG",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "I4uHdTlc5eY2TSuE",
+  "sort": 0,
+  "_key": "!items!I4uHdTlc5eY2TSuE"
+}

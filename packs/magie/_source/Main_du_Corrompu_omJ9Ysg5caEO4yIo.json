@@ -1,0 +1,45 @@
+{
+  "name": "Main du Corrompu",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/sombre-1.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>L’objet choisi par le lanceur est maudit, il sait à tout moment où il se situe est peut infliger à sa guise 1d4 de dommage passe armure. Si l’utilisateur s’en débarrasse, il subit 1d20 de dommage.</p>",
+    "quantity": 4,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Objet",
+    "duree": "Permanent",
+    "style": "cc",
+    "school": "dieuxsombres",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "9QOAfr10cJjVNa0A",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.xwot8J0H4nRs3RPI",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "omJ9Ysg5caEO4yIo",
+  "sort": 0,
+  "_key": "!items!omJ9Ysg5caEO4yIo"
+}

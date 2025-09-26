@@ -1,0 +1,45 @@
+{
+  "name": "Souffle de Fafug",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/poison-16.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Inflige 4d10 perce armure sur les ennemis ou alliés</p>",
+    "quantity": 4,
+    "degat": "4d10",
+    "porter": "0",
+    "rayon": 60,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Unique",
+    "style": "cc",
+    "school": "vivaqua",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "bw4fYVAYFNOCPBKo",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.p0lVN1nGUjK88ix3",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "mlp8Jzs788ICC9Ww",
+  "sort": 0,
+  "_key": "!items!mlp8Jzs788ICC9Ww"
+}

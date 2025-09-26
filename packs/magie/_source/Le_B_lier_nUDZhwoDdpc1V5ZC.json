@@ -1,0 +1,45 @@
+{
+  "name": "Le Bélier",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/constellation-18.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>La cible peut agir deux fois par tour sans malus dû à cette seconde action. <br>Toutefois, pour chaque tour supplémentaire, la cible perd 2 PV dû à l’énergie dépensée pour ce soir. Elle se déplace rapidement et peut quasi se téléporter. <br><strong>Maintien : 2PV</strong></p>",
+    "quantity": 4,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Maintien",
+    "style": "cc",
+    "school": "nomade",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "UFAMVi5rrSGukKno",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.T7PnX1q0U0VpR9qq",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885886670,
+    "modifiedTime": 1758885886670,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "nUDZhwoDdpc1V5ZC",
+  "sort": 0,
+  "_key": "!items!nUDZhwoDdpc1V5ZC"
+}

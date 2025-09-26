@@ -1,0 +1,45 @@
+{
+  "name": "Dernière symphonie",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/troubadour-16.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Inflige 4d8 perce armure sur les ennemis</p>",
+    "quantity": 11,
+    "degat": "4d8",
+    "porter": "60",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Unique",
+    "style": "cc",
+    "school": "troubadour",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "vNMPjn4HxUgN3AzW",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.HNBr04UMWfg4Uc8M",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "JPZbILDEfugfMZUY",
+  "sort": 0,
+  "_key": "!items!JPZbILDEfugfMZUY"
+}

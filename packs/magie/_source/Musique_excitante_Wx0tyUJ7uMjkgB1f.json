@@ -1,0 +1,45 @@
+{
+  "name": "Musique excitante",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/troubadour-12.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Le joueur ou le PNJ peut agir deux fois ce tour-ci</p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "troubadour",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "vNMPjn4HxUgN3AzW",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.LZYIRO1B7g2Msvuw",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "Wx0tyUJ7uMjkgB1f",
+  "sort": 0,
+  "_key": "!items!Wx0tyUJ7uMjkgB1f"
+}

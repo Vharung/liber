@@ -1,0 +1,45 @@
+{
+  "name": "Elexir de Psy",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/item/potion10.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Redonne 1d6+4 PSY. Composition :</p><p>- 4 Rayons de miel</p><p>- Eau</p><p>-5 poudre d'étheré</p><p>- 8 queue de phoenix</p>",
+    "quantity": 1,
+    "degat": "1d6+4",
+    "porter": "0",
+    "poids": 0.5,
+    "valeur": 1000,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "yes",
+    "doublemain": "no",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "lChTbAwmbliGZjic",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.Aii3VtAbYPrDjKiK",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885883398,
+    "modifiedTime": 1758885883398,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "BLqyO70xYwjlw2dk",
+  "sort": 0,
+  "_key": "!items!BLqyO70xYwjlw2dk"
+}

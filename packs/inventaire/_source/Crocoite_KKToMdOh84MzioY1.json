@@ -1,0 +1,45 @@
+{
+  "name": "Crocoite",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/item/pierre17.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet de relancer un jet de raté de chance, 1fois par jet, dure une heure</p>",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 390,
+    "protec": 0,
+    "equip": "",
+    "consommable": "yes",
+    "doublemain": "no",
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "3yQ6TDxMqgIVprRV",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.MIajpsQvSoHlkTgO",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885884964,
+    "modifiedTime": 1758885884964,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "KKToMdOh84MzioY1",
+  "sort": 0,
+  "_key": "!items!KKToMdOh84MzioY1"
+}

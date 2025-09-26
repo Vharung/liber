@@ -138,13 +138,13 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     // Vérifier si le compendium existe
     const pack = game.packs.get('liber-chronicles.magie');
     if (!pack) {
-        console.error("Compendium 'liber.magie' introuvable !");
+        console.error("Compendium 'liber-chronicles.magie' introuvable !");
         return;
     }
     // Récupérer les documents du compendium
-    const tables = await pack.getDocuments();
+    /*const tables = await pack.getDocuments();
     if (!tables.length) {
-        console.warn("Aucune donnée trouvée dans le compendium 'liber.magie'.");
+        console.warn("Aucune donnée trouvée dans le compendium 'liber-chronicles.magie'.");
         return;
     }
 
@@ -177,7 +177,46 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     listMagie = Array.from(newMagie);
     if (!game.user.isGM) {
       console.log("pas gm"); 
+    }*/
+
+    const index = await pack.getIndex();console.log(index)
+    if (!index.size) {
+      console.warn("Aucune donnée trouvée dans le compendium 'liber-chronicles.magie'.");
+      return;
     }
+
+    // Déterminer les écoles de magie
+    let magieSchool = [culte];
+    if (clan === "drauch") {
+      magieSchool.push("yie", "crilanydd");
+    } else if (race === "celeste") {
+      magieSchool = ["lumiereceleste", "croises", "nouvelordre", "vharung", "galerrakath", "oklata"];
+    } else {
+      magieSchool.push(clan);
+    }
+
+    // Construire le filtre principal
+    let listMagie=[]
+    const allowedSchools = new Set(magieSchool);
+    index.forEach(table => {
+      if (clan === "other" || culte === "other" && race!="celeste") {
+        if(table.type=="magic"){
+          const doc = await pack.getDocument(table._id);
+          listMagie.push(table);
+        }
+      }else {
+        if(table.type=="magic"){
+          if(table.system.school.includes(magieSchool)){
+            const doc = await pack.getDocument(table._id);
+            listMagie.push(table);
+          }
+        }
+      }
+     
+    });
+    listMagie.sort((a, b) => a.quantity - b.quantity);
+    
+    
 
     return {
         tabs: this.#getTabs(),
@@ -1426,7 +1465,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
 
     const pack = game.packs.get('liber-chronicles.inventaire');
     if (!pack) {
-        console.error("Le pack 'liber.inventaire' est introuvable.");
+        console.error("Le pack 'liber-chronicles.inventaire' est introuvable.");
         return;
     }
 
@@ -1595,9 +1634,9 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
 
       if (!dataId) return console.error("Aucun sort sélectionné.");
 
-      // Recherche dans le compendium "liber.magie"
+      // Recherche dans le compendium "liber-chronicles.magie"
       const pack = game.packs.get("liber-chronicles.magie");
-      if (!pack) return console.error("Le compendium 'liber.magie' est introuvable.");
+      if (!pack) return console.error("Le compendium 'liber-chronicles.magie' est introuvable.");
 
       const index = await pack.getIndex(); // Charge l'index des objets du compendium
       const entry = index.find(i => i._id === dataId); // Trouve l'entrée correspondante

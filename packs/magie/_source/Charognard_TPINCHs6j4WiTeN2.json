@@ -1,0 +1,45 @@
+{
+  "name": "Charognard",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/mort-1.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Mange un cadavre ennemi récupère la moitié des PV manquant</p><p><strong>Sort Offert</strong></p>",
+    "quantity": 0,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Soi",
+    "duree": "Unique",
+    "style": "cc",
+    "school": "coalith",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "6qxO06DAdDcOwFTF",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.W9uc8DIVlmdlEJFt",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "TPINCHs6j4WiTeN2",
+  "sort": 0,
+  "_key": "!items!TPINCHs6j4WiTeN2"
+}

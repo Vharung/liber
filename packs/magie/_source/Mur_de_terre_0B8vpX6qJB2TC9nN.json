@@ -1,0 +1,45 @@
+{
+  "name": "Mur de terre",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/terre-7.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Créer un mur avec 20 PV Largeur 3m, longeur et forme défini par le joueur</p><p></p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 30,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "eraliwin",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "T3yP5jZIIYx7NOKk",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.hwG9wpahSIaxehc2",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "0B8vpX6qJB2TC9nN",
+  "sort": 0,
+  "_key": "!items!0B8vpX6qJB2TC9nN"
+}

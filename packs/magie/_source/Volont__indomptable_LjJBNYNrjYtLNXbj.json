@@ -1,0 +1,45 @@
+{
+  "name": "Volonté indomptable",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/corbeau-16.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Le guerrier puisse dans ses forces pour augmenter sa force de frappe, augment les dégâts de 1d4+3</p>",
+    "quantity": 4,
+    "degat": "1d4+3",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Soi",
+    "duree": "3 Tours",
+    "style": "cc",
+    "school": "corbeau",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "jBlmJ2ag3rnUEncY",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.Fvb5DAsGqXaSTWQf",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "LjJBNYNrjYtLNXbj",
+  "sort": 0,
+  "_key": "!items!LjJBNYNrjYtLNXbj"
+}

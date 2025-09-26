@@ -1,0 +1,45 @@
+{
+  "name": "Venin sanguin",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/poison-1.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Le sang du joueur devient du poison à ces attaquants : pour chaque blessure subie, il inflige 1d4 de dommage perce-armure aux ennemis à proximité</p><p><strong>Sort Offert</strong></p>",
+    "quantity": 0,
+    "degat": "1d4",
+    "porter": "0",
+    "rayon": 60,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Soi",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "vivaqua",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "bw4fYVAYFNOCPBKo",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.W8UYhzM9mbGNR9m5",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "oacqonohBH0Xk4ir",
+  "sort": 0,
+  "_key": "!items!oacqonohBH0Xk4ir"
+}

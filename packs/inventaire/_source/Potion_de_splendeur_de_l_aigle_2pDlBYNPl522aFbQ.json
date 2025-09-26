@@ -1,0 +1,45 @@
+{
+  "name": "Potion de splendeur de l’aigle",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/item/potion3.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet d'avoir un bonus de 20% au prochain jet d'observation Composition :</p><p>- 6 yeux</p><p>- Eau</p><p>- 3 poudre d'étheré</p>",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "poids": 0.5,
+    "valeur": 300,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "yes",
+    "doublemain": "no",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "lChTbAwmbliGZjic",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.c25qK7rKu9PgVZH1",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885883398,
+    "modifiedTime": 1758885883398,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "2pDlBYNPl522aFbQ",
+  "sort": 0,
+  "_key": "!items!2pDlBYNPl522aFbQ"
+}

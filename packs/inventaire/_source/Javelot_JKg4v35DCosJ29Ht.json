@@ -1,0 +1,45 @@
+{
+  "name": "Javelot",
+  "type": "weapon",
+  "img": "systems/liber-chronicles/assets/item/waepon/javelot.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Le porteur peut le lancer.</p>",
+    "quantity": 1,
+    "degat": "1d8+2",
+    "porter": "3Phy/10",
+    "poids": 3,
+    "valeur": 300,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "hast",
+    "doublemain": "yes",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "no",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "5cOk9iqHUC7de14D",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.Iz6rE8c9ftKrK0OZ",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885880253,
+    "modifiedTime": 1758885880253,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "JKg4v35DCosJ29Ht",
+  "sort": 0,
+  "_key": "!items!JKg4v35DCosJ29Ht"
+}

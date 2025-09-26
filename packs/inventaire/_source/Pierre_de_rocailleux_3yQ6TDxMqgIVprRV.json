@@ -1,23 +1,23 @@
 {
   "type": "Item",
-  "folder": "PmZj6I3HzINFWCyt",
+  "folder": null,
   "name": "Pierre de rocailleux",
   "color": null,
   "sorting": "a",
   "_id": "3yQ6TDxMqgIVprRV",
   "description": "",
-  "sort": 0,
+  "sort": 400000,
   "flags": {},
   "_stats": {
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.339",
+    "coreVersion": "13.348",
     "systemId": "liber-chronicles",
     "systemVersion": "4.0.2",
-    "createdTime": 1758800595895,
-    "modifiedTime": 1758800595895,
-    "lastModifiedBy": "eeeETIWwPcCQLmyP"
+    "createdTime": 1758885884921,
+    "modifiedTime": 1758885884983,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
   },
   "_key": "!folders!3yQ6TDxMqgIVprRV"
 }

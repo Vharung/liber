@@ -1,0 +1,45 @@
+{
+  "name": "Fausse note",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/troubadour-6.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Les ennemis ont -10% au jet mental et physique environ 20 m</p>",
+    "quantity": 2,
+    "degat": "0",
+    "porter": "20",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "2 Tour",
+    "style": "cc",
+    "school": "troubadour",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "vNMPjn4HxUgN3AzW",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.GmGRHzxib3PUVuGT",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "1h8777KP3txZaW3N",
+  "sort": 0,
+  "_key": "!items!1h8777KP3txZaW3N"
+}

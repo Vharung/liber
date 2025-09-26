@@ -1,8 +1,5 @@
-2025/09/25-14:26:52.782 2b28 Recovering log #10
-2025/09/25-14:26:52.814 2b28 Delete type=0 #10
-2025/09/25-14:26:52.815 2b28 Delete type=3 #8
-2025/09/25-14:27:51.744 4034 Level-0 table #15: started
-2025/09/25-14:27:51.744 4034 Level-0 table #15: 0 bytes OK
-2025/09/25-14:27:51.751 4034 Delete type=0 #13
-2025/09/25-14:27:51.760 4034 Manual compaction at level-0 from '!actors!00Aw7NyixeI1Xgk9' @ 72057594037927935 : 1 .. '!folders!nn51LR485KhQnZHP' @ 0 : 0; will stop at (end)
-2025/09/25-14:27:51.760 4034 Manual compaction at level-1 from '!actors!00Aw7NyixeI1Xgk9' @ 72057594037927935 : 1 .. '!folders!nn51LR485KhQnZHP' @ 0 : 0; will stop at (end)
+2025/09/26-14:33:18.054539 73da6de006c0 Log #16: 0 ops saved to Table #17 OK
+2025/09/26-14:33:18.054634 73da6de006c0 Archiving /home/vharung/.local/share/FoundryVTT/Data/systems/liber-chronicles/pack/monstre/000016.log: OK
+2025/09/26-14:33:18.058766 73da6de006c0 Table #5: 698 entries OK
+2025/09/26-14:33:18.059057 73da6de006c0 Archiving /home/vharung/.local/share/FoundryVTT/Data/systems/liber-chronicles/pack/monstre/MANIFEST-000014: OK
+2025/09/26-14:33:18.061205 73da6de006c0 **** Repaired leveldb /home/vharung/.local/share/FoundryVTT/Data/systems/liber-chronicles/pack/monstre; recovered 1 files; 605469 bytes. Some data may have been lost. ****

@@ -1,0 +1,45 @@
+{
+  "name": "Main de Vharung",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/vharung-11.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Une main d’un dragon géant sort de la terre, inflige 2d8+6 de dommage</p>",
+    "quantity": 8,
+    "degat": "2d8+6",
+    "porter": "0",
+    "rayon": 30,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "vharung",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "ycuPwq3AmQEWHqPi",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.pzPvTXB3YDqMIi8u",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "I0LXSFNpLOgQNrM6",
+  "sort": 0,
+  "_key": "!items!I0LXSFNpLOgQNrM6"
+}

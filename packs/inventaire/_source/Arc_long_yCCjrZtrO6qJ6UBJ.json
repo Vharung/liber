@@ -1,0 +1,45 @@
+{
+  "name": "Arc long",
+  "type": "weapon",
+  "img": "systems/liber-chronicles/assets/item/waepon/arclong.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "",
+    "quantity": 1,
+    "degat": "1d8",
+    "porter": "50-250",
+    "poids": 1.5,
+    "valeur": 300,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "melee",
+    "doublemain": "no",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "no",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "3NftIq481YbEBSOK",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.gKsHgTSCSSacu7Pq",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885880253,
+    "modifiedTime": 1758885880253,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "yCCjrZtrO6qJ6UBJ",
+  "sort": 0,
+  "_key": "!items!yCCjrZtrO6qJ6UBJ"
+}

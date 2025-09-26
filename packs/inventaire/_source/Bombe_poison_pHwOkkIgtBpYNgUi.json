@@ -1,0 +1,45 @@
+{
+  "name": "Bombe poison",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/waepon/bombepoison.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Inflige 1d4+2⚔ sur une zone de 6m -2⚔/m, utilise visée.</p><p>Composition : Boule de métal, poudre à canon</p>",
+    "quantity": 1,
+    "degat": "1d4+2",
+    "porter": "0",
+    "poids": 0.5,
+    "valeur": 900,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "yes",
+    "doublemain": "no",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "xeBD28AFNAQjjtlc",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.mBhTZDlzN6agLUgc",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885883398,
+    "modifiedTime": 1758885883398,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "pHwOkkIgtBpYNgUi",
+  "sort": 0,
+  "_key": "!items!pHwOkkIgtBpYNgUi"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Rappel à  Vhalegar",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/vie-11.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Rappel à Vhalegar Créer un trou noir aspirant tous les ennemis ou joueur dans le secteur, si rate un test d’agilité</p>",
+    "quantity": 10,
+    "degat": "0",
+    "porter": "30",
+    "rayon": 10,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "galerrakath",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "YVklPc0rShD0hKUH",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.NmqvTOHkRWI8kbXL",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "mYcAcQpj7ErH3xJ3",
+  "sort": 0,
+  "_key": "!items!mYcAcQpj7ErH3xJ3"
+}

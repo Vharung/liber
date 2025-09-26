@@ -1,0 +1,45 @@
+{
+  "name": "Volonté de Vharung",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/vharung-3.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet de revenir à la vie avec 1 PV, doit être lancé avant de mourir</p><p></p>",
+    "quantity": 2,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Éphémère",
+    "style": "cc",
+    "school": "vharung",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "ycuPwq3AmQEWHqPi",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.rXi19B8BTRnmlKKT",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "ZhHGnqMpHLgzUWXa",
+  "sort": 0,
+  "_key": "!items!ZhHGnqMpHLgzUWXa"
+}

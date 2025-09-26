@@ -1,0 +1,45 @@
+{
+  "name": "Epée",
+  "type": "weapon",
+  "img": "systems/liber-chronicles/assets/item/waepon/epee.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "",
+    "quantity": 1,
+    "degat": "1d6+2",
+    "porter": "0",
+    "poids": 1.5,
+    "valeur": 350,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "melee",
+    "doublemain": "no",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "no",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "eyESHvxjOQoNQSPq",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.lDH9Cv34suh9u2S8",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885880253,
+    "modifiedTime": 1758885880253,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "cGkTqoSMGw9atUZi",
+  "sort": 0,
+  "_key": "!items!cGkTqoSMGw9atUZi"
+}

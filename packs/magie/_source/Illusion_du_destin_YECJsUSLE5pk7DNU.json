@@ -1,0 +1,45 @@
+{
+  "name": "Illusion du destin",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/illusion-7.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet de relancer un jet de dés, échec critique compris.</p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Éphémère",
+    "style": "cc",
+    "school": "crilanydd",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "j5EvjWy95NhJhOIq",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.e9pUL1wHCkDnJbSx",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "YECJsUSLE5pk7DNU",
+  "sort": 0,
+  "_key": "!items!YECJsUSLE5pk7DNU"
+}

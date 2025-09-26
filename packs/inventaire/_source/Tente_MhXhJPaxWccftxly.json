@@ -1,0 +1,45 @@
+{
+  "name": "Tente",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/item/sac3.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet une meilleure récupération des Psy et PV en campagne.</p>",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "poids": 3,
+    "valeur": 250,
+    "protec": 0,
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "rayon": 0,
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "wcVIezOt7OHZgcJp",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.NtAsM5LxWmxXCNnw",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885883398,
+    "modifiedTime": 1758885883398,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "MhXhJPaxWccftxly",
+  "sort": 0,
+  "_key": "!items!MhXhJPaxWccftxly"
+}

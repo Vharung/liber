@@ -1,0 +1,45 @@
+{
+  "name": "Tornade",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/air-14.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Une puissante tornade surgit, que l’incantateur peut contrôler et diriger à volonté. Elle inflige <strong data-start=\"1538\" data-end=\"1562\">2d6+2 dégâts de zone</strong> à chaque tour. <strong>Maintien : 3</strong></p>",
+    "quantity": 5,
+    "degat": "2d6+2",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Maintien",
+    "style": "cc",
+    "school": "ralich",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "bmvCrZdFaDizu6CY",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.6ShKhiPRqWwrEvuA",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "jSJ5444QgTKHB3wR",
+  "sort": 0,
+  "_key": "!items!jSJ5444QgTKHB3wR"
+}

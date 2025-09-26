@@ -1,0 +1,45 @@
+{
+  "name": "Maîtrise de l'eau",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/eau-12.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>L’utilisateur peut contrôler la victime et l’oblige à faire ce qu’il veut.</p><p><strong>Maintien : 2 Psy</strong></p>",
+    "quantity": 5,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Maintien",
+    "style": "cc",
+    "school": "aelath",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "oAP1tMxqN4STUBTP",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.41ER0t1hTFgz4djX",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "jKG3UInWJLnsthUM",
+  "sort": 0,
+  "_key": "!items!jKG3UInWJLnsthUM"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Contact corrosif",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/poison-13.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Toute personne amie ou ennemie qui est blessé ou touchée par le joueur perdra définitivement 1 point d’armure (si armure naturelle il faudra se soigner hors combat pour récupérer le point d’armure) s’il n’y a pas ou plus d’armure il subira 1d6+1 dommage</p>",
+    "quantity": 4,
+    "degat": "1d6+1",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "vivaqua",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "bw4fYVAYFNOCPBKo",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.hECixyHC58cz89hY",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "zFvGLYjADt2kYmbD",
+  "sort": 0,
+  "_key": "!items!zFvGLYjADt2kYmbD"
+}

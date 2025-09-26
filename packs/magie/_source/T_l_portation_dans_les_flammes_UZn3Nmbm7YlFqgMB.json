@@ -1,0 +1,45 @@
+{
+  "name": "Téléportation dans les flammes",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/feu-2.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Le joueur peut se téléporter dans une flamme visible dans un rayon de 30 m + 1psy/10m</p>",
+    "quantity": 2,
+    "degat": "0",
+    "porter": "30",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Instantané",
+    "style": "cc",
+    "school": "yie",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "R4N1aWxzXZ6BDEFl",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.v98v5Fs3XfSXZZUz",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "UZn3Nmbm7YlFqgMB",
+  "sort": 0,
+  "_key": "!items!UZn3Nmbm7YlFqgMB"
+}

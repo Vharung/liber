@@ -1,0 +1,45 @@
+{
+  "name": "Coup à  terre",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/corbeau-6.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Frappe le sol avec une immense violence qui a se faire extrêmement mal, ce qui fait perdre l'équilibre au ennemi/allié dans un rayon de 10m, ils prendront 1 tour pour se relever</p>",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Soi",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "corbeau",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "jBlmJ2ag3rnUEncY",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.hSA39Tmkg4qzhqu1",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "Kdfjjmv6lISvL4F4",
+  "sort": 0,
+  "_key": "!items!Kdfjjmv6lISvL4F4"
+}

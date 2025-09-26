@@ -1,0 +1,45 @@
+{
+  "name": "Second Souffle",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/air-15.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>L’incantateur ou un allié ciblé peut <strong data-start=\"1682\" data-end=\"1704\">agir immédiatement</strong>, quel que soit l’ordre du tour. <strong data-start=\"1737\" data-end=\"1758\">Effet instantané</strong></p>",
+    "quantity": 5,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Éphémère",
+    "style": "cc",
+    "school": "ralich",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "bmvCrZdFaDizu6CY",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.F3xDcXAm4vyWesKg",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "W3nCPHopJEUtHV5A",
+  "sort": 0,
+  "_key": "!items!W3nCPHopJEUtHV5A"
+}

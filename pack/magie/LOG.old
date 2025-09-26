@@ -1,8 +1,5 @@
-2025/09/25-14:26:52.751 1580 Recovering log #11
-2025/09/25-14:26:52.769 1580 Delete type=0 #11
-2025/09/25-14:26:52.770 1580 Delete type=3 #10
-2025/09/25-14:27:51.751 4034 Level-0 table #15: started
-2025/09/25-14:27:51.751 4034 Level-0 table #15: 0 bytes OK
-2025/09/25-14:27:51.759 4034 Delete type=0 #13
-2025/09/25-14:27:51.760 4034 Manual compaction at level-0 from '!folders!15ukE6rSCVGIHvHk' @ 72057594037927935 : 1 .. '!items!zqB9yeZkK2YsbVh7' @ 0 : 0; will stop at (end)
-2025/09/25-14:27:51.760 4034 Manual compaction at level-1 from '!folders!15ukE6rSCVGIHvHk' @ 72057594037927935 : 1 .. '!items!zqB9yeZkK2YsbVh7' @ 0 : 0; will stop at (end)
+2025/09/26-14:33:18.042370 73da6de006c0 Log #16: 0 ops saved to Table #17 OK
+2025/09/26-14:33:18.042456 73da6de006c0 Archiving /home/vharung/.local/share/FoundryVTT/Data/systems/liber-chronicles/pack/magie/000016.log: OK
+2025/09/26-14:33:18.043483 73da6de006c0 Table #5: 606 entries OK
+2025/09/26-14:33:18.043555 73da6de006c0 Archiving /home/vharung/.local/share/FoundryVTT/Data/systems/liber-chronicles/pack/magie/MANIFEST-000014: OK
+2025/09/26-14:33:18.044142 73da6de006c0 **** Repaired leveldb /home/vharung/.local/share/FoundryVTT/Data/systems/liber-chronicles/pack/magie; recovered 1 files; 213218 bytes. Some data may have been lost. ****

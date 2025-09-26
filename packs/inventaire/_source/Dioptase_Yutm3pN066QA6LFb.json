@@ -1,0 +1,45 @@
+{
+  "name": "Dioptase",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/item/pierre18.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet de distinguer le vrai du faux pendant une heure</p>",
+    "quantity": 1,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 130,
+    "protec": 0,
+    "equip": "",
+    "consommable": "yes",
+    "doublemain": "no",
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "3yQ6TDxMqgIVprRV",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.1qz5hZJcGFFYS5b9",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885884964,
+    "modifiedTime": 1758885884964,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "Yutm3pN066QA6LFb",
+  "sort": 0,
+  "_key": "!items!Yutm3pN066QA6LFb"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Aveuglement",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/ultime-3.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Provoque une lumière aveuglante qui empêche la ou les victime(s) de jouer pendant deux tours sur un jet d’astuce raté</p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "30",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "2 Tours",
+    "style": "cc",
+    "school": "atlantide",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "srxoOu3rhxDIgVQx",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.6foQx5tQJvapMfV5",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "4O3YhujoNtyjcbnp",
+  "sort": 0,
+  "_key": "!items!4O3YhujoNtyjcbnp"
+}

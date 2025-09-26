@@ -1,0 +1,45 @@
+{
+  "name": "Mouvement du sol",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/terre-9.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet de détecter toutes vibration du sol</p>",
+    "quantity": 3,
+    "degat": "0",
+    "porter": "30",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "eraliwin",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "T3yP5jZIIYx7NOKk",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.hQOMoHgq8oESFGpM",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "AMMoW7Ng6zHNubwj",
+  "sort": 0,
+  "_key": "!items!AMMoW7Ng6zHNubwj"
+}

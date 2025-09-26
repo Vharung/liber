@@ -1,0 +1,45 @@
+{
+  "name": "Hachette",
+  "type": "item",
+  "img": "systems/liber-chronicles/assets/item/waepon/hachette.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Arme de mêlée, malus en défense de 5%, peut être lancée</p><p><strong>Porté : Phy/10</strong></p>",
+    "quantity": 1,
+    "degat": "3d4+1",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 1.5,
+    "valeur": 150,
+    "protec": 0,
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no",
+    "class": "",
+    "cible": "",
+    "duree": "",
+    "style": "cc",
+    "school": "aucune"
+  },
+  "effects": [],
+  "folder": "eyESHvxjOQoNQSPq",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.inventaire.Item.2v3RQWrPgR9VZNmu",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885880253,
+    "modifiedTime": 1758885880253,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "ZSUU7GTAawdcp8aL",
+  "sort": 0,
+  "_key": "!items!ZSUU7GTAawdcp8aL"
+}

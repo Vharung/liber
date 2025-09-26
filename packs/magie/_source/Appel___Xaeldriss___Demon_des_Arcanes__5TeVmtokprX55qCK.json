@@ -1,0 +1,45 @@
+{
+  "name": "Appel à Xaeldriss : Demon des Arcanes.",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/ancien-13.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Une déflagration arcanique ravage la zone, infligeant 4d10 dégâts à tous dans un rayon de 30 m</p>",
+    "quantity": 12,
+    "degat": "4d10",
+    "porter": "0",
+    "rayon": 30,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Unique",
+    "style": "cc",
+    "school": "demonsanciens",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "PSCNx4s2M0WuGPkn",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.7nrJ7lwCDr0AhWoc",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "5TeVmtokprX55qCK",
+  "sort": 0,
+  "_key": "!items!5TeVmtokprX55qCK"
+}

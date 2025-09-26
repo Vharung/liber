@@ -58,7 +58,7 @@
         "Armor": "Armor",
         "Prote": "Magic Protection"
       },
-      "Phase": { 
+      "Phase": {
         "Dephase2": "Very Out of Phase",
         "Dephase1": "Out of Phase",
         "None": "Neutral",
@@ -102,6 +102,11 @@
         "Reposer": "Rest"
       },
       "Competences": {
+        "mentales": "Mental Skills",
+        "physiques": "Physical Skills",
+        "sociales": "Social Skills",
+        "techniques": "Technical Skills",
+        "combats": "Combat Skills",
         "connaissances":"Connaissances (2)",
         "erudition":"Erudit / Apprentissage (3)",
         "observation":"Observation (2)",
@@ -523,7 +528,23 @@
         "Atakanax": " - Stealth +5%, assassination +5%",
         "Corbeau": " - Warrior's honor",
         "Croises": " - Pious",
-        "Nomade": " - Night orientation +5% roll under the stars"
+        "Nomade": " - Night orientation +5% roll under the stars",
+        "Aucune": "",
+        "Vharung": "",
+        "Nouvelordre": "",
+        "Croises": "",
+        "Lumiereceleste": "",
+        "Kali": "",
+        "Waetra": "",
+        "Demonsanciens": "",
+        "Baphomet": "",
+        "Marrunas": "",
+        "Vaudou": "",
+        "Drauch": "",
+        "Numismatomancie": "",
+        "Dieuxsombres": "",
+        "Demonclan": "",
+        "oklata": ""
       }
     },
     "Race": {
@@ -754,7 +775,26 @@
       "pirate": "Pirate",
       "guerrier": "Warrior",
       "none": "",
-      "croise": "Crusader"
+      "croise": "Crusader",
+      "Avantage":{
+        "Personnalise": "Choix de sort dans toutes les magies. ",
+        "Guerrier": "Magie du corbeau et rune uniquement, pas d’armure. ",
+        "Chevalier": "Armure lourde disponible. ",
+        "Croise":"Pieux(peuvent se soigner des points de vie insoignable), magie croisé. ",
+        "Soldat": "Pas de jet pour changer la distance de combat. ",
+        "Mercenaire": "Peut avoir 2 Magies différentes pour le clan, pas de magie de culte. ",
+        "Pirate": "Peut désarmer ou voler une arme au corps-à-corps, jet de dextérité. ",
+        "Chasseurdeprime": "Physionomiste (reconnait les personnes même grimées, +10 en observation pour reconnaître quelqu'un). ",
+        "Assassinvoleur": "A un avantage pour tout un vol ou un assassinat, réussit.. ",
+        "Inquisiteur": "Accès armure lourde, 2 magie de cultes, pas de magie de clan. ",
+        "Druide": "Forme animale une fois / jour. ",
+        "Clerc": "+5 critique pour les soins. ",
+        "Troubadour": "Magie troubadour (sur social). ",
+        "Erudit": "Peut annuler un effet magique par analyse une fois par jour (jet de connaissances). ",
+        "Magicien": "Pas de jet de maintiens pour les sorts.. ",
+        "Oracle": "Peut voir les pensées de surface d’un PNJ (1/jour). ",
+        "None":""
+      }
     },
     "Chat": {
       "Posture": {

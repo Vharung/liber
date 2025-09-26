@@ -1,0 +1,45 @@
+{
+  "name": "Liquéfaction",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/eau-4.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>La cible peut devenir une flaque d’eau et de se mouvoir sur quelques mètres, ne peut infliger des dommages ni en recevoir.</p>",
+    "quantity": 2,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "2 Tours",
+    "style": "cc",
+    "school": "aelath",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "oAP1tMxqN4STUBTP",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.AN50ulihBQYjDJt3",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "IThkufTonTXVPStd",
+  "sort": 0,
+  "_key": "!items!IThkufTonTXVPStd"
+}

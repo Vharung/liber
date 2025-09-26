@@ -1,0 +1,45 @@
+{
+  "name": "Anneau d'éclairs",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/foudre-12.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Fait un mur d’éclair autour d’un endroit défini de 1m50 de large, le mur est bruyant, il faut pour toute personne proche faire un test de résistance au bruit (provoque 2d6+2 de dommage aux personnes le franchissant ami ou ennemi)</p>",
+    "quantity": 4,
+    "degat": "2d6+2",
+    "porter": "30",
+    "rayon": 30,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "nydiag",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "ysjlflodFUR7tohn",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.vrOCcy5L5yVvOviT",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "bM0kzaeqPboXGOgX",
+  "sort": 0,
+  "_key": "!items!bM0kzaeqPboXGOgX"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Brûlure",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/feu-11.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p> Inflige 1d4+4 de dégât armure non prise en compte</p>",
+    "quantity": 4,
+    "degat": "1d4+4",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "yie",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "R4N1aWxzXZ6BDEFl",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.227xvdqa1RxK3grb",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "mUF8zxYJm8apvmJN",
+  "sort": 0,
+  "_key": "!items!mUF8zxYJm8apvmJN"
+}

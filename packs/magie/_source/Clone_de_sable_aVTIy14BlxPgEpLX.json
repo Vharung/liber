@@ -1,0 +1,45 @@
+{
+  "name": "Clone de sable",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/terre-13.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet de créer un clone de boue avec les mêmes caractéristiques que la cible, créature semi-libre</p>",
+    "quantity": 6,
+    "degat": "0",
+    "porter": "30",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "eraliwin",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "T3yP5jZIIYx7NOKk",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.pCj3HJEYeJL4HBVs",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "aVTIy14BlxPgEpLX",
+  "sort": 0,
+  "_key": "!items!aVTIy14BlxPgEpLX"
+}

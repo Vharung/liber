@@ -1,0 +1,45 @@
+{
+  "name": "Loi Murphy",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/sombre-2.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Double les effets de poison, annule tout sortilège de buff/armure, diminue le taux de chance à 25%, augmente l'échec critique a 91 et plus.</p>",
+    "quantity": 6,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Permanent",
+    "style": "cc",
+    "school": "dieuxsombres",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "9QOAfr10cJjVNa0A",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.ocrYLN2lcELqF78V",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "7ZeRpaT3n6pZQZZN",
+  "sort": 0,
+  "_key": "!items!7ZeRpaT3n6pZQZZN"
+}

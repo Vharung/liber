@@ -1,0 +1,45 @@
+{
+  "name": "Bonne fortune",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/vharung-5.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet d’améliorer (1d4)d10 la réussite des sorts pour 1d6 tours Sur soi ou cible 1d6 tours pour 1d4 PSY</p>",
+    "quantity": 0,
+    "degat": "(1d4)d10",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "1d6 Tour",
+    "style": "cc",
+    "school": "vharung",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "ycuPwq3AmQEWHqPi",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.UYqCXhPK4JP6CyNi",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885889206,
+    "modifiedTime": 1758885889206,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "od7UHCkdJdEfpuvF",
+  "sort": 0,
+  "_key": "!items!od7UHCkdJdEfpuvF"
+}

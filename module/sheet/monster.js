@@ -872,7 +872,7 @@ export default class LiberMonsterSheet extends HandlebarsApplicationMixin(ActorS
 
       const pack = game.packs.get('liber-chronicles.inventaire');
       if (!pack) {
-          console.error("Le pack 'liber.inventaire' est introuvable.");
+          console.error("Le pack 'liber-chronicles.inventaire' est introuvable.");
           return;
       }
 

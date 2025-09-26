@@ -1,0 +1,45 @@
+{
+  "name": "Croissance luxuriante",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/nature-6.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Emprisonne les pieds d’un ennemi, peut avoir des ronces empoisonnées qui inflige 1d4 de dégât perce armure(+2 PSY), peut immobiliser totalement l’ennemi (+2 PSY), l’ennemi peut tenter de se libérer sur un test de physique à -20</p><p></p>",
+    "quantity": 2,
+    "degat": "1d4",
+    "porter": "0",
+    "rayon": 0,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Cible",
+    "duree": "Persistant",
+    "style": "cc",
+    "school": "natura",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "hKAiortJ1gCcHTZi",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.sAXGH3Z6n4xzPU6C",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885888057,
+    "modifiedTime": 1758885888057,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "9HcJfiRBytvZH9EH",
+  "sort": 0,
+  "_key": "!items!9HcJfiRBytvZH9EH"
+}

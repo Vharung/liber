@@ -1,0 +1,45 @@
+{
+  "name": "Le Petit Chien",
+  "type": "magic",
+  "img": "systems/liber-chronicles/assets/magie/constellation-29.webp",
+  "system": {
+    "name": "Nouvel Objet",
+    "biography": "<p>Permet d’appeler des animaux à son secours</p>",
+    "quantity": 2,
+    "degat": "0",
+    "porter": "0",
+    "rayon": 30,
+    "poids": 0,
+    "valeur": 0,
+    "protec": 0,
+    "class": "",
+    "cible": "Zone",
+    "duree": "1 Tour",
+    "style": "cc",
+    "school": "nomade",
+    "equip": "",
+    "consommable": "no",
+    "doublemain": "no"
+  },
+  "effects": [],
+  "folder": "UFAMVi5rrSGukKno",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.liber-chronicles.magie.Item.Tbc3WGHDvwvUW7pz",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "liber-chronicles",
+    "systemVersion": "4.0.2",
+    "createdTime": 1758885886670,
+    "modifiedTime": 1758885886670,
+    "lastModifiedBy": "aX7uFGXVamesf6ap"
+  },
+  "ownership": {
+    "default": 0,
+    "aX7uFGXVamesf6ap": 3
+  },
+  "_id": "kwDrlCnB2Nl6KE6R",
+  "sort": 0,
+  "_key": "!items!kwDrlCnB2Nl6KE6R"
+}
