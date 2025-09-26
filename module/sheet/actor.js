@@ -142,7 +142,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
         return;
     }
     // Récupérer les documents du compendium
-    /*const tables = await pack.getDocuments();
+    const tables = await pack.getDocuments();
     if (!tables.length) {
         console.warn("Aucune donnée trouvée dans le compendium 'liber-chronicles.magie'.");
         return;
@@ -177,45 +177,9 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     listMagie = Array.from(newMagie);
     if (!game.user.isGM) {
       console.log("pas gm"); 
-    }*/
-
-    const index = await pack.getIndex();console.log(index)
-    if (!index.size) {
-      console.warn("Aucune donnée trouvée dans le compendium 'liber-chronicles.magie'.");
-      return;
     }
 
-    // Déterminer les écoles de magie
-    let magieSchool = [culte];
-    if (clan === "drauch") {
-      magieSchool.push("yie", "crilanydd");
-    } else if (race === "celeste") {
-      magieSchool = ["lumiereceleste", "croises", "nouvelordre", "vharung", "galerrakath", "oklata"];
-    } else {
-      magieSchool.push(clan);
-    }
 
-    // Construire le filtre principal
-    let listMagie=[]
-    const allowedSchools = new Set(magieSchool);
-    index.forEach(table => {
-      if (clan === "other" || culte === "other" && race!="celeste") {
-        if(table.type=="magic"){
-          const doc = await pack.getDocument(table._id);
-          listMagie.push(table);
-        }
-      }else {
-        if(table.type=="magic"){
-          if(table.system.school.includes(magieSchool)){
-            const doc = await pack.getDocument(table._id);
-            listMagie.push(table);
-          }
-        }
-      }
-     
-    });
-    listMagie.sort((a, b) => a.quantity - b.quantity);
-    
     
 
     return {
