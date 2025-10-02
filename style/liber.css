@@ -356,7 +356,13 @@ body.theme-dark .application .window-content{backdrop-filter:none}
 .liber.item .generer{border-radius: 5px;height: 40px;width: 175px;display: inline-block;margin-top: 11px;padding: 10px;background: var(--couleur-or);color:var(--couleur-noir);text-align: center;}
 .liber.item .form-group{width:175px;}
 .liber.item select,.liber.item select{padding:0;width: 175px;}
-
+.liber.item .navitem a{color: #2b2c2c;width: 25%;margin: 0;padding: 0;}
+.liber.item .conteneur  {height: 183px; overflow: auto}
+.liber.item button.add{float: right;margin-right: 10px;}
+.liber.item .conteneur input {background: var(--couleur-clair);color:var(--couleur-noir);}
+.liber.item .conteneur input[type=number] {width: 41px;text-align: right;}
+.liber.item .conteneur input[type=text] {width: calc(100% - 95px);text-align: left;}
+.liber.item button.deletecontent {float: right;margin-top: 3px;}
 
 /**********************/
 /*        Chat        */

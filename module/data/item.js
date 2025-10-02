@@ -47,6 +47,14 @@ export default class LiberItemData extends foundry.abstract.DataModel {
         }
 
       }),
+      contents: new fields.ArrayField(//ajoute contenu
+        new fields.SchemaField({
+          id: new fields.StringField({ required: true }),   // ID de l'item contenu
+          name: new fields.StringField({ required: true }), // Nom de l'item
+          qty: new fields.NumberField({ required: true, min: 1, initial: 1 })
+        }),
+        { initial: [] }
+      ),
       school: new fields.StringField({
           required: true,
           initial: CLAN.NONE, // Valeur par défaut

@@ -1,5 +1,3 @@
-2025/09/26-14:33:18.162547 73da6ca006c0 Log #15: 0 ops saved to Table #18 OK
-2025/09/26-14:33:18.162623 73da6ca006c0 Archiving /home/vharung/.local/share/FoundryVTT/Data/systems/liber-chronicles/pack/regles/000015.log: OK
-2025/09/26-14:33:18.162964 73da6ca006c0 Table #17: 4 entries OK
-2025/09/26-14:33:18.163035 73da6ca006c0 Archiving /home/vharung/.local/share/FoundryVTT/Data/systems/liber-chronicles/pack/regles/MANIFEST-000013: OK
-2025/09/26-14:33:18.163783 73da6ca006c0 **** Repaired leveldb /home/vharung/.local/share/FoundryVTT/Data/systems/liber-chronicles/pack/regles; recovered 1 files; 28333 bytes. Some data may have been lost. ****
+2025/10/01-10:52:27.938 544 Recovering log #19
+2025/10/01-10:52:27.956 544 Delete type=0 #19
+2025/10/01-10:52:27.956 544 Delete type=3 #18

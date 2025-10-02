@@ -449,6 +449,7 @@
     },
     "Items": {
       "Descri": "Description",
+      "Contenu": "Content",
       "Degat": "Damage",
       "Poids": "Weight",
       "Porter": "Range",
@@ -843,6 +844,7 @@
     },
     "Labels": {
       "biography": "Bio",
+      "ajouter": "Add",
       "Erreur1": "Agility and Strength do not match Physical!",
       "Erreur2": "Charisma and Sagacity do not match Social!",
       "Erreur3": "Wit and Memory do not match Mental!",

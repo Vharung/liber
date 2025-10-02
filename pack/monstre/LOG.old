@@ -1,5 +1,3 @@
-2025/09/26-14:33:18.054539 73da6de006c0 Log #16: 0 ops saved to Table #17 OK
-2025/09/26-14:33:18.054634 73da6de006c0 Archiving /home/vharung/.local/share/FoundryVTT/Data/systems/liber-chronicles/pack/monstre/000016.log: OK
-2025/09/26-14:33:18.058766 73da6de006c0 Table #5: 698 entries OK
-2025/09/26-14:33:18.059057 73da6de006c0 Archiving /home/vharung/.local/share/FoundryVTT/Data/systems/liber-chronicles/pack/monstre/MANIFEST-000014: OK
-2025/09/26-14:33:18.061205 73da6de006c0 **** Repaired leveldb /home/vharung/.local/share/FoundryVTT/Data/systems/liber-chronicles/pack/monstre; recovered 1 files; 605469 bytes. Some data may have been lost. ****
+2025/10/01-10:52:27.764 17d4 Recovering log #19
+2025/10/01-10:52:27.778 17d4 Delete type=0 #19
+2025/10/01-10:52:27.778 17d4 Delete type=3 #18

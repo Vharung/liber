@@ -172,15 +172,55 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       }
     });
     newMagie.sort((a, b) => a.quantity - b.quantity);
+// ⚡️ Charger seulement l’index (beaucoup plus léger que getDocuments)
+/*const index = await pack.getIndex();
+if (!index.size) {
+  console.warn("Aucune donnée trouvée dans le compendium 'liber-chronicles.magie'.");
+  return;
+}
+
+// Déterminer les écoles de magie
+let magieSchool = [culte];
+if (clan === "drauch") {
+  magieSchool.push("yie", "crilanydd");
+} else if (race === "celeste") {
+  magieSchool = ["lumiereceleste", "croises", "nouvelordre", "vharung", "galerrakath", "oklata"];
+} else {
+  magieSchool.push(clan);
+}
+
+// Construire le filtre principal
+const isOther = (clan === "other" || culte === "other") && race !== "celeste";
+const allowedSchools = new Set(magieSchool);console.log(allowedSchools)
+
+// ⚡️ Filtrer et transformer en un seul passage
+const newMagie = (await Promise.all(
+  [...index.values()]
+    .filter(entry => {
+      // Filtrage minimal sur l'index (plus rapide)
+      return isOther || allowedSchools.has(entry.system?.school);
+    })
+    .map(async entry => {
+      // Charger uniquement les documents qui passent le premier filtre
+      const doc = await pack.getDocument(entry._id);
+      return doc.system.quantity <= cout
+        ? {
+            name: doc.name,
+            id: doc.id,
+            quantity: doc.system.quantity,
+            description: doc.system.biography
+          }
+        : null;
+    })
+))
+.filter(Boolean) // Retire les null
+.sort((a, b) => a.quantity - b.quantity);console.log(newMagie)*/
 
     // Convertir `newMagie` en tableau pour la mise à jour
     listMagie = Array.from(newMagie);
     if (!game.user.isGM) {
       console.log("pas gm"); 
     }
-
-
-    
 
     return {
         tabs: this.#getTabs(),

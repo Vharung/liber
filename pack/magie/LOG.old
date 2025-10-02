@@ -1,5 +1,3 @@
-2025/09/26-14:33:18.042370 73da6de006c0 Log #16: 0 ops saved to Table #17 OK
-2025/09/26-14:33:18.042456 73da6de006c0 Archiving /home/vharung/.local/share/FoundryVTT/Data/systems/liber-chronicles/pack/magie/000016.log: OK
-2025/09/26-14:33:18.043483 73da6de006c0 Table #5: 606 entries OK
-2025/09/26-14:33:18.043555 73da6de006c0 Archiving /home/vharung/.local/share/FoundryVTT/Data/systems/liber-chronicles/pack/magie/MANIFEST-000014: OK
-2025/09/26-14:33:18.044142 73da6de006c0 **** Repaired leveldb /home/vharung/.local/share/FoundryVTT/Data/systems/liber-chronicles/pack/magie; recovered 1 files; 213218 bytes. Some data may have been lost. ****
+2025/10/01-10:52:27.715 544 Recovering log #19
+2025/10/01-10:52:27.734 544 Delete type=0 #19
+2025/10/01-10:52:27.734 544 Delete type=3 #18

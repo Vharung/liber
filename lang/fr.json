@@ -449,6 +449,7 @@
     },
     "Items":{
       "Descri":"Description",
+      "Contenu":"Contenu",
       "Degat":"Dégats",
       "Poids":"Poids",
       "Porter":"Portée",
@@ -842,6 +843,7 @@
     },
     "Labels":{
       "biography":"Bio",
+      "ajouter":"Ajouter un composant",
       "Erreur1":"Agilité et Force ne correspond pas à Physique !",
       "Erreur2":"Charisme et Sagacité ne correspond pas à Social ! !",
       "Erreur3":"Astuce et Mémoire ne correspond pas à Mental !",
