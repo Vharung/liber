@@ -75,7 +75,24 @@
         {{#if (eq actor.type "monstre")}}
             <span class="carte" style="background:url({{actor.system.geo}});background-size: contain;"></span>
         {{else}}
-            <span class="competences"></span>
-                    {{/if}}
+            <div class="competences">
+              {{#each actor.system.competences as |val ability|}}
+                {{#if (ne val 0)}}
+                    {{#unless (eq ability "armor")}}
+                      <div class="resume">
+                        <a class="attribut"
+                           data-action="bonuscompt"
+                           data-ability="{{ability}}"
+                           data-val="{{val}}"
+                           title="{{localize (concat "Liber.Character.Competences." ability)}}">
+                          <span>{{val}}</span>
+                          {{localize (concat "Liber.Character.Competences." ability)}}
+                        </a>
+                      </div>
+                    {{/unless}}
+                {{/if}}
+              {{/each}}
+            </div>
+        {{/if}}
     </div>
 </div>

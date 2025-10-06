@@ -13,6 +13,3 @@ BUG :
     - retirer les munitions
 */
 
-X étant les psy dépensés pour ce sort.
-
-Éphémère

@@ -251,7 +251,7 @@ body.theme-dark .application .window-content{backdrop-filter:none}
 .liber .item-image img, .liber .item-qty{width: 25px; text-align: center;cursor:help;}
 .liber .item-qty{padding-top: 3px}
 .liber .item_name{width: 170px; display: inline-block;}
-.liber.actor .item-valeur,.liber.actor .item-porter,.liber.actor .item-degat,.liber.actor .item-protec{float: left;width: 60px;text-align: left;}
+.liber.actor .item-valeur,.liber.actor .item-porter,.liber.actor .item-degat,.liber.actor .item-protec{float: left;width: 54px;text-align: left;}
 .liber .weight{display: inline-block;width:20px;}
 .liber .items-list .item{border-bottom: 1px solid var(--couleur-noir); padding-bottom: 3px;color:var(--couleur-noir);margin-bottom: 3px;}
 .liber .items-list .item.active{display: block}

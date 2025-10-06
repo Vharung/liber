@@ -172,55 +172,14 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       }
     });
     newMagie.sort((a, b) => a.quantity - b.quantity);
-// ⚡️ Charger seulement l’index (beaucoup plus léger que getDocuments)
-/*const index = await pack.getIndex();
-if (!index.size) {
-  console.warn("Aucune donnée trouvée dans le compendium 'liber-chronicles.magie'.");
-  return;
-}
 
-// Déterminer les écoles de magie
-let magieSchool = [culte];
-if (clan === "drauch") {
-  magieSchool.push("yie", "crilanydd");
-} else if (race === "celeste") {
-  magieSchool = ["lumiereceleste", "croises", "nouvelordre", "vharung", "galerrakath", "oklata"];
-} else {
-  magieSchool.push(clan);
-}
-
-// Construire le filtre principal
-const isOther = (clan === "other" || culte === "other") && race !== "celeste";
-const allowedSchools = new Set(magieSchool);console.log(allowedSchools)
-
-// ⚡️ Filtrer et transformer en un seul passage
-const newMagie = (await Promise.all(
-  [...index.values()]
-    .filter(entry => {
-      // Filtrage minimal sur l'index (plus rapide)
-      return isOther || allowedSchools.has(entry.system?.school);
-    })
-    .map(async entry => {
-      // Charger uniquement les documents qui passent le premier filtre
-      const doc = await pack.getDocument(entry._id);
-      return doc.system.quantity <= cout
-        ? {
-            name: doc.name,
-            id: doc.id,
-            quantity: doc.system.quantity,
-            description: doc.system.biography
-          }
-        : null;
-    })
-))
-.filter(Boolean) // Retire les null
-.sort((a, b) => a.quantity - b.quantity);console.log(newMagie)*/
 
     // Convertir `newMagie` en tableau pour la mise à jour
     listMagie = Array.from(newMagie);
     if (!game.user.isGM) {
       console.log("pas gm"); 
     }
+
 
     return {
         tabs: this.#getTabs(),
@@ -268,10 +227,11 @@ const newMagie = (await Promise.all(
         const newTab = event.currentTarget.dataset.tab;
         this._setActiveTab(newTab);
       });
+      
     });
 
     /* Colorisation des compétences */
-    let compe = '';
+    //let compe = '';
     document.querySelectorAll(".perso").forEach(compt => {
       const input = compt.querySelector("input");
       const spanElement = compt.querySelector("span");
@@ -279,30 +239,20 @@ const newMagie = (await Promise.all(
       const span = spanElement ? spanElement.innerHTML : ""; // Vérifie si <a> existe
       const valor = parseInt(input?.value, 10) || 0; // Vérifie si input existe et parse en nombre
       const dataAbility = compt.getAttribute('data-ability'); // Récupère la valeur de data-ability du parent .perso
-      // Appliquer la couleur selon la valeur
       if (valor === 0) {
         input.style.background = "";
         input.style.color = "var(--couleur-clair)";
       } else if (valor > 0) {
         input.style.background = "var(--couleur-vert)";
         input.style.color = "white";
-        compe += `<div class="resume"><a class="attribut" data-action="bonuscompt" data-ability="${dataAbility}" data-val="${valor}" title="span"><span>${valor}</span> ${span}</a></div>`;
+       // compe += `<div class="resume"><a class="attribut" data-action="bonuscompt" data-ability="${dataAbility}" data-val="${valor}" title="span"><span>${valor}</span> ${span}</a></div>`;
       } else {
         input.style.background = "var(--couleur-rouge)";
         input.style.color = "white";
-        compe += `<div class="resume"><a class="attribut" data-action="bonuscompt" data-ability="${dataAbility}" data-val="${valor}" title="span"><span>${valor}</span> ${span}</a></div>`;
-      }  
+        //compe += `<div class="resume"><a class="attribut" data-action="bonuscompt" data-ability="${dataAbility}" data-val="${valor}" title="span"><span>${valor}</span> ${span}</a></div>`;
+      } 
     });
-    const type=this.actor.type;
-    //if(type=='character' || type=="pnj"){
-    
-    //}
-
-    // Mettre à jour le contenu de `.competences` raccourci des information
-    let competencesElement = document.querySelector(".competences");
-    if (competencesElement) {
-      competencesElement.innerHTML = compe;
-    }
+   
 
     
 
@@ -464,31 +414,6 @@ const newMagie = (await Promise.all(
     return tabs;
   }
 
-  /** Gestion des événements au rendu */
-  /** @override */
- /* async _onDrop(event) {
-    event.preventDefault();
-    console.log(event)
-    const data = TextEditor.getDragEventData(event);
-
-    if (data.type === "Item") {
-        const item = await Item.fromDropData(data);
-        if (item) {
-            await this.actor.createEmbeddedDocuments("Item", [item.toObject()]);
-        }
-    }
-  }
-
-  async _onDropItem(event, itemData) {
-      // Sauvegarder l'onglet actif
-      console.log(event)
-      const activeTab = this._tabs[0]?.active;
-      // Ajouter l'objet normalement
-      await super._onDropItem(event, itemData);
-
-      // Rafraîchir sans perdre l'onglet actif
-      this.render(false, { activeTab });
-  }
 
   
 
@@ -521,7 +446,6 @@ const newMagie = (await Promise.all(
     // Calcul des points de vie et de magie
     let calcul = this.onCalcul();
 
-
     if (type === 'character') {
         sortPris = this.actor.items.filter(item => item.type === "magic");
         sortRestant = calcul.nbSort - sortPris.length;
@@ -534,9 +458,16 @@ const newMagie = (await Promise.all(
         ...corrections          // Compétences raciales corrigées 
     };
 
+    const race = this.actor.system.race;
+    let armurenat = this.actor.system.armure;
+    let raceBonus = Model.race[race] || {};
+    
+    // 4️⃣ Gestion du bonus d'armure
+    if(armurenat < raceBonus.armor){armurenat= raceBonus.armor}
 
     // Mise à jour de l'acteur
     this.actor.update({
+      "system.armure": armurenat,
       "system.reste": resultat,
       "system.probleme": stat.message,
       "system.restant": stat.reste,
@@ -554,9 +485,9 @@ const newMagie = (await Promise.all(
       ...updateData,
       ...competences
     });
-}
+  }
 
-
+  
 
   /**
    * Calcule la pénalité en fonction des compétences avec leurs multiplicateurs et applique les limites.
@@ -568,6 +499,7 @@ const newMagie = (await Promise.all(
     const level = this.actor.system.niveau;
     const base = this.actor.system.base;
     const clan = this.actor.system.clan;
+    const metier = this.actor.system.metier;
     const faiblesse =this.actor.system.faiblesse;
     //const apprentissage=this.actor.system.apprentissage;
     const race = this.actor.system.race;
@@ -575,12 +507,6 @@ const newMagie = (await Promise.all(
     if(faiblesse=="distrait"){
       bonus_compt=bonus_compt - 2;
     }
-    /*let apprentissage_bonus = 0;
-    for (let i = 1; i < level; i++) {
-
-        apprentissage_bonus = apprentissage_bonus + apprentissage["level"+i] || 0; 
-    }
-    let resultat = base + ((level - 1) * bonus_compt)+ apprentissage_bonus;*/
 
     let resultat = base + ((level - 1) * bonus_compt)
     // ✅ Corrections raciales
@@ -630,6 +556,20 @@ const newMagie = (await Promise.all(
       competences["system.reste"] = resultat+20;
     }
       
+
+    // ✅ Vérification finale Race + Métier (seconde passe)
+    const minRace = Model.race[race] || {};
+    const minMetier = (Model.Metiers[metier]?.competences) || {};
+
+    const allKeys = new Set([...Object.keys(minRace), ...Object.keys(minMetier)]);
+    for (const comp of allKeys) {
+      if (comp !== "ajoutpoint" && comp !== "armor") {
+        const minValue = Math.max(minRace[comp] || 0, minMetier[comp] || 0);
+        if ((cpts[comp] ?? 0) < minValue) {
+          competences[`system.competences.${comp}`] = minValue;
+        }
+      }
+    }
       
       return { resultat, corrections, competences };
       // Mise à jour UNE SEULE FOIS après le calcul
@@ -760,16 +700,6 @@ const newMagie = (await Promise.all(
         )
     );
   }
-
-
-
-     
-
-
-    //#region Actions
-
-    
-
 
     /**
      * @param {PointerEvent} event - The originating click event
@@ -1518,30 +1448,29 @@ const newMagie = (await Promise.all(
     static async #onItemEquip(event, target) {
       const itemId = target.getAttribute('data-item-id');
       const equipLocation = target.getAttribute('data-ou');
+      const protection = Number(target.getAttribute('data-protection')) || 0;
 
-      if(equipLocation=="middle"){
-        const protection=target.getAttribute('data-protection');
-        let armor=this.actor.system.armure;
-        armor=armor + protection;
-        await this.actor.update({'system.armure':armor});
-      }
-      
+      // Armure actuelle (toujours un nombre)
+      let armor = Number(this.actor.system.armure) || 0;
+      armor += protection;
+
+      await this.actor.update({ "system.armure": armor });
+
       // Récupération de l'item
       const item = this.actor.items.get(itemId);
-      await item.update({'system.equip':equipLocation})
+      await item.update({ "system.equip": equipLocation });
     }
-    static async #onItemDesequip(event, target) {  
-      // Récupération de l'item
+
+    static async #onItemDesequip(event, target) {
       const itemId = target.getAttribute('data-item-id');
       const item = this.actor.items.get(itemId);
-      const equipLocation = target.getAttribute('data-ou');
-      if(equipLocation=="middle"){
-        const protection=target.getAttribute('data-protection');
-        let armor=this.actor.system.armure;
-        armor=armor - protection;
-        await this.actor.update({'system.armure':armor});
-      }
-      await item.update({'system.equip':""})
+      const protection = Number(target.getAttribute('data-protection')) || 0;
+
+      let armor = Number(this.actor.system.armure) || 0;
+      armor -= protection;
+
+      await this.actor.update({ "system.armure": Math.max(0, armor) }); // évite valeurs négatives
+      await item.update({ "system.equip": "" });
     }
 
     static async #onEditImage(event, target) {

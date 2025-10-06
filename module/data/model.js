@@ -43,7 +43,7 @@ Model.Metiers = {
 
 Model.race={//v3
     "dragon":{
-            "discretion":-5,"negociation":5,"ajoutpoint":-5
+            "discretion":-5,"negociation":5,"ajoutpoint":-5,"armor":2
     },
     "humain":{
         "charisme":5,"dexterite":5,"ajoutpoint":25
@@ -55,7 +55,7 @@ Model.race={//v3
         "tromperie":5,"survie":10,"ajoutpoint":25
     },
     "drauch":{
-        "armor":2,"tromperie":5,"ajoutpoint":5
+        "armor":2,"tromperie":5,"ajoutpoint":5,"armor":2
     },
     "kobolt":{
         "agilites":5,"discretion":5,"ajoutpoint":10
