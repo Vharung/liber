@@ -92,7 +92,6 @@ export default class LiberChat {
             content: this.content,
             rolls: []
         }
-        console.log(messageData)
 
         // Set the roll parameter if necessary
         if (this.rolls) {
@@ -131,12 +130,10 @@ export default class LiberChat {
      * @private
      */
     async _createContent() {
-        console.log('create')
 
         // Update the data to provide to the template
         const d =  foundry.utils.duplicate(this.data);
         d.owner = this.actor.id;
-        console.log(d)
         // Call the template renderer.
         return await foundry.applications.handlebars.renderTemplate(this.template, d);
 
