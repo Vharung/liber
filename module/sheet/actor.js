@@ -1393,10 +1393,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     await actor.createEmbeddedDocuments("Item", [spell.toObject()]);
     ui.notifications.info(`${spell.name} ajouté à ${actor.name} !`);
   }
-
-
-
-
  
   static async #onAddSort(event, target){
     const id=this.actor._id;
