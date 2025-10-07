@@ -204,196 +204,145 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     return context;
   }
 
-  _onRender(context, options) {
-    super._onRender(context, options);  // Appelez la méthode parente si nécessaire
-    console.log(context);
-    this._onVerif();
+  async _onRender(context, options) {
+    super._onRender(context, options);
+    console.log(context)
+    // 🧩 Vérification logique de la fiche
+    await this._onVerif();
 
-    // Ajoutez un listener pour vérifier si le drag-and-drop fonctionne
-    this.element.querySelectorAll('[data-drag]').forEach(item => {
-        item.addEventListener('dragstart', () => {
-      });
+    const el = this.element[0]; // wrapper principal
+    const system = this.actor.system;
+
+    /* === 🔹 DRAG & DROP === */
+    el.querySelectorAll('[data-drag]').forEach(item => {
+      item.addEventListener('dragstart', () => {}); // placeholder
     });
 
-    /*conserver le dernier onglet ouvert*/
-    if (!this.actor) return;
-    // Récupérer l'onglet actif spécifique à ce personnage (ou valeur par défaut)
-    const activeTab = localStorage.getItem(`activeTab-${this.actor.id}`) || "background"; 
-    // Appliquer l'affichage correct
+    /* === 🔹 ONGLET ACTIF === */
+    const activeTabKey = `activeTab-${this.actor.id}`;
+    const activeTab = localStorage.getItem(activeTabKey) || "background";
     this._setActiveTab(activeTab);
-    // Gérer le clic sur les onglets pour changer de vue
-    this.element.querySelectorAll(".sheet-tabs [data-tab]").forEach(tab => {
-      tab.addEventListener("click", (event) => {
-        const newTab = event.currentTarget.dataset.tab;
+
+    el.querySelectorAll(".sheet-tabs [data-tab]").forEach(tab => {
+      tab.addEventListener("click", (ev) => {
+        const newTab = ev.currentTarget.dataset.tab;
         this._setActiveTab(newTab);
+        localStorage.setItem(activeTabKey, newTab);
       });
-      
     });
 
-    /* Colorisation des compétences */
-    //let compe = '';
-    document.querySelectorAll(".perso").forEach(compt => {
-      const input = compt.querySelector("input");
-      const spanElement = compt.querySelector("span");
-      const calc = compt.querySelector("span[calc]").getAttribute("calc");
-      const span = spanElement ? spanElement.innerHTML : ""; // Vérifie si <a> existe
-      const valor = parseInt(input?.value, 10) || 0; // Vérifie si input existe et parse en nombre
-      const dataAbility = compt.getAttribute('data-ability'); // Récupère la valeur de data-ability du parent .perso
-      if (valor === 0) {
-        input.style.background = "";
-        input.style.color = "var(--couleur-clair)";
-      } else if (valor > 0) {
-        input.style.background = "var(--couleur-vert)";
-        input.style.color = "white";
-       // compe += `<div class="resume"><a class="attribut" data-action="bonuscompt" data-ability="${dataAbility}" data-val="${valor}" title="span"><span>${valor}</span> ${span}</a></div>`;
-      } else {
-        input.style.background = "var(--couleur-rouge)";
-        input.style.color = "white";
-        //compe += `<div class="resume"><a class="attribut" data-action="bonuscompt" data-ability="${dataAbility}" data-val="${valor}" title="span"><span>${valor}</span> ${span}</a></div>`;
-      } 
-    });
-   
-
-    
-
-    // Récupérer la valeur de la posture
-    const posture = this.actor.system.posture;
-
-    // Sélectionner tous les éléments avec la classe 'post'
-    document.querySelectorAll('.post').forEach(element => {
-      // Vérifier si l'élément a la classe 'posture'
-      if (element.classList.contains(posture)) {
-        // Si c'est le cas, appliquer l'opacité à 1
-        element.style.opacity = '1';
-      } else {
-        // Sinon, appliquer l'opacité à 0.5
-        element.style.opacity = '0.5';
-      }
+    /* === 🔹 COLORISATION DES COMPÉTENCES === */
+    el.querySelectorAll(".perso").forEach(c => {
+      const input = c.querySelector("input");
+      if (!input) return;
+      const val = parseInt(input.value) || 0;
+      input.style.color = val === 0 ? "var(--couleur-clair)" : "white";
+      input.style.background = val > 0 ? "var(--couleur-vert)" : (val < 0 ? "var(--couleur-rouge)" : "");
     });
 
-    //opacité des avantage insoin ...
-    document.querySelectorAll('.head input').forEach(element => {
-      // Vérifier si l'élément a la classe 'posture'
-      if (element.value>0) {
-        // Si c'est le cas, appliquer l'opacité à 1
-        element.style.opacity = '1';
-      } else {
-        // Sinon, appliquer l'opacité à 0.5
-        element.style.opacity = '0.5';
-      }
+    /* === 🔹 POSTURE === */
+    const posture = system.posture;
+    el.querySelectorAll('.post').forEach(p => {
+      p.style.opacity = p.classList.contains(posture) ? '1' : '0.5';
     });
 
-    // Récupérer la valeur de l'élément HTML avec la classe 'enc'
-    const max = this.actor.system.encmax;
+    /* === 🔹 AVANTAGES VISUELS === */
+    el.querySelectorAll('.head input').forEach(i => {
+      i.style.opacity = parseInt(i.value) > 0 ? '1' : '0.5';
+    });
 
-    // Calcul du total et du pourcentage
-    const min = this.actor.system.enc;
-    let pourcentage =Math.round(min * 100 / max);
-    if(pourcentage>100){pourcentage=100;}
-    // Récupérer la barre d'encombrement
-    const barEncElement = document.querySelector('.barenc');
-    barEncElement.style.width = pourcentage+'%';
-    // Modifier la couleur de la barre d'encombrement en fonction du pourcentage
-    if (pourcentage < 25) {
-        barEncElement.style.background = 'green';
-        
-    } else if (pourcentage < 75) {
-        barEncElement.style.background = 'orange';
-    } else if (pourcentage < 100) {
-        barEncElement.style.background = 'red';
-    } else if (pourcentage < 120) {
-        barEncElement.style.background = '#660000';
-    } else {
-        barEncElement.style.background = 'black';
+    /* === 🔹 BARRE D’ENCOMBREMENT === */
+    const enc = system.enc || 0;
+    const encmax = system.encmax || 1;
+    const barEnc = el.querySelector('.barenc');
+    if (barEnc) {
+      let pourcent = Math.min(Math.round(enc * 100 / encmax), 120);
+      barEnc.style.width = `${pourcent}%`;
+      barEnc.style.background =
+        pourcent < 25 ? 'green' :
+        pourcent < 75 ? 'orange' :
+        pourcent < 100 ? 'red' :
+        pourcent < 120 ? '#660000' : 'black';
     }
 
-    //tab inventaire
-    const inventory = this.actor.system.inventory;
-    const types = ["all", "weapon", "armor", "item"];
-
-    if (types.includes(inventory)) {
-      document.querySelector(`a[data-type="${inventory}"]`).style.opacity = 1;
+    /* === 🔹 INVENTAIRE === */
+    const invType = system.inventory;
+    if (["all", "weapon", "armor", "item"].includes(invType)) {
+      const active = el.querySelector(`a[data-type="${invType}"]`);
+      if (active) active.style.opacity = 1;
     }
 
-    // Background red si PV à zéro
-    const race = this.actor.system.race;
-    const hp = this.actor.system.hp.value;
-    const psy = this.actor.system.psy.value;
-    const actorElement = document.getElementById(`LiberCharacterSheet-Actor-${this.actor._id}`);
-    // Vérifier si les points de vie sont égaux à 0
-    if ((hp <= 0 && race !== 'etredepsy') || (psy <= 0 && race === 'etredepsy')) {
-        // Récupérer l'élément et appliquer le style CSS
-        
-        if (actorElement) {
-            actorElement.style.background = 'linear-gradient(230deg, rgba(190,25,25,1) 0%, rgba(25,25,25,1) 100%)';
-        }else{
-            actorElement.style.background = 'linear-gradient(218deg, #2a2b2c 0%, #120304 100%)';
-        }
+    /* === 🔹 FOND D’ÉCRAN SI PV = 0 === */
+    const hp = system.hp.value || 0;
+    const psy = system.psy.value || 0;
+    const race = system.race;
+    const sheetEl = document.getElementById(`LiberCharacterSheet-Actor-${this.actor.id}`);
 
-    }else{
-       actorElement.style.background = 'linear-gradient(218deg, #2a2b2c 0%, #120304 100%)';
+    if (sheetEl) {
+      const mort = (hp <= 0 && race !== 'etredepsy') || (psy <= 0 && race === 'etredepsy');
+      sheetEl.style.background = mort
+        ? 'linear-gradient(230deg, rgba(190,25,25,1) 0%, rgba(25,25,25,1) 100%)'
+        : 'linear-gradient(218deg, #2a2b2c 0%, #120304 100%)';
     }
-    let reste = document.querySelector("input[name='system.reste']");
-    if(reste.value>0){
-      reste.style.background = "var(--couleur-vert)";
-    }else if(reste.value<0){
-      reste.style.background = "var(--couleur-rouge)";
+
+    /* === 🔹 RESTE COLORISÉ === */
+    const resteInput = el.querySelector("input[name='system.reste']");
+    if (resteInput) {
+      const val = parseInt(resteInput.value) || 0;
+      resteInput.style.background =
+        val > 0 ? "var(--couleur-vert)" :
+        val < 0 ? "var(--couleur-rouge)" : "";
     }
   }
+
 
 /* ==========================================================
 *  Contrôle de la fiche de personnage
 * ========================================================== */
   /** @override */
- _onVerif() {
+ /** Vérifie et met à jour toutes les valeurs de l'acteur */
+  async _onVerif() {
+    const actor = this.actor;
+    const system = foundry.utils.duplicate(actor.system); // copie safe
+    const type = actor.type;
+    const race = system.race;
+    const metier = system.metier;
+    const level = system.niveau;
+
+    // Variables de travail
     let resultat = 0;
-    let sortPris = [];
-    let corrections = [];
-    let competences = [];
+    let corrections = {};
+    let competences = {};
     let sortRestant = 0;
     let stat = { message: "", reste: 0 };
 
-    const type = this.actor.type;
-    //const point_apprentissage = this.actor.system.competences.apprentissage;
-    const level = this.actor.system.niveau;
-
-   if (type === 'character') {
-        // Vérification des compétences
-        const compCheck  = this.onCalculerPenaliteCompetences();
-        resultat=compCheck.resultat;
-        corrections =compCheck.corrections;
-        competences =compCheck.competences;
-        // Vérification des points stat
-        stat = this.onStat();
+    // 1️⃣ Vérification des compétences & pénalités
+    if (type === "character") {
+      const compCheck = this.onCalculerPenaliteCompetences();
+      resultat = compCheck.resultat;
+      corrections = compCheck.corrections;
+      competences = compCheck.competences;
+      stat = this.onStat();
     }
- 
-    // Calcul de l'encombrement
-    let encStats = this.onEnc() || { enc: 0, max: 0 };
 
-    // Calcul des points de vie et de magie
-    let calcul = this.onCalcul();
+    // 2️⃣ Calcul de l'encombrement, PV, psy, sorts, etc.
+    const encStats = this.onEnc() || { enc: 0, max: 0 };
+    const calcul = this.onCalcul();
 
-    if (type === 'character') {
-        sortPris = this.actor.items.filter(item => item.type === "magic");
-        sortRestant = calcul.nbSort - sortPris.length;
-    }else {
-      calcul.hpalert="";
-      calcul.psyalert="";
+    if (type === "character") {
+      const sortPris = actor.items.filter(item => item.type === "magic");
+      sortRestant = calcul.nbSort - sortPris.length;
+    } else {
+      calcul.hpalert = "";
+      calcul.psyalert = "";
     }
-    let updateData = {
-        ...this.onStatut(),     // Autres données de statut
-        ...corrections          // Compétences raciales corrigées 
-    };
 
-    const race = this.actor.system.race;
-    let armurenat = this.actor.system.armure;
-    let raceBonus = Model.race[race] || {};
-    
-    // 4️⃣ Gestion du bonus d'armure
-    if(armurenat < raceBonus.armor){armurenat= raceBonus.armor}
+    // 3️⃣ Gestion de l’armure raciale
+    const raceBonus = Model.race[race] || {};
+    let armurenat = Math.max(system.armure, raceBonus.armor || 0);
 
-    // Mise à jour de l'acteur
-    this.actor.update({
+    // 4️⃣ Fusion des données à mettre à jour
+    const updateData = {
       "system.armure": armurenat,
       "system.reste": resultat,
       "system.probleme": stat.message,
@@ -408,10 +357,16 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       "system.max": sortRestant,
       "system.alert.hp": calcul.hpalert,
       "system.alert.psy": calcul.psyalert,
-      // [`system.apprentissage.level${level}`]: point_apprentissage,
-      ...updateData,
-      ...competences
-    });
+      ...this.onStatut(),   // Données d'état
+      ...corrections,       // Ajustements raciaux
+      ...competences        // Compétences mises à jour
+    };
+
+    // 5️⃣ Application des changements une seule fois
+    await actor.update(updateData, { render: false });
+
+    // ✅ Optionnel : log de débogage
+    //console.debug("Vérification terminée :", updateData);
   }
 
   /**
@@ -437,25 +392,25 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     // ✅ Corrections raciales
     const corrections = {};
     if (Model.race[race]) {
-        const raceComp = Model.race[race];
-        for (const comp in raceComp) {
-            if (comp !== "ajoutpoint") {
-                if (!cpts[comp] || cpts[comp] < raceComp[comp]) {
-                    corrections[`system.competences.${comp}`] = raceComp[comp];
-                    cpts[comp] = raceComp[comp]; // Met à jour la copie pour le calcul
-                }
-            }
+      const raceComp = Model.race[race];
+      for (const comp in raceComp) {
+        if (comp !== "ajoutpoint") {
+          if (!cpts[comp] || cpts[comp] < raceComp[comp]) {
+            corrections[`system.competences.${comp}`] = raceComp[comp];
+            cpts[comp] = raceComp[comp]; // Met à jour la copie pour le calcul
+          }
         }
+      }
     }
 
     // Calcul de la pénalité
-      for (const competence in cpts) {
-        if (Model.multiplicateurs[competence]) {
-          const valeur = cpts[competence]; // Récupération de la valeur de la compétence
-          const penalite = valeur * Model.multiplicateurs[competence]; // Calcul de la pénalité
-          resultat -= penalite; // Soustraction de la pénalité du résultat
-        }
+    for (const competence in cpts) {
+      if (Model.multiplicateurs[competence]) {
+        const valeur = cpts[competence]; // Récupération de la valeur de la compétence
+        const penalite = valeur * Model.multiplicateurs[competence]; // Calcul de la pénalité
+        resultat -= penalite; // Soustraction de la pénalité du résultat
       }
+    }
 
     //bonus clan à continuer
     let competences = {};
@@ -463,7 +418,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       if (this.actor.system.competences.discretion < 10) {
         competences["system.competences.discretion"] = 10;
       }
-
       if (race === "dragon") {
         competences["system.reste"] = resultat+30;
       } else {
@@ -480,13 +434,12 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       }
       competences["system.reste"] = resultat+20;
     }
-      
 
     // ✅ Vérification finale Race + Métier (seconde passe)
     const minRace = Model.race[race] || {};
     const minMetier = (Model.Metiers[metier]?.competences) || {};
-
     const allKeys = new Set([...Object.keys(minRace), ...Object.keys(minMetier)]);
+    
     for (const comp of allKeys) {
       if (comp !== "ajoutpoint" && comp !== "armor") {
         const minValue = Math.max(minRace[comp] || 0, minMetier[comp] || 0);
@@ -495,51 +448,46 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
         }
       }
     }
-      
-      return { resultat, corrections, competences };
-      // Mise à jour UNE SEULE FOIS après le calcul
-      
+    return { resultat, corrections, competences };
+    // Mise à jour UNE SEULE FOIS après le calcul
   }
 
   onStat() {
     const ability = this.actor.system.ability;
 
-      // Calcul des valeurs
-      const physique = ability.force + ability.agilite;
-      const social = ability.charisme + ability.sagacite;
-      const mental = ability.memoire + ability.astuce;
-      const stat = ability.physique + ability.social + ability.mental;
-      let reste = 170 - stat;
-      let message = "";
+    // Calcul des valeurs
+    const physique = ability.force + ability.agilite;
+    const social = ability.charisme + ability.sagacite;
+    const mental = ability.memoire + ability.astuce;
+    const stat = ability.physique + ability.social + ability.mental;
+    let reste = 170 - stat;
+    let message = "";
 
-      // Vérification de la somme globale
-      
+    // Vérification individuelle des valeurs
+    if (physique !== ability.physique) {
+      message = game.i18n.localize("Liber.Labels.Erreur1");
+    } 
+    if (social !== ability.social) {
+      message = game.i18n.localize("Liber.Labels.Erreur2");
+    }
+    if (mental !== ability.mental) {
+      message = game.i18n.localize("Liber.Labels.Erreur3");
+    }
+    if (stat !== 170) {
+      message = game.i18n.localize("Liber.Labels.Erreur4");
+    }
 
-      // Vérification individuelle des valeurs
-      if (physique !== ability.physique) {
-          message = game.i18n.localize("Liber.Labels.Erreur1");
-      } 
-      if (social !== ability.social) {
-          message = game.i18n.localize("Liber.Labels.Erreur2");
-      }
-      if (mental !== ability.mental) {
-          message = game.i18n.localize("Liber.Labels.Erreur3");
-      }
-      if (stat !== 170) {
-          message = game.i18n.localize("Liber.Labels.Erreur4");
-      }
+    // Suppression du dernier saut de ligne pour éviter un affichage mal formaté
+    message = message.trim();
 
-      // Suppression du dernier saut de ligne pour éviter un affichage mal formaté
-      message = message.trim();
-
-      // Mise à jour des informations de l'acteur
-      return {
-        message: message.trim(),
-        reste: reste
+    // Mise à jour des informations de l'acteur
+    return {
+      message: message.trim(),
+      reste: reste
     };
   }
 
-  onEnc(){
+  onEnc(){ 
     const force =this.actor.system.ability.force;
     const puissance =this.actor.system.competences.endurance
     const race=this.actor.system.race;
@@ -554,111 +502,117 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     const items=this.actor.items;
     let enc=0;
     enc=ecu * 0.01;
-     // Itération à travers chaque item de l'acteur
+    // Itération à travers chaque item de l'acteur
     items.forEach(item => {
-        const quantity = item.system.quantity; // Récupération de la quantité
-        const poids = item.system.poids; // Récupération du poids
-        enc+= poids*quantity
+      const quantity = item.system.quantity; // Récupération de la quantité
+      const poids = item.system.poids; // Récupération du poids
+      enc+= poids*quantity
     });
     return{enc,max}
   }
 
   onCalcul(event,target){//v3 tenir compte du métier dans le calcul
-      const actor=this.actor.system;
-      const talent=actor.talent;
-      const faiblesse=actor.faiblesse;
-      const clan=actor.clan;
-      const culte=actor.culte;
-      const niveau=actor.niveau;
-      const insoin = actor.insoin;
-      const race = actor.race;
-      const metier = actor.metier;
-      let message;
-      let pvEncours=actor.hp.value ?? 0;
-      let psyEncours=actor.psy.value ?? 0;
-      let pvMax=actor.hp.max ?? 0;
-      let psyMax=actor.psy.max ?? 0;
-      let hpalert; let psyalert;
-      let pvMin=0;let psyMin =0; let nbSort = 0; let maxSort=0;
-      if(metier=="personnalise"){  
-        //calcul niveau 1 des éléments
-        pvMin = Math.round(actor.ability.physique / 3);
-        psyMin = Math.round(actor.ability.mental/ (actor.ability.physique/10));
-        nbSort = Math.round(actor.ability.social/10);
+    const actor=this.actor.system;
+    const talent=actor.talent;
+    const faiblesse=actor.faiblesse;
+    const clan=actor.clan;
+    const culte=actor.culte;
+    const niveau=actor.niveau;
+    const insoin = actor.insoin;
+    const race = actor.race;
+    const metier = actor.metier;
+    let message;
+    let pvEncours=actor.hp.value ?? 0;
+    let psyEncours=actor.psy.value ?? 0;
+    let pvMax=actor.hp.max ?? 0;
+    let psyMax=actor.psy.max ?? 0;
+    let hpalert; let psyalert;
+    let pvMin=0;let psyMin =0; let nbSort = 0; let maxSort=0;
+    if(metier=="personnalise"){  
+      //calcul niveau 1 des éléments
+      pvMin = Math.round(actor.ability.physique / 3);
+      psyMin = Math.round(actor.ability.mental/ (actor.ability.physique/10));
+      nbSort = Math.round(actor.ability.social/10);
 
-
-        //calcul cout max tous niveaux
-        maxSort = Math.round(psyMin/ 4) + niveau -1;
-        if(maxSort<0){maxSort=0}
-        if(clan=="corbeau"){maxSort=niveau}
-      }else {
-        let nameMetier = Model.Metiers[metier];
-        pvMin = nameMetier.hpmax;
-        psyMin = nameMetier.psymax;
-        nbSort = nameMetier.nb + niveau -1;
-        maxSort = nameMetier.cout + niveau -1;
+      //calcul cout max tous niveaux
+      maxSort = Math.round(psyMin/ 4) + niveau -1;
+      if(maxSort<0){
+        maxSort=0
       }
-      
-
-      //verification des minimuns
-      if(talent=="memoirearcanique"){nbSort=nbSort+1;}
-      if(talent=="aura"){psyMin=psyMin+2*(niveau);}
-      if(talent=="vigoureux"){pvMin=pvMin+2*(niveau)}
-      if(pvMax<pvMin){pvMax=pvMin}
-      if(psyMax<psyMin){psyMax=psyMin}
-      if(niveau==1){
-        if(pvMax>pvMin){pvMax=pvMin}
-        if(psyMax>psyMin){psyMax=psyMin}
+      if(clan=="corbeau"){
+        maxSort=niveau
       }
-      if(metier=="guerrier" && niveau==1){psyMax=psyMin}
-      if(race=="etredepsy"){pvMax=0;psyMin=0;}
-      if(race=="rocailleux"){pvMin=psyMin+pvMin;psyMin=0;psyMax=0;psyEncours=0;}
-      
-
-      //calcul des points de niveaux
-      let pointxp = (niveau - 1) * 3;
-      const xp = pointxp + pvMin + psyMin;
-      const calcultotxp = pvMax + psyMax;
-
-      //vérifiaction si pv ou psy supérieur au max
-      if(pvEncours>pvMax){pvEncours=pvMax;}
-      if(psyEncours>psyMax){psyEncours=psyMax;}
-
-
-      // Insoignable      
-      const hpinsoin=pvEncours + insoin
-      if (hpinsoin > pvMax) {
-          pvEncours = pvMax - insoin;
-      }
-      
-      if(calcultotxp>xp){
-        message=game.i18n.localize("Liber.Alert.Ability");
-        hpalert="var(--couleur-rouge)";
-        psyalert="var(--couleur-rouge)";
-      }else if(calcultotxp<xp){
-        hpalert="var(--couleur-vert)";
-        psyalert="var(--couleur-vert)";
-      }
-
-      
-      //vérification des talents et faiblesse
-      return {
-        hp: {
-          value: pvEncours,
-          max: pvMax
-        },
-        psy: {
-          value: psyEncours,
-          max: psyMax
-        },
-        message: message,
-        nbSort: nbSort,
-        cout: maxSort,
-        hpalert: hpalert,
-        psyalert: psyalert
-      };
-
+    }else {
+      let nameMetier = Model.Metiers[metier];
+      pvMin = nameMetier.hpmax;
+      psyMin = nameMetier.psymax;
+      nbSort = nameMetier.nb + niveau -1;
+      maxSort = nameMetier.cout + niveau -1;
     }
+      
+    //verification des minimuns
+    if(talent=="memoirearcanique"){nbSort=nbSort+1;}
+    if(talent=="aura"){psyMin=psyMin+2*(niveau);}
+    if(talent=="vigoureux"){pvMin=pvMin+2*(niveau)}
+    if(pvMax<pvMin){pvMax=pvMin}
+    if(psyMax<psyMin){psyMax=psyMin}
+    if(niveau==1){
+      if(pvMax>pvMin){
+        pvMax=pvMin
+      }
+      if(psyMax>psyMin){
+        psyMax=psyMin
+      }
+    }
+    if(metier=="guerrier" && niveau==1){psyMax=psyMin}
+    if(race=="etredepsy"){pvMax=0;psyMin=0;}
+    if(race=="rocailleux"){pvMin=psyMin+pvMin;psyMin=0;psyMax=0;psyEncours=0;}
+      
+    //calcul des points de niveaux
+    let pointxp = (niveau - 1) * 3;
+    const xp = pointxp + pvMin + psyMin;
+    const calcultotxp = pvMax + psyMax;
+
+    //vérifiaction si pv ou psy supérieur au max
+    if(pvEncours>pvMax){
+      pvEncours=pvMax;
+    }
+    if(psyEncours>psyMax){
+      psyEncours=psyMax;
+    }
+
+    // Insoignable      
+    const hpinsoin=pvEncours + insoin
+    if (hpinsoin > pvMax) {
+        pvEncours = pvMax - insoin;
+    }
+      
+    if(calcultotxp>xp){
+      message=game.i18n.localize("Liber.Alert.Ability");
+      hpalert="var(--couleur-rouge)";
+      psyalert="var(--couleur-rouge)";
+    }else if(calcultotxp<xp){
+      hpalert="var(--couleur-vert)";
+      psyalert="var(--couleur-vert)";
+    }
+      
+    //vérification des talents et faiblesse
+    return {
+      hp: {
+        value: pvEncours,
+        max: pvMax
+      },
+      psy: {
+        value: psyEncours,
+        max: psyMax
+      },
+      message: message,
+      nbSort: nbSort,
+      cout: maxSort,
+      hpalert: hpalert,
+      psyalert: psyalert
+    };
+  }
 
 /* ==========================================================
 *  Générateur de la fiche de personnage
@@ -1501,5 +1455,3 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
   }
 
 }
-
-
