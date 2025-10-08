@@ -401,7 +401,7 @@ button[aria-pressed="true"]{background: var(--couleur-clair)}
 .liber-helper ul { list-style: none; padding: 0; }
 .liber-helper li { margin-bottom: 3px; }
 .liber-helper .flexrow{overflow: hidden;}
-.liber-helper .liste{height: 210px;overflow: auto;}
+.liber-helper .liste{height: 248px;overflow: auto;}
 
 .liber-helper .difficulty-bar {
   display: flex;
