@@ -136,6 +136,7 @@ body.theme-dark .application .window-content{backdrop-filter:none}
 .liber .character-biography{width:298px;;border-left: solid #262728 1px;position:absolute;;top:135px;}
 .liber .zoneavatar{border-bottom: solid var(--couleur-or) 2px;width: 90%;margin: auto;height: 275px;margin-bottom: 10px;position: relative;padding-top: 10px;}
 .liber .avatar{width: 190px; height: 190px;border-radius: 50%; border:solid var(--couleur-or) 2px;overflow: hidden;}
+.liber .avatar img{width: 190px; height: 190px;}
 .liber .ligne{width: 15px; margin-bottom: 5px;position: absolute;top: 0;right: 0;}
 .liber .posture {width: 25px;height: 125px;position: absolute;bottom: 5px;right: 30px;}
 .liber .posture a{width: 25px;height: 25px;opacity: 0.5;display: inline-block;position: initial;}
@@ -393,3 +394,46 @@ button[aria-pressed="true"]{background: var(--couleur-clair)}
 .liber .levelup{background: var(--couleur-noir);color:var(--couleur-or);width: 20px;height: 20px;display: block;text-align: center;position: absolute;top: 168px;left: 106px;border-radius: 50%;padding:3px}
 .liber .monstres{padding-top: 20px;}
 .liber .race{background: none}
+
+
+/*module*/
+.liber-helper { padding: 10px; }
+.liber-helper ul { list-style: none; padding: 0; }
+.liber-helper li { margin-bottom: 3px; }
+.liber-helper .flexrow{overflow: hidden;}
+.liber-helper .liste{height: 210px;overflow: auto;}
+
+.liber-helper .difficulty-bar {
+  display: flex;
+  width: 100%;
+  height: 10px;
+  background: #333;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.liber-helper .difficulty-bar .pc { background: green; height: 100%; transition: width 0.3s; }
+.liber-helper .difficulty-bar .monster { background: crimson; height: 100%; transition: width 0.3s; }
+
+.liber-helper .actions { margin-top: 10px; text-align: center; }
+.liber-helper .actions button {
+  margin: 5px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: none;
+  background: var(--color-primary, #0066ff);
+  color: white;
+  cursor: pointer;
+}
+
+.liber-helper .liber-helper-btn {
+  width: 100%;
+  margin-top: 5px;
+  background: #444;
+  color: #fff;
+  border: none;
+  padding: 6px;
+  border-radius: 4px;
+}
+.liber-helper input[type=number]{height: 20px;
+    width: 30px;
+    text-align: center;}

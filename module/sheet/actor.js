@@ -219,16 +219,19 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     });
 
     /* === 🔹 ONGLET ACTIF === */
-    const activeTabKey = `activeTab-${this.actor.id}`;
-    const activeTab = localStorage.getItem(activeTabKey) || "background";
+    /*conserver le dernier onglet ouvert*/
+    if (!this.actor) return;
+    // Récupérer l'onglet actif spécifique à ce personnage (ou valeur par défaut)
+    const activeTab = localStorage.getItem(`activeTab-${this.actor.id}`) || "background"; 
+    // Appliquer l'affichage correct
     this._setActiveTab(activeTab);
-
-    el.querySelectorAll(".sheet-tabs [data-tab]").forEach(tab => {
-      tab.addEventListener("click", (ev) => {
-        const newTab = ev.currentTarget.dataset.tab;
+    // Gérer le clic sur les onglets pour changer de vue
+    this.element.querySelectorAll(".sheet-tabs [data-tab]").forEach(tab => {
+      tab.addEventListener("click", (event) => {
+        const newTab = event.currentTarget.dataset.tab;
         this._setActiveTab(newTab);
-        localStorage.setItem(activeTabKey, newTab);
       });
+      
     });
 
     /* === 🔹 COLORISATION DES COMPÉTENCES === */
@@ -955,6 +958,8 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       }
   }
 
+
+  
   /** Gestion des onglets */
   #getTabs() {
     const tabs = {
@@ -1393,6 +1398,10 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     await actor.createEmbeddedDocuments("Item", [spell.toObject()]);
     ui.notifications.info(`${spell.name} ajouté à ${actor.name} !`);
   }
+
+
+
+
  
   static async #onAddSort(event, target){
     const id=this.actor._id;

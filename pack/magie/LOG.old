@@ -1,5 +1,8 @@
-2025/10/06-07:57:04.507 32c8 Recovering log #31
-2025/10/06-07:57:04.531 32c8 Delete type=0 #23
-2025/10/06-07:57:04.531 32c8 Delete type=0 #31
-2025/10/06-07:57:04.532 32c8 Delete type=3 #22
-2025/10/06-07:57:04.532 32c8 Delete type=3 #27
+2025/10/08-13:09:50.491 4054 Recovering log #41
+2025/10/08-13:09:50.510 4054 Delete type=0 #41
+2025/10/08-13:09:50.511 4054 Delete type=3 #38
+2025/10/08-13:15:52.925 3edc Level-0 table #48: started
+2025/10/08-13:15:52.925 3edc Level-0 table #48: 0 bytes OK
+2025/10/08-13:15:52.933 3edc Delete type=0 #46
+2025/10/08-13:15:52.950 3edc Manual compaction at level-0 from '!folders!15ukE6rSCVGIHvHk' @ 72057594037927935 : 1 .. '!items!znRmacnrqJsjMEOq' @ 0 : 0; will stop at (end)
+2025/10/08-13:15:52.950 3edc Manual compaction at level-1 from '!folders!15ukE6rSCVGIHvHk' @ 72057594037927935 : 1 .. '!items!znRmacnrqJsjMEOq' @ 0 : 0; will stop at (end)
