@@ -269,10 +269,11 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     }
 
     /* === 🔹 INVENTAIRE === */
-    const invType = system.inventory;
-    if (["all", "weapon", "armor", "item"].includes(invType)) {
-      const active = el.querySelector(`a[data-type="${invType}"]`);
-      if (active) active.style.opacity = 1;
+    const inventory = system.inventory;
+    const typ = ["all", "weapon", "armor", "item"];
+
+    if (typ.includes(inventory)) {
+      document.querySelector(`a[data-type="${inventory}"]`).style.opacity = 1;
     }
 
     /* === 🔹 FOND D’ÉCRAN SI PV = 0 === */
@@ -825,7 +826,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       }
 
       /* --- 🎁 Ajout aléatoire d’objets --- */
-      case "random-item": {
+      case "random": {
         const type = target.dataset.type;
         const pack = game.packs.get("liber-chronicles.inventaire");
         if (!pack) return ui.notifications.error("Pack introuvable.");
@@ -916,6 +917,11 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     return path;
   }
 
+  static async #onFiltre(event,target){
+    const types=target.getAttribute('data-type');
+    this.actor.update({'system.inventory':types})
+  }
+
 
 /* ==========================================================
 *  Onglet de la fiche de personnage
@@ -990,7 +996,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     const actor = this.actor;
     const item = actor.items.get(itemId);
 
-    if (!item) return ui.notifications.warn("Item introuvable.");
+    //if (!item) return ui.notifications.warn("Item introuvable.");
 
     switch (action) {
 
@@ -1121,7 +1127,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
 
       /* --- 🔎 FILTRAGE INVENTAIRE --- */
       case "filtre": {
-        const types = target.dataset.type;
+        const types = target.dataset.type;console.log(types)
         await actor.update({ "system.inventory": types });
         return;
       }

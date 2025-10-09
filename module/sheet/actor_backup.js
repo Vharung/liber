@@ -1393,7 +1393,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       this.actor.update({'system.inventory':types})
     }
 
-     static async #onRandom(event, target) {
+    static async #onRandom(event, target) {
     let type = event.target.dataset["type"];
     if (!type) return;
 
