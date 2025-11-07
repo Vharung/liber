@@ -91,14 +91,14 @@
             <li class="item fexrow type-{{item.type}} active draggable" data-item-id="{{item._id}}">
               <div class="item-image">
                 <div class="item-qty">{{item.system.quantity}}</div>
-                <img src="{{item.img}}" title="{{item.system.biography}}"/>
+                <img src="{{item.img}}" title="{{stripTags item.system.biography}}"/>
               </div>
               <div class="item-name" title="{{item.name}}" data-action="description" data-item-id="{{item._id}}">
                 <span class="item_name">{{item.name}}</span>
                 <span class="weigth">{{item.system.poids}}Kg</span>
               </div>
               <div class="zonecontrole">
-                <div class="item-description item-info" title="{{item.system.biography}}" data-action="description" data-item-id="{{item._id}}">
+                <div class="item-description item-info" title="{{stripTags item.system.biography}}" data-action="description" data-item-id="{{item._id}}">
                   <span>{{{item.system.biography}}}</span>
                 </div>
                 <div class="item-controls">
@@ -131,18 +131,18 @@
         </div>
       </div>
       {{#each inventory.gauche as |item id|}}
-        <div class="unemain" style="background:url({{item.img}}) no-repeat center center;background-size:contain" title="{{item.system.biography}}">
+        <div class="unemain" style="background:url({{item.img}}) no-repeat center center;background-size:contain" title="{{stripTags item.system.biography}}">
           <a class="attaque" data-action="rollDamage" data-item-id="{{item._id}}">⚔</a>
           <a class="desequi" data-action="desequip" data-ou="gauche" data-item-id="{{item._id}}">🗑</a>
         </div>
       {{/each}}
       {{#each inventory.middle as |item id|}}
-        <div class="arm" style="background:url({{item.img}}) no-repeat center center;background-size:contain" title="{{item.system.biography}}">
+        <div class="arm" style="background:url({{item.img}}) no-repeat center center;background-size:contain" title="{{stripTags item.system.biography}}">
           <a class="desequi" data-action="desequip" data-protection="{{item.system.protec}}" data-ou="middle" data-item-id="{{item._id}}">🗑</a>
         </div>
       {{/each}}
       {{#each inventory.droite as |item id|}}
-        <div class="deuxmains" style="background:url({{item.img}}) no-repeat center center;background-size:contain" title="{{item.system.biography}}">
+        <div class="deuxmains" style="background:url({{item.img}}) no-repeat center center;background-size:contain" title="{{stripTags item.system.biography}}">
           <a class="attaque" data-action="rollDamage" data-item-id="{{item._id}}">⚔</a>
           <a class="desequi" data-action="desequip" data-ou="droite" data-item-id="{{item._id}}">🗑</a>
         </div>
@@ -171,13 +171,13 @@
             <li class="item fexrow type-{{item.type}} active draggable" data-item-id="{{item._id}}">
               <div class="item-image">
                 <div class="item-qty">{{item.system.quantity}}</div>
-                <img src="{{item.img}}" title="{{item.system.biography}}"/>
+                <img src="{{item.img}}" title="{{stripTags item.system.biography}}"/>
               </div>
               <div class="item-name" title="{{item.name}}" data-action="description" data-item-id="{{item._id}}">
                 <span class="item_name_magie">{{item.name}}</span>
               </div>
               <div class="zonecontrole">
-                <div class="item-description item-info" title="{{item.system.biography}}" data-action="description" data-item-id="{{item._id}}">
+                <div class="item-description item-info" title="{{stripTags item.system.biography}}" data-action="description" data-item-id="{{item._id}}">
                   <span>{{{item.system.biography}}}</span>
                 </div>
 
