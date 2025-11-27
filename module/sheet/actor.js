@@ -1406,23 +1406,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
   /**
    * Ajoute un sort depuis le compendium.
    */
-  async _handleAddSort(actor) {
-    const id = actor._id;
-    const select = document.querySelector(`#LiberCharacterSheet-Actor-${id} select[name="system.magie"]`);
-    if (!select) return console.error("Le champ select[name='system.magie'] est introuvable.");
-
-    const dataId = select.value;
-    if (!dataId) return console.error("Aucun sort sélectionné.");
-
-    const pack = game.packs.get("liber-chronicles.magie");
-    if (!pack) return console.error("Le compendium 'liber-chronicles.magie' est introuvable.");
-
-    const spell = await pack.getDocument(dataId);
-    if (!spell) return console.error(`Sort ${dataId} introuvable dans le compendium.`);
-
-    await actor.createEmbeddedDocuments("Item", [spell.toObject()]);
-    ui.notifications.info(`${spell.name} ajouté à ${actor.name} !`);
-  }
 
 
 
@@ -1431,8 +1414,8 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
   static async #onAddSort(event, target){
     const id=this.actor._id;
     //LiberCharacterSheet-Actor-
-    const select = document.querySelector(`#LiberCharacterSheet-Actor-${id} select[name="system.magie"]`);
-    if (!select) return console.error("Le champ select[name='system.magie'] est introuvable.");
+    const select = document.querySelector(`#LiberCharacterSheet-Actor-${id} select[name='system.magieChoisie']`);
+    if (!select) return console.error("Le champ select[name='system.magieChoisie'] est introuvable.");
 
     const selectedOption = select.options[select.selectedIndex]; // Récupère l'option sélectionnée
     const dataId = selectedOption.value; // Récupère la valeur de l'option (correspond à l'ID du sort)

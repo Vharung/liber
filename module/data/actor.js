@@ -352,10 +352,9 @@ export default class LiberCharacterData extends foundry.abstract.DataModel {
                 }
             }),
             apprentissage: new fields.SchemaField(apprentissageLevels),
-            magie: new fields.SchemaField({
-                id: new fields.StringField({ required: false, blank: true, initial: "" }),
-                name: new fields.StringField({ required: false, blank: true, initial: "" }),
-                quantity: new fields.NumberField({ required: false, integer: true, initial: 0 })
+            magieChoisie: new fields.StringField({
+                required: false,
+                initial: "",
             }),
             alert: new fields.SchemaField({  
                 hp: new fields.StringField({ required: true, initial: "" }),

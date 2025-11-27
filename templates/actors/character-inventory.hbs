@@ -156,12 +156,12 @@
     <div class="zoneinfo">
       {{#unless (eq actor.type "monstre")}}
         <div class="magie">
-          <select name="system.magie">
-            {{#each listMagie as | magie|}}
-              <option value="{{magie.id}}" title="{{magie.name}} : {{stripTags magie.description}}">
-                {{magie.name}}
-              </option>
-            {{/each}}
+           <select name="system.magieChoisie">
+              {{#each listMagie as |m|}}
+                  <option value="{{m.id}}" {{#if (eq ../system.magieChoisie m.id)}}selected{{/if}}>
+                      {{m.name}} ({{m.quantity}})
+                  </option>
+              {{/each}}
           </select>
         </div>
         <a class="bouton addsort" data-action="addsort">{{localize 'Liber.Character.Inventory.Choix_magie'}}</a>
