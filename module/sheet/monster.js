@@ -817,9 +817,9 @@ export default class LiberMonsterSheet extends HandlebarsApplicationMixin(ActorS
     static async #onLevelUp(event,target){
       let niveau=this.actor.system.niveau
       const items = this.actor.items.filter(item => item.type === "weapon"); // Filtrage des items de type 'weapon'
-      let hp=this.actor.system.hpmax;
-      let psy=this.actor.system.psymax;
-      hp=hp + 12;
+      let hp=this.actor.system.hp.max; console.log(hp)
+      let psy=this.actor.system.psy.max;
+      hp=hp + 12;console.log(hp)
       psy=psy + 12;
       niveau++;
       for (const item of items) {
@@ -861,7 +861,7 @@ export default class LiberMonsterSheet extends HandlebarsApplicationMixin(ActorS
 
         await item.update({ 'system.degat': newDgt }); // Mise à jour correcte des dégâts
       }
-      this.actor.update({'system.niveau':niveau,'system.hp':hp,'system.hpmax':hp,'system.psy':psy,'system.psymax':psy})
+      this.actor.update({'system.niveau':niveau,'system.hp.value':hp,'system.hp.max':hp,'system.psy.value':psy,'system.psy.max':psy})
     }
 
     static async #onRandom(event,target){
