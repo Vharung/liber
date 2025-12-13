@@ -29,10 +29,21 @@
 				<span class="talent" title="{{localize (concat "Liber.Talent.Description." actor.system.talent)}}">{{localize (concat "Liber.Talent." actor.system.talent)}}</span>
 				<span class="faiblesse" title="{{localize (concat "Liber.Faiblesse.Description." actor.system.faiblesse)}}">{{localize (concat "Liber.Faiblesse." actor.system.faiblesse)}}</span>
 			{{/if}}
-			{{formInput systemFields.insoin name="system.insoin" value=system.insoin localize=true rootId=partId}}
-			{{formInput systemFields.avant name="system.avant" value=system.avant localize=true rootId=partId}}
-			{{formInput systemFields.desan name="system.desan" value=system.desan localize=true rootId=partId}}
-			{{formInput systemFields.fatig name="system.fatig" value=system.fatig localize=true rootId=partId}}
+			<div class="postes" {{#if (eq actor.system.insoin 0)}}style="opacity:0.5"{{/if}}>
+			  {{formInput systemFields.insoin name="system.insoin" value=system.insoin localize=true rootId=partId}}
+			</div>
+
+			<div class="postes" {{#if (eq actor.system.avant 0)}}style="opacity:0.5"{{/if}}>
+			  {{formInput systemFields.avant name="system.avant" value=system.avant localize=true rootId=partId}}
+			</div>
+
+			<div class="postes" {{#if (eq actor.system.desan 0)}}style="opacity:0.5"{{/if}}>
+			  {{formInput systemFields.desan name="system.desan" value=system.desan localize=true rootId=partId}}
+			</div>
+
+			<div class="postes" {{#if (eq actor.system.fatig 0)}}style="opacity:0.5"{{/if}}>
+			  {{formInput systemFields.fatig name="system.fatig" value=system.fatig localize=true rootId=partId}}
+			</div>
 		</div>
 	</div>
 </header>

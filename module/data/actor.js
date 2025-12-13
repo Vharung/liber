@@ -32,9 +32,7 @@ export default class LiberCharacterData extends foundry.abstract.DataModel {
                 Unconscious: new fields.NumberField({ required: true, min: 0.5, max: 1,initial: 0.5 }),
                 Dead: new fields.NumberField({ required: true, min: 0.5, max: 1,initial: 0.5 })
             }),
-            /*hp: new fields.NumberField({ required: true, initial: 3 }),
-            hpmax: new fields.NumberField({ required: true, initial: 3 }),*/
-             hp: new fields.SchemaField({
+            hp: new fields.SchemaField({
               value: new fields.NumberField({ required: true, initial: 10 }),
               max: new fields.NumberField({ required: true, initial: 10 })
             }),
@@ -42,8 +40,6 @@ export default class LiberCharacterData extends foundry.abstract.DataModel {
               value: new fields.NumberField({ required: true, initial: 10 }),
               max: new fields.NumberField({ required: true, initial: 10 })
             }),
-            /*psy: new fields.NumberField({ required: true, initial: 3 }),
-            psymax: new fields.NumberField({ required: true, initial: 3 }),*/
             niveau: new fields.NumberField({ required: true, initial: 1 }),
             armure: new fields.NumberField({ required: true, initial: 0 }),
             protec: new fields.NumberField({ required: true, initial: 0 }),
@@ -113,16 +109,8 @@ export default class LiberCharacterData extends foundry.abstract.DataModel {
             enc:new fields.NumberField({ required: true, initial: 0 }),
             encmax:new fields.NumberField({ required: true, initial: 0 }),
             ecu:new fields.NumberField({ required: true, initial: 0 }),
-            /*magie: new fields.StringField({//potentielement anemer à disparaitre
-                required: true,
-                initial: MAGIE.NONE,
-                choices: {
-                    [MAGIE.NONE]: game.i18n.localize("Liber.Magic.aucune"),
-                }
-            }),*/
             cout:new fields.NumberField({ required: true, initial: 0 ,readonly:true}),
             max:new fields.NumberField({ required: true, initial: 0 ,readonly:true}),
-            /** Traits de caractère (Chaque trait est un champ séparé) */
             caractere: new fields.SchemaField({
                 [CARACTERE.INTERETS]: new fields.StringField({required: false, initial: "" }),
                 [CARACTERE.DECES]: new fields.StringField({required: false, initial: "" }),
@@ -359,7 +347,9 @@ export default class LiberCharacterData extends foundry.abstract.DataModel {
             alert: new fields.SchemaField({  
                 hp: new fields.StringField({ required: true, initial: "" }),
                 psy: new fields.StringField({ required: true, initial: "" })
-            })
+            }),
+            posture : new fields.StringField({required: true, initial: "aucune"})
+
 
         };
     }

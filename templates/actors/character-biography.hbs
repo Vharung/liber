@@ -4,11 +4,11 @@
             <img class="character-img" src="{{actor.img}}" data-edit="img" data-action='editImage' data-tooltip="{{actor.name}}" />
         </div>
         <div class="posture">
-            <a class="post aucune" data-action="posture" data-posture="aucune" title="{{localize 'Liber.Character.Posture.Aucune'}}""></a>
-            <a class="post focus" data-action="posture" data-posture="focus" title="{{localize 'Liber.Character.Posture.Focus'}}"></a>
-            <a class="post defensif" data-action="posture" data-posture="defensif" title="{{localize 'Liber.Character.Posture.Defensif'}}"></a>
-            <a class="post offensif" data-action="posture" data-posture="offensif" title="{{localize 'Liber.Character.Posture.Offensif'}}"></a>
-            <a class="post presage" data-action="posture" data-posture="presage" title="{{localize 'Liber.Character.Posture.Anticipatif'}}"></a>
+            <a class="post aucune" data-action="posture" data-posture="aucune" title="{{localize 'Liber.Character.Posture.Aucune'}}"" {{#if (eq actor.system.posture "aucune")}} style="opacity:1" {{/if}}></a>
+            <a class="post focus" data-action="posture" data-posture="focus" title="{{localize 'Liber.Character.Posture.Focus'}}" {{#if (eq actor.system.posture "focus")}} style="opacity:1" {{/if}}></a>
+            <a class="post defensif" data-action="posture" data-posture="defensif" title="{{localize 'Liber.Character.Posture.Defensif'}}" {{#if (eq actor.system.posture "defensif")}} style="opacity:1" {{/if}}></a>
+            <a class="post offensif" data-action="posture" data-posture="offensif" title="{{localize 'Liber.Character.Posture.Offensif'}}" {{#if (eq actor.system.posture "offensif")}} style="opacity:1" {{/if}}></a>
+            <a class="post presage" data-action="posture" data-posture="presage" title="{{localize 'Liber.Character.Posture.Anticipatif'}}" {{#if (eq actor.system.posture "presage")}} style="opacity:1" {{/if}}></a>
         </div>
         <div class="ligne">
             {{#each actor.system.etat as |value etat|}}

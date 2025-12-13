@@ -205,7 +205,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
   }
 
   async _onRender(context, options) {
-    super._onRender(context, options);
+    await super._onRender(context, options);
     console.log(context)
     // 🧩 Vérification logique de la fiche
     await this._onVerif();
@@ -243,11 +243,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       input.style.background = val > 0 ? "var(--couleur-vert)" : (val < 0 ? "var(--couleur-rouge)" : "");
     });
 
-    /* === 🔹 POSTURE === */
-    const posture = system.posture;
-    el.querySelectorAll('.post').forEach(p => {
-      p.style.opacity = p.classList.contains(posture) ? '1' : '0.5';
-    });
+
 
     /* === 🔹 AVANTAGES VISUELS === */
     el.querySelectorAll('.head input').forEach(i => {
@@ -1366,10 +1362,38 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     if (duree === "day") time *= 24;
 
     switch (repos) {
-      case "fast":  d = Math.random() * 4; hpadd = ((d + niveau) * time) / 8; psyadd = (niveau * time) / 2; break;
-      case "quiet": d = Math.random() * 6; hpadd = ((d + niveau) * time) / 8; psyadd = niveau * time; fatadd = time; break;
-      case "good":  d = Math.random() * 6; insoin = 0; hpadd = (d + niveau) * time; psyadd = niveau * time; fatadd = 2 * time; break;
-      case "intens": d = Math.random() * 8; insoin = 0; hpadd = ((2 * d) + niveau) * time; psyadd = niveau * time; fatadd = 3 * time; break;
+      case "fast":
+        d = Math.floor(Math.random() * 4) + 1;
+        insoin = 1;
+        hpadd = Math.round(((d + niveau) * time) / 8);
+        psyadd = Math.round((niveau * time) / 2);
+        fatadd = 0;
+        break;
+
+      case "quiet":
+        d = Math.floor(Math.random() * 6) + 1;
+        insoin = 1;
+        hpadd = Math.round(((d + niveau) * time) / 8);
+        psyadd = Math.round((niveau * time) / 2);
+        fatadd = time;
+        break;
+
+      case "good":
+        d = Math.floor(Math.random() * 6) + 1;
+        insoin = 0;
+        hpadd = (d + niveau) * time;
+        psyadd = niveau * time;
+        fatadd = 2 * time;
+        break;
+
+      case "intens":
+        d = Math.floor(Math.random() * 8) + 1;
+        insoin = 0;
+        hpadd = ((2 * d) + niveau) * time;
+        psyadd = niveau * time;
+        fatadd = 3 * time;
+        break;
+      
     }
 
     if (talent === "bondormeur") { hpadd *= 2; psyadd *= 2; }

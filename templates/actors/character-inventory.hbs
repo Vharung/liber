@@ -158,7 +158,7 @@
         <div class="magie">
            <select name="system.magieChoisie">
               {{#each listMagie as |m|}}
-                  <option value="{{m.id}}" {{#if (eq ../system.magieChoisie m.id)}}selected{{/if}}>
+                  <option value="{{m.id}}" title="{{stripTags m.description}}" {{#if (eq ../system.magieChoisie m.id)}}selected{{/if}}>
                       {{m.name}} ({{m.quantity}})
                   </option>
               {{/each}}
