@@ -12,7 +12,11 @@
         </div>
         <div class="ligne">
             {{#each actor.system.etat as |value etat|}}
-                <a class="etat{{@index}} chnget" data-etat="{{etat}}" data-action="oncouv" style="opacity: {{value}};"></a>
+              <a
+                class="etat{{@index}} chnget {{#if (eq value 1)}}active{{/if}}"
+                data-etat="{{etat}}"
+                data-action="oncouv">
+              </a>
             {{/each}}
 
         </div>

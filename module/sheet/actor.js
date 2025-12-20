@@ -33,7 +33,8 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       desequip: LiberCharacterSheet.#onItemAction,
       rollDamage: LiberCharacterSheet.#onItemAction,
       description: LiberCharacterSheet.#onItemAction,
-      addsort: LiberCharacterSheet.#onAddSort
+      addsort: LiberCharacterSheet.#onAddSort,
+      oncouv: LiberCharacterSheet.#onEtatToggle
     }
   };
 
@@ -1483,12 +1484,138 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     document.querySelectorAll('.chnget').forEach(icon => {
         const etat = icon.dataset.etat;
         const actif = etatsActifs.includes(etat);
-        icon.style.opacity = actif ? "1" : "0.5";
-
         // Prépare la mise à jour de system.etat
         updateData[`system.etat.${etat}`] = actif ? 1 : 0.5;
     });
     
+  }
+
+   /**
+ * Gère le clic sur un état pour le basculer entre actif (1) et inactif (0.5)
+ * @param {PointerEvent} event - L'événement de clic
+ * @param {HTMLElement} target - L'élément cliqué
+ */
+static async #onEtatToggle(event, target) {
+    const etatKey = target.dataset.etat;
+    if (!etatKey) return;
+
+    const actor = this.document;
+    const currentValue = actor.system.etat[etatKey];
+    
+    // Basculer entre 0.5 (inactif) et 1 (actif)
+    const newValue = currentValue === 1 ? 0.5 : 1;
+    
+    // Mettre à jour l'acteur
+    await actor.update({
+      [`system.etat.${etatKey}`]: newValue
+    });
+
+    // Synchroniser avec les tokens liés
+    await LiberCharacterSheet.#syncTokenStates(actor, etatKey, newValue);
+}
+/**
+ * Synchronise les états entre l'acteur et ses tokens
+ * @param {Actor} actor - L'acteur
+ * @param {string} etatKey - La clé de l'état (ex: "Asleep")
+ * @param {number} value - La valeur (0.5 ou 1)
+ */
+static async #syncTokenStates(actor, etatKey, value) {
+    // Mapper les noms d'états vers les IDs d'effets de statut Foundry
+    const statusMapping = {
+      Asleep: "sleep",
+      Stunned: "stun",
+      Blind: "blind",
+      Deaf: "deaf",
+      Silenced: "silenced",
+      Frightened: "fear",
+      Burning: "fire",
+      Frozen: "frozen",
+      Invisible: "invisible",
+      Bleeding: "bleeding",
+      Poisoned: "poison",
+      Blessed: "blessed",
+      Unconscious: "unconscious",
+      Dead: "dead"
+    };
+    
+    const statusId = statusMapping[etatKey];
+    if (!statusId) return;
+    
+    const isActive = value === 1;
+    
+    try {
+      // Utiliser Actor#toggleStatusEffect (non déprécié)
+      await actor.toggleStatusEffect(statusId, { active: isActive, overlay: false });
+    } catch (error) {
+      console.warn(`Impossible de basculer l'effet ${statusId} sur l'acteur:`, error);
+    }
+}
+
+/**
+ * Lit les états depuis les tokens et met à jour la fiche
+ * Méthode d'instance (non statique)
+ */
+async #loadTokenStates() {
+    const actor = this.document;
+    const tokens = actor.getActiveTokens();
+    
+    if (tokens.length === 0) return;
+
+    // Mapper les effets actifs via les statuts
+    const statusMapping = {
+      sleep: "Asleep",
+      stun: "Stunned",
+      blind: "Blind",
+      deaf: "Deaf",
+      silenced: "Silenced",
+      fear: "Frightened",
+      fire: "Burning",
+      frozen: "Frozen",
+      invisible: "Invisible",
+      bleeding: "Bleeding",
+      poison: "Poisoned",
+      blessed: "Blessed",
+      unconscious: "Unconscious",
+      dead: "Dead"
+    };
+
+    const updates = {};
+    
+    // Récupérer les effets actifs de l'acteur (non déprécié)
+    const activeEffects = actor.effects || [];
+    
+    // Parcourir tous les états définis
+    for (const [statusId, etatName] of Object.entries(statusMapping)) {
+        // Vérifier si le statut est actif sur l'acteur
+        const hasEffect = activeEffects.some(effect => {
+        // Statuts officiels Foundry
+        if (effect.statuses?.has(statusId)) return true;
+
+        // Flags core
+        if (effect.flags?.core?.statusId === statusId) return true;
+
+        // ID explicite de l'effet
+        if (effect.id === statusId) return true;
+
+        // Image de l'effet (V12+)
+        if (effect.img?.includes(statusId)) return true;
+
+        return false;
+      });
+      
+      const currentValue = actor.system.etat[etatName];
+      const newValue = hasEffect ? 1 : 0.5;
+      
+      // Mettre à jour uniquement si différent
+      if (currentValue !== newValue) {
+        updates[`system.etat.${etatName}`] = newValue;
+      }
+    }
+
+    // Appliquer les mises à jour si nécessaire
+    if (Object.keys(updates).length > 0) {
+      await actor.update(updates);
+    }
   }
 
 }
