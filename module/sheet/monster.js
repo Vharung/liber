@@ -861,6 +861,7 @@ export default class LiberMonsterSheet extends HandlebarsApplicationMixin(ActorS
 
         await item.update({ 'system.degat': newDgt }); // Mise à jour correcte des dégâts
       }
+      console.log(hp,psy)
       this.actor.update({'system.niveau':niveau,'system.hp.value':hp,'system.hp.max':hp,'system.psy.value':psy,'system.psy.max':psy})
     }
 

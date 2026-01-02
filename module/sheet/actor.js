@@ -661,12 +661,14 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
 
       // 🎲 --- LANCER DE JET ---
       case "roll": {
+        console.log(target)
         const ability = target.dataset.ability;
         const type = target.dataset.type;
         const itemId = target.dataset.itemId;
         const image = target.dataset.img;
+        const objet = target.dataset.objet;
         const value = parseInt(target.dataset.value) || 0;
-        await this._generateRoll(actor, ability, value, type, itemId, image);
+        await this._generateRoll(actor, ability, value, type, itemId, image, objet);
         break;
       }
 
@@ -1084,7 +1086,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
 
       /* --- ❌ DÉSÉQUIPER --- */
       case "desequip": {
-        const protection = Number(target.dataset.protection) || 0;
+        const protection = Number(target.dataset.protection) || 0; 
         const armor = Math.max(0, Number(actor.system.armure || 0) - protection);
         await actor.update({ "system.armure": armor });
         await item.update({ "system.equip": "" });
@@ -1157,7 +1159,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
 /* ==========================================================
 *  Action de la fiche de personnage
 * ========================================================== */ 
-  async _generateRoll(actor, ability, valuemax, type, itemId, image) {
+  async _generateRoll(actor, ability, valuemax, type, itemId, image, objet) {
   // Récupération des attributs du target
       //let ability = target.getAttribute('data-ability'); // Correctement récupéré
       //let valuemax = parseInt(target.getAttribute('data-value')) || 0;
@@ -1173,7 +1175,9 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
 
       /*Arme équipé*/
       let equippedItems =this.actor.items.filter(item => item.system.equip);
-  
+    
+      console.log(objet)
+
       /* Magie */
       //const type = target.getAttribute('data-type');
       //const itemId = target.getAttribute('data-item-id');
@@ -1199,6 +1203,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
             visuel = item.img;
             itemname = item.name;
         }
+
 
         visuel = image || visuel;
 
@@ -1278,7 +1283,11 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       }
 
       // Décompte de la psy
-      if (type) {
+      if (objet="magie") {
+        if(posture=="focus"){
+          quantity=quantity-1;
+          if(quantity<0){quantity=0;}
+        }
           if (type !== "corbeau") {
               if ((psy + pv) >= quantity) {
                   psy -= quantity;

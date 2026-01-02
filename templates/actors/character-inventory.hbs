@@ -133,7 +133,7 @@
       {{#each inventory.gauche as |item id|}}
         <div class="unemain" style="background:url({{item.img}}) no-repeat center center;background-size:contain" title="{{stripTags item.system.biography}}">
           <a class="attaque" data-action="rollDamage" data-item-id="{{item._id}}">⚔</a>
-          <a class="desequi" data-action="desequip" data-ou="gauche" data-item-id="{{item._id}}">🗑</a>
+          <a class="desequi" data-action="desequip" data-protection="{{item.system.protec}}" data-ou="gauche" data-item-id="{{item._id}}">🗑</a>
         </div>
       {{/each}}
       {{#each inventory.middle as |item id|}}
@@ -144,7 +144,7 @@
       {{#each inventory.droite as |item id|}}
         <div class="deuxmains" style="background:url({{item.img}}) no-repeat center center;background-size:contain" title="{{stripTags item.system.biography}}">
           <a class="attaque" data-action="rollDamage" data-item-id="{{item._id}}">⚔</a>
-          <a class="desequi" data-action="desequip" data-ou="droite" data-item-id="{{item._id}}">🗑</a>
+          <a class="desequi" data-action="desequip" data-protection="{{item.system.protec}}" data-ou="droite" data-item-id="{{item._id}}">🗑</a>
         </div>
       {{/each}}
       {{formInput systemFields.ecu name="system.ecu" value=system.ecu localize=true rootId=partId}}
@@ -184,7 +184,7 @@
                 <div class="item-controls">
                   <span class="item-cible">{{item.system.cible}}</span>
                   <span class="item-duree">{{item.system.duree}}</span>
-                  <span class="dice" data-action="roll" data-type="{{item.system.school}}" data-item-id="{{item._id}}"><i class="fa-solid fa-dice-d20"></i></span>
+                  <span class="dice" data-action="roll" data-type="{{item.system.school}}" data-objet="magie" data-item-id="{{item._id}}"><i class="fa-solid fa-dice-d20"></i></span>
                   <a class="item-control item-edit" title="Edit Item" data-action="edit" data-item-id="{{item._id}}"><i class="fas fa-edit"></i></a>
                   <a class="item-control item-delete" title="Delete Item" data-action="delete" data-item-id="{{item._id}}"><i class="fas fa-trash"></i></a>
                 </div>
