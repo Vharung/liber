@@ -80,48 +80,65 @@ export default class LiberMonsterSheet extends HandlebarsApplicationMixin(ActorS
   }
 
   /** Préparation des données */
+  /** Préparation des données */
   async _prepareContext() {
-    const filter=this.document.system.inventory;
-    const items=this.document.items.toObject();
+    const { system } = this.document;
+    const { inventory: filter, race, clan, culte, metier, cout = 0 } = system;
+
+    // === ORGANISATION DES ITEMS ===
+    const itemsData = this.#organizeItems(filter);
     
-    // Séparer les objets magiques
-    let magic = items
-    .filter(item => item.type === "magic")
-    .sort((a, b) => a.system.quantity - b.system.quantity);
-    let filteredItems;
-    if(filter=="all"){
-      filteredItems = items.filter(item => item.type !== "magic");
-    }else{
-      filteredItems = items.filter(item => filter.includes(item.type));
-    }
-    filteredItems.droite=[];
-    filteredItems.gauche=[];
-    filteredItems.middle=[];
-    
-    // Répartition des items en fonction de l'emplacement
-    filteredItems.forEach(item => {
-    const equipLocation = item.system.equip; 
-        if (equipLocation === "droite") {
-            filteredItems.droite.push(item);
-        } else if (equipLocation === "gauche") {
-            filteredItems.gauche.push(item);
-        } else if (equipLocation === "middle") {
-            filteredItems.middle.push(item);
-        }
-    });
+
     return {
-        tabs: this.#getTabs(),
-        fields: this.document.schema.fields,
-        systemFields: this.document.system.schema.fields, 
-        //systemFields:fixedSystemFields, 
-        actor: this.document,
-        system: this.document.system,
-        source: this.document.toObject(),
-        inventory:filteredItems,
-        magic:magic,
-        items: this.document.items.toObject()
-      };
+      tabs: this.#getTabs(),
+      fields: this.document.schema.fields,
+      systemFields: system.schema.fields,
+      actor: this.document,
+      system,
+      inventory: itemsData.equipment,
+      magic:itemsData.magic,
+      source: this.document.toObject()
+    };
   }
+
+  #organizeItems(filter) {
+    const itemsData = {
+      magic: [],
+      equipment: {
+        gauche: [],
+        droite: [],
+        middle: [],
+        inventory: []
+      }
+    };
+
+    for (const item of this.document.items) {
+      if (item.type === "magic") {
+        itemsData.magic.push(item);
+        //trier par system.quantity
+      } else {
+        const matchesFilter = filter === "all" || filter.includes(item.type);
+        if (!matchesFilter) continue;
+        //trier par name
+        const equipLocation = item.system?.equip;
+        if (["gauche", "droite", "middle"].includes(equipLocation)) {
+          itemsData.equipment[equipLocation].push(item);
+        } 
+        itemsData.equipment.inventory.push(item);
+        
+      }
+    }
+    // Magie : par coût (quantity)
+    itemsData.magic.sort(
+      (a, b) => (a.system?.quantity ?? 0) - (b.system?.quantity ?? 0)
+    );
+      // Item : par nom
+    itemsData.equipment.inventory.sort((a, b) =>
+      a.name.localeCompare(b.name, 'fr', { sensitivity: 'base' })
+    );
+    return itemsData
+  }
+
 
 
   async _preparePartContext(partId, context) {

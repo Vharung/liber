@@ -3,6 +3,7 @@ const { HandlebarsApplicationMixin } = foundry.applications.api;
 import LiberChat from "../document/chat.js";
 import {Model} from "../data/model.js";
 
+
 /** Gestion de la feuille de personnage */
 
 export default class LiberCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
@@ -50,230 +51,275 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
 
   /** Préparation des données */
   async _prepareContext() {
-    const filter=this.document.system.inventory;
-    const items=this.document.items.toObject();
+    const { system } = this.document;
+    const { inventory: filter, race, clan, culte, metier, cout = 0 } = system;
+
+    // === ORGANISATION DES ITEMS ===
+    const itemsData = this.#organizeItems(filter);
     
-    // Séparer les objets magiques
-    let magic = items
-    .filter(item => item.type === "magic")
-    .sort((a, b) => a.system.quantity - b.system.quantity);
-    let filteredItems;
-    if(filter=="all"){
-      filteredItems = items.filter(item => item.type !== "magic");
-    }else{
-      filteredItems = items.filter(item => filter.includes(item.type));
-    }
-    filteredItems.droite=[];
-    filteredItems.gauche=[];
-    filteredItems.middle=[];
-    
-    // Répartition des items en fonction de l'emplacement
-    filteredItems.forEach(item => {
-    const equipLocation = item.system.equip; 
-        if (equipLocation === "droite") {
-            filteredItems.droite.push(item);
-        } else if (equipLocation === "gauche") {
-            filteredItems.gauche.push(item);
-        } else if (equipLocation === "middle") {
-            filteredItems.middle.push(item);
-        }
-    });
+    // === CONFIGURATION DES LISTES ===
+    const { listClan, listCulte, listMetier } = this.#getListsConfig(race, clan, culte, metier);
 
-    //Affichage des cultes et clan en fonction de la race
-    const race = this.document.system.race;
-    const clan = this.document.system.clan;
-    const culte = this.document.system.culte;
-    const metier = this.document.system.metier;
-
-    let listCulte = [];
-    let listClan = [];
-    let listMetier = [];
-    let listMagie = [];
-
-    if (race === "dragon") {
-        listClan = ["aucune", "ralich", "aelath", "dwaliwyr", "yie", "nydiag", "weitha", "crilanydd", "cem", "coalith", "natura", "vivaqua", "limenido", "eraliwin", "atlantide", "galerrakath", "atakanax", "corbeau", "nomade", "troubadour", "other"];
-        listCulte = (clan === "nomade") ? ["aucune"] : ["aucune", "vharung", "marrunas", "vaudou", "dieuxsombres", "runes", "other"];
-    } else if (race === "humain") {
-        listClan = ["aucune", "oklata", "nomade", "troubadour", "corbeau"];
-        listCulte = (clan === "nomade") ? ["aucune"] : ["aucune", "nouvelordre", "croises", "lumiereceleste", "vharung", "waetra", "baphomet", "marrunas", "vaudou", "numismatomancie", "dieuxsombres", "runes", "other"];
-    } else if (race === "demon") {
-        listClan = ["aucune", "demonclan", "nomade", "troubadour", "corbeau", "other"];
-        listCulte = (clan === "nomade") ? ["aucune"] : ["aucune", "waetra", "demonsanciens", "numismatomancie", "vharung", "marrunas", "dieuxsombres", "vaudou", "runes", "other"];
-    } else if (race === "drauch") {
-        listClan = ["aucune", "drauch", "nomade", "troubadour", "corbeau", "other"];
-        listCulte = (clan === "nomade") ? ["aucune"] : ["aucune", "waetra", "vharung", "numismatomancie", "marrunas", "dieuxsombres", "vaudou", "runes", "other"];
-    } else if (race === "rocailleux") {
-        listClan = ["aucune"];
-        listCulte = ["aucune"];
-    } else if (race === "celeste") {
-        listClan = ["oklata"];
-        listCulte = ["other"];
-    } else if (race === "semihumain") {
-        listClan = ["aucune", "oklata", "ralich", "aelath", "dwaliwyr", "yie", "nydiag", "weitha", "crilanydd", "cem", "coalith", "natura", "vivaqua", "limenido", "eraliwin", "atlantide", "galerrakath", "atakanax", "corbeau", "nomade", "troubadour", "other"];
-        listCulte = (clan === "nomade") ? ["aucune"] : ["aucune", "nouvelordre", "croises", "lumiereceleste", "vharung", "waetra", "demonsanciens", "baphomet", "marrunas", "vaudou", "runes", "numismatomancie", "dieuxsombres", "other"];
-    } else {
-        listClan = ["aucune", "drauch", "demonclan", "ralich", "aelath", "dwaliwyr", "yie", "nydiag", "weitha", "crilanydd", "cem", "coalith", "natura", "vivaqua", "limenido", "eraliwin", "atlantide", "galerrakath", "atakanax", "oklata", "nomade", "troubadour", "corbeau", "other"];
-        listCulte = (clan === "nomade") ? ["aucune"] : ["aucune", "nouvelordre", "croises", "lumiereceleste", "vharung", "waetra", "demonsanciens", "baphomet", "marrunas", "vaudou", "runes", "numismatomancie", "dieuxsombres", "other"];
-    }
-
-    // Adapter la liste des cultes ou clans en fonction du métier sélectionné
-    if (metier === "mercenaire") {
-      listCulte = listClan.filter(clan => !["corbeau", "troubadour"].includes(clan));
-    } else if (metier === "inquisiteur") {
-      listClan = listClan.filter(clan => !["croises"].includes(clan));
-    }
-    // Attribution de métiers en fonction du clan et du culte
-
-    if (clan === "corbeau") {
-        listMetier = ["none","guerrier"];listCulte=["aucune","runes","other"];
-    } else if (clan === "troubadour") {
-        listMetier = ["none","troubadour"];
-    } else if (culte === "croises") {
-        listMetier = ["none","croise"];
-    } else {
-        listMetier = ["personnalise","chevalier","soldat","mercenaire","pirate","chasseurdeprime","assassinvoleur","inquisiteur","druide","clerc","erudit","magicien","oracle"];
-    }
-
-    const cout = this.actor.system.cout || 0; // Vérifier si `cout` est défini
-
-    // Vérifier si le compendium existe
-    const pack = game.packs.get('liber-chronicles.magie');
-    if (!pack) {
-        console.error("Compendium 'liber-chronicles.magie' introuvable !");
-        return;
-    }
-    // Récupérer les documents du compendium
-    const tables = await pack.getDocuments();
-    if (!tables.length) {
-        console.warn("Aucune donnée trouvée dans le compendium 'liber-chronicles.magie'.");
-        return;
-    }
-
-    // Déterminer l'école de magie en fonction du clan ou du culte
-    let magieSchool = [culte]; // Ajouter le culte
-    if (clan === "drauch") {
-      magieSchool.push("yie", "crilanydd");
-    } else if(race=="celeste"){
-      magieSchool = ["lumiereceleste","croises","nouvelordre","vharung","galerrakath","oklata"];
-    }else {
-      magieSchool.push(clan);
-    }
-    // Vérifier et ajouter la magie correspondante au système du personnage
-    let newMagie = [];
-    tables.forEach(table => {
-      // Si le clan ou le culte est "other", inclure toutes les magies sous la condition de coût
-      if (clan === "other" || culte === "other" && race!="celeste") {
-          if (table.system.quantity <= cout) {
-              newMagie.push({ name: table.name, id: table._id, quantity : table.system.quantity, description : table.system.biography });
-          }
-      } 
-      // Sinon, appliquer la logique classique
-      else if (magieSchool.includes(table.system.school) && table.system.quantity <= cout) {
-          newMagie.push({ name: table.name, id: table._id, quantity : table.system.quantity, description : table.system.biography });
-      }
-    });
-    newMagie.sort((a, b) => a.quantity - b.quantity);
-
-
-    // Convertir `newMagie` en tableau pour la mise à jour
-    listMagie = Array.from(newMagie);
-    if (!game.user.isGM) {
-      console.log("pas gm"); 
-    }
-
+    // === MAGIE DISPONIBLE ===
+    const listMagie = await this.#getAvailableMagic(race, clan, culte, cout);
 
     return {
-        tabs: this.#getTabs(),
-        fields: this.document.schema.fields,
-        systemFields: this.document.system.schema.fields, 
-        //systemFields:fixedSystemFields, 
-        actor: this.document,
-        system: this.document.system,
-        inventory:filteredItems,
-        magic:magic,
-        listClan:listClan,
-        listCulte:listCulte,
-        listMagie:listMagie,
-        listMetier:listMetier,
-        source: this.document.toObject(),
-        items: this.document.items.toObject()
-      };
+      tabs: this.#getTabs(),
+      fields: this.document.schema.fields,
+      systemFields: system.schema.fields,
+      actor: this.document,
+      system,
+      inventory: itemsData.equipment,
+      magic:itemsData.magic,
+      listClan,
+      listCulte,
+      listMetier,
+      listMagie,
+      source: this.document.toObject()
+    };
+  }
+
+  #organizeItems(filter) {
+    const itemsData = {
+      magic: [],
+      equipment: {
+        gauche: [],
+        droite: [],
+        middle: [],
+        inventory: []
+      }
+    };
+
+    for (const item of this.document.items) {
+      if (item.type === "magic") {
+        itemsData.magic.push(item);
+        //trier par system.quantity
+      } else {
+        const matchesFilter = filter === "all" || filter.includes(item.type);
+        if (!matchesFilter) continue;
+        //trier par name
+        const equipLocation = item.system?.equip;
+        if (["gauche", "droite", "middle"].includes(equipLocation)) {
+          itemsData.equipment[equipLocation].push(item);
+        } 
+        itemsData.equipment.inventory.push(item);
+        
+      }
+    }
+    // Magie : par coût (quantity)
+    itemsData.magic.sort(
+      (a, b) => (a.system?.quantity ?? 0) - (b.system?.quantity ?? 0)
+    );
+      // Item : par nom
+    itemsData.equipment.inventory.sort((a, b) =>
+      a.name.localeCompare(b.name, 'fr', { sensitivity: 'base' })
+    );
+    return itemsData
+  }
+
+  #getListsConfig(race, clan, culte, metier) {
+    const RACE_CONFIG = {
+      dragon: {
+        clans: ["aucune", "ralich", "aelath", "dwaliwyr", "yie", "nydiag", "weitha", "crilanydd", "cem", "coalith", "natura", "vivaqua", "limenido", "eraliwin", "atlantide", "galerrakath", "atakanax", "corbeau", "nomade", "troubadour", "other"],
+        cultes: ["aucune", "vharung", "marrunas", "vaudou", "dieuxsombres", "runes", "other"]
+      },
+      humain: {
+        clans: ["aucune", "oklata", "nomade", "troubadour", "corbeau"],
+        cultes: ["aucune", "nouvelordre", "croises", "lumiereceleste", "vharung", "waetra", "baphomet", "marrunas", "vaudou", "numismatomancie", "dieuxsombres", "runes", "other"]
+      },
+      demon: {
+        clans: ["aucune", "demonclan", "nomade", "troubadour", "corbeau", "other"],
+        cultes: ["aucune", "waetra", "demonsanciens", "numismatomancie", "vharung", "marrunas", "dieuxsombres", "vaudou", "runes", "other"]
+      },
+      drauch: {
+        clans: ["aucune", "drauch", "nomade", "troubadour", "corbeau", "other"],
+        cultes: ["aucune", "waetra", "vharung", "numismatomancie", "marrunas", "dieuxsombres", "vaudou", "runes", "other"]
+      },
+      rocailleux: {
+        clans: ["aucune"],
+        cultes: ["aucune"]
+      },
+      celeste: {
+        clans: ["oklata"],
+        cultes: ["other"]
+      },
+      semihumain: {
+        clans: ["aucune", "oklata", "ralich", "aelath", "dwaliwyr", "yie", "nydiag", "weitha", "crilanydd", "cem", "coalith", "natura", "vivaqua", "limenido", "eraliwin", "atlantide", "galerrakath", "atakanax", "corbeau", "nomade", "troubadour", "other"],
+        cultes: ["aucune", "nouvelordre", "croises", "lumiereceleste", "vharung", "waetra", "demonsanciens", "baphomet", "marrunas", "vaudou", "runes", "numismatomancie", "dieuxsombres", "other"]
+      }
+    };
+
+    const DEFAULT_CONFIG = {
+      clans: ["aucune", "drauch", "demonclan", "ralich", "aelath", "dwaliwyr", "yie", "nydiag", "weitha", "crilanydd", "cem", "coalith", "natura", "vivaqua", "limenido", "eraliwin", "atlantide", "galerrakath", "atakanax", "oklata", "nomade", "troubadour", "corbeau", "other"],
+      cultes: ["aucune", "nouvelordre", "croises", "lumiereceleste", "vharung", "waetra", "demonsanciens", "baphomet", "marrunas", "vaudou", "runes", "numismatomancie", "dieuxsombres", "other"]
+    };
+
+    let { clans: listClan, cultes: listCulte } = RACE_CONFIG[race] || DEFAULT_CONFIG;
+
+    // Ajustements
+    if (clan === "nomade") listCulte = ["aucune"];
+
+    const METIER_FILTERS = {
+      mercenaire: { clans: ["corbeau", "troubadour"] },
+      inquisiteur: { clans: ["croises"] }
+    };
+
+    if (METIER_FILTERS[metier]) {
+      listClan = listClan.filter(c => !METIER_FILTERS[metier].clans.includes(c));
+    }
+
+    // Métiers
+    const METIERS_DEFAULT = ["personnalise", "chevalier", "soldat", "mercenaire", "pirate", "chasseurdeprime", "assassinvoleur", "inquisiteur", "druide", "clerc", "erudit", "magicien", "oracle"];
+
+    let listMetier;
+    if (clan === "corbeau") {
+      listMetier = ["none", "guerrier"];
+      listCulte = ["aucune", "runes", "other"];
+    } else if (clan === "troubadour") {
+      listMetier = ["none", "troubadour"];
+    } else if (culte === "croises") {
+      listMetier = ["none", "croise"];
+    } else {
+      listMetier = METIERS_DEFAULT;
+    }
+
+    return { listClan, listCulte, listMetier };
+  }
+
+  async #getAvailableMagic(race, clan, culte, cout) {
+    const pack = game.packs.get("liber-chronicles.magie");
+    if (!pack) return [];
+
+    // ⚡ Lecture légère
+    const index = await pack.getIndex({
+      fields: ["system.quantity", "system.school", "system.biography"]
+    });
+
+    let magieSchool;
+    if (race === "celeste") {
+      magieSchool = new Set([
+        "lumiereceleste",
+        "croises",
+        "nouvelordre",
+        "vharung",
+        "galerrakath",
+        "oklata"
+      ]);
+    } else {
+      magieSchool = new Set([culte]);
+      if (clan === "drauch") {
+        magieSchool.add("yie").add("crilanydd");
+      } else {
+        magieSchool.add(clan);
+      }
+    }
+
+    const isOther = clan === "other" || (culte === "other" && race !== "celeste");
+
+    return index
+      .filter(e => {
+        const qty = e.system?.quantity ?? Infinity;
+        if (qty > cout) return false;
+        return isOther || magieSchool.has(e.system?.school);
+      })
+      .map(e => ({
+        name: e.name,
+        id: e._id,
+        quantity: e.system.quantity,
+        description: e.system.biography
+      }))
+      .sort((a, b) => a.quantity - b.quantity);
   }
 
 
-  async _preparePartContext(partId, context) {
-    return context;
-  }
 
   async _onRender(context, options) {
-    await super._onRender(context, options);
     console.log(context)
-    // 🧩 Vérification logique de la fiche
+    await super._onRender(context, options);
     await this._onVerif();
-
-    const el = this.element[0]; // wrapper principal
+    console.log(this.element)
+    const el = this.element;
     const system = this.actor.system;
 
-    /* === 🔹 DRAG & DROP === */
-    el.querySelectorAll('[data-drag]').forEach(item => {
-      item.addEventListener('dragstart', () => {}); // placeholder
-    });
+    this.#setupDragDrop(el);
+    this.#setupTabs();
+    this.#updateVisuals(el, system);
+  }
 
-    /* === 🔹 ONGLET ACTIF === */
-    /*conserver le dernier onglet ouvert*/
+  #setupDragDrop(el) {
+    el.querySelectorAll('[data-drag]').forEach(item => {
+      item.addEventListener('dragstart', () => {});
+    });
+  }
+
+  #setupTabs() {
     if (!this.actor) return;
-    // Récupérer l'onglet actif spécifique à ce personnage (ou valeur par défaut)
-    const activeTab = localStorage.getItem(`activeTab-${this.actor.id}`) || "background"; 
-    // Appliquer l'affichage correct
+    
+    const activeTab = localStorage.getItem(`activeTab-${this.actor.id}`) || "background";
     this._setActiveTab(activeTab);
-    // Gérer le clic sur les onglets pour changer de vue
+    
     this.element.querySelectorAll(".sheet-tabs [data-tab]").forEach(tab => {
       tab.addEventListener("click", (event) => {
-        const newTab = event.currentTarget.dataset.tab;
-        this._setActiveTab(newTab);
+        this._setActiveTab(event.currentTarget.dataset.tab);
       });
-      
+    });
+  }
+
+  #updateVisuals(el, system, sheetEl) {
+    // Colorisation des compétences
+    el.querySelectorAll('.perso input').forEach(i => {
+      const val = parseInt(i.value) || 0;
+      i.style.color = val === 0 ? "var(--couleur-clair)" : "white";
+      i.style.background = val > 0 ? "var(--couleur-vert)" : (val < 0 ? "var(--couleur-rouge)" : "");
     });
 
-    /* === 🔹 COLORISATION DES COMPÉTENCES === */
-    el.querySelectorAll(".perso").forEach(c => {
-      const input = c.querySelector("input");
-      if (!input) return;
-      const val = parseInt(input.value) || 0;
-      input.style.color = val === 0 ? "var(--couleur-clair)" : "white";
-      input.style.background = val > 0 ? "var(--couleur-vert)" : (val < 0 ? "var(--couleur-rouge)" : "");
-    });
-
-
-
-    /* === 🔹 AVANTAGES VISUELS === */
+    // Avantages visuels
     el.querySelectorAll('.head input').forEach(i => {
       i.style.opacity = parseInt(i.value) > 0 ? '1' : '0.5';
     });
 
-    /* === 🔹 BARRE D’ENCOMBREMENT === */
+    // Barre d'encombrement
+    this.#updateEncumbranceBar(el, system);
+
+    // Inventaire actif
+    this.#updateInventoryFilter(system.inventory);
+
+    // Fond selon PV
+    this.#updateBackground(system);
+
+    // Reste colorisé
+    const resteInput = el.querySelector("input[name='system.reste']");
+    if (resteInput) {
+      const val = parseInt(resteInput.value) || 0;
+      resteInput.style.background = val > 0 ? "var(--couleur-vert)" : (val < 0 ? "var(--couleur-rouge)" : "");
+    }
+  }
+
+  #updateEncumbranceBar(el, system) {
     const enc = system.enc || 0;
     const encmax = system.encmax || 1;
     const barEnc = el.querySelector('.barenc');
+    
     if (barEnc) {
-      let pourcent = Math.min(Math.round(enc * 100 / encmax), 120);
+      const pourcent = Math.min(Math.round(enc * 100 / encmax), 120);
       barEnc.style.width = `${pourcent}%`;
-      barEnc.style.background =
+      barEnc.style.background = 
         pourcent < 25 ? 'green' :
         pourcent < 75 ? 'orange' :
         pourcent < 100 ? 'red' :
         pourcent < 120 ? '#660000' : 'black';
     }
+  }
 
-    /* === 🔹 INVENTAIRE === */
-    const inventory = system.inventory;
+  #updateInventoryFilter(inventory) {
     const typ = ["all", "weapon", "armor", "item"];
-
     if (typ.includes(inventory)) {
-      document.querySelector(`a[data-type="${inventory}"]`).style.opacity = 1;
+      const el = this.element?.querySelector(`a[data-type="${inventory}"]`);
+      if (el) el.style.opacity = "1";
     }
+  }
 
-    /* === 🔹 FOND D’ÉCRAN SI PV = 0 === */
+  #updateBackground(system) {
     const hp = system.hp.value || 0;
     const psy = system.psy.value || 0;
     const race = system.race;
@@ -284,15 +330,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       sheetEl.style.background = mort
         ? 'linear-gradient(230deg, rgba(190,25,25,1) 0%, rgba(25,25,25,1) 100%)'
         : 'linear-gradient(218deg, #2a2b2c 0%, #120304 100%)';
-    }
-
-    /* === 🔹 RESTE COLORISÉ === */
-    const resteInput = el.querySelector("input[name='system.reste']");
-    if (resteInput) {
-      const val = parseInt(resteInput.value) || 0;
-      resteInput.style.background =
-        val > 0 ? "var(--couleur-vert)" :
-        val < 0 ? "var(--couleur-rouge)" : "";
     }
   }
 
@@ -364,10 +401,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     };
 
     // 5️⃣ Application des changements une seule fois
-    await actor.update(updateData, { render: false });
-
-    // ✅ Optionnel : log de débogage
-    //console.debug("Vérification terminée :", updateData);
+    await actor.update(updateData);
   }
 
   /**

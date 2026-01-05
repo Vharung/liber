@@ -87,7 +87,7 @@
       <a class="item-random" data-action="random" data-type="armor">{{localize 'Liber.Character.Inventory.Armor_hasard'}}</a>
       <a class="item-random" data-action="random" data-type="item">{{localize 'Liber.Character.Inventory.Item_hasard'}}</a>
       <ul class="items-list">
-        {{#each inventory as |item id|}} 
+        {{#each inventory.inventory as |item id|}} 
             <li class="item fexrow type-{{item.type}} active draggable" data-item-id="{{item._id}}">
               <div class="item-image">
                 <div class="item-qty">{{item.system.quantity}}</div>
