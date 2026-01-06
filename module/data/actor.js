@@ -301,6 +301,7 @@ export default class LiberCharacterData extends foundry.abstract.DataModel {
                 }
             }),
             restant:new fields.NumberField({ required: true, initial: 0 ,readonly:true}),
+            pvetpsy:new fields.NumberField({ required: true, initial: 0 ,readonly:true}),
             reste:new fields.NumberField({ required: true, initial: 0 ,readonly:true}),
             base:new fields.NumberField({ required: true, initial: 25 ,readonly:true}),
             taille: new fields.StringField({

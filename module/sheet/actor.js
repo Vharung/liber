@@ -10,7 +10,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
   /** @override */
   static DEFAULT_OPTIONS = {
     classes: ["liber", "actor", "character"],
-    position: { width: 685, height: 890 },
+    position: { width: 685, height: 850 },
     form: { submitOnChange: true },
     window: { resizable: true },
     dragDrop: [{ dragSelector: '[data-drag]', dropSelector: '.inventory-list' }], // Remplacer '.inventory-list' par votre sélecteur    tabGroups: { sheet: "inventory" },
@@ -237,7 +237,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     console.log(context)
     await super._onRender(context, options);
     await this._onVerif();
-    console.log(this.element)
     const el = this.element;
     const system = this.actor.system;
 
@@ -301,13 +300,13 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     const barEnc = el.querySelector('.barenc');
     
     if (barEnc) {
-      const pourcent = Math.min(Math.round(enc * 100 / encmax), 120);
+      const pourcent = Math.min(Math.round(enc * 100 / encmax), 100);
       barEnc.style.width = `${pourcent}%`;
       barEnc.style.background = 
-        pourcent < 25 ? 'green' :
-        pourcent < 75 ? 'orange' :
-        pourcent < 100 ? 'red' :
-        pourcent < 120 ? '#660000' : 'black';
+        pourcent < 50 ? '#3fb359' :
+        pourcent < 75 ? '#abb33f' :
+        pourcent < 100 ? '#c3891c' :
+        '#a51111';
     }
   }
 
@@ -395,6 +394,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       "system.max": sortRestant,
       "system.alert.hp": calcul.hpalert,
       "system.alert.psy": calcul.psyalert,
+      "system.pvetpsy":calcul.diff,
       ...this.onStatut(),   // Données d'état
       ...corrections,       // Ajustements raciaux
       ...competences        // Compétences mises à jour
@@ -410,14 +410,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
    * @returns {number} - Résultat après application des multiplicateurs et limites.
    */
   onCalculerPenaliteCompetences() {
-    const cpts = this.actor.system.competences;
-    const level = this.actor.system.niveau;
-    const base = this.actor.system.base;
-    const clan = this.actor.system.clan;
-    const metier = this.actor.system.metier;
-    const faiblesse =this.actor.system.faiblesse;
-    //const apprentissage=this.actor.system.apprentissage;
-    const race = this.actor.system.race;
+    const { competences: cpts, niveau: level, base, clan, metier, faiblesse, race } = this.actor.system;
     let bonus_compt=10;
     if(faiblesse=="distrait"){
       bonus_compt=bonus_compt - 2;
@@ -630,6 +623,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       hpalert="var(--couleur-vert)";
       psyalert="var(--couleur-vert)";
     }
+    const diff=calcultotxp-xp;
       
     //vérification des talents et faiblesse
     return {
@@ -645,7 +639,8 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       nbSort: nbSort,
       cout: maxSort,
       hpalert: hpalert,
-      psyalert: psyalert
+      psyalert: psyalert,
+      diff:diff
     };
   }
 
