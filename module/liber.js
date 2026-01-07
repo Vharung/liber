@@ -12,6 +12,7 @@ import LiberWeaponSheet from "./sheet/weapon.js";
 import LiberArmorSheet from "./sheet/armor.js";
 
 import LiberChat from "./document/chat.js";
+import MobileActorInterface from "./sheet/mobile.js";
 
 import { Macros } from "./macro.js";
 
@@ -389,3 +390,9 @@ Hooks.on("updateToken", (token, updates) => {
     token.actor.sheet.render(true);
   }
 });
+
+// ====================================
+// Initialisation automatique
+// ====================================
+const mobileInterface = new MobileActorInterface();
+mobileInterface.init();

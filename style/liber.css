@@ -447,3 +447,126 @@ button[aria-pressed="true"]{background: var(--couleur-clair)}
 .liber .chnget.active {
   opacity: 1;
 }
+
+
+@media screen and (max-width: 768px) {
+    #mobile-actor-list {osition: fixed;top: 0;left: 0;width: 100vw;height: 100vh;background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);z-index: 10000;overflow-y: auto;padding: 20px;box-sizing: border-box;}
+    #mobile-actor-list h2 {color: #fff;text-align: center;margin: 0 0 20px 0;font-size: 24px;text-shadow: 2px 2px 4px rgba(0,0,0,0.5);}
+    .mobile-actor-grid {display: grid;grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));gap: 15px;max-width: 600px;margin: 0 auto;}
+    .mobile-actor-card {background: linear-gradient(145deg, #2a2a3e, #1f1f2e);border: 2px solid #4a4a6e;border-radius: 12px;padding: 15px;cursor: pointer;transition: all 0.3s ease;text-align: center;box-shadow: 0 4px 8px rgba(0,0,0,0.3);}
+    .mobile-actor-card:active {transform: scale(0.95);box-shadow: 0 2px 4px rgba(0,0,0,0.3);}
+    .mobile-actor-card:hover {border-color: #6a6a8e;box-shadow: 0 6px 12px rgba(0,0,0,0.4);}
+    .mobile-actor-img {width: 80px;height: 80px;border-radius: 50%;object-fit: cover;border: 3px solid #4a4a6e;margin: 0 auto 10px;display: block;}
+    .mobile-actor-name {color: #fff;font-size: 14px;font-weight: bold;margin: 5px 0;word-wrap: break-word;}
+    .mobile-actor-type {color: #aaa;font-size: 11px;text-transform: uppercase;}
+    .error {display:none}
+    .mobile-back-button:active {transform: scale(0.9);}
+    .liber nav.navlib {left: 0;z-index: 10;opacity: 0.8;position: fixed;}
+    .liber .character-biography, .liber .sheet-body,.liber #spells .items-list, .liber .sheet-header, .liber .colcomp,.liber .attribut{width:100%}
+    .liber .character-biography{top: 175px;}
+    .liber .colstat{width: 272px; margin:auto;display: block;height: 200px;}
+    .liber .droite{float:none}
+    .liber .head{height:100px}
+    .liber .zoneavatar{width:300px;}
+    .liber .emphase{ width: calc(100% - 150px);}
+    .liber .competences{width: calc(100% - 20px);}
+    #interface{display: none}
+    .liber.actor{top:0px !important; width:100%;border-radius: 0;height: 100% !important;}
+
+    /* Feuilles de personnage - passage en mode fluide */
+    .sheet.actor, .sheet.item { width: 100vw !important;height: 100vh !important;max-width: 100%;border-radius: 0 !important;position: fixed !important;top: 0 !important;left: 0 !important;}
+    .liber.application .window-content {width: 100% !important;height: calc(100vh - 40px) !important;position: absolute;top: 40px;overflow-y: auto;overflow-x: hidden;}
+    .liber.application .window-content, .sheet.actor {height: calc(100vh - 40px) !important;z-index:10001 !important}
+    /* Navigation - passage en horizontal en bas */
+    .liber nav.navlib {background:#180d0e !important;height: 60px !important;width: 100% !important;position: fixed !important;left: 0 !important;bottom: 0 !important;top: auto !important;display: flex !important;flex-direction: row !important;justify-content: space-around !important;border: none !important;border-top: 1px solid var(--couleur-clair) !important;z-index: 1000;opacity:1;}
+    .liber nav.navlib a {width: 60px !important;height: 60px !important;margin: 0 !important;border-radius: 0 !important;box-shadow: none !important;}
+    .liber nav.navlib span {width: 60px !important;height: 60px !important;}
+    .mobile-back-button{display: none}
+    /* Header - réduction */
+    .liber.actor .sheet-header {width: 100% !important;height: auto !important;top: 0 !important;padding: 0px;box-sizing: border-box;}
+    .liber .nomperso input {font-size: 1.5em !important; width: 100% !important;}
+    .liber .zonehead {height: auto !important;}
+    .liber .avantagerace{width: 100% !important}
+    .liber .talent, .liber .faiblesse{width: 50%; float:left; text-align: center}
+    .liber .postes{width: 25% !important}
+    /* Zone Avatar - réorganisation */
+    .liber .character-biography {width: 100% !important;height: auto !important;position: relative !important;left: 0 !important;top: 0 !important;border: none !important;margin: 0 !important;padding: 15px;box-sizing: border-box;}
+    .liber .zoneavatar {width: 100% !important;height: auto !important;padding: 0;;align-items: center;}
+    .liber .avatar {width: 150px !important;height: 150px !important; margin: 0 auto}
+    .liber .avatar img {width: 150px !important;height: 150px !important;}
+    .liber input[name="system.niveau"] {position: absolute;top: 120px;left: calc(50% - 20px);}
+    /* Stats HP/PSY - réorganisation horizontale */
+    .liber .col-hp, .liber .col-psy, .liber .col-arm, .liber .col-protection {width: 45% !important;float:left;margin: 5px 2.5%;float:left;}
+    /* Posture et états - réorganisation */
+    .liber .posture {position: relative !important;right: auto !important;bottom: auto !important;width: 100% !important;height: auto !important;display: flex;justify-content: center;flex-wrap: wrap;margin: 10px 0;}
+    .liber .posture a {margin: 5px;}
+    .liber .ligne {position: relative !important;width: 100% !important;display: flex;flex-wrap: wrap;justify-content: center;margin: 10px 0;}
+    .liber .ligne a {margin: 3px;}
+    .liber .zonearmure {position: relative !important;right: auto !important;width: 100%;margin: 10px 0;}
+    /* Colonnes - passage en vertical */
+    .liber .colstat, .liber .colcomp {width: 100% !important;height: auto !important;display: block;margin: 0 !important;padding: 10px;box-sizing: border-box;}
+    .liber .colstat { top: 0 !important;}
+    .liber .colstat label, .liber .colstat .droite{width: 15% !important}
+    .liber .colstat input{top:-12px}
+    .liber .colcomp {top: 0 !important;}
+    .liber .colcomp .competences {width: 100% !important;max-height: 300px;}
+    /* Inventaire - pleine largeur */
+    .liber .inventory-list {width: 100% !important;left: 0 !important;position: relative !important;height: auto !important;padding: 15px;box-sizing: border-box;border: none !important;border-top: 2px solid var(--couleur-or) !important;}
+    .liber .sheet-body {width: 100% !important;height: auto !important;}
+    .liber .zoneinfo {width: 100% !important;height: auto !important;min-height: 400px;margin-bottom: 70px;}
+    /* Items list */
+    .liber #items .items-list,
+    .liber #spells .items-list {height: auto !important;max-height: 500px !important;width: 100% !important;}
+    .liber .item_name {width: calc(100% - 80px) !important;}
+    /* Équipement - réorganisation */
+    .liber .unemain, .liber .deuxmains, .liber .arm, 
+    .liber input[name="system.ecu"] {width: 60px !important;height: 60px !important;position: relative !important;display: inline-block !important;margin: 5px !important;}
+    .liber .deuxmains {left: 0 !important;}
+    .liber .arm {left: 0 !important;}
+    /* Stats - adaptation */
+    .liber .stat {width: 48% !important;display: inline-block;margin-bottom: 10px;}
+    .liber .emphase {width: 100% !important;margin-bottom: 10px;}
+    .liber .perso {width: 100% !important;float: none !important;margin-bottom: 10px;}
+    /* Magie */
+    .liber .magie {width: 100% !important;}
+    .liber .addsort {width: 100% !important;float: none !important;}
+    .liber .coutmax, .liber .maxsort {width: 80px !important;height: 80px !important;font-size: 2.5em !important;}
+    /* Zone d'édition */
+    .liber.actor prose-mirror[name="system.biography"],
+    .liber.item prose-mirror[name="system.biography"] {height: 300px !important;}
+    /* Feuille d'objet */
+    .liber.item .window-content h1 {width: calc(100% - 140px) !important;position: relative !important;right: auto !important;top: auto !important;height: auto !important;padding: 10px;}
+    .liber.item .col {width: 100% !important;float: none !important;height: auto !important;}
+    .liber.item .form-group {width: 100% !important;}
+    .liber.item select {width: 100% !important;}
+    /* Sidebar */
+    #ui-right {opacity: 1 !important;}
+    #ui-right menu.flexcol {margin-left: 0 !important;}
+    /* Chat */
+    .intro-chat {width: 100% !important;float: none !important;border-radius: 5px !important;margin-top: 10px;}
+    .intro-img {width: 40px !important;height: 40px !important;}
+    /* Filtres d'items */
+    .liber .item-filter {width: 60px !important;height: 60px !important;}
+    /* Actions */
+    .liber.actor .grid-2col {position: relative !important;width: 50% !important;bottom: auto !important;left: auto !important;margin: 10px 0;}
+    .liber.actor .der {left: auto !important;}
+    /* Texte et police */
+    .liber h2 {font-size: 1.1em !important;}
+    /* Inputs adaptés */
+    .liber input[name="system.insoin"],
+    .liber input[name="system.avant"],
+    .liber input[name="system.desan"],
+    .liber input[name="system.fatig"] {
+    width: 45px !important;font-size: 0.9em !important;}
+    /* Module helper */
+    .liber-helper .liste {height: auto !important;max-height: 300px !important;}
+}
+/* Pour les très petits écrans */
+@media screen and (max-width: 480px) {
+    .liber .col-hp .deno, 
+    .liber .col-psy .deno {font-size: 1.5em !important;}
+    .liber nav.navlib {height: 50px !important;}
+    .liber nav.navlib a,
+    .liber nav.navlib span {width: 50px !important;height: 50px !important;}
+    .liber .item_name {width: calc(100% - 60px) !important;font-size: 0.9em;}
+}

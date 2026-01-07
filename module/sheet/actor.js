@@ -1205,8 +1205,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       /*Arme équipé*/
       let equippedItems =this.actor.items.filter(item => item.system.equip);
     
-      console.log(objet)
-
       /* Magie */
       //const type = target.getAttribute('data-type');
       //const itemId = target.getAttribute('data-item-id');
@@ -1312,7 +1310,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       }
 
       // Décompte de la psy
-      if (objet="magie") {
+      if (objet=="magie") {
         if(posture=="focus"){
           quantity=quantity-1;
           if(quantity<0){quantity=0;}
