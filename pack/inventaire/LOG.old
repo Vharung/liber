@@ -1,8 +1,15 @@
-2026/01/05-14:14:29.541035 785b89e006c0 Recovering log #127
-2026/01/05-14:14:29.542608 785b89e006c0 Delete type=3 #125
-2026/01/05-14:14:29.542645 785b89e006c0 Delete type=0 #127
-2026/01/05-14:14:49.496347 785b828006c0 Level-0 table #132: started
-2026/01/05-14:14:49.496369 785b828006c0 Level-0 table #132: 0 bytes OK
-2026/01/05-14:14:49.497038 785b828006c0 Delete type=0 #130
-2026/01/05-14:14:49.498422 785b828006c0 Manual compaction at level-0 from '!folders!3NftIq481YbEBSOK' @ 72057594037927935 : 1 .. '!items!zk7Yqs3SM5hZTN6S' @ 0 : 0; will stop at (end)
-2026/01/05-14:14:49.498458 785b828006c0 Manual compaction at level-1 from '!folders!3NftIq481YbEBSOK' @ 72057594037927935 : 1 .. '!items!zk7Yqs3SM5hZTN6S' @ 0 : 0; will stop at (end)
+2026/01/13-09:00:32.663988 785b894006c0 Recovering log #140
+2026/01/13-09:00:32.665274 785b894006c0 Delete type=0 #140
+2026/01/13-09:00:32.665324 785b894006c0 Delete type=3 #138
+2026/01/13-09:13:29.592041 785b828006c0 Level-0 table #145: started
+2026/01/13-09:13:29.592734 785b828006c0 Level-0 table #145: 2695 bytes OK
+2026/01/13-09:13:29.593292 785b828006c0 Delete type=0 #143
+2026/01/13-09:13:29.594929 785b828006c0 Manual compaction at level-0 from '!folders!3NftIq481YbEBSOK' @ 72057594037927935 : 1 .. '!items!zk7Yqs3SM5hZTN6S' @ 0 : 0; will stop at (end)
+2026/01/13-09:13:29.594971 785b828006c0 Manual compaction at level-1 from '!folders!3NftIq481YbEBSOK' @ 72057594037927935 : 1 .. '!items!zk7Yqs3SM5hZTN6S' @ 0 : 0; will stop at '!items!TZTRQa0g9sxDgoFZ' @ 821 : 1
+2026/01/13-09:13:29.594975 785b828006c0 Compacting 1@1 + 1@2 files
+2026/01/13-09:13:29.596188 785b828006c0 Generated table #146@1: 164 keys, 52712 bytes
+2026/01/13-09:13:29.596198 785b828006c0 Compacted 1@1 + 1@2 files => 52712 bytes
+2026/01/13-09:13:29.596510 785b828006c0 compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/01/13-09:13:29.596550 785b828006c0 Delete type=2 #145
+2026/01/13-09:13:29.596603 785b828006c0 Delete type=2 #137
+2026/01/13-09:13:29.596686 785b828006c0 Manual compaction at level-1 from '!items!TZTRQa0g9sxDgoFZ' @ 821 : 1 .. '!items!zk7Yqs3SM5hZTN6S' @ 0 : 0; will stop at (end)
