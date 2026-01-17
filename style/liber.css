@@ -200,7 +200,7 @@ body.theme-dark .application .window-content{backdrop-filter:none}
 .liber .astuce{background: url('../assets/actor/astuce.webp') left no-repeat;background-size:contain;}
 .liber .memoire{background: url('../assets/actor/memoire.webp') left no-repeat;background-size:contain;}
 
-.liber .colcomp{width:210px;position: relative;top:-30px;padding: 5px}
+.liber .colcomp{width:210px;position: relative;top:0px;padding: 5px}
 .liber .colcomp .competences{background: var(--couleur-clair);position: relative;top:-6px;color:var(--couleur-noir);width: 200px; display: block; margin-top: 5px; padding: 5px;height: 240px;overflow: auto;scrollbar-width: none;}
 .liber .colcomp .competences a{border-bottom: solid 1px var(--couleur-noir); width: 200px; display: block; height: 20px; margin-bottom: 5px}
 .liber .colcomp .competences a span{width: 20px; display: inline-block; text-align: center;}
@@ -472,7 +472,8 @@ button[aria-pressed="true"]{background: var(--couleur-clair)}
     .liber .competences{width: calc(100% - 20px);}
     #interface{display: none}
     .liber.actor{top:0px !important; width:100%;border-radius: 0;height: 100% !important;}
-
+    .liber .colcomp{top:-30px;}
+    
     /* Feuilles de personnage - passage en mode fluide */
     .sheet.actor, .sheet.item { width: 100vw !important;height: 100vh !important;max-width: 100%;border-radius: 0 !important;position: fixed !important;top: 0 !important;left: 0 !important;}
     .liber.application .window-content {width: 100% !important;height: calc(100vh - 40px) !important;position: absolute;top: 40px;overflow-y: auto;overflow-x: hidden;}
