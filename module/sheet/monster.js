@@ -375,8 +375,8 @@ export default class LiberMonsterSheet extends HandlebarsApplicationMixin(ActorS
       if (type) {
         item = this.actor.items.get(itemId);
         if (item) {
-            psy = parseInt(this.actor.system.psy) || 0;
-            pv = parseInt(this.actor.system.hp) || 0;
+            psy = parseInt(this.actor.system.psy.value) || 0;
+            pv = parseInt(this.actor.system.hp.value) || 0;
             insoin = parseInt(this.actor.system.insoin) || 0;
             mental = parseInt(this.actor.system.ability.mental) || 0;
             social = parseInt(this.actor.system.ability.social) || 0;
