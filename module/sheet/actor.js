@@ -667,14 +667,14 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     switch (action) {
 
       // 🎯 --- BONUS COMPÉTENCE ---
-      case "bonusCompt": {
+      case "bonuscompt": {
         const bonus = Number(target.dataset.val) || 0;
         await actor.update({ "system.bonus": bonus });
         break;
       }
 
       // 🧹 --- RÉINITIALISATION BONUS / CHAMP ---
-      case "bonusReset": {
+      case "restbonus": {
         const name = target.dataset.name;
         await actor.update({ [`system.${name}`]: 0 });
         break;
