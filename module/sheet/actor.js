@@ -900,6 +900,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     if (!nameList) return actor.name || "Nouvel Acteur";
 
     let name = "";
+    console.log(name)
 
     // Si on a des listes separated par sexe
     if (nameList.female && nameList.male) {
@@ -916,13 +917,14 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
         name = nameList[Math.floor(Math.random() * nameList.length)];
       }
     }
+    console.log(name)
 
     // Si une famille existe, la préfixer
     if (nameList.famille && Array.isArray(nameList.famille) && nameList.famille.length) {
       const fam = nameList.famille[Math.floor(Math.random() * nameList.famille.length)];
       name = `${fam} ${name}`;
     }
-
+    console.log(name)
     return name;
   }
 

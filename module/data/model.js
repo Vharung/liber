@@ -43,7 +43,7 @@ Model.Metiers = {
 
 Model.race={//v3
     "dragon":{
-            "discretion":-5,"negociation":5,"ajoutpoint":-5,"armor":2
+        "discretion":-5,"negociation":5,"ajoutpoint":-5,"armor":2
     },
     "humain":{
         "charisme":5,"dexterite":5,"ajoutpoint":25
@@ -109,6 +109,12 @@ Model.race={//v3
         "ajoutpoint":0
     },
     "centaure":{
+        "ajoutpoint":0
+    },
+    "torth":{
+        "mobilite":-10,"armor":2,"ajoutpoint":-20
+    },
+    "arakh":{
         "ajoutpoint":0
     },
     "autre":{
@@ -319,6 +325,11 @@ Model.names ={
         "female":["Aria","Briseis","Callista","Daphne","Elysia","Fauna","Galatea","Helene","Ianthe","Jocasta","Kaia","Lyra","Melaina","Nyssa","Ophelia","Phaedra","Rhea","Selene","Thalia","Xanthe"],
         "male":["Asterion","Brontes","Calchas","Diodorus","Eurytion","Faunus","Galad","Heracles","Icarus","Jareth","Kyros","Lycus","Myron","Orion","Phaedrus","Rastus","Silvanus","Thalassius","Urion","Xanthus"],
         "famille": ["Briseroc","Boisvert","CœurdeFeu","Feuillargent","Galoporage","Gardeclair","Pierrefoudre","Chantétoile","CoureurdesBois","Gardelune","Flèchedor","Ombresylve","Lanceciel","Brillecime","Gardeforêt","Sabreaube","Étoileféroce","Chasselumière","Ventargent","Coursombre"]
+    },
+    "torth": ["Torak","Melgro","Karveth","Dolmar","Rokhan","Telmok","Varrok","Kelmor","Brath","Morlag","Thokar","Gelthor","Rothmar","Kelgro","Tormek","Arlok","Borveth","Marrok","Thorm","Velkar"],
+    "arakh": {
+        "female": ["Vraska","Silthara","Kryssala","Velkira","Zarshaa","Thryss","Velthara","Krytha","Zilkara","Sathrix","Velissa","Kryssara","Zarthra","Silvara","Thraska","Velkassa","Kryltha","Zissara","Sarthra","Velkrya"],
+        "male": ["Skrit","Velik","Triss","Krez","Silk","Vriss","Tekli","Rilk","Zrik","Keliss","Skran","Tilk","Vris","Krik","Selk","Tzrik","Viliss","Kress","Drilk","Szil"]
     },
     "autre":"Personnage"
 }

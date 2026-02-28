@@ -139,6 +139,8 @@ export const RACES = {
     ORC: "orc",
     CELESTE: "celeste",
     CENTAURE: "centaure",
+    TORTH:"torth",
+    ARAKH:"arakh",
     AUTRE: "autre"
 };
 export const TALENTS = {//v3
