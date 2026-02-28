@@ -1,7 +1,7 @@
-2026/02/04-07:53:43.906957 785b83e006c0 Recovering log #151
-2026/02/04-07:53:43.908206 785b83e006c0 Delete type=0 #151
-2026/02/04-07:53:43.908232 785b83e006c0 Delete type=3 #149
-2026/02/06-18:25:32.294374 785b828006c0 Level-0 table #156: started
-2026/02/06-18:25:32.294548 785b828006c0 Level-0 table #156: 0 bytes OK
-2026/02/06-18:25:32.295983 785b828006c0 Delete type=0 #154
-2026/02/06-18:25:32.299037 785b828006c0 Manual compaction at level-0 from '!folders!JXYVBInylivR87yS' @ 72057594037927935 : 1 .. '!scenes.lights!gt5sABXif3K7BfDa.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at (end)
+2026/02/28-08:47:03.354507 7be0128006c0 Recovering log #171
+2026/02/28-08:47:03.356716 7be0128006c0 Delete type=0 #171
+2026/02/28-08:47:03.356755 7be0128006c0 Delete type=3 #169
+2026/02/28-08:47:09.655866 7be010c006c0 Level-0 table #176: started
+2026/02/28-08:47:09.655883 7be010c006c0 Level-0 table #176: 0 bytes OK
+2026/02/28-08:47:09.656309 7be010c006c0 Delete type=0 #174
+2026/02/28-08:47:09.656903 7be010c006c0 Manual compaction at level-0 from '!folders!JXYVBInylivR87yS' @ 72057594037927935 : 1 .. '!scenes.lights!gt5sABXif3K7BfDa.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at (end)
