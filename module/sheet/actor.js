@@ -220,6 +220,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       .filter(e => {
         const qty = e.system?.quantity ?? Infinity;
         if (qty > cout) return false;
+        if (e.system?.school === 'aucune') return clan === 'aucune' && culte === 'aucune';
         return isOther || magieSchool.has(e.system?.school);
       })
       .map(e => ({
