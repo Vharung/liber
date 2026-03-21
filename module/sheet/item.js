@@ -105,7 +105,7 @@ export default class LiberItemSheet extends HandlebarsApplicationMixin(ItemSheet
       "Annule une attaque une fois par jour"
     ];
     let itemType, itemName, effect;
-    itemType = armorTypes[Math.floor(Math.random() * armorTypes.length)];
+    itemType = itemTypes[Math.floor(Math.random() * itemTypes.length)];
     itemName = nameModifiers[Math.floor(Math.random() * nameModifiers.length)];
     effect = magicEffects[Math.floor(Math.random() * magicEffects.length)];
     this.item.update({'name':itemType +" "+ itemName,'system.biography':effect});

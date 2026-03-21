@@ -1,8 +1,7 @@
-import {CHOIX, EMPHASE, MORAL, DUREE, REPOS, SEXE, MAGIE, COMPETENCES, CLAN, CULTE, CARACTERE, RACES, TALENTS, FAIBLESSES, METIERS, TAILLE} from "./constants.js"; // Import de la constante METIERS
-
+import {CHOIX, EMPHASE, MORAL, DUREE, REPOS, SEXE, MAGIE, COMPETENCES, CLAN, CULTE, CARACTERE, RACES, TALENTS, FAIBLESSES, METIERS, TAILLE} from "./liber.js";
 
 /** Modèle de données pour un personnage */
-export default class LiberCharacterData extends foundry.abstract.DataModel {
+export default class LiberCharacterData extends foundry.abstract.TypeDataModel {
     /** @override */
     static defineSchema() {
         const fields = foundry.data.fields;
@@ -138,31 +137,29 @@ export default class LiberCharacterData extends foundry.abstract.DataModel {
                 required: true,
                 initial: RACES.DRAGON, // Valeur par défaut
                 choices: {
-                    [RACES.ARAKH]: game.i18n.localize("Liber.Race.Arakh"),     
-                    [RACES.CELESTE]: game.i18n.localize("Liber.Race.Celeste"),
-                    [RACES.CENTAURE]: game.i18n.localize("Liber.Race.Centaure"),
-                    [RACES.DEMON]: game.i18n.localize("Liber.Race.Demon"),
                     [RACES.DRAGON]: game.i18n.localize("Liber.Race.Dragon"),
+                    [RACES.HUMAIN]: game.i18n.localize("Liber.Race.Humain"),
+                    [RACES.SEMI_HUMAIN]: game.i18n.localize("Liber.Race.Semihumain"),
+                    [RACES.DEMON]: game.i18n.localize("Liber.Race.Demon"),
                     [RACES.DRAUCH]: game.i18n.localize("Liber.Race.Drauch"),
+                    [RACES.KOBOLT]: game.i18n.localize("Liber.Race.Kobolt"),
+                    [RACES.ROCAILLEUX]: game.i18n.localize("Liber.Race.Rocailleux"),
                     [RACES.ELFE]: game.i18n.localize("Liber.Race.Elfe"),
                     [RACES.ELFE_SYLVAIN]: game.i18n.localize("Liber.Race.Elfesylvain"),
                     [RACES.ELFE_NOIR]: game.i18n.localize("Liber.Race.Elfenoir"),
                     [RACES.ELFE_DE_SANG]: game.i18n.localize("Liber.Race.Elfedesang"),
-                    [RACES.ETRE_DE_PSY]: game.i18n.localize("Liber.Race.Etredepsy"),
-                    [RACES.GOBELIN]: game.i18n.localize("Liber.Race.Gobelin"),
-                    [RACES.HOMME_ARBRE]: game.i18n.localize("Liber.Race.Hommearbre"),
+                    [RACES.NAIN]: game.i18n.localize("Liber.Race.Nain"),
                     [RACES.HOMME_CHAT]: game.i18n.localize("Liber.Race.Hommechat"),
                     [RACES.HOMME_CHIEN]: game.i18n.localize("Liber.Race.Hommechien"),
                     [RACES.HOMME_OISEAU]: game.i18n.localize("Liber.Race.Hommeoiseau"),
+                    [RACES.HOMME_ARBRE]: game.i18n.localize("Liber.Race.Hommearbre"),
                     [RACES.HOMME_RAT]: game.i18n.localize("Liber.Race.Hommerat"),
-                    [RACES.HUMAIN]: game.i18n.localize("Liber.Race.Humain"),               
-                    [RACES.KOBOLT]: game.i18n.localize("Liber.Race.Kobolt"),
-                    [RACES.NAIN]: game.i18n.localize("Liber.Race.Nain"),
-                    [RACES.ORC]: game.i18n.localize("Liber.Race.Orc"),
-                    [RACES.ROCAILLEUX]: game.i18n.localize("Liber.Race.Rocailleux"),
-                    [RACES.SEMI_HUMAIN]: game.i18n.localize("Liber.Race.Semihumain"),
-                    [RACES.TORTH]: game.i18n.localize("Liber.Race.Torth"),     
+                    [RACES.ETRE_DE_PSY]: game.i18n.localize("Liber.Race.Etredepsy"),
                     [RACES.VAMPIRE]: game.i18n.localize("Liber.Race.Vampire"),
+                    [RACES.GOBELIN]: game.i18n.localize("Liber.Race.Gobelin"),
+                    [RACES.ORC]: game.i18n.localize("Liber.Race.Orc"),
+                    [RACES.CELESTE]: game.i18n.localize("Liber.Race.Celeste"),
+                    [RACES.CENTAURE]: game.i18n.localize("Liber.Race.Centaure"),     
                     [RACES.AUTRE]: game.i18n.localize("Liber.Race.Autre"),
                 }
             }),
@@ -332,9 +329,9 @@ export default class LiberCharacterData extends foundry.abstract.DataModel {
                     [CHOIX.YES]: game.i18n.localize("Liber.Labels.Yes")
                 }
             }),
-            traite: new fields.StringField({
+            traitre: new fields.StringField({
                 gmOnly:true,
-                label:game.i18n.localize("Liber.Character.Traite"),
+                label:game.i18n.localize("Liber.Character.traitre"),
                 required: true,
                 initial: CHOIX.NO, // Valeur par défaut
                 choices: {

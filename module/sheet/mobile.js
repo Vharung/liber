@@ -9,7 +9,7 @@ export default class MobileActorInterface {
     this.actorListElement = null;
     this.activeSheet = null;
     this.isOffline = false;
-   
+    
     // Configuration des optimisations
     this.optimizations = {
       disableScenes: true,
@@ -34,7 +34,7 @@ export default class MobileActorInterface {
     const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
     const userAgent = navigator.userAgent.toLowerCase();
     const isMobileUA = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
-   
+    
     return (width < 768) || (isTouchDevice && width < 1024) || isMobileUA;
   }
 
@@ -44,12 +44,12 @@ export default class MobileActorInterface {
       // Tenter de charger une ressource externe avec timeout court
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 1000);
-     
+      
       await fetch('https://fonts.googleapis.com/css2', {
         signal: controller.signal,
         mode: 'no-cors'
       });
-     
+      
       clearTimeout(timeoutId);
       this.isOffline = false;
       console.log("🌐 Mode en ligne détecté");
@@ -57,7 +57,7 @@ export default class MobileActorInterface {
       this.isOffline = true;
       console.log("📡 Mode hors ligne / réseau local détecté");
     }
-   
+    
     return this.isOffline;
   }
 
@@ -66,20 +66,20 @@ export default class MobileActorInterface {
     if (!this.isMobile) return;
 
     console.log("🚀 Mode mobile détecté - Initialisation...");
-   
+    
     // CRITIQUE : Bloquer les requêtes externes IMMÉDIATEMENT
     this.blockExternalRequests();
-   
+    
     // Détecter le mode hors ligne
     this.detectOfflineMode().then(() => {
       if (this.isOffline) {
         this.applyOfflineOptimizations();
       }
     });
-   
+    
     // Optimisations pré-chargement
     this.applyPreLoadOptimizations();
-   
+    
     Hooks.once('init', () => {
       this.setupInitOptimizations();
     });
@@ -109,11 +109,11 @@ export default class MobileActorInterface {
         src: local('Georgia'), local('Times New Roman'), local('serif');
         font-display: block;
       }
-     
+      
       /* Bloquer les imports externes */
       @import url('') !important;
     `;
-   
+    
     // Insérer AVANT tout autre style
     document.head.insertBefore(style, document.head.firstChild);
 
@@ -121,7 +121,7 @@ export default class MobileActorInterface {
     const originalFetch = window.fetch;
     window.fetch = function(url, options = {}) {
       const urlString = typeof url === 'string' ? url : url.url;
-     
+      
       // Liste des domaines à bloquer
       const blockedDomains = [
         'googleapis.com',
@@ -134,20 +134,20 @@ export default class MobileActorInterface {
         'unpkg.com',
         'fonts.net'
       ];
-     
+      
       // Vérifier si l'URL est externe et dans la liste de blocage
       const isBlocked = blockedDomains.some(domain => urlString.includes(domain));
-     
+      
       if (isBlocked) {
         console.log(`🚫 Requête bloquée: ${urlString}`);
         return Promise.reject(new Error('Requête externe bloquée pour optimisation'));
       }
-     
+      
       // Ajouter un timeout pour les requêtes locales
       const timeoutPromise = new Promise((_, reject) => {
         setTimeout(() => reject(new Error('Timeout')), 5000);
       });
-     
+      
       return Promise.race([
         originalFetch(url, options),
         timeoutPromise
@@ -164,7 +164,7 @@ export default class MobileActorInterface {
           if (node.tagName === 'LINK' && node.rel === 'stylesheet') {
             const href = node.href || '';
             const blockedDomains = ['googleapis.com', 'gstatic.com', 'fonts.net'];
-           
+            
             if (blockedDomains.some(domain => href.includes(domain))) {
               console.log(`🚫 Feuille de style externe bloquée: ${href}`);
               node.remove();
@@ -180,7 +180,7 @@ export default class MobileActorInterface {
   // Optimisations spécifiques mode hors ligne
   applyOfflineOptimizations() {
     console.log("📡 Application des optimisations réseau local");
-   
+    
     // Désactiver toutes les vérifications de version
     if (typeof game !== 'undefined' && game.settings) {
       try {
@@ -229,13 +229,13 @@ export default class MobileActorInterface {
     criticalCSS.textContent = `
       /* Polices système locales - AUCUNE requête externe */
       body, .liber {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", 
                      Roboto, "Helvetica Neue", Arial, sans-serif,
                      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
       }
-     
+      
       /* Cacher immédiatement les éléments non nécessaires */
-      #players, #navigation, #controls, #hotbar,
+      #players, #navigation, #controls, #hotbar, 
       #pause, #fps, #logo, .vtt, #board, canvas,
       #ui-left, #scene-list, #macro-directory {
         display: none !important;
@@ -264,7 +264,7 @@ export default class MobileActorInterface {
         display: none !important;
       }
     `;
-   
+    
     // Insérer en PREMIER pour application immédiate
     document.head.insertBefore(criticalCSS, document.head.firstChild);
   }
@@ -292,7 +292,7 @@ export default class MobileActorInterface {
     // Configurer le canvas
     if (this.optimizations.disableScenes) {
       CONFIG.Canvas.disabled = true;
-     
+      
       Hooks.on('canvasReady', (canvas) => {
         if (canvas.tokens) canvas.tokens.visible = false;
         if (canvas.tiles) canvas.tiles.visible = false;
@@ -343,7 +343,7 @@ export default class MobileActorInterface {
   setupMobileUI() {
     this.hideDesktopElements();
     this.showEssentialElements();
-   
+    
     // Chargement différé pour éviter le blocage
     requestAnimationFrame(() => {
       this.createActorList();
@@ -510,7 +510,7 @@ export default class MobileActorInterface {
     }
 
     const actors = game.actors.filter(actor => {
-      return actor.testUserPermission(game.user, "OWNER") ||
+      return actor.testUserPermission(game.user, "OWNER") || 
              actor.testUserPermission(game.user, "OBSERVER");
     });
 
@@ -554,7 +554,7 @@ export default class MobileActorInterface {
 
     const loadBatch = () => {
       const end = Math.min(index + batchSize, actors.length);
-     
+      
       for (let i = index; i < end; i++) {
         const card = this.createActorCard(actors[i], container, backButton);
         grid.appendChild(card);
@@ -608,12 +608,12 @@ export default class MobileActorInterface {
   setupBackButton(backButton, container) {
     backButton.addEventListener('click', (e) => {
       e.stopPropagation();
-     
+      
       if (this.activeSheet) {
         this.activeSheet.close();
         this.activeSheet = null;
       }
-     
+      
       container.style.display = 'block';
       backButton.classList.remove('visible');
     }, { passive: false });
@@ -622,7 +622,7 @@ export default class MobileActorInterface {
   // Ouvrir la fiche
   openActorSheet(actor, listContainer, backButton) {
     console.log(`📖 Ouverture: ${actor.name}`);
-   
+    
     listContainer.style.display = 'none';
     backButton.classList.add('visible');
 
@@ -702,13 +702,18 @@ export default class MobileActorInterface {
       isOffline: this.isOffline,
       activeOptimizations: Object.keys(this.optimizations).filter(k => this.optimizations[k]),
       actorCount: game.actors ? game.actors.size : 0,
-      loadTime: performance.timing ?
-        Math.round(performance.timing.loadEventEnd - performance.timing.navigationStart) + 'ms' :
+      loadTime: performance.timing ? 
+        Math.round(performance.timing.loadEventEnd - performance.timing.navigationStart) + 'ms' : 
         'N/A'
     };
-   
+    
     console.table(stats);
     return stats;
   }
 }
 
+// Initialisation automatique
+const mobileInterface = new MobileActorInterface();
+mobileInterface.init();
+
+export { mobileInterface };

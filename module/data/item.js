@@ -1,7 +1,7 @@
-import {CLAN, CULTE, TYPE, CHOIX} from "./constants.js"; // Import de la constante METIERS
+import {CLAN, CULTE, TYPE, CHOIX} from "./liber.js"; // Import de la constante METIERS
 
 /** Modèle de données pour un objet */
-export default class LiberItemData extends foundry.abstract.DataModel {
+export default class LiberItemData extends foundry.abstract.TypeDataModel  {
   static defineSchema() {
   	const fields = foundry.data.fields;
     return {

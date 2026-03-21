@@ -1,7 +1,7 @@
 const ActorSheetV2 = foundry.applications.sheets.ActorSheetV2;
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 import LiberChat from "../document/chat.js";
-import {Model} from "../data/model.js";
+import {Model} from "../data/liber.js";
 
 /** Gestion de la feuille de personnage */
 

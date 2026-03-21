@@ -46,7 +46,7 @@
       "Pvetpsy":"Points restant PV et PSY",
       "Reste":"Points restant",
       "Ronfleur":"Allier ronfleur",
-      "Traite":"Allier traitre",
+      "traitre":"Allier traitre",
       "AlertAnbility":"Trop de points Hp / Psy attribués",
       "Posture":{
         "Aucun":"Aucun",
@@ -546,7 +546,7 @@
           "Numismatomancie": "",
           "Dieuxsombres": "",
           "Demonclan": "",
-          "Oklata": ""
+          "oklata": ""
       }
     },
     "Race": {
@@ -573,8 +573,6 @@
       "Celeste": "Céleste",
       "Centaure": "Centaure",
       "Kobolt":"Kobolt",
-      "Torth":"Torth",
-      "Arakh":"Arakh",
       "Autre": "Autre",
       "Avantage":{
         "Dragon": "Armure naturelle +2, discretion -5. ",
@@ -600,8 +598,6 @@
         "Celeste": "Etre divin. ",
         "Centaure": "20 kg en encombrement, déplacement deux fois plus rapide. ",
         "Kobolt":"De petite taille, disctretion 10, tromperie 5. ",
-        "Torth":"Armure naturel de 2 +1 pour membre rentré. -10 en agilité, récupére 1 point de fatigue par heure.",
-        "Arakh":"Marche sur murs/plafonds Test requis surface lisse, ignore chute <10m, tise des toiles, Réputation inquiétante.",
         "Autre": ""
       }
     },
@@ -732,7 +728,7 @@
         "distrait": "-5 points de compétence au level up.",
         "esclavagiste": "Relance un jet de social réussi.",
         "faible": "Diminue l’encombrement de 10kg.",
-        "infecte": "Porteur d’une maladie, perds 1d4 PV par jour si ne prend pas son traitement. Dégât magique multiplié par deux.",
+        "infecte": "Porteur d’une maladie, perds 1d4 PV par jour si ne prend pas son traitrement. Dégât magique multiplié par deux.",
         "hesitation": "Le joueur peut relancer 2 jets d’initiative et de garder le pire.",
         "malchanceux": "Relance un jet de chance réussi (une fois par jet), un échec automatique par jour.",
         "maladroit": "Casse un objet, ou rate une action, sur un dés de chance raté, une fois par jour.",

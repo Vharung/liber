@@ -1,7 +1,7 @@
 const ActorSheetV2 = foundry.applications.sheets.ActorSheetV2;
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 import LiberChat from "../document/chat.js";
-import {Model} from "../data/model.js";
+import {Model} from "../data/liber.js";
 
 
 /** Gestion de la feuille de personnage */
@@ -667,14 +667,14 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     switch (action) {
 
       // 🎯 --- BONUS COMPÉTENCE ---
-      case "bonuscompt": {
+      case "bonusCompt": {
         const bonus = Number(target.dataset.val) || 0;
         await actor.update({ "system.bonus": bonus });
         break;
       }
 
       // 🧹 --- RÉINITIALISATION BONUS / CHAMP ---
-      case "restbonus": {
+      case "bonusReset": {
         const name = target.dataset.name;
         await actor.update({ [`system.${name}`]: 0 });
         break;
@@ -900,7 +900,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     if (!nameList) return actor.name || "Nouvel Acteur";
 
     let name = "";
-    console.log(name)
 
     // Si on a des listes separated par sexe
     if (nameList.female && nameList.male) {
@@ -917,14 +916,13 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
         name = nameList[Math.floor(Math.random() * nameList.length)];
       }
     }
-    console.log(name)
 
     // Si une famille existe, la préfixer
     if (nameList.famille && Array.isArray(nameList.famille) && nameList.famille.length) {
       const fam = nameList.famille[Math.floor(Math.random() * nameList.famille.length)];
       name = `${fam} ${name}`;
     }
-    console.log(name)
+
     return name;
   }
 
