@@ -118,7 +118,7 @@ body.theme-dark .application .window-content{backdrop-filter:none}
 .liber input{border: none; background: none;}
 .liber .nomperso input{width:calc(100% - 20px);color:var(--couleur-clair);text-align: center;font-size: 2em;font-weight: bold;height: 40px;}
 .liber .zonehead{width:100%;height: 50px;}
-.liber h2{font-size: 1em;text-transform: uppercase;color:var(--couleur-or);margin: 0;    border-bottom: none;}
+.liber h2{font-size: 1em;text-transform: uppercase;color:var(--couleur-or);margin: 0;border-bottom: none;}
 .liber .head{background: var(--couleur-clair); width:100%; height: 50px;position: relative;}
 .liber .clan,.liber .race{width: calc(50% - 10px); display: inline-block;color:var(--couleur-or);}
 .liber .race{text-align: right;}
@@ -224,7 +224,7 @@ body.theme-dark .application .window-content{backdrop-filter:none}
 .liber .zoneinfo{background: var(--couleur-clair);height:640px;width: calc(100% - 10px); margin: auto;overflow: hidden;position: relative;}
 .liber .met{width:100px;display: inline-block;color: var(--couleur-noir);padding: 3px;font-style: italic;}
 .liber .religion{width:150px;display: inline-block;color: var(--couleur-noir);padding: 3px;font-style: italic}
-.liber.actor prose-mirror[name="system.biography"]{resize: none;background: var(--couleur-noir);color:var(--couleur-clair);height: 439px;overflow: auto;scrollbar-width:none }
+.liber.actor prose-mirror[name="system.biography"]{resize: none;background: var(--couleur-noir);color:var(--couleur-clair);height: 396px;overflow: auto;scrollbar-width:none }
 .liber h2 span{height: 40px;display: inline-block;padding-top: 13px;}
 .liber h2 .form-group{height: 40px;width: 150px;float: right;margin-right: 10px;}
 .liber h2.borders {border-top: solid 1px var(--couleur-or);padding-top: 3px;}
@@ -320,7 +320,8 @@ body.theme-dark .application .window-content{backdrop-filter:none}
 
 /*Caractere*/
 .liber #features label{color:var(--couleur-noir);}
-.liber #features input{background: var(--couleur-noir);color: var(--couleur-clair);}
+.liber #features input, .liber input[name="system.langues"]{background: var(--couleur-noir);color: var(--couleur-clair);}
+h2.borders{width:calc(100% - 10px) !important;}
 
 /*Action*/
 .liber.actor .grid-2col{font-size: 0.8em;float: left;position: absolute;text-align: center;bottom: 0;}

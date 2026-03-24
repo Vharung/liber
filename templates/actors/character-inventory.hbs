@@ -1,6 +1,5 @@
 <div class="inventory-list" data-drop="true">
   <section class="sheet-body">
-
     <div id="background" class="tab" data-group="sheet" data-tab="background">
       <div class="zoneinfo">
         {{#if (eq actor.type "monstre")}}
@@ -18,6 +17,7 @@
           value=system.biography
           name="system.biography"
         }} 
+        <h2 class="borders"><span>{{localize 'Liber.Race.Langues'}}</span>{{formField systemFields.langues value=system.langues localize=true rootId=partId}}</h2>
         <h2 class="borders"><span>{{localize 'Liber.Character.Moral.Titre'}}</span>{{formField systemFields.moral value=system.moral localize=true rootId=partId type="select"}}</h2>
         <h2 class="borders">{{localize 'Liber.Character.Repos.Titre'}}</h2>
         {{formInput systemFields.time name="system.time" value=system.time localize=true rootId=partId}}
@@ -27,7 +27,6 @@
         <div class="typerepos">
         {{formField systemFields.repos name="system.repos" value=system.repos localize=true rootId=partId type="select"}}
         </div>
-        
         <a class="bouton reposer" style=" margin-top: 0;height: 25px;padding: 5px;text-align: center;" data-action="sleep">{{localize 'Liber.Character.Repos.Reposer'}}</a>
     </div>     
   </div>

@@ -348,7 +348,8 @@ export default class LiberCharacterData extends foundry.abstract.TypeDataModel {
                 hp: new fields.StringField({ required: true, initial: "" }),
                 psy: new fields.StringField({ required: true, initial: "" })
             }),
-            posture : new fields.StringField({required: true, initial: "aucune"})
+            posture : new fields.StringField({required: true, initial: "aucune"}),
+            langues : new fields.StringField({required: true, initial: "Commun"})
 
 
         };

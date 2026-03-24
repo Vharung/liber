@@ -550,6 +550,7 @@
       }
     },
     "Race": {
+      "Langues":"Langues",
       "Dragon": "Dragon",
       "Humain": "Humain",
       "Demon": "Démon",
