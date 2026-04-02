@@ -162,6 +162,8 @@ export const RACES = {
     ORC:         "orc",
     CELESTE:     "celeste",
     CENTAURE:    "centaure",
+    TORTH:       "torth",
+    ARAKH:       "arakh",
     AUTRE:       "autre"
 };
 
@@ -314,30 +316,32 @@ Model.Metiers = {
 // --- Bonus de race (compétences et points) ------------------
 // Note : "armor" sur dragon et drauch = bonus d'armure naturelle
 Model.race = {
-    "dragon":     { discretion:-5, negociation:5,  ajoutpoint:-5, armor:2 },
-    "humain":     { charisme:5,    dexterite:5,    ajoutpoint:25 },
-    "semihumain": { charisme:5,                    ajoutpoint:15 },
-    "demon":      { tromperie:5,   survie:10,      ajoutpoint:25 },
-    "drauch":     { armor:2,       tromperie:5,    ajoutpoint:5  },
-    "kobolt":     { agilites:5,    discretion:5,   ajoutpoint:10 },
-    "rocailleux": {                                ajoutpoint:0  },
-    "elfe":       { mobilite:5,    charisme:5,     ajoutpoint:25 },
-    "elfesylvain":{ mobilite:5,    tir:5,          ajoutpoint:25 },
-    "elfenoir":   { mobilite:5,    cc:5,           ajoutpoint:25 },
-    "elfedesang": { mobilite:5,    force:5,        ajoutpoint:25 },
-    "nain":       { force:5,       dexterite:5,    ajoutpoint:25 },
-    "hommechat":  { observation:5, discretion:5,   tromperie:5,  ajoutpoint:25 },
-    "hommechien": { observation:10,negociation:5,  ajoutpoint:25 },
-    "hommearbre": { connaissances:10,              ajoutpoint:20 },
-    "hommerat":   { negociation:-5,                ajoutpoint:-5 },
-    "hommeoiseau":{ negociation:5,                 ajoutpoint:5  },
-    "etredepsy":  {                                ajoutpoint:0  },
-    "vampire":    { discretion:10, tromperie:5,    assassinat:10, ajoutpoint:45 },
-    "gobelin":    { mobilite:10,   tromperie:5,    ajoutpoint:25 },
-    "orc":        { force:10,      discretion:-5,  connaissances:-5, ajoutpoint:10 },
-    "celeste":    {                                ajoutpoint:0  },
-    "centaure":   {                                ajoutpoint:0  },
-    "autre":      {                                ajoutpoint:0  }
+    "dragon":     { discretion:-5, negociation:5,  ajoutpoint:-5, armor:2 ,langues:"Commune, Draconique"},
+    "humain":     { charisme:5,    dexterite:5,    ajoutpoint:25, armor:0 ,langues:"Commune"},
+    "semihumain": { charisme:5,                    ajoutpoint:15, armor:0 ,langues:"Commune, Draconique"},
+    "demon":      { tromperie:5,   survie:10,      ajoutpoint:25, armor:0 ,langues:"Commune, Démonique"},
+    "drauch":     { armor:2,       tromperie:5,    ajoutpoint:5 , armor:2 ,langues:"Commune, Démonique"},
+    "kobolt":     { agilites:5,    discretion:5,   ajoutpoint:10, armor:0 ,langues:"Commune, Draconique"},
+    "rocailleux": {                                ajoutpoint:0 , armor:0 ,langues:"Commune, Draconique"},
+    "elfe":       { mobilite:5,    charisme:5,     ajoutpoint:25, armor:0 ,langues:"Commune, Elfique"},
+    "elfesylvain":{ mobilite:5,    tir:5,          ajoutpoint:25, armor:0 ,langues:"Commune, Elfique"},
+    "elfenoir":   { mobilite:5,    cc:5,           ajoutpoint:25, armor:0 ,langues:"Commune, Elfique"},
+    "elfedesang": { mobilite:5,    force:5,        ajoutpoint:25, armor:0 ,langues:"Commune, Elfique"},
+    "nain":       { force:5,       dexterite:5,    ajoutpoint:25, armor:0 ,langues:"Commune, Nain"},
+    "hommechat":  { observation:5, discretion:5,   tromperie:5,  ajoutpoint:25, armor:0 ,langues:"Commune" },
+    "hommechien": { observation:10,negociation:5,  ajoutpoint:25, armor:0 ,langues:"Commune"},
+    "hommearbre": { connaissances:10,              ajoutpoint:20, armor:0 ,langues:"Commune"},
+    "hommerat":   { negociation:-5,                ajoutpoint:-5, armor:0 ,langues:"Commune"},
+    "hommeoiseau":{ negociation:5,                 ajoutpoint:5 , armor:0 ,langues:"Commune"},
+    "etredepsy":  {                                ajoutpoint:0 , armor:0 ,langues:"Commune"},
+    "vampire":    { discretion:10, tromperie:5,    assassinat:10, ajoutpoint:45, armor:0 ,langues:"Commune"},
+    "gobelin":    { mobilite:10,   tromperie:5,    ajoutpoint:25, armor:0 ,langues:"Commune, Gobeline"},
+    "orc":        { force:10,      discretion:-5,  connaissances:-5, ajoutpoint:10, armor:0 ,langues:"Commune, Orcanien"},
+    "celeste":    {                                ajoutpoint:0 , armor:0 ,langues:"Commune"},
+    "centaure":   {                                ajoutpoint:0 , armor:0,langues:"Commune"},
+    "torth":      {mobilite:-10,                   ajoutpoint:-20,armor:4, langues:"Commune"},
+    "arakh":      {                                ajoutpoint:0  , armor:0,langues:"Commune"},
+    "autre":      {                                ajoutpoint:0  , armor:0,langues:"Commune"}
 };
 
 // --- Multiplicateurs de compétences -------------------------
@@ -470,6 +474,11 @@ Model.names = {
         "female":  ["Aria","Briseis","Callista","Daphne","Elysia","Fauna","Galatea","Helene","Ianthe","Jocasta","Kaia","Lyra","Melaina","Nyssa","Ophelia","Phaedra","Rhea","Selene","Thalia","Xanthe"],
         "male":    ["Asterion","Brontes","Calchas","Diodorus","Eurytion","Faunus","Galad","Heracles","Icarus","Jareth","Kyros","Lycus","Myron","Orion","Phaedrus","Rastus","Silvanus","Thalassius","Urion","Xanthus"],
         "famille": ["Briseroc","Boisvert","CœurdeFeu","Feuillargent","Galoporage","Gardeclair","Pierrefoudre","Chantétoile","CoureurdesBois","Gardelune","Flèchedor","Ombresylve","Lanceciel","Brillecime","Gardeforêt","Sabreaube","Étoileféroce","Chasselumière","Ventargent","Coursombre"]
+    },
+    "torth": ["Torak","Melgro","Karveth","Dolmar","Rokhan","Telmok","Varrok","Kelmor","Brath","Morlag","Thokar","Gelthor","Rothmar","Kelgro","Tormek","Arlok","Borveth","Marrok","Thorm","Velkar"],
+    "arakh": {
+        "female": ["Vraska","Silthara","Kryssala","Velkira","Zarshaa","Thryss","Velthara","Krytha","Zilkara","Sathrix","Velissa","Kryssara","Zarthra","Silvara","Thraska","Velkassa","Kryltha","Zissara","Sarthra","Velkrya"],
+        "male": ["Skrit","Velik","Triss","Krez","Silk","Vriss","Tekli","Rilk","Zrik","Keliss","Skran","Tilk","Vris","Krik","Selk","Tzrik","Viliss","Kress","Drilk","Szil"]
     },
     "autre": "Personnage"
 };

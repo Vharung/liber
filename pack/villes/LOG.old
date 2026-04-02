@@ -1,7 +1,18 @@
-2026/03/21-07:48:27.542796 7221d4a006c0 Recovering log #228
-2026/03/21-07:48:27.544241 7221d4a006c0 Delete type=3 #226
-2026/03/21-07:48:27.544278 7221d4a006c0 Delete type=0 #228
-2026/03/21-07:56:23.273186 7221cde006c0 Level-0 table #233: started
-2026/03/21-07:56:23.273210 7221cde006c0 Level-0 table #233: 0 bytes OK
-2026/03/21-07:56:23.273720 7221cde006c0 Delete type=0 #231
-2026/03/21-07:56:23.274747 7221cde006c0 Manual compaction at level-0 from '!folders!JXYVBInylivR87yS' @ 72057594037927935 : 1 .. '!scenes.lights!gt5sABXif3K7BfDa.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at (end)
+2026/04/01-06:24:15.883717 7221cfe006c0 Recovering log #248
+2026/04/01-06:24:15.884459 7221cfe006c0 Level-0 table #250: started
+2026/04/01-06:24:15.885670 7221cfe006c0 Level-0 table #250: 59189 bytes OK
+2026/04/01-06:24:15.886666 7221cfe006c0 Delete type=3 #243
+2026/04/01-06:24:15.886699 7221cfe006c0 Delete type=3 #246
+2026/04/01-06:24:15.886729 7221cfe006c0 Delete type=0 #248
+2026/04/01-06:24:15.886931 7221cfe006c0 Delete type=0 #245
+2026/04/01-06:24:22.855627 7221cde006c0 Level-0 table #253: started
+2026/04/01-06:24:22.855642 7221cde006c0 Level-0 table #253: 0 bytes OK
+2026/04/01-06:24:22.856390 7221cde006c0 Delete type=0 #251
+2026/04/01-06:24:22.866196 7221cde006c0 Manual compaction at level-0 from '!folders!JXYVBInylivR87yS' @ 72057594037927935 : 1 .. '!scenes.lights!gt5sABXif3K7BfDa.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at '!scenes.lights!gt5sABXif3K7BfDa.tFQyLATN1z3hdNbp' @ 156 : 1
+2026/04/01-06:24:22.866205 7221cde006c0 Compacting 1@0 + 1@1 files
+2026/04/01-06:24:22.868264 7221cde006c0 Generated table #254@0: 90 keys, 30058 bytes
+2026/04/01-06:24:22.868274 7221cde006c0 Compacted 1@0 + 1@1 files => 30058 bytes
+2026/04/01-06:24:22.868778 7221cde006c0 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/04/01-06:24:22.868827 7221cde006c0 Delete type=2 #238
+2026/04/01-06:24:22.868886 7221cde006c0 Delete type=2 #250
+2026/04/01-06:24:22.873146 7221cde006c0 Manual compaction at level-0 from '!scenes.lights!gt5sABXif3K7BfDa.tFQyLATN1z3hdNbp' @ 156 : 1 .. '!scenes.lights!gt5sABXif3K7BfDa.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at (end)

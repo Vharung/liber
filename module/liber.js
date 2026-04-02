@@ -134,39 +134,37 @@ Hooks.once("ready", () => {
     console.log(`Action déclenchée : ${action}`, item);
 
     if (action === "rollDamage") {
-      let damageFormula = item?.system?.degat;
+      const damageFormula = item?.system?.degat;
       if (!damageFormula || !Roll.validate(damageFormula)) {
         return ui.notifications.error(`Formule de dégâts invalide : ${damageFormula}`);
       }
 
-      let roll        = await new Roll(damageFormula).roll({ async: true });
-      let damageResult = roll.total;
+      const roll        = await new Roll(damageFormula).roll();
+      const damageResult = roll.total;
+      const visuel      = item.img || "icons/svg/dice-target.svg";
+      const label       = `${actor.name} ${game.i18n.localize("Liber.Chat.Roll.Degat") || "Jet de Dégâts"}`;
+      const succes      = `<span class='result' style='background:var(--couleur-vert);'>${damageResult}</span>`;
 
-      let visuel  = item.img || "icons/svg/dice-target.svg";
-      let label   = actor.name + game.i18n.localize("Liber.Chat.Roll.Degat") || "Jet de Dégâts";
-      let succes  = `<span class='result' style='background:var(--couleur-vert);'>${damageResult}</span>`;
-
-      // Point de fatigue (arme à deux mains)
-      const doublemain = item.system.doublemain;
-      const fatig      = actor.system.fatig;
-      if (doublemain === "yes") {
-        await actor.update({ "system.fatig": fatig + 1 });
+      if (item.system.doublemain === "yes") {
+        await actor.update({ "system.fatig": (actor.system.fatig || 0) + 1 });
       }
 
-      let chatData = {
+      const chatData = {
         actingCharName: actor.name,
         actingCharImg:  actor.img,
         actingAbilName: visuel,
         introText:      label,
         info:           item.name,
-        succes:         succes
+        succes,
       };
 
-      let chat = await new LiberChat(actor)
+      const chat = await new LiberChat(actor)
         .withTemplate("systems/liber-chronicles/templates/chat/roll-resultat.hbs")
+        .withContent("rollDamage")   // ← la ligne manquante
         .withData(chatData)
         .create();
 
+      if (!chat) return ui.notifications.error("Impossible de créer le message de chat.");
       await chat.display();
     }
 
@@ -355,4 +353,65 @@ Hooks.on("updateToken", (token, updates) => {
   if (token.actor?.sheet?.rendered) {
     token.actor.sheet.render(true);
   }
+});
+
+// ----------------------------------------------------------------
+// Token — déplacement durant le turn order
+// ----------------------------------------------------------------
+if (!game.liberMovement) game.liberMovement = {};
+
+Hooks.on("updateCombat", (combat, changed) => {
+  if (!("turn" in changed) && !("round" in changed)) return;
+  game.liberMovement = {};
+});
+
+Hooks.on("preUpdateToken", (tokenDoc, changes) => {
+  if (!game.combat?.started) return;
+  if (!tokenDoc.isOwner) return;
+
+  if (changes.x === undefined && changes.y === undefined) return;
+
+  const id = tokenDoc.id;
+
+  const DISTANCE_MAX = tokenDoc.occludable.radius ?? 8;
+
+  const gridSize = canvas.grid.size;
+  const gridDistance = canvas.scene.grid.distance ?? 1;
+
+  const dx = (changes.x ?? tokenDoc.x) - tokenDoc.x;
+  const dy = (changes.y ?? tokenDoc.y) - tokenDoc.y;
+
+  const pixels = Math.sqrt(dx * dx + dy * dy);
+  const meters = (pixels / gridSize) * gridDistance;
+
+  if (!game.liberMovement[id]) {
+    game.liberMovement[id] = { moved: 0, sprinting: false, warned: false };
+  }
+
+  const state = game.liberMovement[id];
+  const total = state.moved + meters;
+
+  const walk = DISTANCE_MAX;
+  const sprint = DISTANCE_MAX * 2;
+
+  // 🔴 limite absolue
+  if (total > sprint) {
+    ui.notifications.error("⛔ Max "+sprint+" !");
+    return false;
+  }
+
+  // 🟠 dépassement marche → blocage + warning
+  if (total > walk && !state.sprinting) {
+    if (!state.warned) {
+      ui.notifications.warn("⚠️ Sprint nécessaire ! Refaite le déplacement pour confirmer.");
+      state.warned = true;
+    } else {
+      state.sprinting = true;
+      ui.notifications.info("🏃 Sprint activé !");
+    }
+    return false;
+  }
+
+  // ✅ autorisé
+  state.moved = total;
 });

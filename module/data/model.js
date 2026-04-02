@@ -43,82 +43,82 @@ Model.Metiers = {
 
 Model.race={//v3
     "dragon":{
-        "discretion":-5,"negociation":5,"ajoutpoint":-5,"armor":2
+        "discretion":-5,"negociation":5,"ajoutpoint":-5,"armor":2,"langues":"Commune, Draconique"
     },
     "humain":{
-        "charisme":5,"dexterite":5,"ajoutpoint":25
+        "charisme":5,"dexterite":5,"ajoutpoint":25,"langues":"Commune"
     },
     "semihumain":{
-        "charisme":5,"ajoutpoint":15
+        "charisme":5,"ajoutpoint":15,"langues":"Commune, Draconique"
     },
     "demon":{
-        "tromperie":5,"survie":10,"ajoutpoint":25
+        "tromperie":5,"survie":10,"ajoutpoint":25,"langues":"Commune, Démonique"
     },
     "drauch":{
-        "armor":2,"tromperie":5,"ajoutpoint":5,"armor":2
+        "armor":2,"tromperie":5,"ajoutpoint":5,"armor":2,"langues":"Commune, Démonique"
     },
     "kobolt":{
-        "agilites":5,"discretion":5,"ajoutpoint":10
+        "agilites":5,"discretion":5,"ajoutpoint":10,"langues":"Commune, Draconique"
     },
     "rocailleux":{
-        "ajoutpoint":0
+        "ajoutpoint":0,"langues":"Commune, Draconique"
     },
     "elfe":{
-        "mobilite":5,"charisme":5,"ajoutpoint":25
+        "mobilite":5,"charisme":5,"ajoutpoint":25,"langues":"Commune, Eflique"
     },
     "elfesylvain":{
-        "mobilite":5,"tir":5,"ajoutpoint":25
+        "mobilite":5,"tir":5,"ajoutpoint":25,"langues":"Commune, Eflique"
     },
     "elfenoir":{
-        "mobilite":5,"cc":5,"ajoutpoint":25
+        "mobilite":5,"cc":5,"ajoutpoint":25,"langues":"Commune, Eflique"
     },
     "elfedesang": {
-        "mobilite":5,"force":5,"ajoutpoint":25
+        "mobilite":5,"force":5,"ajoutpoint":25,"langues":"Commune, Eflique"
     },
     "nain":{
-        "force":5,"dexterite":5,"ajoutpoint":25
+        "force":5,"dexterite":5,"ajoutpoint":25,"langues":"Commune, Nain"
     },
     "hommechat":{
-        "observation":5,"discretion":5,"tromperie":5,"ajoutpoint":25
+        "observation":5,"discretion":5,"tromperie":5,"ajoutpoint":25,"langues":"Commune"
     },
     "hommechien":{
-        "observation":10,"negociation":5,"ajoutpoint":25
+        "observation":10,"negociation":5,"ajoutpoint":25,"langues":"Commune"
     },
     "hommearbre":{
-        "connaissances":10,"ajoutpoint":20
+        "connaissances":10,"ajoutpoint":20,"langues":"Commune"
     },
     "hommerat":{
-        "negociation":-5,"ajoutpoint":-5
+        "negociation":-5,"ajoutpoint":-5,"langues":"Commune"
     },
     "hommeoiseau":{
-        "negociation":5,"ajoutpoint":5
+        "negociation":5,"ajoutpoint":5,"langues":"Commune"
     },
     "etredepsy":{
-        "ajoutpoint":0
+        "ajoutpoint":0,"langues":"Commune"
     },
     "vampire":{
-        "discretion":10,"tromperie":5,"assassinat":10,"ajoutpoint":45
+        "discretion":10,"tromperie":5,"assassinat":10,"ajoutpoint":45,"langues":"Commune"
     },
     "gobelin":{
-        "mobilite":10,"tromperie":5,"ajoutpoint":25
+        "mobilite":10,"tromperie":5,"ajoutpoint":25,"langues":"Commune, Gobeline"
     },
     "orc":{
-        "force":10,"discretion":-5,"connaissances":-5,"ajoutpoint":10
+        "force":10,"discretion":-5,"connaissances":-5,"ajoutpoint":10,"langues":"Commune, Orcanien"
     },
     "celeste":{
-        "ajoutpoint":0
+        "ajoutpoint":0,"langues":"Commune"
     },
     "centaure":{
-        "ajoutpoint":0
+        "ajoutpoint":0,"langues":"Commune"
     },
     "torth":{
-        "mobilite":-10,"armor":2,"ajoutpoint":-20
+        "mobilite":-10,"armor":2,"ajoutpoint":-20,"langues":"Commune"
     },
     "arakh":{
-        "ajoutpoint":0
+        "ajoutpoint":0,"langues":"Commune"
     },
     "autre":{
-        "ajoutpoint":0
+        "ajoutpoint":0,"langues":"Commune"
     }
 }
 

@@ -1,14 +1,7 @@
-2026/03/21-07:57:04.798355 7221d54006c0 Recovering log #232
-2026/03/21-07:57:04.801474 7221d54006c0 Delete type=3 #230
-2026/03/21-07:57:04.801509 7221d54006c0 Delete type=0 #232
-2026/03/21-08:02:24.459361 7221cde006c0 Level-0 table #237: started
-2026/03/21-08:02:24.459966 7221cde006c0 Level-0 table #237: 1355 bytes OK
-2026/03/21-08:02:24.460408 7221cde006c0 Delete type=0 #235
-2026/03/21-08:02:24.461530 7221cde006c0 Manual compaction at level-0 from '!folders!JXYVBInylivR87yS' @ 72057594037927935 : 1 .. '!scenes.lights!gt5sABXif3K7BfDa.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at '!scenes!WmXMLmqKnFrFFg6s' @ 101 : 1
-2026/03/21-08:02:24.461536 7221cde006c0 Compacting 1@0 + 1@1 files
-2026/03/21-08:02:24.462605 7221cde006c0 Generated table #238@0: 51 keys, 26884 bytes
-2026/03/21-08:02:24.462615 7221cde006c0 Compacted 1@0 + 1@1 files => 26884 bytes
-2026/03/21-08:02:24.463016 7221cde006c0 compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/03/21-08:02:24.463058 7221cde006c0 Delete type=2 #181
-2026/03/21-08:02:24.463297 7221cde006c0 Delete type=2 #237
-2026/03/21-08:02:24.466594 7221cde006c0 Manual compaction at level-0 from '!scenes!WmXMLmqKnFrFFg6s' @ 101 : 1 .. '!scenes.lights!gt5sABXif3K7BfDa.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at (end)
+2026/04/01-06:27:58.294903 7221d4a006c0 Recovering log #252
+2026/04/01-06:27:58.296588 7221d4a006c0 Delete type=0 #252
+2026/04/01-06:27:58.296615 7221d4a006c0 Delete type=3 #249
+2026/04/01-16:44:55.538041 7221cde006c0 Level-0 table #258: started
+2026/04/01-16:44:55.538502 7221cde006c0 Level-0 table #258: 0 bytes OK
+2026/04/01-16:44:55.539928 7221cde006c0 Delete type=0 #256
+2026/04/01-16:44:55.542437 7221cde006c0 Manual compaction at level-0 from '!folders!JXYVBInylivR87yS' @ 72057594037927935 : 1 .. '!scenes.lights!gt5sABXif3K7BfDa.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at (end)

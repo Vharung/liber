@@ -574,6 +574,8 @@
       "Celeste": "Céleste",
       "Centaure": "Centaure",
       "Kobolt":"Kobolt",
+      "Torth":"Torth",
+      "Arakh":"Arakh",
       "Autre": "Autre",
       "Avantage":{
         "Dragon": "Armure naturelle +2, discretion -5. ",
@@ -599,6 +601,8 @@
         "Celeste": "Etre divin. ",
         "Centaure": "20 kg en encombrement, déplacement deux fois plus rapide. ",
         "Kobolt":"De petite taille, disctretion 10, tromperie 5. ",
+        "Torth":"Armure naturel de 4 +1 pour membre rentré. -10 en agilité, récupére 1 point de fatigue par heure.",
+        "Arakh":"Marche sur murs/plafonds Test requis surface lisse, ignore chute <10m, tise des toiles, Réputation inquiétante.",
         "Autre": ""
       }
     },
