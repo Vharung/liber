@@ -118,64 +118,123 @@ Handlebars.registerHelper("stripTags", function (text) {
 // ----------------------------------------------------------------
 Hooks.once("ready", () => {
   document.addEventListener("click", async (event) => {
-    let button = event.target.closest("[data-action]");
+    const button = event.target.closest("[data-action]");
     if (!button) return;
 
-    let action  = button.dataset.action;
-    let itemId  = button.dataset.itemid;
-    let actorId = button.dataset.actorid;
+    const { action, itemid: itemId, actorid: actorId } = button.dataset;
+    if (!action || !actorId) return;
 
-    let actor = game.actors.get(actorId);
+    const actor = game.actors.get(actorId);
     if (!actor) return;
 
-    let item = actor.items.get(itemId);
-    if (!item) return;
+    // ── useItem ne nécessite pas forcément un item valide au sens strict
+    const item = actor.items.get(itemId);
 
-    console.log(`Action déclenchée : ${action}`, item);
+    switch (action) {
 
-    if (action === "rollDamage") {
-      const damageFormula = item?.system?.degat;
-      if (!damageFormula || !Roll.validate(damageFormula)) {
-        return ui.notifications.error(`Formule de dégâts invalide : ${damageFormula}`);
+      // ── Jet de dégâts ────────────────────────────────────────────
+      case "rollDamage": {
+        if (!item) return ui.notifications.warn("Item introuvable.");
+
+        const { degat, doublemain, biography } = item.system;
+        if (!degat || !Roll.validate(degat)) {
+          return ui.notifications.error(`Formule de dégâts invalide : ${degat}`);
+        }
+
+        const { race, clan, niveau, fatig = 0 } = actor.system;
+
+        // Jet principal
+        let result1  = await new Roll(degat).roll();
+        let resultat = result1.total;
+        let affichage = String(resultat);
+        let label = `${actor.name} ${game.i18n.localize("Liber.Chat.Roll.Degat") || "Jet de Dégâts"}`;
+
+        // Double main
+        if (doublemain === "yes") {
+          const result2 = await new Roll(degat).roll();
+          resultat  = Math.max(result1.total, result2.total);
+          affichage = `${result1.total} / ${result2.total}`;
+          label    += ` ${game.i18n.localize("Liber.Chat.Roll.Percucant") || "(Percutant)"}`;
+          await actor.update({ "system.fatig": fatig + 1 });
+        }
+
+        // Bonus race / clan
+        if (race === "orc"     && item.type === "weapon") resultat += 2;
+        if (clan === "coalith" && item.type === "weapon") resultat += niveau;
+        affichage = String(resultat);
+
+        // ── Cible désignée ──────────────────────────────────────────
+        const targets = game.user.targets;
+        let targetInfo = "";
+
+        if (targets.size > 0) {
+          const targetActor = targets.first().actor;
+          if (targetActor) {
+            const armure    = Number(targetActor.system.armure)   || 0;
+            const hpActuel  = Number(targetActor.system.hp.value) || 0;
+            const degatsNet = Math.max(0, resultat - armure);
+            const hpNouveau = Math.max(0, hpActuel - degatsNet);
+
+            await targetActor.update({ "system.hp.value": hpNouveau });
+
+            if (hpNouveau <= 0) {
+              await targetActor.toggleStatusEffect("dead", { active: true, overlay: true });
+            }
+
+            const couleurHP = hpNouveau <= 0 ? "#ff3333" : "var(--couleur-vert)";
+            targetInfo = `
+              <div class="target-result">
+                <img src="${targetActor.img}"">
+                <strong>${targetActor.name}</strong> —
+                ${hpNouveau <= 0 ? "<br><span style='color:#ff3333;'>☠ Hors combat</span>" : ""}
+              </div>`;
+              /*Armure : ${armure} ·
+                Dégâts nets : <strong>${degatsNet}</strong> ·
+                PV : ${hpActuel} → <strong style="color:${couleurHP};">${hpNouveau}</strong>*/
+          }
+        }
+
+        // ── Chat ────────────────────────────────────────────────────
+        const info   = biography
+          ? `<div class="infos"><span class="title">Info</span><div class="description">${biography}</div></div>`
+          : "";
+        const succes = `${info}<span class='result' style='background:var(--couleur-vert);'>${affichage}</span>${targetInfo}`;
+
+        const chat = await new LiberChat(actor)
+          .withTemplate("systems/liber-chronicles/templates/chat/roll-resultat.hbs")
+          .withContent("rollDamage")
+          .withData({
+            actingCharName: actor.name,
+            actingCharImg:  actor.img,
+            actingAbilName: item.img || "icons/svg/dice-target.svg",
+            introText:      label,
+            info:           item.name,
+            succes,
+          })
+          .create();
+
+        if (!chat) return ui.notifications.error("Impossible de créer le message de chat.");
+        await chat.display();
+        break;
       }
 
-      const roll        = await new Roll(damageFormula).roll();
-      const damageResult = roll.total;
-      const visuel      = item.img || "icons/svg/dice-target.svg";
-      const label       = `${actor.name} ${game.i18n.localize("Liber.Chat.Roll.Degat") || "Jet de Dégâts"}`;
-      const succes      = `<span class='result' style='background:var(--couleur-vert);'>${damageResult}</span>`;
+      // ── Consommation d'item ──────────────────────────────────────
+      case "useItem": {
+        if (!item) return ui.notifications.warn("Item introuvable.");
 
-      if (item.system.doublemain === "yes") {
-        await actor.update({ "system.fatig": (actor.system.fatig || 0) + 1 });
+        const qty = item.system.quantity ?? 0;
+        if (qty > 1) {
+          await item.update({ "system.quantity": qty - 1 });
+          ui.notifications.info(`${item.name} utilisé. Il en reste ${qty - 1}.`);
+        } else {
+          await item.delete();
+          ui.notifications.info(`${item.name} a été entièrement consommé.`);
+        }
+        break;
       }
 
-      const chatData = {
-        actingCharName: actor.name,
-        actingCharImg:  actor.img,
-        actingAbilName: visuel,
-        introText:      label,
-        info:           item.name,
-        succes,
-      };
-
-      const chat = await new LiberChat(actor)
-        .withTemplate("systems/liber-chronicles/templates/chat/roll-resultat.hbs")
-        .withContent("rollDamage")   // ← la ligne manquante
-        .withData(chatData)
-        .create();
-
-      if (!chat) return ui.notifications.error("Impossible de créer le message de chat.");
-      await chat.display();
-    }
-
-    if (action === "useItem") {
-      if (item.system.quantity > 1) {
-        await item.update({ "system.quantity": item.system.quantity - 1 });
-        ui.notifications.info(`${item.name} utilisé. Il en reste ${item.system.quantity - 1}.`);
-      } else {
-        await item.delete();
-        ui.notifications.info(`${item.name} a été entièrement consommé.`);
-      }
+      default:
+        break;
     }
   });
 });
@@ -408,6 +467,11 @@ Hooks.on("preUpdateToken", (tokenDoc, changes) => {
     } else {
       state.sprinting = true;
       ui.notifications.info("🏃 Sprint activé !");
+      ChatMessage.create({
+        speaker: ChatMessage.getSpeaker({ token: tokenDoc }),
+        content: `<strong>🏃 Sprint !</strong> <em>${tokenDoc.name}</em> dépasse sa marche normale et se met à sprinter.`,
+        type: CONST.CHAT_MESSAGE_TYPES?.OOC ?? 1,
+      });
     }
     return false;
   }

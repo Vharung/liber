@@ -570,38 +570,71 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
   }
 
   static async #rollDamage(actor, item) {
-    const { race, clan, talent, fatig = 0, niveau } = actor.system;
-    const { doublemain, consommable, quantity = 0, biography, degat, equip } = item.system;
-    if (!degat) return;
+  const { race, clan, talent, fatig = 0, niveau } = actor.system;
+  const { doublemain, consommable, quantity = 0, biography, degat, equip } = item.system;
+  if (!degat) return;
 
-    let label    = `${actor.name} ${game.i18n.localize("Liber.Chat.Roll.utilise")} ${item.name}`;
-    let result1  = await new Roll(degat).roll();
-    let resultat = result1.total;
+  let label     = `${actor.name} ${game.i18n.localize("Liber.Chat.Roll.utilise")} ${item.name}`;
+  let result1   = await new Roll(degat).roll();
+  let resultat  = result1.total;          // number
+  let affichage = String(result1.total);  // string pour le chat
 
-    if (doublemain === "yes") {
-      const result2 = await new Roll(degat).roll();
-      label    += game.i18n.localize("Liber.Chat.Roll.Percucant");
-      resultat  = `${result1.total} / ${result2.total}`;
-      await actor.update({ "system.fatig": fatig + 1 });
-    }
+  if (doublemain === "yes") {
+    const result2 = await new Roll(degat).roll();
+    label     += game.i18n.localize("Liber.Chat.Roll.Percucant");
+    resultat   = Math.max(result1.total, result2.total); // number — garde le meilleur
+    affichage  = `${result1.total} / ${result2.total}`;  // string pour le chat
+    await actor.update({ "system.fatig": fatig + 1 });
+  }
 
-    if (race === "orc"    && item.type === "weapon") resultat = Number(resultat) + 2;
-    if (clan === "coalith" && item.type === "weapon") resultat = Number(resultat) + niveau;
+  if (race === "orc"     && item.type === "weapon") resultat += 2;
+  if (clan === "coalith" && item.type === "weapon") resultat += niveau;
+  affichage = String(resultat); // sync après bonus
 
-    const info   = biography ? `<div class="infos"><span class="title">Info</span><div class="description">${biography}</div></div>` : "";
-    const succes = `${info}<span class='result' style='background:var(--couleur-vert);'>${resultat}</span>`;
+  // ── Cible désignée ─────────────────────────────────────────────
+  const targets = game.user.targets;
+  let targetInfo = "";
 
-    await new LiberChat(actor)
-      .withTemplate("systems/liber-chronicles/templates/chat/roll-damage.hbs")
-      .withContent("rollDamage")
-      .withData({ actingCharName: actor.name, actingCharImg: actor.img, actingAbilName: item.img, introText: label, succes })
-      .create().then(c => c.display());
+  if (targets.size > 0) {
+    const targetActor = targets.first().actor;
 
-    if (consommable === "yes" && quantity > 0) {
-      const newQty = quantity - 1;
-      await item.update({ "system.equip": newQty === 0 ? "" : equip, "system.quantity": Math.max(0, newQty) });
+    if (targetActor) {
+      const armure    = Number(targetActor.system.armure)   ?? 0;
+      const hpActuel  = Number(targetActor.system.hp.value) ?? 0;
+      const degatsNet = Math.max(0, resultat - armure);
+      const hpNouveau = Math.max(0, hpActuel - degatsNet);
+
+      await targetActor.update({ "system.hp.value": hpNouveau });
+
+      if (hpNouveau <= 0) {
+        await targetActor.toggleStatusEffect("dead", { active: true, overlay: true });
+      }
+
+      targetInfo = `
+        <div class="target-result">
+          <img src="${targetActor.img}"">
+          <strong>${targetActor.name}</strong> —
+          ${hpNouveau <= 0 ? "<br><span style='color:#ff3333;'>☠ Hors combat</span>" : ""}
+        </div>`;
     }
   }
+
+  // ── Chat ───────────────────────────────────────────────────────
+  const info   = biography ? `<div class="infos"><span class="title">Info</span><div class="description">${biography}</div></div>` : "";
+  const succes = `${info}<span class='result' style='background:var(--couleur-vert);'>${affichage}</span>${targetInfo}`;
+
+  await new LiberChat(actor)
+    .withTemplate("systems/liber-chronicles/templates/chat/roll-damage.hbs")
+    .withContent("rollDamage")
+    .withData({ actingCharName: actor.name, actingCharImg: actor.img, actingAbilName: item.img, introText: label, succes })
+    .create().then(c => c.display());
+
+  // ── Consommable ────────────────────────────────────────────────
+  if (consommable === "yes" && quantity > 0) {
+    const newQty = quantity - 1;
+    await item.update({ "system.equip": newQty === 0 ? "" : equip, "system.quantity": Math.max(0, newQty) });
+  }
+}
 
   static async #sendDescription(actor, item) {
     await new LiberChat(actor)
