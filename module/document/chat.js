@@ -1,9 +1,5 @@
 export default class LiberChat {
 
-    /**
-     * 
-     * @param {*} actor The emitter of the chat message
-     */
     constructor(actor) {
         this.actor = actor;
         this.chat = null;
@@ -13,53 +9,34 @@ export default class LiberChat {
         this.chatData = null;
         this.flags = null;
         this.rolls = null;
+        this.type = null;
     }
 
-    /**
-     * @description Sets the specified message content
-     * @param {*} content 
-     * @returns the instance
-     */
-    withContent(content) {
-        this.content = content;
+    /** @returns the instance */
+    withContent(type) {
+        this.type = type;
         return this;
     }
 
-    /**
-     * @description Sets the specified template used to create the message content
-     * @param {*} template The path of the file template to set
-     * @returns the instance
-     */    
+    /** @returns the instance */
     withTemplate(template) {
         this.template = template;
         return this;
     }
 
-    /**
-     * @description Sets the specified data used to create the message content
-     * @param {*} data The data of the file template to set
-     * @returns the instance
-     */
+    /** @returns the instance */
     withData(data) {
         this.data = data;
         return this;
     }
 
-    /**
-     * @description Sets the flags parameter
-     * @param {*} flags 
-     * @returns the instance
-     */
+    /** @returns the instance */
     withFlags(flags) {
         this.flags = flags;
         return this;
     }
 
-    /**
-     * Indicates if the chat is a roll
-     * @param rolls all the rolls
-     * @returns the instance.
-     */
+    /** @returns the instance */
     withRolls(rolls) {
         this.rolls = rolls;
         return this;
@@ -67,20 +44,17 @@ export default class LiberChat {
 
     /**
      * @description Creates the chat message
-     * @returns this instance
+     * @returns this instance or null
      */
     async create() {
-        // Retrieve the message content
-        if (this.content && this.template && this.data) {
+        if (this.template && this.data) {
             this.content = await this._createContent();
         }
 
-        // Exit if message content can't be created
         if (!this.content) {
             return null;
         }
 
-        // Create the chat data
         const messageData = {
             user: game.user.id,
             speaker: {
@@ -90,63 +64,50 @@ export default class LiberChat {
                 token: null,
             },
             content: this.content,
+            style: CONST.CHAT_MESSAGE_STYLES.OTHER,
             rolls: []
-        }
+        };
 
-        // Set the roll parameter if necessary
         if (this.rolls) {
-            messageData.style = CONST.CHAT_MESSAGE_STYLES.OTHER;;
             const pool = foundry.dice.terms.PoolTerm.fromRolls(this.rolls);
             messageData.rolls.push(Roll.defaultImplementation.fromTerms([pool]));
         }
-        // Set the flags parameter if necessary
+
         if (this.flags) {
             messageData.flags = this.flags;
         }
 
-        // Set the whisper and blind parameters according to the player roll mode settings
-        switch (game.settings.get('core', 'rollMode')) {
-            case 'gmroll':
-                messageData.whisper = ChatMessage.getWhisperRecipients('GM').map((u) => u.id);
+        // Foundry v14 : valeurs de messageMode = "public", "gm", "blind", "self"
+        const mode = game.settings.get('core', 'messageMode');
+        switch (mode) {
+            case 'gm':
+                messageData.whisper = ChatMessage.getWhisperRecipients('GM').map(u => u.id);
                 break;
-            case 'blindroll':
-                messageData.whisper = ChatMessage.getWhisperRecipients('GM').map((u) => u.id);
+            case 'blind':
+                messageData.whisper = ChatMessage.getWhisperRecipients('GM').map(u => u.id);
                 messageData.blind = true;
                 break;
-            case 'selfroll':
+            case 'self':
                 messageData.whisper = [game.user.id];
                 break;
+            // 'public' : pas de whisper
         }
-       
+
         this.chatData = messageData;
-
         return this;
-
     }
 
-    /**
-     * @description Creates the message content from the registered template
-     * @returns the message content or null i an error occurs
-     * @private
-     */
+    /** @private */
     async _createContent() {
-
-        // Update the data to provide to the template
-        const d =  foundry.utils.duplicate(this.data);
+        const d = foundry.utils.duplicate(this.data);
         d.owner = this.actor.id;
-        // Call the template renderer.
+        d.mode  = game.settings.get('core', 'messageMode');
         return await foundry.applications.handlebars.renderTemplate(this.template, d);
-
     }
 
-    /**
-    * @description Displays the chat message
-    * @returns this instance
-    */
+    /** @description Displays the chat message */
     async display() {
-        // Create the chat
         this.chat = await ChatMessage.implementation.create(this.chatData);
         return this;
     }
-
 }

@@ -1,5 +1,5 @@
-<div class="chat roll">
-  {{#if (ne data.actingCharImg "icons/svg/mystery-man.svg")}}
+<div class="chat roll {{mode}}">
+  {{#if (ne actingCharImg "icons/svg/mystery-man.svg")}}
     <div class="intro-img">
       <img src="{{actingCharImg}}" title="{{actingCharName}}" />
       <img src="{{actingAbilName}}" title="" />
@@ -7,7 +7,6 @@
   {{/if}}
   <div class="intro-chat">
     <span>{{introText}}</span>
-   
     <div class="intro-right">
       <p class="introText">{{{text}}}</p>
       <p class="info">{{{info}}}</p>

@@ -609,12 +609,12 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       if (hpNouveau <= 0) {
         await targetActor.toggleStatusEffect("dead", { active: true, overlay: true });
       } else{
-        wait targetActor.toggleStatusEffect("dead", { active: false, overlay: false });
+        await targetActor.toggleStatusEffect("dead", { active: false, overlay: false });
       }
 
       targetInfo = `
         <div class="target-result">
-          <img src="${targetActor.img}"">
+          <img src="${targetActor.img}">
           <strong>${targetActor.name}</strong> —
           ${hpNouveau <= 0 ? "<br><span style='color:#ff3333;'>☠ Hors combat</span>" : ""}
         </div>`;
@@ -891,7 +891,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       else                            { ability = "mental";   valuemax = mental;   }
       label = `${actor.name}${game.i18n.localize("Liber.Chat.Roll.faire")} : ${itemname}`;
     }
-    console.log(sys,physique)
 
     valuemax += bonus + malus;
     let critique = 5, echec = 95;

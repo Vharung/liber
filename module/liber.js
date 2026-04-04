@@ -180,7 +180,7 @@ Hooks.once("ready", () => {
             if (hpNouveau <= 0) {
               await targetActor.toggleStatusEffect("dead", { active: true, overlay: true });
             } else{
-              wait targetActor.toggleStatusEffect("dead", { active: false, overlay: false });
+              await targetActor.toggleStatusEffect("dead", { active: false, overlay: false });
             }
 
             const couleurHP = hpNouveau <= 0 ? "#ff3333" : "var(--couleur-vert)";
