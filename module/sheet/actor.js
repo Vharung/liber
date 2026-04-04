@@ -608,6 +608,8 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
 
       if (hpNouveau <= 0) {
         await targetActor.toggleStatusEffect("dead", { active: true, overlay: true });
+      } else{
+        wait targetActor.toggleStatusEffect("dead", { active: false, overlay: false });
       }
 
       targetInfo = `
