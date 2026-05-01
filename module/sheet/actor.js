@@ -501,7 +501,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     const diff     = calcTot - xp;
     const overXP   = calcTot > xp;
     const underXP  = calcTot < xp;
-    console.log(calcTot,xp);
 
     return {
       hp:       { value: pvEncours, max: pvMax },
@@ -682,7 +681,7 @@ static async #rollDamage(actor, item) {
         break;
       }
       // ⬆️ --- LEVEL UP (placeholder futur) ---
-      case "levelUp": {
+      case "levelup": {
         const level = parseInt(target.value, 10);
         if (isNaN(level) || level <= 0) return console.error("Niveau invalide :", level);
         ui.notifications.info(`${actor.name} passe au niveau ${level}`);
