@@ -497,11 +497,11 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     if (pvEncours + insoin > pvMax) pvEncours = pvMax - insoin;
 
     const xp       = (niveau - 1) * 3 + pvMin + psyMin;
-    console.log(xp);
     const calcTot  = pvMax + psyMax;
     const diff     = calcTot - xp;
     const overXP   = calcTot > xp;
     const underXP  = calcTot < xp;
+    console.log(calcTot,xp);
 
     return {
       hp:       { value: pvEncours, max: pvMax },
