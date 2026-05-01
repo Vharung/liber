@@ -174,7 +174,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       await super._onRender(context, options);
       const SKIP_VERIF = new Set([
         "roll", "sleep", "story", "carac",
-        "rollDamage", "description", "filtre", "addsort", "oncouv",
+        "rollDamage", "description", "filtre", "oncouv",
         "edit", "use", "delete",
         "equip","desequip"
       ]);
@@ -536,7 +536,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     switch (action) {
       case "edit":    return item.sheet.render(true);
       case "delete":  return item.delete();
-      case "deletemagie":  return item.delete();
+      case "delete":  return item.delete();
 
       case "use": {
         const qty = item.system.quantity || 0;
