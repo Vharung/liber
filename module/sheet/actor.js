@@ -497,6 +497,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     if (pvEncours + insoin > pvMax) pvEncours = pvMax - insoin;
 
     const xp       = (niveau - 1) * 3 + pvMin + psyMin;
+    console.log(xp);
     const calcTot  = pvMax + psyMax;
     const diff     = calcTot - xp;
     const overXP   = calcTot > xp;
@@ -571,7 +572,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     }
   }
 
-  static async #rollDamage(actor, item) {
+static async #rollDamage(actor, item) {
   const { race, clan, talent, fatig = 0, niveau } = actor.system;
   const { doublemain, consommable, quantity = 0, biography, degat, equip } = item.system;
   if (!degat) return;
@@ -592,6 +593,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
   if (race === "orc"     && item.type === "weapon") resultat += 2;
   if (clan === "coalith" && item.type === "weapon") resultat += niveau;
   affichage = String(resultat); // sync après bonus
+  const detailDes = result1.result || result1.total;
 
   // ── Cible désignée ─────────────────────────────────────────────
   const targets = game.user.targets;
@@ -624,7 +626,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
   }
 
   // ── Chat ───────────────────────────────────────────────────────
-  const info   = biography ? `<div class="infos"><span class="title">Info</span><div class="description">${biography}</div></div>` : "";
+  const info   = biography ? `<div class="infos"><span class="title">Info</span><div class="description">${biography ? biography + "<br>" : ""}<strong>Jet ${degat} : ${detailDes}</div></div>` : "";
   const succes = `${info}<span class='result' style='background:var(--couleur-vert);'>${affichage}</span>${targetInfo}`;
 
   await new LiberChat(actor)
