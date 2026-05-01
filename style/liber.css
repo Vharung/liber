@@ -310,7 +310,7 @@ body.theme-dark .application .window-content{backdrop-filter:none}
 .liber .addsort{width: 90px;display: inline-block;height: 40px;float: right;border-radius: 5px;padding-top: 12px;background: var(--couleur-or);text-align: center;}
 .liber .item_name_magie{width: 200px; display: inline-block;cursor:help;}
 .liber.actor .item-cible,.liber.actor .item-duree{float: left;text-align: left;height: 20px;}
-.liber.actor .item-cible{width:120px;}
+.liber.actor .item-cible{width:108px;}
 .liber.actor .item-duree{width:98px;}
 .liber .coutmax, .liber .maxsort{background: var(--couleur-clair);color: var(--couleur-noir);width: 60px;height: 60px;font-size: 2em;text-align: center;}
 .liber .coutmax{float: left;margin-right: 5px}
