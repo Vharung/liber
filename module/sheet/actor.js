@@ -17,6 +17,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       edit:        LiberCharacterSheet.#onItemAction,
       use:         LiberCharacterSheet.#onItemAction,
       delete:      LiberCharacterSheet.#onItemAction,
+      deletemagie: LiberCharacterSheet.#onItemAction,
       equip:       LiberCharacterSheet.#onItemAction,
       desequip:    LiberCharacterSheet.#onItemAction,
       rollDamage:  LiberCharacterSheet.#onItemAction,
@@ -535,6 +536,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     switch (action) {
       case "edit":    return item.sheet.render(true);
       case "delete":  return item.delete();
+      case "deletemagie":  return item.delete();
 
       case "use": {
         const qty = item.system.quantity || 0;
