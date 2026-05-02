@@ -183,9 +183,9 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       const EQUIP_ONLY = new Set(["equip","desequip"]);
 
       const action = this._lastAction;
-      //this._lastAction = null;
+      
 
-      if (!action || !SKIP_VERIF.has(action)) {
+      if (!SKIP_VERIF.has(action)) {
         await this._onVerif();
       } else if (ENC_ONLY.has(action)) {
         await this._onVerifEnc();
@@ -198,6 +198,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       if (!game.user.isGM) {
         this.element.querySelectorAll(".reponse").forEach(el => (el.style.display = "none"));
       }
+      this._lastAction = null;
     }
 
 
@@ -324,7 +325,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
   /* -------------------------------------------------- */
 
   async _onVerif() {
-    console.log("onverif")
     const actor  = this.actor;
     const sys    = actor.system;
     const { type, system: { race, metier, niveau } } = actor;
@@ -377,6 +377,10 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     }
 
     if (Object.keys(updates).length) await actor.update(updates);
+    /*if (Object.keys(updates).length) {
+      console.log("_onVerif updates:", JSON.stringify(updates)); // ← voir ce qui change
+      await actor.update(updates);
+    }*/
   }
 
   onCalculerPenaliteCompetences() {
@@ -501,7 +505,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     const diff     = calcTot - xp;
     const overXP   = calcTot > xp;
     const underXP  = calcTot < xp;
-
     return {
       hp:       { value: pvEncours, max: pvMax },
       psy:      { value: psyEncours, max: psyMax },
