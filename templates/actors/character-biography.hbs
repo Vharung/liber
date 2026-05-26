@@ -21,11 +21,11 @@
 
         </div>
         <div class="col-hp">
-            <span class="deno" title="{{localize 'Liber.Character.Stat.Life'}}" style="background-color:{{actor.system.alert.hp}}">❤</span>
+            <span class="deno hvr-pulse" title="{{localize 'Liber.Character.Stat.Life'}}" style="background-color:{{actor.system.alert.hp}}">❤</span>
             {{formInput systemFields.hp.fields.value name="system.hp.value" value=system.hp.value localize=true rootId=partId}}/{{formInput systemFields.hp.fields.max name="system.hp.max" value=system.hp.max localize=true rootId=partId}}
         </div>
         <div class="col-psy">
-            <span class="deno" title="{{localize 'Liber.Character.Stat.Psy'}}" style="background-color:{{actor.system.alert.psy}}">♗</span>
+            <span class="deno hvr-bob" title="{{localize 'Liber.Character.Stat.Psy'}}" style="background-color:{{actor.system.alert.psy}}">♗</span>
             {{formInput systemFields.psy.fields.value name="system.psy.value" value=system.psy.value localize=true rootId=partId}}/{{formInput systemFields.psy.fields.max name="system.psy.max" value=system.psy.max localize=true rootId=partId}}
         </div>
         {{formInput systemFields.niveau name="system.niveau" data-action="levelup" value=system.niveau localize=true rootId=partId}}

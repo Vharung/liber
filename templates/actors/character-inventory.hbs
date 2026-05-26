@@ -27,7 +27,7 @@
         <div class="typerepos">
         {{formField systemFields.repos name="system.repos" value=system.repos localize=true rootId=partId type="select"}}
         </div>
-        <a class="bouton reposer" style=" margin-top: 0;height: 25px;padding: 5px;text-align: center;" data-action="sleep">{{localize 'Liber.Character.Repos.Reposer'}}</a>
+        <a class="bouton reposer hvr-shutter-out-horizontal" style=" margin-top: 0;height: 25px;padding: 5px;text-align: center;" data-action="sleep">{{localize 'Liber.Character.Repos.Reposer'}}</a>
     </div>     
   </div>
 
@@ -75,10 +75,10 @@
   <div id="items" class="tab" data-group="sheet" data-tab="items">
     <div class="zoneinfo">
       <nav class="sheet-tabs tabs">
-            <a class="item-filter tous" data-action="filtre" data-type="all"></a>
-            <a class="item-filter armes" data-action="filtre" data-type="weapon"></a>
-            <a class="item-filter armures" data-action="filtre" data-type="armor"></a>
-            <a class="item-filter objets" data-action="filtre" data-type="item"></a>
+            <a class="item-filter tous hvr-pulse" data-action="filtre" data-type="all"></a>
+            <a class="item-filter armes hvr-pulse" data-action="filtre" data-type="weapon"></a>
+            <a class="item-filter armures hvr-pulse" data-action="filtre" data-type="armor"></a>
+            <a class="item-filter objets hvr-pulse" data-action="filtre" data-type="item"></a>
       </nav> 
 
       <input class="secondary" type="text" name="system.secondary" value="{{actor.system.secondary}}" style="display: none;">
@@ -163,7 +163,7 @@
               {{/each}}
           </select>
         </div>
-        <a class="bouton addsort" data-action="addsort">{{localize 'Liber.Character.Inventory.Choix_magie'}}</a>
+        <a class="bouton addsort hvr-shutter-out-horizontal" data-action="addsort">{{localize 'Liber.Character.Inventory.Choix_magie'}}</a>
       {{/unless}}
       <ul class="items-list">
         {{#each magic as |item id|}}                
@@ -289,7 +289,7 @@
           </option>
         {{/each}}
       </select>
-      <a data-action="update" class="valider button">{{localize 'Liber.Character.Valider'}}</a> 
+      <a data-action="update" class="valider button hvr-shutter-out-horizontal">{{localize 'Liber.Character.Valider'}}</a> 
       
         <div class="reponse">
           {{formField systemFields.ronfleur name="system.ronfleur" value=system.ronfleur localize=true rootId=partId type="select"}}

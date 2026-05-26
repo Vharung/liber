@@ -187,7 +187,7 @@ body.theme-dark .application .window-content{backdrop-filter:none}
 .liber .colstat, .liber .colcomp{display: inline-block;height: 352px;}
 .liber .colstat{width:75px;font-size: 0.9em;margin-left: 5px;}
 .liber .colstat .droite{height: 35px;width: 35px;float: right;display: inline-block;position: relative;}
-.liber .colstat label{width: 35px;height: 33px;display: inline-block;color: var(--couleur-clair);padding-left: 40px;margin-bottom: 3px;}
+.liber .colstat label{width: 35px;height: 33px;display: inline-block;color: var(--couleur-clair);padding-left: 40px;margin-bottom: 3px;cursor: pointer;}
 .liber .colstat input{width: 35px;height: 33px;text-align: center;color: var(--couleur-clair);background: none;font-size: 1.1em;position: relative;}
 .liber .colstat input[name="system.ability.physique"],.liber .colstat input[name="system.ability.social"],.liber .colstat input[name="system.ability.mental"]{color: var(--couleur-or);font-weight: bold}
 .liber .physique{background: url('../assets/actor/physique.webp') left no-repeat;background-size:contain;}
@@ -448,3 +448,5 @@ button[aria-pressed="true"]{background: var(--couleur-clair)}
 .liber .chnget.active {
   opacity: 1;
 }
+
+

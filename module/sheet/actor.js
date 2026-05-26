@@ -172,6 +172,9 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
   /** @override */
     async _onRender(context, options) {
       await super._onRender(context, options);
+      console.log(context)
+const pack = game.packs.get("liber-chronicles.magie");console.log(pack) // module.packname
+const docs = await pack.getDocuments();console.log(docs)
       const SKIP_VERIF = new Set([
         "roll", "sleep", "story", "carac",
         "rollDamage", "description", "filtre", "oncouv",
@@ -539,7 +542,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     switch (action) {
       case "edit":    return item.sheet.render(true);
       case "delete":  return item.delete();
-      case "delete":  return item.delete();
+      case "deletemagie":  return item.delete();
 
       case "use": {
         const qty = item.system.quantity || 0;
