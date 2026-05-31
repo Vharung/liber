@@ -84,7 +84,7 @@ footer.nue, h3.nue {color: #c9c7b8;}
 a.content-link, a.inline-roll {background: none}
 .prosemirror menu button{background:var(--couleur-clair); }
 
-.token{border-radius: 50%}
+/*.token{border-radius: 50%}*/
 
 /**********************/
 /*Feuille de pesonnage*/
