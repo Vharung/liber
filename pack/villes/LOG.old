@@ -1,14 +1,5 @@
-2026/05/23-07:31:46.441892 74e9097ed6c0 Recovering log #267
-2026/05/23-07:31:46.443498 74e9097ed6c0 Delete type=0 #267
-2026/05/23-07:31:46.443524 74e9097ed6c0 Delete type=3 #265
-2026/05/23-07:31:49.259516 74e8fa3ff6c0 Level-0 table #271: started
-2026/05/23-07:31:49.259537 74e8fa3ff6c0 Level-0 table #271: 0 bytes OK
-2026/05/23-07:31:49.260054 74e8fa3ff6c0 Delete type=0 #269
-2026/05/23-07:31:49.261062 74e8fa3ff6c0 Manual compaction at level-0 from '!folders!JXYVBInylivR87yS' @ 72057594037927935 : 1 .. '!scenes.lights!gt5sABXif3K7BfDa.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at '!scenes.lights!gt5sABXif3K7BfDa.tFQyLATN1z3hdNbp' @ 351 : 1
-2026/05/23-07:31:49.261068 74e8fa3ff6c0 Compacting 1@0 + 1@1 files
-2026/05/23-07:31:49.262017 74e8fa3ff6c0 Generated table #272@0: 90 keys, 30917 bytes
-2026/05/23-07:31:49.262025 74e8fa3ff6c0 Compacted 1@0 + 1@1 files => 30917 bytes
-2026/05/23-07:31:49.262427 74e8fa3ff6c0 compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/05/23-07:31:49.262475 74e8fa3ff6c0 Delete type=2 #266
-2026/05/23-07:31:49.262553 74e8fa3ff6c0 Delete type=2 #254
-2026/05/23-07:31:49.263319 74e8fa3ff6c0 Manual compaction at level-0 from '!scenes.lights!gt5sABXif3K7BfDa.tFQyLATN1z3hdNbp' @ 351 : 1 .. '!scenes.lights!gt5sABXif3K7BfDa.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at (end)
+2026/06/02-10:58:45.690 2bc8 Delete type=3 #1
+2026/06/02-10:58:45.710 20e8 Level-0 table #5: started
+2026/06/02-10:58:45.744 20e8 Level-0 table #5: 31727 bytes OK
+2026/06/02-10:58:45.746 20e8 Delete type=0 #3
+2026/06/02-10:58:45.748 20e8 Manual compaction at level-0 from '!folders!JXYVBInylivR87yS' @ 72057594037927935 : 1 .. '!scenes.lights!6eUjqaWrkAjrgTi6.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at (end)

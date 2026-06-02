@@ -16,6 +16,7 @@ export default class LiberMonsterSheet extends HandlebarsApplicationMixin(ActorS
       editImage: LiberMonsterSheet.#onEditImage,
       edit: LiberMonsterSheet.#onItemEdit,
       delete: LiberMonsterSheet.#onItemDelete,
+      deletemagie: LiberMonsterSheet.#onItemDelete,
       posture:LiberMonsterSheet.#onPosture,
       restbonus:LiberMonsterSheet.#onBonusReset,
       levelup:LiberMonsterSheet.#onLevelUp,
