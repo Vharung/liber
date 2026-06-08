@@ -1,0 +1,5 @@
+.liber-gm .tab{position: absolute;}
+.liber-gm .menucol{width: 200px;display: inline-block;position: absolute;top:0}
+.liber-gm .menucol li{list-style: none}
+.liber-gm .menucol li li{}
+.liber-gm .contenue{padding-top: 10px;width: calc(100% - 204px);display: inline-block;height: 492px;width:665px; overflow:auto; position:absolute;left:200px }

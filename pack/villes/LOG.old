@@ -1,5 +1,5 @@
-2026/06/02-10:58:45.690 2bc8 Delete type=3 #1
-2026/06/02-10:58:45.710 20e8 Level-0 table #5: started
-2026/06/02-10:58:45.744 20e8 Level-0 table #5: 31727 bytes OK
-2026/06/02-10:58:45.746 20e8 Delete type=0 #3
-2026/06/02-10:58:45.748 20e8 Manual compaction at level-0 from '!folders!JXYVBInylivR87yS' @ 72057594037927935 : 1 .. '!scenes.lights!6eUjqaWrkAjrgTi6.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at (end)
+2026/06/08-10:22:04.575 708 Recovering log #27
+2026/06/08-10:22:04.606 708 Delete type=0 #7
+2026/06/08-10:22:04.606 708 Delete type=0 #27
+2026/06/08-10:22:04.609 708 Delete type=3 #6
+2026/06/08-10:22:04.611 708 Delete type=3 #26

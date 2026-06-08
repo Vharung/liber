@@ -1,0 +1,214 @@
+{
+  "name": "Oklata",
+  "navigation": false,
+  "navName": "",
+  "thumb": "systems/liber-chronicles/assets/ville/16-Oklata.webp",
+  "width": 3004,
+  "height": 2792,
+  "padding": 0.25,
+  "initial": {
+    "x": null,
+    "y": null,
+    "scale": null
+  },
+  "grid": {
+    "size": 50,
+    "type": 0,
+    "color": "#000000",
+    "alpha": 0.35,
+    "distance": 1,
+    "units": "m",
+    "style": "solidLines",
+    "thickness": 1
+  },
+  "tokenVision": true,
+  "drawings": [],
+  "tokens": [],
+  "lights": [],
+  "notes": [],
+  "sounds": [],
+  "tiles": [],
+  "walls": [],
+  "playlist": null,
+  "playlistSound": null,
+  "journal": null,
+  "weather": "",
+  "flags": {
+    "scene-transitions": {
+      "transition": {
+        "preview": true,
+        "options": {
+          "sceneID": "oRXGgbPCV7N1LmQ4",
+          "gmHide": true,
+          "fontColor": "#777777",
+          "fontSize": "28px",
+          "bgImg": "ressources/Decor/oklata.jpg",
+          "bgPos": "center center",
+          "bgSize": "cover",
+          "bgColor": "#000000",
+          "bgOpacity": "0.7",
+          "fadeIn": 400,
+          "delay": 4000,
+          "fadeOut": 1000,
+          "volume": 1,
+          "skippable": true,
+          "gmEndAll": true,
+          "showUI": false,
+          "content": "<h1>Oklata</h1>",
+          "audio": ""
+        },
+        "sceneID": "oRXGgbPCV7N1LmQ4",
+        "journal": null,
+        "modal": null,
+        "destroying": true,
+        "playingAudio": {
+          "events": {
+            "end": {},
+            "pause": {},
+            "start": {},
+            "stop": {},
+            "load": {}
+          },
+          "_eventHandlerId": 1,
+          "_scheduledEvents": {},
+          "id": 144,
+          "container": {
+            "isBuffer": false,
+            "loaded": false,
+            "failed": false,
+            "playing": false,
+            "_loop": false,
+            "loadState": 0
+          }
+        }
+      }
+    },
+    "wallHeight": {
+      "wallHeightAdvancedVision": true
+    },
+    "core": {},
+    "levels": {
+      "backgroundElevation": 0,
+      "lightMasking": true,
+      "weatherElevation": null
+    },
+    "wall-height": {
+      "advancedVision": true
+    }
+  },
+  "journalEntryPage": null,
+  "_stats": {
+    "coreVersion": "14.363",
+    "systemId": "liber-chronicles",
+    "systemVersion": "5.02",
+    "createdTime": 1780239362004,
+    "modifiedTime": 1780239362004,
+    "lastModifiedBy": "jFiMgToMfFEBMqUW",
+    "exportSource": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "folder": "yGEu9UMuiK3v1GNv",
+  "ownership": {
+    "default": 0,
+    "uuhkmdXxANFObv9R": 3,
+    "jFiMgToMfFEBMqUW": 3
+  },
+  "_id": "O0S8DD4pMl76IdpA",
+  "regions": [],
+  "fog": {
+    "colors": {
+      "explored": null,
+      "unexplored": null
+    },
+    "mode": 1
+  },
+  "environment": {
+    "globalLight": {
+      "enabled": false,
+      "darkness": {
+        "max": 1,
+        "min": 0
+      },
+      "alpha": 0.5,
+      "bright": false,
+      "color": null,
+      "coloration": 1,
+      "luminosity": 0,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0
+    },
+    "darknessLevel": 0,
+    "darknessLock": false,
+    "cycle": true,
+    "base": {
+      "hue": 0,
+      "intensity": 0,
+      "luminosity": 0,
+      "saturation": 0,
+      "shadows": 0
+    },
+    "dark": {
+      "hue": 0.7138888888888889,
+      "intensity": 0,
+      "luminosity": -0.25,
+      "saturation": 0,
+      "shadows": 0
+    }
+  },
+  "levels": [
+    {
+      "_id": "defaultLevel0000",
+      "name": "Oklata",
+      "background": {
+        "color": "#999999",
+        "src": "systems/liber-chronicles/assets/ville/16-Oklata.webp",
+        "tint": "#ffffff",
+        "alphaThreshold": 0.75
+      },
+      "elevation": {
+        "top": 4,
+        "bottom": 0
+      },
+      "foreground": {
+        "src": null,
+        "tint": "#ffffff",
+        "alphaThreshold": 0.75
+      },
+      "fog": {
+        "src": null,
+        "tint": "#ffffff"
+      },
+      "textures": {
+        "anchorX": 0.5,
+        "anchorY": 0.5,
+        "offsetX": 0,
+        "offsetY": 0,
+        "fit": "fill",
+        "scaleX": 1,
+        "scaleY": 1,
+        "rotation": 0
+      },
+      "visibility": {
+        "levels": []
+      },
+      "sort": 0,
+      "flags": {},
+      "_key": "!scenes.levels!O0S8DD4pMl76IdpA.defaultLevel0000"
+    }
+  ],
+  "shiftX": 0,
+  "shiftY": 0,
+  "initialLevel": "defaultLevel0000",
+  "transition": {
+    "type": null,
+    "duration": 1500,
+    "activeOnly": false
+  },
+  "active": false,
+  "navOrder": 0,
+  "sort": 0,
+  "_key": "!scenes!O0S8DD4pMl76IdpA",
+  "templates": []
+}

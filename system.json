@@ -8,7 +8,7 @@
       "discord": "Vharung"
     }
   ],
-  "version": "5.03",
+  "version": "5.04",
   "compatibility": {
     "minimum": "13",
     "verified": "14"
@@ -28,7 +28,7 @@
       "path": "lang/en.json"
     }
   ],
-  "esmodules": ["module/liber.js"],
+  "esmodules": ["module/liber.js","extensions/encounter/encounter.js","extensions/gmscreen/gmscreen.js"],
   "documentTypes": {
     "Actor": {
       "character": {

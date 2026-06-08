@@ -399,54 +399,24 @@ button[aria-pressed="true"]{background: var(--couleur-clair)}
 .liber .race{background: none}
 .liber .postes{float: left;}
 
-/*module*/
+/*extensions*/
 .liber-helper { padding: 10px; }
 .liber-helper ul { list-style: none; padding: 0; }
 .liber-helper li { margin-bottom: 3px; }
 .liber-helper .flexrow{overflow: hidden;}
 .liber-helper .liste{height: 248px;overflow: auto;}
-
-.liber-helper .difficulty-bar {
-  display: flex;
-  width: 100%;
-  height: 10px;
-  background: #333;
-  border-radius: 5px;
-  overflow: hidden;
-}
+.liber-helper .difficulty-bar {display: flex;width: 100%;height: 10px;background: #333;border-radius: 5px;overflow: hidden;}
 .liber-helper .difficulty-bar .pc { background: green; height: 100%; transition: width 0.3s; }
 .liber-helper .difficulty-bar .monster { background: crimson; height: 100%; transition: width 0.3s; }
-
 .liber-helper .actions { margin-top: 10px; text-align: center; }
-.liber-helper .actions button {
-  margin: 5px;
-  padding: 6px 12px;
-  border-radius: 5px;
-  border: none;
-  background: var(--color-primary, #0066ff);
-  color: white;
-  cursor: pointer;
-}
+.liber-helper .actions button {margin: 5px;padding: 6px 12px;border-radius: 5px;border: none;background: var(--color-primary, #0066ff);color: white;cursor: pointer;}
+.liber-helper .liber-helper-btn {width: 100%;margin-top: 5px;background: #444;color: #fff;border: none;padding: 6px;border-radius: 4px;}
+.liber-helper input[type=number]{height: 20px;width: 30px;text-align: center}
+.liber .chnget {opacity: 0.5;}
+.liber .chnget.active {opacity: 1;}
 
-.liber-helper .liber-helper-btn {
-  width: 100%;
-  margin-top: 5px;
-  background: #444;
-  color: #fff;
-  border: none;
-  padding: 6px;
-  border-radius: 4px;
-}
-.liber-helper input[type=number]{height: 20px;
-    width: 30px;
-    text-align: center}
-
-.liber .chnget {
-  opacity: 0.5;
-}
-
-.liber .chnget.active {
-  opacity: 1;
-}
-
-
+.liber-gm .tab{position: absolute;}
+.liber-gm .menucol{width: 200px;display: inline-block;position: absolute;top:0}
+.liber-gm .menucol li{list-style: none}
+.liber-gm .menucol li li{}
+.liber-gm .contenue{padding-top: 10px;width: calc(100% - 204px);display: inline-block;height: 492px;width:665px; overflow:auto; position:absolute;left:200px }
