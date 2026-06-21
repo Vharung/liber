@@ -157,7 +157,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     const isRocailleux = race === "rocailleux";
     const isCorbeau    = clan === "corbeau";
 
-console.log(isOther,isAucune)
     return index
     .filter(e => {
       if ((e.system?.quantity ?? Infinity) > cout) return false;
@@ -500,7 +499,7 @@ console.log(isOther,isAucune)
     if (niveau === 1) { pvMax = pvMin; psyMax = psyMin; }
     if (metier === "guerrier" && niveau === 1) psyMax = psyMin;
     if (race === "etredepsy")  { pvMax = 0; psyMin = 0; }
-    if (race === "rocailleux") { pvMin += psyMin; pvMax += psyMax; psyMin = 0; psyMax = 0; psyEncours = 0; }
+    if (race === "rocailleux") { pvMin += psyMin;  psyMin = 0; psyMax = 0; psyEncours = 0; }
 
     pvEncours  = Math.min(pvEncours,  pvMax);
     psyEncours = Math.min(psyEncours, psyMax);

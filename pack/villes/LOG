@@ -1,10 +1,65 @@
-2026/06/08-09:25:57.913031 7394960ea6c0 Recovering log #29
-2026/06/08-09:25:57.914723 7394960ea6c0 Delete type=3 #26
-2026/06/08-09:25:57.914779 7394960ea6c0 Delete type=3 #28
-2026/06/08-09:25:57.914814 7394960ea6c0 Delete type=0 #29
-2026/06/08-09:25:57.914831 7394960ea6c0 Delete type=0 #28
-2026/06/08-09:27:11.382680 73944b3ff6c0 Level-0 table #33: started
-2026/06/08-09:27:11.382698 73944b3ff6c0 Level-0 table #33: 0 bytes OK
-2026/06/08-09:27:11.383205 73944b3ff6c0 Delete type=0 #31
-2026/06/08-09:27:11.384448 73944b3ff6c0 Manual compaction at level-0 from '!folders!JXYVBInylivR87yS' @ 72057594037927935 : 1 .. '!scenes.lights!6eUjqaWrkAjrgTi6.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at (end)
-2026/06/08-09:27:11.384485 73944b3ff6c0 Manual compaction at level-1 from '!folders!JXYVBInylivR87yS' @ 72057594037927935 : 1 .. '!scenes.lights!6eUjqaWrkAjrgTi6.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at (end)
+2026/06/21-08:08:57.140355 7372effff6c0 Recovering log #32
+2026/06/21-08:08:57.140392 7372effff6c0 Recovering log #40
+2026/06/21-08:08:57.140409 7372effff6c0 Recovering log #42
+2026/06/21-08:08:57.140424 7372effff6c0 Recovering log #45
+2026/06/21-08:08:57.140464 7372effff6c0 Recovering log #57
+2026/06/21-08:08:57.140480 7372effff6c0 Recovering log #68
+2026/06/21-08:08:57.140496 7372effff6c0 Recovering log #83
+2026/06/21-08:08:57.140511 7372effff6c0 Recovering log #123
+2026/06/21-08:08:57.140526 7372effff6c0 Recovering log #131
+2026/06/21-08:08:57.140541 7372effff6c0 Recovering log #135
+2026/06/21-08:08:57.140556 7372effff6c0 Recovering log #143
+2026/06/21-08:08:57.140570 7372effff6c0 Recovering log #159
+2026/06/21-08:08:57.140585 7372effff6c0 Recovering log #179
+2026/06/21-08:08:57.140600 7372effff6c0 Recovering log #236
+2026/06/21-08:08:57.140615 7372effff6c0 Recovering log #257
+2026/06/21-08:08:57.140630 7372effff6c0 Recovering log #261
+2026/06/21-08:08:57.140645 7372effff6c0 Recovering log #275
+2026/06/21-08:08:57.140660 7372effff6c0 Recovering log #287
+2026/06/21-08:08:57.141900 7372effff6c0 Delete type=3 #11
+2026/06/21-08:08:57.141939 7372effff6c0 Delete type=0 #179
+2026/06/21-08:08:57.141957 7372effff6c0 Delete type=2 #9
+2026/06/21-08:08:57.141984 7372effff6c0 Delete type=3 #26
+2026/06/21-08:08:57.142012 7372effff6c0 Delete type=0 #24
+2026/06/21-08:08:57.142031 7372effff6c0 Delete type=0 #32
+2026/06/21-08:08:57.142047 7372effff6c0 Delete type=2 #238
+2026/06/21-08:08:57.142075 7372effff6c0 Delete type=0 #159
+2026/06/21-08:08:57.142090 7372effff6c0 Delete type=0 #40
+2026/06/21-08:08:57.142105 7372effff6c0 Delete type=0 #287
+2026/06/21-08:08:57.142121 7372effff6c0 Delete type=0 #45
+2026/06/21-08:08:57.142136 7372effff6c0 Delete type=3 #28
+2026/06/21-08:08:57.142164 7372effff6c0 Delete type=0 #68
+2026/06/21-08:08:57.142179 7372effff6c0 Delete type=0 #257
+2026/06/21-08:08:57.142195 7372effff6c0 Delete type=3 #30
+2026/06/21-08:08:57.142221 7372effff6c0 Delete type=0 #123
+2026/06/21-08:08:57.142236 7372effff6c0 Delete type=0 #143
+2026/06/21-08:08:57.142252 7372effff6c0 Delete type=0 #12
+2026/06/21-08:08:57.142278 7372effff6c0 Delete type=0 #42
+2026/06/21-08:08:57.142293 7372effff6c0 Delete type=3 #20
+2026/06/21-08:08:57.142320 7372effff6c0 Delete type=0 #27
+2026/06/21-08:08:57.142339 7372effff6c0 Delete type=2 #181
+2026/06/21-08:08:57.142365 7372effff6c0 Delete type=0 #29
+2026/06/21-08:08:57.142384 7372effff6c0 Delete type=0 #275
+2026/06/21-08:08:57.142399 7372effff6c0 Delete type=0 #131
+2026/06/21-08:08:57.142414 7372effff6c0 Delete type=3 #6
+2026/06/21-08:08:57.142456 7372effff6c0 Delete type=0 #261
+2026/06/21-08:08:57.142474 7372effff6c0 Delete type=0 #57
+2026/06/21-08:08:57.142489 7372effff6c0 Delete type=0 #236
+2026/06/21-08:08:57.142504 7372effff6c0 Delete type=0 #83
+2026/06/21-08:08:57.142519 7372effff6c0 Delete type=2 #254
+2026/06/21-08:08:57.142557 7372effff6c0 Delete type=3 #14
+2026/06/21-08:08:57.142603 7372effff6c0 Delete type=0 #135
+2026/06/21-08:08:57.142624 7372effff6c0 Delete type=0 #8
+2026/06/21-08:08:57.142654 7372effff6c0 Delete type=2 #277
+2026/06/21-09:42:10.666480 7372ee3ff6c0 Level-0 table #290: started
+2026/06/21-09:42:10.667733 7372ee3ff6c0 Level-0 table #290: 31417 bytes OK
+2026/06/21-09:42:10.668278 7372ee3ff6c0 Delete type=0 #288
+2026/06/21-09:42:10.673032 7372ee3ff6c0 Manual compaction at level-0 from '!folders!JXYVBInylivR87yS' @ 72057594037927935 : 1 .. '!scenes.lights!6eUjqaWrkAjrgTi6.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at (end)
+2026/06/21-09:42:10.673075 7372ee3ff6c0 Manual compaction at level-1 from '!folders!JXYVBInylivR87yS' @ 72057594037927935 : 1 .. '!scenes.lights!6eUjqaWrkAjrgTi6.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at '!scenes.lights!6eUjqaWrkAjrgTi6.tFQyLATN1z3hdNbp' @ 107 : 1
+2026/06/21-09:42:10.673080 7372ee3ff6c0 Compacting 1@1 + 1@2 files
+2026/06/21-09:42:10.674092 7372ee3ff6c0 Generated table #291@1: 92 keys, 31397 bytes
+2026/06/21-09:42:10.674103 7372ee3ff6c0 Compacted 1@1 + 1@2 files => 31397 bytes
+2026/06/21-09:42:10.674445 7372ee3ff6c0 compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/06/21-09:42:10.675049 7372ee3ff6c0 Delete type=2 #5
+2026/06/21-09:42:10.675354 7372ee3ff6c0 Delete type=2 #290
+2026/06/21-09:42:10.680476 7372ee3ff6c0 Manual compaction at level-1 from '!scenes.lights!6eUjqaWrkAjrgTi6.tFQyLATN1z3hdNbp' @ 107 : 1 .. '!scenes.lights!6eUjqaWrkAjrgTi6.tFQyLATN1z3hdNbp' @ 0 : 0; will stop at (end)
