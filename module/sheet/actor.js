@@ -105,7 +105,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     humain:     { clans: ["aucune","oklata","nomade","troubadour","corbeau"], cultes: ["aucune","nouvelordre","croises","lumiereceleste","vharung","waetra","baphomet","marrunas","vaudou","numismatomancie","dieuxsombres","runes","other"] },
     demon:      { clans: ["aucune","demonclan","nomade","troubadour","corbeau","other"], cultes: ["aucune","waetra","demonsanciens","numismatomancie","vharung","marrunas","dieuxsombres","vaudou","runes","other"] },
     drauch:     { clans: ["aucune","drauch","nomade","troubadour","corbeau","other"], cultes: ["aucune","waetra","vharung","numismatomancie","marrunas","dieuxsombres","vaudou","runes","other"] },
-    rocailleux: { clans: ["aucune"], cultes: ["aucune"] },
+    rocailleux: { clans: ["aucune","corbeau","other"], cultes: ["aucune"] },
     celeste:    { clans: ["oklata"], cultes: ["other"] },
     semihumain: {
       clans:  ["aucune","oklata","ralich","aelath","dwaliwyr","yie","nydiag","weitha","crilanydd","cem","coalith","natura","vivaqua","limenido","eraliwin","atlantide","galerrakath","atakanax","corbeau","nomade","troubadour","other"],
@@ -145,7 +145,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
 
     let magieSchool;
     if (race === "celeste") {
-      magieSchool = new Set(["lumiereceleste","croises","nouvelordre","vharung","galerrakath","oklata"]);
+     magieSchool = new Set(["lumiereceleste","croises","nouvelordre","vharung","galerrakath","oklata"]);
     } else {
       magieSchool = new Set([culte]);
       if (clan === "drauch") magieSchool.add("yie").add("crilanydd");
@@ -154,16 +154,20 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
 
     const isOther  = clan === "other" || (culte === "other" && race !== "celeste");
     const isAucune = clan === "aucune" && culte === "aucune";
+    const isRocailleux = race === "rocailleux";
+    const isCorbeau    = clan === "corbeau";
 
+console.log(isOther,isAucune)
     return index
-      .filter(e => {
-        if ((e.system?.quantity ?? Infinity) > cout) return false;
-        if (isAucune) return e.system?.school === "aucune";
-        if (e.system?.school === "aucune") return false;
-        return isOther || magieSchool.has(e.system?.school);
-      })
-      .map(e => ({ name: e.name, id: e._id, quantity: e.system.quantity, description: e.system.biography }))
-      .sort((a, b) => a.quantity - b.quantity);
+    .filter(e => {
+      if ((e.system?.quantity ?? Infinity) > cout) return false;
+      if (isAucune) return false;                                        // aucune magie du tout
+      if (isRocailleux && isCorbeau) return e.system?.school === "corbeau"; // uniquement corbeau
+      if (e.system?.school === "aucune") return false;
+      return isOther || magieSchool.has(e.system?.school);
+    })
+    .map(e => ({ name: e.name, id: e._id, quantity: e.system.quantity, description: e.system.biography }))
+    .sort((a, b) => a.quantity - b.quantity);
   }
 
   /* -------------------------------------------------- */
@@ -173,8 +177,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     async _onRender(context, options) {
       await super._onRender(context, options);
       console.log(context)
-const pack = game.packs.get("liber-chronicles.magie");console.log(pack) // module.packname
-const docs = await pack.getDocuments();console.log(docs)
+
       const SKIP_VERIF = new Set([
         "roll", "sleep", "story", "carac",
         "rollDamage", "description", "filtre", "oncouv",
@@ -497,7 +500,7 @@ const docs = await pack.getDocuments();console.log(docs)
     if (niveau === 1) { pvMax = pvMin; psyMax = psyMin; }
     if (metier === "guerrier" && niveau === 1) psyMax = psyMin;
     if (race === "etredepsy")  { pvMax = 0; psyMin = 0; }
-    if (race === "rocailleux") { pvMin += psyMin; psyMin = 0; psyMax = 0; psyEncours = 0; }
+    if (race === "rocailleux") { pvMin += psyMin; pvMax += psyMax; psyMin = 0; psyMax = 0; psyEncours = 0; }
 
     pvEncours  = Math.min(pvEncours,  pvMax);
     psyEncours = Math.min(psyEncours, psyMax);
