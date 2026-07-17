@@ -482,3 +482,136 @@ Model.names = {
     },
     "autre": "Personnage"
 };
+
+Model.armes = {
+    // ARMES D HAST
+    "Bâton": {
+        effet: "Sur un test physique (avec compétence bâton): Tient à distance les ennemis ajoute un malus au changement de distance de 20. Si un magicien utilise son bâton pour se concentrer, il a un bonus de 5%.",
+        malus: 0,malusParade: 0,deuxMains: true
+    },
+    "Faux de guerre": {
+        effet: "",
+        malus: 0,malusParade: 0,deuxMains: true
+    },
+    "Hallebarde": {
+        effet: "Le porteur à un malus en défense de 20%. Si l’attaque est réussie l’ennemi a un malus de 10% en physique pour sa prochaine attaque",
+        malus: 0,malusParade: 20,deuxMains: true
+    },
+    "Javelot": {
+        effet: "Le porteur peut le lancer.",
+        malus: 0,malusParade: 0,deuxMains: true
+    },
+    "Lance Lourde": {
+        effet: "Le porteur a malus en défense de 15%. Si l’attaque est réussie l’ennemi a un malus de 20% en physique pour sa prochaine attaque",
+        malus: 0,malusParade: 15,deuxMains: true
+    },
+    // ARMES DE CaC
+    "Bouclier": {
+        effet: "",
+        malus: 0,malusParade: 0,deuxMains: false
+    },
+    "Bouclier Rond": {
+        effet: "Le porteur a un bonus de 10 au jet d'esquive.",
+        malus: 0,malusParade: -10,deuxMains: false
+    },
+    "Dague": {
+        effet: "L'arme est perce armure.",
+        malus: 0,malusParade: -10,deuxMains: false
+    },
+    "Gantelet de protection": {
+        effet: "Le porteur a un bonus en défense de 5%.",
+        malus: 0,malusParade: -5,deuxMains: false
+    },
+    "Dague": {
+        effet: "Le porteur a un malus de 10 pour ces attaques.",
+        malus: 10,malusParade: -10,deuxMains: false
+    },
+    // ARMES DE JET
+    "Couteau de lancer": {
+        effet: "Le porteur a un bonus de 10% pour viser une zone précise.",
+        malus: -10,malusParade: 0,deuxMains: false
+    },
+    "Fronde": {
+        effet: "L'adversaire ayant subit des dégât subi un malus de 20 à sa prochaine action",
+        malus: 0,malusParade: 0,deuxMains: false
+    },
+    // ARMES DE MELEE
+    "Epée": {
+        effet: "",
+        malus: 0,malusParade: 0,deuxMains: false
+    },
+    "Epée à deux mains": {
+        effet: "",
+        malus: 0,malusParade: 0,deuxMains: true
+    },
+    "Epée courte": {
+        effet: "",
+        malus: 0,malusParade: 0,deuxMains: false
+    },
+    "Espadon": {
+        effet: "Le porteur a un malus en défense de 10%. L’arme est impressionnante, au face à face l’ennemi fait un test de mental, si échec il a un malus de 10% en mental.",
+        malus: 0,malusParade: 10,deuxMains: true
+    },
+    "Fléaux d’arme": {
+        effet: "Le porteur a un malus en défense de 20%. Enroule le fléau autour de l’arme d’un ennemi, la cible doit réussir un jet de force pour garder son arme.",
+        malus: 0,malusParade: 20,deuxMains: true
+    },
+    "Gourdin": {
+        effet: "Le porteur a un Jet à -20% qui permet d'assommer un ennemi pendant 1 tour.",
+        malus: 0,malusParade: 0,deuxMains: false
+    },
+    "Hache de bataille": {
+        effet: "Le porteur a un malus en défense de 20%.",
+        malus: 0,malusParade: 20,deuxMains: true
+    },
+    "Hachette": {
+        effet: "Arme de mêlée, malus en défense de 5%, peut être lancée. Porté : Phy/10",
+        malus: 0,malusParade: 5,deuxMains: false
+    },
+    "masse d'arme": {
+        effet: "L'arme est perce armure.",
+        malus: 0,malusParade: 0,deuxMains: false
+    },
+    "Masse lourde": {
+        effet: "L'arme est perce armure.Le porteur a un malus en défense de 20%.",
+        malus: 0,malusParade: 20,deuxMains: true
+    },
+    "Rapière": {
+        effet: "Le porteur a un malus en parade de 10 et peut esquiver en focus.",
+        malus: 0,malusParade: 10,deuxMains: false
+    },
+    "Rapière": {
+        effet: "Arme de mêlée, 1 ou 2 mains, 1d8+1 et +10% en défense à deux mains",
+        malus: 0,malusParade: 0,deuxMains: false
+    },
+    // ARMES DE TIR
+    "Arc": {
+        effet: "",
+        malus: 0,malusParade: 0,deuxMains: false
+    },
+    "Arc long": {
+        effet: "",
+        malus: 0,malusParade: 0,deuxMains: false
+    },
+    // ARMES DE VISEE
+    "Arbalète": {
+        effet: "L'arme prend une action complète pour être recharger et est perce armure.",
+        malus: 0,malusParade: 0,deuxMains: false
+    },
+    "Arbalète de point": {
+        effet: "",
+        malus: 0,malusParade: 0,deuxMains: false
+    },
+    "Mousquet": {
+        effet: "L'arme prend une action complète pour être recharger et est perce armure.",
+        malus: 0,malusParade: 0,deuxMains: true
+    },
+    "Bâton de feu": {
+        effet: "Sur un double 6, il explose.",
+        malus: 0,malusParade: 0,deuxMains: false
+    },
+    "Pistolet": {
+        effet: "L'arme prend une action complète pour être recharger et est perce armure.",
+        malus: 0,malusParade: 0,deuxMains: false
+    },
+};

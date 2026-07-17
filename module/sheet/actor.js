@@ -553,9 +553,20 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
 
       case "equip": {
         const protection = Number(target.dataset.protection) || 0;
-        this._lastEquipDelta = protection;  // ← stocker
+        const ou = target.dataset.ou;
+
+        // Déséquiper tous les items déjà sur le même emplacement
+        const itemsMemeEmplacement = actor.items.filter(i => i.system.equip === ou && i._id !== itemId);
+        for (const ancien of itemsMemeEmplacement) {
+          const ancienneProtection = Number(ancien.system.protection) || 0;
+          await actor.update({ "system.armure": Math.max(0, (actor.system.armure || 0) - ancienneProtection) });
+          await ancien.update({ "system.equip": "" });
+        }
+
+        // Équiper le nouvel item
+        this._lastEquipDelta = protection;
         await actor.update({ "system.armure": Math.max(0, (actor.system.armure || 0) + protection) });
-        return item.update({ "system.equip": target.dataset.ou });
+        return item.update({ "system.equip": ou });
       }
 
       case "desequip": {
@@ -871,6 +882,8 @@ static async #rollDamage(actor, item) {
 
   async _generateRoll(actor, ability, valuemax, type, itemId, image, objet) {
     const sys = this.actor.system;
+    const context = await this._prepareContext({}); // si inventory est préparé dans _prepareContext
+    const inv = context.inventory;
     const { posture, fatigue, fatig = 0, enc = 0, encmax = 0, traitre, emphase } = sys;
     const bonus  = parseInt(sys.bonus) || 0;
     const malus  = parseInt(sys.malus) || 0;
@@ -917,6 +930,84 @@ static async #rollDamage(actor, item) {
     if (enc > encmax && ability === "physique") valuemax -= Math.floor(enc - encmax);
     if (ability === "physique") valuemax -= fatig * 5;
 
+    //arme et ses effets
+    const armeGauche  = inv.gauche[0] ?? null;
+    const armeDroite  = inv.droite[0] ?? null;
+    const armeEquipee = armeGauche || armeDroite;
+    const nomArme     = armeEquipee?.name ?? null;
+
+    const estJetConcerne = (
+      (ability === "agilite" || ability === "force" || ability === "physique") &&
+      nomArme !== null
+    );
+
+   let estParade = null;
+  if (estJetConcerne) {
+    // Construire la liste des armes équipées
+    const armesEquipees = this.actor.items.filter(i => !!i.system.equip);
+    
+    const optionsArmes = armesEquipees.map(a => 
+      `<option value="${a._id}">${a.name}</option>`
+    ).join("");
+
+    const dialogContent = `
+      <div style="margin-bottom:10px;">
+        <label><strong>Arme utilisée :</strong></label>
+        <select id="choix-arme" style="width:100%;margin-top:4px;">
+          ${optionsArmes}
+        </select>
+      </div>
+      <p>Effectuez-vous une <strong>parade</strong> ?</p>
+    `;
+
+    const result = await foundry.applications.api.DialogV2.wait({
+    window: { title: "Attaque ou Parade ?" },
+    content: dialogContent,
+    buttons: [
+      {
+        label: "Oui, je pare",
+        icon: "fas fa-shield-alt",
+        action: "parade",
+        callback: (event, button) => {
+          const armeId = button.form.querySelector("#choix-arme")?.value;
+          return { parade: true, armeId };
+        }
+      },
+      {
+        label: "Non, j'attaque",
+        icon: "fas fa-sword",
+        action: "attaque",
+        callback: (event, button) => {
+          const armeId = button.form.querySelector("#choix-arme")?.value;
+          return { parade: false, armeId };
+        }
+      }
+    ]
+  });
+
+  if (!result) return; // fenêtre fermée
+
+  const { parade, armeId } = result;
+  const armeChoisie = this.actor.items.get(armeId);
+  const nomArmeChoisi = armeChoisie?.name ?? nomArme;
+  const infoArme = Model.armes[nomArmeChoisi] ?? null;
+
+  estParade = parade;
+
+  if (estParade) {
+    valuemax -= infoArme?.malusParade ?? 0;
+    label += ` (Parade avec ${nomArmeChoisi})`;
+  } else {
+    valuemax -= infoArme?.malus ?? 0;
+    label += ` (Attaque avec ${nomArmeChoisi})`;
+  }
+  description = infoArme?.effet ?? "";
+
+} else if (nomArme) {
+  const infoArme = Model.armes[nomArme] ?? null;
+  valuemax -= infoArme?.malus ?? 0;
+}
+
     valuemax = Math.max(critique, Math.min(echec, valuemax));
 
     const roll   = await new Roll("1d100").roll();
@@ -924,6 +1015,7 @@ static async #rollDamage(actor, item) {
 
     let info = `${result}/${valuemax}`;
     if (type) info += `<div class="infos"><span class="title">Info</span><div class="description">${description}</div></div>`;
+    if (estJetConcerne) info += `<div class="infos"><span class="title">Info</span><div class="description">${description}</div></div>`;
 
     let succes = "";
     if      (result > echec)    succes = `<span class='result' style='background:#ff3333;'>${game.i18n.localize("Liber.Chat.Roll.EchecCrit")}</span>`;
