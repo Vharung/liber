@@ -127,7 +127,6 @@ Hooks.once("ready", () => {
     const actor = game.actors.get(actorId);
     if (!actor) return;
 
-    // ── useItem ne nécessite pas forcément un item valide au sens strict
     const item = actor.items.get(itemId);
 
     switch (action) {
@@ -143,27 +142,44 @@ Hooks.once("ready", () => {
 
         const { race, clan, niveau, fatig = 0 } = actor.system;
 
-        // Jet principal
-        let result1  = await new Roll(degat).roll();
-        let resultat = result1.total;
-        let affichage = String(resultat);
-        let label = `${actor.name} ${game.i18n.localize("Liber.Chat.Roll.Degat") || "Jet de Dégâts"}`;
+        // ── Utilitaire détail des dés ─────────────────────────────
+        const buildDetail = (roll) => {
+          const termes = roll.terms
+            .map(t => {
+              if (t.results)                return t.results.map(r => r.result).join("+");
+              if (t.operator !== undefined) return t.operator;
+              if (t.number   !== undefined) return t.number;
+              return "";
+            })
+            .filter(Boolean)
+            .join("");
+          return `${roll.formula}: ${termes} = ${roll.total}`;
+        };
 
-        // Double main
+        // ── Jets de dés ───────────────────────────────────────────
+        let label     = `${actor.name} ${game.i18n.localize("Liber.Chat.Roll.utilise")} ${item.name}`;
+        let result1   = await new Roll(degat).roll();
+        let resultat  = result1.total;
+        let affichage = buildDetail(result1);
+
         if (doublemain === "yes") {
           const result2 = await new Roll(degat).roll();
-          resultat  = Math.max(result1.total, result2.total);
-          affichage = `${result1.total} / ${result2.total}`;
-          label    += ` ${game.i18n.localize("Liber.Chat.Roll.Percucant") || "(Percutant)"}`;
+          label     += ` ${game.i18n.localize("Liber.Chat.Roll.Percucant") || "(Percutant)"}`;
+          resultat   = Math.max(result1.total, result2.total);
+          affichage  = `${buildDetail(result1)} / ${buildDetail(result2)}`;
           await actor.update({ "system.fatig": fatig + 1 });
         }
 
-        // Bonus race / clan
-        if (race === "orc"     && item.type === "weapon") resultat += 2;
-        if (clan === "coalith" && item.type === "weapon") resultat += niveau;
-        affichage = String(resultat);
+        // ── Bonus race / clan ─────────────────────────────────────
+        let bonusSupp = 0;
+        if (race === "orc"     && item.type === "weapon") bonusSupp += 2;
+        if (clan === "coalith" && item.type === "weapon") bonusSupp += niveau;
+        if (bonusSupp > 0) {
+          resultat  += bonusSupp;
+          affichage += ` +${bonusSupp} = ${resultat}`;
+        }
 
-        // ── Cible désignée ──────────────────────────────────────────
+        // ── Cible désignée ────────────────────────────────────────
         const targets = game.user.targets;
         let targetInfo = "";
 
@@ -176,31 +192,34 @@ Hooks.once("ready", () => {
             const hpNouveau = Math.max(0, hpActuel - degatsNet);
 
             await targetActor.update({ "system.hp.value": hpNouveau });
+            await targetActor.toggleStatusEffect("dead", {
+              active:  hpNouveau <= 0,
+              overlay: hpNouveau <= 0
+            });
 
-            if (hpNouveau <= 0) {
-              await targetActor.toggleStatusEffect("dead", { active: true, overlay: true });
-            } else{
-              await targetActor.toggleStatusEffect("dead", { active: false, overlay: false });
-            }
-
-            const couleurHP = hpNouveau <= 0 ? "#ff3333" : "var(--couleur-vert)";
             targetInfo = `
               <div class="target-result">
-                <img src="${targetActor.img}"">
-                <strong>${targetActor.name}</strong> —
+                <img src="${targetActor.img}">
+                <strong>${targetActor.name}</strong>
+                — Armure : ${armure} — Dégâts nets : ${degatsNet}
+                — PV : ${hpActuel} → ${hpNouveau}
                 ${hpNouveau <= 0 ? "<br><span style='color:#ff3333;'>☠ Hors combat</span>" : ""}
               </div>`;
-              /*Armure : ${armure} ·
-                Dégâts nets : <strong>${degatsNet}</strong> ·
-                PV : ${hpActuel} → <strong style="color:${couleurHP};">${hpNouveau}</strong>*/
           }
         }
 
-        // ── Chat ────────────────────────────────────────────────────
-        const info   = biography
-          ? `<div class="infos"><span class="title">Info</span><div class="description">${biography}</div></div>`
-          : "";
-        const succes = `${info}<span class='result' style='background:var(--couleur-vert);'>${affichage}</span>${targetInfo}`;
+        // ── Chat ──────────────────────────────────────────────────
+        const infoBlock = biography
+          ? `<div class="infos">
+               <span class="title">Info</span>
+               <div class="description">${biography}<br><strong>Jet ${degat} : ${affichage}</strong></div>
+             </div>`
+          : `<div class="infos">
+               <span class="title">Jet</span>
+               <div class="description"><strong>${degat} : ${affichage}</strong></div>
+             </div>`;
+
+        const succes = `${infoBlock}<span class='result' style='background:var(--couleur-vert);' title="${affichage}">${resultat}</span>${targetInfo}`;
 
         const chat = await new LiberChat(actor)
           .withTemplate("systems/liber-chronicles/templates/chat/roll-resultat.hbs")
@@ -220,7 +239,7 @@ Hooks.once("ready", () => {
         break;
       }
 
-      // ── Consommation d'item ──────────────────────────────────────
+      // ── Consommation d'item ───────────────────────────────────────
       case "useItem": {
         if (!item) return ui.notifications.warn("Item introuvable.");
 

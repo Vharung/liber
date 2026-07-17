@@ -595,23 +595,42 @@ static async #rollDamage(actor, item) {
   const { doublemain, consommable, quantity = 0, biography, degat, equip } = item.system;
   if (!degat) return;
 
-  let label     = `${actor.name} ${game.i18n.localize("Liber.Chat.Roll.utilise")} ${item.name}`;
-  let result1   = await new Roll(degat).roll();
-  let resultat  = result1.total;          // number
-  let affichage = String(result1.total);  // string pour le chat
+  // ── Utilitaire détail des dés ───────────────────────────────────
+  const buildDetail = (roll) => {
+    const termes = roll.terms
+      .map(t => {
+        if (t.results)            return t.results.map(r => r.result).join("+");
+        if (t.operator !== undefined) return t.operator;
+        if (t.number  !== undefined)  return t.number;
+        return "";
+      })
+      .filter(Boolean)
+      .join("");
+    return `${roll.formula}: ${termes} = ${roll.total}`;
+  };
+
+  // ── Jets de dés ────────────────────────────────────────────────
+  let label    = `${actor.name} ${game.i18n.localize("Liber.Chat.Roll.utilise")} ${item.name}`;
+  let result1  = await new Roll(degat).roll();
+  let resultat = result1.total;
+  let affichage = buildDetail(result1);
 
   if (doublemain === "yes") {
     const result2 = await new Roll(degat).roll();
     label     += game.i18n.localize("Liber.Chat.Roll.Percucant");
-    resultat   = Math.max(result1.total, result2.total); // number — garde le meilleur
-    affichage  = `${result1.total} / ${result2.total}`;  // string pour le chat
+    resultat   = Math.max(result1.total, result2.total);
+    affichage  = `${buildDetail(result1)} / ${buildDetail(result2)}`;
     await actor.update({ "system.fatig": fatig + 1 });
   }
 
-  if (race === "orc"     && item.type === "weapon") resultat += 2;
-  if (clan === "coalith" && item.type === "weapon") resultat += niveau;
-  affichage = String(resultat); // sync après bonus
-  const detailDes = result1.result || result1.total;
+  // ── Bonus race / clan ──────────────────────────────────────────
+  let bonusSupp = 0;
+  if (race === "orc"     && item.type === "weapon") bonusSupp += 2;
+  if (clan === "coalith" && item.type === "weapon") bonusSupp += niveau;
+  if (bonusSupp > 0) {
+    resultat  += bonusSupp;
+    affichage += ` +${bonusSupp} = ${resultat}`;
+  }
 
   // ── Cible désignée ─────────────────────────────────────────────
   const targets = game.user.targets;
@@ -619,44 +638,62 @@ static async #rollDamage(actor, item) {
 
   if (targets.size > 0) {
     const targetActor = targets.first().actor;
-
     if (targetActor) {
-      const armure    = Number(targetActor.system.armure)   ?? 0;
-      const hpActuel  = Number(targetActor.system.hp.value) ?? 0;
+      const armure    = Number(targetActor.system.armure)   || 0;
+      const hpActuel  = Number(targetActor.system.hp.value) || 0;
       const degatsNet = Math.max(0, resultat - armure);
       const hpNouveau = Math.max(0, hpActuel - degatsNet);
 
       await targetActor.update({ "system.hp.value": hpNouveau });
-
-      if (hpNouveau <= 0) {
-        await targetActor.toggleStatusEffect("dead", { active: true, overlay: true });
-      } else{
-        await targetActor.toggleStatusEffect("dead", { active: false, overlay: false });
-      }
+      await targetActor.toggleStatusEffect("dead", {
+        active:  hpNouveau <= 0,
+        overlay: hpNouveau <= 0
+      });
 
       targetInfo = `
         <div class="target-result">
           <img src="${targetActor.img}">
-          <strong>${targetActor.name}</strong> —
+          <strong>${targetActor.name}</strong>
+          — Armure : ${armure} — Dégâts nets : ${degatsNet}
+          — PV : ${hpActuel} → ${hpNouveau}
           ${hpNouveau <= 0 ? "<br><span style='color:#ff3333;'>☠ Hors combat</span>" : ""}
         </div>`;
     }
   }
 
   // ── Chat ───────────────────────────────────────────────────────
-  const info   = biography ? `<div class="infos"><span class="title">Info</span><div class="description">${biography ? biography + "<br>" : ""}<strong>Jet ${degat} : ${detailDes}</div></div>` : "";
-  const succes = `${info}<span class='result' style='background:var(--couleur-vert);'>${affichage}</span>${targetInfo}`;
+  const info = biography
+    ? `<div class="infos">
+         <span class="title">Info</span>
+         <div class="description">${biography}<br><strong>Jet ${degat} : ${affichage}</strong></div>
+       </div>`
+    : `<div class="infos">
+         <span class="title">Jet</span>
+         <div class="description"><strong>${degat} : ${affichage}</strong></div>
+       </div>`;
+
+  const succes = `${info}<span class='result' style='background:var(--couleur-vert);' title="${affichage}">${resultat}</span>${targetInfo}`;
 
   await new LiberChat(actor)
     .withTemplate("systems/liber-chronicles/templates/chat/roll-damage.hbs")
     .withContent("rollDamage")
-    .withData({ actingCharName: actor.name, actingCharImg: actor.img, actingAbilName: item.img, introText: label, succes })
-    .create().then(c => c.display());
+    .withData({
+      actingCharName: actor.name,
+      actingCharImg:  actor.img,
+      actingAbilName: item.img,
+      introText:      label,
+      succes
+    })
+    .create()
+    .then(c => c.display());
 
   // ── Consommable ────────────────────────────────────────────────
   if (consommable === "yes" && quantity > 0) {
     const newQty = quantity - 1;
-    await item.update({ "system.equip": newQty === 0 ? "" : equip, "system.quantity": Math.max(0, newQty) });
+    await item.update({
+      "system.equip":    newQty === 0 ? "" : equip,
+      "system.quantity": Math.max(0, newQty)
+    });
   }
 }
 
@@ -942,6 +979,7 @@ static async #rollDamage(actor, item) {
     );
 
    let estParade = null;
+   let armeId =null;
   if (estJetConcerne) {
     // Construire la liste des armes équipées
     const armesEquipees = this.actor.items.filter(i => !!i.system.equip);
@@ -981,32 +1019,42 @@ static async #rollDamage(actor, item) {
           const armeId = button.form.querySelector("#choix-arme")?.value;
           return { parade: false, armeId };
         }
+      },
+      {
+        label: "Rien à voir",
+        icon: "",
+        action: "autres",
+        callback: (event, button) => {
+          const armeId = button.form.querySelector("#choix-arme")?.value;
+          return { parade: null, armeId };
+        }
       }
     ]
   });
 
-  if (!result) return; // fenêtre fermée
+      if (!result) return; // fenêtre fermée
 
-  const { parade, armeId } = result;
-  const armeChoisie = this.actor.items.get(armeId);
-  const nomArmeChoisi = armeChoisie?.name ?? nomArme;
-  const infoArme = Model.armes[nomArmeChoisi] ?? null;
+      const { parade, armeId: id  } = result;
+      armeId=id;
+      const armeChoisie = this.actor.items.get(armeId);
+      const nomArmeChoisi = armeChoisie?.name ?? nomArme;
+      const infoArme = Model.armes[nomArmeChoisi] ?? null;
 
-  estParade = parade;
+      estParade = parade;
 
-  if (estParade) {
-    valuemax -= infoArme?.malusParade ?? 0;
-    label += ` (Parade avec ${nomArmeChoisi})`;
-  } else {
-    valuemax -= infoArme?.malus ?? 0;
-    label += ` (Attaque avec ${nomArmeChoisi})`;
-  }
-  description = infoArme?.effet ?? "";
+      if (estParade == true) {
+        valuemax -= infoArme?.malusParade ?? 0;
+        label += ` (Parade avec ${nomArmeChoisi})`;
+      } else if (estParade == false) {
+        valuemax -= infoArme?.malus ?? 0;
+        label += ` (Attaque avec ${nomArmeChoisi})`;
+      }
+      description = infoArme?.effet ?? "";
 
-} else if (nomArme) {
-  const infoArme = Model.armes[nomArme] ?? null;
-  valuemax -= infoArme?.malus ?? 0;
-}
+    } else if (nomArme) {
+      const infoArme = Model.armes[nomArme] ?? null;
+      valuemax -= infoArme?.malus ?? 0;
+    }
 
     valuemax = Math.max(critique, Math.min(echec, valuemax));
 
@@ -1015,7 +1063,7 @@ static async #rollDamage(actor, item) {
 
     let info = `${result}/${valuemax}`;
     if (type) info += `<div class="infos"><span class="title">Info</span><div class="description">${description}</div></div>`;
-    if (estJetConcerne) info += `<div class="infos"><span class="title">Info</span><div class="description">${description}</div></div>`;
+    if (estJetConcerne && estParade !== null) info += `<div class="infos"><span class="title">Info</span><div class="description">${description}</div></div>`;
 
     let succes = "";
     if      (result > echec)    succes = `<span class='result' style='background:#ff3333;'>${game.i18n.localize("Liber.Chat.Roll.EchecCrit")}</span>`;
@@ -1045,9 +1093,20 @@ static async #rollDamage(actor, item) {
     }
 
     if (equippedItems.length && ability === "physique") {
-      for (const eq of equippedItems) {
-        if (eq.system.degat !== "0") succes += `<button class="roll-damage" data-action="rollDamage" data-itemid="${eq._id}" data-actorid="${actor._id}">${game.i18n.localize("Liber.Chat.Roll.utiliser")} ${eq.name}</button>`;
-        if (eq.system.consommable === "yes") succes += `<button class="use-item" data-action="useItem" data-itemid="${eq._id}" data-actorid="${actor._id}">${game.i18n.localize("Liber.Chat.Roll.consommer")} ${eq.name}</button>`;
+      if (estParade === true) {
+        // Parade → rien dans succes
+      } else if (estParade === false) {
+        // Attaque → uniquement l'arme choisie
+        const eq = this.actor.items.get(armeId);
+        if (eq && eq.system.degat !== "0") {
+          succes += `<button class="roll-damage" data-action="rollDamage" data-itemid="${eq._id}" data-actorid="${actor._id}">${game.i18n.localize("Liber.Chat.Roll.LancerDegats")} ${eq.name}</button>`;
+        }
+      } else {
+        // null → comportement original
+        for (const eq of equippedItems) {
+          if (eq.system.degat !== "0") succes += `<button class="roll-damage" data-action="rollDamage" data-itemid="${eq._id}" data-actorid="${actor._id}">${game.i18n.localize("Liber.Chat.Roll.utiliser")} ${eq.name}</button>`;
+          if (eq.system.consommable === "yes") succes += `<button class="use-item" data-action="useItem" data-itemid="${eq._id}" data-actorid="${actor._id}">${game.i18n.localize("Liber.Chat.Roll.consommer")} ${eq.name}</button>`;
+        }
       }
     }
 
