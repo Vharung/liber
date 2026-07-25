@@ -655,7 +655,7 @@
         "apprenti": "5 points de compétence supplémentaire au level up",
         "armeliee": "Permet d’avoir une arme magique qui frappe sur le mental (dégât 1d6+2), sans coup de psy, cacher dans un bijou",
         "attaquant": "Permet d’avoir une action supplémentaire par tour avec malus de -20",
-        "aura": "Permet d’avoir 5 psy supplémentaire",
+        "aura": "Permet d’avoir 2 psy supplémentaire par niveau",
         "bibliothecaire": "Trouve ce qui cherche dans un livre / bibliothèque (sans jet de dès), +20 en jet de mémoire",
         "bondormeur": "Récupére deux fois plus vite les PV et PSY",
         "chanceux": "Relance un jet de chance raté (une fois par jet), une réussite automatique par jour",
@@ -686,7 +686,7 @@
         "tenace": "Quand le joueur arrive à perdre connaissance, il revient à lui avec 1PV, (une fois par jour)",
         "tirlointain": "Permet de ne pas avoir de malus si on tire de loin, +2 pour les armes de tir.",
         "valeureux": "Permet de faire un jet de sauvegarde sur la force pour éviter la mort (les dégâts sont annulés, une fois par jour)",
-        "vigoureux": "Permet d’avoir 5 pv supplémentaire",
+        "vigoureux": "Permet d’avoir 2 pv supplémentaire par niveau",
         "abordage": "Les pirates sont des experts de l’abordage, capables de prendre d’assaut un navire ennemi avec rapidité et efficacité.  Initiative de Initiative est  1D6+1.",
         "pillage": "Les pirates sont des pillards sans pitié, capables de dépouiller un navire ou une ville de toutes ses richesses en un temps record. Récupérer tous les trésors en premier.",
         "evasion": "Les pirates sont des experts de l’évasion, capables de se sortir des situations les plus désespérées grâce à leur ingéniosité et leur audace. +10 en astuce." 

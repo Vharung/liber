@@ -189,9 +189,8 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
 
       const action = this._lastAction;
       
-
       if (!SKIP_VERIF.has(action)) {
-        await this._onVerif();
+         await this._onVerif();
       } else if (ENC_ONLY.has(action)) {
         await this._onVerifEnc();
       }else if (EQUIP_ONLY.has(action)) {
@@ -339,7 +338,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     const encStats   = this.onEnc();
     const calcul     = this.onCalcul();
     const armurenat  = Math.max(sys.armure, raceBonus.armor ?? 0);
-
     let resultat = 0, corrections = {}, competences = {}, sortRestant = 0;
     let stat = { message: "", reste: 0 };
 
@@ -348,10 +346,12 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       stat        = this.onStat();
       sortRestant = calcul.nbSort - actor.items.filter(i => i.type === "magic").length;
     } else {
-      calcul.hpalert = calcul.psyalert = "";
+      // PNJ : alertes calculées mais pas de reset
+      calcul.hpalert = calcul.hpalert ?? "";
+      calcul.psyalert = calcul.psyalert ?? "";
     }
 
-    // ── Valeurs candidates ───────────────────────────────
+    // ── Valeurs candidates (communes) ────────────────────
     const candidates = {
       "system.armure":    armurenat,
       "system.reste":     resultat,
@@ -360,19 +360,26 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       "system.enc":       encStats.enc,
       "system.encmax":    encStats.max,
       "system.hp.value":  calcul.hp.value,
-      "system.hp.max":    calcul.hp.max,
       "system.psy.value": calcul.psy.value,
-      "system.psy.max":   calcul.psy.max,
-      "system.cout":      calcul.cout,
-      "system.max":       sortRestant,
-      "system.alert.hp":  calcul.hpalert,
-      "system.alert.psy": calcul.psyalert,
+      "system.alert.hp":  calcul.hpalert,   // gardé pour PNJ aussi
+      "system.alert.psy": calcul.psyalert,  // gardé pour PNJ aussi
       "system.pvetpsy":   calcul.diff,
       "system.langues":   raceBonus.langues,
+      "system.cout":      calcul.cout,
+      "system.max":       sortRestant,
       ...this.onStatut(),
       ...corrections,
       ...competences,
     };
+
+    // ── Champs réservés aux personnages joueurs ───────────
+    // hp.max et psy.max ne sont PAS modifiés pour les PNJ
+    if (type === "character") {
+      Object.assign(candidates, {
+        "system.hp.max":  calcul.hp.max,
+        "system.psy.max": calcul.psy.max,
+      });
+    }
 
     // ── Ne mettre à jour que ce qui a changé ─────────────
     const updates = {};
@@ -382,10 +389,6 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     }
 
     if (Object.keys(updates).length) await actor.update(updates);
-    /*if (Object.keys(updates).length) {
-      console.log("_onVerif updates:", JSON.stringify(updates)); // ← voir ce qui change
-      await actor.update(updates);
-    }*/
   }
 
   onCalculerPenaliteCompetences() {
@@ -475,6 +478,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     let pvMax = sys.hp.max ?? 0, psyMax = sys.psy.max ?? 0;
     let pvEncours = sys.hp.value ?? 0, psyEncours = sys.psy.value ?? 0;
     let pvMin, psyMin, nbSort, maxSort;
+    let nbxp=3;
 
     if (metier === "personnalise") {
       pvMin   = Math.round(sys.ability.physique / 3);
@@ -491,8 +495,8 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     }
 
     if (talent === "memoirearcanique") nbSort++;
-    if (talent === "aura")      psyMin += 2 * niveau;
-    if (talent === "vigoureux") pvMin  += 2 * niveau;
+    if (talent === "aura")      psyMin = psyMin + 2 * (niveau - 1); 
+    if (talent === "vigoureux") pvMin  = pvMin + 2 * (niveau - 1); 
 
     pvMax  = Math.max(pvMax,  pvMin);
     psyMax = Math.max(psyMax, psyMin);
@@ -505,7 +509,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
     psyEncours = Math.min(psyEncours, psyMax);
     if (pvEncours + insoin > pvMax) pvEncours = pvMax - insoin;
 
-    const xp       = (niveau - 1) * 3 + pvMin + psyMin;
+    const xp       = (niveau - 1) * nbxp + pvMin + psyMin;
     const calcTot  = pvMax + psyMax;
     const diff     = calcTot - xp;
     const overXP   = calcTot > xp;
