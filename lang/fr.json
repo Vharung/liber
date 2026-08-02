@@ -57,7 +57,8 @@
       },
       "Defence":{
         "Armor":"Armure",
-        "Prote":"Protection Magique"
+        "Prote":"Protection Magique",
+        "Parade":"Parade"
       },
       "Phase":{
         "Dephase2":"Très déphase",

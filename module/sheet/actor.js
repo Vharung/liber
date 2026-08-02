@@ -35,6 +35,7 @@ export default class LiberCharacterSheet extends HandlebarsApplicationMixin(Acto
       restbonus:   LiberCharacterSheet.#onActorAction,
       addsort:     LiberCharacterSheet.#onAddSort,
       oncouv:      LiberCharacterSheet.#onEtatToggle,
+      onParade:    LiberCharacterSheet.#onParade,
     }
   };
 
@@ -922,7 +923,7 @@ static async #rollDamage(actor, item) {
   /*  Jet de dé                                         */
   /* -------------------------------------------------- */
 
-  async _generateRoll(actor, ability, valuemax, type, itemId, image, objet) {
+  /*async _generateRoll(actor, ability, valuemax, type, itemId, image, objet) {
     const sys = this.actor.system;
     const context = await this._prepareContext({}); // si inventory est préparé dans _prepareContext
     const inv = context.inventory;
@@ -1122,6 +1123,139 @@ static async #rollDamage(actor, item) {
       .create();
     await chat.display();
     return { roll, result };
+  }*/
+
+  async _generateRoll(actor, ability, valuemax, type, itemId, image, objet, parade = null, armeId = null, labelSuffix = "", descriptionOverride = null) {
+    const sys = this.actor.system;
+    const context = await this._prepareContext({});
+    const inv = context.inventory;
+    const { posture, fatigue, fatig = 0, enc = 0, encmax = 0, traitre, emphase } = sys;
+    const bonus  = parseInt(sys.bonus) || 0;
+    const malus  = parseInt(sys.malus) || 0;
+
+    const equippedItems = this.actor.items.filter(i => i.system.equip);
+    let visuel = image || `systems/liber-chronicles/assets/actor/${ability}.webp`;
+    let label  = `${actor.name}${game.i18n.localize("Liber.Chat.Roll.faire")}${game.i18n.localize("Liber.Chat.Roll." + ability)}`;
+
+    let item, itemname, quantity, psy, pv, insoin, physique, mental, social, description, talent;
+
+    if (type) {
+      item = this.actor.items.get(itemId);
+      if (item) {
+        ({ value: psy }  = sys.psy);
+        ({ value: pv }   = sys.hp);
+        insoin    = parseInt(sys.insoin) || 0;
+        mental    = parseInt(sys.ability.mental) || 0;
+        social    = parseInt(sys.ability.social) || 0;
+        physique  = parseInt(sys.ability.physique) || 0;
+        talent    = sys.talent;
+        description = item.system.biography;
+        quantity  = parseInt(item.system.quantity) || 0;
+        visuel    = item.img;
+        itemname  = item.name;
+      }
+      visuel = image || visuel;
+      if      (type === "corbeau")    { ability = "physique"; valuemax = physique; }
+      else if (type === "troubadour") { ability = "social";   valuemax = social;   }
+      else                            { ability = "mental";   valuemax = mental;   }
+      label = `${actor.name}${game.i18n.localize("Liber.Chat.Roll.faire")} : ${itemname}`;
+    }
+
+    valuemax += bonus + malus;
+    let critique = 5, echec = 95;
+
+    if (traitre === "yes")         echec  -= 5;
+    if (emphase === "dephase2")    echec  -= 10;
+    else if (emphase === "dephase1") echec -= 5;
+    else if (emphase === "emphase1") critique += 5;
+    else if (emphase === "emphase2") critique += 10;
+
+    if (posture === "offensif") critique += 5;
+    if (posture === "focus")    valuemax += 5;
+    if (enc > encmax && ability === "physique") valuemax -= Math.floor(enc - encmax);
+    if (ability === "physique") valuemax -= fatig * 5;
+
+    // arme équipée par défaut (pour le cas "pas concerné par parade/attaque")
+    const armeGauche  = inv.gauche[0] ?? null;
+    const armeDroite  = inv.droite[0] ?? null;
+    const armeEquipee = armeGauche || armeDroite;
+    const nomArme     = armeEquipee?.name ?? null;
+
+    const estJetConcerne = (
+      (ability === "agilite" || ability === "force" || ability === "physique") &&
+      nomArme !== null
+    );
+
+    const estParade = parade;
+
+    if (estJetConcerne) {
+      // le calcul de malus/label/description a déjà été fait dans #onParade
+      label += labelSuffix;
+      if (descriptionOverride !== null) description = descriptionOverride;
+    } else if (nomArme) {
+      const infoArme = Model.armes[nomArme] ?? null;
+      valuemax -= infoArme?.malus ?? 0;
+    }
+
+    valuemax = Math.max(critique, Math.min(echec, valuemax));
+
+    const roll   = await new Roll("1d100").roll();
+    const result = roll.total;
+
+    let info = `${result}/${valuemax}`;
+    if (type) info += `<div class="infos"><span class="title">Info</span><div class="description">${description}</div></div>`;
+    if (estJetConcerne && estParade !== null) info += `<div class="infos"><span class="title">Info</span><div class="description">${description}</div></div>`;
+
+    let succes = "";
+    if      (result > echec)    succes = `<span class='result' style='background:#ff3333;'>${game.i18n.localize("Liber.Chat.Roll.EchecCrit")}</span>`;
+    else if (result <= critique) succes = `<span class='result' style='background:#7dff33;'>${game.i18n.localize("Liber.Chat.Roll.ReussiteCrit")}</span>`;
+    else if (result <= valuemax) succes = `<span class='result' style='background:var(--couleur-vert);'>${game.i18n.localize("Liber.Chat.Roll.Reussite")}</span>`;
+    else                        succes = `<span class='result' style='background:var(--couleur-rouge);'>${game.i18n.localize("Liber.Chat.Roll.Echec")}</span>`;
+
+    if (objet === "magie") {
+      if (posture === "focus") quantity = Math.max(0, quantity - 1);
+      if (type !== "corbeau") {
+        if ((psy + pv) >= quantity) {
+          psy -= quantity;
+          if (psy < 0) { pv += psy; if (talent !== "conversion") insoin -= psy; psy = 0; }
+        } else {
+          succes = "";
+          info   = `${game.i18n.localize("Liber.Chat.Roll.Ressource")}<div class="infos"><span class="title">Info</span><div class="description">${description}</div></div>`;
+        }
+      } else {
+        if (pv >= quantity) { pv -= quantity; }
+        else { succes = ""; info = `${game.i18n.localize("Liber.Chat.Roll.Ressource")}<div class="infos"><span class="title">Info</span><div class="description">${description}</div></div>`; }
+      }
+      await this.actor.update({ "system.hp.value": pv, "system.insoin": insoin, "system.psy.value": psy });
+    }
+
+    if (type && item?.system.degat != 0) {
+      succes += `<button class="roll-damage" data-action="rollDamage" data-itemid="${itemId}" data-actorid="${actor._id}">${game.i18n.localize("Liber.Chat.Roll.LancerDegats")}</button>`;
+    }
+
+    if (equippedItems.length && ability === "physique") {
+      if (estParade === true) {
+        // Parade → rien dans succes
+      } else if (estParade === false) {
+        const eq = this.actor.items.get(armeId);
+        if (eq && eq.system.degat !== "0") {
+          succes += `<button class="roll-damage" data-action="rollDamage" data-itemid="${eq._id}" data-actorid="${actor._id}">${game.i18n.localize("Liber.Chat.Roll.LancerDegats")} ${eq.name}</button>`;
+        }
+      } else {
+        for (const eq of equippedItems) {
+          if (eq.system.degat !== "0") succes += `<button class="roll-damage" data-action="rollDamage" data-itemid="${eq._id}" data-actorid="${actor._id}">${game.i18n.localize("Liber.Chat.Roll.utiliser")} ${eq.name}</button>`;
+          if (eq.system.consommable === "yes") succes += `<button class="use-item" data-action="useItem" data-itemid="${eq._id}" data-actorid="${actor._id}">${game.i18n.localize("Liber.Chat.Roll.consommer")} ${eq.name}</button>`;
+        }
+      }
+    }
+
+    const chat = await new LiberChat(actor)
+      .withTemplate("systems/liber-chronicles/templates/chat/roll-resultat.hbs")
+      .withContent(ability)
+      .withData({ actingCharName: actor.name, actingCharImg: actor.img, actingAbilName: visuel, introText: label, info, succes })
+      .create();
+    await chat.display();
+    return { roll, result };
   }
 
   /* -------------------------------------------------- */
@@ -1168,6 +1302,116 @@ static async #rollDamage(actor, item) {
     if (ronfleur === "no") {
       await actor.update({ "system.insoin": insoin, "system.hp.value": hp, "system.psy.value": psy, "system.fatig": fatig });
     }
+  }
+
+
+
+  /* -------------------------------------------------- */
+  /*  Parade                                            */
+  /* -------------------------------------------------- */
+
+  static async #onParade(event, target) {
+    const dataset  = target.dataset;
+    const actor    = this.actor;
+    const baseAbility = dataset.ability || null; // ability du bouton d'origine (fallback)
+    let valuemax   = 0;
+    const type     = dataset.type    || null;
+    const itemId   = dataset.itemid  || null;
+    const image    = dataset.image   || null;
+    const objet    = dataset.objet   || null;
+    const agility  = actor.system.ability.agilite;
+    const force    = actor.system.ability.force;
+
+    // récupérer l'inventaire (armes équipées)
+    const context = await this._prepareContext({});
+    const inv = context.inventory;
+    const armeGauche  = inv.gauche[0] ?? null;
+    const armeDroite  = inv.droite[0] ?? null;
+    const armeEquipee = armeGauche || armeDroite;
+    const nomArme     = armeEquipee?.name ?? null;
+
+    // liste des armes équipées pour le select
+    const armesEquipees = actor.items.filter(i => !!i.system.equip);
+    const optionsArmes = armesEquipees.map(a =>
+      `<option value="${a._id}">${a.name}</option>`
+    ).join("");
+
+    const dialogContent = `
+      <div style="margin-bottom:10px;">
+        <label><strong>Arme utilisée :</strong></label>
+        <select id="choix-arme" style="width:100%;margin-top:4px;">
+          ${optionsArmes}
+        </select>
+      </div>
+      <p>Effectuez-vous une <strong>parade</strong> ?</p>
+    `;
+
+    const result = await foundry.applications.api.DialogV2.wait({
+      window: { title: "Attaque ou Parade ?" },
+      content: dialogContent,
+      buttons: [
+        {
+          label: "J'esquive (sort ou fleches)", // jet agilité
+          icon: "fas fa-shield-alt",
+          action: "parade",
+          callback: (event, button) => ({
+            parade: true,
+            armeId: button.form.querySelector("#choix-arme")?.value,
+            ability: "agilite"
+          })
+        },
+        {
+          label: "Je pare (combat)", // jet de force
+          icon: "fas fa-sword",
+          action: "attaque",
+          callback: (event, button) => ({
+            parade: true,
+            armeId: button.form.querySelector("#choix-arme")?.value,
+            ability: "force"
+          })
+        },
+        {
+          label: "Rien à voir", // jet normal, sans parade/esquive
+          icon: "",
+          action: "autres",
+          callback: (event, button) => ({
+            parade: false,
+            armeId: button.form.querySelector("#choix-arme")?.value,
+            ability: null
+          })
+        }
+      ]
+    });
+
+    if (!result) return; // fenêtre fermée sans choix
+
+    const { parade, armeId, ability: chosenAbility } = result;
+    const ability = chosenAbility ?? baseAbility;
+    
+
+    if (!ability) {
+      ui.notifications.error("Impossible de déterminer l'ability pour ce jet.");
+      return;
+    }
+
+    // arme réellement retenue pour ce jet
+    const armeChoisie   = armeId ? actor.items.get(armeId) : armeEquipee;
+    const nomArmeChoisi = armeChoisie?.name ?? nomArme; 
+    const infoArme      = Model.armes[nomArmeChoisi] ?? null;console.log(armeChoisie,nomArmeChoisi,infoArme)
+
+    let labelSuffix = "";
+    let description = infoArme?.effet ?? "";
+
+    if (parade === true) {
+      if(ability=="force") {valuemax=force} else {valuemax=agility}
+      valuemax -= infoArme?.malusParade ?? 0; console.log(valuemax, ability, infoArme?.malusParade)
+      labelSuffix = ` (Parade avec ${nomArmeChoisi})`;
+      return this._generateRoll(
+        actor, ability, valuemax, type, itemId, image, objet,
+        parade, armeId, labelSuffix, description
+      );
+    }
+    return; //annulation
   }
 
   /* -------------------------------------------------- */
