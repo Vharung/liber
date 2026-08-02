@@ -685,22 +685,18 @@ export default class LiberMonsterSheet extends HandlebarsApplicationMixin(ActorS
     }
 
     static async #onEditImage(event, target) {
-        const attr = target.dataset.edit;
-        const current = foundry.utils.getProperty(this.document, attr);
-        const { img } =
-            this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ??
-            {};
-        const fp = new FilePicker({
-            current,
-            type: 'image',
-            redirectToRoot: img ? [img] : [],
-            callback: (path) => {
-                this.document.update({ [attr]: path });
-            },
-            top: this.position.top + 40,
-            left: this.position.left + 10,
-        });
-        return fp.browse();
+      const attr    = target.dataset.edit;
+      const current = foundry.utils.getProperty(this.document, attr);
+      const { img } = this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ?? {};
+      const FilePickerImpl = foundry.applications.apps.FilePicker.implementation;
+      return new FilePickerImpl({
+        current,
+        type: "image",
+        redirectToRoot: img ? [img] : [],
+        callback: path => this.document.update({ [attr]: path }),
+        top:  this.position.top  + 40,
+        left: this.position.left + 10,
+      }).browse();
     }
 
     static async #onItemUnequip(event, target) {

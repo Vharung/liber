@@ -67,23 +67,19 @@ export default class LiberItemSheet extends HandlebarsApplicationMixin(ItemSheet
     console.log(data)
   }
   static async #onEditImage(event, target) {
-    const attr = target.dataset.edit;
+    const attr    = target.dataset.edit;
     const current = foundry.utils.getProperty(this.document, attr);
-    const { img } =
-      this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ??
-      {};
-    const fp = new FilePicker({
+    const { img } = this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ?? {};
+    const FilePickerImpl = foundry.applications.apps.FilePicker.implementation;
+    return new FilePickerImpl({
       current,
-      type: 'image',
+      type: "image",
       redirectToRoot: img ? [img] : [],
-      callback: (path) => {
-          this.document.update({ [attr]: path });
-      },
-      top: this.position.top + 40,
+      callback: path => this.document.update({ [attr]: path }),
+      top:  this.position.top  + 40,
       left: this.position.left + 10,
-    });
-    return fp.browse();
-  }
+    }).browse();
+  }S
   static async #onStory(event, target) {
     const itemTypes = ["Anneau", "Amulette", "Potion", "Bâton", "Parchemin", "Cape", "Bottes", "Gants", "Cristal", "Talisman"];
     const nameModifiers = [
