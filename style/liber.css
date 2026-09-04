@@ -232,7 +232,7 @@ body.theme-dark .application .window-content{backdrop-filter:none}
 .liber input[name="system.time"]{width: 40px;text-align: center;background: var(--couleur-noir);color: var(--couleur-clair);height: 40px;margin-left: 5px;}
 .liber .reposer{width: 100%;display: block;background: var(--couleur-or)}
 .liber #background h2{margin-top: 6px;}
-.liber div.story{position: absolute;right: 0;}
+.liber .story{position: absolute;right: 0;}
 .liber.item div.story{top: 36px;background: var(--couleur-or);padding: 5px;border-radius: 5px;right: 10px;}
 .liber #background .editor-content{height: 310px; display: block}
 .liber .prosemirror menu{background: var(--couleur-clair) !important; border-radius:0px !important}

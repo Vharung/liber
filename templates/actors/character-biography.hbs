@@ -64,7 +64,7 @@
             </div>
         {{/each}} 
     </div>
-    <div class="colcomp">
+    <div class="colcomp" {{#if (eq actor.type "monstre")}}style="top:-330px"{{/if}}>
         <span class="parade" title="{{localize 'Liber.Character.Defence.Parade'}}" data-action="onParade">{{localize 'Liber.Character.Defence.Parade'}}</span>
         <div class="grid-3col">
             <h2 class="center">{{localize 'Liber.Character.Bonus.MJ'}}</h2>
