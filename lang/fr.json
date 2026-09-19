@@ -15,8 +15,11 @@
   "Liber": {
     "Character": {
       "Name":"Nom",
+      "sex":  { "label": "Sexe", "hint": "" },
+      "race": { "label": "Race", "hint": "" },
       "Race":"Race",
       "Sex":{
+        "label":"Sexe",
         "Titre":"Sexe",
         "Male":"Male",
         "Female":"Female",

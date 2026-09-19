@@ -47,7 +47,7 @@
     </div>
     <h2 class="stat">{{localize 'Liber.Character.Stat.Titre'}}</h2>
     <div class="emphase">
-        {{formField systemFields.emphase name="system.emphase" value=system.emphase localize=true rootId=partId type="select"}}
+        {{formInput systemFields.emphase name="system.emphase" value=system.emphase localize=true rootId=partId type="select"}}
     </div>
     <div class="colstat">
         {{#each systemFields.ability.fields as |field ability|}}           

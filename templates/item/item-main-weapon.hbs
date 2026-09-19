@@ -3,7 +3,7 @@
 		<div class="armes">
 		    <div class="col">
 			    <label>{{localize 'Liber.Items.Types.Title'}}
-					{{formField systemFields.style name="system.style" value=system.style localize=true rootId=partId type="select"}}
+					{{formInput systemFields.style name="system.style" value=system.style localize=true rootId=partId type="select"}}
 				</label>
 				<label>{{localize 'Liber.Items.Poids'}}
 					{{formInput systemFields.poids name="system.poids" value=system.poids localize=true rootId=partId}}
@@ -12,7 +12,7 @@
 			        {{formInput systemFields.degat name="system.degat" value=system.degat localize=true rootId=partId}}
 			    </label>
 			     <label>{{localize 'Liber.Items.doublemain'}}
-	                {{formField systemFields.doublemain name="system.doublemain" value=system.doublemain localize=true rootId=partId type="select"}}
+	                {{formInput systemFields.doublemain name="system.doublemain" value=system.doublemain localize=true rootId=partId type="select"}}
 	            </label> 
 			</div>
 			<div class="col">

@@ -8,7 +8,7 @@
         {{/if}}     
         <h2>{{localize 'Liber.Character.Story'}}</h2>
         {{#if (eq actor.type "monstre")}}
-          {{formField systemFields.geo name="system.geo" value=system.geo localize=true rootId=partId}}
+          {{formInput systemFields.geo name="system.geo" value=system.geo localize=true rootId=partId}}
         {{else}}
           <span class="met">{{localize (concat 'Liber.Metier.' actor.system.metier)}}</span> <span class="religion">{{localize (concat 'Liber.Magic.' actor.system.culte)}}</span>
         {{/if}}
@@ -17,16 +17,24 @@
           value=system.biography
           name="system.biography"
         }} 
-        <h2 class="borders"><span>{{localize 'Liber.Race.Langues'}}</span>{{formField systemFields.langues value=system.langues localize=true rootId=partId}}</h2>
-        <h2 class="borders"><span>{{localize 'Liber.Character.Moral.Titre'}}</span>{{formField systemFields.moral value=system.moral localize=true rootId=partId type="select"}}</h2>
+        <h2 class="borders"><span>{{localize 'Liber.Race.Langues'}}</span>{{formInput systemFields.langues value=system.langues localize=true rootId=partId}}</h2>
+        <div class="grid-3col2">
+          <h2 class="borders"><span>{{localize 'Liber.Character.Moral.Titre'}}</span>{{formInput systemFields.moral value=system.moral localize=true rootId=partId type="select"}}</h2>
+        </div>
+        <div class="grid-3col2">
+          <h2 class="borders"><span>{{localize 'Liber.Character.Ronfleur'}}</span>
+            {{formInput systemFields.ronfleur name="system.ronfleur" value=system.ronfleur localize=true rootId=partId type="select"}}
+          </h2>
+        </div>
         <h2 class="borders">{{localize 'Liber.Character.Repos.Titre'}}</h2>
         {{formInput systemFields.time name="system.time" value=system.time localize=true rootId=partId}}
         <div class="jourliste">
-        {{formField systemFields.duree name="system.duree" value=system.duree localize=true rootId=partId type="select"}}
+        {{formInput systemFields.duree name="system.duree" value=system.duree localize=true rootId=partId type="select"}}
         </div>
         <div class="typerepos">
-        {{formField systemFields.repos name="system.repos" value=system.repos localize=true rootId=partId type="select"}}
+        {{formInput systemFields.repos name="system.repos" value=system.repos localize=true rootId=partId type="select"}}
         </div>
+        
         <a class="bouton reposer hvr-shutter-out-horizontal" style=" margin-top: 0;height: 25px;padding: 5px;text-align: center;" data-action="sleep">{{localize 'Liber.Character.Repos.Reposer'}}</a>
     </div>     
   </div>
@@ -206,9 +214,10 @@
   <div id="lab" class="tab" data-group="sheet" data-tab="lab">
     <div class="zoneinfo">
       <h2>{{localize 'Liber.Character.Sex.Titre'}}</h2>
-      {{formField systemFields.sex name="system.sex" value=system.sex localize=true rootId=partId type="select"}}
+      {{formInput systemFields.sex name="system.sex" value=system.sex localize=true}}
+
       <h2>{{localize 'Liber.Character.Race'}}</h2>
-      {{formField systemFields.race name="system.race" value=system.race localize=true rootId=partId type="select"}}
+      {{formInput systemFields.race name="system.race" value=system.race localize=true rootId=partId type="select"}}
       
       <h2>{{localize 'Liber.Character.Talent'}}</h2>
 
@@ -292,10 +301,7 @@
         {{/each}}
       </select>
       <a data-action="update" class="valider button hvr-shutter-out-horizontal">{{localize 'Liber.Character.Valider'}}</a> 
-      
-        <div class="reponse">
-          {{formField systemFields.ronfleur name="system.ronfleur" value=system.ronfleur localize=true rootId=partId type="select"}}
-        </div>
+        
          
       
       <h2>{{localize 'Liber.Character.Restant'}}</h2>

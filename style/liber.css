@@ -205,6 +205,7 @@ body.theme-dark .application .window-content{backdrop-filter:none}
 .liber .colcomp .competences a{border-bottom: solid 1px var(--couleur-noir); width: 200px; display: block; height: 20px; margin-bottom: 5px}
 .liber .colcomp .competences a span{width: 20px; display: inline-block; text-align: center;}
 .liber .grid-3col{width: 50%;float: left;display: block;margin-bottom: 10px;}
+.liber .grid-3col2{width: 50%;float: left;display: block;margin-bottom: 10px;}
 .liber .grid-3col input{background: var(--couleur-clair);color: var(--couleur-noir);height: 40px;width: 60px;font-size: 2em;text-align: center;float: left;}
 .liber .grid-3col a {color:var(--couleur-clair);margin-left: 10px;}
 .liber .resetmalus,.liber .resetbonus{font-size: 1em;float: left;width: 20px;padding-top: 20px;}
@@ -224,8 +225,8 @@ body.theme-dark .application .window-content{backdrop-filter:none}
 .liber .zoneinfo{background: var(--couleur-clair);height:640px;width: calc(100% - 10px); margin: auto;overflow: hidden;position: relative;}
 .liber .met{width:100px;display: inline-block;color: var(--couleur-noir);padding: 3px;font-style: italic;}
 .liber .religion{width:150px;display: inline-block;color: var(--couleur-noir);padding: 3px;font-style: italic}
-.liber.actor prose-mirror[name="system.biography"]{resize: none;background: var(--couleur-noir);color:var(--couleur-clair);height: 375px;overflow: auto;scrollbar-width:none }
-.liber h2 span{height: 40px;display: inline-block;padding-top: 13px;}
+.liber.actor prose-mirror[name="system.biography"]{resize: none;background: var(--couleur-noir);color:var(--couleur-clair);height: 300px;overflow: auto;scrollbar-width:none }
+.liber h2 span{display: inline-block;padding-top: 13px;}
 .liber h2 .form-group{height: 40px;width: 150px;float: right;margin-right: 10px;}
 .liber h2.borders {border-top: solid 1px var(--couleur-or);padding-top: 3px;}
 .liber .jourliste,.liber .typerepos{width: 100px;display: inline-block;}
@@ -234,7 +235,7 @@ body.theme-dark .application .window-content{backdrop-filter:none}
 .liber #background h2{margin-top: 6px;}
 .liber .story{position: absolute;right: 0;}
 .liber.item div.story{top: 36px;background: var(--couleur-or);padding: 5px;border-radius: 5px;right: 10px;}
-.liber #background .editor-content{height: 310px; display: block}
+.liber #background .editor-content{height: 244px; display: block}
 .liber .prosemirror menu{background: var(--couleur-clair) !important; border-radius:0px !important}
 .liber .editor-content {padding: 5px;}
 .dropdown-item:hover .tooltip,.dropdown-item:hover .expand {bottom: 100%;   /* s'ouvre vers le haut */ top: auto;}

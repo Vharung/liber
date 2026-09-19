@@ -2,10 +2,10 @@
 	<div class="nomperso" title="{{localize 'Liber.Character.Name'}}">{{formInput fields.name value=source.name localize=true}}</div>
 	{{#if (eq actor.type "monstre")}}
 		<div class="taille">
-	    	{{formField systemFields.taille name="system.taille" value=system.taille localize=true rootId=partId type="select"}}
+	    	{{formInput systemFields.taille name="system.taille" value=system.taille localize=true rootId=partId type="select"}}
 	    </div>
 	    <div class="taille">
-	    	{{formField systemFields.forme name="system.forme" value=system.forme localize=true rootId=partId}}
+	    	{{formInput systemFields.forme name="system.forme" value=system.forme localize=true rootId=partId}}
 	    </div>
 	{{else}}
 	    <span class="race" title="localize 'Liber.Character.Race'}}">{{localize (concat "Liber.Race." (capitalizeFirstLetter actor.system.race))}}</span>
